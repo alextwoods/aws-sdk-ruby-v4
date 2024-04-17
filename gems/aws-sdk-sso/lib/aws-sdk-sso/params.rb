@@ -11,7 +11,7 @@ module AWS::SDK::SSO
   # @api private
   module Params
 
-    module AccountInfo
+    class AccountInfo
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AccountInfo, context: context)
         type = Types::AccountInfo.new
@@ -23,7 +23,7 @@ module AWS::SDK::SSO
       end
     end
 
-    module AccountListType
+    class AccountListType
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -34,7 +34,7 @@ module AWS::SDK::SSO
       end
     end
 
-    module GetRoleCredentialsInput
+    class GetRoleCredentialsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetRoleCredentialsInput, context: context)
         type = Types::GetRoleCredentialsInput.new
@@ -46,7 +46,7 @@ module AWS::SDK::SSO
       end
     end
 
-    module GetRoleCredentialsOutput
+    class GetRoleCredentialsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetRoleCredentialsOutput, context: context)
         type = Types::GetRoleCredentialsOutput.new
@@ -56,7 +56,7 @@ module AWS::SDK::SSO
       end
     end
 
-    module InvalidRequestException
+    class InvalidRequestException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InvalidRequestException, context: context)
         type = Types::InvalidRequestException.new
@@ -66,7 +66,7 @@ module AWS::SDK::SSO
       end
     end
 
-    module ListAccountRolesInput
+    class ListAccountRolesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListAccountRolesInput, context: context)
         type = Types::ListAccountRolesInput.new
@@ -79,7 +79,7 @@ module AWS::SDK::SSO
       end
     end
 
-    module ListAccountRolesOutput
+    class ListAccountRolesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListAccountRolesOutput, context: context)
         type = Types::ListAccountRolesOutput.new
@@ -90,7 +90,7 @@ module AWS::SDK::SSO
       end
     end
 
-    module ListAccountsInput
+    class ListAccountsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListAccountsInput, context: context)
         type = Types::ListAccountsInput.new
@@ -102,7 +102,7 @@ module AWS::SDK::SSO
       end
     end
 
-    module ListAccountsOutput
+    class ListAccountsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListAccountsOutput, context: context)
         type = Types::ListAccountsOutput.new
@@ -113,7 +113,7 @@ module AWS::SDK::SSO
       end
     end
 
-    module LogoutInput
+    class LogoutInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LogoutInput, context: context)
         type = Types::LogoutInput.new
@@ -123,7 +123,7 @@ module AWS::SDK::SSO
       end
     end
 
-    module LogoutOutput
+    class LogoutOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LogoutOutput, context: context)
         type = Types::LogoutOutput.new
@@ -132,7 +132,7 @@ module AWS::SDK::SSO
       end
     end
 
-    module ResourceNotFoundException
+    class ResourceNotFoundException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ResourceNotFoundException, context: context)
         type = Types::ResourceNotFoundException.new
@@ -142,7 +142,7 @@ module AWS::SDK::SSO
       end
     end
 
-    module RoleCredentials
+    class RoleCredentials
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RoleCredentials, context: context)
         type = Types::RoleCredentials.new
@@ -155,7 +155,7 @@ module AWS::SDK::SSO
       end
     end
 
-    module RoleInfo
+    class RoleInfo
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RoleInfo, context: context)
         type = Types::RoleInfo.new
@@ -166,7 +166,7 @@ module AWS::SDK::SSO
       end
     end
 
-    module RoleListType
+    class RoleListType
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -177,7 +177,7 @@ module AWS::SDK::SSO
       end
     end
 
-    module TooManyRequestsException
+    class TooManyRequestsException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TooManyRequestsException, context: context)
         type = Types::TooManyRequestsException.new
@@ -187,7 +187,7 @@ module AWS::SDK::SSO
       end
     end
 
-    module UnauthorizedException
+    class UnauthorizedException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UnauthorizedException, context: context)
         type = Types::UnauthorizedException.new

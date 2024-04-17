@@ -28,7 +28,7 @@ public class ErrorsGenerator extends ErrorsGeneratorBase {
     public void renderErrorCodeBody() {
         writer
                 .openBlock("if !(200..299).cover?(resp.status)")
-                .write("json = $T.load(resp.body)", Hearth.JSON)
+                .write("json = $T.parse(resp.body.read)", Hearth.JSON)
                 .write("resp.body.rewind")
                 .write("code = json['__type'] || json['code'] if json")
                 .closeBlock("end")

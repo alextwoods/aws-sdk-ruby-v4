@@ -10,6 +10,7 @@
 require_relative 'middleware/request_id'
 
 module AWS::SDK::SSO
+  # @api private
   module Middleware
 
     class GetRoleCredentials

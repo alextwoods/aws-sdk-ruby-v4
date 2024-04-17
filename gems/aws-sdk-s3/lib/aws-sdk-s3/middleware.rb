@@ -10,6 +10,7 @@
 require_relative 'middleware/request_id'
 
 module AWS::SDK::S3
+  # @api private
   module Middleware
 
     class AbortMultipartUpload
@@ -24,9 +25,10 @@ module AWS::SDK::S3
           builder: Builders::AbortMultipartUpload
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :abort_multipart_upload),
+          auth_params: Auth::Params.new(operation_name: :abort_multipart_upload, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -81,9 +83,10 @@ module AWS::SDK::S3
           builder: Builders::CompleteMultipartUpload
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :complete_multipart_upload),
+          auth_params: Auth::Params.new(operation_name: :complete_multipart_upload, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -138,9 +141,10 @@ module AWS::SDK::S3
           builder: Builders::CopyObject
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :copy_object),
+          auth_params: Auth::Params.new(operation_name: :copy_object, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -195,9 +199,10 @@ module AWS::SDK::S3
           builder: Builders::CreateBucket
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_bucket),
+          auth_params: Auth::Params.new(operation_name: :create_bucket, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -252,9 +257,10 @@ module AWS::SDK::S3
           builder: Builders::CreateMultipartUpload
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_multipart_upload),
+          auth_params: Auth::Params.new(operation_name: :create_multipart_upload, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -309,9 +315,10 @@ module AWS::SDK::S3
           builder: Builders::CreateSession
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_session),
+          auth_params: Auth::Params.new(operation_name: :create_session, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -366,9 +373,10 @@ module AWS::SDK::S3
           builder: Builders::DeleteBucket
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_bucket),
+          auth_params: Auth::Params.new(operation_name: :delete_bucket, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -423,9 +431,10 @@ module AWS::SDK::S3
           builder: Builders::DeleteBucketAnalyticsConfiguration
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_bucket_analytics_configuration),
+          auth_params: Auth::Params.new(operation_name: :delete_bucket_analytics_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -480,9 +489,10 @@ module AWS::SDK::S3
           builder: Builders::DeleteBucketCors
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_bucket_cors),
+          auth_params: Auth::Params.new(operation_name: :delete_bucket_cors, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -537,9 +547,10 @@ module AWS::SDK::S3
           builder: Builders::DeleteBucketEncryption
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_bucket_encryption),
+          auth_params: Auth::Params.new(operation_name: :delete_bucket_encryption, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -594,9 +605,10 @@ module AWS::SDK::S3
           builder: Builders::DeleteBucketIntelligentTieringConfiguration
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_bucket_intelligent_tiering_configuration),
+          auth_params: Auth::Params.new(operation_name: :delete_bucket_intelligent_tiering_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -651,9 +663,10 @@ module AWS::SDK::S3
           builder: Builders::DeleteBucketInventoryConfiguration
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_bucket_inventory_configuration),
+          auth_params: Auth::Params.new(operation_name: :delete_bucket_inventory_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -708,9 +721,10 @@ module AWS::SDK::S3
           builder: Builders::DeleteBucketLifecycle
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_bucket_lifecycle),
+          auth_params: Auth::Params.new(operation_name: :delete_bucket_lifecycle, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -765,9 +779,10 @@ module AWS::SDK::S3
           builder: Builders::DeleteBucketMetricsConfiguration
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_bucket_metrics_configuration),
+          auth_params: Auth::Params.new(operation_name: :delete_bucket_metrics_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -822,9 +837,10 @@ module AWS::SDK::S3
           builder: Builders::DeleteBucketOwnershipControls
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_bucket_ownership_controls),
+          auth_params: Auth::Params.new(operation_name: :delete_bucket_ownership_controls, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -879,9 +895,10 @@ module AWS::SDK::S3
           builder: Builders::DeleteBucketPolicy
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_bucket_policy),
+          auth_params: Auth::Params.new(operation_name: :delete_bucket_policy, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -936,9 +953,10 @@ module AWS::SDK::S3
           builder: Builders::DeleteBucketReplication
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_bucket_replication),
+          auth_params: Auth::Params.new(operation_name: :delete_bucket_replication, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -993,9 +1011,10 @@ module AWS::SDK::S3
           builder: Builders::DeleteBucketTagging
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_bucket_tagging),
+          auth_params: Auth::Params.new(operation_name: :delete_bucket_tagging, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1050,9 +1069,10 @@ module AWS::SDK::S3
           builder: Builders::DeleteBucketWebsite
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_bucket_website),
+          auth_params: Auth::Params.new(operation_name: :delete_bucket_website, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1107,9 +1127,10 @@ module AWS::SDK::S3
           builder: Builders::DeleteObject
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_object),
+          auth_params: Auth::Params.new(operation_name: :delete_object, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1164,9 +1185,10 @@ module AWS::SDK::S3
           builder: Builders::DeleteObjectTagging
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_object_tagging),
+          auth_params: Auth::Params.new(operation_name: :delete_object_tagging, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1221,9 +1243,10 @@ module AWS::SDK::S3
           builder: Builders::DeleteObjects
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_objects),
+          auth_params: Auth::Params.new(operation_name: :delete_objects, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -1282,9 +1305,10 @@ module AWS::SDK::S3
           builder: Builders::DeletePublicAccessBlock
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_public_access_block),
+          auth_params: Auth::Params.new(operation_name: :delete_public_access_block, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1339,9 +1363,10 @@ module AWS::SDK::S3
           builder: Builders::GetBucketAccelerateConfiguration
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_bucket_accelerate_configuration),
+          auth_params: Auth::Params.new(operation_name: :get_bucket_accelerate_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1396,9 +1421,10 @@ module AWS::SDK::S3
           builder: Builders::GetBucketAcl
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_bucket_acl),
+          auth_params: Auth::Params.new(operation_name: :get_bucket_acl, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1453,9 +1479,10 @@ module AWS::SDK::S3
           builder: Builders::GetBucketAnalyticsConfiguration
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_bucket_analytics_configuration),
+          auth_params: Auth::Params.new(operation_name: :get_bucket_analytics_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1510,9 +1537,10 @@ module AWS::SDK::S3
           builder: Builders::GetBucketCors
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_bucket_cors),
+          auth_params: Auth::Params.new(operation_name: :get_bucket_cors, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1567,9 +1595,10 @@ module AWS::SDK::S3
           builder: Builders::GetBucketEncryption
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_bucket_encryption),
+          auth_params: Auth::Params.new(operation_name: :get_bucket_encryption, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1624,9 +1653,10 @@ module AWS::SDK::S3
           builder: Builders::GetBucketIntelligentTieringConfiguration
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_bucket_intelligent_tiering_configuration),
+          auth_params: Auth::Params.new(operation_name: :get_bucket_intelligent_tiering_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1681,9 +1711,10 @@ module AWS::SDK::S3
           builder: Builders::GetBucketInventoryConfiguration
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_bucket_inventory_configuration),
+          auth_params: Auth::Params.new(operation_name: :get_bucket_inventory_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1738,9 +1769,10 @@ module AWS::SDK::S3
           builder: Builders::GetBucketLifecycleConfiguration
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_bucket_lifecycle_configuration),
+          auth_params: Auth::Params.new(operation_name: :get_bucket_lifecycle_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1795,9 +1827,10 @@ module AWS::SDK::S3
           builder: Builders::GetBucketLocation
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_bucket_location),
+          auth_params: Auth::Params.new(operation_name: :get_bucket_location, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1852,9 +1885,10 @@ module AWS::SDK::S3
           builder: Builders::GetBucketLogging
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_bucket_logging),
+          auth_params: Auth::Params.new(operation_name: :get_bucket_logging, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1909,9 +1943,10 @@ module AWS::SDK::S3
           builder: Builders::GetBucketMetricsConfiguration
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_bucket_metrics_configuration),
+          auth_params: Auth::Params.new(operation_name: :get_bucket_metrics_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1966,9 +2001,10 @@ module AWS::SDK::S3
           builder: Builders::GetBucketNotificationConfiguration
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_bucket_notification_configuration),
+          auth_params: Auth::Params.new(operation_name: :get_bucket_notification_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2023,9 +2059,10 @@ module AWS::SDK::S3
           builder: Builders::GetBucketOwnershipControls
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_bucket_ownership_controls),
+          auth_params: Auth::Params.new(operation_name: :get_bucket_ownership_controls, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2080,9 +2117,10 @@ module AWS::SDK::S3
           builder: Builders::GetBucketPolicy
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_bucket_policy),
+          auth_params: Auth::Params.new(operation_name: :get_bucket_policy, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2137,9 +2175,10 @@ module AWS::SDK::S3
           builder: Builders::GetBucketPolicyStatus
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_bucket_policy_status),
+          auth_params: Auth::Params.new(operation_name: :get_bucket_policy_status, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2194,9 +2233,10 @@ module AWS::SDK::S3
           builder: Builders::GetBucketReplication
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_bucket_replication),
+          auth_params: Auth::Params.new(operation_name: :get_bucket_replication, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2251,9 +2291,10 @@ module AWS::SDK::S3
           builder: Builders::GetBucketRequestPayment
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_bucket_request_payment),
+          auth_params: Auth::Params.new(operation_name: :get_bucket_request_payment, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2308,9 +2349,10 @@ module AWS::SDK::S3
           builder: Builders::GetBucketTagging
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_bucket_tagging),
+          auth_params: Auth::Params.new(operation_name: :get_bucket_tagging, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2365,9 +2407,10 @@ module AWS::SDK::S3
           builder: Builders::GetBucketVersioning
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_bucket_versioning),
+          auth_params: Auth::Params.new(operation_name: :get_bucket_versioning, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2422,9 +2465,10 @@ module AWS::SDK::S3
           builder: Builders::GetBucketWebsite
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_bucket_website),
+          auth_params: Auth::Params.new(operation_name: :get_bucket_website, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2479,9 +2523,10 @@ module AWS::SDK::S3
           builder: Builders::GetObject
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_object),
+          auth_params: Auth::Params.new(operation_name: :get_object, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -2541,9 +2586,10 @@ module AWS::SDK::S3
           builder: Builders::GetObjectAcl
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_object_acl),
+          auth_params: Auth::Params.new(operation_name: :get_object_acl, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2598,9 +2644,10 @@ module AWS::SDK::S3
           builder: Builders::GetObjectAttributes
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_object_attributes),
+          auth_params: Auth::Params.new(operation_name: :get_object_attributes, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2655,9 +2702,10 @@ module AWS::SDK::S3
           builder: Builders::GetObjectLegalHold
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_object_legal_hold),
+          auth_params: Auth::Params.new(operation_name: :get_object_legal_hold, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2712,9 +2760,10 @@ module AWS::SDK::S3
           builder: Builders::GetObjectLockConfiguration
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_object_lock_configuration),
+          auth_params: Auth::Params.new(operation_name: :get_object_lock_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2769,9 +2818,10 @@ module AWS::SDK::S3
           builder: Builders::GetObjectRetention
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_object_retention),
+          auth_params: Auth::Params.new(operation_name: :get_object_retention, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2826,9 +2876,10 @@ module AWS::SDK::S3
           builder: Builders::GetObjectTagging
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_object_tagging),
+          auth_params: Auth::Params.new(operation_name: :get_object_tagging, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2883,9 +2934,10 @@ module AWS::SDK::S3
           builder: Builders::GetObjectTorrent
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_object_torrent),
+          auth_params: Auth::Params.new(operation_name: :get_object_torrent, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2940,9 +2992,10 @@ module AWS::SDK::S3
           builder: Builders::GetPublicAccessBlock
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_public_access_block),
+          auth_params: Auth::Params.new(operation_name: :get_public_access_block, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2997,9 +3050,10 @@ module AWS::SDK::S3
           builder: Builders::HeadBucket
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :head_bucket),
+          auth_params: Auth::Params.new(operation_name: :head_bucket, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -3054,9 +3108,10 @@ module AWS::SDK::S3
           builder: Builders::HeadObject
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :head_object),
+          auth_params: Auth::Params.new(operation_name: :head_object, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -3111,9 +3166,10 @@ module AWS::SDK::S3
           builder: Builders::ListBucketAnalyticsConfigurations
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :list_bucket_analytics_configurations),
+          auth_params: Auth::Params.new(operation_name: :list_bucket_analytics_configurations, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -3168,9 +3224,10 @@ module AWS::SDK::S3
           builder: Builders::ListBucketIntelligentTieringConfigurations
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :list_bucket_intelligent_tiering_configurations),
+          auth_params: Auth::Params.new(operation_name: :list_bucket_intelligent_tiering_configurations, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -3225,9 +3282,10 @@ module AWS::SDK::S3
           builder: Builders::ListBucketInventoryConfigurations
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :list_bucket_inventory_configurations),
+          auth_params: Auth::Params.new(operation_name: :list_bucket_inventory_configurations, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -3282,9 +3340,10 @@ module AWS::SDK::S3
           builder: Builders::ListBucketMetricsConfigurations
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :list_bucket_metrics_configurations),
+          auth_params: Auth::Params.new(operation_name: :list_bucket_metrics_configurations, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -3339,9 +3398,10 @@ module AWS::SDK::S3
           builder: Builders::ListBuckets
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :list_buckets),
+          auth_params: Auth::Params.new(operation_name: :list_buckets, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -3396,9 +3456,10 @@ module AWS::SDK::S3
           builder: Builders::ListDirectoryBuckets
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :list_directory_buckets),
+          auth_params: Auth::Params.new(operation_name: :list_directory_buckets, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -3453,9 +3514,10 @@ module AWS::SDK::S3
           builder: Builders::ListMultipartUploads
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :list_multipart_uploads),
+          auth_params: Auth::Params.new(operation_name: :list_multipart_uploads, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -3510,9 +3572,10 @@ module AWS::SDK::S3
           builder: Builders::ListObjectVersions
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :list_object_versions),
+          auth_params: Auth::Params.new(operation_name: :list_object_versions, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -3567,9 +3630,10 @@ module AWS::SDK::S3
           builder: Builders::ListObjects
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :list_objects),
+          auth_params: Auth::Params.new(operation_name: :list_objects, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -3624,9 +3688,10 @@ module AWS::SDK::S3
           builder: Builders::ListObjectsV2
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :list_objects_v2),
+          auth_params: Auth::Params.new(operation_name: :list_objects_v2, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -3681,9 +3746,10 @@ module AWS::SDK::S3
           builder: Builders::ListParts
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :list_parts),
+          auth_params: Auth::Params.new(operation_name: :list_parts, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -3738,9 +3804,10 @@ module AWS::SDK::S3
           builder: Builders::PutBucketAccelerateConfiguration
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :put_bucket_accelerate_configuration),
+          auth_params: Auth::Params.new(operation_name: :put_bucket_accelerate_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -3799,9 +3866,10 @@ module AWS::SDK::S3
           builder: Builders::PutBucketAcl
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :put_bucket_acl),
+          auth_params: Auth::Params.new(operation_name: :put_bucket_acl, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -3860,9 +3928,10 @@ module AWS::SDK::S3
           builder: Builders::PutBucketAnalyticsConfiguration
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :put_bucket_analytics_configuration),
+          auth_params: Auth::Params.new(operation_name: :put_bucket_analytics_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -3917,9 +3986,10 @@ module AWS::SDK::S3
           builder: Builders::PutBucketCors
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :put_bucket_cors),
+          auth_params: Auth::Params.new(operation_name: :put_bucket_cors, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -3978,9 +4048,10 @@ module AWS::SDK::S3
           builder: Builders::PutBucketEncryption
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :put_bucket_encryption),
+          auth_params: Auth::Params.new(operation_name: :put_bucket_encryption, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -4039,9 +4110,10 @@ module AWS::SDK::S3
           builder: Builders::PutBucketIntelligentTieringConfiguration
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :put_bucket_intelligent_tiering_configuration),
+          auth_params: Auth::Params.new(operation_name: :put_bucket_intelligent_tiering_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -4096,9 +4168,10 @@ module AWS::SDK::S3
           builder: Builders::PutBucketInventoryConfiguration
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :put_bucket_inventory_configuration),
+          auth_params: Auth::Params.new(operation_name: :put_bucket_inventory_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -4153,9 +4226,10 @@ module AWS::SDK::S3
           builder: Builders::PutBucketLifecycleConfiguration
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :put_bucket_lifecycle_configuration),
+          auth_params: Auth::Params.new(operation_name: :put_bucket_lifecycle_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -4214,9 +4288,10 @@ module AWS::SDK::S3
           builder: Builders::PutBucketLogging
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :put_bucket_logging),
+          auth_params: Auth::Params.new(operation_name: :put_bucket_logging, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -4275,9 +4350,10 @@ module AWS::SDK::S3
           builder: Builders::PutBucketMetricsConfiguration
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :put_bucket_metrics_configuration),
+          auth_params: Auth::Params.new(operation_name: :put_bucket_metrics_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -4332,9 +4408,10 @@ module AWS::SDK::S3
           builder: Builders::PutBucketNotificationConfiguration
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :put_bucket_notification_configuration),
+          auth_params: Auth::Params.new(operation_name: :put_bucket_notification_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -4389,9 +4466,10 @@ module AWS::SDK::S3
           builder: Builders::PutBucketOwnershipControls
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :put_bucket_ownership_controls),
+          auth_params: Auth::Params.new(operation_name: :put_bucket_ownership_controls, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -4449,9 +4527,10 @@ module AWS::SDK::S3
           builder: Builders::PutBucketPolicy
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :put_bucket_policy),
+          auth_params: Auth::Params.new(operation_name: :put_bucket_policy, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -4510,9 +4589,10 @@ module AWS::SDK::S3
           builder: Builders::PutBucketReplication
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :put_bucket_replication),
+          auth_params: Auth::Params.new(operation_name: :put_bucket_replication, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -4571,9 +4651,10 @@ module AWS::SDK::S3
           builder: Builders::PutBucketRequestPayment
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :put_bucket_request_payment),
+          auth_params: Auth::Params.new(operation_name: :put_bucket_request_payment, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -4632,9 +4713,10 @@ module AWS::SDK::S3
           builder: Builders::PutBucketTagging
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :put_bucket_tagging),
+          auth_params: Auth::Params.new(operation_name: :put_bucket_tagging, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -4693,9 +4775,10 @@ module AWS::SDK::S3
           builder: Builders::PutBucketVersioning
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :put_bucket_versioning),
+          auth_params: Auth::Params.new(operation_name: :put_bucket_versioning, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -4754,9 +4837,10 @@ module AWS::SDK::S3
           builder: Builders::PutBucketWebsite
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :put_bucket_website),
+          auth_params: Auth::Params.new(operation_name: :put_bucket_website, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -4815,9 +4899,10 @@ module AWS::SDK::S3
           builder: Builders::PutObject
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :put_object),
+          auth_params: Auth::Params.new(operation_name: :put_object, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(AWS::SDK::Core::Middleware::Checksum,
           request_algorithm_member: :checksum_algorithm,
@@ -4878,9 +4963,10 @@ module AWS::SDK::S3
           builder: Builders::PutObjectAcl
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :put_object_acl),
+          auth_params: Auth::Params.new(operation_name: :put_object_acl, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -4939,9 +5025,10 @@ module AWS::SDK::S3
           builder: Builders::PutObjectLegalHold
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :put_object_legal_hold),
+          auth_params: Auth::Params.new(operation_name: :put_object_legal_hold, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -5000,9 +5087,10 @@ module AWS::SDK::S3
           builder: Builders::PutObjectLockConfiguration
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :put_object_lock_configuration),
+          auth_params: Auth::Params.new(operation_name: :put_object_lock_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -5061,9 +5149,10 @@ module AWS::SDK::S3
           builder: Builders::PutObjectRetention
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :put_object_retention),
+          auth_params: Auth::Params.new(operation_name: :put_object_retention, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -5122,9 +5211,10 @@ module AWS::SDK::S3
           builder: Builders::PutObjectTagging
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :put_object_tagging),
+          auth_params: Auth::Params.new(operation_name: :put_object_tagging, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -5183,9 +5273,10 @@ module AWS::SDK::S3
           builder: Builders::PutPublicAccessBlock
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :put_public_access_block),
+          auth_params: Auth::Params.new(operation_name: :put_public_access_block, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -5244,9 +5335,10 @@ module AWS::SDK::S3
           builder: Builders::RestoreObject
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :restore_object),
+          auth_params: Auth::Params.new(operation_name: :restore_object, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -5305,9 +5397,10 @@ module AWS::SDK::S3
           builder: Builders::UploadPart
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :upload_part),
+          auth_params: Auth::Params.new(operation_name: :upload_part, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(AWS::SDK::Core::Middleware::Checksum,
           request_algorithm_member: :checksum_algorithm,
@@ -5368,9 +5461,10 @@ module AWS::SDK::S3
           builder: Builders::UploadPartCopy
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :upload_part_copy),
+          auth_params: Auth::Params.new(operation_name: :upload_part_copy, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -5425,9 +5519,10 @@ module AWS::SDK::S3
           builder: Builders::WriteGetObjectResponse
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :write_get_object_response),
+          auth_params: Auth::Params.new(operation_name: :write_get_object_response, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,

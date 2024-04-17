@@ -19,6 +19,7 @@ module AWS::SDK::S3
     attr_accessor profile (): String
     attr_accessor region (): String
     attr_accessor retry_strategy (): Hearth::_RetryStrategy
+    attr_accessor sigv4_identity_resolver (): Hearth::IdentityResolver
     attr_accessor stub_responses (): bool
     attr_accessor use_accelerate_endpoint (): bool
     attr_accessor use_arn_region (): bool

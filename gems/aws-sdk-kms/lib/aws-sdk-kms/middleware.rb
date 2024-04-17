@@ -10,6 +10,7 @@
 require_relative 'middleware/request_id'
 
 module AWS::SDK::KMS
+  # @api private
   module Middleware
 
     class CancelKeyDeletion
@@ -24,9 +25,10 @@ module AWS::SDK::KMS
           builder: Builders::CancelKeyDeletion
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :cancel_key_deletion),
+          auth_params: Auth::Params.new(operation_name: :cancel_key_deletion, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -74,9 +76,10 @@ module AWS::SDK::KMS
           builder: Builders::ConnectCustomKeyStore
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :connect_custom_key_store),
+          auth_params: Auth::Params.new(operation_name: :connect_custom_key_store, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -124,9 +127,10 @@ module AWS::SDK::KMS
           builder: Builders::CreateAlias
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_alias),
+          auth_params: Auth::Params.new(operation_name: :create_alias, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -174,9 +178,10 @@ module AWS::SDK::KMS
           builder: Builders::CreateCustomKeyStore
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_custom_key_store),
+          auth_params: Auth::Params.new(operation_name: :create_custom_key_store, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -224,9 +229,10 @@ module AWS::SDK::KMS
           builder: Builders::CreateGrant
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_grant),
+          auth_params: Auth::Params.new(operation_name: :create_grant, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -274,9 +280,10 @@ module AWS::SDK::KMS
           builder: Builders::CreateKey
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_key),
+          auth_params: Auth::Params.new(operation_name: :create_key, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -324,9 +331,10 @@ module AWS::SDK::KMS
           builder: Builders::Decrypt
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :decrypt),
+          auth_params: Auth::Params.new(operation_name: :decrypt, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -374,9 +382,10 @@ module AWS::SDK::KMS
           builder: Builders::DeleteAlias
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_alias),
+          auth_params: Auth::Params.new(operation_name: :delete_alias, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -424,9 +433,10 @@ module AWS::SDK::KMS
           builder: Builders::DeleteCustomKeyStore
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_custom_key_store),
+          auth_params: Auth::Params.new(operation_name: :delete_custom_key_store, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -474,9 +484,10 @@ module AWS::SDK::KMS
           builder: Builders::DeleteImportedKeyMaterial
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_imported_key_material),
+          auth_params: Auth::Params.new(operation_name: :delete_imported_key_material, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -524,9 +535,10 @@ module AWS::SDK::KMS
           builder: Builders::DescribeCustomKeyStores
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_custom_key_stores),
+          auth_params: Auth::Params.new(operation_name: :describe_custom_key_stores, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -574,9 +586,10 @@ module AWS::SDK::KMS
           builder: Builders::DescribeKey
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_key),
+          auth_params: Auth::Params.new(operation_name: :describe_key, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -624,9 +637,10 @@ module AWS::SDK::KMS
           builder: Builders::DisableKey
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :disable_key),
+          auth_params: Auth::Params.new(operation_name: :disable_key, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -674,9 +688,10 @@ module AWS::SDK::KMS
           builder: Builders::DisableKeyRotation
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :disable_key_rotation),
+          auth_params: Auth::Params.new(operation_name: :disable_key_rotation, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -724,9 +739,10 @@ module AWS::SDK::KMS
           builder: Builders::DisconnectCustomKeyStore
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :disconnect_custom_key_store),
+          auth_params: Auth::Params.new(operation_name: :disconnect_custom_key_store, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -774,9 +790,10 @@ module AWS::SDK::KMS
           builder: Builders::EnableKey
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :enable_key),
+          auth_params: Auth::Params.new(operation_name: :enable_key, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -824,9 +841,10 @@ module AWS::SDK::KMS
           builder: Builders::EnableKeyRotation
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :enable_key_rotation),
+          auth_params: Auth::Params.new(operation_name: :enable_key_rotation, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -874,9 +892,10 @@ module AWS::SDK::KMS
           builder: Builders::Encrypt
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :encrypt),
+          auth_params: Auth::Params.new(operation_name: :encrypt, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -924,9 +943,10 @@ module AWS::SDK::KMS
           builder: Builders::GenerateDataKey
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :generate_data_key),
+          auth_params: Auth::Params.new(operation_name: :generate_data_key, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -974,9 +994,10 @@ module AWS::SDK::KMS
           builder: Builders::GenerateDataKeyPair
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :generate_data_key_pair),
+          auth_params: Auth::Params.new(operation_name: :generate_data_key_pair, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1024,9 +1045,10 @@ module AWS::SDK::KMS
           builder: Builders::GenerateDataKeyPairWithoutPlaintext
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :generate_data_key_pair_without_plaintext),
+          auth_params: Auth::Params.new(operation_name: :generate_data_key_pair_without_plaintext, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1074,9 +1096,10 @@ module AWS::SDK::KMS
           builder: Builders::GenerateDataKeyWithoutPlaintext
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :generate_data_key_without_plaintext),
+          auth_params: Auth::Params.new(operation_name: :generate_data_key_without_plaintext, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1124,9 +1147,10 @@ module AWS::SDK::KMS
           builder: Builders::GenerateMac
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :generate_mac),
+          auth_params: Auth::Params.new(operation_name: :generate_mac, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1174,9 +1198,10 @@ module AWS::SDK::KMS
           builder: Builders::GenerateRandom
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :generate_random),
+          auth_params: Auth::Params.new(operation_name: :generate_random, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1224,9 +1249,10 @@ module AWS::SDK::KMS
           builder: Builders::GetKeyPolicy
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_key_policy),
+          auth_params: Auth::Params.new(operation_name: :get_key_policy, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1274,9 +1300,10 @@ module AWS::SDK::KMS
           builder: Builders::GetKeyRotationStatus
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_key_rotation_status),
+          auth_params: Auth::Params.new(operation_name: :get_key_rotation_status, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1324,9 +1351,10 @@ module AWS::SDK::KMS
           builder: Builders::GetParametersForImport
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_parameters_for_import),
+          auth_params: Auth::Params.new(operation_name: :get_parameters_for_import, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1374,9 +1402,10 @@ module AWS::SDK::KMS
           builder: Builders::GetPublicKey
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_public_key),
+          auth_params: Auth::Params.new(operation_name: :get_public_key, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1424,9 +1453,10 @@ module AWS::SDK::KMS
           builder: Builders::ImportKeyMaterial
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :import_key_material),
+          auth_params: Auth::Params.new(operation_name: :import_key_material, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1474,9 +1504,10 @@ module AWS::SDK::KMS
           builder: Builders::ListAliases
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :list_aliases),
+          auth_params: Auth::Params.new(operation_name: :list_aliases, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1524,9 +1555,10 @@ module AWS::SDK::KMS
           builder: Builders::ListGrants
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :list_grants),
+          auth_params: Auth::Params.new(operation_name: :list_grants, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1574,9 +1606,10 @@ module AWS::SDK::KMS
           builder: Builders::ListKeyPolicies
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :list_key_policies),
+          auth_params: Auth::Params.new(operation_name: :list_key_policies, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1624,9 +1657,10 @@ module AWS::SDK::KMS
           builder: Builders::ListKeys
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :list_keys),
+          auth_params: Auth::Params.new(operation_name: :list_keys, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1674,9 +1708,10 @@ module AWS::SDK::KMS
           builder: Builders::ListResourceTags
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :list_resource_tags),
+          auth_params: Auth::Params.new(operation_name: :list_resource_tags, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1724,9 +1759,10 @@ module AWS::SDK::KMS
           builder: Builders::ListRetirableGrants
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :list_retirable_grants),
+          auth_params: Auth::Params.new(operation_name: :list_retirable_grants, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1774,9 +1810,10 @@ module AWS::SDK::KMS
           builder: Builders::PutKeyPolicy
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :put_key_policy),
+          auth_params: Auth::Params.new(operation_name: :put_key_policy, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1824,9 +1861,10 @@ module AWS::SDK::KMS
           builder: Builders::ReEncrypt
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :re_encrypt),
+          auth_params: Auth::Params.new(operation_name: :re_encrypt, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1874,9 +1912,10 @@ module AWS::SDK::KMS
           builder: Builders::ReplicateKey
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :replicate_key),
+          auth_params: Auth::Params.new(operation_name: :replicate_key, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1924,9 +1963,10 @@ module AWS::SDK::KMS
           builder: Builders::RetireGrant
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :retire_grant),
+          auth_params: Auth::Params.new(operation_name: :retire_grant, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1974,9 +2014,10 @@ module AWS::SDK::KMS
           builder: Builders::RevokeGrant
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :revoke_grant),
+          auth_params: Auth::Params.new(operation_name: :revoke_grant, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2024,9 +2065,10 @@ module AWS::SDK::KMS
           builder: Builders::ScheduleKeyDeletion
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :schedule_key_deletion),
+          auth_params: Auth::Params.new(operation_name: :schedule_key_deletion, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2074,9 +2116,10 @@ module AWS::SDK::KMS
           builder: Builders::Sign
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :sign),
+          auth_params: Auth::Params.new(operation_name: :sign, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2124,9 +2167,10 @@ module AWS::SDK::KMS
           builder: Builders::TagResource
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :tag_resource),
+          auth_params: Auth::Params.new(operation_name: :tag_resource, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2174,9 +2218,10 @@ module AWS::SDK::KMS
           builder: Builders::UntagResource
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :untag_resource),
+          auth_params: Auth::Params.new(operation_name: :untag_resource, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2224,9 +2269,10 @@ module AWS::SDK::KMS
           builder: Builders::UpdateAlias
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :update_alias),
+          auth_params: Auth::Params.new(operation_name: :update_alias, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2274,9 +2320,10 @@ module AWS::SDK::KMS
           builder: Builders::UpdateCustomKeyStore
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :update_custom_key_store),
+          auth_params: Auth::Params.new(operation_name: :update_custom_key_store, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2324,9 +2371,10 @@ module AWS::SDK::KMS
           builder: Builders::UpdateKeyDescription
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :update_key_description),
+          auth_params: Auth::Params.new(operation_name: :update_key_description, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2374,9 +2422,10 @@ module AWS::SDK::KMS
           builder: Builders::UpdatePrimaryRegion
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :update_primary_region),
+          auth_params: Auth::Params.new(operation_name: :update_primary_region, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2424,9 +2473,10 @@ module AWS::SDK::KMS
           builder: Builders::Verify
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :verify),
+          auth_params: Auth::Params.new(operation_name: :verify, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2474,9 +2524,10 @@ module AWS::SDK::KMS
           builder: Builders::VerifyMac
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :verify_mac),
+          auth_params: Auth::Params.new(operation_name: :verify_mac, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,

@@ -21,7 +21,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for AbortMultipartUpload
     class AbortMultipartUpload
       def self.parse(http_resp)
         data = Types::AbortMultipartUploadOutput.new
@@ -293,7 +292,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for CompleteMultipartUpload
     class CompleteMultipartUpload
       def self.parse(http_resp)
         data = Types::CompleteMultipartUploadOutput.new
@@ -347,7 +345,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for CopyObject
     class CopyObject
       def self.parse(http_resp)
         data = Types::CopyObjectOutput.new
@@ -419,7 +416,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for CreateBucket
     class CreateBucket
       def self.parse(http_resp)
         data = Types::CreateBucketOutput.new
@@ -431,7 +427,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for CreateMultipartUpload
     class CreateMultipartUpload
       def self.parse(http_resp)
         data = Types::CreateMultipartUploadOutput.new
@@ -461,7 +456,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for CreateSession
     class CreateSession
       def self.parse(http_resp)
         data = Types::CreateSessionOutput.new
@@ -491,7 +485,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for DeleteBucket
     class DeleteBucket
       def self.parse(http_resp)
         data = Types::DeleteBucketOutput.new
@@ -502,7 +495,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for DeleteBucketAnalyticsConfiguration
     class DeleteBucketAnalyticsConfiguration
       def self.parse(http_resp)
         data = Types::DeleteBucketAnalyticsConfigurationOutput.new
@@ -513,7 +505,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for DeleteBucketCors
     class DeleteBucketCors
       def self.parse(http_resp)
         data = Types::DeleteBucketCorsOutput.new
@@ -524,7 +515,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for DeleteBucketEncryption
     class DeleteBucketEncryption
       def self.parse(http_resp)
         data = Types::DeleteBucketEncryptionOutput.new
@@ -535,7 +525,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for DeleteBucketIntelligentTieringConfiguration
     class DeleteBucketIntelligentTieringConfiguration
       def self.parse(http_resp)
         data = Types::DeleteBucketIntelligentTieringConfigurationOutput.new
@@ -546,7 +535,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for DeleteBucketInventoryConfiguration
     class DeleteBucketInventoryConfiguration
       def self.parse(http_resp)
         data = Types::DeleteBucketInventoryConfigurationOutput.new
@@ -557,7 +545,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for DeleteBucketLifecycle
     class DeleteBucketLifecycle
       def self.parse(http_resp)
         data = Types::DeleteBucketLifecycleOutput.new
@@ -568,7 +555,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for DeleteBucketMetricsConfiguration
     class DeleteBucketMetricsConfiguration
       def self.parse(http_resp)
         data = Types::DeleteBucketMetricsConfigurationOutput.new
@@ -579,7 +565,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for DeleteBucketOwnershipControls
     class DeleteBucketOwnershipControls
       def self.parse(http_resp)
         data = Types::DeleteBucketOwnershipControlsOutput.new
@@ -590,7 +575,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for DeleteBucketPolicy
     class DeleteBucketPolicy
       def self.parse(http_resp)
         data = Types::DeleteBucketPolicyOutput.new
@@ -601,7 +585,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for DeleteBucketReplication
     class DeleteBucketReplication
       def self.parse(http_resp)
         data = Types::DeleteBucketReplicationOutput.new
@@ -612,7 +595,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for DeleteBucketTagging
     class DeleteBucketTagging
       def self.parse(http_resp)
         data = Types::DeleteBucketTaggingOutput.new
@@ -623,7 +605,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for DeleteBucketWebsite
     class DeleteBucketWebsite
       def self.parse(http_resp)
         data = Types::DeleteBucketWebsiteOutput.new
@@ -676,7 +657,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for DeleteObject
     class DeleteObject
       def self.parse(http_resp)
         data = Types::DeleteObjectOutput.new
@@ -690,7 +670,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for DeleteObjectTagging
     class DeleteObjectTagging
       def self.parse(http_resp)
         data = Types::DeleteObjectTaggingOutput.new
@@ -702,7 +681,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for DeleteObjects
     class DeleteObjects
       def self.parse(http_resp)
         data = Types::DeleteObjectsOutput.new
@@ -720,7 +698,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for DeletePublicAccessBlock
     class DeletePublicAccessBlock
       def self.parse(http_resp)
         data = Types::DeletePublicAccessBlockOutput.new
@@ -897,7 +874,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for GetBucketAccelerateConfiguration
     class GetBucketAccelerateConfiguration
       def self.parse(http_resp)
         data = Types::GetBucketAccelerateConfigurationOutput.new
@@ -912,7 +888,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for GetBucketAcl
     class GetBucketAcl
       def self.parse(http_resp)
         data = Types::GetBucketAclOutput.new
@@ -930,7 +905,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for GetBucketAnalyticsConfiguration
     class GetBucketAnalyticsConfiguration
       def self.parse(http_resp)
         data = Types::GetBucketAnalyticsConfigurationOutput.new
@@ -942,7 +916,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for GetBucketCors
     class GetBucketCors
       def self.parse(http_resp)
         data = Types::GetBucketCorsOutput.new
@@ -956,7 +929,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for GetBucketEncryption
     class GetBucketEncryption
       def self.parse(http_resp)
         data = Types::GetBucketEncryptionOutput.new
@@ -968,7 +940,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for GetBucketIntelligentTieringConfiguration
     class GetBucketIntelligentTieringConfiguration
       def self.parse(http_resp)
         data = Types::GetBucketIntelligentTieringConfigurationOutput.new
@@ -980,7 +951,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for GetBucketInventoryConfiguration
     class GetBucketInventoryConfiguration
       def self.parse(http_resp)
         data = Types::GetBucketInventoryConfigurationOutput.new
@@ -992,7 +962,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for GetBucketLifecycleConfiguration
     class GetBucketLifecycleConfiguration
       def self.parse(http_resp)
         data = Types::GetBucketLifecycleConfigurationOutput.new
@@ -1006,7 +975,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for GetBucketLocation
     class GetBucketLocation
       def self.parse(http_resp)
         data = Types::GetBucketLocationOutput.new
@@ -1020,7 +988,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for GetBucketLogging
     class GetBucketLogging
       def self.parse(http_resp)
         data = Types::GetBucketLoggingOutput.new
@@ -1034,7 +1001,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for GetBucketMetricsConfiguration
     class GetBucketMetricsConfiguration
       def self.parse(http_resp)
         data = Types::GetBucketMetricsConfigurationOutput.new
@@ -1046,7 +1012,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for GetBucketNotificationConfiguration
     class GetBucketNotificationConfiguration
       def self.parse(http_resp)
         data = Types::GetBucketNotificationConfigurationOutput.new
@@ -1069,7 +1034,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for GetBucketOwnershipControls
     class GetBucketOwnershipControls
       def self.parse(http_resp)
         data = Types::GetBucketOwnershipControlsOutput.new
@@ -1081,7 +1045,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for GetBucketPolicy
     class GetBucketPolicy
       def self.parse(http_resp)
         data = Types::GetBucketPolicyOutput.new
@@ -1091,7 +1054,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for GetBucketPolicyStatus
     class GetBucketPolicyStatus
       def self.parse(http_resp)
         data = Types::GetBucketPolicyStatusOutput.new
@@ -1103,7 +1065,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for GetBucketReplication
     class GetBucketReplication
       def self.parse(http_resp)
         data = Types::GetBucketReplicationOutput.new
@@ -1115,7 +1076,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for GetBucketRequestPayment
     class GetBucketRequestPayment
       def self.parse(http_resp)
         data = Types::GetBucketRequestPaymentOutput.new
@@ -1129,7 +1089,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for GetBucketTagging
     class GetBucketTagging
       def self.parse(http_resp)
         data = Types::GetBucketTaggingOutput.new
@@ -1144,7 +1103,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for GetBucketVersioning
     class GetBucketVersioning
       def self.parse(http_resp)
         data = Types::GetBucketVersioningOutput.new
@@ -1161,7 +1119,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for GetBucketWebsite
     class GetBucketWebsite
       def self.parse(http_resp)
         data = Types::GetBucketWebsiteOutput.new
@@ -1185,7 +1142,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for GetObject
     class GetObject
       def self.parse(http_resp)
         data = Types::GetObjectOutput.new
@@ -1234,7 +1190,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for GetObjectAcl
     class GetObjectAcl
       def self.parse(http_resp)
         data = Types::GetObjectAclOutput.new
@@ -1253,7 +1208,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for GetObjectAttributes
     class GetObjectAttributes
       def self.parse(http_resp)
         data = Types::GetObjectAttributesOutput.new
@@ -1308,7 +1262,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for GetObjectLegalHold
     class GetObjectLegalHold
       def self.parse(http_resp)
         data = Types::GetObjectLegalHoldOutput.new
@@ -1320,7 +1273,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for GetObjectLockConfiguration
     class GetObjectLockConfiguration
       def self.parse(http_resp)
         data = Types::GetObjectLockConfigurationOutput.new
@@ -1332,7 +1284,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for GetObjectRetention
     class GetObjectRetention
       def self.parse(http_resp)
         data = Types::GetObjectRetentionOutput.new
@@ -1344,7 +1295,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for GetObjectTagging
     class GetObjectTagging
       def self.parse(http_resp)
         data = Types::GetObjectTaggingOutput.new
@@ -1360,7 +1310,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for GetObjectTorrent
     class GetObjectTorrent
       def self.parse(http_resp)
         data = Types::GetObjectTorrentOutput.new
@@ -1370,7 +1319,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for GetPublicAccessBlock
     class GetPublicAccessBlock
       def self.parse(http_resp)
         data = Types::GetPublicAccessBlockOutput.new
@@ -1425,7 +1373,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for HeadBucket
     class HeadBucket
       def self.parse(http_resp)
         data = Types::HeadBucketOutput.new
@@ -1440,7 +1387,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for HeadObject
     class HeadObject
       def self.parse(http_resp)
         data = Types::HeadObjectOutput.new
@@ -1841,7 +1787,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for ListBucketAnalyticsConfigurations
     class ListBucketAnalyticsConfigurations
       def self.parse(http_resp)
         data = Types::ListBucketAnalyticsConfigurationsOutput.new
@@ -1864,7 +1809,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for ListBucketIntelligentTieringConfigurations
     class ListBucketIntelligentTieringConfigurations
       def self.parse(http_resp)
         data = Types::ListBucketIntelligentTieringConfigurationsOutput.new
@@ -1887,7 +1831,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for ListBucketInventoryConfigurations
     class ListBucketInventoryConfigurations
       def self.parse(http_resp)
         data = Types::ListBucketInventoryConfigurationsOutput.new
@@ -1910,7 +1853,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for ListBucketMetricsConfigurations
     class ListBucketMetricsConfigurations
       def self.parse(http_resp)
         data = Types::ListBucketMetricsConfigurationsOutput.new
@@ -1933,7 +1875,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for ListBuckets
     class ListBuckets
       def self.parse(http_resp)
         data = Types::ListBucketsOutput.new
@@ -1951,7 +1892,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for ListDirectoryBuckets
     class ListDirectoryBuckets
       def self.parse(http_resp)
         data = Types::ListDirectoryBucketsOutput.new
@@ -1969,7 +1909,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for ListMultipartUploads
     class ListMultipartUploads
       def self.parse(http_resp)
         data = Types::ListMultipartUploadsOutput.new
@@ -2017,7 +1956,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for ListObjectVersions
     class ListObjectVersions
       def self.parse(http_resp)
         data = Types::ListObjectVersionsOutput.new
@@ -2068,7 +2006,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for ListObjects
     class ListObjects
       def self.parse(http_resp)
         data = Types::ListObjectsOutput.new
@@ -2110,7 +2047,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for ListObjectsV2
     class ListObjectsV2
       def self.parse(http_resp)
         data = Types::ListObjectsV2Output.new
@@ -2158,7 +2094,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for ListParts
     class ListParts
       def self.parse(http_resp)
         data = Types::ListPartsOutput.new
@@ -2764,7 +2699,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for PutBucketAccelerateConfiguration
     class PutBucketAccelerateConfiguration
       def self.parse(http_resp)
         data = Types::PutBucketAccelerateConfigurationOutput.new
@@ -2775,7 +2709,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for PutBucketAcl
     class PutBucketAcl
       def self.parse(http_resp)
         data = Types::PutBucketAclOutput.new
@@ -2786,7 +2719,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for PutBucketAnalyticsConfiguration
     class PutBucketAnalyticsConfiguration
       def self.parse(http_resp)
         data = Types::PutBucketAnalyticsConfigurationOutput.new
@@ -2797,7 +2729,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for PutBucketCors
     class PutBucketCors
       def self.parse(http_resp)
         data = Types::PutBucketCorsOutput.new
@@ -2808,7 +2739,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for PutBucketEncryption
     class PutBucketEncryption
       def self.parse(http_resp)
         data = Types::PutBucketEncryptionOutput.new
@@ -2819,7 +2749,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for PutBucketIntelligentTieringConfiguration
     class PutBucketIntelligentTieringConfiguration
       def self.parse(http_resp)
         data = Types::PutBucketIntelligentTieringConfigurationOutput.new
@@ -2830,7 +2759,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for PutBucketInventoryConfiguration
     class PutBucketInventoryConfiguration
       def self.parse(http_resp)
         data = Types::PutBucketInventoryConfigurationOutput.new
@@ -2841,7 +2769,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for PutBucketLifecycleConfiguration
     class PutBucketLifecycleConfiguration
       def self.parse(http_resp)
         data = Types::PutBucketLifecycleConfigurationOutput.new
@@ -2852,7 +2779,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for PutBucketLogging
     class PutBucketLogging
       def self.parse(http_resp)
         data = Types::PutBucketLoggingOutput.new
@@ -2863,7 +2789,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for PutBucketMetricsConfiguration
     class PutBucketMetricsConfiguration
       def self.parse(http_resp)
         data = Types::PutBucketMetricsConfigurationOutput.new
@@ -2874,7 +2799,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for PutBucketNotificationConfiguration
     class PutBucketNotificationConfiguration
       def self.parse(http_resp)
         data = Types::PutBucketNotificationConfigurationOutput.new
@@ -2885,7 +2809,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for PutBucketOwnershipControls
     class PutBucketOwnershipControls
       def self.parse(http_resp)
         data = Types::PutBucketOwnershipControlsOutput.new
@@ -2896,7 +2819,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for PutBucketPolicy
     class PutBucketPolicy
       def self.parse(http_resp)
         data = Types::PutBucketPolicyOutput.new
@@ -2907,7 +2829,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for PutBucketReplication
     class PutBucketReplication
       def self.parse(http_resp)
         data = Types::PutBucketReplicationOutput.new
@@ -2918,7 +2839,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for PutBucketRequestPayment
     class PutBucketRequestPayment
       def self.parse(http_resp)
         data = Types::PutBucketRequestPaymentOutput.new
@@ -2929,7 +2849,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for PutBucketTagging
     class PutBucketTagging
       def self.parse(http_resp)
         data = Types::PutBucketTaggingOutput.new
@@ -2940,7 +2859,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for PutBucketVersioning
     class PutBucketVersioning
       def self.parse(http_resp)
         data = Types::PutBucketVersioningOutput.new
@@ -2951,7 +2869,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for PutBucketWebsite
     class PutBucketWebsite
       def self.parse(http_resp)
         data = Types::PutBucketWebsiteOutput.new
@@ -2962,7 +2879,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for PutObject
     class PutObject
       def self.parse(http_resp)
         data = Types::PutObjectOutput.new
@@ -2987,7 +2903,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for PutObjectAcl
     class PutObjectAcl
       def self.parse(http_resp)
         data = Types::PutObjectAclOutput.new
@@ -2999,7 +2914,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for PutObjectLegalHold
     class PutObjectLegalHold
       def self.parse(http_resp)
         data = Types::PutObjectLegalHoldOutput.new
@@ -3011,7 +2925,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for PutObjectLockConfiguration
     class PutObjectLockConfiguration
       def self.parse(http_resp)
         data = Types::PutObjectLockConfigurationOutput.new
@@ -3023,7 +2936,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for PutObjectRetention
     class PutObjectRetention
       def self.parse(http_resp)
         data = Types::PutObjectRetentionOutput.new
@@ -3035,7 +2947,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for PutObjectTagging
     class PutObjectTagging
       def self.parse(http_resp)
         data = Types::PutObjectTaggingOutput.new
@@ -3047,7 +2958,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for PutPublicAccessBlock
     class PutPublicAccessBlock
       def self.parse(http_resp)
         data = Types::PutPublicAccessBlockOutput.new
@@ -3248,7 +3158,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for RestoreObject
     class RestoreObject
       def self.parse(http_resp)
         data = Types::RestoreObjectOutput.new
@@ -3579,7 +3488,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for UploadPart
     class UploadPart
       def self.parse(http_resp)
         data = Types::UploadPartOutput.new
@@ -3601,7 +3509,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for UploadPartCopy
     class UploadPartCopy
       def self.parse(http_resp)
         data = Types::UploadPartCopyOutput.new
@@ -3620,7 +3527,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Parser for WriteGetObjectResponse
     class WriteGetObjectResponse
       def self.parse(http_resp)
         data = Types::WriteGetObjectResponseOutput.new

@@ -10,6 +10,7 @@
 require_relative 'middleware/request_id'
 
 module AWS::SDK::DynamoDB
+  # @api private
   module Middleware
 
     class BatchExecuteStatement
@@ -24,9 +25,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::BatchExecuteStatement
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :batch_execute_statement),
+          auth_params: Auth::Params.new(operation_name: :batch_execute_statement, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -74,9 +76,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::BatchGetItem
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :batch_get_item),
+          auth_params: Auth::Params.new(operation_name: :batch_get_item, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -124,9 +127,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::BatchWriteItem
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :batch_write_item),
+          auth_params: Auth::Params.new(operation_name: :batch_write_item, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -174,9 +178,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::CreateBackup
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_backup),
+          auth_params: Auth::Params.new(operation_name: :create_backup, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -224,9 +229,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::CreateGlobalTable
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_global_table),
+          auth_params: Auth::Params.new(operation_name: :create_global_table, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -274,9 +280,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::CreateTable
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_table),
+          auth_params: Auth::Params.new(operation_name: :create_table, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -324,9 +331,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::DeleteBackup
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_backup),
+          auth_params: Auth::Params.new(operation_name: :delete_backup, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -374,9 +382,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::DeleteItem
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_item),
+          auth_params: Auth::Params.new(operation_name: :delete_item, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -424,9 +433,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::DeleteTable
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_table),
+          auth_params: Auth::Params.new(operation_name: :delete_table, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -474,9 +484,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::DescribeBackup
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_backup),
+          auth_params: Auth::Params.new(operation_name: :describe_backup, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -524,9 +535,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::DescribeContinuousBackups
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_continuous_backups),
+          auth_params: Auth::Params.new(operation_name: :describe_continuous_backups, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -574,9 +586,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::DescribeContributorInsights
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_contributor_insights),
+          auth_params: Auth::Params.new(operation_name: :describe_contributor_insights, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -624,9 +637,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::DescribeEndpoints
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_endpoints),
+          auth_params: Auth::Params.new(operation_name: :describe_endpoints, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -674,9 +688,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::DescribeExport
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_export),
+          auth_params: Auth::Params.new(operation_name: :describe_export, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -724,9 +739,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::DescribeGlobalTable
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_global_table),
+          auth_params: Auth::Params.new(operation_name: :describe_global_table, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -774,9 +790,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::DescribeGlobalTableSettings
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_global_table_settings),
+          auth_params: Auth::Params.new(operation_name: :describe_global_table_settings, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -824,9 +841,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::DescribeImport
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_import),
+          auth_params: Auth::Params.new(operation_name: :describe_import, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -874,9 +892,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::DescribeKinesisStreamingDestination
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_kinesis_streaming_destination),
+          auth_params: Auth::Params.new(operation_name: :describe_kinesis_streaming_destination, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -924,9 +943,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::DescribeLimits
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_limits),
+          auth_params: Auth::Params.new(operation_name: :describe_limits, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -974,9 +994,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::DescribeTable
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_table),
+          auth_params: Auth::Params.new(operation_name: :describe_table, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1024,9 +1045,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::DescribeTableReplicaAutoScaling
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_table_replica_auto_scaling),
+          auth_params: Auth::Params.new(operation_name: :describe_table_replica_auto_scaling, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1074,9 +1096,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::DescribeTimeToLive
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_time_to_live),
+          auth_params: Auth::Params.new(operation_name: :describe_time_to_live, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1124,9 +1147,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::DisableKinesisStreamingDestination
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :disable_kinesis_streaming_destination),
+          auth_params: Auth::Params.new(operation_name: :disable_kinesis_streaming_destination, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1174,9 +1198,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::EnableKinesisStreamingDestination
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :enable_kinesis_streaming_destination),
+          auth_params: Auth::Params.new(operation_name: :enable_kinesis_streaming_destination, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1224,9 +1249,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::ExecuteStatement
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :execute_statement),
+          auth_params: Auth::Params.new(operation_name: :execute_statement, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1274,9 +1300,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::ExecuteTransaction
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :execute_transaction),
+          auth_params: Auth::Params.new(operation_name: :execute_transaction, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1324,9 +1351,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::ExportTableToPointInTime
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :export_table_to_point_in_time),
+          auth_params: Auth::Params.new(operation_name: :export_table_to_point_in_time, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1374,9 +1402,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::GetItem
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_item),
+          auth_params: Auth::Params.new(operation_name: :get_item, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1424,9 +1453,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::ImportTable
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :import_table),
+          auth_params: Auth::Params.new(operation_name: :import_table, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1474,9 +1504,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::ListBackups
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :list_backups),
+          auth_params: Auth::Params.new(operation_name: :list_backups, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1524,9 +1555,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::ListContributorInsights
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :list_contributor_insights),
+          auth_params: Auth::Params.new(operation_name: :list_contributor_insights, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1574,9 +1606,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::ListExports
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :list_exports),
+          auth_params: Auth::Params.new(operation_name: :list_exports, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1624,9 +1657,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::ListGlobalTables
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :list_global_tables),
+          auth_params: Auth::Params.new(operation_name: :list_global_tables, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1674,9 +1708,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::ListImports
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :list_imports),
+          auth_params: Auth::Params.new(operation_name: :list_imports, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1724,9 +1759,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::ListTables
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :list_tables),
+          auth_params: Auth::Params.new(operation_name: :list_tables, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1774,9 +1810,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::ListTagsOfResource
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :list_tags_of_resource),
+          auth_params: Auth::Params.new(operation_name: :list_tags_of_resource, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1824,9 +1861,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::PutItem
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :put_item),
+          auth_params: Auth::Params.new(operation_name: :put_item, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1874,9 +1912,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::Query
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :query),
+          auth_params: Auth::Params.new(operation_name: :query, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1924,9 +1963,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::RestoreTableFromBackup
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :restore_table_from_backup),
+          auth_params: Auth::Params.new(operation_name: :restore_table_from_backup, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1974,9 +2014,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::RestoreTableToPointInTime
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :restore_table_to_point_in_time),
+          auth_params: Auth::Params.new(operation_name: :restore_table_to_point_in_time, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2024,9 +2065,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::Scan
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :scan),
+          auth_params: Auth::Params.new(operation_name: :scan, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2074,9 +2116,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::TagResource
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :tag_resource),
+          auth_params: Auth::Params.new(operation_name: :tag_resource, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2124,9 +2167,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::TransactGetItems
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :transact_get_items),
+          auth_params: Auth::Params.new(operation_name: :transact_get_items, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2174,9 +2218,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::TransactWriteItems
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :transact_write_items),
+          auth_params: Auth::Params.new(operation_name: :transact_write_items, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2224,9 +2269,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::UntagResource
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :untag_resource),
+          auth_params: Auth::Params.new(operation_name: :untag_resource, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2274,9 +2320,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::UpdateContinuousBackups
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :update_continuous_backups),
+          auth_params: Auth::Params.new(operation_name: :update_continuous_backups, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2324,9 +2371,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::UpdateContributorInsights
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :update_contributor_insights),
+          auth_params: Auth::Params.new(operation_name: :update_contributor_insights, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2374,9 +2422,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::UpdateGlobalTable
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :update_global_table),
+          auth_params: Auth::Params.new(operation_name: :update_global_table, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2424,9 +2473,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::UpdateGlobalTableSettings
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :update_global_table_settings),
+          auth_params: Auth::Params.new(operation_name: :update_global_table_settings, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2474,9 +2524,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::UpdateItem
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :update_item),
+          auth_params: Auth::Params.new(operation_name: :update_item, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2524,9 +2575,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::UpdateKinesisStreamingDestination
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :update_kinesis_streaming_destination),
+          auth_params: Auth::Params.new(operation_name: :update_kinesis_streaming_destination, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2574,9 +2626,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::UpdateTable
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :update_table),
+          auth_params: Auth::Params.new(operation_name: :update_table, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2624,9 +2677,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::UpdateTableReplicaAutoScaling
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :update_table_replica_auto_scaling),
+          auth_params: Auth::Params.new(operation_name: :update_table_replica_auto_scaling, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2674,9 +2728,10 @@ module AWS::SDK::DynamoDB
           builder: Builders::UpdateTimeToLive
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :update_time_to_live),
+          auth_params: Auth::Params.new(operation_name: :update_time_to_live, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,

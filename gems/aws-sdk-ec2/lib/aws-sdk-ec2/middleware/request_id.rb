@@ -24,4 +24,5 @@ module AWS::SDK::EC2
       end
     end
   end
+
 end

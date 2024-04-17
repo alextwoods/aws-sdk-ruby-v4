@@ -57,28 +57,6 @@ module AWS::SigV4
 
     subject { Signer.new(required_options) }
 
-    # describe '.use_crt?' do
-    #   before { Signer.remove_class_variable(:@@use_crt) }
-    #
-    #   context 'with crt' do
-    #     it 'returns true' do
-    #       expect(AWS::SigV4::Signer).to receive(:require)
-    #         .with('aws-crt').and_return(true)
-    #       load 'lib/aws-sigv4/signer.rb'
-    #       expect(Signer.use_crt?).to be true
-    #     end
-    #   end
-    #
-    #   context 'without crt' do
-    #     it 'returns false' do
-    #       expect(AWS::SigV4::Signer).to receive(:require)
-    #         .with('aws-crt').and_raise(LoadError)
-    #       load 'lib/aws-sigv4/signer.rb'
-    #       expect(Signer.use_crt?).to be false
-    #     end
-    #   end
-    # end
-
     describe '#initialize' do
       let(:default_unsigned_headers) do
         Set.new(
@@ -236,6 +214,20 @@ module AWS::SigV4
             expect(signature.headers['user-agent'])
               .to eq('ua crt-signer/sigv4/2')
           end
+
+          it 'raises if sigv4-express and the crt version is too low' do
+            stub_const('Aws::Crt::GEM_VERSION', '0.1.9')
+
+            expect do
+              subject.sign_request(
+                request: request,
+                signing_algorithm: :'sigv4-s3express'
+              )
+            end.to raise_error(
+              ArgumentError,
+              /This version of aws-crt does not support S3 Express/
+            )
+          end
         end
       end
 
@@ -325,6 +317,20 @@ module AWS::SigV4
               request: request.merge(headers: { 'X-Amz-Date' => now })
             )
             expect(signature.url.to_s).to include("X-Amz-Date=#{now}")
+          end
+
+          it 'raises if sigv4-express and the crt version is too low' do
+            stub_const('Aws::Crt::GEM_VERSION', '0.1.9')
+
+            expect do
+              subject.presign_url(
+                request: request,
+                signing_algorithm: :'sigv4-s3express'
+              )
+            end.to raise_error(
+              ArgumentError,
+              /This version of aws-crt does not support S3 Express/
+            )
           end
         end
       end
@@ -495,12 +501,24 @@ module AWS::SigV4
             end.to raise_error(ArgumentError, /aws-crt/)
           end
 
-          it 'raises when not sigv4 or sigv4a' do
+          it 'raises when not sigv4, sigv4a, or sigv4-s3express' do
             expect do
               subject.sign_request(
                 request: request, signing_algorithm: :not_sigv4
               )
-            end.to raise_error(ArgumentError, /`:sigv4` or `:sigv4a`/)
+            end.to raise_error(
+              ArgumentError,
+              /`:sigv4`, `:sigv4a`, or `:'sigv4-s3express'`/
+            )
+          end
+
+          it 'uses a s3 session token' do
+            signature = subject.sign_request(
+              request: request, signing_algorithm: :'sigv4-s3express'
+            )
+
+            expect(signature.headers['x-amz-security-token']).to be_nil
+            expect(signature.headers['x-amz-s3session-token']).to eq('token')
           end
         end
 
@@ -687,12 +705,26 @@ module AWS::SigV4
             end.to raise_error(ArgumentError, /aws-crt/)
           end
 
-          it 'raises when not sigv4 or sigv4a' do
+          it 'raises when not sigv4, sigv4a, or sigv4-s3express' do
             expect do
               subject.presign_url(
                 request: request, signing_algorithm: :not_sigv4
               )
-            end.to raise_error(ArgumentError, /`:sigv4` or `:sigv4a`/)
+            end.to raise_error(
+              ArgumentError,
+              /`:sigv4`, `:sigv4a`, or `:'sigv4-s3express'`/
+            )
+          end
+
+          it 'uses a s3 session token' do
+            presigned_url = subject.presign_url(
+              request: request, signing_algorithm: :'sigv4-s3express'
+            )
+
+            expect(presigned_url.url.to_s)
+              .to_not include('X-Amz-Security-Token')
+            expect(presigned_url.url.to_s)
+              .to include('X-Amz-S3session-Token=token')
           end
         end
 

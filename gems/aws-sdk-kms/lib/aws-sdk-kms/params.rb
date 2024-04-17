@@ -11,7 +11,7 @@ module AWS::SDK::KMS
   # @api private
   module Params
 
-    module AliasList
+    class AliasList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -22,7 +22,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module AliasListEntry
+    class AliasListEntry
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AliasListEntry, context: context)
         type = Types::AliasListEntry.new
@@ -36,7 +36,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module AlreadyExistsException
+    class AlreadyExistsException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AlreadyExistsException, context: context)
         type = Types::AlreadyExistsException.new
@@ -46,7 +46,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module CancelKeyDeletionInput
+    class CancelKeyDeletionInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CancelKeyDeletionInput, context: context)
         type = Types::CancelKeyDeletionInput.new
@@ -56,7 +56,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module CancelKeyDeletionOutput
+    class CancelKeyDeletionOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CancelKeyDeletionOutput, context: context)
         type = Types::CancelKeyDeletionOutput.new
@@ -66,7 +66,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module CloudHsmClusterInUseException
+    class CloudHsmClusterInUseException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CloudHsmClusterInUseException, context: context)
         type = Types::CloudHsmClusterInUseException.new
@@ -76,7 +76,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module CloudHsmClusterInvalidConfigurationException
+    class CloudHsmClusterInvalidConfigurationException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CloudHsmClusterInvalidConfigurationException, context: context)
         type = Types::CloudHsmClusterInvalidConfigurationException.new
@@ -86,7 +86,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module CloudHsmClusterNotActiveException
+    class CloudHsmClusterNotActiveException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CloudHsmClusterNotActiveException, context: context)
         type = Types::CloudHsmClusterNotActiveException.new
@@ -96,7 +96,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module CloudHsmClusterNotFoundException
+    class CloudHsmClusterNotFoundException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CloudHsmClusterNotFoundException, context: context)
         type = Types::CloudHsmClusterNotFoundException.new
@@ -106,7 +106,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module CloudHsmClusterNotRelatedException
+    class CloudHsmClusterNotRelatedException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CloudHsmClusterNotRelatedException, context: context)
         type = Types::CloudHsmClusterNotRelatedException.new
@@ -116,7 +116,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module ConnectCustomKeyStoreInput
+    class ConnectCustomKeyStoreInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ConnectCustomKeyStoreInput, context: context)
         type = Types::ConnectCustomKeyStoreInput.new
@@ -126,7 +126,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module ConnectCustomKeyStoreOutput
+    class ConnectCustomKeyStoreOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ConnectCustomKeyStoreOutput, context: context)
         type = Types::ConnectCustomKeyStoreOutput.new
@@ -135,7 +135,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module CreateAliasInput
+    class CreateAliasInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateAliasInput, context: context)
         type = Types::CreateAliasInput.new
@@ -146,7 +146,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module CreateAliasOutput
+    class CreateAliasOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateAliasOutput, context: context)
         type = Types::CreateAliasOutput.new
@@ -155,7 +155,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module CreateCustomKeyStoreInput
+    class CreateCustomKeyStoreInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateCustomKeyStoreInput, context: context)
         type = Types::CreateCustomKeyStoreInput.new
@@ -174,7 +174,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module CreateCustomKeyStoreOutput
+    class CreateCustomKeyStoreOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateCustomKeyStoreOutput, context: context)
         type = Types::CreateCustomKeyStoreOutput.new
@@ -184,7 +184,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module CreateGrantInput
+    class CreateGrantInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateGrantInput, context: context)
         type = Types::CreateGrantInput.new
@@ -201,7 +201,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module CreateGrantOutput
+    class CreateGrantOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateGrantOutput, context: context)
         type = Types::CreateGrantOutput.new
@@ -212,7 +212,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module CreateKeyInput
+    class CreateKeyInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateKeyInput, context: context)
         type = Types::CreateKeyInput.new
@@ -232,7 +232,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module CreateKeyOutput
+    class CreateKeyOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateKeyOutput, context: context)
         type = Types::CreateKeyOutput.new
@@ -242,7 +242,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module CustomKeyStoreHasCMKsException
+    class CustomKeyStoreHasCMKsException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CustomKeyStoreHasCMKsException, context: context)
         type = Types::CustomKeyStoreHasCMKsException.new
@@ -252,7 +252,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module CustomKeyStoreInvalidStateException
+    class CustomKeyStoreInvalidStateException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CustomKeyStoreInvalidStateException, context: context)
         type = Types::CustomKeyStoreInvalidStateException.new
@@ -262,7 +262,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module CustomKeyStoreNameInUseException
+    class CustomKeyStoreNameInUseException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CustomKeyStoreNameInUseException, context: context)
         type = Types::CustomKeyStoreNameInUseException.new
@@ -272,7 +272,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module CustomKeyStoreNotFoundException
+    class CustomKeyStoreNotFoundException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CustomKeyStoreNotFoundException, context: context)
         type = Types::CustomKeyStoreNotFoundException.new
@@ -282,7 +282,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module CustomKeyStoresList
+    class CustomKeyStoresList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -293,7 +293,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module CustomKeyStoresListEntry
+    class CustomKeyStoresListEntry
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CustomKeyStoresListEntry, context: context)
         type = Types::CustomKeyStoresListEntry.new
@@ -311,7 +311,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module DecryptInput
+    class DecryptInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DecryptInput, context: context)
         type = Types::DecryptInput.new
@@ -327,7 +327,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module DecryptOutput
+    class DecryptOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DecryptOutput, context: context)
         type = Types::DecryptOutput.new
@@ -340,7 +340,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module DeleteAliasInput
+    class DeleteAliasInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteAliasInput, context: context)
         type = Types::DeleteAliasInput.new
@@ -350,7 +350,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module DeleteAliasOutput
+    class DeleteAliasOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteAliasOutput, context: context)
         type = Types::DeleteAliasOutput.new
@@ -359,7 +359,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module DeleteCustomKeyStoreInput
+    class DeleteCustomKeyStoreInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteCustomKeyStoreInput, context: context)
         type = Types::DeleteCustomKeyStoreInput.new
@@ -369,7 +369,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module DeleteCustomKeyStoreOutput
+    class DeleteCustomKeyStoreOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteCustomKeyStoreOutput, context: context)
         type = Types::DeleteCustomKeyStoreOutput.new
@@ -378,7 +378,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module DeleteImportedKeyMaterialInput
+    class DeleteImportedKeyMaterialInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteImportedKeyMaterialInput, context: context)
         type = Types::DeleteImportedKeyMaterialInput.new
@@ -388,7 +388,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module DeleteImportedKeyMaterialOutput
+    class DeleteImportedKeyMaterialOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteImportedKeyMaterialOutput, context: context)
         type = Types::DeleteImportedKeyMaterialOutput.new
@@ -397,7 +397,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module DependencyTimeoutException
+    class DependencyTimeoutException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DependencyTimeoutException, context: context)
         type = Types::DependencyTimeoutException.new
@@ -407,7 +407,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module DescribeCustomKeyStoresInput
+    class DescribeCustomKeyStoresInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeCustomKeyStoresInput, context: context)
         type = Types::DescribeCustomKeyStoresInput.new
@@ -420,7 +420,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module DescribeCustomKeyStoresOutput
+    class DescribeCustomKeyStoresOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeCustomKeyStoresOutput, context: context)
         type = Types::DescribeCustomKeyStoresOutput.new
@@ -432,7 +432,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module DescribeKeyInput
+    class DescribeKeyInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeKeyInput, context: context)
         type = Types::DescribeKeyInput.new
@@ -443,7 +443,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module DescribeKeyOutput
+    class DescribeKeyOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeKeyOutput, context: context)
         type = Types::DescribeKeyOutput.new
@@ -453,7 +453,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module DisableKeyInput
+    class DisableKeyInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisableKeyInput, context: context)
         type = Types::DisableKeyInput.new
@@ -463,7 +463,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module DisableKeyOutput
+    class DisableKeyOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisableKeyOutput, context: context)
         type = Types::DisableKeyOutput.new
@@ -472,7 +472,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module DisableKeyRotationInput
+    class DisableKeyRotationInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisableKeyRotationInput, context: context)
         type = Types::DisableKeyRotationInput.new
@@ -482,7 +482,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module DisableKeyRotationOutput
+    class DisableKeyRotationOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisableKeyRotationOutput, context: context)
         type = Types::DisableKeyRotationOutput.new
@@ -491,7 +491,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module DisabledException
+    class DisabledException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisabledException, context: context)
         type = Types::DisabledException.new
@@ -501,7 +501,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module DisconnectCustomKeyStoreInput
+    class DisconnectCustomKeyStoreInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisconnectCustomKeyStoreInput, context: context)
         type = Types::DisconnectCustomKeyStoreInput.new
@@ -511,7 +511,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module DisconnectCustomKeyStoreOutput
+    class DisconnectCustomKeyStoreOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisconnectCustomKeyStoreOutput, context: context)
         type = Types::DisconnectCustomKeyStoreOutput.new
@@ -520,7 +520,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module DryRunOperationException
+    class DryRunOperationException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DryRunOperationException, context: context)
         type = Types::DryRunOperationException.new
@@ -530,7 +530,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module EnableKeyInput
+    class EnableKeyInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableKeyInput, context: context)
         type = Types::EnableKeyInput.new
@@ -540,7 +540,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module EnableKeyOutput
+    class EnableKeyOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableKeyOutput, context: context)
         type = Types::EnableKeyOutput.new
@@ -549,7 +549,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module EnableKeyRotationInput
+    class EnableKeyRotationInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableKeyRotationInput, context: context)
         type = Types::EnableKeyRotationInput.new
@@ -559,7 +559,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module EnableKeyRotationOutput
+    class EnableKeyRotationOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableKeyRotationOutput, context: context)
         type = Types::EnableKeyRotationOutput.new
@@ -568,7 +568,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module EncryptInput
+    class EncryptInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EncryptInput, context: context)
         type = Types::EncryptInput.new
@@ -583,7 +583,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module EncryptOutput
+    class EncryptOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EncryptOutput, context: context)
         type = Types::EncryptOutput.new
@@ -595,7 +595,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module EncryptionAlgorithmSpecList
+    class EncryptionAlgorithmSpecList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -606,7 +606,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module EncryptionContextType
+    class EncryptionContextType
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, context: context)
         data = {}
@@ -617,7 +617,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module ExpiredImportTokenException
+    class ExpiredImportTokenException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ExpiredImportTokenException, context: context)
         type = Types::ExpiredImportTokenException.new
@@ -627,7 +627,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module GenerateDataKeyInput
+    class GenerateDataKeyInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GenerateDataKeyInput, context: context)
         type = Types::GenerateDataKeyInput.new
@@ -643,7 +643,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module GenerateDataKeyOutput
+    class GenerateDataKeyOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GenerateDataKeyOutput, context: context)
         type = Types::GenerateDataKeyOutput.new
@@ -656,7 +656,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module GenerateDataKeyPairInput
+    class GenerateDataKeyPairInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GenerateDataKeyPairInput, context: context)
         type = Types::GenerateDataKeyPairInput.new
@@ -671,7 +671,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module GenerateDataKeyPairOutput
+    class GenerateDataKeyPairOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GenerateDataKeyPairOutput, context: context)
         type = Types::GenerateDataKeyPairOutput.new
@@ -686,7 +686,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module GenerateDataKeyPairWithoutPlaintextInput
+    class GenerateDataKeyPairWithoutPlaintextInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GenerateDataKeyPairWithoutPlaintextInput, context: context)
         type = Types::GenerateDataKeyPairWithoutPlaintextInput.new
@@ -700,7 +700,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module GenerateDataKeyPairWithoutPlaintextOutput
+    class GenerateDataKeyPairWithoutPlaintextOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GenerateDataKeyPairWithoutPlaintextOutput, context: context)
         type = Types::GenerateDataKeyPairWithoutPlaintextOutput.new
@@ -713,7 +713,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module GenerateDataKeyWithoutPlaintextInput
+    class GenerateDataKeyWithoutPlaintextInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GenerateDataKeyWithoutPlaintextInput, context: context)
         type = Types::GenerateDataKeyWithoutPlaintextInput.new
@@ -728,7 +728,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module GenerateDataKeyWithoutPlaintextOutput
+    class GenerateDataKeyWithoutPlaintextOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GenerateDataKeyWithoutPlaintextOutput, context: context)
         type = Types::GenerateDataKeyWithoutPlaintextOutput.new
@@ -739,7 +739,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module GenerateMacInput
+    class GenerateMacInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GenerateMacInput, context: context)
         type = Types::GenerateMacInput.new
@@ -753,7 +753,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module GenerateMacOutput
+    class GenerateMacOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GenerateMacOutput, context: context)
         type = Types::GenerateMacOutput.new
@@ -765,7 +765,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module GenerateRandomInput
+    class GenerateRandomInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GenerateRandomInput, context: context)
         type = Types::GenerateRandomInput.new
@@ -777,7 +777,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module GenerateRandomOutput
+    class GenerateRandomOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GenerateRandomOutput, context: context)
         type = Types::GenerateRandomOutput.new
@@ -788,7 +788,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module GetKeyPolicyInput
+    class GetKeyPolicyInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetKeyPolicyInput, context: context)
         type = Types::GetKeyPolicyInput.new
@@ -799,7 +799,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module GetKeyPolicyOutput
+    class GetKeyPolicyOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetKeyPolicyOutput, context: context)
         type = Types::GetKeyPolicyOutput.new
@@ -809,7 +809,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module GetKeyRotationStatusInput
+    class GetKeyRotationStatusInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetKeyRotationStatusInput, context: context)
         type = Types::GetKeyRotationStatusInput.new
@@ -819,7 +819,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module GetKeyRotationStatusOutput
+    class GetKeyRotationStatusOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetKeyRotationStatusOutput, context: context)
         type = Types::GetKeyRotationStatusOutput.new
@@ -829,7 +829,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module GetParametersForImportInput
+    class GetParametersForImportInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetParametersForImportInput, context: context)
         type = Types::GetParametersForImportInput.new
@@ -841,7 +841,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module GetParametersForImportOutput
+    class GetParametersForImportOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetParametersForImportOutput, context: context)
         type = Types::GetParametersForImportOutput.new
@@ -854,7 +854,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module GetPublicKeyInput
+    class GetPublicKeyInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetPublicKeyInput, context: context)
         type = Types::GetPublicKeyInput.new
@@ -865,7 +865,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module GetPublicKeyOutput
+    class GetPublicKeyOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetPublicKeyOutput, context: context)
         type = Types::GetPublicKeyOutput.new
@@ -881,7 +881,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module GrantConstraints
+    class GrantConstraints
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GrantConstraints, context: context)
         type = Types::GrantConstraints.new
@@ -892,7 +892,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module GrantList
+    class GrantList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -903,7 +903,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module GrantListEntry
+    class GrantListEntry
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GrantListEntry, context: context)
         type = Types::GrantListEntry.new
@@ -921,7 +921,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module GrantOperationList
+    class GrantOperationList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -932,7 +932,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module GrantTokenList
+    class GrantTokenList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -943,7 +943,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module ImportKeyMaterialInput
+    class ImportKeyMaterialInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ImportKeyMaterialInput, context: context)
         type = Types::ImportKeyMaterialInput.new
@@ -957,7 +957,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module ImportKeyMaterialOutput
+    class ImportKeyMaterialOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ImportKeyMaterialOutput, context: context)
         type = Types::ImportKeyMaterialOutput.new
@@ -966,7 +966,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module IncorrectKeyException
+    class IncorrectKeyException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::IncorrectKeyException, context: context)
         type = Types::IncorrectKeyException.new
@@ -976,7 +976,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module IncorrectKeyMaterialException
+    class IncorrectKeyMaterialException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::IncorrectKeyMaterialException, context: context)
         type = Types::IncorrectKeyMaterialException.new
@@ -986,7 +986,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module IncorrectTrustAnchorException
+    class IncorrectTrustAnchorException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::IncorrectTrustAnchorException, context: context)
         type = Types::IncorrectTrustAnchorException.new
@@ -996,7 +996,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module InvalidAliasNameException
+    class InvalidAliasNameException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InvalidAliasNameException, context: context)
         type = Types::InvalidAliasNameException.new
@@ -1006,7 +1006,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module InvalidArnException
+    class InvalidArnException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InvalidArnException, context: context)
         type = Types::InvalidArnException.new
@@ -1016,7 +1016,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module InvalidCiphertextException
+    class InvalidCiphertextException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InvalidCiphertextException, context: context)
         type = Types::InvalidCiphertextException.new
@@ -1026,7 +1026,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module InvalidGrantIdException
+    class InvalidGrantIdException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InvalidGrantIdException, context: context)
         type = Types::InvalidGrantIdException.new
@@ -1036,7 +1036,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module InvalidGrantTokenException
+    class InvalidGrantTokenException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InvalidGrantTokenException, context: context)
         type = Types::InvalidGrantTokenException.new
@@ -1046,7 +1046,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module InvalidImportTokenException
+    class InvalidImportTokenException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InvalidImportTokenException, context: context)
         type = Types::InvalidImportTokenException.new
@@ -1056,7 +1056,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module InvalidKeyUsageException
+    class InvalidKeyUsageException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InvalidKeyUsageException, context: context)
         type = Types::InvalidKeyUsageException.new
@@ -1066,7 +1066,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module InvalidMarkerException
+    class InvalidMarkerException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InvalidMarkerException, context: context)
         type = Types::InvalidMarkerException.new
@@ -1076,7 +1076,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module KMSInternalException
+    class KMSInternalException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::KMSInternalException, context: context)
         type = Types::KMSInternalException.new
@@ -1086,7 +1086,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module KMSInvalidMacException
+    class KMSInvalidMacException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::KMSInvalidMacException, context: context)
         type = Types::KMSInvalidMacException.new
@@ -1096,7 +1096,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module KMSInvalidSignatureException
+    class KMSInvalidSignatureException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::KMSInvalidSignatureException, context: context)
         type = Types::KMSInvalidSignatureException.new
@@ -1106,7 +1106,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module KMSInvalidStateException
+    class KMSInvalidStateException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::KMSInvalidStateException, context: context)
         type = Types::KMSInvalidStateException.new
@@ -1116,7 +1116,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module KeyList
+    class KeyList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -1127,7 +1127,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module KeyListEntry
+    class KeyListEntry
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::KeyListEntry, context: context)
         type = Types::KeyListEntry.new
@@ -1138,7 +1138,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module KeyMetadata
+    class KeyMetadata
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::KeyMetadata, context: context)
         type = Types::KeyMetadata.new
@@ -1171,7 +1171,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module KeyUnavailableException
+    class KeyUnavailableException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::KeyUnavailableException, context: context)
         type = Types::KeyUnavailableException.new
@@ -1181,7 +1181,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module LimitExceededException
+    class LimitExceededException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LimitExceededException, context: context)
         type = Types::LimitExceededException.new
@@ -1191,7 +1191,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module ListAliasesInput
+    class ListAliasesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListAliasesInput, context: context)
         type = Types::ListAliasesInput.new
@@ -1203,7 +1203,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module ListAliasesOutput
+    class ListAliasesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListAliasesOutput, context: context)
         type = Types::ListAliasesOutput.new
@@ -1215,7 +1215,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module ListGrantsInput
+    class ListGrantsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListGrantsInput, context: context)
         type = Types::ListGrantsInput.new
@@ -1229,7 +1229,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module ListGrantsOutput
+    class ListGrantsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListGrantsOutput, context: context)
         type = Types::ListGrantsOutput.new
@@ -1241,7 +1241,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module ListKeyPoliciesInput
+    class ListKeyPoliciesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListKeyPoliciesInput, context: context)
         type = Types::ListKeyPoliciesInput.new
@@ -1253,7 +1253,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module ListKeyPoliciesOutput
+    class ListKeyPoliciesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListKeyPoliciesOutput, context: context)
         type = Types::ListKeyPoliciesOutput.new
@@ -1265,7 +1265,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module ListKeysInput
+    class ListKeysInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListKeysInput, context: context)
         type = Types::ListKeysInput.new
@@ -1276,7 +1276,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module ListKeysOutput
+    class ListKeysOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListKeysOutput, context: context)
         type = Types::ListKeysOutput.new
@@ -1288,7 +1288,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module ListResourceTagsInput
+    class ListResourceTagsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListResourceTagsInput, context: context)
         type = Types::ListResourceTagsInput.new
@@ -1300,7 +1300,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module ListResourceTagsOutput
+    class ListResourceTagsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListResourceTagsOutput, context: context)
         type = Types::ListResourceTagsOutput.new
@@ -1312,7 +1312,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module ListRetirableGrantsInput
+    class ListRetirableGrantsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListRetirableGrantsInput, context: context)
         type = Types::ListRetirableGrantsInput.new
@@ -1324,7 +1324,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module ListRetirableGrantsOutput
+    class ListRetirableGrantsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListRetirableGrantsOutput, context: context)
         type = Types::ListRetirableGrantsOutput.new
@@ -1336,7 +1336,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module MacAlgorithmSpecList
+    class MacAlgorithmSpecList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -1347,7 +1347,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module MalformedPolicyDocumentException
+    class MalformedPolicyDocumentException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::MalformedPolicyDocumentException, context: context)
         type = Types::MalformedPolicyDocumentException.new
@@ -1357,7 +1357,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module MultiRegionConfiguration
+    class MultiRegionConfiguration
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::MultiRegionConfiguration, context: context)
         type = Types::MultiRegionConfiguration.new
@@ -1369,7 +1369,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module MultiRegionKey
+    class MultiRegionKey
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::MultiRegionKey, context: context)
         type = Types::MultiRegionKey.new
@@ -1380,7 +1380,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module MultiRegionKeyList
+    class MultiRegionKeyList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -1391,7 +1391,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module NotFoundException
+    class NotFoundException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::NotFoundException, context: context)
         type = Types::NotFoundException.new
@@ -1401,7 +1401,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module PolicyNameList
+    class PolicyNameList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -1412,7 +1412,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module PutKeyPolicyInput
+    class PutKeyPolicyInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutKeyPolicyInput, context: context)
         type = Types::PutKeyPolicyInput.new
@@ -1425,7 +1425,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module PutKeyPolicyOutput
+    class PutKeyPolicyOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutKeyPolicyOutput, context: context)
         type = Types::PutKeyPolicyOutput.new
@@ -1434,7 +1434,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module ReEncryptInput
+    class ReEncryptInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReEncryptInput, context: context)
         type = Types::ReEncryptInput.new
@@ -1452,7 +1452,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module ReEncryptOutput
+    class ReEncryptOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReEncryptOutput, context: context)
         type = Types::ReEncryptOutput.new
@@ -1466,7 +1466,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module RecipientInfo
+    class RecipientInfo
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RecipientInfo, context: context)
         type = Types::RecipientInfo.new
@@ -1477,7 +1477,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module ReplicateKeyInput
+    class ReplicateKeyInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReplicateKeyInput, context: context)
         type = Types::ReplicateKeyInput.new
@@ -1492,7 +1492,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module ReplicateKeyOutput
+    class ReplicateKeyOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReplicateKeyOutput, context: context)
         type = Types::ReplicateKeyOutput.new
@@ -1504,7 +1504,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module RetireGrantInput
+    class RetireGrantInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RetireGrantInput, context: context)
         type = Types::RetireGrantInput.new
@@ -1517,7 +1517,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module RetireGrantOutput
+    class RetireGrantOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RetireGrantOutput, context: context)
         type = Types::RetireGrantOutput.new
@@ -1526,7 +1526,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module RevokeGrantInput
+    class RevokeGrantInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RevokeGrantInput, context: context)
         type = Types::RevokeGrantInput.new
@@ -1538,7 +1538,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module RevokeGrantOutput
+    class RevokeGrantOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RevokeGrantOutput, context: context)
         type = Types::RevokeGrantOutput.new
@@ -1547,7 +1547,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module ScheduleKeyDeletionInput
+    class ScheduleKeyDeletionInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ScheduleKeyDeletionInput, context: context)
         type = Types::ScheduleKeyDeletionInput.new
@@ -1558,7 +1558,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module ScheduleKeyDeletionOutput
+    class ScheduleKeyDeletionOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ScheduleKeyDeletionOutput, context: context)
         type = Types::ScheduleKeyDeletionOutput.new
@@ -1571,7 +1571,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module SignInput
+    class SignInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SignInput, context: context)
         type = Types::SignInput.new
@@ -1586,7 +1586,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module SignOutput
+    class SignOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SignOutput, context: context)
         type = Types::SignOutput.new
@@ -1598,7 +1598,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module SigningAlgorithmSpecList
+    class SigningAlgorithmSpecList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -1609,7 +1609,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module Tag
+    class Tag
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Tag, context: context)
         type = Types::Tag.new
@@ -1620,7 +1620,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module TagException
+    class TagException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TagException, context: context)
         type = Types::TagException.new
@@ -1630,7 +1630,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module TagKeyList
+    class TagKeyList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -1641,7 +1641,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module TagList
+    class TagList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -1652,7 +1652,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module TagResourceInput
+    class TagResourceInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TagResourceInput, context: context)
         type = Types::TagResourceInput.new
@@ -1663,7 +1663,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module TagResourceOutput
+    class TagResourceOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TagResourceOutput, context: context)
         type = Types::TagResourceOutput.new
@@ -1672,7 +1672,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module UnsupportedOperationException
+    class UnsupportedOperationException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UnsupportedOperationException, context: context)
         type = Types::UnsupportedOperationException.new
@@ -1682,7 +1682,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module UntagResourceInput
+    class UntagResourceInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UntagResourceInput, context: context)
         type = Types::UntagResourceInput.new
@@ -1693,7 +1693,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module UntagResourceOutput
+    class UntagResourceOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UntagResourceOutput, context: context)
         type = Types::UntagResourceOutput.new
@@ -1702,7 +1702,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module UpdateAliasInput
+    class UpdateAliasInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateAliasInput, context: context)
         type = Types::UpdateAliasInput.new
@@ -1713,7 +1713,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module UpdateAliasOutput
+    class UpdateAliasOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateAliasOutput, context: context)
         type = Types::UpdateAliasOutput.new
@@ -1722,7 +1722,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module UpdateCustomKeyStoreInput
+    class UpdateCustomKeyStoreInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateCustomKeyStoreInput, context: context)
         type = Types::UpdateCustomKeyStoreInput.new
@@ -1740,7 +1740,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module UpdateCustomKeyStoreOutput
+    class UpdateCustomKeyStoreOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateCustomKeyStoreOutput, context: context)
         type = Types::UpdateCustomKeyStoreOutput.new
@@ -1749,7 +1749,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module UpdateKeyDescriptionInput
+    class UpdateKeyDescriptionInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateKeyDescriptionInput, context: context)
         type = Types::UpdateKeyDescriptionInput.new
@@ -1760,7 +1760,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module UpdateKeyDescriptionOutput
+    class UpdateKeyDescriptionOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateKeyDescriptionOutput, context: context)
         type = Types::UpdateKeyDescriptionOutput.new
@@ -1769,7 +1769,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module UpdatePrimaryRegionInput
+    class UpdatePrimaryRegionInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UpdatePrimaryRegionInput, context: context)
         type = Types::UpdatePrimaryRegionInput.new
@@ -1780,7 +1780,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module UpdatePrimaryRegionOutput
+    class UpdatePrimaryRegionOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UpdatePrimaryRegionOutput, context: context)
         type = Types::UpdatePrimaryRegionOutput.new
@@ -1789,7 +1789,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module VerifyInput
+    class VerifyInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VerifyInput, context: context)
         type = Types::VerifyInput.new
@@ -1805,7 +1805,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module VerifyMacInput
+    class VerifyMacInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VerifyMacInput, context: context)
         type = Types::VerifyMacInput.new
@@ -1820,7 +1820,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module VerifyMacOutput
+    class VerifyMacOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VerifyMacOutput, context: context)
         type = Types::VerifyMacOutput.new
@@ -1832,7 +1832,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module VerifyOutput
+    class VerifyOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VerifyOutput, context: context)
         type = Types::VerifyOutput.new
@@ -1844,7 +1844,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module XksKeyAlreadyInUseException
+    class XksKeyAlreadyInUseException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::XksKeyAlreadyInUseException, context: context)
         type = Types::XksKeyAlreadyInUseException.new
@@ -1854,7 +1854,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module XksKeyConfigurationType
+    class XksKeyConfigurationType
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::XksKeyConfigurationType, context: context)
         type = Types::XksKeyConfigurationType.new
@@ -1864,7 +1864,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module XksKeyInvalidConfigurationException
+    class XksKeyInvalidConfigurationException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::XksKeyInvalidConfigurationException, context: context)
         type = Types::XksKeyInvalidConfigurationException.new
@@ -1874,7 +1874,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module XksKeyNotFoundException
+    class XksKeyNotFoundException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::XksKeyNotFoundException, context: context)
         type = Types::XksKeyNotFoundException.new
@@ -1884,7 +1884,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module XksProxyAuthenticationCredentialType
+    class XksProxyAuthenticationCredentialType
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::XksProxyAuthenticationCredentialType, context: context)
         type = Types::XksProxyAuthenticationCredentialType.new
@@ -1895,7 +1895,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module XksProxyConfigurationType
+    class XksProxyConfigurationType
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::XksProxyConfigurationType, context: context)
         type = Types::XksProxyConfigurationType.new
@@ -1909,7 +1909,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module XksProxyIncorrectAuthenticationCredentialException
+    class XksProxyIncorrectAuthenticationCredentialException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::XksProxyIncorrectAuthenticationCredentialException, context: context)
         type = Types::XksProxyIncorrectAuthenticationCredentialException.new
@@ -1919,7 +1919,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module XksProxyInvalidConfigurationException
+    class XksProxyInvalidConfigurationException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::XksProxyInvalidConfigurationException, context: context)
         type = Types::XksProxyInvalidConfigurationException.new
@@ -1929,7 +1929,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module XksProxyInvalidResponseException
+    class XksProxyInvalidResponseException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::XksProxyInvalidResponseException, context: context)
         type = Types::XksProxyInvalidResponseException.new
@@ -1939,7 +1939,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module XksProxyUriEndpointInUseException
+    class XksProxyUriEndpointInUseException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::XksProxyUriEndpointInUseException, context: context)
         type = Types::XksProxyUriEndpointInUseException.new
@@ -1949,7 +1949,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module XksProxyUriInUseException
+    class XksProxyUriInUseException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::XksProxyUriInUseException, context: context)
         type = Types::XksProxyUriInUseException.new
@@ -1959,7 +1959,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module XksProxyUriUnreachableException
+    class XksProxyUriUnreachableException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::XksProxyUriUnreachableException, context: context)
         type = Types::XksProxyUriUnreachableException.new
@@ -1969,7 +1969,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module XksProxyVpcEndpointServiceInUseException
+    class XksProxyVpcEndpointServiceInUseException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::XksProxyVpcEndpointServiceInUseException, context: context)
         type = Types::XksProxyVpcEndpointServiceInUseException.new
@@ -1979,7 +1979,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module XksProxyVpcEndpointServiceInvalidConfigurationException
+    class XksProxyVpcEndpointServiceInvalidConfigurationException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::XksProxyVpcEndpointServiceInvalidConfigurationException, context: context)
         type = Types::XksProxyVpcEndpointServiceInvalidConfigurationException.new
@@ -1989,7 +1989,7 @@ module AWS::SDK::KMS
       end
     end
 
-    module XksProxyVpcEndpointServiceNotFoundException
+    class XksProxyVpcEndpointServiceNotFoundException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::XksProxyVpcEndpointServiceNotFoundException, context: context)
         type = Types::XksProxyVpcEndpointServiceNotFoundException.new

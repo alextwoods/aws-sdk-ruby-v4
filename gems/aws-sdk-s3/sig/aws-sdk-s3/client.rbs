@@ -32,6 +32,7 @@ module AWS::SDK::S3
         ?profile: String,
         ?region: String,
         ?retry_strategy: Hearth::_RetryStrategy,
+        ?sigv4_identity_resolver: Hearth::IdentityResolver,
         ?stub_responses: bool,
         ?use_accelerate_endpoint: bool,
         ?use_arn_region: bool,

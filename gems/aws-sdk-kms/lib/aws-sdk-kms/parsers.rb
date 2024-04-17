@@ -39,19 +39,18 @@ module AWS::SDK::KMS
         data = Types::AlreadyExistsException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
     end
 
-    # Operation Parser for CancelKeyDeletion
     class CancelKeyDeletion
       def self.parse(http_resp)
         data = Types::CancelKeyDeletionOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.key_id = map['KeyId']
         data
       end
@@ -63,7 +62,7 @@ module AWS::SDK::KMS
         data = Types::CloudHsmClusterInUseException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -75,7 +74,7 @@ module AWS::SDK::KMS
         data = Types::CloudHsmClusterInvalidConfigurationException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -87,7 +86,7 @@ module AWS::SDK::KMS
         data = Types::CloudHsmClusterNotActiveException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -99,7 +98,7 @@ module AWS::SDK::KMS
         data = Types::CloudHsmClusterNotFoundException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -111,66 +110,61 @@ module AWS::SDK::KMS
         data = Types::CloudHsmClusterNotRelatedException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
     end
 
-    # Operation Parser for ConnectCustomKeyStore
     class ConnectCustomKeyStore
       def self.parse(http_resp)
         data = Types::ConnectCustomKeyStoreOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data
       end
     end
 
-    # Operation Parser for CreateAlias
     class CreateAlias
       def self.parse(http_resp)
         data = Types::CreateAliasOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data
       end
     end
 
-    # Operation Parser for CreateCustomKeyStore
     class CreateCustomKeyStore
       def self.parse(http_resp)
         data = Types::CreateCustomKeyStoreOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.custom_key_store_id = map['CustomKeyStoreId']
         data
       end
     end
 
-    # Operation Parser for CreateGrant
     class CreateGrant
       def self.parse(http_resp)
         data = Types::CreateGrantOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.grant_token = map['GrantToken']
         data.grant_id = map['GrantId']
         data
       end
     end
 
-    # Operation Parser for CreateKey
     class CreateKey
       def self.parse(http_resp)
         data = Types::CreateKeyOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.key_metadata = (KeyMetadata.parse(map['KeyMetadata']) unless map['KeyMetadata'].nil?)
         data
       end
@@ -182,7 +176,7 @@ module AWS::SDK::KMS
         data = Types::CustomKeyStoreHasCMKsException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -194,7 +188,7 @@ module AWS::SDK::KMS
         data = Types::CustomKeyStoreInvalidStateException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -206,7 +200,7 @@ module AWS::SDK::KMS
         data = Types::CustomKeyStoreNameInUseException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -218,7 +212,7 @@ module AWS::SDK::KMS
         data = Types::CustomKeyStoreNotFoundException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -248,13 +242,12 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for Decrypt
     class Decrypt
       def self.parse(http_resp)
         data = Types::DecryptOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.key_id = map['KeyId']
         data.plaintext = ::Base64::decode64(map['Plaintext']) unless map['Plaintext'].nil?
         data.encryption_algorithm = map['EncryptionAlgorithm']
@@ -263,35 +256,32 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for DeleteAlias
     class DeleteAlias
       def self.parse(http_resp)
         data = Types::DeleteAliasOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data
       end
     end
 
-    # Operation Parser for DeleteCustomKeyStore
     class DeleteCustomKeyStore
       def self.parse(http_resp)
         data = Types::DeleteCustomKeyStoreOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data
       end
     end
 
-    # Operation Parser for DeleteImportedKeyMaterial
     class DeleteImportedKeyMaterial
       def self.parse(http_resp)
         data = Types::DeleteImportedKeyMaterialOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data
       end
     end
@@ -302,19 +292,18 @@ module AWS::SDK::KMS
         data = Types::DependencyTimeoutException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
     end
 
-    # Operation Parser for DescribeCustomKeyStores
     class DescribeCustomKeyStores
       def self.parse(http_resp)
         data = Types::DescribeCustomKeyStoresOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.custom_key_stores = (CustomKeyStoresList.parse(map['CustomKeyStores']) unless map['CustomKeyStores'].nil?)
         data.next_marker = map['NextMarker']
         data.truncated = map['Truncated']
@@ -322,36 +311,33 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for DescribeKey
     class DescribeKey
       def self.parse(http_resp)
         data = Types::DescribeKeyOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.key_metadata = (KeyMetadata.parse(map['KeyMetadata']) unless map['KeyMetadata'].nil?)
         data
       end
     end
 
-    # Operation Parser for DisableKey
     class DisableKey
       def self.parse(http_resp)
         data = Types::DisableKeyOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data
       end
     end
 
-    # Operation Parser for DisableKeyRotation
     class DisableKeyRotation
       def self.parse(http_resp)
         data = Types::DisableKeyRotationOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data
       end
     end
@@ -362,19 +348,18 @@ module AWS::SDK::KMS
         data = Types::DisabledException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
     end
 
-    # Operation Parser for DisconnectCustomKeyStore
     class DisconnectCustomKeyStore
       def self.parse(http_resp)
         data = Types::DisconnectCustomKeyStoreOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data
       end
     end
@@ -385,41 +370,38 @@ module AWS::SDK::KMS
         data = Types::DryRunOperationException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
     end
 
-    # Operation Parser for EnableKey
     class EnableKey
       def self.parse(http_resp)
         data = Types::EnableKeyOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data
       end
     end
 
-    # Operation Parser for EnableKeyRotation
     class EnableKeyRotation
       def self.parse(http_resp)
         data = Types::EnableKeyRotationOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data
       end
     end
 
-    # Operation Parser for Encrypt
     class Encrypt
       def self.parse(http_resp)
         data = Types::EncryptOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.ciphertext_blob = ::Base64::decode64(map['CiphertextBlob']) unless map['CiphertextBlob'].nil?
         data.key_id = map['KeyId']
         data.encryption_algorithm = map['EncryptionAlgorithm']
@@ -451,19 +433,18 @@ module AWS::SDK::KMS
         data = Types::ExpiredImportTokenException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
     end
 
-    # Operation Parser for GenerateDataKey
     class GenerateDataKey
       def self.parse(http_resp)
         data = Types::GenerateDataKeyOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.ciphertext_blob = ::Base64::decode64(map['CiphertextBlob']) unless map['CiphertextBlob'].nil?
         data.plaintext = ::Base64::decode64(map['Plaintext']) unless map['Plaintext'].nil?
         data.key_id = map['KeyId']
@@ -472,13 +453,12 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for GenerateDataKeyPair
     class GenerateDataKeyPair
       def self.parse(http_resp)
         data = Types::GenerateDataKeyPairOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.private_key_ciphertext_blob = ::Base64::decode64(map['PrivateKeyCiphertextBlob']) unless map['PrivateKeyCiphertextBlob'].nil?
         data.private_key_plaintext = ::Base64::decode64(map['PrivateKeyPlaintext']) unless map['PrivateKeyPlaintext'].nil?
         data.public_key = ::Base64::decode64(map['PublicKey']) unless map['PublicKey'].nil?
@@ -489,13 +469,12 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for GenerateDataKeyPairWithoutPlaintext
     class GenerateDataKeyPairWithoutPlaintext
       def self.parse(http_resp)
         data = Types::GenerateDataKeyPairWithoutPlaintextOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.private_key_ciphertext_blob = ::Base64::decode64(map['PrivateKeyCiphertextBlob']) unless map['PrivateKeyCiphertextBlob'].nil?
         data.public_key = ::Base64::decode64(map['PublicKey']) unless map['PublicKey'].nil?
         data.key_id = map['KeyId']
@@ -504,26 +483,24 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for GenerateDataKeyWithoutPlaintext
     class GenerateDataKeyWithoutPlaintext
       def self.parse(http_resp)
         data = Types::GenerateDataKeyWithoutPlaintextOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.ciphertext_blob = ::Base64::decode64(map['CiphertextBlob']) unless map['CiphertextBlob'].nil?
         data.key_id = map['KeyId']
         data
       end
     end
 
-    # Operation Parser for GenerateMac
     class GenerateMac
       def self.parse(http_resp)
         data = Types::GenerateMacOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.mac = ::Base64::decode64(map['Mac']) unless map['Mac'].nil?
         data.mac_algorithm = map['MacAlgorithm']
         data.key_id = map['KeyId']
@@ -531,50 +508,46 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for GenerateRandom
     class GenerateRandom
       def self.parse(http_resp)
         data = Types::GenerateRandomOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.plaintext = ::Base64::decode64(map['Plaintext']) unless map['Plaintext'].nil?
         data.ciphertext_for_recipient = ::Base64::decode64(map['CiphertextForRecipient']) unless map['CiphertextForRecipient'].nil?
         data
       end
     end
 
-    # Operation Parser for GetKeyPolicy
     class GetKeyPolicy
       def self.parse(http_resp)
         data = Types::GetKeyPolicyOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.policy = map['Policy']
         data
       end
     end
 
-    # Operation Parser for GetKeyRotationStatus
     class GetKeyRotationStatus
       def self.parse(http_resp)
         data = Types::GetKeyRotationStatusOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.key_rotation_enabled = map['KeyRotationEnabled']
         data
       end
     end
 
-    # Operation Parser for GetParametersForImport
     class GetParametersForImport
       def self.parse(http_resp)
         data = Types::GetParametersForImportOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.key_id = map['KeyId']
         data.import_token = ::Base64::decode64(map['ImportToken']) unless map['ImportToken'].nil?
         data.public_key = ::Base64::decode64(map['PublicKey']) unless map['PublicKey'].nil?
@@ -583,13 +556,12 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for GetPublicKey
     class GetPublicKey
       def self.parse(http_resp)
         data = Types::GetPublicKeyOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.key_id = map['KeyId']
         data.public_key = ::Base64::decode64(map['PublicKey']) unless map['PublicKey'].nil?
         data.customer_master_key_spec = map['CustomerMasterKeySpec']
@@ -642,13 +614,12 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for ImportKeyMaterial
     class ImportKeyMaterial
       def self.parse(http_resp)
         data = Types::ImportKeyMaterialOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data
       end
     end
@@ -659,7 +630,7 @@ module AWS::SDK::KMS
         data = Types::IncorrectKeyException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -671,7 +642,7 @@ module AWS::SDK::KMS
         data = Types::IncorrectKeyMaterialException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -683,7 +654,7 @@ module AWS::SDK::KMS
         data = Types::IncorrectTrustAnchorException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -695,7 +666,7 @@ module AWS::SDK::KMS
         data = Types::InvalidAliasNameException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -707,7 +678,7 @@ module AWS::SDK::KMS
         data = Types::InvalidArnException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -719,7 +690,7 @@ module AWS::SDK::KMS
         data = Types::InvalidCiphertextException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -731,7 +702,7 @@ module AWS::SDK::KMS
         data = Types::InvalidGrantIdException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -743,7 +714,7 @@ module AWS::SDK::KMS
         data = Types::InvalidGrantTokenException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -755,7 +726,7 @@ module AWS::SDK::KMS
         data = Types::InvalidImportTokenException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -767,7 +738,7 @@ module AWS::SDK::KMS
         data = Types::InvalidKeyUsageException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -779,7 +750,7 @@ module AWS::SDK::KMS
         data = Types::InvalidMarkerException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -791,7 +762,7 @@ module AWS::SDK::KMS
         data = Types::KMSInternalException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -803,7 +774,7 @@ module AWS::SDK::KMS
         data = Types::KMSInvalidMacException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -815,7 +786,7 @@ module AWS::SDK::KMS
         data = Types::KMSInvalidSignatureException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -827,7 +798,7 @@ module AWS::SDK::KMS
         data = Types::KMSInvalidStateException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -887,7 +858,7 @@ module AWS::SDK::KMS
         data = Types::KeyUnavailableException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -899,19 +870,18 @@ module AWS::SDK::KMS
         data = Types::LimitExceededException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
     end
 
-    # Operation Parser for ListAliases
     class ListAliases
       def self.parse(http_resp)
         data = Types::ListAliasesOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.aliases = (AliasList.parse(map['Aliases']) unless map['Aliases'].nil?)
         data.next_marker = map['NextMarker']
         data.truncated = map['Truncated']
@@ -919,13 +889,12 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for ListGrants
     class ListGrants
       def self.parse(http_resp)
         data = Types::ListGrantsOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.grants = (GrantList.parse(map['Grants']) unless map['Grants'].nil?)
         data.next_marker = map['NextMarker']
         data.truncated = map['Truncated']
@@ -933,13 +902,12 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for ListKeyPolicies
     class ListKeyPolicies
       def self.parse(http_resp)
         data = Types::ListKeyPoliciesOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.policy_names = (PolicyNameList.parse(map['PolicyNames']) unless map['PolicyNames'].nil?)
         data.next_marker = map['NextMarker']
         data.truncated = map['Truncated']
@@ -947,13 +915,12 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for ListKeys
     class ListKeys
       def self.parse(http_resp)
         data = Types::ListKeysOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.keys = (KeyList.parse(map['Keys']) unless map['Keys'].nil?)
         data.next_marker = map['NextMarker']
         data.truncated = map['Truncated']
@@ -961,13 +928,12 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for ListResourceTags
     class ListResourceTags
       def self.parse(http_resp)
         data = Types::ListResourceTagsOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data.next_marker = map['NextMarker']
         data.truncated = map['Truncated']
@@ -975,13 +941,12 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for ListRetirableGrants
     class ListRetirableGrants
       def self.parse(http_resp)
         data = Types::ListRetirableGrantsOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.grants = (GrantList.parse(map['Grants']) unless map['Grants'].nil?)
         data.next_marker = map['NextMarker']
         data.truncated = map['Truncated']
@@ -1003,7 +968,7 @@ module AWS::SDK::KMS
         data = Types::MalformedPolicyDocumentException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -1042,7 +1007,7 @@ module AWS::SDK::KMS
         data = Types::NotFoundException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -1056,24 +1021,22 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for PutKeyPolicy
     class PutKeyPolicy
       def self.parse(http_resp)
         data = Types::PutKeyPolicyOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data
       end
     end
 
-    # Operation Parser for ReEncrypt
     class ReEncrypt
       def self.parse(http_resp)
         data = Types::ReEncryptOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.ciphertext_blob = ::Base64::decode64(map['CiphertextBlob']) unless map['CiphertextBlob'].nil?
         data.source_key_id = map['SourceKeyId']
         data.key_id = map['KeyId']
@@ -1083,13 +1046,12 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for ReplicateKey
     class ReplicateKey
       def self.parse(http_resp)
         data = Types::ReplicateKeyOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.replica_key_metadata = (KeyMetadata.parse(map['ReplicaKeyMetadata']) unless map['ReplicaKeyMetadata'].nil?)
         data.replica_policy = map['ReplicaPolicy']
         data.replica_tags = (TagList.parse(map['ReplicaTags']) unless map['ReplicaTags'].nil?)
@@ -1097,35 +1059,32 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for RetireGrant
     class RetireGrant
       def self.parse(http_resp)
         data = Types::RetireGrantOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data
       end
     end
 
-    # Operation Parser for RevokeGrant
     class RevokeGrant
       def self.parse(http_resp)
         data = Types::RevokeGrantOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data
       end
     end
 
-    # Operation Parser for ScheduleKeyDeletion
     class ScheduleKeyDeletion
       def self.parse(http_resp)
         data = Types::ScheduleKeyDeletionOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.key_id = map['KeyId']
         data.deletion_date = Time.at(map['DeletionDate'].to_i) if map['DeletionDate']
         data.key_state = map['KeyState']
@@ -1134,13 +1093,12 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for Sign
     class Sign
       def self.parse(http_resp)
         data = Types::SignOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.key_id = map['KeyId']
         data.signature = ::Base64::decode64(map['Signature']) unless map['Signature'].nil?
         data.signing_algorithm = map['SigningAlgorithm']
@@ -1171,7 +1129,7 @@ module AWS::SDK::KMS
         data = Types::TagException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -1185,13 +1143,12 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for TagResource
     class TagResource
       def self.parse(http_resp)
         data = Types::TagResourceOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data
       end
     end
@@ -1202,74 +1159,68 @@ module AWS::SDK::KMS
         data = Types::UnsupportedOperationException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
     end
 
-    # Operation Parser for UntagResource
     class UntagResource
       def self.parse(http_resp)
         data = Types::UntagResourceOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data
       end
     end
 
-    # Operation Parser for UpdateAlias
     class UpdateAlias
       def self.parse(http_resp)
         data = Types::UpdateAliasOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data
       end
     end
 
-    # Operation Parser for UpdateCustomKeyStore
     class UpdateCustomKeyStore
       def self.parse(http_resp)
         data = Types::UpdateCustomKeyStoreOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data
       end
     end
 
-    # Operation Parser for UpdateKeyDescription
     class UpdateKeyDescription
       def self.parse(http_resp)
         data = Types::UpdateKeyDescriptionOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data
       end
     end
 
-    # Operation Parser for UpdatePrimaryRegion
     class UpdatePrimaryRegion
       def self.parse(http_resp)
         data = Types::UpdatePrimaryRegionOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data
       end
     end
 
-    # Operation Parser for Verify
     class Verify
       def self.parse(http_resp)
         data = Types::VerifyOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.key_id = map['KeyId']
         data.signature_valid = map['SignatureValid']
         data.signing_algorithm = map['SigningAlgorithm']
@@ -1277,13 +1228,12 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for VerifyMac
     class VerifyMac
       def self.parse(http_resp)
         data = Types::VerifyMacOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.key_id = map['KeyId']
         data.mac_valid = map['MacValid']
         data.mac_algorithm = map['MacAlgorithm']
@@ -1297,7 +1247,7 @@ module AWS::SDK::KMS
         data = Types::XksKeyAlreadyInUseException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -1317,7 +1267,7 @@ module AWS::SDK::KMS
         data = Types::XksKeyInvalidConfigurationException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -1329,7 +1279,7 @@ module AWS::SDK::KMS
         data = Types::XksKeyNotFoundException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -1353,7 +1303,7 @@ module AWS::SDK::KMS
         data = Types::XksProxyIncorrectAuthenticationCredentialException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -1365,7 +1315,7 @@ module AWS::SDK::KMS
         data = Types::XksProxyInvalidConfigurationException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -1377,7 +1327,7 @@ module AWS::SDK::KMS
         data = Types::XksProxyInvalidResponseException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -1389,7 +1339,7 @@ module AWS::SDK::KMS
         data = Types::XksProxyUriEndpointInUseException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -1401,7 +1351,7 @@ module AWS::SDK::KMS
         data = Types::XksProxyUriInUseException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -1413,7 +1363,7 @@ module AWS::SDK::KMS
         data = Types::XksProxyUriUnreachableException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -1425,7 +1375,7 @@ module AWS::SDK::KMS
         data = Types::XksProxyVpcEndpointServiceInUseException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -1437,7 +1387,7 @@ module AWS::SDK::KMS
         data = Types::XksProxyVpcEndpointServiceInvalidConfigurationException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -1449,7 +1399,7 @@ module AWS::SDK::KMS
         data = Types::XksProxyVpcEndpointServiceNotFoundException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end

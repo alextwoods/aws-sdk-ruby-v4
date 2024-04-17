@@ -13,7 +13,7 @@ module AWS::SDK::EC2
   # @api private
   module Params
 
-    module AcceleratorCount
+    class AcceleratorCount
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AcceleratorCount, context: context)
         type = Types::AcceleratorCount.new
@@ -24,7 +24,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AcceleratorCountRequest
+    class AcceleratorCountRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AcceleratorCountRequest, context: context)
         type = Types::AcceleratorCountRequest.new
@@ -35,7 +35,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AcceleratorManufacturerSet
+    class AcceleratorManufacturerSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -46,7 +46,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AcceleratorNameSet
+    class AcceleratorNameSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -57,7 +57,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AcceleratorTotalMemoryMiB
+    class AcceleratorTotalMemoryMiB
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AcceleratorTotalMemoryMiB, context: context)
         type = Types::AcceleratorTotalMemoryMiB.new
@@ -68,7 +68,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AcceleratorTotalMemoryMiBRequest
+    class AcceleratorTotalMemoryMiBRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AcceleratorTotalMemoryMiBRequest, context: context)
         type = Types::AcceleratorTotalMemoryMiBRequest.new
@@ -79,7 +79,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AcceleratorTypeSet
+    class AcceleratorTypeSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -90,7 +90,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AcceptAddressTransferInput
+    class AcceptAddressTransferInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AcceptAddressTransferInput, context: context)
         type = Types::AcceptAddressTransferInput.new
@@ -102,7 +102,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AcceptAddressTransferOutput
+    class AcceptAddressTransferOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AcceptAddressTransferOutput, context: context)
         type = Types::AcceptAddressTransferOutput.new
@@ -112,7 +112,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AcceptReservedInstancesExchangeQuoteInput
+    class AcceptReservedInstancesExchangeQuoteInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AcceptReservedInstancesExchangeQuoteInput, context: context)
         type = Types::AcceptReservedInstancesExchangeQuoteInput.new
@@ -124,7 +124,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AcceptReservedInstancesExchangeQuoteOutput
+    class AcceptReservedInstancesExchangeQuoteOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AcceptReservedInstancesExchangeQuoteOutput, context: context)
         type = Types::AcceptReservedInstancesExchangeQuoteOutput.new
@@ -134,7 +134,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AcceptTransitGatewayMulticastDomainAssociationsInput
+    class AcceptTransitGatewayMulticastDomainAssociationsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AcceptTransitGatewayMulticastDomainAssociationsInput, context: context)
         type = Types::AcceptTransitGatewayMulticastDomainAssociationsInput.new
@@ -147,7 +147,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AcceptTransitGatewayMulticastDomainAssociationsOutput
+    class AcceptTransitGatewayMulticastDomainAssociationsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AcceptTransitGatewayMulticastDomainAssociationsOutput, context: context)
         type = Types::AcceptTransitGatewayMulticastDomainAssociationsOutput.new
@@ -157,7 +157,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AcceptTransitGatewayPeeringAttachmentInput
+    class AcceptTransitGatewayPeeringAttachmentInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AcceptTransitGatewayPeeringAttachmentInput, context: context)
         type = Types::AcceptTransitGatewayPeeringAttachmentInput.new
@@ -168,7 +168,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AcceptTransitGatewayPeeringAttachmentOutput
+    class AcceptTransitGatewayPeeringAttachmentOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AcceptTransitGatewayPeeringAttachmentOutput, context: context)
         type = Types::AcceptTransitGatewayPeeringAttachmentOutput.new
@@ -178,7 +178,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AcceptTransitGatewayVpcAttachmentInput
+    class AcceptTransitGatewayVpcAttachmentInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AcceptTransitGatewayVpcAttachmentInput, context: context)
         type = Types::AcceptTransitGatewayVpcAttachmentInput.new
@@ -189,7 +189,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AcceptTransitGatewayVpcAttachmentOutput
+    class AcceptTransitGatewayVpcAttachmentOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AcceptTransitGatewayVpcAttachmentOutput, context: context)
         type = Types::AcceptTransitGatewayVpcAttachmentOutput.new
@@ -199,7 +199,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AcceptVpcEndpointConnectionsInput
+    class AcceptVpcEndpointConnectionsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AcceptVpcEndpointConnectionsInput, context: context)
         type = Types::AcceptVpcEndpointConnectionsInput.new
@@ -211,7 +211,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AcceptVpcEndpointConnectionsOutput
+    class AcceptVpcEndpointConnectionsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AcceptVpcEndpointConnectionsOutput, context: context)
         type = Types::AcceptVpcEndpointConnectionsOutput.new
@@ -221,7 +221,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AcceptVpcPeeringConnectionInput
+    class AcceptVpcPeeringConnectionInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AcceptVpcPeeringConnectionInput, context: context)
         type = Types::AcceptVpcPeeringConnectionInput.new
@@ -232,7 +232,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AcceptVpcPeeringConnectionOutput
+    class AcceptVpcPeeringConnectionOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AcceptVpcPeeringConnectionOutput, context: context)
         type = Types::AcceptVpcPeeringConnectionOutput.new
@@ -242,7 +242,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AccessScopeAnalysisFinding
+    class AccessScopeAnalysisFinding
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AccessScopeAnalysisFinding, context: context)
         type = Types::AccessScopeAnalysisFinding.new
@@ -255,7 +255,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AccessScopeAnalysisFindingList
+    class AccessScopeAnalysisFindingList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -266,7 +266,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AccessScopePath
+    class AccessScopePath
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AccessScopePath, context: context)
         type = Types::AccessScopePath.new
@@ -278,7 +278,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AccessScopePathList
+    class AccessScopePathList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -289,7 +289,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AccessScopePathListRequest
+    class AccessScopePathListRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -300,7 +300,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AccessScopePathRequest
+    class AccessScopePathRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AccessScopePathRequest, context: context)
         type = Types::AccessScopePathRequest.new
@@ -312,7 +312,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AccountAttribute
+    class AccountAttribute
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AccountAttribute, context: context)
         type = Types::AccountAttribute.new
@@ -323,7 +323,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AccountAttributeList
+    class AccountAttributeList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -334,7 +334,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AccountAttributeNameStringList
+    class AccountAttributeNameStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -345,7 +345,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AccountAttributeValue
+    class AccountAttributeValue
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AccountAttributeValue, context: context)
         type = Types::AccountAttributeValue.new
@@ -355,7 +355,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AccountAttributeValueList
+    class AccountAttributeValueList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -366,7 +366,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ActiveInstance
+    class ActiveInstance
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ActiveInstance, context: context)
         type = Types::ActiveInstance.new
@@ -379,7 +379,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ActiveInstanceSet
+    class ActiveInstanceSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -390,7 +390,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AddIpamOperatingRegion
+    class AddIpamOperatingRegion
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AddIpamOperatingRegion, context: context)
         type = Types::AddIpamOperatingRegion.new
@@ -400,7 +400,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AddIpamOperatingRegionSet
+    class AddIpamOperatingRegionSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -411,7 +411,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AddPrefixListEntries
+    class AddPrefixListEntries
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -422,7 +422,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AddPrefixListEntry
+    class AddPrefixListEntry
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AddPrefixListEntry, context: context)
         type = Types::AddPrefixListEntry.new
@@ -433,7 +433,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AddedPrincipal
+    class AddedPrincipal
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AddedPrincipal, context: context)
         type = Types::AddedPrincipal.new
@@ -446,7 +446,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AddedPrincipalSet
+    class AddedPrincipalSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -457,7 +457,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AdditionalDetail
+    class AdditionalDetail
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AdditionalDetail, context: context)
         type = Types::AdditionalDetail.new
@@ -474,7 +474,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AdditionalDetailList
+    class AdditionalDetailList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -485,7 +485,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Address
+    class Address
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Address, context: context)
         type = Types::Address.new
@@ -508,7 +508,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AddressAttribute
+    class AddressAttribute
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AddressAttribute, context: context)
         type = Types::AddressAttribute.new
@@ -521,7 +521,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AddressList
+    class AddressList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -532,7 +532,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AddressSet
+    class AddressSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -543,7 +543,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AddressTransfer
+    class AddressTransfer
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AddressTransfer, context: context)
         type = Types::AddressTransfer.new
@@ -558,7 +558,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AddressTransferList
+    class AddressTransferList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -569,7 +569,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AdvertiseByoipCidrInput
+    class AdvertiseByoipCidrInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AdvertiseByoipCidrInput, context: context)
         type = Types::AdvertiseByoipCidrInput.new
@@ -582,7 +582,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AdvertiseByoipCidrOutput
+    class AdvertiseByoipCidrOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AdvertiseByoipCidrOutput, context: context)
         type = Types::AdvertiseByoipCidrOutput.new
@@ -592,7 +592,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AllocateAddressInput
+    class AllocateAddressInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AllocateAddressInput, context: context)
         type = Types::AllocateAddressInput.new
@@ -608,7 +608,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AllocateAddressOutput
+    class AllocateAddressOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AllocateAddressOutput, context: context)
         type = Types::AllocateAddressOutput.new
@@ -625,7 +625,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AllocateHostsInput
+    class AllocateHostsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AllocateHostsInput, context: context)
         type = Types::AllocateHostsInput.new
@@ -645,7 +645,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AllocateHostsOutput
+    class AllocateHostsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AllocateHostsOutput, context: context)
         type = Types::AllocateHostsOutput.new
@@ -655,7 +655,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AllocateIpamPoolCidrInput
+    class AllocateIpamPoolCidrInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AllocateIpamPoolCidrInput, context: context)
         type = Types::AllocateIpamPoolCidrInput.new
@@ -673,7 +673,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AllocateIpamPoolCidrOutput
+    class AllocateIpamPoolCidrOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AllocateIpamPoolCidrOutput, context: context)
         type = Types::AllocateIpamPoolCidrOutput.new
@@ -683,7 +683,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AllocationIdList
+    class AllocationIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -694,7 +694,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AllocationIds
+    class AllocationIds
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -705,7 +705,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AllowedInstanceTypeSet
+    class AllowedInstanceTypeSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -716,7 +716,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AllowedPrincipal
+    class AllowedPrincipal
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AllowedPrincipal, context: context)
         type = Types::AllowedPrincipal.new
@@ -730,7 +730,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AllowedPrincipalSet
+    class AllowedPrincipalSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -741,7 +741,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AlternatePathHint
+    class AlternatePathHint
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AlternatePathHint, context: context)
         type = Types::AlternatePathHint.new
@@ -752,7 +752,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AlternatePathHintList
+    class AlternatePathHintList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -763,7 +763,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AnalysisAclRule
+    class AnalysisAclRule
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AnalysisAclRule, context: context)
         type = Types::AnalysisAclRule.new
@@ -778,7 +778,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AnalysisComponent
+    class AnalysisComponent
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AnalysisComponent, context: context)
         type = Types::AnalysisComponent.new
@@ -790,7 +790,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AnalysisComponentList
+    class AnalysisComponentList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -801,7 +801,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AnalysisLoadBalancerListener
+    class AnalysisLoadBalancerListener
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AnalysisLoadBalancerListener, context: context)
         type = Types::AnalysisLoadBalancerListener.new
@@ -812,7 +812,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AnalysisLoadBalancerTarget
+    class AnalysisLoadBalancerTarget
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AnalysisLoadBalancerTarget, context: context)
         type = Types::AnalysisLoadBalancerTarget.new
@@ -825,7 +825,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AnalysisPacketHeader
+    class AnalysisPacketHeader
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AnalysisPacketHeader, context: context)
         type = Types::AnalysisPacketHeader.new
@@ -839,7 +839,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AnalysisRouteTableRoute
+    class AnalysisRouteTableRoute
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AnalysisRouteTableRoute, context: context)
         type = Types::AnalysisRouteTableRoute.new
@@ -862,7 +862,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AnalysisSecurityGroupRule
+    class AnalysisSecurityGroupRule
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AnalysisSecurityGroupRule, context: context)
         type = Types::AnalysisSecurityGroupRule.new
@@ -877,7 +877,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ApplySecurityGroupsToClientVpnTargetNetworkInput
+    class ApplySecurityGroupsToClientVpnTargetNetworkInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ApplySecurityGroupsToClientVpnTargetNetworkInput, context: context)
         type = Types::ApplySecurityGroupsToClientVpnTargetNetworkInput.new
@@ -890,7 +890,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ApplySecurityGroupsToClientVpnTargetNetworkOutput
+    class ApplySecurityGroupsToClientVpnTargetNetworkOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ApplySecurityGroupsToClientVpnTargetNetworkOutput, context: context)
         type = Types::ApplySecurityGroupsToClientVpnTargetNetworkOutput.new
@@ -900,7 +900,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ArchitectureTypeList
+    class ArchitectureTypeList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -911,7 +911,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ArchitectureTypeSet
+    class ArchitectureTypeSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -922,7 +922,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ArnList
+    class ArnList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -933,7 +933,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AsnAssociation
+    class AsnAssociation
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AsnAssociation, context: context)
         type = Types::AsnAssociation.new
@@ -946,7 +946,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AsnAssociationSet
+    class AsnAssociationSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -957,7 +957,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AsnAuthorizationContext
+    class AsnAuthorizationContext
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AsnAuthorizationContext, context: context)
         type = Types::AsnAuthorizationContext.new
@@ -968,7 +968,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AssetIdList
+    class AssetIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -979,7 +979,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AssignIpv6AddressesInput
+    class AssignIpv6AddressesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AssignIpv6AddressesInput, context: context)
         type = Types::AssignIpv6AddressesInput.new
@@ -993,7 +993,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AssignIpv6AddressesOutput
+    class AssignIpv6AddressesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AssignIpv6AddressesOutput, context: context)
         type = Types::AssignIpv6AddressesOutput.new
@@ -1005,7 +1005,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AssignPrivateIpAddressesInput
+    class AssignPrivateIpAddressesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AssignPrivateIpAddressesInput, context: context)
         type = Types::AssignPrivateIpAddressesInput.new
@@ -1020,7 +1020,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AssignPrivateIpAddressesOutput
+    class AssignPrivateIpAddressesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AssignPrivateIpAddressesOutput, context: context)
         type = Types::AssignPrivateIpAddressesOutput.new
@@ -1032,7 +1032,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AssignPrivateNatGatewayAddressInput
+    class AssignPrivateNatGatewayAddressInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AssignPrivateNatGatewayAddressInput, context: context)
         type = Types::AssignPrivateNatGatewayAddressInput.new
@@ -1045,7 +1045,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AssignPrivateNatGatewayAddressOutput
+    class AssignPrivateNatGatewayAddressOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AssignPrivateNatGatewayAddressOutput, context: context)
         type = Types::AssignPrivateNatGatewayAddressOutput.new
@@ -1056,7 +1056,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AssignedPrivateIpAddress
+    class AssignedPrivateIpAddress
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AssignedPrivateIpAddress, context: context)
         type = Types::AssignedPrivateIpAddress.new
@@ -1066,7 +1066,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AssignedPrivateIpAddressList
+    class AssignedPrivateIpAddressList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -1077,7 +1077,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AssociateAddressInput
+    class AssociateAddressInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AssociateAddressInput, context: context)
         type = Types::AssociateAddressInput.new
@@ -1093,7 +1093,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AssociateAddressOutput
+    class AssociateAddressOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AssociateAddressOutput, context: context)
         type = Types::AssociateAddressOutput.new
@@ -1103,7 +1103,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AssociateClientVpnTargetNetworkInput
+    class AssociateClientVpnTargetNetworkInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AssociateClientVpnTargetNetworkInput, context: context)
         type = Types::AssociateClientVpnTargetNetworkInput.new
@@ -1116,7 +1116,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AssociateClientVpnTargetNetworkOutput
+    class AssociateClientVpnTargetNetworkOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AssociateClientVpnTargetNetworkOutput, context: context)
         type = Types::AssociateClientVpnTargetNetworkOutput.new
@@ -1127,7 +1127,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AssociateDhcpOptionsInput
+    class AssociateDhcpOptionsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AssociateDhcpOptionsInput, context: context)
         type = Types::AssociateDhcpOptionsInput.new
@@ -1139,7 +1139,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AssociateDhcpOptionsOutput
+    class AssociateDhcpOptionsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AssociateDhcpOptionsOutput, context: context)
         type = Types::AssociateDhcpOptionsOutput.new
@@ -1148,7 +1148,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AssociateEnclaveCertificateIamRoleInput
+    class AssociateEnclaveCertificateIamRoleInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AssociateEnclaveCertificateIamRoleInput, context: context)
         type = Types::AssociateEnclaveCertificateIamRoleInput.new
@@ -1160,7 +1160,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AssociateEnclaveCertificateIamRoleOutput
+    class AssociateEnclaveCertificateIamRoleOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AssociateEnclaveCertificateIamRoleOutput, context: context)
         type = Types::AssociateEnclaveCertificateIamRoleOutput.new
@@ -1172,7 +1172,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AssociateIamInstanceProfileInput
+    class AssociateIamInstanceProfileInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AssociateIamInstanceProfileInput, context: context)
         type = Types::AssociateIamInstanceProfileInput.new
@@ -1183,7 +1183,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AssociateIamInstanceProfileOutput
+    class AssociateIamInstanceProfileOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AssociateIamInstanceProfileOutput, context: context)
         type = Types::AssociateIamInstanceProfileOutput.new
@@ -1193,7 +1193,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AssociateInstanceEventWindowInput
+    class AssociateInstanceEventWindowInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AssociateInstanceEventWindowInput, context: context)
         type = Types::AssociateInstanceEventWindowInput.new
@@ -1205,7 +1205,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AssociateInstanceEventWindowOutput
+    class AssociateInstanceEventWindowOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AssociateInstanceEventWindowOutput, context: context)
         type = Types::AssociateInstanceEventWindowOutput.new
@@ -1215,7 +1215,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AssociateIpamByoasnInput
+    class AssociateIpamByoasnInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AssociateIpamByoasnInput, context: context)
         type = Types::AssociateIpamByoasnInput.new
@@ -1227,7 +1227,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AssociateIpamByoasnOutput
+    class AssociateIpamByoasnOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AssociateIpamByoasnOutput, context: context)
         type = Types::AssociateIpamByoasnOutput.new
@@ -1237,7 +1237,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AssociateIpamResourceDiscoveryInput
+    class AssociateIpamResourceDiscoveryInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AssociateIpamResourceDiscoveryInput, context: context)
         type = Types::AssociateIpamResourceDiscoveryInput.new
@@ -1251,7 +1251,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AssociateIpamResourceDiscoveryOutput
+    class AssociateIpamResourceDiscoveryOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AssociateIpamResourceDiscoveryOutput, context: context)
         type = Types::AssociateIpamResourceDiscoveryOutput.new
@@ -1261,7 +1261,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AssociateNatGatewayAddressInput
+    class AssociateNatGatewayAddressInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AssociateNatGatewayAddressInput, context: context)
         type = Types::AssociateNatGatewayAddressInput.new
@@ -1274,7 +1274,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AssociateNatGatewayAddressOutput
+    class AssociateNatGatewayAddressOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AssociateNatGatewayAddressOutput, context: context)
         type = Types::AssociateNatGatewayAddressOutput.new
@@ -1285,7 +1285,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AssociateRouteTableInput
+    class AssociateRouteTableInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AssociateRouteTableInput, context: context)
         type = Types::AssociateRouteTableInput.new
@@ -1298,7 +1298,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AssociateRouteTableOutput
+    class AssociateRouteTableOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AssociateRouteTableOutput, context: context)
         type = Types::AssociateRouteTableOutput.new
@@ -1309,7 +1309,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AssociateSubnetCidrBlockInput
+    class AssociateSubnetCidrBlockInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AssociateSubnetCidrBlockInput, context: context)
         type = Types::AssociateSubnetCidrBlockInput.new
@@ -1322,7 +1322,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AssociateSubnetCidrBlockOutput
+    class AssociateSubnetCidrBlockOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AssociateSubnetCidrBlockOutput, context: context)
         type = Types::AssociateSubnetCidrBlockOutput.new
@@ -1333,7 +1333,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AssociateTransitGatewayMulticastDomainInput
+    class AssociateTransitGatewayMulticastDomainInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AssociateTransitGatewayMulticastDomainInput, context: context)
         type = Types::AssociateTransitGatewayMulticastDomainInput.new
@@ -1346,7 +1346,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AssociateTransitGatewayMulticastDomainOutput
+    class AssociateTransitGatewayMulticastDomainOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AssociateTransitGatewayMulticastDomainOutput, context: context)
         type = Types::AssociateTransitGatewayMulticastDomainOutput.new
@@ -1356,7 +1356,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AssociateTransitGatewayPolicyTableInput
+    class AssociateTransitGatewayPolicyTableInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AssociateTransitGatewayPolicyTableInput, context: context)
         type = Types::AssociateTransitGatewayPolicyTableInput.new
@@ -1368,7 +1368,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AssociateTransitGatewayPolicyTableOutput
+    class AssociateTransitGatewayPolicyTableOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AssociateTransitGatewayPolicyTableOutput, context: context)
         type = Types::AssociateTransitGatewayPolicyTableOutput.new
@@ -1378,7 +1378,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AssociateTransitGatewayRouteTableInput
+    class AssociateTransitGatewayRouteTableInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AssociateTransitGatewayRouteTableInput, context: context)
         type = Types::AssociateTransitGatewayRouteTableInput.new
@@ -1390,7 +1390,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AssociateTransitGatewayRouteTableOutput
+    class AssociateTransitGatewayRouteTableOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AssociateTransitGatewayRouteTableOutput, context: context)
         type = Types::AssociateTransitGatewayRouteTableOutput.new
@@ -1400,7 +1400,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AssociateTrunkInterfaceInput
+    class AssociateTrunkInterfaceInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AssociateTrunkInterfaceInput, context: context)
         type = Types::AssociateTrunkInterfaceInput.new
@@ -1415,7 +1415,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AssociateTrunkInterfaceOutput
+    class AssociateTrunkInterfaceOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AssociateTrunkInterfaceOutput, context: context)
         type = Types::AssociateTrunkInterfaceOutput.new
@@ -1426,7 +1426,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AssociateVpcCidrBlockInput
+    class AssociateVpcCidrBlockInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AssociateVpcCidrBlockInput, context: context)
         type = Types::AssociateVpcCidrBlockInput.new
@@ -1445,7 +1445,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AssociateVpcCidrBlockOutput
+    class AssociateVpcCidrBlockOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AssociateVpcCidrBlockOutput, context: context)
         type = Types::AssociateVpcCidrBlockOutput.new
@@ -1457,7 +1457,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AssociatedRole
+    class AssociatedRole
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AssociatedRole, context: context)
         type = Types::AssociatedRole.new
@@ -1470,7 +1470,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AssociatedRolesList
+    class AssociatedRolesList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -1481,7 +1481,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AssociatedTargetNetwork
+    class AssociatedTargetNetwork
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AssociatedTargetNetwork, context: context)
         type = Types::AssociatedTargetNetwork.new
@@ -1492,7 +1492,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AssociatedTargetNetworkSet
+    class AssociatedTargetNetworkSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -1503,7 +1503,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AssociationIdList
+    class AssociationIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -1514,7 +1514,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AssociationStatus
+    class AssociationStatus
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AssociationStatus, context: context)
         type = Types::AssociationStatus.new
@@ -1525,7 +1525,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AthenaIntegration
+    class AthenaIntegration
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AthenaIntegration, context: context)
         type = Types::AthenaIntegration.new
@@ -1538,7 +1538,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AthenaIntegrationsSet
+    class AthenaIntegrationsSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -1549,7 +1549,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AttachClassicLinkVpcInput
+    class AttachClassicLinkVpcInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AttachClassicLinkVpcInput, context: context)
         type = Types::AttachClassicLinkVpcInput.new
@@ -1562,7 +1562,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AttachClassicLinkVpcOutput
+    class AttachClassicLinkVpcOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AttachClassicLinkVpcOutput, context: context)
         type = Types::AttachClassicLinkVpcOutput.new
@@ -1572,7 +1572,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AttachInternetGatewayInput
+    class AttachInternetGatewayInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AttachInternetGatewayInput, context: context)
         type = Types::AttachInternetGatewayInput.new
@@ -1584,7 +1584,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AttachInternetGatewayOutput
+    class AttachInternetGatewayOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AttachInternetGatewayOutput, context: context)
         type = Types::AttachInternetGatewayOutput.new
@@ -1593,7 +1593,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AttachNetworkInterfaceInput
+    class AttachNetworkInterfaceInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AttachNetworkInterfaceInput, context: context)
         type = Types::AttachNetworkInterfaceInput.new
@@ -1608,7 +1608,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AttachNetworkInterfaceOutput
+    class AttachNetworkInterfaceOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AttachNetworkInterfaceOutput, context: context)
         type = Types::AttachNetworkInterfaceOutput.new
@@ -1619,7 +1619,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AttachVerifiedAccessTrustProviderInput
+    class AttachVerifiedAccessTrustProviderInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AttachVerifiedAccessTrustProviderInput, context: context)
         type = Types::AttachVerifiedAccessTrustProviderInput.new
@@ -1632,7 +1632,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AttachVerifiedAccessTrustProviderOutput
+    class AttachVerifiedAccessTrustProviderOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AttachVerifiedAccessTrustProviderOutput, context: context)
         type = Types::AttachVerifiedAccessTrustProviderOutput.new
@@ -1643,7 +1643,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AttachVolumeInput
+    class AttachVolumeInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AttachVolumeInput, context: context)
         type = Types::AttachVolumeInput.new
@@ -1656,7 +1656,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AttachVolumeOutput
+    class AttachVolumeOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AttachVolumeOutput, context: context)
         type = Types::AttachVolumeOutput.new
@@ -1673,7 +1673,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AttachVpnGatewayInput
+    class AttachVpnGatewayInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AttachVpnGatewayInput, context: context)
         type = Types::AttachVpnGatewayInput.new
@@ -1685,7 +1685,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AttachVpnGatewayOutput
+    class AttachVpnGatewayOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AttachVpnGatewayOutput, context: context)
         type = Types::AttachVpnGatewayOutput.new
@@ -1695,7 +1695,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AttachmentEnaSrdSpecification
+    class AttachmentEnaSrdSpecification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AttachmentEnaSrdSpecification, context: context)
         type = Types::AttachmentEnaSrdSpecification.new
@@ -1706,7 +1706,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AttachmentEnaSrdUdpSpecification
+    class AttachmentEnaSrdUdpSpecification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AttachmentEnaSrdUdpSpecification, context: context)
         type = Types::AttachmentEnaSrdUdpSpecification.new
@@ -1716,7 +1716,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AttributeBooleanValue
+    class AttributeBooleanValue
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AttributeBooleanValue, context: context)
         type = Types::AttributeBooleanValue.new
@@ -1726,7 +1726,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AttributeValue
+    class AttributeValue
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AttributeValue, context: context)
         type = Types::AttributeValue.new
@@ -1736,7 +1736,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AuthorizationRule
+    class AuthorizationRule
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AuthorizationRule, context: context)
         type = Types::AuthorizationRule.new
@@ -1751,7 +1751,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AuthorizationRuleSet
+    class AuthorizationRuleSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -1762,7 +1762,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AuthorizeClientVpnIngressInput
+    class AuthorizeClientVpnIngressInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AuthorizeClientVpnIngressInput, context: context)
         type = Types::AuthorizeClientVpnIngressInput.new
@@ -1778,7 +1778,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AuthorizeClientVpnIngressOutput
+    class AuthorizeClientVpnIngressOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AuthorizeClientVpnIngressOutput, context: context)
         type = Types::AuthorizeClientVpnIngressOutput.new
@@ -1788,7 +1788,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AuthorizeSecurityGroupEgressInput
+    class AuthorizeSecurityGroupEgressInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AuthorizeSecurityGroupEgressInput, context: context)
         type = Types::AuthorizeSecurityGroupEgressInput.new
@@ -1807,7 +1807,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AuthorizeSecurityGroupEgressOutput
+    class AuthorizeSecurityGroupEgressOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AuthorizeSecurityGroupEgressOutput, context: context)
         type = Types::AuthorizeSecurityGroupEgressOutput.new
@@ -1818,7 +1818,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AuthorizeSecurityGroupIngressInput
+    class AuthorizeSecurityGroupIngressInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AuthorizeSecurityGroupIngressInput, context: context)
         type = Types::AuthorizeSecurityGroupIngressInput.new
@@ -1838,7 +1838,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AuthorizeSecurityGroupIngressOutput
+    class AuthorizeSecurityGroupIngressOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AuthorizeSecurityGroupIngressOutput, context: context)
         type = Types::AuthorizeSecurityGroupIngressOutput.new
@@ -1849,7 +1849,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AvailabilityZone
+    class AvailabilityZone
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AvailabilityZone, context: context)
         type = Types::AvailabilityZone.new
@@ -1869,7 +1869,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AvailabilityZoneList
+    class AvailabilityZoneList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -1880,7 +1880,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AvailabilityZoneMessage
+    class AvailabilityZoneMessage
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AvailabilityZoneMessage, context: context)
         type = Types::AvailabilityZoneMessage.new
@@ -1890,7 +1890,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AvailabilityZoneMessageList
+    class AvailabilityZoneMessageList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -1901,7 +1901,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AvailabilityZoneStringList
+    class AvailabilityZoneStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -1912,7 +1912,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AvailableCapacity
+    class AvailableCapacity
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AvailableCapacity, context: context)
         type = Types::AvailableCapacity.new
@@ -1923,7 +1923,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module AvailableInstanceCapacityList
+    class AvailableInstanceCapacityList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -1934,7 +1934,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module BaselineEbsBandwidthMbps
+    class BaselineEbsBandwidthMbps
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::BaselineEbsBandwidthMbps, context: context)
         type = Types::BaselineEbsBandwidthMbps.new
@@ -1945,7 +1945,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module BaselineEbsBandwidthMbpsRequest
+    class BaselineEbsBandwidthMbpsRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::BaselineEbsBandwidthMbpsRequest, context: context)
         type = Types::BaselineEbsBandwidthMbpsRequest.new
@@ -1956,7 +1956,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module BillingProductList
+    class BillingProductList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -1967,7 +1967,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module BlobAttributeValue
+    class BlobAttributeValue
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::BlobAttributeValue, context: context)
         type = Types::BlobAttributeValue.new
@@ -1977,7 +1977,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module BlockDeviceMapping
+    class BlockDeviceMapping
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::BlockDeviceMapping, context: context)
         type = Types::BlockDeviceMapping.new
@@ -1990,7 +1990,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module BlockDeviceMappingList
+    class BlockDeviceMappingList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2001,7 +2001,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module BlockDeviceMappingRequestList
+    class BlockDeviceMappingRequestList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2012,7 +2012,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module BootModeTypeList
+    class BootModeTypeList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2023,7 +2023,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module BundleIdStringList
+    class BundleIdStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2034,7 +2034,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module BundleInstanceInput
+    class BundleInstanceInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::BundleInstanceInput, context: context)
         type = Types::BundleInstanceInput.new
@@ -2046,7 +2046,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module BundleInstanceOutput
+    class BundleInstanceOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::BundleInstanceOutput, context: context)
         type = Types::BundleInstanceOutput.new
@@ -2056,7 +2056,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module BundleTask
+    class BundleTask
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::BundleTask, context: context)
         type = Types::BundleTask.new
@@ -2073,7 +2073,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module BundleTaskError
+    class BundleTaskError
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::BundleTaskError, context: context)
         type = Types::BundleTaskError.new
@@ -2084,7 +2084,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module BundleTaskList
+    class BundleTaskList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2095,7 +2095,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Byoasn
+    class Byoasn
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Byoasn, context: context)
         type = Types::Byoasn.new
@@ -2108,7 +2108,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ByoasnSet
+    class ByoasnSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2119,7 +2119,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ByoipCidr
+    class ByoipCidr
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ByoipCidr, context: context)
         type = Types::ByoipCidr.new
@@ -2134,7 +2134,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ByoipCidrSet
+    class ByoipCidrSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2145,7 +2145,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CancelBundleTaskInput
+    class CancelBundleTaskInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CancelBundleTaskInput, context: context)
         type = Types::CancelBundleTaskInput.new
@@ -2156,7 +2156,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CancelBundleTaskOutput
+    class CancelBundleTaskOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CancelBundleTaskOutput, context: context)
         type = Types::CancelBundleTaskOutput.new
@@ -2166,7 +2166,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CancelCapacityReservationFleetError
+    class CancelCapacityReservationFleetError
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CancelCapacityReservationFleetError, context: context)
         type = Types::CancelCapacityReservationFleetError.new
@@ -2177,7 +2177,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CancelCapacityReservationFleetsInput
+    class CancelCapacityReservationFleetsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CancelCapacityReservationFleetsInput, context: context)
         type = Types::CancelCapacityReservationFleetsInput.new
@@ -2188,7 +2188,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CancelCapacityReservationFleetsOutput
+    class CancelCapacityReservationFleetsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CancelCapacityReservationFleetsOutput, context: context)
         type = Types::CancelCapacityReservationFleetsOutput.new
@@ -2199,7 +2199,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CancelCapacityReservationInput
+    class CancelCapacityReservationInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CancelCapacityReservationInput, context: context)
         type = Types::CancelCapacityReservationInput.new
@@ -2210,7 +2210,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CancelCapacityReservationOutput
+    class CancelCapacityReservationOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CancelCapacityReservationOutput, context: context)
         type = Types::CancelCapacityReservationOutput.new
@@ -2220,7 +2220,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CancelConversionTaskInput
+    class CancelConversionTaskInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CancelConversionTaskInput, context: context)
         type = Types::CancelConversionTaskInput.new
@@ -2232,7 +2232,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CancelConversionTaskOutput
+    class CancelConversionTaskOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CancelConversionTaskOutput, context: context)
         type = Types::CancelConversionTaskOutput.new
@@ -2241,7 +2241,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CancelExportTaskInput
+    class CancelExportTaskInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CancelExportTaskInput, context: context)
         type = Types::CancelExportTaskInput.new
@@ -2251,7 +2251,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CancelExportTaskOutput
+    class CancelExportTaskOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CancelExportTaskOutput, context: context)
         type = Types::CancelExportTaskOutput.new
@@ -2260,7 +2260,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CancelImageLaunchPermissionInput
+    class CancelImageLaunchPermissionInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CancelImageLaunchPermissionInput, context: context)
         type = Types::CancelImageLaunchPermissionInput.new
@@ -2271,7 +2271,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CancelImageLaunchPermissionOutput
+    class CancelImageLaunchPermissionOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CancelImageLaunchPermissionOutput, context: context)
         type = Types::CancelImageLaunchPermissionOutput.new
@@ -2281,7 +2281,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CancelImportTaskInput
+    class CancelImportTaskInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CancelImportTaskInput, context: context)
         type = Types::CancelImportTaskInput.new
@@ -2293,7 +2293,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CancelImportTaskOutput
+    class CancelImportTaskOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CancelImportTaskOutput, context: context)
         type = Types::CancelImportTaskOutput.new
@@ -2305,7 +2305,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CancelReservedInstancesListingInput
+    class CancelReservedInstancesListingInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CancelReservedInstancesListingInput, context: context)
         type = Types::CancelReservedInstancesListingInput.new
@@ -2315,7 +2315,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CancelReservedInstancesListingOutput
+    class CancelReservedInstancesListingOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CancelReservedInstancesListingOutput, context: context)
         type = Types::CancelReservedInstancesListingOutput.new
@@ -2325,7 +2325,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CancelSpotFleetRequestsError
+    class CancelSpotFleetRequestsError
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CancelSpotFleetRequestsError, context: context)
         type = Types::CancelSpotFleetRequestsError.new
@@ -2336,7 +2336,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CancelSpotFleetRequestsErrorItem
+    class CancelSpotFleetRequestsErrorItem
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CancelSpotFleetRequestsErrorItem, context: context)
         type = Types::CancelSpotFleetRequestsErrorItem.new
@@ -2347,7 +2347,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CancelSpotFleetRequestsErrorSet
+    class CancelSpotFleetRequestsErrorSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2358,7 +2358,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CancelSpotFleetRequestsInput
+    class CancelSpotFleetRequestsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CancelSpotFleetRequestsInput, context: context)
         type = Types::CancelSpotFleetRequestsInput.new
@@ -2370,7 +2370,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CancelSpotFleetRequestsOutput
+    class CancelSpotFleetRequestsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CancelSpotFleetRequestsOutput, context: context)
         type = Types::CancelSpotFleetRequestsOutput.new
@@ -2381,7 +2381,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CancelSpotFleetRequestsSuccessItem
+    class CancelSpotFleetRequestsSuccessItem
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CancelSpotFleetRequestsSuccessItem, context: context)
         type = Types::CancelSpotFleetRequestsSuccessItem.new
@@ -2393,7 +2393,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CancelSpotFleetRequestsSuccessSet
+    class CancelSpotFleetRequestsSuccessSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2404,7 +2404,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CancelSpotInstanceRequestsInput
+    class CancelSpotInstanceRequestsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CancelSpotInstanceRequestsInput, context: context)
         type = Types::CancelSpotInstanceRequestsInput.new
@@ -2415,7 +2415,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CancelSpotInstanceRequestsOutput
+    class CancelSpotInstanceRequestsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CancelSpotInstanceRequestsOutput, context: context)
         type = Types::CancelSpotInstanceRequestsOutput.new
@@ -2425,7 +2425,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CancelledSpotInstanceRequest
+    class CancelledSpotInstanceRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CancelledSpotInstanceRequest, context: context)
         type = Types::CancelledSpotInstanceRequest.new
@@ -2436,7 +2436,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CancelledSpotInstanceRequestList
+    class CancelledSpotInstanceRequestList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2447,7 +2447,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CapacityAllocation
+    class CapacityAllocation
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CapacityAllocation, context: context)
         type = Types::CapacityAllocation.new
@@ -2458,7 +2458,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CapacityAllocations
+    class CapacityAllocations
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2469,7 +2469,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CapacityBlockOffering
+    class CapacityBlockOffering
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CapacityBlockOffering, context: context)
         type = Types::CapacityBlockOffering.new
@@ -2488,7 +2488,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CapacityBlockOfferingSet
+    class CapacityBlockOfferingSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2499,7 +2499,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CapacityReservation
+    class CapacityReservation
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CapacityReservation, context: context)
         type = Types::CapacityReservation.new
@@ -2532,7 +2532,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CapacityReservationFleet
+    class CapacityReservationFleet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CapacityReservationFleet, context: context)
         type = Types::CapacityReservationFleet.new
@@ -2553,7 +2553,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CapacityReservationFleetCancellationState
+    class CapacityReservationFleetCancellationState
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CapacityReservationFleetCancellationState, context: context)
         type = Types::CapacityReservationFleetCancellationState.new
@@ -2565,7 +2565,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CapacityReservationFleetCancellationStateSet
+    class CapacityReservationFleetCancellationStateSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2576,7 +2576,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CapacityReservationFleetIdSet
+    class CapacityReservationFleetIdSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2587,7 +2587,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CapacityReservationFleetSet
+    class CapacityReservationFleetSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2598,7 +2598,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CapacityReservationGroup
+    class CapacityReservationGroup
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CapacityReservationGroup, context: context)
         type = Types::CapacityReservationGroup.new
@@ -2609,7 +2609,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CapacityReservationGroupSet
+    class CapacityReservationGroupSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2620,7 +2620,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CapacityReservationIdSet
+    class CapacityReservationIdSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2631,7 +2631,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CapacityReservationOptions
+    class CapacityReservationOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CapacityReservationOptions, context: context)
         type = Types::CapacityReservationOptions.new
@@ -2641,7 +2641,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CapacityReservationOptionsRequest
+    class CapacityReservationOptionsRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CapacityReservationOptionsRequest, context: context)
         type = Types::CapacityReservationOptionsRequest.new
@@ -2651,7 +2651,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CapacityReservationSet
+    class CapacityReservationSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2662,7 +2662,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CapacityReservationSpecification
+    class CapacityReservationSpecification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CapacityReservationSpecification, context: context)
         type = Types::CapacityReservationSpecification.new
@@ -2673,7 +2673,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CapacityReservationSpecificationResponse
+    class CapacityReservationSpecificationResponse
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CapacityReservationSpecificationResponse, context: context)
         type = Types::CapacityReservationSpecificationResponse.new
@@ -2684,7 +2684,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CapacityReservationTarget
+    class CapacityReservationTarget
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CapacityReservationTarget, context: context)
         type = Types::CapacityReservationTarget.new
@@ -2695,7 +2695,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CapacityReservationTargetResponse
+    class CapacityReservationTargetResponse
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CapacityReservationTargetResponse, context: context)
         type = Types::CapacityReservationTargetResponse.new
@@ -2706,7 +2706,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CarrierGateway
+    class CarrierGateway
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CarrierGateway, context: context)
         type = Types::CarrierGateway.new
@@ -2720,7 +2720,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CarrierGatewayIdSet
+    class CarrierGatewayIdSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2731,7 +2731,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CarrierGatewaySet
+    class CarrierGatewaySet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2742,7 +2742,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CertificateAuthentication
+    class CertificateAuthentication
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CertificateAuthentication, context: context)
         type = Types::CertificateAuthentication.new
@@ -2752,7 +2752,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CertificateAuthenticationRequest
+    class CertificateAuthenticationRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CertificateAuthenticationRequest, context: context)
         type = Types::CertificateAuthenticationRequest.new
@@ -2762,7 +2762,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CidrAuthorizationContext
+    class CidrAuthorizationContext
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CidrAuthorizationContext, context: context)
         type = Types::CidrAuthorizationContext.new
@@ -2773,7 +2773,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CidrBlock
+    class CidrBlock
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CidrBlock, context: context)
         type = Types::CidrBlock.new
@@ -2783,7 +2783,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CidrBlockSet
+    class CidrBlockSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2794,7 +2794,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ClassicLinkDnsSupport
+    class ClassicLinkDnsSupport
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ClassicLinkDnsSupport, context: context)
         type = Types::ClassicLinkDnsSupport.new
@@ -2805,7 +2805,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ClassicLinkDnsSupportList
+    class ClassicLinkDnsSupportList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2816,7 +2816,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ClassicLinkInstance
+    class ClassicLinkInstance
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ClassicLinkInstance, context: context)
         type = Types::ClassicLinkInstance.new
@@ -2829,7 +2829,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ClassicLinkInstanceList
+    class ClassicLinkInstanceList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2840,7 +2840,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ClassicLoadBalancer
+    class ClassicLoadBalancer
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ClassicLoadBalancer, context: context)
         type = Types::ClassicLoadBalancer.new
@@ -2850,7 +2850,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ClassicLoadBalancers
+    class ClassicLoadBalancers
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2861,7 +2861,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ClassicLoadBalancersConfig
+    class ClassicLoadBalancersConfig
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ClassicLoadBalancersConfig, context: context)
         type = Types::ClassicLoadBalancersConfig.new
@@ -2871,7 +2871,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ClientCertificateRevocationListStatus
+    class ClientCertificateRevocationListStatus
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ClientCertificateRevocationListStatus, context: context)
         type = Types::ClientCertificateRevocationListStatus.new
@@ -2882,7 +2882,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ClientConnectOptions
+    class ClientConnectOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ClientConnectOptions, context: context)
         type = Types::ClientConnectOptions.new
@@ -2893,7 +2893,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ClientConnectResponseOptions
+    class ClientConnectResponseOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ClientConnectResponseOptions, context: context)
         type = Types::ClientConnectResponseOptions.new
@@ -2905,7 +2905,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ClientData
+    class ClientData
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ClientData, context: context)
         type = Types::ClientData.new
@@ -2918,7 +2918,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ClientLoginBannerOptions
+    class ClientLoginBannerOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ClientLoginBannerOptions, context: context)
         type = Types::ClientLoginBannerOptions.new
@@ -2929,7 +2929,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ClientLoginBannerResponseOptions
+    class ClientLoginBannerResponseOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ClientLoginBannerResponseOptions, context: context)
         type = Types::ClientLoginBannerResponseOptions.new
@@ -2940,7 +2940,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ClientVpnAuthentication
+    class ClientVpnAuthentication
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ClientVpnAuthentication, context: context)
         type = Types::ClientVpnAuthentication.new
@@ -2953,7 +2953,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ClientVpnAuthenticationList
+    class ClientVpnAuthenticationList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2964,7 +2964,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ClientVpnAuthenticationRequest
+    class ClientVpnAuthenticationRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ClientVpnAuthenticationRequest, context: context)
         type = Types::ClientVpnAuthenticationRequest.new
@@ -2977,7 +2977,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ClientVpnAuthenticationRequestList
+    class ClientVpnAuthenticationRequestList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2988,7 +2988,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ClientVpnAuthorizationRuleStatus
+    class ClientVpnAuthorizationRuleStatus
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ClientVpnAuthorizationRuleStatus, context: context)
         type = Types::ClientVpnAuthorizationRuleStatus.new
@@ -2999,7 +2999,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ClientVpnConnection
+    class ClientVpnConnection
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ClientVpnConnection, context: context)
         type = Types::ClientVpnConnection.new
@@ -3022,7 +3022,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ClientVpnConnectionSet
+    class ClientVpnConnectionSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -3033,7 +3033,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ClientVpnConnectionStatus
+    class ClientVpnConnectionStatus
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ClientVpnConnectionStatus, context: context)
         type = Types::ClientVpnConnectionStatus.new
@@ -3044,7 +3044,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ClientVpnEndpoint
+    class ClientVpnEndpoint
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ClientVpnEndpoint, context: context)
         type = Types::ClientVpnEndpoint.new
@@ -3076,7 +3076,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ClientVpnEndpointAttributeStatus
+    class ClientVpnEndpointAttributeStatus
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ClientVpnEndpointAttributeStatus, context: context)
         type = Types::ClientVpnEndpointAttributeStatus.new
@@ -3087,7 +3087,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ClientVpnEndpointIdList
+    class ClientVpnEndpointIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -3098,7 +3098,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ClientVpnEndpointStatus
+    class ClientVpnEndpointStatus
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ClientVpnEndpointStatus, context: context)
         type = Types::ClientVpnEndpointStatus.new
@@ -3109,7 +3109,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ClientVpnRoute
+    class ClientVpnRoute
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ClientVpnRoute, context: context)
         type = Types::ClientVpnRoute.new
@@ -3125,7 +3125,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ClientVpnRouteSet
+    class ClientVpnRouteSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -3136,7 +3136,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ClientVpnRouteStatus
+    class ClientVpnRouteStatus
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ClientVpnRouteStatus, context: context)
         type = Types::ClientVpnRouteStatus.new
@@ -3147,7 +3147,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ClientVpnSecurityGroupIdSet
+    class ClientVpnSecurityGroupIdSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -3158,7 +3158,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CloudWatchLogOptions
+    class CloudWatchLogOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CloudWatchLogOptions, context: context)
         type = Types::CloudWatchLogOptions.new
@@ -3170,7 +3170,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CloudWatchLogOptionsSpecification
+    class CloudWatchLogOptionsSpecification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CloudWatchLogOptionsSpecification, context: context)
         type = Types::CloudWatchLogOptionsSpecification.new
@@ -3182,7 +3182,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CoipAddressUsage
+    class CoipAddressUsage
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CoipAddressUsage, context: context)
         type = Types::CoipAddressUsage.new
@@ -3195,7 +3195,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CoipAddressUsageSet
+    class CoipAddressUsageSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -3206,7 +3206,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CoipCidr
+    class CoipCidr
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CoipCidr, context: context)
         type = Types::CoipCidr.new
@@ -3218,7 +3218,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CoipPool
+    class CoipPool
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CoipPool, context: context)
         type = Types::CoipPool.new
@@ -3232,7 +3232,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CoipPoolIdSet
+    class CoipPoolIdSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -3243,7 +3243,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CoipPoolSet
+    class CoipPoolSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -3254,7 +3254,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ConfirmProductInstanceInput
+    class ConfirmProductInstanceInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ConfirmProductInstanceInput, context: context)
         type = Types::ConfirmProductInstanceInput.new
@@ -3266,7 +3266,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ConfirmProductInstanceOutput
+    class ConfirmProductInstanceOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ConfirmProductInstanceOutput, context: context)
         type = Types::ConfirmProductInstanceOutput.new
@@ -3277,7 +3277,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ConnectionLogOptions
+    class ConnectionLogOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ConnectionLogOptions, context: context)
         type = Types::ConnectionLogOptions.new
@@ -3289,7 +3289,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ConnectionLogResponseOptions
+    class ConnectionLogResponseOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ConnectionLogResponseOptions, context: context)
         type = Types::ConnectionLogResponseOptions.new
@@ -3301,7 +3301,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ConnectionNotification
+    class ConnectionNotification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ConnectionNotification, context: context)
         type = Types::ConnectionNotification.new
@@ -3317,7 +3317,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ConnectionNotificationIdsList
+    class ConnectionNotificationIdsList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -3328,7 +3328,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ConnectionNotificationSet
+    class ConnectionNotificationSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -3339,7 +3339,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ConnectionTrackingConfiguration
+    class ConnectionTrackingConfiguration
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ConnectionTrackingConfiguration, context: context)
         type = Types::ConnectionTrackingConfiguration.new
@@ -3351,7 +3351,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ConnectionTrackingSpecification
+    class ConnectionTrackingSpecification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ConnectionTrackingSpecification, context: context)
         type = Types::ConnectionTrackingSpecification.new
@@ -3363,7 +3363,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ConnectionTrackingSpecificationRequest
+    class ConnectionTrackingSpecificationRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ConnectionTrackingSpecificationRequest, context: context)
         type = Types::ConnectionTrackingSpecificationRequest.new
@@ -3375,7 +3375,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ConnectionTrackingSpecificationResponse
+    class ConnectionTrackingSpecificationResponse
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ConnectionTrackingSpecificationResponse, context: context)
         type = Types::ConnectionTrackingSpecificationResponse.new
@@ -3387,7 +3387,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ConversionIdStringList
+    class ConversionIdStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -3398,7 +3398,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ConversionTask
+    class ConversionTask
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ConversionTask, context: context)
         type = Types::ConversionTask.new
@@ -3414,7 +3414,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CopyFpgaImageInput
+    class CopyFpgaImageInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CopyFpgaImageInput, context: context)
         type = Types::CopyFpgaImageInput.new
@@ -3429,7 +3429,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CopyFpgaImageOutput
+    class CopyFpgaImageOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CopyFpgaImageOutput, context: context)
         type = Types::CopyFpgaImageOutput.new
@@ -3439,7 +3439,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CopyImageInput
+    class CopyImageInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CopyImageInput, context: context)
         type = Types::CopyImageInput.new
@@ -3458,7 +3458,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CopyImageOutput
+    class CopyImageOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CopyImageOutput, context: context)
         type = Types::CopyImageOutput.new
@@ -3468,7 +3468,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CopySnapshotInput
+    class CopySnapshotInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CopySnapshotInput, context: context)
         type = Types::CopySnapshotInput.new
@@ -3487,7 +3487,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CopySnapshotOutput
+    class CopySnapshotOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CopySnapshotOutput, context: context)
         type = Types::CopySnapshotOutput.new
@@ -3498,7 +3498,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CoreCountList
+    class CoreCountList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -3509,7 +3509,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CpuManufacturerSet
+    class CpuManufacturerSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -3520,7 +3520,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CpuOptions
+    class CpuOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CpuOptions, context: context)
         type = Types::CpuOptions.new
@@ -3532,7 +3532,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CpuOptionsRequest
+    class CpuOptionsRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CpuOptionsRequest, context: context)
         type = Types::CpuOptionsRequest.new
@@ -3544,7 +3544,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateCapacityReservationFleetInput
+    class CreateCapacityReservationFleetInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateCapacityReservationFleetInput, context: context)
         type = Types::CreateCapacityReservationFleetInput.new
@@ -3562,7 +3562,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateCapacityReservationFleetOutput
+    class CreateCapacityReservationFleetOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateCapacityReservationFleetOutput, context: context)
         type = Types::CreateCapacityReservationFleetOutput.new
@@ -3582,7 +3582,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateCapacityReservationInput
+    class CreateCapacityReservationInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateCapacityReservationInput, context: context)
         type = Types::CreateCapacityReservationInput.new
@@ -3607,7 +3607,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateCapacityReservationOutput
+    class CreateCapacityReservationOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateCapacityReservationOutput, context: context)
         type = Types::CreateCapacityReservationOutput.new
@@ -3617,7 +3617,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateCarrierGatewayInput
+    class CreateCarrierGatewayInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateCarrierGatewayInput, context: context)
         type = Types::CreateCarrierGatewayInput.new
@@ -3630,7 +3630,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateCarrierGatewayOutput
+    class CreateCarrierGatewayOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateCarrierGatewayOutput, context: context)
         type = Types::CreateCarrierGatewayOutput.new
@@ -3640,7 +3640,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateClientVpnEndpointInput
+    class CreateClientVpnEndpointInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateClientVpnEndpointInput, context: context)
         type = Types::CreateClientVpnEndpointInput.new
@@ -3667,7 +3667,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateClientVpnEndpointOutput
+    class CreateClientVpnEndpointOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateClientVpnEndpointOutput, context: context)
         type = Types::CreateClientVpnEndpointOutput.new
@@ -3679,7 +3679,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateClientVpnRouteInput
+    class CreateClientVpnRouteInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateClientVpnRouteInput, context: context)
         type = Types::CreateClientVpnRouteInput.new
@@ -3694,7 +3694,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateClientVpnRouteOutput
+    class CreateClientVpnRouteOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateClientVpnRouteOutput, context: context)
         type = Types::CreateClientVpnRouteOutput.new
@@ -3704,7 +3704,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateCoipCidrInput
+    class CreateCoipCidrInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateCoipCidrInput, context: context)
         type = Types::CreateCoipCidrInput.new
@@ -3716,7 +3716,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateCoipCidrOutput
+    class CreateCoipCidrOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateCoipCidrOutput, context: context)
         type = Types::CreateCoipCidrOutput.new
@@ -3726,7 +3726,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateCoipPoolInput
+    class CreateCoipPoolInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateCoipPoolInput, context: context)
         type = Types::CreateCoipPoolInput.new
@@ -3738,7 +3738,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateCoipPoolOutput
+    class CreateCoipPoolOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateCoipPoolOutput, context: context)
         type = Types::CreateCoipPoolOutput.new
@@ -3748,7 +3748,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateCustomerGatewayInput
+    class CreateCustomerGatewayInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateCustomerGatewayInput, context: context)
         type = Types::CreateCustomerGatewayInput.new
@@ -3765,7 +3765,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateCustomerGatewayOutput
+    class CreateCustomerGatewayOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateCustomerGatewayOutput, context: context)
         type = Types::CreateCustomerGatewayOutput.new
@@ -3775,7 +3775,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateDefaultSubnetInput
+    class CreateDefaultSubnetInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateDefaultSubnetInput, context: context)
         type = Types::CreateDefaultSubnetInput.new
@@ -3787,7 +3787,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateDefaultSubnetOutput
+    class CreateDefaultSubnetOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateDefaultSubnetOutput, context: context)
         type = Types::CreateDefaultSubnetOutput.new
@@ -3797,7 +3797,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateDefaultVpcInput
+    class CreateDefaultVpcInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateDefaultVpcInput, context: context)
         type = Types::CreateDefaultVpcInput.new
@@ -3807,7 +3807,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateDefaultVpcOutput
+    class CreateDefaultVpcOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateDefaultVpcOutput, context: context)
         type = Types::CreateDefaultVpcOutput.new
@@ -3817,7 +3817,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateDhcpOptionsInput
+    class CreateDhcpOptionsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateDhcpOptionsInput, context: context)
         type = Types::CreateDhcpOptionsInput.new
@@ -3829,7 +3829,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateDhcpOptionsOutput
+    class CreateDhcpOptionsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateDhcpOptionsOutput, context: context)
         type = Types::CreateDhcpOptionsOutput.new
@@ -3839,7 +3839,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateEgressOnlyInternetGatewayInput
+    class CreateEgressOnlyInternetGatewayInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateEgressOnlyInternetGatewayInput, context: context)
         type = Types::CreateEgressOnlyInternetGatewayInput.new
@@ -3852,7 +3852,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateEgressOnlyInternetGatewayOutput
+    class CreateEgressOnlyInternetGatewayOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateEgressOnlyInternetGatewayOutput, context: context)
         type = Types::CreateEgressOnlyInternetGatewayOutput.new
@@ -3863,7 +3863,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateFleetError
+    class CreateFleetError
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateFleetError, context: context)
         type = Types::CreateFleetError.new
@@ -3876,7 +3876,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateFleetErrorsSet
+    class CreateFleetErrorsSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -3887,7 +3887,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateFleetInput
+    class CreateFleetInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateFleetInput, context: context)
         type = Types::CreateFleetInput.new
@@ -3910,7 +3910,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateFleetInstance
+    class CreateFleetInstance
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateFleetInstance, context: context)
         type = Types::CreateFleetInstance.new
@@ -3924,7 +3924,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateFleetInstancesSet
+    class CreateFleetInstancesSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -3935,7 +3935,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateFleetOutput
+    class CreateFleetOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateFleetOutput, context: context)
         type = Types::CreateFleetOutput.new
@@ -3947,7 +3947,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateFlowLogsInput
+    class CreateFlowLogsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateFlowLogsInput, context: context)
         type = Types::CreateFlowLogsInput.new
@@ -3970,7 +3970,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateFlowLogsOutput
+    class CreateFlowLogsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateFlowLogsOutput, context: context)
         type = Types::CreateFlowLogsOutput.new
@@ -3982,7 +3982,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateFpgaImageInput
+    class CreateFpgaImageInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateFpgaImageInput, context: context)
         type = Types::CreateFpgaImageInput.new
@@ -3998,7 +3998,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateFpgaImageOutput
+    class CreateFpgaImageOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateFpgaImageOutput, context: context)
         type = Types::CreateFpgaImageOutput.new
@@ -4009,7 +4009,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateImageInput
+    class CreateImageInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateImageInput, context: context)
         type = Types::CreateImageInput.new
@@ -4025,7 +4025,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateImageOutput
+    class CreateImageOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateImageOutput, context: context)
         type = Types::CreateImageOutput.new
@@ -4035,7 +4035,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateInstanceConnectEndpointInput
+    class CreateInstanceConnectEndpointInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateInstanceConnectEndpointInput, context: context)
         type = Types::CreateInstanceConnectEndpointInput.new
@@ -4050,7 +4050,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateInstanceConnectEndpointOutput
+    class CreateInstanceConnectEndpointOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateInstanceConnectEndpointOutput, context: context)
         type = Types::CreateInstanceConnectEndpointOutput.new
@@ -4061,7 +4061,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateInstanceEventWindowInput
+    class CreateInstanceEventWindowInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateInstanceEventWindowInput, context: context)
         type = Types::CreateInstanceEventWindowInput.new
@@ -4075,7 +4075,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateInstanceEventWindowOutput
+    class CreateInstanceEventWindowOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateInstanceEventWindowOutput, context: context)
         type = Types::CreateInstanceEventWindowOutput.new
@@ -4085,7 +4085,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateInstanceExportTaskInput
+    class CreateInstanceExportTaskInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateInstanceExportTaskInput, context: context)
         type = Types::CreateInstanceExportTaskInput.new
@@ -4099,7 +4099,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateInstanceExportTaskOutput
+    class CreateInstanceExportTaskOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateInstanceExportTaskOutput, context: context)
         type = Types::CreateInstanceExportTaskOutput.new
@@ -4109,7 +4109,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateInternetGatewayInput
+    class CreateInternetGatewayInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateInternetGatewayInput, context: context)
         type = Types::CreateInternetGatewayInput.new
@@ -4120,7 +4120,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateInternetGatewayOutput
+    class CreateInternetGatewayOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateInternetGatewayOutput, context: context)
         type = Types::CreateInternetGatewayOutput.new
@@ -4130,7 +4130,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateIpamInput
+    class CreateIpamInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateIpamInput, context: context)
         type = Types::CreateIpamInput.new
@@ -4145,7 +4145,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateIpamOutput
+    class CreateIpamOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateIpamOutput, context: context)
         type = Types::CreateIpamOutput.new
@@ -4155,7 +4155,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateIpamPoolInput
+    class CreateIpamPoolInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateIpamPoolInput, context: context)
         type = Types::CreateIpamPoolInput.new
@@ -4181,7 +4181,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateIpamPoolOutput
+    class CreateIpamPoolOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateIpamPoolOutput, context: context)
         type = Types::CreateIpamPoolOutput.new
@@ -4191,7 +4191,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateIpamResourceDiscoveryInput
+    class CreateIpamResourceDiscoveryInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateIpamResourceDiscoveryInput, context: context)
         type = Types::CreateIpamResourceDiscoveryInput.new
@@ -4205,7 +4205,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateIpamResourceDiscoveryOutput
+    class CreateIpamResourceDiscoveryOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateIpamResourceDiscoveryOutput, context: context)
         type = Types::CreateIpamResourceDiscoveryOutput.new
@@ -4215,7 +4215,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateIpamScopeInput
+    class CreateIpamScopeInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateIpamScopeInput, context: context)
         type = Types::CreateIpamScopeInput.new
@@ -4229,7 +4229,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateIpamScopeOutput
+    class CreateIpamScopeOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateIpamScopeOutput, context: context)
         type = Types::CreateIpamScopeOutput.new
@@ -4239,7 +4239,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateKeyPairInput
+    class CreateKeyPairInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateKeyPairInput, context: context)
         type = Types::CreateKeyPairInput.new
@@ -4253,7 +4253,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateKeyPairOutput
+    class CreateKeyPairOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateKeyPairOutput, context: context)
         type = Types::CreateKeyPairOutput.new
@@ -4267,7 +4267,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateLaunchTemplateInput
+    class CreateLaunchTemplateInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateLaunchTemplateInput, context: context)
         type = Types::CreateLaunchTemplateInput.new
@@ -4282,7 +4282,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateLaunchTemplateOutput
+    class CreateLaunchTemplateOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateLaunchTemplateOutput, context: context)
         type = Types::CreateLaunchTemplateOutput.new
@@ -4293,7 +4293,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateLaunchTemplateVersionInput
+    class CreateLaunchTemplateVersionInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateLaunchTemplateVersionInput, context: context)
         type = Types::CreateLaunchTemplateVersionInput.new
@@ -4310,7 +4310,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateLaunchTemplateVersionOutput
+    class CreateLaunchTemplateVersionOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateLaunchTemplateVersionOutput, context: context)
         type = Types::CreateLaunchTemplateVersionOutput.new
@@ -4321,7 +4321,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateLocalGatewayRouteInput
+    class CreateLocalGatewayRouteInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateLocalGatewayRouteInput, context: context)
         type = Types::CreateLocalGatewayRouteInput.new
@@ -4336,7 +4336,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateLocalGatewayRouteOutput
+    class CreateLocalGatewayRouteOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateLocalGatewayRouteOutput, context: context)
         type = Types::CreateLocalGatewayRouteOutput.new
@@ -4346,7 +4346,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateLocalGatewayRouteTableInput
+    class CreateLocalGatewayRouteTableInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateLocalGatewayRouteTableInput, context: context)
         type = Types::CreateLocalGatewayRouteTableInput.new
@@ -4359,7 +4359,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateLocalGatewayRouteTableOutput
+    class CreateLocalGatewayRouteTableOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateLocalGatewayRouteTableOutput, context: context)
         type = Types::CreateLocalGatewayRouteTableOutput.new
@@ -4369,7 +4369,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationInput
+    class CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationInput, context: context)
         type = Types::CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationInput.new
@@ -4382,7 +4382,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationOutput
+    class CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationOutput, context: context)
         type = Types::CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationOutput.new
@@ -4392,7 +4392,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateLocalGatewayRouteTableVpcAssociationInput
+    class CreateLocalGatewayRouteTableVpcAssociationInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateLocalGatewayRouteTableVpcAssociationInput, context: context)
         type = Types::CreateLocalGatewayRouteTableVpcAssociationInput.new
@@ -4405,7 +4405,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateLocalGatewayRouteTableVpcAssociationOutput
+    class CreateLocalGatewayRouteTableVpcAssociationOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateLocalGatewayRouteTableVpcAssociationOutput, context: context)
         type = Types::CreateLocalGatewayRouteTableVpcAssociationOutput.new
@@ -4415,7 +4415,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateManagedPrefixListInput
+    class CreateManagedPrefixListInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateManagedPrefixListInput, context: context)
         type = Types::CreateManagedPrefixListInput.new
@@ -4431,7 +4431,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateManagedPrefixListOutput
+    class CreateManagedPrefixListOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateManagedPrefixListOutput, context: context)
         type = Types::CreateManagedPrefixListOutput.new
@@ -4441,7 +4441,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateNatGatewayInput
+    class CreateNatGatewayInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateNatGatewayInput, context: context)
         type = Types::CreateNatGatewayInput.new
@@ -4460,7 +4460,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateNatGatewayOutput
+    class CreateNatGatewayOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateNatGatewayOutput, context: context)
         type = Types::CreateNatGatewayOutput.new
@@ -4471,7 +4471,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateNetworkAclEntryInput
+    class CreateNetworkAclEntryInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateNetworkAclEntryInput, context: context)
         type = Types::CreateNetworkAclEntryInput.new
@@ -4490,7 +4490,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateNetworkAclEntryOutput
+    class CreateNetworkAclEntryOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateNetworkAclEntryOutput, context: context)
         type = Types::CreateNetworkAclEntryOutput.new
@@ -4499,7 +4499,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateNetworkAclInput
+    class CreateNetworkAclInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateNetworkAclInput, context: context)
         type = Types::CreateNetworkAclInput.new
@@ -4512,7 +4512,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateNetworkAclOutput
+    class CreateNetworkAclOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateNetworkAclOutput, context: context)
         type = Types::CreateNetworkAclOutput.new
@@ -4523,7 +4523,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateNetworkInsightsAccessScopeInput
+    class CreateNetworkInsightsAccessScopeInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateNetworkInsightsAccessScopeInput, context: context)
         type = Types::CreateNetworkInsightsAccessScopeInput.new
@@ -4537,7 +4537,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateNetworkInsightsAccessScopeOutput
+    class CreateNetworkInsightsAccessScopeOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateNetworkInsightsAccessScopeOutput, context: context)
         type = Types::CreateNetworkInsightsAccessScopeOutput.new
@@ -4548,7 +4548,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateNetworkInsightsPathInput
+    class CreateNetworkInsightsPathInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateNetworkInsightsPathInput, context: context)
         type = Types::CreateNetworkInsightsPathInput.new
@@ -4568,7 +4568,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateNetworkInsightsPathOutput
+    class CreateNetworkInsightsPathOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateNetworkInsightsPathOutput, context: context)
         type = Types::CreateNetworkInsightsPathOutput.new
@@ -4578,7 +4578,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateNetworkInterfaceInput
+    class CreateNetworkInterfaceInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateNetworkInterfaceInput, context: context)
         type = Types::CreateNetworkInterfaceInput.new
@@ -4605,7 +4605,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateNetworkInterfaceOutput
+    class CreateNetworkInterfaceOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateNetworkInterfaceOutput, context: context)
         type = Types::CreateNetworkInterfaceOutput.new
@@ -4616,7 +4616,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateNetworkInterfacePermissionInput
+    class CreateNetworkInterfacePermissionInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateNetworkInterfacePermissionInput, context: context)
         type = Types::CreateNetworkInterfacePermissionInput.new
@@ -4630,7 +4630,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateNetworkInterfacePermissionOutput
+    class CreateNetworkInterfacePermissionOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateNetworkInterfacePermissionOutput, context: context)
         type = Types::CreateNetworkInterfacePermissionOutput.new
@@ -4640,7 +4640,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreatePlacementGroupInput
+    class CreatePlacementGroupInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreatePlacementGroupInput, context: context)
         type = Types::CreatePlacementGroupInput.new
@@ -4655,7 +4655,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreatePlacementGroupOutput
+    class CreatePlacementGroupOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreatePlacementGroupOutput, context: context)
         type = Types::CreatePlacementGroupOutput.new
@@ -4665,7 +4665,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreatePublicIpv4PoolInput
+    class CreatePublicIpv4PoolInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreatePublicIpv4PoolInput, context: context)
         type = Types::CreatePublicIpv4PoolInput.new
@@ -4676,7 +4676,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreatePublicIpv4PoolOutput
+    class CreatePublicIpv4PoolOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreatePublicIpv4PoolOutput, context: context)
         type = Types::CreatePublicIpv4PoolOutput.new
@@ -4686,7 +4686,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateReplaceRootVolumeTaskInput
+    class CreateReplaceRootVolumeTaskInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateReplaceRootVolumeTaskInput, context: context)
         type = Types::CreateReplaceRootVolumeTaskInput.new
@@ -4702,7 +4702,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateReplaceRootVolumeTaskOutput
+    class CreateReplaceRootVolumeTaskOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateReplaceRootVolumeTaskOutput, context: context)
         type = Types::CreateReplaceRootVolumeTaskOutput.new
@@ -4712,7 +4712,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateReservedInstancesListingInput
+    class CreateReservedInstancesListingInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateReservedInstancesListingInput, context: context)
         type = Types::CreateReservedInstancesListingInput.new
@@ -4725,7 +4725,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateReservedInstancesListingOutput
+    class CreateReservedInstancesListingOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateReservedInstancesListingOutput, context: context)
         type = Types::CreateReservedInstancesListingOutput.new
@@ -4735,7 +4735,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateRestoreImageTaskInput
+    class CreateRestoreImageTaskInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateRestoreImageTaskInput, context: context)
         type = Types::CreateRestoreImageTaskInput.new
@@ -4749,7 +4749,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateRestoreImageTaskOutput
+    class CreateRestoreImageTaskOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateRestoreImageTaskOutput, context: context)
         type = Types::CreateRestoreImageTaskOutput.new
@@ -4759,7 +4759,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateRouteInput
+    class CreateRouteInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateRouteInput, context: context)
         type = Types::CreateRouteInput.new
@@ -4784,7 +4784,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateRouteOutput
+    class CreateRouteOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateRouteOutput, context: context)
         type = Types::CreateRouteOutput.new
@@ -4794,7 +4794,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateRouteTableInput
+    class CreateRouteTableInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateRouteTableInput, context: context)
         type = Types::CreateRouteTableInput.new
@@ -4807,7 +4807,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateRouteTableOutput
+    class CreateRouteTableOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateRouteTableOutput, context: context)
         type = Types::CreateRouteTableOutput.new
@@ -4818,7 +4818,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateSecurityGroupInput
+    class CreateSecurityGroupInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateSecurityGroupInput, context: context)
         type = Types::CreateSecurityGroupInput.new
@@ -4832,7 +4832,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateSecurityGroupOutput
+    class CreateSecurityGroupOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateSecurityGroupOutput, context: context)
         type = Types::CreateSecurityGroupOutput.new
@@ -4843,7 +4843,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateSnapshotInput
+    class CreateSnapshotInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateSnapshotInput, context: context)
         type = Types::CreateSnapshotInput.new
@@ -4857,7 +4857,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateSnapshotOutput
+    class CreateSnapshotOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateSnapshotOutput, context: context)
         type = Types::CreateSnapshotOutput.new
@@ -4884,7 +4884,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateSnapshotsInput
+    class CreateSnapshotsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateSnapshotsInput, context: context)
         type = Types::CreateSnapshotsInput.new
@@ -4899,7 +4899,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateSnapshotsOutput
+    class CreateSnapshotsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateSnapshotsOutput, context: context)
         type = Types::CreateSnapshotsOutput.new
@@ -4909,7 +4909,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateSpotDatafeedSubscriptionInput
+    class CreateSpotDatafeedSubscriptionInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateSpotDatafeedSubscriptionInput, context: context)
         type = Types::CreateSpotDatafeedSubscriptionInput.new
@@ -4921,7 +4921,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateSpotDatafeedSubscriptionOutput
+    class CreateSpotDatafeedSubscriptionOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateSpotDatafeedSubscriptionOutput, context: context)
         type = Types::CreateSpotDatafeedSubscriptionOutput.new
@@ -4931,7 +4931,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateStoreImageTaskInput
+    class CreateStoreImageTaskInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateStoreImageTaskInput, context: context)
         type = Types::CreateStoreImageTaskInput.new
@@ -4944,7 +4944,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateStoreImageTaskOutput
+    class CreateStoreImageTaskOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateStoreImageTaskOutput, context: context)
         type = Types::CreateStoreImageTaskOutput.new
@@ -4954,7 +4954,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateSubnetCidrReservationInput
+    class CreateSubnetCidrReservationInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateSubnetCidrReservationInput, context: context)
         type = Types::CreateSubnetCidrReservationInput.new
@@ -4969,7 +4969,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateSubnetCidrReservationOutput
+    class CreateSubnetCidrReservationOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateSubnetCidrReservationOutput, context: context)
         type = Types::CreateSubnetCidrReservationOutput.new
@@ -4979,7 +4979,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateSubnetInput
+    class CreateSubnetInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateSubnetInput, context: context)
         type = Types::CreateSubnetInput.new
@@ -5001,7 +5001,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateSubnetOutput
+    class CreateSubnetOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateSubnetOutput, context: context)
         type = Types::CreateSubnetOutput.new
@@ -5011,7 +5011,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateTagsInput
+    class CreateTagsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateTagsInput, context: context)
         type = Types::CreateTagsInput.new
@@ -5023,7 +5023,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateTagsOutput
+    class CreateTagsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateTagsOutput, context: context)
         type = Types::CreateTagsOutput.new
@@ -5032,7 +5032,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateTrafficMirrorFilterInput
+    class CreateTrafficMirrorFilterInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateTrafficMirrorFilterInput, context: context)
         type = Types::CreateTrafficMirrorFilterInput.new
@@ -5045,7 +5045,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateTrafficMirrorFilterOutput
+    class CreateTrafficMirrorFilterOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateTrafficMirrorFilterOutput, context: context)
         type = Types::CreateTrafficMirrorFilterOutput.new
@@ -5056,7 +5056,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateTrafficMirrorFilterRuleInput
+    class CreateTrafficMirrorFilterRuleInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateTrafficMirrorFilterRuleInput, context: context)
         type = Types::CreateTrafficMirrorFilterRuleInput.new
@@ -5077,7 +5077,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateTrafficMirrorFilterRuleOutput
+    class CreateTrafficMirrorFilterRuleOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateTrafficMirrorFilterRuleOutput, context: context)
         type = Types::CreateTrafficMirrorFilterRuleOutput.new
@@ -5088,7 +5088,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateTrafficMirrorSessionInput
+    class CreateTrafficMirrorSessionInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateTrafficMirrorSessionInput, context: context)
         type = Types::CreateTrafficMirrorSessionInput.new
@@ -5107,7 +5107,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateTrafficMirrorSessionOutput
+    class CreateTrafficMirrorSessionOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateTrafficMirrorSessionOutput, context: context)
         type = Types::CreateTrafficMirrorSessionOutput.new
@@ -5118,7 +5118,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateTrafficMirrorTargetInput
+    class CreateTrafficMirrorTargetInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateTrafficMirrorTargetInput, context: context)
         type = Types::CreateTrafficMirrorTargetInput.new
@@ -5134,7 +5134,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateTrafficMirrorTargetOutput
+    class CreateTrafficMirrorTargetOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateTrafficMirrorTargetOutput, context: context)
         type = Types::CreateTrafficMirrorTargetOutput.new
@@ -5145,7 +5145,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateTransitGatewayConnectInput
+    class CreateTransitGatewayConnectInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateTransitGatewayConnectInput, context: context)
         type = Types::CreateTransitGatewayConnectInput.new
@@ -5158,7 +5158,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateTransitGatewayConnectOutput
+    class CreateTransitGatewayConnectOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateTransitGatewayConnectOutput, context: context)
         type = Types::CreateTransitGatewayConnectOutput.new
@@ -5168,7 +5168,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateTransitGatewayConnectPeerInput
+    class CreateTransitGatewayConnectPeerInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateTransitGatewayConnectPeerInput, context: context)
         type = Types::CreateTransitGatewayConnectPeerInput.new
@@ -5184,7 +5184,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateTransitGatewayConnectPeerOutput
+    class CreateTransitGatewayConnectPeerOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateTransitGatewayConnectPeerOutput, context: context)
         type = Types::CreateTransitGatewayConnectPeerOutput.new
@@ -5194,7 +5194,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateTransitGatewayConnectRequestOptions
+    class CreateTransitGatewayConnectRequestOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateTransitGatewayConnectRequestOptions, context: context)
         type = Types::CreateTransitGatewayConnectRequestOptions.new
@@ -5204,7 +5204,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateTransitGatewayInput
+    class CreateTransitGatewayInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateTransitGatewayInput, context: context)
         type = Types::CreateTransitGatewayInput.new
@@ -5217,7 +5217,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateTransitGatewayMulticastDomainInput
+    class CreateTransitGatewayMulticastDomainInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateTransitGatewayMulticastDomainInput, context: context)
         type = Types::CreateTransitGatewayMulticastDomainInput.new
@@ -5230,7 +5230,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateTransitGatewayMulticastDomainOutput
+    class CreateTransitGatewayMulticastDomainOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateTransitGatewayMulticastDomainOutput, context: context)
         type = Types::CreateTransitGatewayMulticastDomainOutput.new
@@ -5240,7 +5240,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateTransitGatewayMulticastDomainRequestOptions
+    class CreateTransitGatewayMulticastDomainRequestOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateTransitGatewayMulticastDomainRequestOptions, context: context)
         type = Types::CreateTransitGatewayMulticastDomainRequestOptions.new
@@ -5252,7 +5252,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateTransitGatewayOutput
+    class CreateTransitGatewayOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateTransitGatewayOutput, context: context)
         type = Types::CreateTransitGatewayOutput.new
@@ -5262,7 +5262,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateTransitGatewayPeeringAttachmentInput
+    class CreateTransitGatewayPeeringAttachmentInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateTransitGatewayPeeringAttachmentInput, context: context)
         type = Types::CreateTransitGatewayPeeringAttachmentInput.new
@@ -5278,7 +5278,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateTransitGatewayPeeringAttachmentOutput
+    class CreateTransitGatewayPeeringAttachmentOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateTransitGatewayPeeringAttachmentOutput, context: context)
         type = Types::CreateTransitGatewayPeeringAttachmentOutput.new
@@ -5288,7 +5288,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateTransitGatewayPeeringAttachmentRequestOptions
+    class CreateTransitGatewayPeeringAttachmentRequestOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateTransitGatewayPeeringAttachmentRequestOptions, context: context)
         type = Types::CreateTransitGatewayPeeringAttachmentRequestOptions.new
@@ -5298,7 +5298,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateTransitGatewayPolicyTableInput
+    class CreateTransitGatewayPolicyTableInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateTransitGatewayPolicyTableInput, context: context)
         type = Types::CreateTransitGatewayPolicyTableInput.new
@@ -5310,7 +5310,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateTransitGatewayPolicyTableOutput
+    class CreateTransitGatewayPolicyTableOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateTransitGatewayPolicyTableOutput, context: context)
         type = Types::CreateTransitGatewayPolicyTableOutput.new
@@ -5320,7 +5320,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateTransitGatewayPrefixListReferenceInput
+    class CreateTransitGatewayPrefixListReferenceInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateTransitGatewayPrefixListReferenceInput, context: context)
         type = Types::CreateTransitGatewayPrefixListReferenceInput.new
@@ -5334,7 +5334,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateTransitGatewayPrefixListReferenceOutput
+    class CreateTransitGatewayPrefixListReferenceOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateTransitGatewayPrefixListReferenceOutput, context: context)
         type = Types::CreateTransitGatewayPrefixListReferenceOutput.new
@@ -5344,7 +5344,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateTransitGatewayRouteInput
+    class CreateTransitGatewayRouteInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateTransitGatewayRouteInput, context: context)
         type = Types::CreateTransitGatewayRouteInput.new
@@ -5358,7 +5358,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateTransitGatewayRouteOutput
+    class CreateTransitGatewayRouteOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateTransitGatewayRouteOutput, context: context)
         type = Types::CreateTransitGatewayRouteOutput.new
@@ -5368,7 +5368,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateTransitGatewayRouteTableAnnouncementInput
+    class CreateTransitGatewayRouteTableAnnouncementInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateTransitGatewayRouteTableAnnouncementInput, context: context)
         type = Types::CreateTransitGatewayRouteTableAnnouncementInput.new
@@ -5381,7 +5381,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateTransitGatewayRouteTableAnnouncementOutput
+    class CreateTransitGatewayRouteTableAnnouncementOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateTransitGatewayRouteTableAnnouncementOutput, context: context)
         type = Types::CreateTransitGatewayRouteTableAnnouncementOutput.new
@@ -5391,7 +5391,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateTransitGatewayRouteTableInput
+    class CreateTransitGatewayRouteTableInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateTransitGatewayRouteTableInput, context: context)
         type = Types::CreateTransitGatewayRouteTableInput.new
@@ -5403,7 +5403,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateTransitGatewayRouteTableOutput
+    class CreateTransitGatewayRouteTableOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateTransitGatewayRouteTableOutput, context: context)
         type = Types::CreateTransitGatewayRouteTableOutput.new
@@ -5413,7 +5413,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateTransitGatewayVpcAttachmentInput
+    class CreateTransitGatewayVpcAttachmentInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateTransitGatewayVpcAttachmentInput, context: context)
         type = Types::CreateTransitGatewayVpcAttachmentInput.new
@@ -5428,7 +5428,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateTransitGatewayVpcAttachmentOutput
+    class CreateTransitGatewayVpcAttachmentOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateTransitGatewayVpcAttachmentOutput, context: context)
         type = Types::CreateTransitGatewayVpcAttachmentOutput.new
@@ -5438,7 +5438,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateTransitGatewayVpcAttachmentRequestOptions
+    class CreateTransitGatewayVpcAttachmentRequestOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateTransitGatewayVpcAttachmentRequestOptions, context: context)
         type = Types::CreateTransitGatewayVpcAttachmentRequestOptions.new
@@ -5451,7 +5451,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateVerifiedAccessEndpointEniOptions
+    class CreateVerifiedAccessEndpointEniOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateVerifiedAccessEndpointEniOptions, context: context)
         type = Types::CreateVerifiedAccessEndpointEniOptions.new
@@ -5463,7 +5463,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateVerifiedAccessEndpointInput
+    class CreateVerifiedAccessEndpointInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateVerifiedAccessEndpointInput, context: context)
         type = Types::CreateVerifiedAccessEndpointInput.new
@@ -5487,7 +5487,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateVerifiedAccessEndpointLoadBalancerOptions
+    class CreateVerifiedAccessEndpointLoadBalancerOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateVerifiedAccessEndpointLoadBalancerOptions, context: context)
         type = Types::CreateVerifiedAccessEndpointLoadBalancerOptions.new
@@ -5500,7 +5500,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateVerifiedAccessEndpointOutput
+    class CreateVerifiedAccessEndpointOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateVerifiedAccessEndpointOutput, context: context)
         type = Types::CreateVerifiedAccessEndpointOutput.new
@@ -5510,7 +5510,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateVerifiedAccessEndpointSubnetIdList
+    class CreateVerifiedAccessEndpointSubnetIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -5521,7 +5521,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateVerifiedAccessGroupInput
+    class CreateVerifiedAccessGroupInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateVerifiedAccessGroupInput, context: context)
         type = Types::CreateVerifiedAccessGroupInput.new
@@ -5537,7 +5537,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateVerifiedAccessGroupOutput
+    class CreateVerifiedAccessGroupOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateVerifiedAccessGroupOutput, context: context)
         type = Types::CreateVerifiedAccessGroupOutput.new
@@ -5547,7 +5547,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateVerifiedAccessInstanceInput
+    class CreateVerifiedAccessInstanceInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateVerifiedAccessInstanceInput, context: context)
         type = Types::CreateVerifiedAccessInstanceInput.new
@@ -5561,7 +5561,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateVerifiedAccessInstanceOutput
+    class CreateVerifiedAccessInstanceOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateVerifiedAccessInstanceOutput, context: context)
         type = Types::CreateVerifiedAccessInstanceOutput.new
@@ -5571,7 +5571,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateVerifiedAccessTrustProviderDeviceOptions
+    class CreateVerifiedAccessTrustProviderDeviceOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateVerifiedAccessTrustProviderDeviceOptions, context: context)
         type = Types::CreateVerifiedAccessTrustProviderDeviceOptions.new
@@ -5582,7 +5582,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateVerifiedAccessTrustProviderInput
+    class CreateVerifiedAccessTrustProviderInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateVerifiedAccessTrustProviderInput, context: context)
         type = Types::CreateVerifiedAccessTrustProviderInput.new
@@ -5602,7 +5602,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateVerifiedAccessTrustProviderOidcOptions
+    class CreateVerifiedAccessTrustProviderOidcOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateVerifiedAccessTrustProviderOidcOptions, context: context)
         type = Types::CreateVerifiedAccessTrustProviderOidcOptions.new
@@ -5618,7 +5618,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateVerifiedAccessTrustProviderOutput
+    class CreateVerifiedAccessTrustProviderOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateVerifiedAccessTrustProviderOutput, context: context)
         type = Types::CreateVerifiedAccessTrustProviderOutput.new
@@ -5628,7 +5628,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateVolumeInput
+    class CreateVolumeInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateVolumeInput, context: context)
         type = Types::CreateVolumeInput.new
@@ -5650,7 +5650,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateVolumeOutput
+    class CreateVolumeOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateVolumeOutput, context: context)
         type = Types::CreateVolumeOutput.new
@@ -5676,7 +5676,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateVolumePermission
+    class CreateVolumePermission
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateVolumePermission, context: context)
         type = Types::CreateVolumePermission.new
@@ -5687,7 +5687,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateVolumePermissionList
+    class CreateVolumePermissionList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -5698,7 +5698,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateVolumePermissionModifications
+    class CreateVolumePermissionModifications
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateVolumePermissionModifications, context: context)
         type = Types::CreateVolumePermissionModifications.new
@@ -5709,7 +5709,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateVpcEndpointConnectionNotificationInput
+    class CreateVpcEndpointConnectionNotificationInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateVpcEndpointConnectionNotificationInput, context: context)
         type = Types::CreateVpcEndpointConnectionNotificationInput.new
@@ -5724,7 +5724,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateVpcEndpointConnectionNotificationOutput
+    class CreateVpcEndpointConnectionNotificationOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateVpcEndpointConnectionNotificationOutput, context: context)
         type = Types::CreateVpcEndpointConnectionNotificationOutput.new
@@ -5735,7 +5735,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateVpcEndpointInput
+    class CreateVpcEndpointInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateVpcEndpointInput, context: context)
         type = Types::CreateVpcEndpointInput.new
@@ -5758,7 +5758,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateVpcEndpointOutput
+    class CreateVpcEndpointOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateVpcEndpointOutput, context: context)
         type = Types::CreateVpcEndpointOutput.new
@@ -5769,7 +5769,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateVpcEndpointServiceConfigurationInput
+    class CreateVpcEndpointServiceConfigurationInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateVpcEndpointServiceConfigurationInput, context: context)
         type = Types::CreateVpcEndpointServiceConfigurationInput.new
@@ -5786,7 +5786,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateVpcEndpointServiceConfigurationOutput
+    class CreateVpcEndpointServiceConfigurationOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateVpcEndpointServiceConfigurationOutput, context: context)
         type = Types::CreateVpcEndpointServiceConfigurationOutput.new
@@ -5797,7 +5797,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateVpcInput
+    class CreateVpcInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateVpcInput, context: context)
         type = Types::CreateVpcInput.new
@@ -5818,7 +5818,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateVpcOutput
+    class CreateVpcOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateVpcOutput, context: context)
         type = Types::CreateVpcOutput.new
@@ -5828,7 +5828,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateVpcPeeringConnectionInput
+    class CreateVpcPeeringConnectionInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateVpcPeeringConnectionInput, context: context)
         type = Types::CreateVpcPeeringConnectionInput.new
@@ -5843,7 +5843,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateVpcPeeringConnectionOutput
+    class CreateVpcPeeringConnectionOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateVpcPeeringConnectionOutput, context: context)
         type = Types::CreateVpcPeeringConnectionOutput.new
@@ -5853,7 +5853,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateVpnConnectionInput
+    class CreateVpnConnectionInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateVpnConnectionInput, context: context)
         type = Types::CreateVpnConnectionInput.new
@@ -5869,7 +5869,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateVpnConnectionOutput
+    class CreateVpnConnectionOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateVpnConnectionOutput, context: context)
         type = Types::CreateVpnConnectionOutput.new
@@ -5879,7 +5879,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateVpnConnectionRouteInput
+    class CreateVpnConnectionRouteInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateVpnConnectionRouteInput, context: context)
         type = Types::CreateVpnConnectionRouteInput.new
@@ -5890,7 +5890,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateVpnConnectionRouteOutput
+    class CreateVpnConnectionRouteOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateVpnConnectionRouteOutput, context: context)
         type = Types::CreateVpnConnectionRouteOutput.new
@@ -5899,7 +5899,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateVpnGatewayInput
+    class CreateVpnGatewayInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateVpnGatewayInput, context: context)
         type = Types::CreateVpnGatewayInput.new
@@ -5913,7 +5913,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreateVpnGatewayOutput
+    class CreateVpnGatewayOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateVpnGatewayOutput, context: context)
         type = Types::CreateVpnGatewayOutput.new
@@ -5923,7 +5923,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreditSpecification
+    class CreditSpecification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreditSpecification, context: context)
         type = Types::CreditSpecification.new
@@ -5933,7 +5933,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CreditSpecificationRequest
+    class CreditSpecificationRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreditSpecificationRequest, context: context)
         type = Types::CreditSpecificationRequest.new
@@ -5943,7 +5943,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CustomerGateway
+    class CustomerGateway
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CustomerGateway, context: context)
         type = Types::CustomerGateway.new
@@ -5960,7 +5960,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CustomerGatewayIdStringList
+    class CustomerGatewayIdStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -5971,7 +5971,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module CustomerGatewayList
+    class CustomerGatewayList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -5982,7 +5982,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DataQueries
+    class DataQueries
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -5993,7 +5993,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DataQuery
+    class DataQuery
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DataQuery, context: context)
         type = Types::DataQuery.new
@@ -6008,7 +6008,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DataResponse
+    class DataResponse
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DataResponse, context: context)
         type = Types::DataResponse.new
@@ -6024,7 +6024,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DataResponses
+    class DataResponses
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -6035,7 +6035,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DedicatedHostIdList
+    class DedicatedHostIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -6046,7 +6046,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteCarrierGatewayInput
+    class DeleteCarrierGatewayInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteCarrierGatewayInput, context: context)
         type = Types::DeleteCarrierGatewayInput.new
@@ -6057,7 +6057,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteCarrierGatewayOutput
+    class DeleteCarrierGatewayOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteCarrierGatewayOutput, context: context)
         type = Types::DeleteCarrierGatewayOutput.new
@@ -6067,7 +6067,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteClientVpnEndpointInput
+    class DeleteClientVpnEndpointInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteClientVpnEndpointInput, context: context)
         type = Types::DeleteClientVpnEndpointInput.new
@@ -6078,7 +6078,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteClientVpnEndpointOutput
+    class DeleteClientVpnEndpointOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteClientVpnEndpointOutput, context: context)
         type = Types::DeleteClientVpnEndpointOutput.new
@@ -6088,7 +6088,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteClientVpnRouteInput
+    class DeleteClientVpnRouteInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteClientVpnRouteInput, context: context)
         type = Types::DeleteClientVpnRouteInput.new
@@ -6101,7 +6101,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteClientVpnRouteOutput
+    class DeleteClientVpnRouteOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteClientVpnRouteOutput, context: context)
         type = Types::DeleteClientVpnRouteOutput.new
@@ -6111,7 +6111,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteCoipCidrInput
+    class DeleteCoipCidrInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteCoipCidrInput, context: context)
         type = Types::DeleteCoipCidrInput.new
@@ -6123,7 +6123,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteCoipCidrOutput
+    class DeleteCoipCidrOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteCoipCidrOutput, context: context)
         type = Types::DeleteCoipCidrOutput.new
@@ -6133,7 +6133,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteCoipPoolInput
+    class DeleteCoipPoolInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteCoipPoolInput, context: context)
         type = Types::DeleteCoipPoolInput.new
@@ -6144,7 +6144,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteCoipPoolOutput
+    class DeleteCoipPoolOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteCoipPoolOutput, context: context)
         type = Types::DeleteCoipPoolOutput.new
@@ -6154,7 +6154,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteCustomerGatewayInput
+    class DeleteCustomerGatewayInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteCustomerGatewayInput, context: context)
         type = Types::DeleteCustomerGatewayInput.new
@@ -6165,7 +6165,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteCustomerGatewayOutput
+    class DeleteCustomerGatewayOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteCustomerGatewayOutput, context: context)
         type = Types::DeleteCustomerGatewayOutput.new
@@ -6174,7 +6174,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteDhcpOptionsInput
+    class DeleteDhcpOptionsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteDhcpOptionsInput, context: context)
         type = Types::DeleteDhcpOptionsInput.new
@@ -6185,7 +6185,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteDhcpOptionsOutput
+    class DeleteDhcpOptionsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteDhcpOptionsOutput, context: context)
         type = Types::DeleteDhcpOptionsOutput.new
@@ -6194,7 +6194,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteEgressOnlyInternetGatewayInput
+    class DeleteEgressOnlyInternetGatewayInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteEgressOnlyInternetGatewayInput, context: context)
         type = Types::DeleteEgressOnlyInternetGatewayInput.new
@@ -6205,7 +6205,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteEgressOnlyInternetGatewayOutput
+    class DeleteEgressOnlyInternetGatewayOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteEgressOnlyInternetGatewayOutput, context: context)
         type = Types::DeleteEgressOnlyInternetGatewayOutput.new
@@ -6215,7 +6215,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteFleetError
+    class DeleteFleetError
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteFleetError, context: context)
         type = Types::DeleteFleetError.new
@@ -6226,7 +6226,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteFleetErrorItem
+    class DeleteFleetErrorItem
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteFleetErrorItem, context: context)
         type = Types::DeleteFleetErrorItem.new
@@ -6237,7 +6237,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteFleetErrorSet
+    class DeleteFleetErrorSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -6248,7 +6248,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteFleetSuccessItem
+    class DeleteFleetSuccessItem
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteFleetSuccessItem, context: context)
         type = Types::DeleteFleetSuccessItem.new
@@ -6260,7 +6260,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteFleetSuccessSet
+    class DeleteFleetSuccessSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -6271,7 +6271,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteFleetsInput
+    class DeleteFleetsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteFleetsInput, context: context)
         type = Types::DeleteFleetsInput.new
@@ -6283,7 +6283,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteFleetsOutput
+    class DeleteFleetsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteFleetsOutput, context: context)
         type = Types::DeleteFleetsOutput.new
@@ -6294,7 +6294,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteFlowLogsInput
+    class DeleteFlowLogsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteFlowLogsInput, context: context)
         type = Types::DeleteFlowLogsInput.new
@@ -6305,7 +6305,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteFlowLogsOutput
+    class DeleteFlowLogsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteFlowLogsOutput, context: context)
         type = Types::DeleteFlowLogsOutput.new
@@ -6315,7 +6315,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteFpgaImageInput
+    class DeleteFpgaImageInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteFpgaImageInput, context: context)
         type = Types::DeleteFpgaImageInput.new
@@ -6326,7 +6326,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteFpgaImageOutput
+    class DeleteFpgaImageOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteFpgaImageOutput, context: context)
         type = Types::DeleteFpgaImageOutput.new
@@ -6336,7 +6336,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteInstanceConnectEndpointInput
+    class DeleteInstanceConnectEndpointInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteInstanceConnectEndpointInput, context: context)
         type = Types::DeleteInstanceConnectEndpointInput.new
@@ -6347,7 +6347,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteInstanceConnectEndpointOutput
+    class DeleteInstanceConnectEndpointOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteInstanceConnectEndpointOutput, context: context)
         type = Types::DeleteInstanceConnectEndpointOutput.new
@@ -6357,7 +6357,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteInstanceEventWindowInput
+    class DeleteInstanceEventWindowInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteInstanceEventWindowInput, context: context)
         type = Types::DeleteInstanceEventWindowInput.new
@@ -6369,7 +6369,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteInstanceEventWindowOutput
+    class DeleteInstanceEventWindowOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteInstanceEventWindowOutput, context: context)
         type = Types::DeleteInstanceEventWindowOutput.new
@@ -6379,7 +6379,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteInternetGatewayInput
+    class DeleteInternetGatewayInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteInternetGatewayInput, context: context)
         type = Types::DeleteInternetGatewayInput.new
@@ -6390,7 +6390,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteInternetGatewayOutput
+    class DeleteInternetGatewayOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteInternetGatewayOutput, context: context)
         type = Types::DeleteInternetGatewayOutput.new
@@ -6399,7 +6399,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteIpamInput
+    class DeleteIpamInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteIpamInput, context: context)
         type = Types::DeleteIpamInput.new
@@ -6411,7 +6411,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteIpamOutput
+    class DeleteIpamOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteIpamOutput, context: context)
         type = Types::DeleteIpamOutput.new
@@ -6421,7 +6421,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteIpamPoolInput
+    class DeleteIpamPoolInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteIpamPoolInput, context: context)
         type = Types::DeleteIpamPoolInput.new
@@ -6433,7 +6433,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteIpamPoolOutput
+    class DeleteIpamPoolOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteIpamPoolOutput, context: context)
         type = Types::DeleteIpamPoolOutput.new
@@ -6443,7 +6443,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteIpamResourceDiscoveryInput
+    class DeleteIpamResourceDiscoveryInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteIpamResourceDiscoveryInput, context: context)
         type = Types::DeleteIpamResourceDiscoveryInput.new
@@ -6454,7 +6454,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteIpamResourceDiscoveryOutput
+    class DeleteIpamResourceDiscoveryOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteIpamResourceDiscoveryOutput, context: context)
         type = Types::DeleteIpamResourceDiscoveryOutput.new
@@ -6464,7 +6464,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteIpamScopeInput
+    class DeleteIpamScopeInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteIpamScopeInput, context: context)
         type = Types::DeleteIpamScopeInput.new
@@ -6475,7 +6475,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteIpamScopeOutput
+    class DeleteIpamScopeOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteIpamScopeOutput, context: context)
         type = Types::DeleteIpamScopeOutput.new
@@ -6485,7 +6485,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteKeyPairInput
+    class DeleteKeyPairInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteKeyPairInput, context: context)
         type = Types::DeleteKeyPairInput.new
@@ -6497,7 +6497,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteKeyPairOutput
+    class DeleteKeyPairOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteKeyPairOutput, context: context)
         type = Types::DeleteKeyPairOutput.new
@@ -6508,7 +6508,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteLaunchTemplateInput
+    class DeleteLaunchTemplateInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteLaunchTemplateInput, context: context)
         type = Types::DeleteLaunchTemplateInput.new
@@ -6520,7 +6520,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteLaunchTemplateOutput
+    class DeleteLaunchTemplateOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteLaunchTemplateOutput, context: context)
         type = Types::DeleteLaunchTemplateOutput.new
@@ -6530,7 +6530,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteLaunchTemplateVersionsInput
+    class DeleteLaunchTemplateVersionsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteLaunchTemplateVersionsInput, context: context)
         type = Types::DeleteLaunchTemplateVersionsInput.new
@@ -6543,7 +6543,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteLaunchTemplateVersionsOutput
+    class DeleteLaunchTemplateVersionsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteLaunchTemplateVersionsOutput, context: context)
         type = Types::DeleteLaunchTemplateVersionsOutput.new
@@ -6554,7 +6554,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteLaunchTemplateVersionsResponseErrorItem
+    class DeleteLaunchTemplateVersionsResponseErrorItem
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteLaunchTemplateVersionsResponseErrorItem, context: context)
         type = Types::DeleteLaunchTemplateVersionsResponseErrorItem.new
@@ -6567,7 +6567,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteLaunchTemplateVersionsResponseErrorSet
+    class DeleteLaunchTemplateVersionsResponseErrorSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -6578,7 +6578,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteLaunchTemplateVersionsResponseSuccessItem
+    class DeleteLaunchTemplateVersionsResponseSuccessItem
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteLaunchTemplateVersionsResponseSuccessItem, context: context)
         type = Types::DeleteLaunchTemplateVersionsResponseSuccessItem.new
@@ -6590,7 +6590,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteLaunchTemplateVersionsResponseSuccessSet
+    class DeleteLaunchTemplateVersionsResponseSuccessSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -6601,7 +6601,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteLocalGatewayRouteInput
+    class DeleteLocalGatewayRouteInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteLocalGatewayRouteInput, context: context)
         type = Types::DeleteLocalGatewayRouteInput.new
@@ -6614,7 +6614,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteLocalGatewayRouteOutput
+    class DeleteLocalGatewayRouteOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteLocalGatewayRouteOutput, context: context)
         type = Types::DeleteLocalGatewayRouteOutput.new
@@ -6624,7 +6624,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteLocalGatewayRouteTableInput
+    class DeleteLocalGatewayRouteTableInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteLocalGatewayRouteTableInput, context: context)
         type = Types::DeleteLocalGatewayRouteTableInput.new
@@ -6635,7 +6635,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteLocalGatewayRouteTableOutput
+    class DeleteLocalGatewayRouteTableOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteLocalGatewayRouteTableOutput, context: context)
         type = Types::DeleteLocalGatewayRouteTableOutput.new
@@ -6645,7 +6645,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationInput
+    class DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationInput, context: context)
         type = Types::DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationInput.new
@@ -6656,7 +6656,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationOutput
+    class DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationOutput, context: context)
         type = Types::DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationOutput.new
@@ -6666,7 +6666,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteLocalGatewayRouteTableVpcAssociationInput
+    class DeleteLocalGatewayRouteTableVpcAssociationInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteLocalGatewayRouteTableVpcAssociationInput, context: context)
         type = Types::DeleteLocalGatewayRouteTableVpcAssociationInput.new
@@ -6677,7 +6677,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteLocalGatewayRouteTableVpcAssociationOutput
+    class DeleteLocalGatewayRouteTableVpcAssociationOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteLocalGatewayRouteTableVpcAssociationOutput, context: context)
         type = Types::DeleteLocalGatewayRouteTableVpcAssociationOutput.new
@@ -6687,7 +6687,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteManagedPrefixListInput
+    class DeleteManagedPrefixListInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteManagedPrefixListInput, context: context)
         type = Types::DeleteManagedPrefixListInput.new
@@ -6698,7 +6698,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteManagedPrefixListOutput
+    class DeleteManagedPrefixListOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteManagedPrefixListOutput, context: context)
         type = Types::DeleteManagedPrefixListOutput.new
@@ -6708,7 +6708,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteNatGatewayInput
+    class DeleteNatGatewayInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteNatGatewayInput, context: context)
         type = Types::DeleteNatGatewayInput.new
@@ -6719,7 +6719,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteNatGatewayOutput
+    class DeleteNatGatewayOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteNatGatewayOutput, context: context)
         type = Types::DeleteNatGatewayOutput.new
@@ -6729,7 +6729,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteNetworkAclEntryInput
+    class DeleteNetworkAclEntryInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteNetworkAclEntryInput, context: context)
         type = Types::DeleteNetworkAclEntryInput.new
@@ -6742,7 +6742,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteNetworkAclEntryOutput
+    class DeleteNetworkAclEntryOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteNetworkAclEntryOutput, context: context)
         type = Types::DeleteNetworkAclEntryOutput.new
@@ -6751,7 +6751,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteNetworkAclInput
+    class DeleteNetworkAclInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteNetworkAclInput, context: context)
         type = Types::DeleteNetworkAclInput.new
@@ -6762,7 +6762,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteNetworkAclOutput
+    class DeleteNetworkAclOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteNetworkAclOutput, context: context)
         type = Types::DeleteNetworkAclOutput.new
@@ -6771,7 +6771,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteNetworkInsightsAccessScopeAnalysisInput
+    class DeleteNetworkInsightsAccessScopeAnalysisInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteNetworkInsightsAccessScopeAnalysisInput, context: context)
         type = Types::DeleteNetworkInsightsAccessScopeAnalysisInput.new
@@ -6782,7 +6782,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteNetworkInsightsAccessScopeAnalysisOutput
+    class DeleteNetworkInsightsAccessScopeAnalysisOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteNetworkInsightsAccessScopeAnalysisOutput, context: context)
         type = Types::DeleteNetworkInsightsAccessScopeAnalysisOutput.new
@@ -6792,7 +6792,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteNetworkInsightsAccessScopeInput
+    class DeleteNetworkInsightsAccessScopeInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteNetworkInsightsAccessScopeInput, context: context)
         type = Types::DeleteNetworkInsightsAccessScopeInput.new
@@ -6803,7 +6803,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteNetworkInsightsAccessScopeOutput
+    class DeleteNetworkInsightsAccessScopeOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteNetworkInsightsAccessScopeOutput, context: context)
         type = Types::DeleteNetworkInsightsAccessScopeOutput.new
@@ -6813,7 +6813,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteNetworkInsightsAnalysisInput
+    class DeleteNetworkInsightsAnalysisInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteNetworkInsightsAnalysisInput, context: context)
         type = Types::DeleteNetworkInsightsAnalysisInput.new
@@ -6824,7 +6824,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteNetworkInsightsAnalysisOutput
+    class DeleteNetworkInsightsAnalysisOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteNetworkInsightsAnalysisOutput, context: context)
         type = Types::DeleteNetworkInsightsAnalysisOutput.new
@@ -6834,7 +6834,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteNetworkInsightsPathInput
+    class DeleteNetworkInsightsPathInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteNetworkInsightsPathInput, context: context)
         type = Types::DeleteNetworkInsightsPathInput.new
@@ -6845,7 +6845,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteNetworkInsightsPathOutput
+    class DeleteNetworkInsightsPathOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteNetworkInsightsPathOutput, context: context)
         type = Types::DeleteNetworkInsightsPathOutput.new
@@ -6855,7 +6855,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteNetworkInterfaceInput
+    class DeleteNetworkInterfaceInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteNetworkInterfaceInput, context: context)
         type = Types::DeleteNetworkInterfaceInput.new
@@ -6866,7 +6866,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteNetworkInterfaceOutput
+    class DeleteNetworkInterfaceOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteNetworkInterfaceOutput, context: context)
         type = Types::DeleteNetworkInterfaceOutput.new
@@ -6875,7 +6875,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteNetworkInterfacePermissionInput
+    class DeleteNetworkInterfacePermissionInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteNetworkInterfacePermissionInput, context: context)
         type = Types::DeleteNetworkInterfacePermissionInput.new
@@ -6887,7 +6887,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteNetworkInterfacePermissionOutput
+    class DeleteNetworkInterfacePermissionOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteNetworkInterfacePermissionOutput, context: context)
         type = Types::DeleteNetworkInterfacePermissionOutput.new
@@ -6897,7 +6897,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeletePlacementGroupInput
+    class DeletePlacementGroupInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeletePlacementGroupInput, context: context)
         type = Types::DeletePlacementGroupInput.new
@@ -6908,7 +6908,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeletePlacementGroupOutput
+    class DeletePlacementGroupOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeletePlacementGroupOutput, context: context)
         type = Types::DeletePlacementGroupOutput.new
@@ -6917,7 +6917,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeletePublicIpv4PoolInput
+    class DeletePublicIpv4PoolInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeletePublicIpv4PoolInput, context: context)
         type = Types::DeletePublicIpv4PoolInput.new
@@ -6928,7 +6928,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeletePublicIpv4PoolOutput
+    class DeletePublicIpv4PoolOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeletePublicIpv4PoolOutput, context: context)
         type = Types::DeletePublicIpv4PoolOutput.new
@@ -6938,7 +6938,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteQueuedReservedInstancesError
+    class DeleteQueuedReservedInstancesError
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteQueuedReservedInstancesError, context: context)
         type = Types::DeleteQueuedReservedInstancesError.new
@@ -6949,7 +6949,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteQueuedReservedInstancesIdList
+    class DeleteQueuedReservedInstancesIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -6960,7 +6960,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteQueuedReservedInstancesInput
+    class DeleteQueuedReservedInstancesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteQueuedReservedInstancesInput, context: context)
         type = Types::DeleteQueuedReservedInstancesInput.new
@@ -6971,7 +6971,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteQueuedReservedInstancesOutput
+    class DeleteQueuedReservedInstancesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteQueuedReservedInstancesOutput, context: context)
         type = Types::DeleteQueuedReservedInstancesOutput.new
@@ -6982,7 +6982,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteRouteInput
+    class DeleteRouteInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteRouteInput, context: context)
         type = Types::DeleteRouteInput.new
@@ -6996,7 +6996,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteRouteOutput
+    class DeleteRouteOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteRouteOutput, context: context)
         type = Types::DeleteRouteOutput.new
@@ -7005,7 +7005,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteRouteTableInput
+    class DeleteRouteTableInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteRouteTableInput, context: context)
         type = Types::DeleteRouteTableInput.new
@@ -7016,7 +7016,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteRouteTableOutput
+    class DeleteRouteTableOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteRouteTableOutput, context: context)
         type = Types::DeleteRouteTableOutput.new
@@ -7025,7 +7025,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteSecurityGroupInput
+    class DeleteSecurityGroupInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteSecurityGroupInput, context: context)
         type = Types::DeleteSecurityGroupInput.new
@@ -7037,7 +7037,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteSecurityGroupOutput
+    class DeleteSecurityGroupOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteSecurityGroupOutput, context: context)
         type = Types::DeleteSecurityGroupOutput.new
@@ -7046,7 +7046,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteSnapshotInput
+    class DeleteSnapshotInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteSnapshotInput, context: context)
         type = Types::DeleteSnapshotInput.new
@@ -7057,7 +7057,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteSnapshotOutput
+    class DeleteSnapshotOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteSnapshotOutput, context: context)
         type = Types::DeleteSnapshotOutput.new
@@ -7066,7 +7066,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteSpotDatafeedSubscriptionInput
+    class DeleteSpotDatafeedSubscriptionInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteSpotDatafeedSubscriptionInput, context: context)
         type = Types::DeleteSpotDatafeedSubscriptionInput.new
@@ -7076,7 +7076,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteSpotDatafeedSubscriptionOutput
+    class DeleteSpotDatafeedSubscriptionOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteSpotDatafeedSubscriptionOutput, context: context)
         type = Types::DeleteSpotDatafeedSubscriptionOutput.new
@@ -7085,7 +7085,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteSubnetCidrReservationInput
+    class DeleteSubnetCidrReservationInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteSubnetCidrReservationInput, context: context)
         type = Types::DeleteSubnetCidrReservationInput.new
@@ -7096,7 +7096,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteSubnetCidrReservationOutput
+    class DeleteSubnetCidrReservationOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteSubnetCidrReservationOutput, context: context)
         type = Types::DeleteSubnetCidrReservationOutput.new
@@ -7106,7 +7106,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteSubnetInput
+    class DeleteSubnetInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteSubnetInput, context: context)
         type = Types::DeleteSubnetInput.new
@@ -7117,7 +7117,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteSubnetOutput
+    class DeleteSubnetOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteSubnetOutput, context: context)
         type = Types::DeleteSubnetOutput.new
@@ -7126,7 +7126,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteTagsInput
+    class DeleteTagsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteTagsInput, context: context)
         type = Types::DeleteTagsInput.new
@@ -7138,7 +7138,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteTagsOutput
+    class DeleteTagsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteTagsOutput, context: context)
         type = Types::DeleteTagsOutput.new
@@ -7147,7 +7147,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteTrafficMirrorFilterInput
+    class DeleteTrafficMirrorFilterInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteTrafficMirrorFilterInput, context: context)
         type = Types::DeleteTrafficMirrorFilterInput.new
@@ -7158,7 +7158,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteTrafficMirrorFilterOutput
+    class DeleteTrafficMirrorFilterOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteTrafficMirrorFilterOutput, context: context)
         type = Types::DeleteTrafficMirrorFilterOutput.new
@@ -7168,7 +7168,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteTrafficMirrorFilterRuleInput
+    class DeleteTrafficMirrorFilterRuleInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteTrafficMirrorFilterRuleInput, context: context)
         type = Types::DeleteTrafficMirrorFilterRuleInput.new
@@ -7179,7 +7179,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteTrafficMirrorFilterRuleOutput
+    class DeleteTrafficMirrorFilterRuleOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteTrafficMirrorFilterRuleOutput, context: context)
         type = Types::DeleteTrafficMirrorFilterRuleOutput.new
@@ -7189,7 +7189,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteTrafficMirrorSessionInput
+    class DeleteTrafficMirrorSessionInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteTrafficMirrorSessionInput, context: context)
         type = Types::DeleteTrafficMirrorSessionInput.new
@@ -7200,7 +7200,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteTrafficMirrorSessionOutput
+    class DeleteTrafficMirrorSessionOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteTrafficMirrorSessionOutput, context: context)
         type = Types::DeleteTrafficMirrorSessionOutput.new
@@ -7210,7 +7210,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteTrafficMirrorTargetInput
+    class DeleteTrafficMirrorTargetInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteTrafficMirrorTargetInput, context: context)
         type = Types::DeleteTrafficMirrorTargetInput.new
@@ -7221,7 +7221,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteTrafficMirrorTargetOutput
+    class DeleteTrafficMirrorTargetOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteTrafficMirrorTargetOutput, context: context)
         type = Types::DeleteTrafficMirrorTargetOutput.new
@@ -7231,7 +7231,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteTransitGatewayConnectInput
+    class DeleteTransitGatewayConnectInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteTransitGatewayConnectInput, context: context)
         type = Types::DeleteTransitGatewayConnectInput.new
@@ -7242,7 +7242,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteTransitGatewayConnectOutput
+    class DeleteTransitGatewayConnectOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteTransitGatewayConnectOutput, context: context)
         type = Types::DeleteTransitGatewayConnectOutput.new
@@ -7252,7 +7252,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteTransitGatewayConnectPeerInput
+    class DeleteTransitGatewayConnectPeerInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteTransitGatewayConnectPeerInput, context: context)
         type = Types::DeleteTransitGatewayConnectPeerInput.new
@@ -7263,7 +7263,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteTransitGatewayConnectPeerOutput
+    class DeleteTransitGatewayConnectPeerOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteTransitGatewayConnectPeerOutput, context: context)
         type = Types::DeleteTransitGatewayConnectPeerOutput.new
@@ -7273,7 +7273,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteTransitGatewayInput
+    class DeleteTransitGatewayInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteTransitGatewayInput, context: context)
         type = Types::DeleteTransitGatewayInput.new
@@ -7284,7 +7284,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteTransitGatewayMulticastDomainInput
+    class DeleteTransitGatewayMulticastDomainInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteTransitGatewayMulticastDomainInput, context: context)
         type = Types::DeleteTransitGatewayMulticastDomainInput.new
@@ -7295,7 +7295,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteTransitGatewayMulticastDomainOutput
+    class DeleteTransitGatewayMulticastDomainOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteTransitGatewayMulticastDomainOutput, context: context)
         type = Types::DeleteTransitGatewayMulticastDomainOutput.new
@@ -7305,7 +7305,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteTransitGatewayOutput
+    class DeleteTransitGatewayOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteTransitGatewayOutput, context: context)
         type = Types::DeleteTransitGatewayOutput.new
@@ -7315,7 +7315,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteTransitGatewayPeeringAttachmentInput
+    class DeleteTransitGatewayPeeringAttachmentInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteTransitGatewayPeeringAttachmentInput, context: context)
         type = Types::DeleteTransitGatewayPeeringAttachmentInput.new
@@ -7326,7 +7326,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteTransitGatewayPeeringAttachmentOutput
+    class DeleteTransitGatewayPeeringAttachmentOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteTransitGatewayPeeringAttachmentOutput, context: context)
         type = Types::DeleteTransitGatewayPeeringAttachmentOutput.new
@@ -7336,7 +7336,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteTransitGatewayPolicyTableInput
+    class DeleteTransitGatewayPolicyTableInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteTransitGatewayPolicyTableInput, context: context)
         type = Types::DeleteTransitGatewayPolicyTableInput.new
@@ -7347,7 +7347,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteTransitGatewayPolicyTableOutput
+    class DeleteTransitGatewayPolicyTableOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteTransitGatewayPolicyTableOutput, context: context)
         type = Types::DeleteTransitGatewayPolicyTableOutput.new
@@ -7357,7 +7357,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteTransitGatewayPrefixListReferenceInput
+    class DeleteTransitGatewayPrefixListReferenceInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteTransitGatewayPrefixListReferenceInput, context: context)
         type = Types::DeleteTransitGatewayPrefixListReferenceInput.new
@@ -7369,7 +7369,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteTransitGatewayPrefixListReferenceOutput
+    class DeleteTransitGatewayPrefixListReferenceOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteTransitGatewayPrefixListReferenceOutput, context: context)
         type = Types::DeleteTransitGatewayPrefixListReferenceOutput.new
@@ -7379,7 +7379,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteTransitGatewayRouteInput
+    class DeleteTransitGatewayRouteInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteTransitGatewayRouteInput, context: context)
         type = Types::DeleteTransitGatewayRouteInput.new
@@ -7391,7 +7391,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteTransitGatewayRouteOutput
+    class DeleteTransitGatewayRouteOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteTransitGatewayRouteOutput, context: context)
         type = Types::DeleteTransitGatewayRouteOutput.new
@@ -7401,7 +7401,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteTransitGatewayRouteTableAnnouncementInput
+    class DeleteTransitGatewayRouteTableAnnouncementInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteTransitGatewayRouteTableAnnouncementInput, context: context)
         type = Types::DeleteTransitGatewayRouteTableAnnouncementInput.new
@@ -7412,7 +7412,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteTransitGatewayRouteTableAnnouncementOutput
+    class DeleteTransitGatewayRouteTableAnnouncementOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteTransitGatewayRouteTableAnnouncementOutput, context: context)
         type = Types::DeleteTransitGatewayRouteTableAnnouncementOutput.new
@@ -7422,7 +7422,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteTransitGatewayRouteTableInput
+    class DeleteTransitGatewayRouteTableInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteTransitGatewayRouteTableInput, context: context)
         type = Types::DeleteTransitGatewayRouteTableInput.new
@@ -7433,7 +7433,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteTransitGatewayRouteTableOutput
+    class DeleteTransitGatewayRouteTableOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteTransitGatewayRouteTableOutput, context: context)
         type = Types::DeleteTransitGatewayRouteTableOutput.new
@@ -7443,7 +7443,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteTransitGatewayVpcAttachmentInput
+    class DeleteTransitGatewayVpcAttachmentInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteTransitGatewayVpcAttachmentInput, context: context)
         type = Types::DeleteTransitGatewayVpcAttachmentInput.new
@@ -7454,7 +7454,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteTransitGatewayVpcAttachmentOutput
+    class DeleteTransitGatewayVpcAttachmentOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteTransitGatewayVpcAttachmentOutput, context: context)
         type = Types::DeleteTransitGatewayVpcAttachmentOutput.new
@@ -7464,7 +7464,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteVerifiedAccessEndpointInput
+    class DeleteVerifiedAccessEndpointInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteVerifiedAccessEndpointInput, context: context)
         type = Types::DeleteVerifiedAccessEndpointInput.new
@@ -7476,7 +7476,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteVerifiedAccessEndpointOutput
+    class DeleteVerifiedAccessEndpointOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteVerifiedAccessEndpointOutput, context: context)
         type = Types::DeleteVerifiedAccessEndpointOutput.new
@@ -7486,7 +7486,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteVerifiedAccessGroupInput
+    class DeleteVerifiedAccessGroupInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteVerifiedAccessGroupInput, context: context)
         type = Types::DeleteVerifiedAccessGroupInput.new
@@ -7498,7 +7498,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteVerifiedAccessGroupOutput
+    class DeleteVerifiedAccessGroupOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteVerifiedAccessGroupOutput, context: context)
         type = Types::DeleteVerifiedAccessGroupOutput.new
@@ -7508,7 +7508,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteVerifiedAccessInstanceInput
+    class DeleteVerifiedAccessInstanceInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteVerifiedAccessInstanceInput, context: context)
         type = Types::DeleteVerifiedAccessInstanceInput.new
@@ -7520,7 +7520,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteVerifiedAccessInstanceOutput
+    class DeleteVerifiedAccessInstanceOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteVerifiedAccessInstanceOutput, context: context)
         type = Types::DeleteVerifiedAccessInstanceOutput.new
@@ -7530,7 +7530,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteVerifiedAccessTrustProviderInput
+    class DeleteVerifiedAccessTrustProviderInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteVerifiedAccessTrustProviderInput, context: context)
         type = Types::DeleteVerifiedAccessTrustProviderInput.new
@@ -7542,7 +7542,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteVerifiedAccessTrustProviderOutput
+    class DeleteVerifiedAccessTrustProviderOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteVerifiedAccessTrustProviderOutput, context: context)
         type = Types::DeleteVerifiedAccessTrustProviderOutput.new
@@ -7552,7 +7552,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteVolumeInput
+    class DeleteVolumeInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteVolumeInput, context: context)
         type = Types::DeleteVolumeInput.new
@@ -7563,7 +7563,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteVolumeOutput
+    class DeleteVolumeOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteVolumeOutput, context: context)
         type = Types::DeleteVolumeOutput.new
@@ -7572,7 +7572,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteVpcEndpointConnectionNotificationsInput
+    class DeleteVpcEndpointConnectionNotificationsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteVpcEndpointConnectionNotificationsInput, context: context)
         type = Types::DeleteVpcEndpointConnectionNotificationsInput.new
@@ -7583,7 +7583,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteVpcEndpointConnectionNotificationsOutput
+    class DeleteVpcEndpointConnectionNotificationsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteVpcEndpointConnectionNotificationsOutput, context: context)
         type = Types::DeleteVpcEndpointConnectionNotificationsOutput.new
@@ -7593,7 +7593,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteVpcEndpointServiceConfigurationsInput
+    class DeleteVpcEndpointServiceConfigurationsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteVpcEndpointServiceConfigurationsInput, context: context)
         type = Types::DeleteVpcEndpointServiceConfigurationsInput.new
@@ -7604,7 +7604,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteVpcEndpointServiceConfigurationsOutput
+    class DeleteVpcEndpointServiceConfigurationsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteVpcEndpointServiceConfigurationsOutput, context: context)
         type = Types::DeleteVpcEndpointServiceConfigurationsOutput.new
@@ -7614,7 +7614,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteVpcEndpointsInput
+    class DeleteVpcEndpointsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteVpcEndpointsInput, context: context)
         type = Types::DeleteVpcEndpointsInput.new
@@ -7625,7 +7625,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteVpcEndpointsOutput
+    class DeleteVpcEndpointsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteVpcEndpointsOutput, context: context)
         type = Types::DeleteVpcEndpointsOutput.new
@@ -7635,7 +7635,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteVpcInput
+    class DeleteVpcInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteVpcInput, context: context)
         type = Types::DeleteVpcInput.new
@@ -7646,7 +7646,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteVpcOutput
+    class DeleteVpcOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteVpcOutput, context: context)
         type = Types::DeleteVpcOutput.new
@@ -7655,7 +7655,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteVpcPeeringConnectionInput
+    class DeleteVpcPeeringConnectionInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteVpcPeeringConnectionInput, context: context)
         type = Types::DeleteVpcPeeringConnectionInput.new
@@ -7666,7 +7666,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteVpcPeeringConnectionOutput
+    class DeleteVpcPeeringConnectionOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteVpcPeeringConnectionOutput, context: context)
         type = Types::DeleteVpcPeeringConnectionOutput.new
@@ -7676,7 +7676,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteVpnConnectionInput
+    class DeleteVpnConnectionInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteVpnConnectionInput, context: context)
         type = Types::DeleteVpnConnectionInput.new
@@ -7687,7 +7687,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteVpnConnectionOutput
+    class DeleteVpnConnectionOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteVpnConnectionOutput, context: context)
         type = Types::DeleteVpnConnectionOutput.new
@@ -7696,7 +7696,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteVpnConnectionRouteInput
+    class DeleteVpnConnectionRouteInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteVpnConnectionRouteInput, context: context)
         type = Types::DeleteVpnConnectionRouteInput.new
@@ -7707,7 +7707,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteVpnConnectionRouteOutput
+    class DeleteVpnConnectionRouteOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteVpnConnectionRouteOutput, context: context)
         type = Types::DeleteVpnConnectionRouteOutput.new
@@ -7716,7 +7716,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteVpnGatewayInput
+    class DeleteVpnGatewayInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteVpnGatewayInput, context: context)
         type = Types::DeleteVpnGatewayInput.new
@@ -7727,7 +7727,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeleteVpnGatewayOutput
+    class DeleteVpnGatewayOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteVpnGatewayOutput, context: context)
         type = Types::DeleteVpnGatewayOutput.new
@@ -7736,7 +7736,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeprovisionByoipCidrInput
+    class DeprovisionByoipCidrInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeprovisionByoipCidrInput, context: context)
         type = Types::DeprovisionByoipCidrInput.new
@@ -7747,7 +7747,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeprovisionByoipCidrOutput
+    class DeprovisionByoipCidrOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeprovisionByoipCidrOutput, context: context)
         type = Types::DeprovisionByoipCidrOutput.new
@@ -7757,7 +7757,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeprovisionIpamByoasnInput
+    class DeprovisionIpamByoasnInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeprovisionIpamByoasnInput, context: context)
         type = Types::DeprovisionIpamByoasnInput.new
@@ -7769,7 +7769,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeprovisionIpamByoasnOutput
+    class DeprovisionIpamByoasnOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeprovisionIpamByoasnOutput, context: context)
         type = Types::DeprovisionIpamByoasnOutput.new
@@ -7779,7 +7779,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeprovisionIpamPoolCidrInput
+    class DeprovisionIpamPoolCidrInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeprovisionIpamPoolCidrInput, context: context)
         type = Types::DeprovisionIpamPoolCidrInput.new
@@ -7791,7 +7791,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeprovisionIpamPoolCidrOutput
+    class DeprovisionIpamPoolCidrOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeprovisionIpamPoolCidrOutput, context: context)
         type = Types::DeprovisionIpamPoolCidrOutput.new
@@ -7801,7 +7801,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeprovisionPublicIpv4PoolCidrInput
+    class DeprovisionPublicIpv4PoolCidrInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeprovisionPublicIpv4PoolCidrInput, context: context)
         type = Types::DeprovisionPublicIpv4PoolCidrInput.new
@@ -7813,7 +7813,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeprovisionPublicIpv4PoolCidrOutput
+    class DeprovisionPublicIpv4PoolCidrOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeprovisionPublicIpv4PoolCidrOutput, context: context)
         type = Types::DeprovisionPublicIpv4PoolCidrOutput.new
@@ -7824,7 +7824,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeprovisionedAddressSet
+    class DeprovisionedAddressSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -7835,7 +7835,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeregisterImageInput
+    class DeregisterImageInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeregisterImageInput, context: context)
         type = Types::DeregisterImageInput.new
@@ -7846,7 +7846,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeregisterImageOutput
+    class DeregisterImageOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeregisterImageOutput, context: context)
         type = Types::DeregisterImageOutput.new
@@ -7855,7 +7855,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeregisterInstanceEventNotificationAttributesInput
+    class DeregisterInstanceEventNotificationAttributesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeregisterInstanceEventNotificationAttributesInput, context: context)
         type = Types::DeregisterInstanceEventNotificationAttributesInput.new
@@ -7866,7 +7866,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeregisterInstanceEventNotificationAttributesOutput
+    class DeregisterInstanceEventNotificationAttributesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeregisterInstanceEventNotificationAttributesOutput, context: context)
         type = Types::DeregisterInstanceEventNotificationAttributesOutput.new
@@ -7876,7 +7876,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeregisterInstanceTagAttributeRequest
+    class DeregisterInstanceTagAttributeRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeregisterInstanceTagAttributeRequest, context: context)
         type = Types::DeregisterInstanceTagAttributeRequest.new
@@ -7887,7 +7887,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeregisterTransitGatewayMulticastGroupMembersInput
+    class DeregisterTransitGatewayMulticastGroupMembersInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeregisterTransitGatewayMulticastGroupMembersInput, context: context)
         type = Types::DeregisterTransitGatewayMulticastGroupMembersInput.new
@@ -7900,7 +7900,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeregisterTransitGatewayMulticastGroupMembersOutput
+    class DeregisterTransitGatewayMulticastGroupMembersOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeregisterTransitGatewayMulticastGroupMembersOutput, context: context)
         type = Types::DeregisterTransitGatewayMulticastGroupMembersOutput.new
@@ -7910,7 +7910,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeregisterTransitGatewayMulticastGroupSourcesInput
+    class DeregisterTransitGatewayMulticastGroupSourcesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeregisterTransitGatewayMulticastGroupSourcesInput, context: context)
         type = Types::DeregisterTransitGatewayMulticastGroupSourcesInput.new
@@ -7923,7 +7923,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeregisterTransitGatewayMulticastGroupSourcesOutput
+    class DeregisterTransitGatewayMulticastGroupSourcesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeregisterTransitGatewayMulticastGroupSourcesOutput, context: context)
         type = Types::DeregisterTransitGatewayMulticastGroupSourcesOutput.new
@@ -7933,7 +7933,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeAccountAttributesInput
+    class DescribeAccountAttributesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeAccountAttributesInput, context: context)
         type = Types::DescribeAccountAttributesInput.new
@@ -7944,7 +7944,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeAccountAttributesOutput
+    class DescribeAccountAttributesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeAccountAttributesOutput, context: context)
         type = Types::DescribeAccountAttributesOutput.new
@@ -7954,7 +7954,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeAddressTransfersInput
+    class DescribeAddressTransfersInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeAddressTransfersInput, context: context)
         type = Types::DescribeAddressTransfersInput.new
@@ -7967,7 +7967,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeAddressTransfersOutput
+    class DescribeAddressTransfersOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeAddressTransfersOutput, context: context)
         type = Types::DescribeAddressTransfersOutput.new
@@ -7978,7 +7978,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeAddressesAttributeInput
+    class DescribeAddressesAttributeInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeAddressesAttributeInput, context: context)
         type = Types::DescribeAddressesAttributeInput.new
@@ -7992,7 +7992,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeAddressesAttributeOutput
+    class DescribeAddressesAttributeOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeAddressesAttributeOutput, context: context)
         type = Types::DescribeAddressesAttributeOutput.new
@@ -8003,7 +8003,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeAddressesInput
+    class DescribeAddressesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeAddressesInput, context: context)
         type = Types::DescribeAddressesInput.new
@@ -8016,7 +8016,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeAddressesOutput
+    class DescribeAddressesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeAddressesOutput, context: context)
         type = Types::DescribeAddressesOutput.new
@@ -8026,7 +8026,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeAggregateIdFormatInput
+    class DescribeAggregateIdFormatInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeAggregateIdFormatInput, context: context)
         type = Types::DescribeAggregateIdFormatInput.new
@@ -8036,7 +8036,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeAggregateIdFormatOutput
+    class DescribeAggregateIdFormatOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeAggregateIdFormatOutput, context: context)
         type = Types::DescribeAggregateIdFormatOutput.new
@@ -8047,7 +8047,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeAvailabilityZonesInput
+    class DescribeAvailabilityZonesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeAvailabilityZonesInput, context: context)
         type = Types::DescribeAvailabilityZonesInput.new
@@ -8061,7 +8061,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeAvailabilityZonesOutput
+    class DescribeAvailabilityZonesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeAvailabilityZonesOutput, context: context)
         type = Types::DescribeAvailabilityZonesOutput.new
@@ -8071,7 +8071,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeAwsNetworkPerformanceMetricSubscriptionsInput
+    class DescribeAwsNetworkPerformanceMetricSubscriptionsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeAwsNetworkPerformanceMetricSubscriptionsInput, context: context)
         type = Types::DescribeAwsNetworkPerformanceMetricSubscriptionsInput.new
@@ -8084,7 +8084,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeAwsNetworkPerformanceMetricSubscriptionsOutput
+    class DescribeAwsNetworkPerformanceMetricSubscriptionsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeAwsNetworkPerformanceMetricSubscriptionsOutput, context: context)
         type = Types::DescribeAwsNetworkPerformanceMetricSubscriptionsOutput.new
@@ -8095,7 +8095,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeBundleTasksInput
+    class DescribeBundleTasksInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeBundleTasksInput, context: context)
         type = Types::DescribeBundleTasksInput.new
@@ -8107,7 +8107,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeBundleTasksOutput
+    class DescribeBundleTasksOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeBundleTasksOutput, context: context)
         type = Types::DescribeBundleTasksOutput.new
@@ -8117,7 +8117,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeByoipCidrsInput
+    class DescribeByoipCidrsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeByoipCidrsInput, context: context)
         type = Types::DescribeByoipCidrsInput.new
@@ -8129,7 +8129,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeByoipCidrsOutput
+    class DescribeByoipCidrsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeByoipCidrsOutput, context: context)
         type = Types::DescribeByoipCidrsOutput.new
@@ -8140,7 +8140,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeCapacityBlockOfferingsInput
+    class DescribeCapacityBlockOfferingsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeCapacityBlockOfferingsInput, context: context)
         type = Types::DescribeCapacityBlockOfferingsInput.new
@@ -8157,7 +8157,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeCapacityBlockOfferingsOutput
+    class DescribeCapacityBlockOfferingsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeCapacityBlockOfferingsOutput, context: context)
         type = Types::DescribeCapacityBlockOfferingsOutput.new
@@ -8168,7 +8168,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeCapacityReservationFleetsInput
+    class DescribeCapacityReservationFleetsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeCapacityReservationFleetsInput, context: context)
         type = Types::DescribeCapacityReservationFleetsInput.new
@@ -8182,7 +8182,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeCapacityReservationFleetsOutput
+    class DescribeCapacityReservationFleetsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeCapacityReservationFleetsOutput, context: context)
         type = Types::DescribeCapacityReservationFleetsOutput.new
@@ -8193,7 +8193,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeCapacityReservationsInput
+    class DescribeCapacityReservationsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeCapacityReservationsInput, context: context)
         type = Types::DescribeCapacityReservationsInput.new
@@ -8207,7 +8207,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeCapacityReservationsOutput
+    class DescribeCapacityReservationsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeCapacityReservationsOutput, context: context)
         type = Types::DescribeCapacityReservationsOutput.new
@@ -8218,7 +8218,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeCarrierGatewaysInput
+    class DescribeCarrierGatewaysInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeCarrierGatewaysInput, context: context)
         type = Types::DescribeCarrierGatewaysInput.new
@@ -8232,7 +8232,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeCarrierGatewaysOutput
+    class DescribeCarrierGatewaysOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeCarrierGatewaysOutput, context: context)
         type = Types::DescribeCarrierGatewaysOutput.new
@@ -8243,7 +8243,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeClassicLinkInstancesInput
+    class DescribeClassicLinkInstancesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeClassicLinkInstancesInput, context: context)
         type = Types::DescribeClassicLinkInstancesInput.new
@@ -8257,7 +8257,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeClassicLinkInstancesOutput
+    class DescribeClassicLinkInstancesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeClassicLinkInstancesOutput, context: context)
         type = Types::DescribeClassicLinkInstancesOutput.new
@@ -8268,7 +8268,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeClientVpnAuthorizationRulesInput
+    class DescribeClientVpnAuthorizationRulesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeClientVpnAuthorizationRulesInput, context: context)
         type = Types::DescribeClientVpnAuthorizationRulesInput.new
@@ -8282,7 +8282,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeClientVpnAuthorizationRulesOutput
+    class DescribeClientVpnAuthorizationRulesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeClientVpnAuthorizationRulesOutput, context: context)
         type = Types::DescribeClientVpnAuthorizationRulesOutput.new
@@ -8293,7 +8293,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeClientVpnConnectionsInput
+    class DescribeClientVpnConnectionsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeClientVpnConnectionsInput, context: context)
         type = Types::DescribeClientVpnConnectionsInput.new
@@ -8307,7 +8307,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeClientVpnConnectionsOutput
+    class DescribeClientVpnConnectionsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeClientVpnConnectionsOutput, context: context)
         type = Types::DescribeClientVpnConnectionsOutput.new
@@ -8318,7 +8318,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeClientVpnEndpointsInput
+    class DescribeClientVpnEndpointsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeClientVpnEndpointsInput, context: context)
         type = Types::DescribeClientVpnEndpointsInput.new
@@ -8332,7 +8332,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeClientVpnEndpointsOutput
+    class DescribeClientVpnEndpointsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeClientVpnEndpointsOutput, context: context)
         type = Types::DescribeClientVpnEndpointsOutput.new
@@ -8343,7 +8343,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeClientVpnRoutesInput
+    class DescribeClientVpnRoutesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeClientVpnRoutesInput, context: context)
         type = Types::DescribeClientVpnRoutesInput.new
@@ -8357,7 +8357,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeClientVpnRoutesOutput
+    class DescribeClientVpnRoutesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeClientVpnRoutesOutput, context: context)
         type = Types::DescribeClientVpnRoutesOutput.new
@@ -8368,7 +8368,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeClientVpnTargetNetworksInput
+    class DescribeClientVpnTargetNetworksInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeClientVpnTargetNetworksInput, context: context)
         type = Types::DescribeClientVpnTargetNetworksInput.new
@@ -8383,7 +8383,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeClientVpnTargetNetworksOutput
+    class DescribeClientVpnTargetNetworksOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeClientVpnTargetNetworksOutput, context: context)
         type = Types::DescribeClientVpnTargetNetworksOutput.new
@@ -8394,7 +8394,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeCoipPoolsInput
+    class DescribeCoipPoolsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeCoipPoolsInput, context: context)
         type = Types::DescribeCoipPoolsInput.new
@@ -8408,7 +8408,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeCoipPoolsOutput
+    class DescribeCoipPoolsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeCoipPoolsOutput, context: context)
         type = Types::DescribeCoipPoolsOutput.new
@@ -8419,7 +8419,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeConversionTaskList
+    class DescribeConversionTaskList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -8430,7 +8430,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeConversionTasksInput
+    class DescribeConversionTasksInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeConversionTasksInput, context: context)
         type = Types::DescribeConversionTasksInput.new
@@ -8441,7 +8441,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeConversionTasksOutput
+    class DescribeConversionTasksOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeConversionTasksOutput, context: context)
         type = Types::DescribeConversionTasksOutput.new
@@ -8451,7 +8451,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeCustomerGatewaysInput
+    class DescribeCustomerGatewaysInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeCustomerGatewaysInput, context: context)
         type = Types::DescribeCustomerGatewaysInput.new
@@ -8463,7 +8463,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeCustomerGatewaysOutput
+    class DescribeCustomerGatewaysOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeCustomerGatewaysOutput, context: context)
         type = Types::DescribeCustomerGatewaysOutput.new
@@ -8473,7 +8473,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeDhcpOptionsInput
+    class DescribeDhcpOptionsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeDhcpOptionsInput, context: context)
         type = Types::DescribeDhcpOptionsInput.new
@@ -8487,7 +8487,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeDhcpOptionsOutput
+    class DescribeDhcpOptionsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeDhcpOptionsOutput, context: context)
         type = Types::DescribeDhcpOptionsOutput.new
@@ -8498,7 +8498,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeEgressOnlyInternetGatewaysInput
+    class DescribeEgressOnlyInternetGatewaysInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeEgressOnlyInternetGatewaysInput, context: context)
         type = Types::DescribeEgressOnlyInternetGatewaysInput.new
@@ -8512,7 +8512,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeEgressOnlyInternetGatewaysOutput
+    class DescribeEgressOnlyInternetGatewaysOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeEgressOnlyInternetGatewaysOutput, context: context)
         type = Types::DescribeEgressOnlyInternetGatewaysOutput.new
@@ -8523,7 +8523,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeElasticGpusInput
+    class DescribeElasticGpusInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeElasticGpusInput, context: context)
         type = Types::DescribeElasticGpusInput.new
@@ -8537,7 +8537,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeElasticGpusOutput
+    class DescribeElasticGpusOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeElasticGpusOutput, context: context)
         type = Types::DescribeElasticGpusOutput.new
@@ -8549,7 +8549,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeExportImageTasksInput
+    class DescribeExportImageTasksInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeExportImageTasksInput, context: context)
         type = Types::DescribeExportImageTasksInput.new
@@ -8563,7 +8563,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeExportImageTasksOutput
+    class DescribeExportImageTasksOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeExportImageTasksOutput, context: context)
         type = Types::DescribeExportImageTasksOutput.new
@@ -8574,7 +8574,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeExportTasksInput
+    class DescribeExportTasksInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeExportTasksInput, context: context)
         type = Types::DescribeExportTasksInput.new
@@ -8585,7 +8585,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeExportTasksOutput
+    class DescribeExportTasksOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeExportTasksOutput, context: context)
         type = Types::DescribeExportTasksOutput.new
@@ -8595,7 +8595,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeFastLaunchImagesInput
+    class DescribeFastLaunchImagesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeFastLaunchImagesInput, context: context)
         type = Types::DescribeFastLaunchImagesInput.new
@@ -8609,7 +8609,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeFastLaunchImagesOutput
+    class DescribeFastLaunchImagesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeFastLaunchImagesOutput, context: context)
         type = Types::DescribeFastLaunchImagesOutput.new
@@ -8620,7 +8620,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeFastLaunchImagesSuccessItem
+    class DescribeFastLaunchImagesSuccessItem
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeFastLaunchImagesSuccessItem, context: context)
         type = Types::DescribeFastLaunchImagesSuccessItem.new
@@ -8638,7 +8638,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeFastLaunchImagesSuccessSet
+    class DescribeFastLaunchImagesSuccessSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -8649,7 +8649,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeFastSnapshotRestoreSuccessItem
+    class DescribeFastSnapshotRestoreSuccessItem
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeFastSnapshotRestoreSuccessItem, context: context)
         type = Types::DescribeFastSnapshotRestoreSuccessItem.new
@@ -8669,7 +8669,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeFastSnapshotRestoreSuccessSet
+    class DescribeFastSnapshotRestoreSuccessSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -8680,7 +8680,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeFastSnapshotRestoresInput
+    class DescribeFastSnapshotRestoresInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeFastSnapshotRestoresInput, context: context)
         type = Types::DescribeFastSnapshotRestoresInput.new
@@ -8693,7 +8693,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeFastSnapshotRestoresOutput
+    class DescribeFastSnapshotRestoresOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeFastSnapshotRestoresOutput, context: context)
         type = Types::DescribeFastSnapshotRestoresOutput.new
@@ -8704,7 +8704,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeFleetError
+    class DescribeFleetError
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeFleetError, context: context)
         type = Types::DescribeFleetError.new
@@ -8717,7 +8717,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeFleetHistoryInput
+    class DescribeFleetHistoryInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeFleetHistoryInput, context: context)
         type = Types::DescribeFleetHistoryInput.new
@@ -8732,7 +8732,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeFleetHistoryOutput
+    class DescribeFleetHistoryOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeFleetHistoryOutput, context: context)
         type = Types::DescribeFleetHistoryOutput.new
@@ -8746,7 +8746,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeFleetInstancesInput
+    class DescribeFleetInstancesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeFleetInstancesInput, context: context)
         type = Types::DescribeFleetInstancesInput.new
@@ -8760,7 +8760,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeFleetInstancesOutput
+    class DescribeFleetInstancesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeFleetInstancesOutput, context: context)
         type = Types::DescribeFleetInstancesOutput.new
@@ -8772,7 +8772,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeFleetsErrorSet
+    class DescribeFleetsErrorSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -8783,7 +8783,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeFleetsInput
+    class DescribeFleetsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeFleetsInput, context: context)
         type = Types::DescribeFleetsInput.new
@@ -8797,7 +8797,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeFleetsInstances
+    class DescribeFleetsInstances
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeFleetsInstances, context: context)
         type = Types::DescribeFleetsInstances.new
@@ -8811,7 +8811,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeFleetsInstancesSet
+    class DescribeFleetsInstancesSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -8822,7 +8822,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeFleetsOutput
+    class DescribeFleetsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeFleetsOutput, context: context)
         type = Types::DescribeFleetsOutput.new
@@ -8833,7 +8833,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeFlowLogsInput
+    class DescribeFlowLogsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeFlowLogsInput, context: context)
         type = Types::DescribeFlowLogsInput.new
@@ -8847,7 +8847,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeFlowLogsOutput
+    class DescribeFlowLogsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeFlowLogsOutput, context: context)
         type = Types::DescribeFlowLogsOutput.new
@@ -8858,7 +8858,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeFpgaImageAttributeInput
+    class DescribeFpgaImageAttributeInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeFpgaImageAttributeInput, context: context)
         type = Types::DescribeFpgaImageAttributeInput.new
@@ -8870,7 +8870,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeFpgaImageAttributeOutput
+    class DescribeFpgaImageAttributeOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeFpgaImageAttributeOutput, context: context)
         type = Types::DescribeFpgaImageAttributeOutput.new
@@ -8880,7 +8880,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeFpgaImagesInput
+    class DescribeFpgaImagesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeFpgaImagesInput, context: context)
         type = Types::DescribeFpgaImagesInput.new
@@ -8895,7 +8895,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeFpgaImagesOutput
+    class DescribeFpgaImagesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeFpgaImagesOutput, context: context)
         type = Types::DescribeFpgaImagesOutput.new
@@ -8906,7 +8906,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeHostReservationOfferingsInput
+    class DescribeHostReservationOfferingsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeHostReservationOfferingsInput, context: context)
         type = Types::DescribeHostReservationOfferingsInput.new
@@ -8921,7 +8921,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeHostReservationOfferingsOutput
+    class DescribeHostReservationOfferingsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeHostReservationOfferingsOutput, context: context)
         type = Types::DescribeHostReservationOfferingsOutput.new
@@ -8932,7 +8932,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeHostReservationsInput
+    class DescribeHostReservationsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeHostReservationsInput, context: context)
         type = Types::DescribeHostReservationsInput.new
@@ -8945,7 +8945,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeHostReservationsOutput
+    class DescribeHostReservationsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeHostReservationsOutput, context: context)
         type = Types::DescribeHostReservationsOutput.new
@@ -8956,7 +8956,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeHostsInput
+    class DescribeHostsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeHostsInput, context: context)
         type = Types::DescribeHostsInput.new
@@ -8969,7 +8969,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeHostsOutput
+    class DescribeHostsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeHostsOutput, context: context)
         type = Types::DescribeHostsOutput.new
@@ -8980,7 +8980,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeIamInstanceProfileAssociationsInput
+    class DescribeIamInstanceProfileAssociationsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeIamInstanceProfileAssociationsInput, context: context)
         type = Types::DescribeIamInstanceProfileAssociationsInput.new
@@ -8993,7 +8993,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeIamInstanceProfileAssociationsOutput
+    class DescribeIamInstanceProfileAssociationsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeIamInstanceProfileAssociationsOutput, context: context)
         type = Types::DescribeIamInstanceProfileAssociationsOutput.new
@@ -9004,7 +9004,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeIdFormatInput
+    class DescribeIdFormatInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeIdFormatInput, context: context)
         type = Types::DescribeIdFormatInput.new
@@ -9014,7 +9014,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeIdFormatOutput
+    class DescribeIdFormatOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeIdFormatOutput, context: context)
         type = Types::DescribeIdFormatOutput.new
@@ -9024,7 +9024,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeIdentityIdFormatInput
+    class DescribeIdentityIdFormatInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeIdentityIdFormatInput, context: context)
         type = Types::DescribeIdentityIdFormatInput.new
@@ -9035,7 +9035,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeIdentityIdFormatOutput
+    class DescribeIdentityIdFormatOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeIdentityIdFormatOutput, context: context)
         type = Types::DescribeIdentityIdFormatOutput.new
@@ -9045,7 +9045,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeImageAttributeInput
+    class DescribeImageAttributeInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeImageAttributeInput, context: context)
         type = Types::DescribeImageAttributeInput.new
@@ -9057,7 +9057,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeImageAttributeOutput
+    class DescribeImageAttributeOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeImageAttributeOutput, context: context)
         type = Types::DescribeImageAttributeOutput.new
@@ -9079,7 +9079,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeImagesInput
+    class DescribeImagesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeImagesInput, context: context)
         type = Types::DescribeImagesInput.new
@@ -9097,7 +9097,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeImagesOutput
+    class DescribeImagesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeImagesOutput, context: context)
         type = Types::DescribeImagesOutput.new
@@ -9108,7 +9108,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeImportImageTasksInput
+    class DescribeImportImageTasksInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeImportImageTasksInput, context: context)
         type = Types::DescribeImportImageTasksInput.new
@@ -9122,7 +9122,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeImportImageTasksOutput
+    class DescribeImportImageTasksOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeImportImageTasksOutput, context: context)
         type = Types::DescribeImportImageTasksOutput.new
@@ -9133,7 +9133,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeImportSnapshotTasksInput
+    class DescribeImportSnapshotTasksInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeImportSnapshotTasksInput, context: context)
         type = Types::DescribeImportSnapshotTasksInput.new
@@ -9147,7 +9147,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeImportSnapshotTasksOutput
+    class DescribeImportSnapshotTasksOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeImportSnapshotTasksOutput, context: context)
         type = Types::DescribeImportSnapshotTasksOutput.new
@@ -9158,7 +9158,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeInstanceAttributeInput
+    class DescribeInstanceAttributeInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeInstanceAttributeInput, context: context)
         type = Types::DescribeInstanceAttributeInput.new
@@ -9170,7 +9170,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeInstanceAttributeOutput
+    class DescribeInstanceAttributeOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeInstanceAttributeOutput, context: context)
         type = Types::DescribeInstanceAttributeOutput.new
@@ -9196,7 +9196,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeInstanceConnectEndpointsInput
+    class DescribeInstanceConnectEndpointsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeInstanceConnectEndpointsInput, context: context)
         type = Types::DescribeInstanceConnectEndpointsInput.new
@@ -9210,7 +9210,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeInstanceConnectEndpointsOutput
+    class DescribeInstanceConnectEndpointsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeInstanceConnectEndpointsOutput, context: context)
         type = Types::DescribeInstanceConnectEndpointsOutput.new
@@ -9221,7 +9221,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeInstanceCreditSpecificationsInput
+    class DescribeInstanceCreditSpecificationsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeInstanceCreditSpecificationsInput, context: context)
         type = Types::DescribeInstanceCreditSpecificationsInput.new
@@ -9235,7 +9235,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeInstanceCreditSpecificationsOutput
+    class DescribeInstanceCreditSpecificationsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeInstanceCreditSpecificationsOutput, context: context)
         type = Types::DescribeInstanceCreditSpecificationsOutput.new
@@ -9246,7 +9246,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeInstanceEventNotificationAttributesInput
+    class DescribeInstanceEventNotificationAttributesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeInstanceEventNotificationAttributesInput, context: context)
         type = Types::DescribeInstanceEventNotificationAttributesInput.new
@@ -9256,7 +9256,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeInstanceEventNotificationAttributesOutput
+    class DescribeInstanceEventNotificationAttributesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeInstanceEventNotificationAttributesOutput, context: context)
         type = Types::DescribeInstanceEventNotificationAttributesOutput.new
@@ -9266,7 +9266,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeInstanceEventWindowsInput
+    class DescribeInstanceEventWindowsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeInstanceEventWindowsInput, context: context)
         type = Types::DescribeInstanceEventWindowsInput.new
@@ -9280,7 +9280,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeInstanceEventWindowsOutput
+    class DescribeInstanceEventWindowsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeInstanceEventWindowsOutput, context: context)
         type = Types::DescribeInstanceEventWindowsOutput.new
@@ -9291,7 +9291,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeInstanceStatusInput
+    class DescribeInstanceStatusInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeInstanceStatusInput, context: context)
         type = Types::DescribeInstanceStatusInput.new
@@ -9306,7 +9306,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeInstanceStatusOutput
+    class DescribeInstanceStatusOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeInstanceStatusOutput, context: context)
         type = Types::DescribeInstanceStatusOutput.new
@@ -9317,7 +9317,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeInstanceTopologyGroupNameSet
+    class DescribeInstanceTopologyGroupNameSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -9328,7 +9328,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeInstanceTopologyInput
+    class DescribeInstanceTopologyInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeInstanceTopologyInput, context: context)
         type = Types::DescribeInstanceTopologyInput.new
@@ -9343,7 +9343,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeInstanceTopologyInstanceIdSet
+    class DescribeInstanceTopologyInstanceIdSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -9354,7 +9354,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeInstanceTopologyOutput
+    class DescribeInstanceTopologyOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeInstanceTopologyOutput, context: context)
         type = Types::DescribeInstanceTopologyOutput.new
@@ -9365,7 +9365,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeInstanceTypeOfferingsInput
+    class DescribeInstanceTypeOfferingsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeInstanceTypeOfferingsInput, context: context)
         type = Types::DescribeInstanceTypeOfferingsInput.new
@@ -9379,7 +9379,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeInstanceTypeOfferingsOutput
+    class DescribeInstanceTypeOfferingsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeInstanceTypeOfferingsOutput, context: context)
         type = Types::DescribeInstanceTypeOfferingsOutput.new
@@ -9390,7 +9390,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeInstanceTypesInput
+    class DescribeInstanceTypesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeInstanceTypesInput, context: context)
         type = Types::DescribeInstanceTypesInput.new
@@ -9404,7 +9404,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeInstanceTypesOutput
+    class DescribeInstanceTypesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeInstanceTypesOutput, context: context)
         type = Types::DescribeInstanceTypesOutput.new
@@ -9415,7 +9415,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeInstancesInput
+    class DescribeInstancesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeInstancesInput, context: context)
         type = Types::DescribeInstancesInput.new
@@ -9429,7 +9429,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeInstancesOutput
+    class DescribeInstancesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeInstancesOutput, context: context)
         type = Types::DescribeInstancesOutput.new
@@ -9440,7 +9440,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeInternetGatewaysInput
+    class DescribeInternetGatewaysInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeInternetGatewaysInput, context: context)
         type = Types::DescribeInternetGatewaysInput.new
@@ -9454,7 +9454,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeInternetGatewaysOutput
+    class DescribeInternetGatewaysOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeInternetGatewaysOutput, context: context)
         type = Types::DescribeInternetGatewaysOutput.new
@@ -9465,7 +9465,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeIpamByoasnInput
+    class DescribeIpamByoasnInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeIpamByoasnInput, context: context)
         type = Types::DescribeIpamByoasnInput.new
@@ -9477,7 +9477,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeIpamByoasnOutput
+    class DescribeIpamByoasnOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeIpamByoasnOutput, context: context)
         type = Types::DescribeIpamByoasnOutput.new
@@ -9488,7 +9488,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeIpamPoolsInput
+    class DescribeIpamPoolsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeIpamPoolsInput, context: context)
         type = Types::DescribeIpamPoolsInput.new
@@ -9502,7 +9502,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeIpamPoolsOutput
+    class DescribeIpamPoolsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeIpamPoolsOutput, context: context)
         type = Types::DescribeIpamPoolsOutput.new
@@ -9513,7 +9513,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeIpamResourceDiscoveriesInput
+    class DescribeIpamResourceDiscoveriesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeIpamResourceDiscoveriesInput, context: context)
         type = Types::DescribeIpamResourceDiscoveriesInput.new
@@ -9527,7 +9527,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeIpamResourceDiscoveriesOutput
+    class DescribeIpamResourceDiscoveriesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeIpamResourceDiscoveriesOutput, context: context)
         type = Types::DescribeIpamResourceDiscoveriesOutput.new
@@ -9538,7 +9538,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeIpamResourceDiscoveryAssociationsInput
+    class DescribeIpamResourceDiscoveryAssociationsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeIpamResourceDiscoveryAssociationsInput, context: context)
         type = Types::DescribeIpamResourceDiscoveryAssociationsInput.new
@@ -9552,7 +9552,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeIpamResourceDiscoveryAssociationsOutput
+    class DescribeIpamResourceDiscoveryAssociationsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeIpamResourceDiscoveryAssociationsOutput, context: context)
         type = Types::DescribeIpamResourceDiscoveryAssociationsOutput.new
@@ -9563,7 +9563,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeIpamScopesInput
+    class DescribeIpamScopesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeIpamScopesInput, context: context)
         type = Types::DescribeIpamScopesInput.new
@@ -9577,7 +9577,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeIpamScopesOutput
+    class DescribeIpamScopesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeIpamScopesOutput, context: context)
         type = Types::DescribeIpamScopesOutput.new
@@ -9588,7 +9588,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeIpamsInput
+    class DescribeIpamsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeIpamsInput, context: context)
         type = Types::DescribeIpamsInput.new
@@ -9602,7 +9602,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeIpamsOutput
+    class DescribeIpamsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeIpamsOutput, context: context)
         type = Types::DescribeIpamsOutput.new
@@ -9613,7 +9613,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeIpv6PoolsInput
+    class DescribeIpv6PoolsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeIpv6PoolsInput, context: context)
         type = Types::DescribeIpv6PoolsInput.new
@@ -9627,7 +9627,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeIpv6PoolsOutput
+    class DescribeIpv6PoolsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeIpv6PoolsOutput, context: context)
         type = Types::DescribeIpv6PoolsOutput.new
@@ -9638,7 +9638,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeKeyPairsInput
+    class DescribeKeyPairsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeKeyPairsInput, context: context)
         type = Types::DescribeKeyPairsInput.new
@@ -9652,7 +9652,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeKeyPairsOutput
+    class DescribeKeyPairsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeKeyPairsOutput, context: context)
         type = Types::DescribeKeyPairsOutput.new
@@ -9662,7 +9662,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeLaunchTemplateVersionsInput
+    class DescribeLaunchTemplateVersionsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeLaunchTemplateVersionsInput, context: context)
         type = Types::DescribeLaunchTemplateVersionsInput.new
@@ -9681,7 +9681,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeLaunchTemplateVersionsOutput
+    class DescribeLaunchTemplateVersionsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeLaunchTemplateVersionsOutput, context: context)
         type = Types::DescribeLaunchTemplateVersionsOutput.new
@@ -9692,7 +9692,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeLaunchTemplatesInput
+    class DescribeLaunchTemplatesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeLaunchTemplatesInput, context: context)
         type = Types::DescribeLaunchTemplatesInput.new
@@ -9707,7 +9707,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeLaunchTemplatesOutput
+    class DescribeLaunchTemplatesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeLaunchTemplatesOutput, context: context)
         type = Types::DescribeLaunchTemplatesOutput.new
@@ -9718,7 +9718,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsInput
+    class DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsInput, context: context)
         type = Types::DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsInput.new
@@ -9732,7 +9732,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsOutput
+    class DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsOutput, context: context)
         type = Types::DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsOutput.new
@@ -9743,7 +9743,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeLocalGatewayRouteTableVpcAssociationsInput
+    class DescribeLocalGatewayRouteTableVpcAssociationsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeLocalGatewayRouteTableVpcAssociationsInput, context: context)
         type = Types::DescribeLocalGatewayRouteTableVpcAssociationsInput.new
@@ -9757,7 +9757,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeLocalGatewayRouteTableVpcAssociationsOutput
+    class DescribeLocalGatewayRouteTableVpcAssociationsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeLocalGatewayRouteTableVpcAssociationsOutput, context: context)
         type = Types::DescribeLocalGatewayRouteTableVpcAssociationsOutput.new
@@ -9768,7 +9768,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeLocalGatewayRouteTablesInput
+    class DescribeLocalGatewayRouteTablesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeLocalGatewayRouteTablesInput, context: context)
         type = Types::DescribeLocalGatewayRouteTablesInput.new
@@ -9782,7 +9782,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeLocalGatewayRouteTablesOutput
+    class DescribeLocalGatewayRouteTablesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeLocalGatewayRouteTablesOutput, context: context)
         type = Types::DescribeLocalGatewayRouteTablesOutput.new
@@ -9793,7 +9793,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeLocalGatewayVirtualInterfaceGroupsInput
+    class DescribeLocalGatewayVirtualInterfaceGroupsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeLocalGatewayVirtualInterfaceGroupsInput, context: context)
         type = Types::DescribeLocalGatewayVirtualInterfaceGroupsInput.new
@@ -9807,7 +9807,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeLocalGatewayVirtualInterfaceGroupsOutput
+    class DescribeLocalGatewayVirtualInterfaceGroupsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeLocalGatewayVirtualInterfaceGroupsOutput, context: context)
         type = Types::DescribeLocalGatewayVirtualInterfaceGroupsOutput.new
@@ -9818,7 +9818,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeLocalGatewayVirtualInterfacesInput
+    class DescribeLocalGatewayVirtualInterfacesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeLocalGatewayVirtualInterfacesInput, context: context)
         type = Types::DescribeLocalGatewayVirtualInterfacesInput.new
@@ -9832,7 +9832,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeLocalGatewayVirtualInterfacesOutput
+    class DescribeLocalGatewayVirtualInterfacesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeLocalGatewayVirtualInterfacesOutput, context: context)
         type = Types::DescribeLocalGatewayVirtualInterfacesOutput.new
@@ -9843,7 +9843,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeLocalGatewaysInput
+    class DescribeLocalGatewaysInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeLocalGatewaysInput, context: context)
         type = Types::DescribeLocalGatewaysInput.new
@@ -9857,7 +9857,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeLocalGatewaysOutput
+    class DescribeLocalGatewaysOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeLocalGatewaysOutput, context: context)
         type = Types::DescribeLocalGatewaysOutput.new
@@ -9868,7 +9868,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeLockedSnapshotsInput
+    class DescribeLockedSnapshotsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeLockedSnapshotsInput, context: context)
         type = Types::DescribeLockedSnapshotsInput.new
@@ -9882,7 +9882,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeLockedSnapshotsOutput
+    class DescribeLockedSnapshotsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeLockedSnapshotsOutput, context: context)
         type = Types::DescribeLockedSnapshotsOutput.new
@@ -9893,7 +9893,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeManagedPrefixListsInput
+    class DescribeManagedPrefixListsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeManagedPrefixListsInput, context: context)
         type = Types::DescribeManagedPrefixListsInput.new
@@ -9907,7 +9907,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeManagedPrefixListsOutput
+    class DescribeManagedPrefixListsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeManagedPrefixListsOutput, context: context)
         type = Types::DescribeManagedPrefixListsOutput.new
@@ -9918,7 +9918,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeMovingAddressesInput
+    class DescribeMovingAddressesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeMovingAddressesInput, context: context)
         type = Types::DescribeMovingAddressesInput.new
@@ -9932,7 +9932,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeMovingAddressesOutput
+    class DescribeMovingAddressesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeMovingAddressesOutput, context: context)
         type = Types::DescribeMovingAddressesOutput.new
@@ -9943,7 +9943,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeNatGatewaysInput
+    class DescribeNatGatewaysInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeNatGatewaysInput, context: context)
         type = Types::DescribeNatGatewaysInput.new
@@ -9957,7 +9957,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeNatGatewaysOutput
+    class DescribeNatGatewaysOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeNatGatewaysOutput, context: context)
         type = Types::DescribeNatGatewaysOutput.new
@@ -9968,7 +9968,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeNetworkAclsInput
+    class DescribeNetworkAclsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeNetworkAclsInput, context: context)
         type = Types::DescribeNetworkAclsInput.new
@@ -9982,7 +9982,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeNetworkAclsOutput
+    class DescribeNetworkAclsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeNetworkAclsOutput, context: context)
         type = Types::DescribeNetworkAclsOutput.new
@@ -9993,7 +9993,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeNetworkInsightsAccessScopeAnalysesInput
+    class DescribeNetworkInsightsAccessScopeAnalysesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeNetworkInsightsAccessScopeAnalysesInput, context: context)
         type = Types::DescribeNetworkInsightsAccessScopeAnalysesInput.new
@@ -10010,7 +10010,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeNetworkInsightsAccessScopeAnalysesOutput
+    class DescribeNetworkInsightsAccessScopeAnalysesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeNetworkInsightsAccessScopeAnalysesOutput, context: context)
         type = Types::DescribeNetworkInsightsAccessScopeAnalysesOutput.new
@@ -10021,7 +10021,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeNetworkInsightsAccessScopesInput
+    class DescribeNetworkInsightsAccessScopesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeNetworkInsightsAccessScopesInput, context: context)
         type = Types::DescribeNetworkInsightsAccessScopesInput.new
@@ -10035,7 +10035,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeNetworkInsightsAccessScopesOutput
+    class DescribeNetworkInsightsAccessScopesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeNetworkInsightsAccessScopesOutput, context: context)
         type = Types::DescribeNetworkInsightsAccessScopesOutput.new
@@ -10046,7 +10046,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeNetworkInsightsAnalysesInput
+    class DescribeNetworkInsightsAnalysesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeNetworkInsightsAnalysesInput, context: context)
         type = Types::DescribeNetworkInsightsAnalysesInput.new
@@ -10063,7 +10063,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeNetworkInsightsAnalysesOutput
+    class DescribeNetworkInsightsAnalysesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeNetworkInsightsAnalysesOutput, context: context)
         type = Types::DescribeNetworkInsightsAnalysesOutput.new
@@ -10074,7 +10074,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeNetworkInsightsPathsInput
+    class DescribeNetworkInsightsPathsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeNetworkInsightsPathsInput, context: context)
         type = Types::DescribeNetworkInsightsPathsInput.new
@@ -10088,7 +10088,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeNetworkInsightsPathsOutput
+    class DescribeNetworkInsightsPathsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeNetworkInsightsPathsOutput, context: context)
         type = Types::DescribeNetworkInsightsPathsOutput.new
@@ -10099,7 +10099,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeNetworkInterfaceAttributeInput
+    class DescribeNetworkInterfaceAttributeInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeNetworkInterfaceAttributeInput, context: context)
         type = Types::DescribeNetworkInterfaceAttributeInput.new
@@ -10111,7 +10111,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeNetworkInterfaceAttributeOutput
+    class DescribeNetworkInterfaceAttributeOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeNetworkInterfaceAttributeOutput, context: context)
         type = Types::DescribeNetworkInterfaceAttributeOutput.new
@@ -10125,7 +10125,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeNetworkInterfacePermissionsInput
+    class DescribeNetworkInterfacePermissionsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeNetworkInterfacePermissionsInput, context: context)
         type = Types::DescribeNetworkInterfacePermissionsInput.new
@@ -10138,7 +10138,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeNetworkInterfacePermissionsOutput
+    class DescribeNetworkInterfacePermissionsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeNetworkInterfacePermissionsOutput, context: context)
         type = Types::DescribeNetworkInterfacePermissionsOutput.new
@@ -10149,7 +10149,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeNetworkInterfacesInput
+    class DescribeNetworkInterfacesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeNetworkInterfacesInput, context: context)
         type = Types::DescribeNetworkInterfacesInput.new
@@ -10163,7 +10163,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeNetworkInterfacesOutput
+    class DescribeNetworkInterfacesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeNetworkInterfacesOutput, context: context)
         type = Types::DescribeNetworkInterfacesOutput.new
@@ -10174,7 +10174,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribePlacementGroupsInput
+    class DescribePlacementGroupsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribePlacementGroupsInput, context: context)
         type = Types::DescribePlacementGroupsInput.new
@@ -10187,7 +10187,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribePlacementGroupsOutput
+    class DescribePlacementGroupsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribePlacementGroupsOutput, context: context)
         type = Types::DescribePlacementGroupsOutput.new
@@ -10197,7 +10197,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribePrefixListsInput
+    class DescribePrefixListsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribePrefixListsInput, context: context)
         type = Types::DescribePrefixListsInput.new
@@ -10211,7 +10211,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribePrefixListsOutput
+    class DescribePrefixListsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribePrefixListsOutput, context: context)
         type = Types::DescribePrefixListsOutput.new
@@ -10222,7 +10222,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribePrincipalIdFormatInput
+    class DescribePrincipalIdFormatInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribePrincipalIdFormatInput, context: context)
         type = Types::DescribePrincipalIdFormatInput.new
@@ -10235,7 +10235,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribePrincipalIdFormatOutput
+    class DescribePrincipalIdFormatOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribePrincipalIdFormatOutput, context: context)
         type = Types::DescribePrincipalIdFormatOutput.new
@@ -10246,7 +10246,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribePublicIpv4PoolsInput
+    class DescribePublicIpv4PoolsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribePublicIpv4PoolsInput, context: context)
         type = Types::DescribePublicIpv4PoolsInput.new
@@ -10259,7 +10259,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribePublicIpv4PoolsOutput
+    class DescribePublicIpv4PoolsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribePublicIpv4PoolsOutput, context: context)
         type = Types::DescribePublicIpv4PoolsOutput.new
@@ -10270,7 +10270,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeRegionsInput
+    class DescribeRegionsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeRegionsInput, context: context)
         type = Types::DescribeRegionsInput.new
@@ -10283,7 +10283,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeRegionsOutput
+    class DescribeRegionsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeRegionsOutput, context: context)
         type = Types::DescribeRegionsOutput.new
@@ -10293,7 +10293,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeReplaceRootVolumeTasksInput
+    class DescribeReplaceRootVolumeTasksInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeReplaceRootVolumeTasksInput, context: context)
         type = Types::DescribeReplaceRootVolumeTasksInput.new
@@ -10307,7 +10307,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeReplaceRootVolumeTasksOutput
+    class DescribeReplaceRootVolumeTasksOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeReplaceRootVolumeTasksOutput, context: context)
         type = Types::DescribeReplaceRootVolumeTasksOutput.new
@@ -10318,7 +10318,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeReservedInstancesInput
+    class DescribeReservedInstancesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeReservedInstancesInput, context: context)
         type = Types::DescribeReservedInstancesInput.new
@@ -10332,7 +10332,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeReservedInstancesListingsInput
+    class DescribeReservedInstancesListingsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeReservedInstancesListingsInput, context: context)
         type = Types::DescribeReservedInstancesListingsInput.new
@@ -10344,7 +10344,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeReservedInstancesListingsOutput
+    class DescribeReservedInstancesListingsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeReservedInstancesListingsOutput, context: context)
         type = Types::DescribeReservedInstancesListingsOutput.new
@@ -10354,7 +10354,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeReservedInstancesModificationsInput
+    class DescribeReservedInstancesModificationsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeReservedInstancesModificationsInput, context: context)
         type = Types::DescribeReservedInstancesModificationsInput.new
@@ -10366,7 +10366,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeReservedInstancesModificationsOutput
+    class DescribeReservedInstancesModificationsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeReservedInstancesModificationsOutput, context: context)
         type = Types::DescribeReservedInstancesModificationsOutput.new
@@ -10377,7 +10377,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeReservedInstancesOfferingsInput
+    class DescribeReservedInstancesOfferingsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeReservedInstancesOfferingsInput, context: context)
         type = Types::DescribeReservedInstancesOfferingsInput.new
@@ -10401,7 +10401,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeReservedInstancesOfferingsOutput
+    class DescribeReservedInstancesOfferingsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeReservedInstancesOfferingsOutput, context: context)
         type = Types::DescribeReservedInstancesOfferingsOutput.new
@@ -10412,7 +10412,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeReservedInstancesOutput
+    class DescribeReservedInstancesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeReservedInstancesOutput, context: context)
         type = Types::DescribeReservedInstancesOutput.new
@@ -10422,7 +10422,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeRouteTablesInput
+    class DescribeRouteTablesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeRouteTablesInput, context: context)
         type = Types::DescribeRouteTablesInput.new
@@ -10436,7 +10436,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeRouteTablesOutput
+    class DescribeRouteTablesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeRouteTablesOutput, context: context)
         type = Types::DescribeRouteTablesOutput.new
@@ -10447,7 +10447,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeScheduledInstanceAvailabilityInput
+    class DescribeScheduledInstanceAvailabilityInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeScheduledInstanceAvailabilityInput, context: context)
         type = Types::DescribeScheduledInstanceAvailabilityInput.new
@@ -10464,7 +10464,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeScheduledInstanceAvailabilityOutput
+    class DescribeScheduledInstanceAvailabilityOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeScheduledInstanceAvailabilityOutput, context: context)
         type = Types::DescribeScheduledInstanceAvailabilityOutput.new
@@ -10475,7 +10475,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeScheduledInstancesInput
+    class DescribeScheduledInstancesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeScheduledInstancesInput, context: context)
         type = Types::DescribeScheduledInstancesInput.new
@@ -10490,7 +10490,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeScheduledInstancesOutput
+    class DescribeScheduledInstancesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeScheduledInstancesOutput, context: context)
         type = Types::DescribeScheduledInstancesOutput.new
@@ -10501,7 +10501,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeSecurityGroupReferencesInput
+    class DescribeSecurityGroupReferencesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeSecurityGroupReferencesInput, context: context)
         type = Types::DescribeSecurityGroupReferencesInput.new
@@ -10512,7 +10512,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeSecurityGroupReferencesOutput
+    class DescribeSecurityGroupReferencesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeSecurityGroupReferencesOutput, context: context)
         type = Types::DescribeSecurityGroupReferencesOutput.new
@@ -10522,7 +10522,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeSecurityGroupRulesInput
+    class DescribeSecurityGroupRulesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeSecurityGroupRulesInput, context: context)
         type = Types::DescribeSecurityGroupRulesInput.new
@@ -10536,7 +10536,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeSecurityGroupRulesOutput
+    class DescribeSecurityGroupRulesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeSecurityGroupRulesOutput, context: context)
         type = Types::DescribeSecurityGroupRulesOutput.new
@@ -10547,7 +10547,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeSecurityGroupsInput
+    class DescribeSecurityGroupsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeSecurityGroupsInput, context: context)
         type = Types::DescribeSecurityGroupsInput.new
@@ -10562,7 +10562,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeSecurityGroupsOutput
+    class DescribeSecurityGroupsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeSecurityGroupsOutput, context: context)
         type = Types::DescribeSecurityGroupsOutput.new
@@ -10573,7 +10573,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeSnapshotAttributeInput
+    class DescribeSnapshotAttributeInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeSnapshotAttributeInput, context: context)
         type = Types::DescribeSnapshotAttributeInput.new
@@ -10585,7 +10585,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeSnapshotAttributeOutput
+    class DescribeSnapshotAttributeOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeSnapshotAttributeOutput, context: context)
         type = Types::DescribeSnapshotAttributeOutput.new
@@ -10597,7 +10597,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeSnapshotTierStatusInput
+    class DescribeSnapshotTierStatusInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeSnapshotTierStatusInput, context: context)
         type = Types::DescribeSnapshotTierStatusInput.new
@@ -10610,7 +10610,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeSnapshotTierStatusOutput
+    class DescribeSnapshotTierStatusOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeSnapshotTierStatusOutput, context: context)
         type = Types::DescribeSnapshotTierStatusOutput.new
@@ -10621,7 +10621,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeSnapshotsInput
+    class DescribeSnapshotsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeSnapshotsInput, context: context)
         type = Types::DescribeSnapshotsInput.new
@@ -10637,7 +10637,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeSnapshotsOutput
+    class DescribeSnapshotsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeSnapshotsOutput, context: context)
         type = Types::DescribeSnapshotsOutput.new
@@ -10648,7 +10648,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeSpotDatafeedSubscriptionInput
+    class DescribeSpotDatafeedSubscriptionInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeSpotDatafeedSubscriptionInput, context: context)
         type = Types::DescribeSpotDatafeedSubscriptionInput.new
@@ -10658,7 +10658,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeSpotDatafeedSubscriptionOutput
+    class DescribeSpotDatafeedSubscriptionOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeSpotDatafeedSubscriptionOutput, context: context)
         type = Types::DescribeSpotDatafeedSubscriptionOutput.new
@@ -10668,7 +10668,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeSpotFleetInstancesInput
+    class DescribeSpotFleetInstancesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeSpotFleetInstancesInput, context: context)
         type = Types::DescribeSpotFleetInstancesInput.new
@@ -10681,7 +10681,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeSpotFleetInstancesOutput
+    class DescribeSpotFleetInstancesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeSpotFleetInstancesOutput, context: context)
         type = Types::DescribeSpotFleetInstancesOutput.new
@@ -10693,7 +10693,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeSpotFleetRequestHistoryInput
+    class DescribeSpotFleetRequestHistoryInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeSpotFleetRequestHistoryInput, context: context)
         type = Types::DescribeSpotFleetRequestHistoryInput.new
@@ -10708,7 +10708,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeSpotFleetRequestHistoryOutput
+    class DescribeSpotFleetRequestHistoryOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeSpotFleetRequestHistoryOutput, context: context)
         type = Types::DescribeSpotFleetRequestHistoryOutput.new
@@ -10722,7 +10722,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeSpotFleetRequestsInput
+    class DescribeSpotFleetRequestsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeSpotFleetRequestsInput, context: context)
         type = Types::DescribeSpotFleetRequestsInput.new
@@ -10735,7 +10735,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeSpotFleetRequestsOutput
+    class DescribeSpotFleetRequestsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeSpotFleetRequestsOutput, context: context)
         type = Types::DescribeSpotFleetRequestsOutput.new
@@ -10746,7 +10746,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeSpotInstanceRequestsInput
+    class DescribeSpotInstanceRequestsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeSpotInstanceRequestsInput, context: context)
         type = Types::DescribeSpotInstanceRequestsInput.new
@@ -10760,7 +10760,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeSpotInstanceRequestsOutput
+    class DescribeSpotInstanceRequestsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeSpotInstanceRequestsOutput, context: context)
         type = Types::DescribeSpotInstanceRequestsOutput.new
@@ -10771,7 +10771,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeSpotPriceHistoryInput
+    class DescribeSpotPriceHistoryInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeSpotPriceHistoryInput, context: context)
         type = Types::DescribeSpotPriceHistoryInput.new
@@ -10789,7 +10789,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeSpotPriceHistoryOutput
+    class DescribeSpotPriceHistoryOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeSpotPriceHistoryOutput, context: context)
         type = Types::DescribeSpotPriceHistoryOutput.new
@@ -10800,7 +10800,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeStaleSecurityGroupsInput
+    class DescribeStaleSecurityGroupsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeStaleSecurityGroupsInput, context: context)
         type = Types::DescribeStaleSecurityGroupsInput.new
@@ -10813,7 +10813,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeStaleSecurityGroupsOutput
+    class DescribeStaleSecurityGroupsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeStaleSecurityGroupsOutput, context: context)
         type = Types::DescribeStaleSecurityGroupsOutput.new
@@ -10824,7 +10824,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeStoreImageTasksInput
+    class DescribeStoreImageTasksInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeStoreImageTasksInput, context: context)
         type = Types::DescribeStoreImageTasksInput.new
@@ -10838,7 +10838,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeStoreImageTasksOutput
+    class DescribeStoreImageTasksOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeStoreImageTasksOutput, context: context)
         type = Types::DescribeStoreImageTasksOutput.new
@@ -10849,7 +10849,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeSubnetsInput
+    class DescribeSubnetsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeSubnetsInput, context: context)
         type = Types::DescribeSubnetsInput.new
@@ -10863,7 +10863,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeSubnetsOutput
+    class DescribeSubnetsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeSubnetsOutput, context: context)
         type = Types::DescribeSubnetsOutput.new
@@ -10874,7 +10874,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeTagsInput
+    class DescribeTagsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeTagsInput, context: context)
         type = Types::DescribeTagsInput.new
@@ -10887,7 +10887,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeTagsOutput
+    class DescribeTagsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeTagsOutput, context: context)
         type = Types::DescribeTagsOutput.new
@@ -10898,7 +10898,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeTrafficMirrorFiltersInput
+    class DescribeTrafficMirrorFiltersInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeTrafficMirrorFiltersInput, context: context)
         type = Types::DescribeTrafficMirrorFiltersInput.new
@@ -10912,7 +10912,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeTrafficMirrorFiltersOutput
+    class DescribeTrafficMirrorFiltersOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeTrafficMirrorFiltersOutput, context: context)
         type = Types::DescribeTrafficMirrorFiltersOutput.new
@@ -10923,7 +10923,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeTrafficMirrorSessionsInput
+    class DescribeTrafficMirrorSessionsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeTrafficMirrorSessionsInput, context: context)
         type = Types::DescribeTrafficMirrorSessionsInput.new
@@ -10937,7 +10937,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeTrafficMirrorSessionsOutput
+    class DescribeTrafficMirrorSessionsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeTrafficMirrorSessionsOutput, context: context)
         type = Types::DescribeTrafficMirrorSessionsOutput.new
@@ -10948,7 +10948,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeTrafficMirrorTargetsInput
+    class DescribeTrafficMirrorTargetsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeTrafficMirrorTargetsInput, context: context)
         type = Types::DescribeTrafficMirrorTargetsInput.new
@@ -10962,7 +10962,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeTrafficMirrorTargetsOutput
+    class DescribeTrafficMirrorTargetsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeTrafficMirrorTargetsOutput, context: context)
         type = Types::DescribeTrafficMirrorTargetsOutput.new
@@ -10973,7 +10973,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeTransitGatewayAttachmentsInput
+    class DescribeTransitGatewayAttachmentsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeTransitGatewayAttachmentsInput, context: context)
         type = Types::DescribeTransitGatewayAttachmentsInput.new
@@ -10987,7 +10987,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeTransitGatewayAttachmentsOutput
+    class DescribeTransitGatewayAttachmentsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeTransitGatewayAttachmentsOutput, context: context)
         type = Types::DescribeTransitGatewayAttachmentsOutput.new
@@ -10998,7 +10998,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeTransitGatewayConnectPeersInput
+    class DescribeTransitGatewayConnectPeersInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeTransitGatewayConnectPeersInput, context: context)
         type = Types::DescribeTransitGatewayConnectPeersInput.new
@@ -11012,7 +11012,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeTransitGatewayConnectPeersOutput
+    class DescribeTransitGatewayConnectPeersOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeTransitGatewayConnectPeersOutput, context: context)
         type = Types::DescribeTransitGatewayConnectPeersOutput.new
@@ -11023,7 +11023,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeTransitGatewayConnectsInput
+    class DescribeTransitGatewayConnectsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeTransitGatewayConnectsInput, context: context)
         type = Types::DescribeTransitGatewayConnectsInput.new
@@ -11037,7 +11037,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeTransitGatewayConnectsOutput
+    class DescribeTransitGatewayConnectsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeTransitGatewayConnectsOutput, context: context)
         type = Types::DescribeTransitGatewayConnectsOutput.new
@@ -11048,7 +11048,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeTransitGatewayMulticastDomainsInput
+    class DescribeTransitGatewayMulticastDomainsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeTransitGatewayMulticastDomainsInput, context: context)
         type = Types::DescribeTransitGatewayMulticastDomainsInput.new
@@ -11062,7 +11062,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeTransitGatewayMulticastDomainsOutput
+    class DescribeTransitGatewayMulticastDomainsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeTransitGatewayMulticastDomainsOutput, context: context)
         type = Types::DescribeTransitGatewayMulticastDomainsOutput.new
@@ -11073,7 +11073,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeTransitGatewayPeeringAttachmentsInput
+    class DescribeTransitGatewayPeeringAttachmentsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeTransitGatewayPeeringAttachmentsInput, context: context)
         type = Types::DescribeTransitGatewayPeeringAttachmentsInput.new
@@ -11087,7 +11087,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeTransitGatewayPeeringAttachmentsOutput
+    class DescribeTransitGatewayPeeringAttachmentsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeTransitGatewayPeeringAttachmentsOutput, context: context)
         type = Types::DescribeTransitGatewayPeeringAttachmentsOutput.new
@@ -11098,7 +11098,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeTransitGatewayPolicyTablesInput
+    class DescribeTransitGatewayPolicyTablesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeTransitGatewayPolicyTablesInput, context: context)
         type = Types::DescribeTransitGatewayPolicyTablesInput.new
@@ -11112,7 +11112,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeTransitGatewayPolicyTablesOutput
+    class DescribeTransitGatewayPolicyTablesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeTransitGatewayPolicyTablesOutput, context: context)
         type = Types::DescribeTransitGatewayPolicyTablesOutput.new
@@ -11123,7 +11123,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeTransitGatewayRouteTableAnnouncementsInput
+    class DescribeTransitGatewayRouteTableAnnouncementsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeTransitGatewayRouteTableAnnouncementsInput, context: context)
         type = Types::DescribeTransitGatewayRouteTableAnnouncementsInput.new
@@ -11137,7 +11137,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeTransitGatewayRouteTableAnnouncementsOutput
+    class DescribeTransitGatewayRouteTableAnnouncementsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeTransitGatewayRouteTableAnnouncementsOutput, context: context)
         type = Types::DescribeTransitGatewayRouteTableAnnouncementsOutput.new
@@ -11148,7 +11148,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeTransitGatewayRouteTablesInput
+    class DescribeTransitGatewayRouteTablesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeTransitGatewayRouteTablesInput, context: context)
         type = Types::DescribeTransitGatewayRouteTablesInput.new
@@ -11162,7 +11162,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeTransitGatewayRouteTablesOutput
+    class DescribeTransitGatewayRouteTablesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeTransitGatewayRouteTablesOutput, context: context)
         type = Types::DescribeTransitGatewayRouteTablesOutput.new
@@ -11173,7 +11173,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeTransitGatewayVpcAttachmentsInput
+    class DescribeTransitGatewayVpcAttachmentsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeTransitGatewayVpcAttachmentsInput, context: context)
         type = Types::DescribeTransitGatewayVpcAttachmentsInput.new
@@ -11187,7 +11187,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeTransitGatewayVpcAttachmentsOutput
+    class DescribeTransitGatewayVpcAttachmentsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeTransitGatewayVpcAttachmentsOutput, context: context)
         type = Types::DescribeTransitGatewayVpcAttachmentsOutput.new
@@ -11198,7 +11198,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeTransitGatewaysInput
+    class DescribeTransitGatewaysInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeTransitGatewaysInput, context: context)
         type = Types::DescribeTransitGatewaysInput.new
@@ -11212,7 +11212,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeTransitGatewaysOutput
+    class DescribeTransitGatewaysOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeTransitGatewaysOutput, context: context)
         type = Types::DescribeTransitGatewaysOutput.new
@@ -11223,7 +11223,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeTrunkInterfaceAssociationsInput
+    class DescribeTrunkInterfaceAssociationsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeTrunkInterfaceAssociationsInput, context: context)
         type = Types::DescribeTrunkInterfaceAssociationsInput.new
@@ -11237,7 +11237,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeTrunkInterfaceAssociationsOutput
+    class DescribeTrunkInterfaceAssociationsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeTrunkInterfaceAssociationsOutput, context: context)
         type = Types::DescribeTrunkInterfaceAssociationsOutput.new
@@ -11248,7 +11248,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeVerifiedAccessEndpointsInput
+    class DescribeVerifiedAccessEndpointsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeVerifiedAccessEndpointsInput, context: context)
         type = Types::DescribeVerifiedAccessEndpointsInput.new
@@ -11264,7 +11264,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeVerifiedAccessEndpointsOutput
+    class DescribeVerifiedAccessEndpointsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeVerifiedAccessEndpointsOutput, context: context)
         type = Types::DescribeVerifiedAccessEndpointsOutput.new
@@ -11275,7 +11275,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeVerifiedAccessGroupsInput
+    class DescribeVerifiedAccessGroupsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeVerifiedAccessGroupsInput, context: context)
         type = Types::DescribeVerifiedAccessGroupsInput.new
@@ -11290,7 +11290,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeVerifiedAccessGroupsOutput
+    class DescribeVerifiedAccessGroupsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeVerifiedAccessGroupsOutput, context: context)
         type = Types::DescribeVerifiedAccessGroupsOutput.new
@@ -11301,7 +11301,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeVerifiedAccessInstanceLoggingConfigurationsInput
+    class DescribeVerifiedAccessInstanceLoggingConfigurationsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeVerifiedAccessInstanceLoggingConfigurationsInput, context: context)
         type = Types::DescribeVerifiedAccessInstanceLoggingConfigurationsInput.new
@@ -11315,7 +11315,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeVerifiedAccessInstanceLoggingConfigurationsOutput
+    class DescribeVerifiedAccessInstanceLoggingConfigurationsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeVerifiedAccessInstanceLoggingConfigurationsOutput, context: context)
         type = Types::DescribeVerifiedAccessInstanceLoggingConfigurationsOutput.new
@@ -11326,7 +11326,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeVerifiedAccessInstancesInput
+    class DescribeVerifiedAccessInstancesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeVerifiedAccessInstancesInput, context: context)
         type = Types::DescribeVerifiedAccessInstancesInput.new
@@ -11340,7 +11340,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeVerifiedAccessInstancesOutput
+    class DescribeVerifiedAccessInstancesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeVerifiedAccessInstancesOutput, context: context)
         type = Types::DescribeVerifiedAccessInstancesOutput.new
@@ -11351,7 +11351,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeVerifiedAccessTrustProvidersInput
+    class DescribeVerifiedAccessTrustProvidersInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeVerifiedAccessTrustProvidersInput, context: context)
         type = Types::DescribeVerifiedAccessTrustProvidersInput.new
@@ -11365,7 +11365,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeVerifiedAccessTrustProvidersOutput
+    class DescribeVerifiedAccessTrustProvidersOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeVerifiedAccessTrustProvidersOutput, context: context)
         type = Types::DescribeVerifiedAccessTrustProvidersOutput.new
@@ -11376,7 +11376,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeVolumeAttributeInput
+    class DescribeVolumeAttributeInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeVolumeAttributeInput, context: context)
         type = Types::DescribeVolumeAttributeInput.new
@@ -11388,7 +11388,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeVolumeAttributeOutput
+    class DescribeVolumeAttributeOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeVolumeAttributeOutput, context: context)
         type = Types::DescribeVolumeAttributeOutput.new
@@ -11400,7 +11400,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeVolumeStatusInput
+    class DescribeVolumeStatusInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeVolumeStatusInput, context: context)
         type = Types::DescribeVolumeStatusInput.new
@@ -11414,7 +11414,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeVolumeStatusOutput
+    class DescribeVolumeStatusOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeVolumeStatusOutput, context: context)
         type = Types::DescribeVolumeStatusOutput.new
@@ -11425,7 +11425,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeVolumesInput
+    class DescribeVolumesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeVolumesInput, context: context)
         type = Types::DescribeVolumesInput.new
@@ -11439,7 +11439,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeVolumesModificationsInput
+    class DescribeVolumesModificationsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeVolumesModificationsInput, context: context)
         type = Types::DescribeVolumesModificationsInput.new
@@ -11453,7 +11453,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeVolumesModificationsOutput
+    class DescribeVolumesModificationsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeVolumesModificationsOutput, context: context)
         type = Types::DescribeVolumesModificationsOutput.new
@@ -11464,7 +11464,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeVolumesOutput
+    class DescribeVolumesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeVolumesOutput, context: context)
         type = Types::DescribeVolumesOutput.new
@@ -11475,7 +11475,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeVpcAttributeInput
+    class DescribeVpcAttributeInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeVpcAttributeInput, context: context)
         type = Types::DescribeVpcAttributeInput.new
@@ -11487,7 +11487,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeVpcAttributeOutput
+    class DescribeVpcAttributeOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeVpcAttributeOutput, context: context)
         type = Types::DescribeVpcAttributeOutput.new
@@ -11500,7 +11500,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeVpcClassicLinkDnsSupportInput
+    class DescribeVpcClassicLinkDnsSupportInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeVpcClassicLinkDnsSupportInput, context: context)
         type = Types::DescribeVpcClassicLinkDnsSupportInput.new
@@ -11512,7 +11512,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeVpcClassicLinkDnsSupportOutput
+    class DescribeVpcClassicLinkDnsSupportOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeVpcClassicLinkDnsSupportOutput, context: context)
         type = Types::DescribeVpcClassicLinkDnsSupportOutput.new
@@ -11523,7 +11523,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeVpcClassicLinkInput
+    class DescribeVpcClassicLinkInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeVpcClassicLinkInput, context: context)
         type = Types::DescribeVpcClassicLinkInput.new
@@ -11535,7 +11535,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeVpcClassicLinkOutput
+    class DescribeVpcClassicLinkOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeVpcClassicLinkOutput, context: context)
         type = Types::DescribeVpcClassicLinkOutput.new
@@ -11545,7 +11545,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeVpcEndpointConnectionNotificationsInput
+    class DescribeVpcEndpointConnectionNotificationsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeVpcEndpointConnectionNotificationsInput, context: context)
         type = Types::DescribeVpcEndpointConnectionNotificationsInput.new
@@ -11559,7 +11559,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeVpcEndpointConnectionNotificationsOutput
+    class DescribeVpcEndpointConnectionNotificationsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeVpcEndpointConnectionNotificationsOutput, context: context)
         type = Types::DescribeVpcEndpointConnectionNotificationsOutput.new
@@ -11570,7 +11570,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeVpcEndpointConnectionsInput
+    class DescribeVpcEndpointConnectionsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeVpcEndpointConnectionsInput, context: context)
         type = Types::DescribeVpcEndpointConnectionsInput.new
@@ -11583,7 +11583,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeVpcEndpointConnectionsOutput
+    class DescribeVpcEndpointConnectionsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeVpcEndpointConnectionsOutput, context: context)
         type = Types::DescribeVpcEndpointConnectionsOutput.new
@@ -11594,7 +11594,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeVpcEndpointServiceConfigurationsInput
+    class DescribeVpcEndpointServiceConfigurationsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeVpcEndpointServiceConfigurationsInput, context: context)
         type = Types::DescribeVpcEndpointServiceConfigurationsInput.new
@@ -11608,7 +11608,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeVpcEndpointServiceConfigurationsOutput
+    class DescribeVpcEndpointServiceConfigurationsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeVpcEndpointServiceConfigurationsOutput, context: context)
         type = Types::DescribeVpcEndpointServiceConfigurationsOutput.new
@@ -11619,7 +11619,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeVpcEndpointServicePermissionsInput
+    class DescribeVpcEndpointServicePermissionsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeVpcEndpointServicePermissionsInput, context: context)
         type = Types::DescribeVpcEndpointServicePermissionsInput.new
@@ -11633,7 +11633,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeVpcEndpointServicePermissionsOutput
+    class DescribeVpcEndpointServicePermissionsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeVpcEndpointServicePermissionsOutput, context: context)
         type = Types::DescribeVpcEndpointServicePermissionsOutput.new
@@ -11644,7 +11644,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeVpcEndpointServicesInput
+    class DescribeVpcEndpointServicesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeVpcEndpointServicesInput, context: context)
         type = Types::DescribeVpcEndpointServicesInput.new
@@ -11658,7 +11658,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeVpcEndpointServicesOutput
+    class DescribeVpcEndpointServicesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeVpcEndpointServicesOutput, context: context)
         type = Types::DescribeVpcEndpointServicesOutput.new
@@ -11670,7 +11670,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeVpcEndpointsInput
+    class DescribeVpcEndpointsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeVpcEndpointsInput, context: context)
         type = Types::DescribeVpcEndpointsInput.new
@@ -11684,7 +11684,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeVpcEndpointsOutput
+    class DescribeVpcEndpointsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeVpcEndpointsOutput, context: context)
         type = Types::DescribeVpcEndpointsOutput.new
@@ -11695,7 +11695,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeVpcPeeringConnectionsInput
+    class DescribeVpcPeeringConnectionsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeVpcPeeringConnectionsInput, context: context)
         type = Types::DescribeVpcPeeringConnectionsInput.new
@@ -11709,7 +11709,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeVpcPeeringConnectionsOutput
+    class DescribeVpcPeeringConnectionsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeVpcPeeringConnectionsOutput, context: context)
         type = Types::DescribeVpcPeeringConnectionsOutput.new
@@ -11720,7 +11720,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeVpcsInput
+    class DescribeVpcsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeVpcsInput, context: context)
         type = Types::DescribeVpcsInput.new
@@ -11734,7 +11734,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeVpcsOutput
+    class DescribeVpcsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeVpcsOutput, context: context)
         type = Types::DescribeVpcsOutput.new
@@ -11745,7 +11745,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeVpnConnectionsInput
+    class DescribeVpnConnectionsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeVpnConnectionsInput, context: context)
         type = Types::DescribeVpnConnectionsInput.new
@@ -11757,7 +11757,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeVpnConnectionsOutput
+    class DescribeVpnConnectionsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeVpnConnectionsOutput, context: context)
         type = Types::DescribeVpnConnectionsOutput.new
@@ -11767,7 +11767,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeVpnGatewaysInput
+    class DescribeVpnGatewaysInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeVpnGatewaysInput, context: context)
         type = Types::DescribeVpnGatewaysInput.new
@@ -11779,7 +11779,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DescribeVpnGatewaysOutput
+    class DescribeVpnGatewaysOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeVpnGatewaysOutput, context: context)
         type = Types::DescribeVpnGatewaysOutput.new
@@ -11789,7 +11789,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DestinationOptionsRequest
+    class DestinationOptionsRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DestinationOptionsRequest, context: context)
         type = Types::DestinationOptionsRequest.new
@@ -11801,7 +11801,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DestinationOptionsResponse
+    class DestinationOptionsResponse
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DestinationOptionsResponse, context: context)
         type = Types::DestinationOptionsResponse.new
@@ -11813,7 +11813,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DetachClassicLinkVpcInput
+    class DetachClassicLinkVpcInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DetachClassicLinkVpcInput, context: context)
         type = Types::DetachClassicLinkVpcInput.new
@@ -11825,7 +11825,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DetachClassicLinkVpcOutput
+    class DetachClassicLinkVpcOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DetachClassicLinkVpcOutput, context: context)
         type = Types::DetachClassicLinkVpcOutput.new
@@ -11835,7 +11835,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DetachInternetGatewayInput
+    class DetachInternetGatewayInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DetachInternetGatewayInput, context: context)
         type = Types::DetachInternetGatewayInput.new
@@ -11847,7 +11847,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DetachInternetGatewayOutput
+    class DetachInternetGatewayOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DetachInternetGatewayOutput, context: context)
         type = Types::DetachInternetGatewayOutput.new
@@ -11856,7 +11856,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DetachNetworkInterfaceInput
+    class DetachNetworkInterfaceInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DetachNetworkInterfaceInput, context: context)
         type = Types::DetachNetworkInterfaceInput.new
@@ -11868,7 +11868,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DetachNetworkInterfaceOutput
+    class DetachNetworkInterfaceOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DetachNetworkInterfaceOutput, context: context)
         type = Types::DetachNetworkInterfaceOutput.new
@@ -11877,7 +11877,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DetachVerifiedAccessTrustProviderInput
+    class DetachVerifiedAccessTrustProviderInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DetachVerifiedAccessTrustProviderInput, context: context)
         type = Types::DetachVerifiedAccessTrustProviderInput.new
@@ -11890,7 +11890,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DetachVerifiedAccessTrustProviderOutput
+    class DetachVerifiedAccessTrustProviderOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DetachVerifiedAccessTrustProviderOutput, context: context)
         type = Types::DetachVerifiedAccessTrustProviderOutput.new
@@ -11901,7 +11901,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DetachVolumeInput
+    class DetachVolumeInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DetachVolumeInput, context: context)
         type = Types::DetachVolumeInput.new
@@ -11915,7 +11915,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DetachVolumeOutput
+    class DetachVolumeOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DetachVolumeOutput, context: context)
         type = Types::DetachVolumeOutput.new
@@ -11932,7 +11932,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DetachVpnGatewayInput
+    class DetachVpnGatewayInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DetachVpnGatewayInput, context: context)
         type = Types::DetachVpnGatewayInput.new
@@ -11944,7 +11944,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DetachVpnGatewayOutput
+    class DetachVpnGatewayOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DetachVpnGatewayOutput, context: context)
         type = Types::DetachVpnGatewayOutput.new
@@ -11953,7 +11953,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DeviceOptions
+    class DeviceOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeviceOptions, context: context)
         type = Types::DeviceOptions.new
@@ -11964,7 +11964,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DhcpConfiguration
+    class DhcpConfiguration
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DhcpConfiguration, context: context)
         type = Types::DhcpConfiguration.new
@@ -11975,7 +11975,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DhcpConfigurationList
+    class DhcpConfigurationList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -11986,7 +11986,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DhcpConfigurationValueList
+    class DhcpConfigurationValueList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -11997,7 +11997,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DhcpOptions
+    class DhcpOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DhcpOptions, context: context)
         type = Types::DhcpOptions.new
@@ -12010,7 +12010,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DhcpOptionsIdStringList
+    class DhcpOptionsIdStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -12021,7 +12021,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DhcpOptionsList
+    class DhcpOptionsList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -12032,7 +12032,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DirectoryServiceAuthentication
+    class DirectoryServiceAuthentication
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DirectoryServiceAuthentication, context: context)
         type = Types::DirectoryServiceAuthentication.new
@@ -12042,7 +12042,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DirectoryServiceAuthenticationRequest
+    class DirectoryServiceAuthenticationRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DirectoryServiceAuthenticationRequest, context: context)
         type = Types::DirectoryServiceAuthenticationRequest.new
@@ -12052,7 +12052,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisableAddressTransferInput
+    class DisableAddressTransferInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisableAddressTransferInput, context: context)
         type = Types::DisableAddressTransferInput.new
@@ -12063,7 +12063,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisableAddressTransferOutput
+    class DisableAddressTransferOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisableAddressTransferOutput, context: context)
         type = Types::DisableAddressTransferOutput.new
@@ -12073,7 +12073,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisableAwsNetworkPerformanceMetricSubscriptionInput
+    class DisableAwsNetworkPerformanceMetricSubscriptionInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisableAwsNetworkPerformanceMetricSubscriptionInput, context: context)
         type = Types::DisableAwsNetworkPerformanceMetricSubscriptionInput.new
@@ -12087,7 +12087,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisableAwsNetworkPerformanceMetricSubscriptionOutput
+    class DisableAwsNetworkPerformanceMetricSubscriptionOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisableAwsNetworkPerformanceMetricSubscriptionOutput, context: context)
         type = Types::DisableAwsNetworkPerformanceMetricSubscriptionOutput.new
@@ -12097,7 +12097,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisableEbsEncryptionByDefaultInput
+    class DisableEbsEncryptionByDefaultInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisableEbsEncryptionByDefaultInput, context: context)
         type = Types::DisableEbsEncryptionByDefaultInput.new
@@ -12107,7 +12107,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisableEbsEncryptionByDefaultOutput
+    class DisableEbsEncryptionByDefaultOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisableEbsEncryptionByDefaultOutput, context: context)
         type = Types::DisableEbsEncryptionByDefaultOutput.new
@@ -12117,7 +12117,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisableFastLaunchInput
+    class DisableFastLaunchInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisableFastLaunchInput, context: context)
         type = Types::DisableFastLaunchInput.new
@@ -12129,7 +12129,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisableFastLaunchOutput
+    class DisableFastLaunchOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisableFastLaunchOutput, context: context)
         type = Types::DisableFastLaunchOutput.new
@@ -12147,7 +12147,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisableFastSnapshotRestoreErrorItem
+    class DisableFastSnapshotRestoreErrorItem
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisableFastSnapshotRestoreErrorItem, context: context)
         type = Types::DisableFastSnapshotRestoreErrorItem.new
@@ -12158,7 +12158,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisableFastSnapshotRestoreErrorSet
+    class DisableFastSnapshotRestoreErrorSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -12169,7 +12169,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisableFastSnapshotRestoreStateError
+    class DisableFastSnapshotRestoreStateError
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisableFastSnapshotRestoreStateError, context: context)
         type = Types::DisableFastSnapshotRestoreStateError.new
@@ -12180,7 +12180,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisableFastSnapshotRestoreStateErrorItem
+    class DisableFastSnapshotRestoreStateErrorItem
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisableFastSnapshotRestoreStateErrorItem, context: context)
         type = Types::DisableFastSnapshotRestoreStateErrorItem.new
@@ -12191,7 +12191,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisableFastSnapshotRestoreStateErrorSet
+    class DisableFastSnapshotRestoreStateErrorSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -12202,7 +12202,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisableFastSnapshotRestoreSuccessItem
+    class DisableFastSnapshotRestoreSuccessItem
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisableFastSnapshotRestoreSuccessItem, context: context)
         type = Types::DisableFastSnapshotRestoreSuccessItem.new
@@ -12222,7 +12222,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisableFastSnapshotRestoreSuccessSet
+    class DisableFastSnapshotRestoreSuccessSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -12233,7 +12233,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisableFastSnapshotRestoresInput
+    class DisableFastSnapshotRestoresInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisableFastSnapshotRestoresInput, context: context)
         type = Types::DisableFastSnapshotRestoresInput.new
@@ -12245,7 +12245,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisableFastSnapshotRestoresOutput
+    class DisableFastSnapshotRestoresOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisableFastSnapshotRestoresOutput, context: context)
         type = Types::DisableFastSnapshotRestoresOutput.new
@@ -12256,7 +12256,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisableImageBlockPublicAccessInput
+    class DisableImageBlockPublicAccessInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisableImageBlockPublicAccessInput, context: context)
         type = Types::DisableImageBlockPublicAccessInput.new
@@ -12266,7 +12266,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisableImageBlockPublicAccessOutput
+    class DisableImageBlockPublicAccessOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisableImageBlockPublicAccessOutput, context: context)
         type = Types::DisableImageBlockPublicAccessOutput.new
@@ -12276,7 +12276,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisableImageDeprecationInput
+    class DisableImageDeprecationInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisableImageDeprecationInput, context: context)
         type = Types::DisableImageDeprecationInput.new
@@ -12287,7 +12287,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisableImageDeprecationOutput
+    class DisableImageDeprecationOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisableImageDeprecationOutput, context: context)
         type = Types::DisableImageDeprecationOutput.new
@@ -12297,7 +12297,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisableImageInput
+    class DisableImageInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisableImageInput, context: context)
         type = Types::DisableImageInput.new
@@ -12308,7 +12308,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisableImageOutput
+    class DisableImageOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisableImageOutput, context: context)
         type = Types::DisableImageOutput.new
@@ -12318,7 +12318,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisableIpamOrganizationAdminAccountInput
+    class DisableIpamOrganizationAdminAccountInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisableIpamOrganizationAdminAccountInput, context: context)
         type = Types::DisableIpamOrganizationAdminAccountInput.new
@@ -12329,7 +12329,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisableIpamOrganizationAdminAccountOutput
+    class DisableIpamOrganizationAdminAccountOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisableIpamOrganizationAdminAccountOutput, context: context)
         type = Types::DisableIpamOrganizationAdminAccountOutput.new
@@ -12339,7 +12339,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisableSerialConsoleAccessInput
+    class DisableSerialConsoleAccessInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisableSerialConsoleAccessInput, context: context)
         type = Types::DisableSerialConsoleAccessInput.new
@@ -12349,7 +12349,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisableSerialConsoleAccessOutput
+    class DisableSerialConsoleAccessOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisableSerialConsoleAccessOutput, context: context)
         type = Types::DisableSerialConsoleAccessOutput.new
@@ -12359,7 +12359,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisableSnapshotBlockPublicAccessInput
+    class DisableSnapshotBlockPublicAccessInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisableSnapshotBlockPublicAccessInput, context: context)
         type = Types::DisableSnapshotBlockPublicAccessInput.new
@@ -12369,7 +12369,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisableSnapshotBlockPublicAccessOutput
+    class DisableSnapshotBlockPublicAccessOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisableSnapshotBlockPublicAccessOutput, context: context)
         type = Types::DisableSnapshotBlockPublicAccessOutput.new
@@ -12379,7 +12379,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisableTransitGatewayRouteTablePropagationInput
+    class DisableTransitGatewayRouteTablePropagationInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisableTransitGatewayRouteTablePropagationInput, context: context)
         type = Types::DisableTransitGatewayRouteTablePropagationInput.new
@@ -12392,7 +12392,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisableTransitGatewayRouteTablePropagationOutput
+    class DisableTransitGatewayRouteTablePropagationOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisableTransitGatewayRouteTablePropagationOutput, context: context)
         type = Types::DisableTransitGatewayRouteTablePropagationOutput.new
@@ -12402,7 +12402,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisableVgwRoutePropagationInput
+    class DisableVgwRoutePropagationInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisableVgwRoutePropagationInput, context: context)
         type = Types::DisableVgwRoutePropagationInput.new
@@ -12414,7 +12414,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisableVgwRoutePropagationOutput
+    class DisableVgwRoutePropagationOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisableVgwRoutePropagationOutput, context: context)
         type = Types::DisableVgwRoutePropagationOutput.new
@@ -12423,7 +12423,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisableVpcClassicLinkDnsSupportInput
+    class DisableVpcClassicLinkDnsSupportInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisableVpcClassicLinkDnsSupportInput, context: context)
         type = Types::DisableVpcClassicLinkDnsSupportInput.new
@@ -12433,7 +12433,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisableVpcClassicLinkDnsSupportOutput
+    class DisableVpcClassicLinkDnsSupportOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisableVpcClassicLinkDnsSupportOutput, context: context)
         type = Types::DisableVpcClassicLinkDnsSupportOutput.new
@@ -12443,7 +12443,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisableVpcClassicLinkInput
+    class DisableVpcClassicLinkInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisableVpcClassicLinkInput, context: context)
         type = Types::DisableVpcClassicLinkInput.new
@@ -12454,7 +12454,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisableVpcClassicLinkOutput
+    class DisableVpcClassicLinkOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisableVpcClassicLinkOutput, context: context)
         type = Types::DisableVpcClassicLinkOutput.new
@@ -12464,7 +12464,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisassociateAddressInput
+    class DisassociateAddressInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisassociateAddressInput, context: context)
         type = Types::DisassociateAddressInput.new
@@ -12476,7 +12476,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisassociateAddressOutput
+    class DisassociateAddressOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisassociateAddressOutput, context: context)
         type = Types::DisassociateAddressOutput.new
@@ -12485,7 +12485,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisassociateClientVpnTargetNetworkInput
+    class DisassociateClientVpnTargetNetworkInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisassociateClientVpnTargetNetworkInput, context: context)
         type = Types::DisassociateClientVpnTargetNetworkInput.new
@@ -12497,7 +12497,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisassociateClientVpnTargetNetworkOutput
+    class DisassociateClientVpnTargetNetworkOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisassociateClientVpnTargetNetworkOutput, context: context)
         type = Types::DisassociateClientVpnTargetNetworkOutput.new
@@ -12508,7 +12508,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisassociateEnclaveCertificateIamRoleInput
+    class DisassociateEnclaveCertificateIamRoleInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisassociateEnclaveCertificateIamRoleInput, context: context)
         type = Types::DisassociateEnclaveCertificateIamRoleInput.new
@@ -12520,7 +12520,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisassociateEnclaveCertificateIamRoleOutput
+    class DisassociateEnclaveCertificateIamRoleOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisassociateEnclaveCertificateIamRoleOutput, context: context)
         type = Types::DisassociateEnclaveCertificateIamRoleOutput.new
@@ -12530,7 +12530,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisassociateIamInstanceProfileInput
+    class DisassociateIamInstanceProfileInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisassociateIamInstanceProfileInput, context: context)
         type = Types::DisassociateIamInstanceProfileInput.new
@@ -12540,7 +12540,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisassociateIamInstanceProfileOutput
+    class DisassociateIamInstanceProfileOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisassociateIamInstanceProfileOutput, context: context)
         type = Types::DisassociateIamInstanceProfileOutput.new
@@ -12550,7 +12550,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisassociateInstanceEventWindowInput
+    class DisassociateInstanceEventWindowInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisassociateInstanceEventWindowInput, context: context)
         type = Types::DisassociateInstanceEventWindowInput.new
@@ -12562,7 +12562,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisassociateInstanceEventWindowOutput
+    class DisassociateInstanceEventWindowOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisassociateInstanceEventWindowOutput, context: context)
         type = Types::DisassociateInstanceEventWindowOutput.new
@@ -12572,7 +12572,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisassociateIpamByoasnInput
+    class DisassociateIpamByoasnInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisassociateIpamByoasnInput, context: context)
         type = Types::DisassociateIpamByoasnInput.new
@@ -12584,7 +12584,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisassociateIpamByoasnOutput
+    class DisassociateIpamByoasnOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisassociateIpamByoasnOutput, context: context)
         type = Types::DisassociateIpamByoasnOutput.new
@@ -12594,7 +12594,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisassociateIpamResourceDiscoveryInput
+    class DisassociateIpamResourceDiscoveryInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisassociateIpamResourceDiscoveryInput, context: context)
         type = Types::DisassociateIpamResourceDiscoveryInput.new
@@ -12605,7 +12605,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisassociateIpamResourceDiscoveryOutput
+    class DisassociateIpamResourceDiscoveryOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisassociateIpamResourceDiscoveryOutput, context: context)
         type = Types::DisassociateIpamResourceDiscoveryOutput.new
@@ -12615,7 +12615,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisassociateNatGatewayAddressInput
+    class DisassociateNatGatewayAddressInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisassociateNatGatewayAddressInput, context: context)
         type = Types::DisassociateNatGatewayAddressInput.new
@@ -12628,7 +12628,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisassociateNatGatewayAddressOutput
+    class DisassociateNatGatewayAddressOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisassociateNatGatewayAddressOutput, context: context)
         type = Types::DisassociateNatGatewayAddressOutput.new
@@ -12639,7 +12639,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisassociateRouteTableInput
+    class DisassociateRouteTableInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisassociateRouteTableInput, context: context)
         type = Types::DisassociateRouteTableInput.new
@@ -12650,7 +12650,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisassociateRouteTableOutput
+    class DisassociateRouteTableOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisassociateRouteTableOutput, context: context)
         type = Types::DisassociateRouteTableOutput.new
@@ -12659,7 +12659,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisassociateSubnetCidrBlockInput
+    class DisassociateSubnetCidrBlockInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisassociateSubnetCidrBlockInput, context: context)
         type = Types::DisassociateSubnetCidrBlockInput.new
@@ -12669,7 +12669,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisassociateSubnetCidrBlockOutput
+    class DisassociateSubnetCidrBlockOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisassociateSubnetCidrBlockOutput, context: context)
         type = Types::DisassociateSubnetCidrBlockOutput.new
@@ -12680,7 +12680,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisassociateTransitGatewayMulticastDomainInput
+    class DisassociateTransitGatewayMulticastDomainInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisassociateTransitGatewayMulticastDomainInput, context: context)
         type = Types::DisassociateTransitGatewayMulticastDomainInput.new
@@ -12693,7 +12693,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisassociateTransitGatewayMulticastDomainOutput
+    class DisassociateTransitGatewayMulticastDomainOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisassociateTransitGatewayMulticastDomainOutput, context: context)
         type = Types::DisassociateTransitGatewayMulticastDomainOutput.new
@@ -12703,7 +12703,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisassociateTransitGatewayPolicyTableInput
+    class DisassociateTransitGatewayPolicyTableInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisassociateTransitGatewayPolicyTableInput, context: context)
         type = Types::DisassociateTransitGatewayPolicyTableInput.new
@@ -12715,7 +12715,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisassociateTransitGatewayPolicyTableOutput
+    class DisassociateTransitGatewayPolicyTableOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisassociateTransitGatewayPolicyTableOutput, context: context)
         type = Types::DisassociateTransitGatewayPolicyTableOutput.new
@@ -12725,7 +12725,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisassociateTransitGatewayRouteTableInput
+    class DisassociateTransitGatewayRouteTableInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisassociateTransitGatewayRouteTableInput, context: context)
         type = Types::DisassociateTransitGatewayRouteTableInput.new
@@ -12737,7 +12737,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisassociateTransitGatewayRouteTableOutput
+    class DisassociateTransitGatewayRouteTableOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisassociateTransitGatewayRouteTableOutput, context: context)
         type = Types::DisassociateTransitGatewayRouteTableOutput.new
@@ -12747,7 +12747,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisassociateTrunkInterfaceInput
+    class DisassociateTrunkInterfaceInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisassociateTrunkInterfaceInput, context: context)
         type = Types::DisassociateTrunkInterfaceInput.new
@@ -12759,7 +12759,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisassociateTrunkInterfaceOutput
+    class DisassociateTrunkInterfaceOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisassociateTrunkInterfaceOutput, context: context)
         type = Types::DisassociateTrunkInterfaceOutput.new
@@ -12770,7 +12770,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisassociateVpcCidrBlockInput
+    class DisassociateVpcCidrBlockInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisassociateVpcCidrBlockInput, context: context)
         type = Types::DisassociateVpcCidrBlockInput.new
@@ -12780,7 +12780,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DisassociateVpcCidrBlockOutput
+    class DisassociateVpcCidrBlockOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisassociateVpcCidrBlockOutput, context: context)
         type = Types::DisassociateVpcCidrBlockOutput.new
@@ -12792,7 +12792,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DiskImage
+    class DiskImage
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DiskImage, context: context)
         type = Types::DiskImage.new
@@ -12804,7 +12804,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DiskImageDescription
+    class DiskImageDescription
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DiskImageDescription, context: context)
         type = Types::DiskImageDescription.new
@@ -12817,7 +12817,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DiskImageDetail
+    class DiskImageDetail
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DiskImageDetail, context: context)
         type = Types::DiskImageDetail.new
@@ -12829,7 +12829,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DiskImageList
+    class DiskImageList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -12840,7 +12840,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DiskImageVolumeDescription
+    class DiskImageVolumeDescription
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DiskImageVolumeDescription, context: context)
         type = Types::DiskImageVolumeDescription.new
@@ -12851,7 +12851,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DiskInfo
+    class DiskInfo
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DiskInfo, context: context)
         type = Types::DiskInfo.new
@@ -12863,7 +12863,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DiskInfoList
+    class DiskInfoList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -12874,7 +12874,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DnsEntry
+    class DnsEntry
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DnsEntry, context: context)
         type = Types::DnsEntry.new
@@ -12885,7 +12885,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DnsEntrySet
+    class DnsEntrySet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -12896,7 +12896,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DnsOptions
+    class DnsOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DnsOptions, context: context)
         type = Types::DnsOptions.new
@@ -12907,7 +12907,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DnsOptionsSpecification
+    class DnsOptionsSpecification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DnsOptionsSpecification, context: context)
         type = Types::DnsOptionsSpecification.new
@@ -12918,7 +12918,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module DnsServersOptionsModifyStructure
+    class DnsServersOptionsModifyStructure
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DnsServersOptionsModifyStructure, context: context)
         type = Types::DnsServersOptionsModifyStructure.new
@@ -12929,7 +12929,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EbsBlockDevice
+    class EbsBlockDevice
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EbsBlockDevice, context: context)
         type = Types::EbsBlockDevice.new
@@ -12947,7 +12947,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EbsInfo
+    class EbsInfo
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EbsInfo, context: context)
         type = Types::EbsInfo.new
@@ -12960,7 +12960,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EbsInstanceBlockDevice
+    class EbsInstanceBlockDevice
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EbsInstanceBlockDevice, context: context)
         type = Types::EbsInstanceBlockDevice.new
@@ -12975,7 +12975,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EbsInstanceBlockDeviceSpecification
+    class EbsInstanceBlockDeviceSpecification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EbsInstanceBlockDeviceSpecification, context: context)
         type = Types::EbsInstanceBlockDeviceSpecification.new
@@ -12986,7 +12986,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EbsOptimizedInfo
+    class EbsOptimizedInfo
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EbsOptimizedInfo, context: context)
         type = Types::EbsOptimizedInfo.new
@@ -13001,7 +13001,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Ec2InstanceConnectEndpoint
+    class Ec2InstanceConnectEndpoint
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Ec2InstanceConnectEndpoint, context: context)
         type = Types::Ec2InstanceConnectEndpoint.new
@@ -13025,7 +13025,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EfaInfo
+    class EfaInfo
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EfaInfo, context: context)
         type = Types::EfaInfo.new
@@ -13035,7 +13035,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EgressOnlyInternetGateway
+    class EgressOnlyInternetGateway
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EgressOnlyInternetGateway, context: context)
         type = Types::EgressOnlyInternetGateway.new
@@ -13047,7 +13047,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EgressOnlyInternetGatewayIdList
+    class EgressOnlyInternetGatewayIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -13058,7 +13058,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EgressOnlyInternetGatewayList
+    class EgressOnlyInternetGatewayList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -13069,7 +13069,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EipAssociationIdList
+    class EipAssociationIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -13080,7 +13080,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ElasticGpuAssociation
+    class ElasticGpuAssociation
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ElasticGpuAssociation, context: context)
         type = Types::ElasticGpuAssociation.new
@@ -13093,7 +13093,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ElasticGpuAssociationList
+    class ElasticGpuAssociationList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -13104,7 +13104,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ElasticGpuHealth
+    class ElasticGpuHealth
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ElasticGpuHealth, context: context)
         type = Types::ElasticGpuHealth.new
@@ -13114,7 +13114,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ElasticGpuIdSet
+    class ElasticGpuIdSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -13125,7 +13125,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ElasticGpuSet
+    class ElasticGpuSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -13136,7 +13136,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ElasticGpuSpecification
+    class ElasticGpuSpecification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ElasticGpuSpecification, context: context)
         type = Types::ElasticGpuSpecification.new
@@ -13146,7 +13146,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ElasticGpuSpecificationList
+    class ElasticGpuSpecificationList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -13157,7 +13157,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ElasticGpuSpecificationResponse
+    class ElasticGpuSpecificationResponse
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ElasticGpuSpecificationResponse, context: context)
         type = Types::ElasticGpuSpecificationResponse.new
@@ -13167,7 +13167,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ElasticGpuSpecificationResponseList
+    class ElasticGpuSpecificationResponseList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -13178,7 +13178,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ElasticGpuSpecifications
+    class ElasticGpuSpecifications
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -13189,7 +13189,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ElasticGpus
+    class ElasticGpus
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ElasticGpus, context: context)
         type = Types::ElasticGpus.new
@@ -13205,7 +13205,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ElasticInferenceAccelerator
+    class ElasticInferenceAccelerator
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ElasticInferenceAccelerator, context: context)
         type = Types::ElasticInferenceAccelerator.new
@@ -13216,7 +13216,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ElasticInferenceAcceleratorAssociation
+    class ElasticInferenceAcceleratorAssociation
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ElasticInferenceAcceleratorAssociation, context: context)
         type = Types::ElasticInferenceAcceleratorAssociation.new
@@ -13229,7 +13229,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ElasticInferenceAcceleratorAssociationList
+    class ElasticInferenceAcceleratorAssociationList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -13240,7 +13240,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ElasticInferenceAccelerators
+    class ElasticInferenceAccelerators
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -13251,7 +13251,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EnaSrdSpecification
+    class EnaSrdSpecification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnaSrdSpecification, context: context)
         type = Types::EnaSrdSpecification.new
@@ -13262,7 +13262,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EnaSrdSpecificationRequest
+    class EnaSrdSpecificationRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnaSrdSpecificationRequest, context: context)
         type = Types::EnaSrdSpecificationRequest.new
@@ -13273,7 +13273,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EnaSrdUdpSpecification
+    class EnaSrdUdpSpecification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnaSrdUdpSpecification, context: context)
         type = Types::EnaSrdUdpSpecification.new
@@ -13283,7 +13283,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EnaSrdUdpSpecificationRequest
+    class EnaSrdUdpSpecificationRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnaSrdUdpSpecificationRequest, context: context)
         type = Types::EnaSrdUdpSpecificationRequest.new
@@ -13293,7 +13293,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EnableAddressTransferInput
+    class EnableAddressTransferInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableAddressTransferInput, context: context)
         type = Types::EnableAddressTransferInput.new
@@ -13305,7 +13305,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EnableAddressTransferOutput
+    class EnableAddressTransferOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableAddressTransferOutput, context: context)
         type = Types::EnableAddressTransferOutput.new
@@ -13315,7 +13315,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EnableAwsNetworkPerformanceMetricSubscriptionInput
+    class EnableAwsNetworkPerformanceMetricSubscriptionInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableAwsNetworkPerformanceMetricSubscriptionInput, context: context)
         type = Types::EnableAwsNetworkPerformanceMetricSubscriptionInput.new
@@ -13329,7 +13329,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EnableAwsNetworkPerformanceMetricSubscriptionOutput
+    class EnableAwsNetworkPerformanceMetricSubscriptionOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableAwsNetworkPerformanceMetricSubscriptionOutput, context: context)
         type = Types::EnableAwsNetworkPerformanceMetricSubscriptionOutput.new
@@ -13339,7 +13339,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EnableEbsEncryptionByDefaultInput
+    class EnableEbsEncryptionByDefaultInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableEbsEncryptionByDefaultInput, context: context)
         type = Types::EnableEbsEncryptionByDefaultInput.new
@@ -13349,7 +13349,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EnableEbsEncryptionByDefaultOutput
+    class EnableEbsEncryptionByDefaultOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableEbsEncryptionByDefaultOutput, context: context)
         type = Types::EnableEbsEncryptionByDefaultOutput.new
@@ -13359,7 +13359,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EnableFastLaunchInput
+    class EnableFastLaunchInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableFastLaunchInput, context: context)
         type = Types::EnableFastLaunchInput.new
@@ -13374,7 +13374,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EnableFastLaunchOutput
+    class EnableFastLaunchOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableFastLaunchOutput, context: context)
         type = Types::EnableFastLaunchOutput.new
@@ -13392,7 +13392,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EnableFastSnapshotRestoreErrorItem
+    class EnableFastSnapshotRestoreErrorItem
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableFastSnapshotRestoreErrorItem, context: context)
         type = Types::EnableFastSnapshotRestoreErrorItem.new
@@ -13403,7 +13403,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EnableFastSnapshotRestoreErrorSet
+    class EnableFastSnapshotRestoreErrorSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -13414,7 +13414,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EnableFastSnapshotRestoreStateError
+    class EnableFastSnapshotRestoreStateError
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableFastSnapshotRestoreStateError, context: context)
         type = Types::EnableFastSnapshotRestoreStateError.new
@@ -13425,7 +13425,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EnableFastSnapshotRestoreStateErrorItem
+    class EnableFastSnapshotRestoreStateErrorItem
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableFastSnapshotRestoreStateErrorItem, context: context)
         type = Types::EnableFastSnapshotRestoreStateErrorItem.new
@@ -13436,7 +13436,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EnableFastSnapshotRestoreStateErrorSet
+    class EnableFastSnapshotRestoreStateErrorSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -13447,7 +13447,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EnableFastSnapshotRestoreSuccessItem
+    class EnableFastSnapshotRestoreSuccessItem
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableFastSnapshotRestoreSuccessItem, context: context)
         type = Types::EnableFastSnapshotRestoreSuccessItem.new
@@ -13467,7 +13467,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EnableFastSnapshotRestoreSuccessSet
+    class EnableFastSnapshotRestoreSuccessSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -13478,7 +13478,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EnableFastSnapshotRestoresInput
+    class EnableFastSnapshotRestoresInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableFastSnapshotRestoresInput, context: context)
         type = Types::EnableFastSnapshotRestoresInput.new
@@ -13490,7 +13490,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EnableFastSnapshotRestoresOutput
+    class EnableFastSnapshotRestoresOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableFastSnapshotRestoresOutput, context: context)
         type = Types::EnableFastSnapshotRestoresOutput.new
@@ -13501,7 +13501,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EnableImageBlockPublicAccessInput
+    class EnableImageBlockPublicAccessInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableImageBlockPublicAccessInput, context: context)
         type = Types::EnableImageBlockPublicAccessInput.new
@@ -13512,7 +13512,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EnableImageBlockPublicAccessOutput
+    class EnableImageBlockPublicAccessOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableImageBlockPublicAccessOutput, context: context)
         type = Types::EnableImageBlockPublicAccessOutput.new
@@ -13522,7 +13522,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EnableImageDeprecationInput
+    class EnableImageDeprecationInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableImageDeprecationInput, context: context)
         type = Types::EnableImageDeprecationInput.new
@@ -13534,7 +13534,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EnableImageDeprecationOutput
+    class EnableImageDeprecationOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableImageDeprecationOutput, context: context)
         type = Types::EnableImageDeprecationOutput.new
@@ -13544,7 +13544,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EnableImageInput
+    class EnableImageInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableImageInput, context: context)
         type = Types::EnableImageInput.new
@@ -13555,7 +13555,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EnableImageOutput
+    class EnableImageOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableImageOutput, context: context)
         type = Types::EnableImageOutput.new
@@ -13565,7 +13565,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EnableIpamOrganizationAdminAccountInput
+    class EnableIpamOrganizationAdminAccountInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableIpamOrganizationAdminAccountInput, context: context)
         type = Types::EnableIpamOrganizationAdminAccountInput.new
@@ -13576,7 +13576,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EnableIpamOrganizationAdminAccountOutput
+    class EnableIpamOrganizationAdminAccountOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableIpamOrganizationAdminAccountOutput, context: context)
         type = Types::EnableIpamOrganizationAdminAccountOutput.new
@@ -13586,7 +13586,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EnableReachabilityAnalyzerOrganizationSharingInput
+    class EnableReachabilityAnalyzerOrganizationSharingInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableReachabilityAnalyzerOrganizationSharingInput, context: context)
         type = Types::EnableReachabilityAnalyzerOrganizationSharingInput.new
@@ -13596,7 +13596,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EnableReachabilityAnalyzerOrganizationSharingOutput
+    class EnableReachabilityAnalyzerOrganizationSharingOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableReachabilityAnalyzerOrganizationSharingOutput, context: context)
         type = Types::EnableReachabilityAnalyzerOrganizationSharingOutput.new
@@ -13606,7 +13606,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EnableSerialConsoleAccessInput
+    class EnableSerialConsoleAccessInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableSerialConsoleAccessInput, context: context)
         type = Types::EnableSerialConsoleAccessInput.new
@@ -13616,7 +13616,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EnableSerialConsoleAccessOutput
+    class EnableSerialConsoleAccessOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableSerialConsoleAccessOutput, context: context)
         type = Types::EnableSerialConsoleAccessOutput.new
@@ -13626,7 +13626,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EnableSnapshotBlockPublicAccessInput
+    class EnableSnapshotBlockPublicAccessInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableSnapshotBlockPublicAccessInput, context: context)
         type = Types::EnableSnapshotBlockPublicAccessInput.new
@@ -13637,7 +13637,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EnableSnapshotBlockPublicAccessOutput
+    class EnableSnapshotBlockPublicAccessOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableSnapshotBlockPublicAccessOutput, context: context)
         type = Types::EnableSnapshotBlockPublicAccessOutput.new
@@ -13647,7 +13647,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EnableTransitGatewayRouteTablePropagationInput
+    class EnableTransitGatewayRouteTablePropagationInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableTransitGatewayRouteTablePropagationInput, context: context)
         type = Types::EnableTransitGatewayRouteTablePropagationInput.new
@@ -13660,7 +13660,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EnableTransitGatewayRouteTablePropagationOutput
+    class EnableTransitGatewayRouteTablePropagationOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableTransitGatewayRouteTablePropagationOutput, context: context)
         type = Types::EnableTransitGatewayRouteTablePropagationOutput.new
@@ -13670,7 +13670,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EnableVgwRoutePropagationInput
+    class EnableVgwRoutePropagationInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableVgwRoutePropagationInput, context: context)
         type = Types::EnableVgwRoutePropagationInput.new
@@ -13682,7 +13682,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EnableVgwRoutePropagationOutput
+    class EnableVgwRoutePropagationOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableVgwRoutePropagationOutput, context: context)
         type = Types::EnableVgwRoutePropagationOutput.new
@@ -13691,7 +13691,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EnableVolumeIOInput
+    class EnableVolumeIOInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableVolumeIOInput, context: context)
         type = Types::EnableVolumeIOInput.new
@@ -13702,7 +13702,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EnableVolumeIOOutput
+    class EnableVolumeIOOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableVolumeIOOutput, context: context)
         type = Types::EnableVolumeIOOutput.new
@@ -13711,7 +13711,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EnableVpcClassicLinkDnsSupportInput
+    class EnableVpcClassicLinkDnsSupportInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableVpcClassicLinkDnsSupportInput, context: context)
         type = Types::EnableVpcClassicLinkDnsSupportInput.new
@@ -13721,7 +13721,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EnableVpcClassicLinkDnsSupportOutput
+    class EnableVpcClassicLinkDnsSupportOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableVpcClassicLinkDnsSupportOutput, context: context)
         type = Types::EnableVpcClassicLinkDnsSupportOutput.new
@@ -13731,7 +13731,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EnableVpcClassicLinkInput
+    class EnableVpcClassicLinkInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableVpcClassicLinkInput, context: context)
         type = Types::EnableVpcClassicLinkInput.new
@@ -13742,7 +13742,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EnableVpcClassicLinkOutput
+    class EnableVpcClassicLinkOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableVpcClassicLinkOutput, context: context)
         type = Types::EnableVpcClassicLinkOutput.new
@@ -13752,7 +13752,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EnclaveOptions
+    class EnclaveOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnclaveOptions, context: context)
         type = Types::EnclaveOptions.new
@@ -13762,7 +13762,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EnclaveOptionsRequest
+    class EnclaveOptionsRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnclaveOptionsRequest, context: context)
         type = Types::EnclaveOptionsRequest.new
@@ -13772,7 +13772,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EndpointSet
+    class EndpointSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -13783,7 +13783,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ErrorSet
+    class ErrorSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -13794,7 +13794,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module EventInformation
+    class EventInformation
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EventInformation, context: context)
         type = Types::EventInformation.new
@@ -13806,7 +13806,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ExcludedInstanceTypeSet
+    class ExcludedInstanceTypeSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -13817,7 +13817,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ExecutableByStringList
+    class ExecutableByStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -13828,7 +13828,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Explanation
+    class Explanation
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Explanation, context: context)
         type = Types::Explanation.new
@@ -13890,7 +13890,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ExplanationList
+    class ExplanationList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -13901,7 +13901,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ExportClientVpnClientCertificateRevocationListInput
+    class ExportClientVpnClientCertificateRevocationListInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ExportClientVpnClientCertificateRevocationListInput, context: context)
         type = Types::ExportClientVpnClientCertificateRevocationListInput.new
@@ -13912,7 +13912,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ExportClientVpnClientCertificateRevocationListOutput
+    class ExportClientVpnClientCertificateRevocationListOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ExportClientVpnClientCertificateRevocationListOutput, context: context)
         type = Types::ExportClientVpnClientCertificateRevocationListOutput.new
@@ -13923,7 +13923,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ExportClientVpnClientConfigurationInput
+    class ExportClientVpnClientConfigurationInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ExportClientVpnClientConfigurationInput, context: context)
         type = Types::ExportClientVpnClientConfigurationInput.new
@@ -13934,7 +13934,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ExportClientVpnClientConfigurationOutput
+    class ExportClientVpnClientConfigurationOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ExportClientVpnClientConfigurationOutput, context: context)
         type = Types::ExportClientVpnClientConfigurationOutput.new
@@ -13944,7 +13944,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ExportImageInput
+    class ExportImageInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ExportImageInput, context: context)
         type = Types::ExportImageInput.new
@@ -13961,7 +13961,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ExportImageOutput
+    class ExportImageOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ExportImageOutput, context: context)
         type = Types::ExportImageOutput.new
@@ -13980,7 +13980,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ExportImageTask
+    class ExportImageTask
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ExportImageTask, context: context)
         type = Types::ExportImageTask.new
@@ -13997,7 +13997,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ExportImageTaskIdList
+    class ExportImageTaskIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -14008,7 +14008,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ExportImageTaskList
+    class ExportImageTaskList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -14019,7 +14019,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ExportTask
+    class ExportTask
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ExportTask, context: context)
         type = Types::ExportTask.new
@@ -14035,7 +14035,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ExportTaskIdStringList
+    class ExportTaskIdStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -14046,7 +14046,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ExportTaskList
+    class ExportTaskList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -14057,7 +14057,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ExportTaskS3Location
+    class ExportTaskS3Location
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ExportTaskS3Location, context: context)
         type = Types::ExportTaskS3Location.new
@@ -14068,7 +14068,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ExportTaskS3LocationRequest
+    class ExportTaskS3LocationRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ExportTaskS3LocationRequest, context: context)
         type = Types::ExportTaskS3LocationRequest.new
@@ -14079,7 +14079,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ExportToS3Task
+    class ExportToS3Task
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ExportToS3Task, context: context)
         type = Types::ExportToS3Task.new
@@ -14092,7 +14092,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ExportToS3TaskSpecification
+    class ExportToS3TaskSpecification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ExportToS3TaskSpecification, context: context)
         type = Types::ExportToS3TaskSpecification.new
@@ -14105,7 +14105,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ExportTransitGatewayRoutesInput
+    class ExportTransitGatewayRoutesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ExportTransitGatewayRoutesInput, context: context)
         type = Types::ExportTransitGatewayRoutesInput.new
@@ -14118,7 +14118,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ExportTransitGatewayRoutesOutput
+    class ExportTransitGatewayRoutesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ExportTransitGatewayRoutesOutput, context: context)
         type = Types::ExportTransitGatewayRoutesOutput.new
@@ -14128,7 +14128,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module FailedCapacityReservationFleetCancellationResult
+    class FailedCapacityReservationFleetCancellationResult
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::FailedCapacityReservationFleetCancellationResult, context: context)
         type = Types::FailedCapacityReservationFleetCancellationResult.new
@@ -14139,7 +14139,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module FailedCapacityReservationFleetCancellationResultSet
+    class FailedCapacityReservationFleetCancellationResultSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -14150,7 +14150,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module FailedQueuedPurchaseDeletion
+    class FailedQueuedPurchaseDeletion
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::FailedQueuedPurchaseDeletion, context: context)
         type = Types::FailedQueuedPurchaseDeletion.new
@@ -14161,7 +14161,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module FailedQueuedPurchaseDeletionSet
+    class FailedQueuedPurchaseDeletionSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -14172,7 +14172,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module FastLaunchImageIdList
+    class FastLaunchImageIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -14183,7 +14183,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module FastLaunchLaunchTemplateSpecificationRequest
+    class FastLaunchLaunchTemplateSpecificationRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::FastLaunchLaunchTemplateSpecificationRequest, context: context)
         type = Types::FastLaunchLaunchTemplateSpecificationRequest.new
@@ -14195,7 +14195,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module FastLaunchLaunchTemplateSpecificationResponse
+    class FastLaunchLaunchTemplateSpecificationResponse
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::FastLaunchLaunchTemplateSpecificationResponse, context: context)
         type = Types::FastLaunchLaunchTemplateSpecificationResponse.new
@@ -14207,7 +14207,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module FastLaunchSnapshotConfigurationRequest
+    class FastLaunchSnapshotConfigurationRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::FastLaunchSnapshotConfigurationRequest, context: context)
         type = Types::FastLaunchSnapshotConfigurationRequest.new
@@ -14217,7 +14217,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module FastLaunchSnapshotConfigurationResponse
+    class FastLaunchSnapshotConfigurationResponse
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::FastLaunchSnapshotConfigurationResponse, context: context)
         type = Types::FastLaunchSnapshotConfigurationResponse.new
@@ -14227,7 +14227,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module FederatedAuthentication
+    class FederatedAuthentication
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::FederatedAuthentication, context: context)
         type = Types::FederatedAuthentication.new
@@ -14238,7 +14238,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module FederatedAuthenticationRequest
+    class FederatedAuthenticationRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::FederatedAuthenticationRequest, context: context)
         type = Types::FederatedAuthenticationRequest.new
@@ -14249,7 +14249,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Filter
+    class Filter
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Filter, context: context)
         type = Types::Filter.new
@@ -14260,7 +14260,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module FilterList
+    class FilterList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -14271,7 +14271,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module FilterPortRange
+    class FilterPortRange
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::FilterPortRange, context: context)
         type = Types::FilterPortRange.new
@@ -14282,7 +14282,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module FirewallStatefulRule
+    class FirewallStatefulRule
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::FirewallStatefulRule, context: context)
         type = Types::FirewallStatefulRule.new
@@ -14299,7 +14299,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module FirewallStatelessRule
+    class FirewallStatelessRule
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::FirewallStatelessRule, context: context)
         type = Types::FirewallStatelessRule.new
@@ -14316,7 +14316,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module FleetCapacityReservation
+    class FleetCapacityReservation
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::FleetCapacityReservation, context: context)
         type = Types::FleetCapacityReservation.new
@@ -14336,7 +14336,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module FleetCapacityReservationSet
+    class FleetCapacityReservationSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -14347,7 +14347,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module FleetData
+    class FleetData
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::FleetData, context: context)
         type = Types::FleetData.new
@@ -14377,7 +14377,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module FleetIdSet
+    class FleetIdSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -14388,7 +14388,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module FleetLaunchTemplateConfig
+    class FleetLaunchTemplateConfig
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::FleetLaunchTemplateConfig, context: context)
         type = Types::FleetLaunchTemplateConfig.new
@@ -14399,7 +14399,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module FleetLaunchTemplateConfigList
+    class FleetLaunchTemplateConfigList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -14410,7 +14410,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module FleetLaunchTemplateConfigListRequest
+    class FleetLaunchTemplateConfigListRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -14421,7 +14421,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module FleetLaunchTemplateConfigRequest
+    class FleetLaunchTemplateConfigRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::FleetLaunchTemplateConfigRequest, context: context)
         type = Types::FleetLaunchTemplateConfigRequest.new
@@ -14432,7 +14432,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module FleetLaunchTemplateOverrides
+    class FleetLaunchTemplateOverrides
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::FleetLaunchTemplateOverrides, context: context)
         type = Types::FleetLaunchTemplateOverrides.new
@@ -14450,7 +14450,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module FleetLaunchTemplateOverridesList
+    class FleetLaunchTemplateOverridesList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -14461,7 +14461,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module FleetLaunchTemplateOverridesListRequest
+    class FleetLaunchTemplateOverridesListRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -14472,7 +14472,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module FleetLaunchTemplateOverridesRequest
+    class FleetLaunchTemplateOverridesRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::FleetLaunchTemplateOverridesRequest, context: context)
         type = Types::FleetLaunchTemplateOverridesRequest.new
@@ -14490,7 +14490,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module FleetLaunchTemplateSpecification
+    class FleetLaunchTemplateSpecification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::FleetLaunchTemplateSpecification, context: context)
         type = Types::FleetLaunchTemplateSpecification.new
@@ -14502,7 +14502,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module FleetLaunchTemplateSpecificationRequest
+    class FleetLaunchTemplateSpecificationRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::FleetLaunchTemplateSpecificationRequest, context: context)
         type = Types::FleetLaunchTemplateSpecificationRequest.new
@@ -14514,7 +14514,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module FleetSet
+    class FleetSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -14525,7 +14525,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module FleetSpotCapacityRebalance
+    class FleetSpotCapacityRebalance
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::FleetSpotCapacityRebalance, context: context)
         type = Types::FleetSpotCapacityRebalance.new
@@ -14536,7 +14536,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module FleetSpotCapacityRebalanceRequest
+    class FleetSpotCapacityRebalanceRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::FleetSpotCapacityRebalanceRequest, context: context)
         type = Types::FleetSpotCapacityRebalanceRequest.new
@@ -14547,7 +14547,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module FleetSpotMaintenanceStrategies
+    class FleetSpotMaintenanceStrategies
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::FleetSpotMaintenanceStrategies, context: context)
         type = Types::FleetSpotMaintenanceStrategies.new
@@ -14557,7 +14557,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module FleetSpotMaintenanceStrategiesRequest
+    class FleetSpotMaintenanceStrategiesRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::FleetSpotMaintenanceStrategiesRequest, context: context)
         type = Types::FleetSpotMaintenanceStrategiesRequest.new
@@ -14567,7 +14567,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module FlowLog
+    class FlowLog
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::FlowLog, context: context)
         type = Types::FlowLog.new
@@ -14592,7 +14592,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module FlowLogIdList
+    class FlowLogIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -14603,7 +14603,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module FlowLogResourceIds
+    class FlowLogResourceIds
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -14614,7 +14614,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module FlowLogSet
+    class FlowLogSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -14625,7 +14625,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module FpgaDeviceInfo
+    class FpgaDeviceInfo
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::FpgaDeviceInfo, context: context)
         type = Types::FpgaDeviceInfo.new
@@ -14638,7 +14638,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module FpgaDeviceInfoList
+    class FpgaDeviceInfoList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -14649,7 +14649,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module FpgaDeviceMemoryInfo
+    class FpgaDeviceMemoryInfo
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::FpgaDeviceMemoryInfo, context: context)
         type = Types::FpgaDeviceMemoryInfo.new
@@ -14659,7 +14659,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module FpgaImage
+    class FpgaImage
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::FpgaImage, context: context)
         type = Types::FpgaImage.new
@@ -14684,7 +14684,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module FpgaImageAttribute
+    class FpgaImageAttribute
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::FpgaImageAttribute, context: context)
         type = Types::FpgaImageAttribute.new
@@ -14698,7 +14698,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module FpgaImageIdList
+    class FpgaImageIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -14709,7 +14709,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module FpgaImageList
+    class FpgaImageList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -14720,7 +14720,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module FpgaImageState
+    class FpgaImageState
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::FpgaImageState, context: context)
         type = Types::FpgaImageState.new
@@ -14731,7 +14731,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module FpgaInfo
+    class FpgaInfo
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::FpgaInfo, context: context)
         type = Types::FpgaInfo.new
@@ -14742,7 +14742,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetAssociatedEnclaveCertificateIamRolesInput
+    class GetAssociatedEnclaveCertificateIamRolesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetAssociatedEnclaveCertificateIamRolesInput, context: context)
         type = Types::GetAssociatedEnclaveCertificateIamRolesInput.new
@@ -14753,7 +14753,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetAssociatedEnclaveCertificateIamRolesOutput
+    class GetAssociatedEnclaveCertificateIamRolesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetAssociatedEnclaveCertificateIamRolesOutput, context: context)
         type = Types::GetAssociatedEnclaveCertificateIamRolesOutput.new
@@ -14763,7 +14763,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetAssociatedIpv6PoolCidrsInput
+    class GetAssociatedIpv6PoolCidrsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetAssociatedIpv6PoolCidrsInput, context: context)
         type = Types::GetAssociatedIpv6PoolCidrsInput.new
@@ -14776,7 +14776,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetAssociatedIpv6PoolCidrsOutput
+    class GetAssociatedIpv6PoolCidrsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetAssociatedIpv6PoolCidrsOutput, context: context)
         type = Types::GetAssociatedIpv6PoolCidrsOutput.new
@@ -14787,7 +14787,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetAwsNetworkPerformanceDataInput
+    class GetAwsNetworkPerformanceDataInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetAwsNetworkPerformanceDataInput, context: context)
         type = Types::GetAwsNetworkPerformanceDataInput.new
@@ -14802,7 +14802,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetAwsNetworkPerformanceDataOutput
+    class GetAwsNetworkPerformanceDataOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetAwsNetworkPerformanceDataOutput, context: context)
         type = Types::GetAwsNetworkPerformanceDataOutput.new
@@ -14813,7 +14813,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetCapacityReservationUsageInput
+    class GetCapacityReservationUsageInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetCapacityReservationUsageInput, context: context)
         type = Types::GetCapacityReservationUsageInput.new
@@ -14826,7 +14826,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetCapacityReservationUsageOutput
+    class GetCapacityReservationUsageOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetCapacityReservationUsageOutput, context: context)
         type = Types::GetCapacityReservationUsageOutput.new
@@ -14842,7 +14842,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetCoipPoolUsageInput
+    class GetCoipPoolUsageInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetCoipPoolUsageInput, context: context)
         type = Types::GetCoipPoolUsageInput.new
@@ -14856,7 +14856,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetCoipPoolUsageOutput
+    class GetCoipPoolUsageOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetCoipPoolUsageOutput, context: context)
         type = Types::GetCoipPoolUsageOutput.new
@@ -14869,7 +14869,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetConsoleOutputInput
+    class GetConsoleOutputInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetConsoleOutputInput, context: context)
         type = Types::GetConsoleOutputInput.new
@@ -14881,7 +14881,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetConsoleOutputOutput
+    class GetConsoleOutputOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetConsoleOutputOutput, context: context)
         type = Types::GetConsoleOutputOutput.new
@@ -14893,7 +14893,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetConsoleScreenshotInput
+    class GetConsoleScreenshotInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetConsoleScreenshotInput, context: context)
         type = Types::GetConsoleScreenshotInput.new
@@ -14905,7 +14905,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetConsoleScreenshotOutput
+    class GetConsoleScreenshotOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetConsoleScreenshotOutput, context: context)
         type = Types::GetConsoleScreenshotOutput.new
@@ -14916,7 +14916,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetDefaultCreditSpecificationInput
+    class GetDefaultCreditSpecificationInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetDefaultCreditSpecificationInput, context: context)
         type = Types::GetDefaultCreditSpecificationInput.new
@@ -14927,7 +14927,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetDefaultCreditSpecificationOutput
+    class GetDefaultCreditSpecificationOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetDefaultCreditSpecificationOutput, context: context)
         type = Types::GetDefaultCreditSpecificationOutput.new
@@ -14937,7 +14937,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetEbsDefaultKmsKeyIdInput
+    class GetEbsDefaultKmsKeyIdInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetEbsDefaultKmsKeyIdInput, context: context)
         type = Types::GetEbsDefaultKmsKeyIdInput.new
@@ -14947,7 +14947,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetEbsDefaultKmsKeyIdOutput
+    class GetEbsDefaultKmsKeyIdOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetEbsDefaultKmsKeyIdOutput, context: context)
         type = Types::GetEbsDefaultKmsKeyIdOutput.new
@@ -14957,7 +14957,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetEbsEncryptionByDefaultInput
+    class GetEbsEncryptionByDefaultInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetEbsEncryptionByDefaultInput, context: context)
         type = Types::GetEbsEncryptionByDefaultInput.new
@@ -14967,7 +14967,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetEbsEncryptionByDefaultOutput
+    class GetEbsEncryptionByDefaultOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetEbsEncryptionByDefaultOutput, context: context)
         type = Types::GetEbsEncryptionByDefaultOutput.new
@@ -14978,7 +14978,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetFlowLogsIntegrationTemplateInput
+    class GetFlowLogsIntegrationTemplateInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetFlowLogsIntegrationTemplateInput, context: context)
         type = Types::GetFlowLogsIntegrationTemplateInput.new
@@ -14991,7 +14991,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetFlowLogsIntegrationTemplateOutput
+    class GetFlowLogsIntegrationTemplateOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetFlowLogsIntegrationTemplateOutput, context: context)
         type = Types::GetFlowLogsIntegrationTemplateOutput.new
@@ -15001,7 +15001,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetGroupsForCapacityReservationInput
+    class GetGroupsForCapacityReservationInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetGroupsForCapacityReservationInput, context: context)
         type = Types::GetGroupsForCapacityReservationInput.new
@@ -15014,7 +15014,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetGroupsForCapacityReservationOutput
+    class GetGroupsForCapacityReservationOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetGroupsForCapacityReservationOutput, context: context)
         type = Types::GetGroupsForCapacityReservationOutput.new
@@ -15025,7 +15025,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetHostReservationPurchasePreviewInput
+    class GetHostReservationPurchasePreviewInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetHostReservationPurchasePreviewInput, context: context)
         type = Types::GetHostReservationPurchasePreviewInput.new
@@ -15036,7 +15036,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetHostReservationPurchasePreviewOutput
+    class GetHostReservationPurchasePreviewOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetHostReservationPurchasePreviewOutput, context: context)
         type = Types::GetHostReservationPurchasePreviewOutput.new
@@ -15049,7 +15049,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetImageBlockPublicAccessStateInput
+    class GetImageBlockPublicAccessStateInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetImageBlockPublicAccessStateInput, context: context)
         type = Types::GetImageBlockPublicAccessStateInput.new
@@ -15059,7 +15059,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetImageBlockPublicAccessStateOutput
+    class GetImageBlockPublicAccessStateOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetImageBlockPublicAccessStateOutput, context: context)
         type = Types::GetImageBlockPublicAccessStateOutput.new
@@ -15069,7 +15069,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetInstanceTypesFromInstanceRequirementsInput
+    class GetInstanceTypesFromInstanceRequirementsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetInstanceTypesFromInstanceRequirementsInput, context: context)
         type = Types::GetInstanceTypesFromInstanceRequirementsInput.new
@@ -15084,7 +15084,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetInstanceTypesFromInstanceRequirementsOutput
+    class GetInstanceTypesFromInstanceRequirementsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetInstanceTypesFromInstanceRequirementsOutput, context: context)
         type = Types::GetInstanceTypesFromInstanceRequirementsOutput.new
@@ -15095,7 +15095,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetInstanceUefiDataInput
+    class GetInstanceUefiDataInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetInstanceUefiDataInput, context: context)
         type = Types::GetInstanceUefiDataInput.new
@@ -15106,7 +15106,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetInstanceUefiDataOutput
+    class GetInstanceUefiDataOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetInstanceUefiDataOutput, context: context)
         type = Types::GetInstanceUefiDataOutput.new
@@ -15117,7 +15117,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetIpamAddressHistoryInput
+    class GetIpamAddressHistoryInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetIpamAddressHistoryInput, context: context)
         type = Types::GetIpamAddressHistoryInput.new
@@ -15134,7 +15134,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetIpamAddressHistoryOutput
+    class GetIpamAddressHistoryOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetIpamAddressHistoryOutput, context: context)
         type = Types::GetIpamAddressHistoryOutput.new
@@ -15145,7 +15145,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetIpamDiscoveredAccountsInput
+    class GetIpamDiscoveredAccountsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetIpamDiscoveredAccountsInput, context: context)
         type = Types::GetIpamDiscoveredAccountsInput.new
@@ -15160,7 +15160,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetIpamDiscoveredAccountsOutput
+    class GetIpamDiscoveredAccountsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetIpamDiscoveredAccountsOutput, context: context)
         type = Types::GetIpamDiscoveredAccountsOutput.new
@@ -15171,7 +15171,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetIpamDiscoveredPublicAddressesInput
+    class GetIpamDiscoveredPublicAddressesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetIpamDiscoveredPublicAddressesInput, context: context)
         type = Types::GetIpamDiscoveredPublicAddressesInput.new
@@ -15186,7 +15186,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetIpamDiscoveredPublicAddressesOutput
+    class GetIpamDiscoveredPublicAddressesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetIpamDiscoveredPublicAddressesOutput, context: context)
         type = Types::GetIpamDiscoveredPublicAddressesOutput.new
@@ -15198,7 +15198,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetIpamDiscoveredResourceCidrsInput
+    class GetIpamDiscoveredResourceCidrsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetIpamDiscoveredResourceCidrsInput, context: context)
         type = Types::GetIpamDiscoveredResourceCidrsInput.new
@@ -15213,7 +15213,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetIpamDiscoveredResourceCidrsOutput
+    class GetIpamDiscoveredResourceCidrsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetIpamDiscoveredResourceCidrsOutput, context: context)
         type = Types::GetIpamDiscoveredResourceCidrsOutput.new
@@ -15224,7 +15224,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetIpamPoolAllocationsInput
+    class GetIpamPoolAllocationsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetIpamPoolAllocationsInput, context: context)
         type = Types::GetIpamPoolAllocationsInput.new
@@ -15239,7 +15239,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetIpamPoolAllocationsOutput
+    class GetIpamPoolAllocationsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetIpamPoolAllocationsOutput, context: context)
         type = Types::GetIpamPoolAllocationsOutput.new
@@ -15250,7 +15250,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetIpamPoolCidrsInput
+    class GetIpamPoolCidrsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetIpamPoolCidrsInput, context: context)
         type = Types::GetIpamPoolCidrsInput.new
@@ -15264,7 +15264,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetIpamPoolCidrsOutput
+    class GetIpamPoolCidrsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetIpamPoolCidrsOutput, context: context)
         type = Types::GetIpamPoolCidrsOutput.new
@@ -15275,7 +15275,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetIpamResourceCidrsInput
+    class GetIpamResourceCidrsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetIpamResourceCidrsInput, context: context)
         type = Types::GetIpamResourceCidrsInput.new
@@ -15294,7 +15294,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetIpamResourceCidrsOutput
+    class GetIpamResourceCidrsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetIpamResourceCidrsOutput, context: context)
         type = Types::GetIpamResourceCidrsOutput.new
@@ -15305,7 +15305,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetLaunchTemplateDataInput
+    class GetLaunchTemplateDataInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetLaunchTemplateDataInput, context: context)
         type = Types::GetLaunchTemplateDataInput.new
@@ -15316,7 +15316,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetLaunchTemplateDataOutput
+    class GetLaunchTemplateDataOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetLaunchTemplateDataOutput, context: context)
         type = Types::GetLaunchTemplateDataOutput.new
@@ -15326,7 +15326,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetManagedPrefixListAssociationsInput
+    class GetManagedPrefixListAssociationsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetManagedPrefixListAssociationsInput, context: context)
         type = Types::GetManagedPrefixListAssociationsInput.new
@@ -15339,7 +15339,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetManagedPrefixListAssociationsOutput
+    class GetManagedPrefixListAssociationsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetManagedPrefixListAssociationsOutput, context: context)
         type = Types::GetManagedPrefixListAssociationsOutput.new
@@ -15350,7 +15350,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetManagedPrefixListEntriesInput
+    class GetManagedPrefixListEntriesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetManagedPrefixListEntriesInput, context: context)
         type = Types::GetManagedPrefixListEntriesInput.new
@@ -15364,7 +15364,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetManagedPrefixListEntriesOutput
+    class GetManagedPrefixListEntriesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetManagedPrefixListEntriesOutput, context: context)
         type = Types::GetManagedPrefixListEntriesOutput.new
@@ -15375,7 +15375,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetNetworkInsightsAccessScopeAnalysisFindingsInput
+    class GetNetworkInsightsAccessScopeAnalysisFindingsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetNetworkInsightsAccessScopeAnalysisFindingsInput, context: context)
         type = Types::GetNetworkInsightsAccessScopeAnalysisFindingsInput.new
@@ -15388,7 +15388,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetNetworkInsightsAccessScopeAnalysisFindingsOutput
+    class GetNetworkInsightsAccessScopeAnalysisFindingsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetNetworkInsightsAccessScopeAnalysisFindingsOutput, context: context)
         type = Types::GetNetworkInsightsAccessScopeAnalysisFindingsOutput.new
@@ -15401,7 +15401,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetNetworkInsightsAccessScopeContentInput
+    class GetNetworkInsightsAccessScopeContentInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetNetworkInsightsAccessScopeContentInput, context: context)
         type = Types::GetNetworkInsightsAccessScopeContentInput.new
@@ -15412,7 +15412,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetNetworkInsightsAccessScopeContentOutput
+    class GetNetworkInsightsAccessScopeContentOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetNetworkInsightsAccessScopeContentOutput, context: context)
         type = Types::GetNetworkInsightsAccessScopeContentOutput.new
@@ -15422,7 +15422,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetPasswordDataInput
+    class GetPasswordDataInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetPasswordDataInput, context: context)
         type = Types::GetPasswordDataInput.new
@@ -15433,7 +15433,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetPasswordDataOutput
+    class GetPasswordDataOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetPasswordDataOutput, context: context)
         type = Types::GetPasswordDataOutput.new
@@ -15445,7 +15445,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetReservedInstancesExchangeQuoteInput
+    class GetReservedInstancesExchangeQuoteInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetReservedInstancesExchangeQuoteInput, context: context)
         type = Types::GetReservedInstancesExchangeQuoteInput.new
@@ -15457,7 +15457,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetReservedInstancesExchangeQuoteOutput
+    class GetReservedInstancesExchangeQuoteOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetReservedInstancesExchangeQuoteOutput, context: context)
         type = Types::GetReservedInstancesExchangeQuoteOutput.new
@@ -15475,7 +15475,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetSecurityGroupsForVpcInput
+    class GetSecurityGroupsForVpcInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetSecurityGroupsForVpcInput, context: context)
         type = Types::GetSecurityGroupsForVpcInput.new
@@ -15489,7 +15489,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetSecurityGroupsForVpcOutput
+    class GetSecurityGroupsForVpcOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetSecurityGroupsForVpcOutput, context: context)
         type = Types::GetSecurityGroupsForVpcOutput.new
@@ -15500,7 +15500,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetSerialConsoleAccessStatusInput
+    class GetSerialConsoleAccessStatusInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetSerialConsoleAccessStatusInput, context: context)
         type = Types::GetSerialConsoleAccessStatusInput.new
@@ -15510,7 +15510,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetSerialConsoleAccessStatusOutput
+    class GetSerialConsoleAccessStatusOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetSerialConsoleAccessStatusOutput, context: context)
         type = Types::GetSerialConsoleAccessStatusOutput.new
@@ -15520,7 +15520,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetSnapshotBlockPublicAccessStateInput
+    class GetSnapshotBlockPublicAccessStateInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetSnapshotBlockPublicAccessStateInput, context: context)
         type = Types::GetSnapshotBlockPublicAccessStateInput.new
@@ -15530,7 +15530,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetSnapshotBlockPublicAccessStateOutput
+    class GetSnapshotBlockPublicAccessStateOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetSnapshotBlockPublicAccessStateOutput, context: context)
         type = Types::GetSnapshotBlockPublicAccessStateOutput.new
@@ -15540,7 +15540,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetSpotPlacementScoresInput
+    class GetSpotPlacementScoresInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetSpotPlacementScoresInput, context: context)
         type = Types::GetSpotPlacementScoresInput.new
@@ -15558,7 +15558,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetSpotPlacementScoresOutput
+    class GetSpotPlacementScoresOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetSpotPlacementScoresOutput, context: context)
         type = Types::GetSpotPlacementScoresOutput.new
@@ -15569,7 +15569,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetSubnetCidrReservationsInput
+    class GetSubnetCidrReservationsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetSubnetCidrReservationsInput, context: context)
         type = Types::GetSubnetCidrReservationsInput.new
@@ -15583,7 +15583,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetSubnetCidrReservationsOutput
+    class GetSubnetCidrReservationsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetSubnetCidrReservationsOutput, context: context)
         type = Types::GetSubnetCidrReservationsOutput.new
@@ -15595,7 +15595,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetTransitGatewayAttachmentPropagationsInput
+    class GetTransitGatewayAttachmentPropagationsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetTransitGatewayAttachmentPropagationsInput, context: context)
         type = Types::GetTransitGatewayAttachmentPropagationsInput.new
@@ -15609,7 +15609,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetTransitGatewayAttachmentPropagationsOutput
+    class GetTransitGatewayAttachmentPropagationsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetTransitGatewayAttachmentPropagationsOutput, context: context)
         type = Types::GetTransitGatewayAttachmentPropagationsOutput.new
@@ -15620,7 +15620,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetTransitGatewayMulticastDomainAssociationsInput
+    class GetTransitGatewayMulticastDomainAssociationsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetTransitGatewayMulticastDomainAssociationsInput, context: context)
         type = Types::GetTransitGatewayMulticastDomainAssociationsInput.new
@@ -15634,7 +15634,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetTransitGatewayMulticastDomainAssociationsOutput
+    class GetTransitGatewayMulticastDomainAssociationsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetTransitGatewayMulticastDomainAssociationsOutput, context: context)
         type = Types::GetTransitGatewayMulticastDomainAssociationsOutput.new
@@ -15645,7 +15645,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetTransitGatewayPolicyTableAssociationsInput
+    class GetTransitGatewayPolicyTableAssociationsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetTransitGatewayPolicyTableAssociationsInput, context: context)
         type = Types::GetTransitGatewayPolicyTableAssociationsInput.new
@@ -15659,7 +15659,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetTransitGatewayPolicyTableAssociationsOutput
+    class GetTransitGatewayPolicyTableAssociationsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetTransitGatewayPolicyTableAssociationsOutput, context: context)
         type = Types::GetTransitGatewayPolicyTableAssociationsOutput.new
@@ -15670,7 +15670,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetTransitGatewayPolicyTableEntriesInput
+    class GetTransitGatewayPolicyTableEntriesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetTransitGatewayPolicyTableEntriesInput, context: context)
         type = Types::GetTransitGatewayPolicyTableEntriesInput.new
@@ -15684,7 +15684,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetTransitGatewayPolicyTableEntriesOutput
+    class GetTransitGatewayPolicyTableEntriesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetTransitGatewayPolicyTableEntriesOutput, context: context)
         type = Types::GetTransitGatewayPolicyTableEntriesOutput.new
@@ -15694,7 +15694,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetTransitGatewayPrefixListReferencesInput
+    class GetTransitGatewayPrefixListReferencesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetTransitGatewayPrefixListReferencesInput, context: context)
         type = Types::GetTransitGatewayPrefixListReferencesInput.new
@@ -15708,7 +15708,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetTransitGatewayPrefixListReferencesOutput
+    class GetTransitGatewayPrefixListReferencesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetTransitGatewayPrefixListReferencesOutput, context: context)
         type = Types::GetTransitGatewayPrefixListReferencesOutput.new
@@ -15719,7 +15719,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetTransitGatewayRouteTableAssociationsInput
+    class GetTransitGatewayRouteTableAssociationsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetTransitGatewayRouteTableAssociationsInput, context: context)
         type = Types::GetTransitGatewayRouteTableAssociationsInput.new
@@ -15733,7 +15733,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetTransitGatewayRouteTableAssociationsOutput
+    class GetTransitGatewayRouteTableAssociationsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetTransitGatewayRouteTableAssociationsOutput, context: context)
         type = Types::GetTransitGatewayRouteTableAssociationsOutput.new
@@ -15744,7 +15744,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetTransitGatewayRouteTablePropagationsInput
+    class GetTransitGatewayRouteTablePropagationsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetTransitGatewayRouteTablePropagationsInput, context: context)
         type = Types::GetTransitGatewayRouteTablePropagationsInput.new
@@ -15758,7 +15758,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetTransitGatewayRouteTablePropagationsOutput
+    class GetTransitGatewayRouteTablePropagationsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetTransitGatewayRouteTablePropagationsOutput, context: context)
         type = Types::GetTransitGatewayRouteTablePropagationsOutput.new
@@ -15769,7 +15769,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetVerifiedAccessEndpointPolicyInput
+    class GetVerifiedAccessEndpointPolicyInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetVerifiedAccessEndpointPolicyInput, context: context)
         type = Types::GetVerifiedAccessEndpointPolicyInput.new
@@ -15780,7 +15780,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetVerifiedAccessEndpointPolicyOutput
+    class GetVerifiedAccessEndpointPolicyOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetVerifiedAccessEndpointPolicyOutput, context: context)
         type = Types::GetVerifiedAccessEndpointPolicyOutput.new
@@ -15791,7 +15791,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetVerifiedAccessGroupPolicyInput
+    class GetVerifiedAccessGroupPolicyInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetVerifiedAccessGroupPolicyInput, context: context)
         type = Types::GetVerifiedAccessGroupPolicyInput.new
@@ -15802,7 +15802,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetVerifiedAccessGroupPolicyOutput
+    class GetVerifiedAccessGroupPolicyOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetVerifiedAccessGroupPolicyOutput, context: context)
         type = Types::GetVerifiedAccessGroupPolicyOutput.new
@@ -15813,7 +15813,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetVpnConnectionDeviceSampleConfigurationInput
+    class GetVpnConnectionDeviceSampleConfigurationInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetVpnConnectionDeviceSampleConfigurationInput, context: context)
         type = Types::GetVpnConnectionDeviceSampleConfigurationInput.new
@@ -15826,7 +15826,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetVpnConnectionDeviceSampleConfigurationOutput
+    class GetVpnConnectionDeviceSampleConfigurationOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetVpnConnectionDeviceSampleConfigurationOutput, context: context)
         type = Types::GetVpnConnectionDeviceSampleConfigurationOutput.new
@@ -15836,7 +15836,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetVpnConnectionDeviceTypesInput
+    class GetVpnConnectionDeviceTypesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetVpnConnectionDeviceTypesInput, context: context)
         type = Types::GetVpnConnectionDeviceTypesInput.new
@@ -15848,7 +15848,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetVpnConnectionDeviceTypesOutput
+    class GetVpnConnectionDeviceTypesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetVpnConnectionDeviceTypesOutput, context: context)
         type = Types::GetVpnConnectionDeviceTypesOutput.new
@@ -15859,7 +15859,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetVpnTunnelReplacementStatusInput
+    class GetVpnTunnelReplacementStatusInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetVpnTunnelReplacementStatusInput, context: context)
         type = Types::GetVpnTunnelReplacementStatusInput.new
@@ -15871,7 +15871,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GetVpnTunnelReplacementStatusOutput
+    class GetVpnTunnelReplacementStatusOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetVpnTunnelReplacementStatusOutput, context: context)
         type = Types::GetVpnTunnelReplacementStatusOutput.new
@@ -15886,7 +15886,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GpuDeviceInfo
+    class GpuDeviceInfo
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GpuDeviceInfo, context: context)
         type = Types::GpuDeviceInfo.new
@@ -15899,7 +15899,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GpuDeviceInfoList
+    class GpuDeviceInfoList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -15910,7 +15910,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GpuDeviceMemoryInfo
+    class GpuDeviceMemoryInfo
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GpuDeviceMemoryInfo, context: context)
         type = Types::GpuDeviceMemoryInfo.new
@@ -15920,7 +15920,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GpuInfo
+    class GpuInfo
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GpuInfo, context: context)
         type = Types::GpuInfo.new
@@ -15931,7 +15931,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GroupIdStringList
+    class GroupIdStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -15942,7 +15942,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GroupIdentifier
+    class GroupIdentifier
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GroupIdentifier, context: context)
         type = Types::GroupIdentifier.new
@@ -15953,7 +15953,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GroupIdentifierList
+    class GroupIdentifierList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -15964,7 +15964,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GroupIdentifierSet
+    class GroupIdentifierSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -15975,7 +15975,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GroupIds
+    class GroupIds
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -15986,7 +15986,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module GroupNameStringList
+    class GroupNameStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -15997,7 +15997,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module HibernationOptions
+    class HibernationOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::HibernationOptions, context: context)
         type = Types::HibernationOptions.new
@@ -16007,7 +16007,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module HibernationOptionsRequest
+    class HibernationOptionsRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::HibernationOptionsRequest, context: context)
         type = Types::HibernationOptionsRequest.new
@@ -16017,7 +16017,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module HistoryRecord
+    class HistoryRecord
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::HistoryRecord, context: context)
         type = Types::HistoryRecord.new
@@ -16029,7 +16029,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module HistoryRecordEntry
+    class HistoryRecordEntry
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::HistoryRecordEntry, context: context)
         type = Types::HistoryRecordEntry.new
@@ -16041,7 +16041,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module HistoryRecordSet
+    class HistoryRecordSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -16052,7 +16052,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module HistoryRecords
+    class HistoryRecords
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -16063,7 +16063,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Host
+    class Host
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Host, context: context)
         type = Types::Host.new
@@ -16092,7 +16092,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module HostInstance
+    class HostInstance
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::HostInstance, context: context)
         type = Types::HostInstance.new
@@ -16104,7 +16104,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module HostInstanceList
+    class HostInstanceList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -16115,7 +16115,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module HostList
+    class HostList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -16126,7 +16126,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module HostOffering
+    class HostOffering
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::HostOffering, context: context)
         type = Types::HostOffering.new
@@ -16142,7 +16142,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module HostOfferingSet
+    class HostOfferingSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -16153,7 +16153,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module HostProperties
+    class HostProperties
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::HostProperties, context: context)
         type = Types::HostProperties.new
@@ -16167,7 +16167,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module HostReservation
+    class HostReservation
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::HostReservation, context: context)
         type = Types::HostReservation.new
@@ -16190,7 +16190,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module HostReservationIdSet
+    class HostReservationIdSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -16201,7 +16201,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module HostReservationSet
+    class HostReservationSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -16212,7 +16212,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IKEVersionsList
+    class IKEVersionsList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -16223,7 +16223,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IKEVersionsListValue
+    class IKEVersionsListValue
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::IKEVersionsListValue, context: context)
         type = Types::IKEVersionsListValue.new
@@ -16233,7 +16233,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IKEVersionsRequestList
+    class IKEVersionsRequestList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -16244,7 +16244,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IKEVersionsRequestListValue
+    class IKEVersionsRequestListValue
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::IKEVersionsRequestListValue, context: context)
         type = Types::IKEVersionsRequestListValue.new
@@ -16254,7 +16254,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IamInstanceProfile
+    class IamInstanceProfile
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::IamInstanceProfile, context: context)
         type = Types::IamInstanceProfile.new
@@ -16265,7 +16265,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IamInstanceProfileAssociation
+    class IamInstanceProfileAssociation
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::IamInstanceProfileAssociation, context: context)
         type = Types::IamInstanceProfileAssociation.new
@@ -16279,7 +16279,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IamInstanceProfileAssociationSet
+    class IamInstanceProfileAssociationSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -16290,7 +16290,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IamInstanceProfileSpecification
+    class IamInstanceProfileSpecification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::IamInstanceProfileSpecification, context: context)
         type = Types::IamInstanceProfileSpecification.new
@@ -16301,7 +16301,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IcmpTypeCode
+    class IcmpTypeCode
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::IcmpTypeCode, context: context)
         type = Types::IcmpTypeCode.new
@@ -16312,7 +16312,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IdFormat
+    class IdFormat
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::IdFormat, context: context)
         type = Types::IdFormat.new
@@ -16324,7 +16324,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IdFormatList
+    class IdFormatList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -16335,7 +16335,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Image
+    class Image
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Image, context: context)
         type = Types::Image.new
@@ -16375,7 +16375,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ImageDiskContainer
+    class ImageDiskContainer
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ImageDiskContainer, context: context)
         type = Types::ImageDiskContainer.new
@@ -16390,7 +16390,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ImageDiskContainerList
+    class ImageDiskContainerList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -16401,7 +16401,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ImageIdList
+    class ImageIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -16412,7 +16412,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ImageIdStringList
+    class ImageIdStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -16423,7 +16423,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ImageList
+    class ImageList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -16434,7 +16434,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ImageRecycleBinInfo
+    class ImageRecycleBinInfo
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ImageRecycleBinInfo, context: context)
         type = Types::ImageRecycleBinInfo.new
@@ -16448,7 +16448,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ImageRecycleBinInfoList
+    class ImageRecycleBinInfoList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -16459,7 +16459,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ImportClientVpnClientCertificateRevocationListInput
+    class ImportClientVpnClientCertificateRevocationListInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ImportClientVpnClientCertificateRevocationListInput, context: context)
         type = Types::ImportClientVpnClientCertificateRevocationListInput.new
@@ -16471,7 +16471,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ImportClientVpnClientCertificateRevocationListOutput
+    class ImportClientVpnClientCertificateRevocationListOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ImportClientVpnClientCertificateRevocationListOutput, context: context)
         type = Types::ImportClientVpnClientCertificateRevocationListOutput.new
@@ -16481,7 +16481,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ImportImageInput
+    class ImportImageInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ImportImageInput, context: context)
         type = Types::ImportImageInput.new
@@ -16506,7 +16506,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ImportImageLicenseConfigurationRequest
+    class ImportImageLicenseConfigurationRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ImportImageLicenseConfigurationRequest, context: context)
         type = Types::ImportImageLicenseConfigurationRequest.new
@@ -16516,7 +16516,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ImportImageLicenseConfigurationResponse
+    class ImportImageLicenseConfigurationResponse
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ImportImageLicenseConfigurationResponse, context: context)
         type = Types::ImportImageLicenseConfigurationResponse.new
@@ -16526,7 +16526,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ImportImageLicenseSpecificationListRequest
+    class ImportImageLicenseSpecificationListRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -16537,7 +16537,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ImportImageLicenseSpecificationListResponse
+    class ImportImageLicenseSpecificationListResponse
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -16548,7 +16548,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ImportImageOutput
+    class ImportImageOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ImportImageOutput, context: context)
         type = Types::ImportImageOutput.new
@@ -16573,7 +16573,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ImportImageTask
+    class ImportImageTask
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ImportImageTask, context: context)
         type = Types::ImportImageTask.new
@@ -16599,7 +16599,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ImportImageTaskList
+    class ImportImageTaskList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -16610,7 +16610,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ImportInstanceInput
+    class ImportInstanceInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ImportInstanceInput, context: context)
         type = Types::ImportInstanceInput.new
@@ -16624,7 +16624,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ImportInstanceLaunchSpecification
+    class ImportInstanceLaunchSpecification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ImportInstanceLaunchSpecification, context: context)
         type = Types::ImportInstanceLaunchSpecification.new
@@ -16644,7 +16644,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ImportInstanceOutput
+    class ImportInstanceOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ImportInstanceOutput, context: context)
         type = Types::ImportInstanceOutput.new
@@ -16654,7 +16654,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ImportInstanceTaskDetails
+    class ImportInstanceTaskDetails
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ImportInstanceTaskDetails, context: context)
         type = Types::ImportInstanceTaskDetails.new
@@ -16667,7 +16667,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ImportInstanceVolumeDetailItem
+    class ImportInstanceVolumeDetailItem
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ImportInstanceVolumeDetailItem, context: context)
         type = Types::ImportInstanceVolumeDetailItem.new
@@ -16683,7 +16683,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ImportInstanceVolumeDetailSet
+    class ImportInstanceVolumeDetailSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -16694,7 +16694,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ImportKeyPairInput
+    class ImportKeyPairInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ImportKeyPairInput, context: context)
         type = Types::ImportKeyPairInput.new
@@ -16707,7 +16707,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ImportKeyPairOutput
+    class ImportKeyPairOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ImportKeyPairOutput, context: context)
         type = Types::ImportKeyPairOutput.new
@@ -16720,7 +16720,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ImportSnapshotInput
+    class ImportSnapshotInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ImportSnapshotInput, context: context)
         type = Types::ImportSnapshotInput.new
@@ -16738,7 +16738,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ImportSnapshotOutput
+    class ImportSnapshotOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ImportSnapshotOutput, context: context)
         type = Types::ImportSnapshotOutput.new
@@ -16751,7 +16751,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ImportSnapshotTask
+    class ImportSnapshotTask
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ImportSnapshotTask, context: context)
         type = Types::ImportSnapshotTask.new
@@ -16764,7 +16764,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ImportSnapshotTaskIdList
+    class ImportSnapshotTaskIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -16775,7 +16775,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ImportSnapshotTaskList
+    class ImportSnapshotTaskList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -16786,7 +16786,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ImportTaskIdList
+    class ImportTaskIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -16797,7 +16797,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ImportVolumeInput
+    class ImportVolumeInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ImportVolumeInput, context: context)
         type = Types::ImportVolumeInput.new
@@ -16811,7 +16811,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ImportVolumeOutput
+    class ImportVolumeOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ImportVolumeOutput, context: context)
         type = Types::ImportVolumeOutput.new
@@ -16821,7 +16821,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ImportVolumeTaskDetails
+    class ImportVolumeTaskDetails
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ImportVolumeTaskDetails, context: context)
         type = Types::ImportVolumeTaskDetails.new
@@ -16835,7 +16835,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InferenceAcceleratorInfo
+    class InferenceAcceleratorInfo
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InferenceAcceleratorInfo, context: context)
         type = Types::InferenceAcceleratorInfo.new
@@ -16846,7 +16846,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InferenceDeviceInfo
+    class InferenceDeviceInfo
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InferenceDeviceInfo, context: context)
         type = Types::InferenceDeviceInfo.new
@@ -16859,7 +16859,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InferenceDeviceInfoList
+    class InferenceDeviceInfoList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -16870,7 +16870,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InferenceDeviceMemoryInfo
+    class InferenceDeviceMemoryInfo
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InferenceDeviceMemoryInfo, context: context)
         type = Types::InferenceDeviceMemoryInfo.new
@@ -16880,7 +16880,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InsideCidrBlocksStringList
+    class InsideCidrBlocksStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -16891,7 +16891,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Instance
+    class Instance
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Instance, context: context)
         type = Types::Instance.new
@@ -16957,7 +16957,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceAttachmentEnaSrdSpecification
+    class InstanceAttachmentEnaSrdSpecification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InstanceAttachmentEnaSrdSpecification, context: context)
         type = Types::InstanceAttachmentEnaSrdSpecification.new
@@ -16968,7 +16968,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceAttachmentEnaSrdUdpSpecification
+    class InstanceAttachmentEnaSrdUdpSpecification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InstanceAttachmentEnaSrdUdpSpecification, context: context)
         type = Types::InstanceAttachmentEnaSrdUdpSpecification.new
@@ -16978,7 +16978,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceBlockDeviceMapping
+    class InstanceBlockDeviceMapping
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InstanceBlockDeviceMapping, context: context)
         type = Types::InstanceBlockDeviceMapping.new
@@ -16989,7 +16989,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceBlockDeviceMappingList
+    class InstanceBlockDeviceMappingList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -17000,7 +17000,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceBlockDeviceMappingSpecification
+    class InstanceBlockDeviceMappingSpecification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InstanceBlockDeviceMappingSpecification, context: context)
         type = Types::InstanceBlockDeviceMappingSpecification.new
@@ -17013,7 +17013,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceBlockDeviceMappingSpecificationList
+    class InstanceBlockDeviceMappingSpecificationList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -17024,7 +17024,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceCapacity
+    class InstanceCapacity
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InstanceCapacity, context: context)
         type = Types::InstanceCapacity.new
@@ -17036,7 +17036,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceConnectEndpointSet
+    class InstanceConnectEndpointSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -17047,7 +17047,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceCount
+    class InstanceCount
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InstanceCount, context: context)
         type = Types::InstanceCount.new
@@ -17058,7 +17058,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceCountList
+    class InstanceCountList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -17069,7 +17069,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceCreditSpecification
+    class InstanceCreditSpecification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InstanceCreditSpecification, context: context)
         type = Types::InstanceCreditSpecification.new
@@ -17080,7 +17080,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceCreditSpecificationList
+    class InstanceCreditSpecificationList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -17091,7 +17091,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceCreditSpecificationListRequest
+    class InstanceCreditSpecificationListRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -17102,7 +17102,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceCreditSpecificationRequest
+    class InstanceCreditSpecificationRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InstanceCreditSpecificationRequest, context: context)
         type = Types::InstanceCreditSpecificationRequest.new
@@ -17113,7 +17113,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceEventWindow
+    class InstanceEventWindow
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InstanceEventWindow, context: context)
         type = Types::InstanceEventWindow.new
@@ -17129,7 +17129,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceEventWindowAssociationRequest
+    class InstanceEventWindowAssociationRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InstanceEventWindowAssociationRequest, context: context)
         type = Types::InstanceEventWindowAssociationRequest.new
@@ -17141,7 +17141,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceEventWindowAssociationTarget
+    class InstanceEventWindowAssociationTarget
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InstanceEventWindowAssociationTarget, context: context)
         type = Types::InstanceEventWindowAssociationTarget.new
@@ -17153,7 +17153,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceEventWindowDisassociationRequest
+    class InstanceEventWindowDisassociationRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InstanceEventWindowDisassociationRequest, context: context)
         type = Types::InstanceEventWindowDisassociationRequest.new
@@ -17165,7 +17165,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceEventWindowIdSet
+    class InstanceEventWindowIdSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -17176,7 +17176,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceEventWindowSet
+    class InstanceEventWindowSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -17187,7 +17187,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceEventWindowStateChange
+    class InstanceEventWindowStateChange
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InstanceEventWindowStateChange, context: context)
         type = Types::InstanceEventWindowStateChange.new
@@ -17198,7 +17198,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceEventWindowTimeRange
+    class InstanceEventWindowTimeRange
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InstanceEventWindowTimeRange, context: context)
         type = Types::InstanceEventWindowTimeRange.new
@@ -17211,7 +17211,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceEventWindowTimeRangeList
+    class InstanceEventWindowTimeRangeList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -17222,7 +17222,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceEventWindowTimeRangeRequest
+    class InstanceEventWindowTimeRangeRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InstanceEventWindowTimeRangeRequest, context: context)
         type = Types::InstanceEventWindowTimeRangeRequest.new
@@ -17235,7 +17235,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceEventWindowTimeRangeRequestSet
+    class InstanceEventWindowTimeRangeRequestSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -17246,7 +17246,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceExportDetails
+    class InstanceExportDetails
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InstanceExportDetails, context: context)
         type = Types::InstanceExportDetails.new
@@ -17257,7 +17257,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceFamilyCreditSpecification
+    class InstanceFamilyCreditSpecification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InstanceFamilyCreditSpecification, context: context)
         type = Types::InstanceFamilyCreditSpecification.new
@@ -17268,7 +17268,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceGenerationSet
+    class InstanceGenerationSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -17279,7 +17279,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceIdList
+    class InstanceIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -17290,7 +17290,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceIdSet
+    class InstanceIdSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -17301,7 +17301,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceIdStringList
+    class InstanceIdStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -17312,7 +17312,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceIdsSet
+    class InstanceIdsSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -17323,7 +17323,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceIpv4Prefix
+    class InstanceIpv4Prefix
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InstanceIpv4Prefix, context: context)
         type = Types::InstanceIpv4Prefix.new
@@ -17333,7 +17333,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceIpv4PrefixList
+    class InstanceIpv4PrefixList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -17344,7 +17344,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceIpv6Address
+    class InstanceIpv6Address
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InstanceIpv6Address, context: context)
         type = Types::InstanceIpv6Address.new
@@ -17355,7 +17355,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceIpv6AddressList
+    class InstanceIpv6AddressList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -17366,7 +17366,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceIpv6AddressListRequest
+    class InstanceIpv6AddressListRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -17377,7 +17377,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceIpv6AddressRequest
+    class InstanceIpv6AddressRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InstanceIpv6AddressRequest, context: context)
         type = Types::InstanceIpv6AddressRequest.new
@@ -17387,7 +17387,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceIpv6Prefix
+    class InstanceIpv6Prefix
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InstanceIpv6Prefix, context: context)
         type = Types::InstanceIpv6Prefix.new
@@ -17397,7 +17397,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceIpv6PrefixList
+    class InstanceIpv6PrefixList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -17408,7 +17408,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceList
+    class InstanceList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -17419,7 +17419,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceMaintenanceOptions
+    class InstanceMaintenanceOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InstanceMaintenanceOptions, context: context)
         type = Types::InstanceMaintenanceOptions.new
@@ -17429,7 +17429,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceMaintenanceOptionsRequest
+    class InstanceMaintenanceOptionsRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InstanceMaintenanceOptionsRequest, context: context)
         type = Types::InstanceMaintenanceOptionsRequest.new
@@ -17439,7 +17439,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceMarketOptionsRequest
+    class InstanceMarketOptionsRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InstanceMarketOptionsRequest, context: context)
         type = Types::InstanceMarketOptionsRequest.new
@@ -17450,7 +17450,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceMetadataOptionsRequest
+    class InstanceMetadataOptionsRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InstanceMetadataOptionsRequest, context: context)
         type = Types::InstanceMetadataOptionsRequest.new
@@ -17464,7 +17464,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceMetadataOptionsResponse
+    class InstanceMetadataOptionsResponse
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InstanceMetadataOptionsResponse, context: context)
         type = Types::InstanceMetadataOptionsResponse.new
@@ -17479,7 +17479,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceMonitoring
+    class InstanceMonitoring
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InstanceMonitoring, context: context)
         type = Types::InstanceMonitoring.new
@@ -17490,7 +17490,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceMonitoringList
+    class InstanceMonitoringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -17501,7 +17501,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceNetworkInterface
+    class InstanceNetworkInterface
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InstanceNetworkInterface, context: context)
         type = Types::InstanceNetworkInterface.new
@@ -17529,7 +17529,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceNetworkInterfaceAssociation
+    class InstanceNetworkInterfaceAssociation
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InstanceNetworkInterfaceAssociation, context: context)
         type = Types::InstanceNetworkInterfaceAssociation.new
@@ -17543,7 +17543,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceNetworkInterfaceAttachment
+    class InstanceNetworkInterfaceAttachment
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InstanceNetworkInterfaceAttachment, context: context)
         type = Types::InstanceNetworkInterfaceAttachment.new
@@ -17559,7 +17559,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceNetworkInterfaceList
+    class InstanceNetworkInterfaceList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -17570,7 +17570,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceNetworkInterfaceSpecification
+    class InstanceNetworkInterfaceSpecification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InstanceNetworkInterfaceSpecification, context: context)
         type = Types::InstanceNetworkInterfaceSpecification.new
@@ -17601,7 +17601,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceNetworkInterfaceSpecificationList
+    class InstanceNetworkInterfaceSpecificationList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -17612,7 +17612,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstancePrivateIpAddress
+    class InstancePrivateIpAddress
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InstancePrivateIpAddress, context: context)
         type = Types::InstancePrivateIpAddress.new
@@ -17625,7 +17625,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstancePrivateIpAddressList
+    class InstancePrivateIpAddressList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -17636,7 +17636,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceRequirements
+    class InstanceRequirements
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InstanceRequirements, context: context)
         type = Types::InstanceRequirements.new
@@ -17669,7 +17669,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceRequirementsRequest
+    class InstanceRequirementsRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InstanceRequirementsRequest, context: context)
         type = Types::InstanceRequirementsRequest.new
@@ -17702,7 +17702,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceRequirementsWithMetadataRequest
+    class InstanceRequirementsWithMetadataRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InstanceRequirementsWithMetadataRequest, context: context)
         type = Types::InstanceRequirementsWithMetadataRequest.new
@@ -17714,7 +17714,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceSet
+    class InstanceSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -17725,7 +17725,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceSpecification
+    class InstanceSpecification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InstanceSpecification, context: context)
         type = Types::InstanceSpecification.new
@@ -17737,7 +17737,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceState
+    class InstanceState
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InstanceState, context: context)
         type = Types::InstanceState.new
@@ -17748,7 +17748,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceStateChange
+    class InstanceStateChange
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InstanceStateChange, context: context)
         type = Types::InstanceStateChange.new
@@ -17760,7 +17760,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceStateChangeList
+    class InstanceStateChangeList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -17771,7 +17771,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceStatus
+    class InstanceStatus
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InstanceStatus, context: context)
         type = Types::InstanceStatus.new
@@ -17787,7 +17787,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceStatusDetails
+    class InstanceStatusDetails
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InstanceStatusDetails, context: context)
         type = Types::InstanceStatusDetails.new
@@ -17799,7 +17799,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceStatusDetailsList
+    class InstanceStatusDetailsList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -17810,7 +17810,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceStatusEvent
+    class InstanceStatusEvent
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InstanceStatusEvent, context: context)
         type = Types::InstanceStatusEvent.new
@@ -17825,7 +17825,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceStatusEventList
+    class InstanceStatusEventList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -17836,7 +17836,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceStatusList
+    class InstanceStatusList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -17847,7 +17847,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceStatusSummary
+    class InstanceStatusSummary
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InstanceStatusSummary, context: context)
         type = Types::InstanceStatusSummary.new
@@ -17858,7 +17858,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceStorageInfo
+    class InstanceStorageInfo
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InstanceStorageInfo, context: context)
         type = Types::InstanceStorageInfo.new
@@ -17871,7 +17871,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceTagKeySet
+    class InstanceTagKeySet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -17882,7 +17882,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceTagNotificationAttribute
+    class InstanceTagNotificationAttribute
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InstanceTagNotificationAttribute, context: context)
         type = Types::InstanceTagNotificationAttribute.new
@@ -17893,7 +17893,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceTopology
+    class InstanceTopology
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InstanceTopology, context: context)
         type = Types::InstanceTopology.new
@@ -17908,7 +17908,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceTypeInfo
+    class InstanceTypeInfo
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InstanceTypeInfo, context: context)
         type = Types::InstanceTypeInfo.new
@@ -17944,7 +17944,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceTypeInfoFromInstanceRequirements
+    class InstanceTypeInfoFromInstanceRequirements
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InstanceTypeInfoFromInstanceRequirements, context: context)
         type = Types::InstanceTypeInfoFromInstanceRequirements.new
@@ -17954,7 +17954,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceTypeInfoFromInstanceRequirementsSet
+    class InstanceTypeInfoFromInstanceRequirementsSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -17965,7 +17965,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceTypeInfoList
+    class InstanceTypeInfoList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -17976,7 +17976,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceTypeList
+    class InstanceTypeList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -17987,7 +17987,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceTypeOffering
+    class InstanceTypeOffering
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InstanceTypeOffering, context: context)
         type = Types::InstanceTypeOffering.new
@@ -17999,7 +17999,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceTypeOfferingsList
+    class InstanceTypeOfferingsList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -18010,7 +18010,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceTypes
+    class InstanceTypes
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -18021,7 +18021,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceTypesList
+    class InstanceTypesList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -18032,7 +18032,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceUsage
+    class InstanceUsage
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InstanceUsage, context: context)
         type = Types::InstanceUsage.new
@@ -18043,7 +18043,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InstanceUsageSet
+    class InstanceUsageSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -18054,7 +18054,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IntegrateServices
+    class IntegrateServices
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::IntegrateServices, context: context)
         type = Types::IntegrateServices.new
@@ -18064,7 +18064,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InternetGateway
+    class InternetGateway
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InternetGateway, context: context)
         type = Types::InternetGateway.new
@@ -18077,7 +18077,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InternetGatewayAttachment
+    class InternetGatewayAttachment
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InternetGatewayAttachment, context: context)
         type = Types::InternetGatewayAttachment.new
@@ -18088,7 +18088,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InternetGatewayAttachmentList
+    class InternetGatewayAttachmentList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -18099,7 +18099,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InternetGatewayIdList
+    class InternetGatewayIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -18110,7 +18110,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module InternetGatewayList
+    class InternetGatewayList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -18121,7 +18121,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IpAddressList
+    class IpAddressList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -18132,7 +18132,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IpList
+    class IpList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -18143,7 +18143,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IpPermission
+    class IpPermission
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::IpPermission, context: context)
         type = Types::IpPermission.new
@@ -18159,7 +18159,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IpPermissionList
+    class IpPermissionList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -18170,7 +18170,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IpPrefixList
+    class IpPrefixList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -18181,7 +18181,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IpRange
+    class IpRange
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::IpRange, context: context)
         type = Types::IpRange.new
@@ -18192,7 +18192,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IpRangeList
+    class IpRangeList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -18203,7 +18203,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IpRanges
+    class IpRanges
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -18214,7 +18214,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Ipam
+    class Ipam
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Ipam, context: context)
         type = Types::Ipam.new
@@ -18239,7 +18239,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IpamAddressHistoryRecord
+    class IpamAddressHistoryRecord
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::IpamAddressHistoryRecord, context: context)
         type = Types::IpamAddressHistoryRecord.new
@@ -18259,7 +18259,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IpamAddressHistoryRecordSet
+    class IpamAddressHistoryRecordSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -18270,7 +18270,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IpamCidrAuthorizationContext
+    class IpamCidrAuthorizationContext
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::IpamCidrAuthorizationContext, context: context)
         type = Types::IpamCidrAuthorizationContext.new
@@ -18281,7 +18281,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IpamDiscoveredAccount
+    class IpamDiscoveredAccount
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::IpamDiscoveredAccount, context: context)
         type = Types::IpamDiscoveredAccount.new
@@ -18295,7 +18295,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IpamDiscoveredAccountSet
+    class IpamDiscoveredAccountSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -18306,7 +18306,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IpamDiscoveredPublicAddress
+    class IpamDiscoveredPublicAddress
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::IpamDiscoveredPublicAddress, context: context)
         type = Types::IpamDiscoveredPublicAddress.new
@@ -18334,7 +18334,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IpamDiscoveredPublicAddressSet
+    class IpamDiscoveredPublicAddressSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -18345,7 +18345,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IpamDiscoveredResourceCidr
+    class IpamDiscoveredResourceCidr
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::IpamDiscoveredResourceCidr, context: context)
         type = Types::IpamDiscoveredResourceCidr.new
@@ -18364,7 +18364,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IpamDiscoveredResourceCidrSet
+    class IpamDiscoveredResourceCidrSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -18375,7 +18375,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IpamDiscoveryFailureReason
+    class IpamDiscoveryFailureReason
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::IpamDiscoveryFailureReason, context: context)
         type = Types::IpamDiscoveryFailureReason.new
@@ -18386,7 +18386,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IpamOperatingRegion
+    class IpamOperatingRegion
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::IpamOperatingRegion, context: context)
         type = Types::IpamOperatingRegion.new
@@ -18396,7 +18396,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IpamOperatingRegionSet
+    class IpamOperatingRegionSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -18407,7 +18407,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IpamPool
+    class IpamPool
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::IpamPool, context: context)
         type = Types::IpamPool.new
@@ -18440,7 +18440,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IpamPoolAllocation
+    class IpamPoolAllocation
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::IpamPoolAllocation, context: context)
         type = Types::IpamPoolAllocation.new
@@ -18456,7 +18456,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IpamPoolAllocationAllowedCidrs
+    class IpamPoolAllocationAllowedCidrs
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -18467,7 +18467,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IpamPoolAllocationDisallowedCidrs
+    class IpamPoolAllocationDisallowedCidrs
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -18478,7 +18478,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IpamPoolAllocationSet
+    class IpamPoolAllocationSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -18489,7 +18489,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IpamPoolCidr
+    class IpamPoolCidr
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::IpamPoolCidr, context: context)
         type = Types::IpamPoolCidr.new
@@ -18503,7 +18503,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IpamPoolCidrFailureReason
+    class IpamPoolCidrFailureReason
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::IpamPoolCidrFailureReason, context: context)
         type = Types::IpamPoolCidrFailureReason.new
@@ -18514,7 +18514,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IpamPoolCidrSet
+    class IpamPoolCidrSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -18525,7 +18525,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IpamPoolSet
+    class IpamPoolSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -18536,7 +18536,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IpamPoolSourceResource
+    class IpamPoolSourceResource
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::IpamPoolSourceResource, context: context)
         type = Types::IpamPoolSourceResource.new
@@ -18549,7 +18549,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IpamPoolSourceResourceRequest
+    class IpamPoolSourceResourceRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::IpamPoolSourceResourceRequest, context: context)
         type = Types::IpamPoolSourceResourceRequest.new
@@ -18562,7 +18562,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IpamPublicAddressSecurityGroup
+    class IpamPublicAddressSecurityGroup
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::IpamPublicAddressSecurityGroup, context: context)
         type = Types::IpamPublicAddressSecurityGroup.new
@@ -18573,7 +18573,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IpamPublicAddressSecurityGroupList
+    class IpamPublicAddressSecurityGroupList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -18584,7 +18584,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IpamPublicAddressTag
+    class IpamPublicAddressTag
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::IpamPublicAddressTag, context: context)
         type = Types::IpamPublicAddressTag.new
@@ -18595,7 +18595,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IpamPublicAddressTagList
+    class IpamPublicAddressTagList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -18606,7 +18606,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IpamPublicAddressTags
+    class IpamPublicAddressTags
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::IpamPublicAddressTags, context: context)
         type = Types::IpamPublicAddressTags.new
@@ -18616,7 +18616,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IpamResourceCidr
+    class IpamResourceCidr
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::IpamResourceCidr, context: context)
         type = Types::IpamResourceCidr.new
@@ -18640,7 +18640,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IpamResourceCidrSet
+    class IpamResourceCidrSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -18651,7 +18651,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IpamResourceDiscovery
+    class IpamResourceDiscovery
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::IpamResourceDiscovery, context: context)
         type = Types::IpamResourceDiscovery.new
@@ -18669,7 +18669,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IpamResourceDiscoveryAssociation
+    class IpamResourceDiscoveryAssociation
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::IpamResourceDiscoveryAssociation, context: context)
         type = Types::IpamResourceDiscoveryAssociation.new
@@ -18689,7 +18689,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IpamResourceDiscoveryAssociationSet
+    class IpamResourceDiscoveryAssociationSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -18700,7 +18700,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IpamResourceDiscoverySet
+    class IpamResourceDiscoverySet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -18711,7 +18711,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IpamResourceTag
+    class IpamResourceTag
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::IpamResourceTag, context: context)
         type = Types::IpamResourceTag.new
@@ -18722,7 +18722,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IpamResourceTagList
+    class IpamResourceTagList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -18733,7 +18733,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IpamScope
+    class IpamScope
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::IpamScope, context: context)
         type = Types::IpamScope.new
@@ -18753,7 +18753,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IpamScopeSet
+    class IpamScopeSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -18764,7 +18764,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module IpamSet
+    class IpamSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -18775,7 +18775,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Ipv4PrefixList
+    class Ipv4PrefixList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -18786,7 +18786,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Ipv4PrefixListResponse
+    class Ipv4PrefixListResponse
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -18797,7 +18797,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Ipv4PrefixSpecification
+    class Ipv4PrefixSpecification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Ipv4PrefixSpecification, context: context)
         type = Types::Ipv4PrefixSpecification.new
@@ -18807,7 +18807,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Ipv4PrefixSpecificationRequest
+    class Ipv4PrefixSpecificationRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Ipv4PrefixSpecificationRequest, context: context)
         type = Types::Ipv4PrefixSpecificationRequest.new
@@ -18817,7 +18817,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Ipv4PrefixSpecificationResponse
+    class Ipv4PrefixSpecificationResponse
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Ipv4PrefixSpecificationResponse, context: context)
         type = Types::Ipv4PrefixSpecificationResponse.new
@@ -18827,7 +18827,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Ipv4PrefixesList
+    class Ipv4PrefixesList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -18838,7 +18838,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Ipv6AddressList
+    class Ipv6AddressList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -18849,7 +18849,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Ipv6CidrAssociation
+    class Ipv6CidrAssociation
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Ipv6CidrAssociation, context: context)
         type = Types::Ipv6CidrAssociation.new
@@ -18860,7 +18860,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Ipv6CidrAssociationSet
+    class Ipv6CidrAssociationSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -18871,7 +18871,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Ipv6CidrBlock
+    class Ipv6CidrBlock
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Ipv6CidrBlock, context: context)
         type = Types::Ipv6CidrBlock.new
@@ -18881,7 +18881,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Ipv6CidrBlockSet
+    class Ipv6CidrBlockSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -18892,7 +18892,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Ipv6Pool
+    class Ipv6Pool
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Ipv6Pool, context: context)
         type = Types::Ipv6Pool.new
@@ -18905,7 +18905,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Ipv6PoolIdList
+    class Ipv6PoolIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -18916,7 +18916,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Ipv6PoolSet
+    class Ipv6PoolSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -18927,7 +18927,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Ipv6PrefixList
+    class Ipv6PrefixList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -18938,7 +18938,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Ipv6PrefixListResponse
+    class Ipv6PrefixListResponse
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -18949,7 +18949,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Ipv6PrefixSpecification
+    class Ipv6PrefixSpecification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Ipv6PrefixSpecification, context: context)
         type = Types::Ipv6PrefixSpecification.new
@@ -18959,7 +18959,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Ipv6PrefixSpecificationRequest
+    class Ipv6PrefixSpecificationRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Ipv6PrefixSpecificationRequest, context: context)
         type = Types::Ipv6PrefixSpecificationRequest.new
@@ -18969,7 +18969,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Ipv6PrefixSpecificationResponse
+    class Ipv6PrefixSpecificationResponse
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Ipv6PrefixSpecificationResponse, context: context)
         type = Types::Ipv6PrefixSpecificationResponse.new
@@ -18979,7 +18979,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Ipv6PrefixesList
+    class Ipv6PrefixesList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -18990,7 +18990,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Ipv6Range
+    class Ipv6Range
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Ipv6Range, context: context)
         type = Types::Ipv6Range.new
@@ -19001,7 +19001,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Ipv6RangeList
+    class Ipv6RangeList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -19012,7 +19012,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module KeyNameStringList
+    class KeyNameStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -19023,7 +19023,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module KeyPairIdStringList
+    class KeyPairIdStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -19034,7 +19034,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module KeyPairInfo
+    class KeyPairInfo
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::KeyPairInfo, context: context)
         type = Types::KeyPairInfo.new
@@ -19050,7 +19050,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module KeyPairList
+    class KeyPairList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -19061,7 +19061,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LastError
+    class LastError
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LastError, context: context)
         type = Types::LastError.new
@@ -19072,7 +19072,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchPermission
+    class LaunchPermission
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LaunchPermission, context: context)
         type = Types::LaunchPermission.new
@@ -19085,7 +19085,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchPermissionList
+    class LaunchPermissionList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -19096,7 +19096,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchPermissionModifications
+    class LaunchPermissionModifications
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LaunchPermissionModifications, context: context)
         type = Types::LaunchPermissionModifications.new
@@ -19107,7 +19107,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchSpecification
+    class LaunchSpecification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LaunchSpecification, context: context)
         type = Types::LaunchSpecification.new
@@ -19131,7 +19131,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchSpecsList
+    class LaunchSpecsList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -19142,7 +19142,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplate
+    class LaunchTemplate
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LaunchTemplate, context: context)
         type = Types::LaunchTemplate.new
@@ -19158,7 +19158,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateAndOverridesResponse
+    class LaunchTemplateAndOverridesResponse
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LaunchTemplateAndOverridesResponse, context: context)
         type = Types::LaunchTemplateAndOverridesResponse.new
@@ -19169,7 +19169,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateBlockDeviceMapping
+    class LaunchTemplateBlockDeviceMapping
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LaunchTemplateBlockDeviceMapping, context: context)
         type = Types::LaunchTemplateBlockDeviceMapping.new
@@ -19182,7 +19182,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateBlockDeviceMappingList
+    class LaunchTemplateBlockDeviceMappingList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -19193,7 +19193,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateBlockDeviceMappingRequest
+    class LaunchTemplateBlockDeviceMappingRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LaunchTemplateBlockDeviceMappingRequest, context: context)
         type = Types::LaunchTemplateBlockDeviceMappingRequest.new
@@ -19206,7 +19206,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateBlockDeviceMappingRequestList
+    class LaunchTemplateBlockDeviceMappingRequestList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -19217,7 +19217,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateCapacityReservationSpecificationRequest
+    class LaunchTemplateCapacityReservationSpecificationRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LaunchTemplateCapacityReservationSpecificationRequest, context: context)
         type = Types::LaunchTemplateCapacityReservationSpecificationRequest.new
@@ -19228,7 +19228,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateCapacityReservationSpecificationResponse
+    class LaunchTemplateCapacityReservationSpecificationResponse
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LaunchTemplateCapacityReservationSpecificationResponse, context: context)
         type = Types::LaunchTemplateCapacityReservationSpecificationResponse.new
@@ -19239,7 +19239,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateConfig
+    class LaunchTemplateConfig
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LaunchTemplateConfig, context: context)
         type = Types::LaunchTemplateConfig.new
@@ -19250,7 +19250,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateConfigList
+    class LaunchTemplateConfigList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -19261,7 +19261,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateCpuOptions
+    class LaunchTemplateCpuOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LaunchTemplateCpuOptions, context: context)
         type = Types::LaunchTemplateCpuOptions.new
@@ -19273,7 +19273,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateCpuOptionsRequest
+    class LaunchTemplateCpuOptionsRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LaunchTemplateCpuOptionsRequest, context: context)
         type = Types::LaunchTemplateCpuOptionsRequest.new
@@ -19285,7 +19285,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateEbsBlockDevice
+    class LaunchTemplateEbsBlockDevice
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LaunchTemplateEbsBlockDevice, context: context)
         type = Types::LaunchTemplateEbsBlockDevice.new
@@ -19302,7 +19302,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateEbsBlockDeviceRequest
+    class LaunchTemplateEbsBlockDeviceRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LaunchTemplateEbsBlockDeviceRequest, context: context)
         type = Types::LaunchTemplateEbsBlockDeviceRequest.new
@@ -19319,7 +19319,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateElasticInferenceAccelerator
+    class LaunchTemplateElasticInferenceAccelerator
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LaunchTemplateElasticInferenceAccelerator, context: context)
         type = Types::LaunchTemplateElasticInferenceAccelerator.new
@@ -19330,7 +19330,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateElasticInferenceAcceleratorList
+    class LaunchTemplateElasticInferenceAcceleratorList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -19341,7 +19341,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateElasticInferenceAcceleratorResponse
+    class LaunchTemplateElasticInferenceAcceleratorResponse
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LaunchTemplateElasticInferenceAcceleratorResponse, context: context)
         type = Types::LaunchTemplateElasticInferenceAcceleratorResponse.new
@@ -19352,7 +19352,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateElasticInferenceAcceleratorResponseList
+    class LaunchTemplateElasticInferenceAcceleratorResponseList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -19363,7 +19363,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateEnaSrdSpecification
+    class LaunchTemplateEnaSrdSpecification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LaunchTemplateEnaSrdSpecification, context: context)
         type = Types::LaunchTemplateEnaSrdSpecification.new
@@ -19374,7 +19374,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateEnaSrdUdpSpecification
+    class LaunchTemplateEnaSrdUdpSpecification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LaunchTemplateEnaSrdUdpSpecification, context: context)
         type = Types::LaunchTemplateEnaSrdUdpSpecification.new
@@ -19384,7 +19384,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateEnclaveOptions
+    class LaunchTemplateEnclaveOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LaunchTemplateEnclaveOptions, context: context)
         type = Types::LaunchTemplateEnclaveOptions.new
@@ -19394,7 +19394,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateEnclaveOptionsRequest
+    class LaunchTemplateEnclaveOptionsRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LaunchTemplateEnclaveOptionsRequest, context: context)
         type = Types::LaunchTemplateEnclaveOptionsRequest.new
@@ -19404,7 +19404,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateHibernationOptions
+    class LaunchTemplateHibernationOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LaunchTemplateHibernationOptions, context: context)
         type = Types::LaunchTemplateHibernationOptions.new
@@ -19414,7 +19414,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateHibernationOptionsRequest
+    class LaunchTemplateHibernationOptionsRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LaunchTemplateHibernationOptionsRequest, context: context)
         type = Types::LaunchTemplateHibernationOptionsRequest.new
@@ -19424,7 +19424,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateIamInstanceProfileSpecification
+    class LaunchTemplateIamInstanceProfileSpecification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LaunchTemplateIamInstanceProfileSpecification, context: context)
         type = Types::LaunchTemplateIamInstanceProfileSpecification.new
@@ -19435,7 +19435,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateIamInstanceProfileSpecificationRequest
+    class LaunchTemplateIamInstanceProfileSpecificationRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LaunchTemplateIamInstanceProfileSpecificationRequest, context: context)
         type = Types::LaunchTemplateIamInstanceProfileSpecificationRequest.new
@@ -19446,7 +19446,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateIdStringList
+    class LaunchTemplateIdStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -19457,7 +19457,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateInstanceMaintenanceOptions
+    class LaunchTemplateInstanceMaintenanceOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LaunchTemplateInstanceMaintenanceOptions, context: context)
         type = Types::LaunchTemplateInstanceMaintenanceOptions.new
@@ -19467,7 +19467,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateInstanceMaintenanceOptionsRequest
+    class LaunchTemplateInstanceMaintenanceOptionsRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LaunchTemplateInstanceMaintenanceOptionsRequest, context: context)
         type = Types::LaunchTemplateInstanceMaintenanceOptionsRequest.new
@@ -19477,7 +19477,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateInstanceMarketOptions
+    class LaunchTemplateInstanceMarketOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LaunchTemplateInstanceMarketOptions, context: context)
         type = Types::LaunchTemplateInstanceMarketOptions.new
@@ -19488,7 +19488,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateInstanceMarketOptionsRequest
+    class LaunchTemplateInstanceMarketOptionsRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LaunchTemplateInstanceMarketOptionsRequest, context: context)
         type = Types::LaunchTemplateInstanceMarketOptionsRequest.new
@@ -19499,7 +19499,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateInstanceMetadataOptions
+    class LaunchTemplateInstanceMetadataOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LaunchTemplateInstanceMetadataOptions, context: context)
         type = Types::LaunchTemplateInstanceMetadataOptions.new
@@ -19514,7 +19514,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateInstanceMetadataOptionsRequest
+    class LaunchTemplateInstanceMetadataOptionsRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LaunchTemplateInstanceMetadataOptionsRequest, context: context)
         type = Types::LaunchTemplateInstanceMetadataOptionsRequest.new
@@ -19528,7 +19528,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateInstanceNetworkInterfaceSpecification
+    class LaunchTemplateInstanceNetworkInterfaceSpecification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LaunchTemplateInstanceNetworkInterfaceSpecification, context: context)
         type = Types::LaunchTemplateInstanceNetworkInterfaceSpecification.new
@@ -19559,7 +19559,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateInstanceNetworkInterfaceSpecificationList
+    class LaunchTemplateInstanceNetworkInterfaceSpecificationList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -19570,7 +19570,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateInstanceNetworkInterfaceSpecificationRequest
+    class LaunchTemplateInstanceNetworkInterfaceSpecificationRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LaunchTemplateInstanceNetworkInterfaceSpecificationRequest, context: context)
         type = Types::LaunchTemplateInstanceNetworkInterfaceSpecificationRequest.new
@@ -19601,7 +19601,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateInstanceNetworkInterfaceSpecificationRequestList
+    class LaunchTemplateInstanceNetworkInterfaceSpecificationRequestList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -19612,7 +19612,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateLicenseConfiguration
+    class LaunchTemplateLicenseConfiguration
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LaunchTemplateLicenseConfiguration, context: context)
         type = Types::LaunchTemplateLicenseConfiguration.new
@@ -19622,7 +19622,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateLicenseConfigurationRequest
+    class LaunchTemplateLicenseConfigurationRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LaunchTemplateLicenseConfigurationRequest, context: context)
         type = Types::LaunchTemplateLicenseConfigurationRequest.new
@@ -19632,7 +19632,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateLicenseList
+    class LaunchTemplateLicenseList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -19643,7 +19643,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateLicenseSpecificationListRequest
+    class LaunchTemplateLicenseSpecificationListRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -19654,7 +19654,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateNameStringList
+    class LaunchTemplateNameStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -19665,7 +19665,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateOverrides
+    class LaunchTemplateOverrides
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LaunchTemplateOverrides, context: context)
         type = Types::LaunchTemplateOverrides.new
@@ -19681,7 +19681,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateOverridesList
+    class LaunchTemplateOverridesList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -19692,7 +19692,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplatePlacement
+    class LaunchTemplatePlacement
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LaunchTemplatePlacement, context: context)
         type = Types::LaunchTemplatePlacement.new
@@ -19710,7 +19710,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplatePlacementRequest
+    class LaunchTemplatePlacementRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LaunchTemplatePlacementRequest, context: context)
         type = Types::LaunchTemplatePlacementRequest.new
@@ -19728,7 +19728,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplatePrivateDnsNameOptions
+    class LaunchTemplatePrivateDnsNameOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LaunchTemplatePrivateDnsNameOptions, context: context)
         type = Types::LaunchTemplatePrivateDnsNameOptions.new
@@ -19740,7 +19740,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplatePrivateDnsNameOptionsRequest
+    class LaunchTemplatePrivateDnsNameOptionsRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LaunchTemplatePrivateDnsNameOptionsRequest, context: context)
         type = Types::LaunchTemplatePrivateDnsNameOptionsRequest.new
@@ -19752,7 +19752,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateSet
+    class LaunchTemplateSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -19763,7 +19763,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateSpecification
+    class LaunchTemplateSpecification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LaunchTemplateSpecification, context: context)
         type = Types::LaunchTemplateSpecification.new
@@ -19775,7 +19775,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateSpotMarketOptions
+    class LaunchTemplateSpotMarketOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LaunchTemplateSpotMarketOptions, context: context)
         type = Types::LaunchTemplateSpotMarketOptions.new
@@ -19789,7 +19789,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateSpotMarketOptionsRequest
+    class LaunchTemplateSpotMarketOptionsRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LaunchTemplateSpotMarketOptionsRequest, context: context)
         type = Types::LaunchTemplateSpotMarketOptionsRequest.new
@@ -19803,7 +19803,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateTagSpecification
+    class LaunchTemplateTagSpecification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LaunchTemplateTagSpecification, context: context)
         type = Types::LaunchTemplateTagSpecification.new
@@ -19814,7 +19814,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateTagSpecificationList
+    class LaunchTemplateTagSpecificationList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -19825,7 +19825,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateTagSpecificationRequest
+    class LaunchTemplateTagSpecificationRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LaunchTemplateTagSpecificationRequest, context: context)
         type = Types::LaunchTemplateTagSpecificationRequest.new
@@ -19836,7 +19836,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateTagSpecificationRequestList
+    class LaunchTemplateTagSpecificationRequestList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -19847,7 +19847,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateVersion
+    class LaunchTemplateVersion
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LaunchTemplateVersion, context: context)
         type = Types::LaunchTemplateVersion.new
@@ -19864,7 +19864,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplateVersionSet
+    class LaunchTemplateVersionSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -19875,7 +19875,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplatesMonitoring
+    class LaunchTemplatesMonitoring
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LaunchTemplatesMonitoring, context: context)
         type = Types::LaunchTemplatesMonitoring.new
@@ -19885,7 +19885,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LaunchTemplatesMonitoringRequest
+    class LaunchTemplatesMonitoringRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LaunchTemplatesMonitoringRequest, context: context)
         type = Types::LaunchTemplatesMonitoringRequest.new
@@ -19895,7 +19895,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LicenseConfiguration
+    class LicenseConfiguration
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LicenseConfiguration, context: context)
         type = Types::LicenseConfiguration.new
@@ -19905,7 +19905,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LicenseConfigurationRequest
+    class LicenseConfigurationRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LicenseConfigurationRequest, context: context)
         type = Types::LicenseConfigurationRequest.new
@@ -19915,7 +19915,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LicenseList
+    class LicenseList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -19926,7 +19926,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LicenseSpecificationListRequest
+    class LicenseSpecificationListRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -19937,7 +19937,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ListImagesInRecycleBinInput
+    class ListImagesInRecycleBinInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListImagesInRecycleBinInput, context: context)
         type = Types::ListImagesInRecycleBinInput.new
@@ -19950,7 +19950,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ListImagesInRecycleBinOutput
+    class ListImagesInRecycleBinOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListImagesInRecycleBinOutput, context: context)
         type = Types::ListImagesInRecycleBinOutput.new
@@ -19961,7 +19961,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ListSnapshotsInRecycleBinInput
+    class ListSnapshotsInRecycleBinInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListSnapshotsInRecycleBinInput, context: context)
         type = Types::ListSnapshotsInRecycleBinInput.new
@@ -19974,7 +19974,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ListSnapshotsInRecycleBinOutput
+    class ListSnapshotsInRecycleBinOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListSnapshotsInRecycleBinOutput, context: context)
         type = Types::ListSnapshotsInRecycleBinOutput.new
@@ -19985,7 +19985,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LoadBalancersConfig
+    class LoadBalancersConfig
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LoadBalancersConfig, context: context)
         type = Types::LoadBalancersConfig.new
@@ -19996,7 +19996,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LoadPermission
+    class LoadPermission
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LoadPermission, context: context)
         type = Types::LoadPermission.new
@@ -20007,7 +20007,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LoadPermissionList
+    class LoadPermissionList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -20018,7 +20018,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LoadPermissionListRequest
+    class LoadPermissionListRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -20029,7 +20029,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LoadPermissionModifications
+    class LoadPermissionModifications
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LoadPermissionModifications, context: context)
         type = Types::LoadPermissionModifications.new
@@ -20040,7 +20040,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LoadPermissionRequest
+    class LoadPermissionRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LoadPermissionRequest, context: context)
         type = Types::LoadPermissionRequest.new
@@ -20051,7 +20051,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LocalGateway
+    class LocalGateway
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LocalGateway, context: context)
         type = Types::LocalGateway.new
@@ -20065,7 +20065,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LocalGatewayIdSet
+    class LocalGatewayIdSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -20076,7 +20076,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LocalGatewayRoute
+    class LocalGatewayRoute
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LocalGatewayRoute, context: context)
         type = Types::LocalGatewayRoute.new
@@ -20096,7 +20096,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LocalGatewayRouteList
+    class LocalGatewayRouteList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -20107,7 +20107,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LocalGatewayRouteTable
+    class LocalGatewayRouteTable
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LocalGatewayRouteTable, context: context)
         type = Types::LocalGatewayRouteTable.new
@@ -20125,7 +20125,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LocalGatewayRouteTableIdSet
+    class LocalGatewayRouteTableIdSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -20136,7 +20136,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LocalGatewayRouteTableSet
+    class LocalGatewayRouteTableSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -20147,7 +20147,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LocalGatewayRouteTableVirtualInterfaceGroupAssociation
+    class LocalGatewayRouteTableVirtualInterfaceGroupAssociation
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LocalGatewayRouteTableVirtualInterfaceGroupAssociation, context: context)
         type = Types::LocalGatewayRouteTableVirtualInterfaceGroupAssociation.new
@@ -20164,7 +20164,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LocalGatewayRouteTableVirtualInterfaceGroupAssociationIdSet
+    class LocalGatewayRouteTableVirtualInterfaceGroupAssociationIdSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -20175,7 +20175,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LocalGatewayRouteTableVirtualInterfaceGroupAssociationSet
+    class LocalGatewayRouteTableVirtualInterfaceGroupAssociationSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -20186,7 +20186,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LocalGatewayRouteTableVpcAssociation
+    class LocalGatewayRouteTableVpcAssociation
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LocalGatewayRouteTableVpcAssociation, context: context)
         type = Types::LocalGatewayRouteTableVpcAssociation.new
@@ -20203,7 +20203,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LocalGatewayRouteTableVpcAssociationIdSet
+    class LocalGatewayRouteTableVpcAssociationIdSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -20214,7 +20214,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LocalGatewayRouteTableVpcAssociationSet
+    class LocalGatewayRouteTableVpcAssociationSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -20225,7 +20225,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LocalGatewaySet
+    class LocalGatewaySet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -20236,7 +20236,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LocalGatewayVirtualInterface
+    class LocalGatewayVirtualInterface
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LocalGatewayVirtualInterface, context: context)
         type = Types::LocalGatewayVirtualInterface.new
@@ -20254,7 +20254,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LocalGatewayVirtualInterfaceGroup
+    class LocalGatewayVirtualInterfaceGroup
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LocalGatewayVirtualInterfaceGroup, context: context)
         type = Types::LocalGatewayVirtualInterfaceGroup.new
@@ -20268,7 +20268,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LocalGatewayVirtualInterfaceGroupIdSet
+    class LocalGatewayVirtualInterfaceGroupIdSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -20279,7 +20279,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LocalGatewayVirtualInterfaceGroupSet
+    class LocalGatewayVirtualInterfaceGroupSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -20290,7 +20290,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LocalGatewayVirtualInterfaceIdSet
+    class LocalGatewayVirtualInterfaceIdSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -20301,7 +20301,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LocalGatewayVirtualInterfaceSet
+    class LocalGatewayVirtualInterfaceSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -20312,7 +20312,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LocalStorageTypeSet
+    class LocalStorageTypeSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -20323,7 +20323,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LockSnapshotInput
+    class LockSnapshotInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LockSnapshotInput, context: context)
         type = Types::LockSnapshotInput.new
@@ -20338,7 +20338,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LockSnapshotOutput
+    class LockSnapshotOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LockSnapshotOutput, context: context)
         type = Types::LockSnapshotOutput.new
@@ -20355,7 +20355,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LockedSnapshotsInfo
+    class LockedSnapshotsInfo
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LockedSnapshotsInfo, context: context)
         type = Types::LockedSnapshotsInfo.new
@@ -20373,7 +20373,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module LockedSnapshotsInfoList
+    class LockedSnapshotsInfoList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -20384,7 +20384,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module MaintenanceDetails
+    class MaintenanceDetails
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::MaintenanceDetails, context: context)
         type = Types::MaintenanceDetails.new
@@ -20396,7 +20396,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ManagedPrefixList
+    class ManagedPrefixList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ManagedPrefixList, context: context)
         type = Types::ManagedPrefixList.new
@@ -20415,7 +20415,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ManagedPrefixListSet
+    class ManagedPrefixListSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -20426,7 +20426,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module MemoryGiBPerVCpu
+    class MemoryGiBPerVCpu
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::MemoryGiBPerVCpu, context: context)
         type = Types::MemoryGiBPerVCpu.new
@@ -20437,7 +20437,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module MemoryGiBPerVCpuRequest
+    class MemoryGiBPerVCpuRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::MemoryGiBPerVCpuRequest, context: context)
         type = Types::MemoryGiBPerVCpuRequest.new
@@ -20448,7 +20448,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module MemoryInfo
+    class MemoryInfo
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::MemoryInfo, context: context)
         type = Types::MemoryInfo.new
@@ -20458,7 +20458,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module MemoryMiB
+    class MemoryMiB
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::MemoryMiB, context: context)
         type = Types::MemoryMiB.new
@@ -20469,7 +20469,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module MemoryMiBRequest
+    class MemoryMiBRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::MemoryMiBRequest, context: context)
         type = Types::MemoryMiBRequest.new
@@ -20480,7 +20480,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module MetricPoint
+    class MetricPoint
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::MetricPoint, context: context)
         type = Types::MetricPoint.new
@@ -20493,7 +20493,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module MetricPoints
+    class MetricPoints
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -20504,7 +20504,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyAddressAttributeInput
+    class ModifyAddressAttributeInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyAddressAttributeInput, context: context)
         type = Types::ModifyAddressAttributeInput.new
@@ -20516,7 +20516,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyAddressAttributeOutput
+    class ModifyAddressAttributeOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyAddressAttributeOutput, context: context)
         type = Types::ModifyAddressAttributeOutput.new
@@ -20526,7 +20526,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyAvailabilityZoneGroupInput
+    class ModifyAvailabilityZoneGroupInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyAvailabilityZoneGroupInput, context: context)
         type = Types::ModifyAvailabilityZoneGroupInput.new
@@ -20538,7 +20538,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyAvailabilityZoneGroupOutput
+    class ModifyAvailabilityZoneGroupOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyAvailabilityZoneGroupOutput, context: context)
         type = Types::ModifyAvailabilityZoneGroupOutput.new
@@ -20548,7 +20548,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyCapacityReservationFleetInput
+    class ModifyCapacityReservationFleetInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyCapacityReservationFleetInput, context: context)
         type = Types::ModifyCapacityReservationFleetInput.new
@@ -20562,7 +20562,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyCapacityReservationFleetOutput
+    class ModifyCapacityReservationFleetOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyCapacityReservationFleetOutput, context: context)
         type = Types::ModifyCapacityReservationFleetOutput.new
@@ -20572,7 +20572,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyCapacityReservationInput
+    class ModifyCapacityReservationInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyCapacityReservationInput, context: context)
         type = Types::ModifyCapacityReservationInput.new
@@ -20588,7 +20588,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyCapacityReservationOutput
+    class ModifyCapacityReservationOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyCapacityReservationOutput, context: context)
         type = Types::ModifyCapacityReservationOutput.new
@@ -20598,7 +20598,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyClientVpnEndpointInput
+    class ModifyClientVpnEndpointInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyClientVpnEndpointInput, context: context)
         type = Types::ModifyClientVpnEndpointInput.new
@@ -20621,7 +20621,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyClientVpnEndpointOutput
+    class ModifyClientVpnEndpointOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyClientVpnEndpointOutput, context: context)
         type = Types::ModifyClientVpnEndpointOutput.new
@@ -20631,7 +20631,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyDefaultCreditSpecificationInput
+    class ModifyDefaultCreditSpecificationInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyDefaultCreditSpecificationInput, context: context)
         type = Types::ModifyDefaultCreditSpecificationInput.new
@@ -20643,7 +20643,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyDefaultCreditSpecificationOutput
+    class ModifyDefaultCreditSpecificationOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyDefaultCreditSpecificationOutput, context: context)
         type = Types::ModifyDefaultCreditSpecificationOutput.new
@@ -20653,7 +20653,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyEbsDefaultKmsKeyIdInput
+    class ModifyEbsDefaultKmsKeyIdInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyEbsDefaultKmsKeyIdInput, context: context)
         type = Types::ModifyEbsDefaultKmsKeyIdInput.new
@@ -20664,7 +20664,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyEbsDefaultKmsKeyIdOutput
+    class ModifyEbsDefaultKmsKeyIdOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyEbsDefaultKmsKeyIdOutput, context: context)
         type = Types::ModifyEbsDefaultKmsKeyIdOutput.new
@@ -20674,7 +20674,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyFleetInput
+    class ModifyFleetInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyFleetInput, context: context)
         type = Types::ModifyFleetInput.new
@@ -20689,7 +20689,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyFleetOutput
+    class ModifyFleetOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyFleetOutput, context: context)
         type = Types::ModifyFleetOutput.new
@@ -20699,7 +20699,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyFpgaImageAttributeInput
+    class ModifyFpgaImageAttributeInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyFpgaImageAttributeInput, context: context)
         type = Types::ModifyFpgaImageAttributeInput.new
@@ -20718,7 +20718,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyFpgaImageAttributeOutput
+    class ModifyFpgaImageAttributeOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyFpgaImageAttributeOutput, context: context)
         type = Types::ModifyFpgaImageAttributeOutput.new
@@ -20728,7 +20728,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyHostsInput
+    class ModifyHostsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyHostsInput, context: context)
         type = Types::ModifyHostsInput.new
@@ -20743,7 +20743,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyHostsOutput
+    class ModifyHostsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyHostsOutput, context: context)
         type = Types::ModifyHostsOutput.new
@@ -20754,7 +20754,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyIdFormatInput
+    class ModifyIdFormatInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyIdFormatInput, context: context)
         type = Types::ModifyIdFormatInput.new
@@ -20765,7 +20765,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyIdFormatOutput
+    class ModifyIdFormatOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyIdFormatOutput, context: context)
         type = Types::ModifyIdFormatOutput.new
@@ -20774,7 +20774,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyIdentityIdFormatInput
+    class ModifyIdentityIdFormatInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyIdentityIdFormatInput, context: context)
         type = Types::ModifyIdentityIdFormatInput.new
@@ -20786,7 +20786,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyIdentityIdFormatOutput
+    class ModifyIdentityIdFormatOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyIdentityIdFormatOutput, context: context)
         type = Types::ModifyIdentityIdFormatOutput.new
@@ -20795,7 +20795,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyImageAttributeInput
+    class ModifyImageAttributeInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyImageAttributeInput, context: context)
         type = Types::ModifyImageAttributeInput.new
@@ -20817,7 +20817,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyImageAttributeOutput
+    class ModifyImageAttributeOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyImageAttributeOutput, context: context)
         type = Types::ModifyImageAttributeOutput.new
@@ -20826,7 +20826,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyInstanceAttributeInput
+    class ModifyInstanceAttributeInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyInstanceAttributeInput, context: context)
         type = Types::ModifyInstanceAttributeInput.new
@@ -20852,7 +20852,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyInstanceAttributeOutput
+    class ModifyInstanceAttributeOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyInstanceAttributeOutput, context: context)
         type = Types::ModifyInstanceAttributeOutput.new
@@ -20861,7 +20861,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyInstanceCapacityReservationAttributesInput
+    class ModifyInstanceCapacityReservationAttributesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyInstanceCapacityReservationAttributesInput, context: context)
         type = Types::ModifyInstanceCapacityReservationAttributesInput.new
@@ -20873,7 +20873,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyInstanceCapacityReservationAttributesOutput
+    class ModifyInstanceCapacityReservationAttributesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyInstanceCapacityReservationAttributesOutput, context: context)
         type = Types::ModifyInstanceCapacityReservationAttributesOutput.new
@@ -20883,7 +20883,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyInstanceCreditSpecificationInput
+    class ModifyInstanceCreditSpecificationInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyInstanceCreditSpecificationInput, context: context)
         type = Types::ModifyInstanceCreditSpecificationInput.new
@@ -20895,7 +20895,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyInstanceCreditSpecificationOutput
+    class ModifyInstanceCreditSpecificationOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyInstanceCreditSpecificationOutput, context: context)
         type = Types::ModifyInstanceCreditSpecificationOutput.new
@@ -20906,7 +20906,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyInstanceEventStartTimeInput
+    class ModifyInstanceEventStartTimeInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyInstanceEventStartTimeInput, context: context)
         type = Types::ModifyInstanceEventStartTimeInput.new
@@ -20919,7 +20919,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyInstanceEventStartTimeOutput
+    class ModifyInstanceEventStartTimeOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyInstanceEventStartTimeOutput, context: context)
         type = Types::ModifyInstanceEventStartTimeOutput.new
@@ -20929,7 +20929,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyInstanceEventWindowInput
+    class ModifyInstanceEventWindowInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyInstanceEventWindowInput, context: context)
         type = Types::ModifyInstanceEventWindowInput.new
@@ -20943,7 +20943,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyInstanceEventWindowOutput
+    class ModifyInstanceEventWindowOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyInstanceEventWindowOutput, context: context)
         type = Types::ModifyInstanceEventWindowOutput.new
@@ -20953,7 +20953,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyInstanceMaintenanceOptionsInput
+    class ModifyInstanceMaintenanceOptionsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyInstanceMaintenanceOptionsInput, context: context)
         type = Types::ModifyInstanceMaintenanceOptionsInput.new
@@ -20965,7 +20965,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyInstanceMaintenanceOptionsOutput
+    class ModifyInstanceMaintenanceOptionsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyInstanceMaintenanceOptionsOutput, context: context)
         type = Types::ModifyInstanceMaintenanceOptionsOutput.new
@@ -20976,7 +20976,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyInstanceMetadataOptionsInput
+    class ModifyInstanceMetadataOptionsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyInstanceMetadataOptionsInput, context: context)
         type = Types::ModifyInstanceMetadataOptionsInput.new
@@ -20992,7 +20992,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyInstanceMetadataOptionsOutput
+    class ModifyInstanceMetadataOptionsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyInstanceMetadataOptionsOutput, context: context)
         type = Types::ModifyInstanceMetadataOptionsOutput.new
@@ -21003,7 +21003,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyInstancePlacementInput
+    class ModifyInstancePlacementInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyInstancePlacementInput, context: context)
         type = Types::ModifyInstancePlacementInput.new
@@ -21020,7 +21020,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyInstancePlacementOutput
+    class ModifyInstancePlacementOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyInstancePlacementOutput, context: context)
         type = Types::ModifyInstancePlacementOutput.new
@@ -21030,7 +21030,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyIpamInput
+    class ModifyIpamInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyIpamInput, context: context)
         type = Types::ModifyIpamInput.new
@@ -21045,7 +21045,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyIpamOutput
+    class ModifyIpamOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyIpamOutput, context: context)
         type = Types::ModifyIpamOutput.new
@@ -21055,7 +21055,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyIpamPoolInput
+    class ModifyIpamPoolInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyIpamPoolInput, context: context)
         type = Types::ModifyIpamPoolInput.new
@@ -21074,7 +21074,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyIpamPoolOutput
+    class ModifyIpamPoolOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyIpamPoolOutput, context: context)
         type = Types::ModifyIpamPoolOutput.new
@@ -21084,7 +21084,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyIpamResourceCidrInput
+    class ModifyIpamResourceCidrInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyIpamResourceCidrInput, context: context)
         type = Types::ModifyIpamResourceCidrInput.new
@@ -21100,7 +21100,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyIpamResourceCidrOutput
+    class ModifyIpamResourceCidrOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyIpamResourceCidrOutput, context: context)
         type = Types::ModifyIpamResourceCidrOutput.new
@@ -21110,7 +21110,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyIpamResourceDiscoveryInput
+    class ModifyIpamResourceDiscoveryInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyIpamResourceDiscoveryInput, context: context)
         type = Types::ModifyIpamResourceDiscoveryInput.new
@@ -21124,7 +21124,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyIpamResourceDiscoveryOutput
+    class ModifyIpamResourceDiscoveryOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyIpamResourceDiscoveryOutput, context: context)
         type = Types::ModifyIpamResourceDiscoveryOutput.new
@@ -21134,7 +21134,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyIpamScopeInput
+    class ModifyIpamScopeInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyIpamScopeInput, context: context)
         type = Types::ModifyIpamScopeInput.new
@@ -21146,7 +21146,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyIpamScopeOutput
+    class ModifyIpamScopeOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyIpamScopeOutput, context: context)
         type = Types::ModifyIpamScopeOutput.new
@@ -21156,7 +21156,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyLaunchTemplateInput
+    class ModifyLaunchTemplateInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyLaunchTemplateInput, context: context)
         type = Types::ModifyLaunchTemplateInput.new
@@ -21170,7 +21170,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyLaunchTemplateOutput
+    class ModifyLaunchTemplateOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyLaunchTemplateOutput, context: context)
         type = Types::ModifyLaunchTemplateOutput.new
@@ -21180,7 +21180,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyLocalGatewayRouteInput
+    class ModifyLocalGatewayRouteInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyLocalGatewayRouteInput, context: context)
         type = Types::ModifyLocalGatewayRouteInput.new
@@ -21195,7 +21195,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyLocalGatewayRouteOutput
+    class ModifyLocalGatewayRouteOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyLocalGatewayRouteOutput, context: context)
         type = Types::ModifyLocalGatewayRouteOutput.new
@@ -21205,7 +21205,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyManagedPrefixListInput
+    class ModifyManagedPrefixListInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyManagedPrefixListInput, context: context)
         type = Types::ModifyManagedPrefixListInput.new
@@ -21221,7 +21221,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyManagedPrefixListOutput
+    class ModifyManagedPrefixListOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyManagedPrefixListOutput, context: context)
         type = Types::ModifyManagedPrefixListOutput.new
@@ -21231,7 +21231,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyNetworkInterfaceAttributeInput
+    class ModifyNetworkInterfaceAttributeInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyNetworkInterfaceAttributeInput, context: context)
         type = Types::ModifyNetworkInterfaceAttributeInput.new
@@ -21249,7 +21249,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyNetworkInterfaceAttributeOutput
+    class ModifyNetworkInterfaceAttributeOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyNetworkInterfaceAttributeOutput, context: context)
         type = Types::ModifyNetworkInterfaceAttributeOutput.new
@@ -21258,7 +21258,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyPrivateDnsNameOptionsInput
+    class ModifyPrivateDnsNameOptionsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyPrivateDnsNameOptionsInput, context: context)
         type = Types::ModifyPrivateDnsNameOptionsInput.new
@@ -21272,7 +21272,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyPrivateDnsNameOptionsOutput
+    class ModifyPrivateDnsNameOptionsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyPrivateDnsNameOptionsOutput, context: context)
         type = Types::ModifyPrivateDnsNameOptionsOutput.new
@@ -21282,7 +21282,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyReservedInstancesInput
+    class ModifyReservedInstancesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyReservedInstancesInput, context: context)
         type = Types::ModifyReservedInstancesInput.new
@@ -21294,7 +21294,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyReservedInstancesOutput
+    class ModifyReservedInstancesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyReservedInstancesOutput, context: context)
         type = Types::ModifyReservedInstancesOutput.new
@@ -21304,7 +21304,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifySecurityGroupRulesInput
+    class ModifySecurityGroupRulesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifySecurityGroupRulesInput, context: context)
         type = Types::ModifySecurityGroupRulesInput.new
@@ -21316,7 +21316,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifySecurityGroupRulesOutput
+    class ModifySecurityGroupRulesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifySecurityGroupRulesOutput, context: context)
         type = Types::ModifySecurityGroupRulesOutput.new
@@ -21326,7 +21326,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifySnapshotAttributeInput
+    class ModifySnapshotAttributeInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifySnapshotAttributeInput, context: context)
         type = Types::ModifySnapshotAttributeInput.new
@@ -21342,7 +21342,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifySnapshotAttributeOutput
+    class ModifySnapshotAttributeOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifySnapshotAttributeOutput, context: context)
         type = Types::ModifySnapshotAttributeOutput.new
@@ -21351,7 +21351,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifySnapshotTierInput
+    class ModifySnapshotTierInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifySnapshotTierInput, context: context)
         type = Types::ModifySnapshotTierInput.new
@@ -21363,7 +21363,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifySnapshotTierOutput
+    class ModifySnapshotTierOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifySnapshotTierOutput, context: context)
         type = Types::ModifySnapshotTierOutput.new
@@ -21374,7 +21374,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifySpotFleetRequestInput
+    class ModifySpotFleetRequestInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifySpotFleetRequestInput, context: context)
         type = Types::ModifySpotFleetRequestInput.new
@@ -21389,7 +21389,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifySpotFleetRequestOutput
+    class ModifySpotFleetRequestOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifySpotFleetRequestOutput, context: context)
         type = Types::ModifySpotFleetRequestOutput.new
@@ -21399,7 +21399,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifySubnetAttributeInput
+    class ModifySubnetAttributeInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifySubnetAttributeInput, context: context)
         type = Types::ModifySubnetAttributeInput.new
@@ -21419,7 +21419,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifySubnetAttributeOutput
+    class ModifySubnetAttributeOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifySubnetAttributeOutput, context: context)
         type = Types::ModifySubnetAttributeOutput.new
@@ -21428,7 +21428,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyTrafficMirrorFilterNetworkServicesInput
+    class ModifyTrafficMirrorFilterNetworkServicesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyTrafficMirrorFilterNetworkServicesInput, context: context)
         type = Types::ModifyTrafficMirrorFilterNetworkServicesInput.new
@@ -21441,7 +21441,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyTrafficMirrorFilterNetworkServicesOutput
+    class ModifyTrafficMirrorFilterNetworkServicesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyTrafficMirrorFilterNetworkServicesOutput, context: context)
         type = Types::ModifyTrafficMirrorFilterNetworkServicesOutput.new
@@ -21451,7 +21451,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyTrafficMirrorFilterRuleInput
+    class ModifyTrafficMirrorFilterRuleInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyTrafficMirrorFilterRuleInput, context: context)
         type = Types::ModifyTrafficMirrorFilterRuleInput.new
@@ -21472,7 +21472,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyTrafficMirrorFilterRuleOutput
+    class ModifyTrafficMirrorFilterRuleOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyTrafficMirrorFilterRuleOutput, context: context)
         type = Types::ModifyTrafficMirrorFilterRuleOutput.new
@@ -21482,7 +21482,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyTrafficMirrorSessionInput
+    class ModifyTrafficMirrorSessionInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyTrafficMirrorSessionInput, context: context)
         type = Types::ModifyTrafficMirrorSessionInput.new
@@ -21500,7 +21500,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyTrafficMirrorSessionOutput
+    class ModifyTrafficMirrorSessionOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyTrafficMirrorSessionOutput, context: context)
         type = Types::ModifyTrafficMirrorSessionOutput.new
@@ -21510,7 +21510,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyTransitGatewayInput
+    class ModifyTransitGatewayInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyTransitGatewayInput, context: context)
         type = Types::ModifyTransitGatewayInput.new
@@ -21523,7 +21523,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyTransitGatewayOptions
+    class ModifyTransitGatewayOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyTransitGatewayOptions, context: context)
         type = Types::ModifyTransitGatewayOptions.new
@@ -21543,7 +21543,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyTransitGatewayOutput
+    class ModifyTransitGatewayOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyTransitGatewayOutput, context: context)
         type = Types::ModifyTransitGatewayOutput.new
@@ -21553,7 +21553,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyTransitGatewayPrefixListReferenceInput
+    class ModifyTransitGatewayPrefixListReferenceInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyTransitGatewayPrefixListReferenceInput, context: context)
         type = Types::ModifyTransitGatewayPrefixListReferenceInput.new
@@ -21567,7 +21567,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyTransitGatewayPrefixListReferenceOutput
+    class ModifyTransitGatewayPrefixListReferenceOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyTransitGatewayPrefixListReferenceOutput, context: context)
         type = Types::ModifyTransitGatewayPrefixListReferenceOutput.new
@@ -21577,7 +21577,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyTransitGatewayVpcAttachmentInput
+    class ModifyTransitGatewayVpcAttachmentInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyTransitGatewayVpcAttachmentInput, context: context)
         type = Types::ModifyTransitGatewayVpcAttachmentInput.new
@@ -21591,7 +21591,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyTransitGatewayVpcAttachmentOutput
+    class ModifyTransitGatewayVpcAttachmentOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyTransitGatewayVpcAttachmentOutput, context: context)
         type = Types::ModifyTransitGatewayVpcAttachmentOutput.new
@@ -21601,7 +21601,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyTransitGatewayVpcAttachmentRequestOptions
+    class ModifyTransitGatewayVpcAttachmentRequestOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyTransitGatewayVpcAttachmentRequestOptions, context: context)
         type = Types::ModifyTransitGatewayVpcAttachmentRequestOptions.new
@@ -21614,7 +21614,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyVerifiedAccessEndpointEniOptions
+    class ModifyVerifiedAccessEndpointEniOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyVerifiedAccessEndpointEniOptions, context: context)
         type = Types::ModifyVerifiedAccessEndpointEniOptions.new
@@ -21625,7 +21625,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyVerifiedAccessEndpointInput
+    class ModifyVerifiedAccessEndpointInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyVerifiedAccessEndpointInput, context: context)
         type = Types::ModifyVerifiedAccessEndpointInput.new
@@ -21641,7 +21641,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyVerifiedAccessEndpointLoadBalancerOptions
+    class ModifyVerifiedAccessEndpointLoadBalancerOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyVerifiedAccessEndpointLoadBalancerOptions, context: context)
         type = Types::ModifyVerifiedAccessEndpointLoadBalancerOptions.new
@@ -21653,7 +21653,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyVerifiedAccessEndpointOutput
+    class ModifyVerifiedAccessEndpointOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyVerifiedAccessEndpointOutput, context: context)
         type = Types::ModifyVerifiedAccessEndpointOutput.new
@@ -21663,7 +21663,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyVerifiedAccessEndpointPolicyInput
+    class ModifyVerifiedAccessEndpointPolicyInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyVerifiedAccessEndpointPolicyInput, context: context)
         type = Types::ModifyVerifiedAccessEndpointPolicyInput.new
@@ -21678,7 +21678,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyVerifiedAccessEndpointPolicyOutput
+    class ModifyVerifiedAccessEndpointPolicyOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyVerifiedAccessEndpointPolicyOutput, context: context)
         type = Types::ModifyVerifiedAccessEndpointPolicyOutput.new
@@ -21690,7 +21690,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyVerifiedAccessEndpointSubnetIdList
+    class ModifyVerifiedAccessEndpointSubnetIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -21701,7 +21701,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyVerifiedAccessGroupInput
+    class ModifyVerifiedAccessGroupInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyVerifiedAccessGroupInput, context: context)
         type = Types::ModifyVerifiedAccessGroupInput.new
@@ -21715,7 +21715,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyVerifiedAccessGroupOutput
+    class ModifyVerifiedAccessGroupOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyVerifiedAccessGroupOutput, context: context)
         type = Types::ModifyVerifiedAccessGroupOutput.new
@@ -21725,7 +21725,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyVerifiedAccessGroupPolicyInput
+    class ModifyVerifiedAccessGroupPolicyInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyVerifiedAccessGroupPolicyInput, context: context)
         type = Types::ModifyVerifiedAccessGroupPolicyInput.new
@@ -21740,7 +21740,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyVerifiedAccessGroupPolicyOutput
+    class ModifyVerifiedAccessGroupPolicyOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyVerifiedAccessGroupPolicyOutput, context: context)
         type = Types::ModifyVerifiedAccessGroupPolicyOutput.new
@@ -21752,7 +21752,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyVerifiedAccessInstanceInput
+    class ModifyVerifiedAccessInstanceInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyVerifiedAccessInstanceInput, context: context)
         type = Types::ModifyVerifiedAccessInstanceInput.new
@@ -21765,7 +21765,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyVerifiedAccessInstanceLoggingConfigurationInput
+    class ModifyVerifiedAccessInstanceLoggingConfigurationInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyVerifiedAccessInstanceLoggingConfigurationInput, context: context)
         type = Types::ModifyVerifiedAccessInstanceLoggingConfigurationInput.new
@@ -21778,7 +21778,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyVerifiedAccessInstanceLoggingConfigurationOutput
+    class ModifyVerifiedAccessInstanceLoggingConfigurationOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyVerifiedAccessInstanceLoggingConfigurationOutput, context: context)
         type = Types::ModifyVerifiedAccessInstanceLoggingConfigurationOutput.new
@@ -21788,7 +21788,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyVerifiedAccessInstanceOutput
+    class ModifyVerifiedAccessInstanceOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyVerifiedAccessInstanceOutput, context: context)
         type = Types::ModifyVerifiedAccessInstanceOutput.new
@@ -21798,7 +21798,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyVerifiedAccessTrustProviderDeviceOptions
+    class ModifyVerifiedAccessTrustProviderDeviceOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyVerifiedAccessTrustProviderDeviceOptions, context: context)
         type = Types::ModifyVerifiedAccessTrustProviderDeviceOptions.new
@@ -21808,7 +21808,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyVerifiedAccessTrustProviderInput
+    class ModifyVerifiedAccessTrustProviderInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyVerifiedAccessTrustProviderInput, context: context)
         type = Types::ModifyVerifiedAccessTrustProviderInput.new
@@ -21824,7 +21824,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyVerifiedAccessTrustProviderOidcOptions
+    class ModifyVerifiedAccessTrustProviderOidcOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyVerifiedAccessTrustProviderOidcOptions, context: context)
         type = Types::ModifyVerifiedAccessTrustProviderOidcOptions.new
@@ -21840,7 +21840,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyVerifiedAccessTrustProviderOutput
+    class ModifyVerifiedAccessTrustProviderOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyVerifiedAccessTrustProviderOutput, context: context)
         type = Types::ModifyVerifiedAccessTrustProviderOutput.new
@@ -21850,7 +21850,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyVolumeAttributeInput
+    class ModifyVolumeAttributeInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyVolumeAttributeInput, context: context)
         type = Types::ModifyVolumeAttributeInput.new
@@ -21862,7 +21862,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyVolumeAttributeOutput
+    class ModifyVolumeAttributeOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyVolumeAttributeOutput, context: context)
         type = Types::ModifyVolumeAttributeOutput.new
@@ -21871,7 +21871,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyVolumeInput
+    class ModifyVolumeInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyVolumeInput, context: context)
         type = Types::ModifyVolumeInput.new
@@ -21887,7 +21887,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyVolumeOutput
+    class ModifyVolumeOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyVolumeOutput, context: context)
         type = Types::ModifyVolumeOutput.new
@@ -21897,7 +21897,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyVpcAttributeInput
+    class ModifyVpcAttributeInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyVpcAttributeInput, context: context)
         type = Types::ModifyVpcAttributeInput.new
@@ -21910,7 +21910,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyVpcAttributeOutput
+    class ModifyVpcAttributeOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyVpcAttributeOutput, context: context)
         type = Types::ModifyVpcAttributeOutput.new
@@ -21919,7 +21919,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyVpcEndpointConnectionNotificationInput
+    class ModifyVpcEndpointConnectionNotificationInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyVpcEndpointConnectionNotificationInput, context: context)
         type = Types::ModifyVpcEndpointConnectionNotificationInput.new
@@ -21932,7 +21932,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyVpcEndpointConnectionNotificationOutput
+    class ModifyVpcEndpointConnectionNotificationOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyVpcEndpointConnectionNotificationOutput, context: context)
         type = Types::ModifyVpcEndpointConnectionNotificationOutput.new
@@ -21942,7 +21942,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyVpcEndpointInput
+    class ModifyVpcEndpointInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyVpcEndpointInput, context: context)
         type = Types::ModifyVpcEndpointInput.new
@@ -21965,7 +21965,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyVpcEndpointOutput
+    class ModifyVpcEndpointOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyVpcEndpointOutput, context: context)
         type = Types::ModifyVpcEndpointOutput.new
@@ -21975,7 +21975,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyVpcEndpointServiceConfigurationInput
+    class ModifyVpcEndpointServiceConfigurationInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyVpcEndpointServiceConfigurationInput, context: context)
         type = Types::ModifyVpcEndpointServiceConfigurationInput.new
@@ -21995,7 +21995,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyVpcEndpointServiceConfigurationOutput
+    class ModifyVpcEndpointServiceConfigurationOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyVpcEndpointServiceConfigurationOutput, context: context)
         type = Types::ModifyVpcEndpointServiceConfigurationOutput.new
@@ -22005,7 +22005,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyVpcEndpointServicePayerResponsibilityInput
+    class ModifyVpcEndpointServicePayerResponsibilityInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyVpcEndpointServicePayerResponsibilityInput, context: context)
         type = Types::ModifyVpcEndpointServicePayerResponsibilityInput.new
@@ -22017,7 +22017,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyVpcEndpointServicePayerResponsibilityOutput
+    class ModifyVpcEndpointServicePayerResponsibilityOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyVpcEndpointServicePayerResponsibilityOutput, context: context)
         type = Types::ModifyVpcEndpointServicePayerResponsibilityOutput.new
@@ -22027,7 +22027,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyVpcEndpointServicePermissionsInput
+    class ModifyVpcEndpointServicePermissionsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyVpcEndpointServicePermissionsInput, context: context)
         type = Types::ModifyVpcEndpointServicePermissionsInput.new
@@ -22040,7 +22040,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyVpcEndpointServicePermissionsOutput
+    class ModifyVpcEndpointServicePermissionsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyVpcEndpointServicePermissionsOutput, context: context)
         type = Types::ModifyVpcEndpointServicePermissionsOutput.new
@@ -22051,7 +22051,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyVpcPeeringConnectionOptionsInput
+    class ModifyVpcPeeringConnectionOptionsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyVpcPeeringConnectionOptionsInput, context: context)
         type = Types::ModifyVpcPeeringConnectionOptionsInput.new
@@ -22064,7 +22064,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyVpcPeeringConnectionOptionsOutput
+    class ModifyVpcPeeringConnectionOptionsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyVpcPeeringConnectionOptionsOutput, context: context)
         type = Types::ModifyVpcPeeringConnectionOptionsOutput.new
@@ -22075,7 +22075,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyVpcTenancyInput
+    class ModifyVpcTenancyInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyVpcTenancyInput, context: context)
         type = Types::ModifyVpcTenancyInput.new
@@ -22087,7 +22087,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyVpcTenancyOutput
+    class ModifyVpcTenancyOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyVpcTenancyOutput, context: context)
         type = Types::ModifyVpcTenancyOutput.new
@@ -22097,7 +22097,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyVpnConnectionInput
+    class ModifyVpnConnectionInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyVpnConnectionInput, context: context)
         type = Types::ModifyVpnConnectionInput.new
@@ -22111,7 +22111,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyVpnConnectionOptionsInput
+    class ModifyVpnConnectionOptionsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyVpnConnectionOptionsInput, context: context)
         type = Types::ModifyVpnConnectionOptionsInput.new
@@ -22126,7 +22126,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyVpnConnectionOptionsOutput
+    class ModifyVpnConnectionOptionsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyVpnConnectionOptionsOutput, context: context)
         type = Types::ModifyVpnConnectionOptionsOutput.new
@@ -22136,7 +22136,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyVpnConnectionOutput
+    class ModifyVpnConnectionOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyVpnConnectionOutput, context: context)
         type = Types::ModifyVpnConnectionOutput.new
@@ -22146,7 +22146,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyVpnTunnelCertificateInput
+    class ModifyVpnTunnelCertificateInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyVpnTunnelCertificateInput, context: context)
         type = Types::ModifyVpnTunnelCertificateInput.new
@@ -22158,7 +22158,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyVpnTunnelCertificateOutput
+    class ModifyVpnTunnelCertificateOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyVpnTunnelCertificateOutput, context: context)
         type = Types::ModifyVpnTunnelCertificateOutput.new
@@ -22168,7 +22168,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyVpnTunnelOptionsInput
+    class ModifyVpnTunnelOptionsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyVpnTunnelOptionsInput, context: context)
         type = Types::ModifyVpnTunnelOptionsInput.new
@@ -22182,7 +22182,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyVpnTunnelOptionsOutput
+    class ModifyVpnTunnelOptionsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyVpnTunnelOptionsOutput, context: context)
         type = Types::ModifyVpnTunnelOptionsOutput.new
@@ -22192,7 +22192,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ModifyVpnTunnelOptionsSpecification
+    class ModifyVpnTunnelOptionsSpecification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyVpnTunnelOptionsSpecification, context: context)
         type = Types::ModifyVpnTunnelOptionsSpecification.new
@@ -22221,7 +22221,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module MonitorInstancesInput
+    class MonitorInstancesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::MonitorInstancesInput, context: context)
         type = Types::MonitorInstancesInput.new
@@ -22232,7 +22232,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module MonitorInstancesOutput
+    class MonitorInstancesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::MonitorInstancesOutput, context: context)
         type = Types::MonitorInstancesOutput.new
@@ -22242,7 +22242,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Monitoring
+    class Monitoring
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Monitoring, context: context)
         type = Types::Monitoring.new
@@ -22252,7 +22252,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module MoveAddressToVpcInput
+    class MoveAddressToVpcInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::MoveAddressToVpcInput, context: context)
         type = Types::MoveAddressToVpcInput.new
@@ -22263,7 +22263,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module MoveAddressToVpcOutput
+    class MoveAddressToVpcOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::MoveAddressToVpcOutput, context: context)
         type = Types::MoveAddressToVpcOutput.new
@@ -22274,7 +22274,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module MoveByoipCidrToIpamInput
+    class MoveByoipCidrToIpamInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::MoveByoipCidrToIpamInput, context: context)
         type = Types::MoveByoipCidrToIpamInput.new
@@ -22287,7 +22287,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module MoveByoipCidrToIpamOutput
+    class MoveByoipCidrToIpamOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::MoveByoipCidrToIpamOutput, context: context)
         type = Types::MoveByoipCidrToIpamOutput.new
@@ -22297,7 +22297,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module MovingAddressStatus
+    class MovingAddressStatus
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::MovingAddressStatus, context: context)
         type = Types::MovingAddressStatus.new
@@ -22308,7 +22308,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module MovingAddressStatusSet
+    class MovingAddressStatusSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -22319,7 +22319,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module NatGateway
+    class NatGateway
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::NatGateway, context: context)
         type = Types::NatGateway.new
@@ -22340,7 +22340,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module NatGatewayAddress
+    class NatGatewayAddress
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::NatGatewayAddress, context: context)
         type = Types::NatGatewayAddress.new
@@ -22357,7 +22357,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module NatGatewayAddressList
+    class NatGatewayAddressList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -22368,7 +22368,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module NatGatewayIdStringList
+    class NatGatewayIdStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -22379,7 +22379,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module NatGatewayList
+    class NatGatewayList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -22390,7 +22390,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module NetworkAcl
+    class NetworkAcl
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::NetworkAcl, context: context)
         type = Types::NetworkAcl.new
@@ -22406,7 +22406,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module NetworkAclAssociation
+    class NetworkAclAssociation
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::NetworkAclAssociation, context: context)
         type = Types::NetworkAclAssociation.new
@@ -22418,7 +22418,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module NetworkAclAssociationList
+    class NetworkAclAssociationList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -22429,7 +22429,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module NetworkAclEntry
+    class NetworkAclEntry
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::NetworkAclEntry, context: context)
         type = Types::NetworkAclEntry.new
@@ -22446,7 +22446,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module NetworkAclEntryList
+    class NetworkAclEntryList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -22457,7 +22457,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module NetworkAclIdStringList
+    class NetworkAclIdStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -22468,7 +22468,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module NetworkAclList
+    class NetworkAclList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -22479,7 +22479,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module NetworkBandwidthGbps
+    class NetworkBandwidthGbps
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::NetworkBandwidthGbps, context: context)
         type = Types::NetworkBandwidthGbps.new
@@ -22490,7 +22490,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module NetworkBandwidthGbpsRequest
+    class NetworkBandwidthGbpsRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::NetworkBandwidthGbpsRequest, context: context)
         type = Types::NetworkBandwidthGbpsRequest.new
@@ -22501,7 +22501,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module NetworkCardInfo
+    class NetworkCardInfo
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::NetworkCardInfo, context: context)
         type = Types::NetworkCardInfo.new
@@ -22515,7 +22515,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module NetworkCardInfoList
+    class NetworkCardInfoList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -22526,7 +22526,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module NetworkInfo
+    class NetworkInfo
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::NetworkInfo, context: context)
         type = Types::NetworkInfo.new
@@ -22548,7 +22548,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module NetworkInsightsAccessScope
+    class NetworkInsightsAccessScope
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::NetworkInsightsAccessScope, context: context)
         type = Types::NetworkInsightsAccessScope.new
@@ -22562,7 +22562,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module NetworkInsightsAccessScopeAnalysis
+    class NetworkInsightsAccessScopeAnalysis
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::NetworkInsightsAccessScopeAnalysis, context: context)
         type = Types::NetworkInsightsAccessScopeAnalysis.new
@@ -22582,7 +22582,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module NetworkInsightsAccessScopeAnalysisIdList
+    class NetworkInsightsAccessScopeAnalysisIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -22593,7 +22593,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module NetworkInsightsAccessScopeAnalysisList
+    class NetworkInsightsAccessScopeAnalysisList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -22604,7 +22604,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module NetworkInsightsAccessScopeContent
+    class NetworkInsightsAccessScopeContent
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::NetworkInsightsAccessScopeContent, context: context)
         type = Types::NetworkInsightsAccessScopeContent.new
@@ -22616,7 +22616,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module NetworkInsightsAccessScopeIdList
+    class NetworkInsightsAccessScopeIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -22627,7 +22627,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module NetworkInsightsAccessScopeList
+    class NetworkInsightsAccessScopeList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -22638,7 +22638,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module NetworkInsightsAnalysis
+    class NetworkInsightsAnalysis
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::NetworkInsightsAnalysis, context: context)
         type = Types::NetworkInsightsAnalysis.new
@@ -22663,7 +22663,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module NetworkInsightsAnalysisIdList
+    class NetworkInsightsAnalysisIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -22674,7 +22674,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module NetworkInsightsAnalysisList
+    class NetworkInsightsAnalysisList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -22685,7 +22685,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module NetworkInsightsPath
+    class NetworkInsightsPath
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::NetworkInsightsPath, context: context)
         type = Types::NetworkInsightsPath.new
@@ -22708,7 +22708,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module NetworkInsightsPathIdList
+    class NetworkInsightsPathIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -22719,7 +22719,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module NetworkInsightsPathList
+    class NetworkInsightsPathList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -22730,7 +22730,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module NetworkInterface
+    class NetworkInterface
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::NetworkInterface, context: context)
         type = Types::NetworkInterface.new
@@ -22766,7 +22766,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module NetworkInterfaceAssociation
+    class NetworkInterfaceAssociation
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::NetworkInterfaceAssociation, context: context)
         type = Types::NetworkInterfaceAssociation.new
@@ -22782,7 +22782,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module NetworkInterfaceAttachment
+    class NetworkInterfaceAttachment
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::NetworkInterfaceAttachment, context: context)
         type = Types::NetworkInterfaceAttachment.new
@@ -22800,7 +22800,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module NetworkInterfaceAttachmentChanges
+    class NetworkInterfaceAttachmentChanges
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::NetworkInterfaceAttachmentChanges, context: context)
         type = Types::NetworkInterfaceAttachmentChanges.new
@@ -22811,7 +22811,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module NetworkInterfaceCount
+    class NetworkInterfaceCount
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::NetworkInterfaceCount, context: context)
         type = Types::NetworkInterfaceCount.new
@@ -22822,7 +22822,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module NetworkInterfaceCountRequest
+    class NetworkInterfaceCountRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::NetworkInterfaceCountRequest, context: context)
         type = Types::NetworkInterfaceCountRequest.new
@@ -22833,7 +22833,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module NetworkInterfaceIdList
+    class NetworkInterfaceIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -22844,7 +22844,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module NetworkInterfaceIdSet
+    class NetworkInterfaceIdSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -22855,7 +22855,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module NetworkInterfaceIpv6Address
+    class NetworkInterfaceIpv6Address
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::NetworkInterfaceIpv6Address, context: context)
         type = Types::NetworkInterfaceIpv6Address.new
@@ -22866,7 +22866,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module NetworkInterfaceIpv6AddressesList
+    class NetworkInterfaceIpv6AddressesList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -22877,7 +22877,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module NetworkInterfaceList
+    class NetworkInterfaceList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -22888,7 +22888,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module NetworkInterfacePermission
+    class NetworkInterfacePermission
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::NetworkInterfacePermission, context: context)
         type = Types::NetworkInterfacePermission.new
@@ -22903,7 +22903,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module NetworkInterfacePermissionIdList
+    class NetworkInterfacePermissionIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -22914,7 +22914,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module NetworkInterfacePermissionList
+    class NetworkInterfacePermissionList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -22925,7 +22925,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module NetworkInterfacePermissionState
+    class NetworkInterfacePermissionState
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::NetworkInterfacePermissionState, context: context)
         type = Types::NetworkInterfacePermissionState.new
@@ -22936,7 +22936,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module NetworkInterfacePrivateIpAddress
+    class NetworkInterfacePrivateIpAddress
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::NetworkInterfacePrivateIpAddress, context: context)
         type = Types::NetworkInterfacePrivateIpAddress.new
@@ -22949,7 +22949,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module NetworkInterfacePrivateIpAddressList
+    class NetworkInterfacePrivateIpAddressList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -22960,7 +22960,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module NetworkNodesList
+    class NetworkNodesList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -22971,7 +22971,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module NewDhcpConfiguration
+    class NewDhcpConfiguration
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::NewDhcpConfiguration, context: context)
         type = Types::NewDhcpConfiguration.new
@@ -22982,7 +22982,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module NewDhcpConfigurationList
+    class NewDhcpConfigurationList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -22993,7 +22993,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module NitroTpmInfo
+    class NitroTpmInfo
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::NitroTpmInfo, context: context)
         type = Types::NitroTpmInfo.new
@@ -23003,7 +23003,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module NitroTpmSupportedVersionsList
+    class NitroTpmSupportedVersionsList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -23014,7 +23014,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module OccurrenceDayRequestSet
+    class OccurrenceDayRequestSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -23025,7 +23025,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module OccurrenceDaySet
+    class OccurrenceDaySet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -23036,7 +23036,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module OidcOptions
+    class OidcOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::OidcOptions, context: context)
         type = Types::OidcOptions.new
@@ -23052,7 +23052,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module OnDemandOptions
+    class OnDemandOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::OnDemandOptions, context: context)
         type = Types::OnDemandOptions.new
@@ -23067,7 +23067,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module OnDemandOptionsRequest
+    class OnDemandOptionsRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::OnDemandOptionsRequest, context: context)
         type = Types::OnDemandOptionsRequest.new
@@ -23082,7 +23082,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module OrganizationArnStringList
+    class OrganizationArnStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -23093,7 +23093,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module OrganizationalUnitArnStringList
+    class OrganizationalUnitArnStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -23104,7 +23104,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module OwnerStringList
+    class OwnerStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -23115,7 +23115,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PacketHeaderStatement
+    class PacketHeaderStatement
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PacketHeaderStatement, context: context)
         type = Types::PacketHeaderStatement.new
@@ -23131,7 +23131,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PacketHeaderStatementRequest
+    class PacketHeaderStatementRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PacketHeaderStatementRequest, context: context)
         type = Types::PacketHeaderStatementRequest.new
@@ -23147,7 +23147,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PathComponent
+    class PathComponent
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PathComponent, context: context)
         type = Types::PathComponent.new
@@ -23176,7 +23176,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PathComponentList
+    class PathComponentList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -23187,7 +23187,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PathFilter
+    class PathFilter
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PathFilter, context: context)
         type = Types::PathFilter.new
@@ -23200,7 +23200,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PathRequestFilter
+    class PathRequestFilter
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PathRequestFilter, context: context)
         type = Types::PathRequestFilter.new
@@ -23213,7 +23213,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PathStatement
+    class PathStatement
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PathStatement, context: context)
         type = Types::PathStatement.new
@@ -23224,7 +23224,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PathStatementRequest
+    class PathStatementRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PathStatementRequest, context: context)
         type = Types::PathStatementRequest.new
@@ -23235,7 +23235,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PciId
+    class PciId
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PciId, context: context)
         type = Types::PciId.new
@@ -23248,7 +23248,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PeeringAttachmentStatus
+    class PeeringAttachmentStatus
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PeeringAttachmentStatus, context: context)
         type = Types::PeeringAttachmentStatus.new
@@ -23259,7 +23259,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PeeringConnectionOptions
+    class PeeringConnectionOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PeeringConnectionOptions, context: context)
         type = Types::PeeringConnectionOptions.new
@@ -23271,7 +23271,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PeeringConnectionOptionsRequest
+    class PeeringConnectionOptionsRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PeeringConnectionOptionsRequest, context: context)
         type = Types::PeeringConnectionOptionsRequest.new
@@ -23283,7 +23283,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PeeringTgwInfo
+    class PeeringTgwInfo
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PeeringTgwInfo, context: context)
         type = Types::PeeringTgwInfo.new
@@ -23296,7 +23296,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Phase1DHGroupNumbersList
+    class Phase1DHGroupNumbersList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -23307,7 +23307,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Phase1DHGroupNumbersListValue
+    class Phase1DHGroupNumbersListValue
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Phase1DHGroupNumbersListValue, context: context)
         type = Types::Phase1DHGroupNumbersListValue.new
@@ -23317,7 +23317,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Phase1DHGroupNumbersRequestList
+    class Phase1DHGroupNumbersRequestList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -23328,7 +23328,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Phase1DHGroupNumbersRequestListValue
+    class Phase1DHGroupNumbersRequestListValue
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Phase1DHGroupNumbersRequestListValue, context: context)
         type = Types::Phase1DHGroupNumbersRequestListValue.new
@@ -23338,7 +23338,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Phase1EncryptionAlgorithmsList
+    class Phase1EncryptionAlgorithmsList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -23349,7 +23349,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Phase1EncryptionAlgorithmsListValue
+    class Phase1EncryptionAlgorithmsListValue
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Phase1EncryptionAlgorithmsListValue, context: context)
         type = Types::Phase1EncryptionAlgorithmsListValue.new
@@ -23359,7 +23359,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Phase1EncryptionAlgorithmsRequestList
+    class Phase1EncryptionAlgorithmsRequestList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -23370,7 +23370,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Phase1EncryptionAlgorithmsRequestListValue
+    class Phase1EncryptionAlgorithmsRequestListValue
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Phase1EncryptionAlgorithmsRequestListValue, context: context)
         type = Types::Phase1EncryptionAlgorithmsRequestListValue.new
@@ -23380,7 +23380,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Phase1IntegrityAlgorithmsList
+    class Phase1IntegrityAlgorithmsList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -23391,7 +23391,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Phase1IntegrityAlgorithmsListValue
+    class Phase1IntegrityAlgorithmsListValue
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Phase1IntegrityAlgorithmsListValue, context: context)
         type = Types::Phase1IntegrityAlgorithmsListValue.new
@@ -23401,7 +23401,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Phase1IntegrityAlgorithmsRequestList
+    class Phase1IntegrityAlgorithmsRequestList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -23412,7 +23412,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Phase1IntegrityAlgorithmsRequestListValue
+    class Phase1IntegrityAlgorithmsRequestListValue
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Phase1IntegrityAlgorithmsRequestListValue, context: context)
         type = Types::Phase1IntegrityAlgorithmsRequestListValue.new
@@ -23422,7 +23422,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Phase2DHGroupNumbersList
+    class Phase2DHGroupNumbersList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -23433,7 +23433,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Phase2DHGroupNumbersListValue
+    class Phase2DHGroupNumbersListValue
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Phase2DHGroupNumbersListValue, context: context)
         type = Types::Phase2DHGroupNumbersListValue.new
@@ -23443,7 +23443,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Phase2DHGroupNumbersRequestList
+    class Phase2DHGroupNumbersRequestList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -23454,7 +23454,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Phase2DHGroupNumbersRequestListValue
+    class Phase2DHGroupNumbersRequestListValue
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Phase2DHGroupNumbersRequestListValue, context: context)
         type = Types::Phase2DHGroupNumbersRequestListValue.new
@@ -23464,7 +23464,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Phase2EncryptionAlgorithmsList
+    class Phase2EncryptionAlgorithmsList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -23475,7 +23475,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Phase2EncryptionAlgorithmsListValue
+    class Phase2EncryptionAlgorithmsListValue
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Phase2EncryptionAlgorithmsListValue, context: context)
         type = Types::Phase2EncryptionAlgorithmsListValue.new
@@ -23485,7 +23485,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Phase2EncryptionAlgorithmsRequestList
+    class Phase2EncryptionAlgorithmsRequestList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -23496,7 +23496,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Phase2EncryptionAlgorithmsRequestListValue
+    class Phase2EncryptionAlgorithmsRequestListValue
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Phase2EncryptionAlgorithmsRequestListValue, context: context)
         type = Types::Phase2EncryptionAlgorithmsRequestListValue.new
@@ -23506,7 +23506,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Phase2IntegrityAlgorithmsList
+    class Phase2IntegrityAlgorithmsList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -23517,7 +23517,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Phase2IntegrityAlgorithmsListValue
+    class Phase2IntegrityAlgorithmsListValue
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Phase2IntegrityAlgorithmsListValue, context: context)
         type = Types::Phase2IntegrityAlgorithmsListValue.new
@@ -23527,7 +23527,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Phase2IntegrityAlgorithmsRequestList
+    class Phase2IntegrityAlgorithmsRequestList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -23538,7 +23538,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Phase2IntegrityAlgorithmsRequestListValue
+    class Phase2IntegrityAlgorithmsRequestListValue
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Phase2IntegrityAlgorithmsRequestListValue, context: context)
         type = Types::Phase2IntegrityAlgorithmsRequestListValue.new
@@ -23548,7 +23548,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Placement
+    class Placement
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Placement, context: context)
         type = Types::Placement.new
@@ -23566,7 +23566,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PlacementGroup
+    class PlacementGroup
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PlacementGroup, context: context)
         type = Types::PlacementGroup.new
@@ -23583,7 +23583,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PlacementGroupIdStringList
+    class PlacementGroupIdStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -23594,7 +23594,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PlacementGroupInfo
+    class PlacementGroupInfo
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PlacementGroupInfo, context: context)
         type = Types::PlacementGroupInfo.new
@@ -23604,7 +23604,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PlacementGroupList
+    class PlacementGroupList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -23615,7 +23615,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PlacementGroupStrategyList
+    class PlacementGroupStrategyList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -23626,7 +23626,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PlacementGroupStringList
+    class PlacementGroupStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -23637,7 +23637,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PlacementResponse
+    class PlacementResponse
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PlacementResponse, context: context)
         type = Types::PlacementResponse.new
@@ -23647,7 +23647,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PoolCidrBlock
+    class PoolCidrBlock
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PoolCidrBlock, context: context)
         type = Types::PoolCidrBlock.new
@@ -23657,7 +23657,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PoolCidrBlocksSet
+    class PoolCidrBlocksSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -23668,7 +23668,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PortRange
+    class PortRange
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PortRange, context: context)
         type = Types::PortRange.new
@@ -23679,7 +23679,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PortRangeList
+    class PortRangeList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -23690,7 +23690,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PrefixList
+    class PrefixList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PrefixList, context: context)
         type = Types::PrefixList.new
@@ -23702,7 +23702,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PrefixListAssociation
+    class PrefixListAssociation
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PrefixListAssociation, context: context)
         type = Types::PrefixListAssociation.new
@@ -23713,7 +23713,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PrefixListAssociationSet
+    class PrefixListAssociationSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -23724,7 +23724,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PrefixListEntry
+    class PrefixListEntry
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PrefixListEntry, context: context)
         type = Types::PrefixListEntry.new
@@ -23735,7 +23735,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PrefixListEntrySet
+    class PrefixListEntrySet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -23746,7 +23746,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PrefixListId
+    class PrefixListId
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PrefixListId, context: context)
         type = Types::PrefixListId.new
@@ -23757,7 +23757,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PrefixListIdList
+    class PrefixListIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -23768,7 +23768,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PrefixListIdSet
+    class PrefixListIdSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -23779,7 +23779,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PrefixListResourceIdStringList
+    class PrefixListResourceIdStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -23790,7 +23790,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PrefixListSet
+    class PrefixListSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -23801,7 +23801,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PriceSchedule
+    class PriceSchedule
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PriceSchedule, context: context)
         type = Types::PriceSchedule.new
@@ -23814,7 +23814,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PriceScheduleList
+    class PriceScheduleList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -23825,7 +23825,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PriceScheduleSpecification
+    class PriceScheduleSpecification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PriceScheduleSpecification, context: context)
         type = Types::PriceScheduleSpecification.new
@@ -23837,7 +23837,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PriceScheduleSpecificationList
+    class PriceScheduleSpecificationList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -23848,7 +23848,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PricingDetail
+    class PricingDetail
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PricingDetail, context: context)
         type = Types::PricingDetail.new
@@ -23859,7 +23859,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PricingDetailsList
+    class PricingDetailsList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -23870,7 +23870,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PrincipalIdFormat
+    class PrincipalIdFormat
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PrincipalIdFormat, context: context)
         type = Types::PrincipalIdFormat.new
@@ -23881,7 +23881,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PrincipalIdFormatList
+    class PrincipalIdFormatList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -23892,7 +23892,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PrivateDnsDetails
+    class PrivateDnsDetails
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PrivateDnsDetails, context: context)
         type = Types::PrivateDnsDetails.new
@@ -23902,7 +23902,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PrivateDnsDetailsSet
+    class PrivateDnsDetailsSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -23913,7 +23913,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PrivateDnsNameConfiguration
+    class PrivateDnsNameConfiguration
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PrivateDnsNameConfiguration, context: context)
         type = Types::PrivateDnsNameConfiguration.new
@@ -23926,7 +23926,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PrivateDnsNameOptionsOnLaunch
+    class PrivateDnsNameOptionsOnLaunch
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PrivateDnsNameOptionsOnLaunch, context: context)
         type = Types::PrivateDnsNameOptionsOnLaunch.new
@@ -23938,7 +23938,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PrivateDnsNameOptionsRequest
+    class PrivateDnsNameOptionsRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PrivateDnsNameOptionsRequest, context: context)
         type = Types::PrivateDnsNameOptionsRequest.new
@@ -23950,7 +23950,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PrivateDnsNameOptionsResponse
+    class PrivateDnsNameOptionsResponse
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PrivateDnsNameOptionsResponse, context: context)
         type = Types::PrivateDnsNameOptionsResponse.new
@@ -23962,7 +23962,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PrivateIpAddressConfigSet
+    class PrivateIpAddressConfigSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -23973,7 +23973,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PrivateIpAddressSpecification
+    class PrivateIpAddressSpecification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PrivateIpAddressSpecification, context: context)
         type = Types::PrivateIpAddressSpecification.new
@@ -23984,7 +23984,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PrivateIpAddressSpecificationList
+    class PrivateIpAddressSpecificationList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -23995,7 +23995,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PrivateIpAddressStringList
+    class PrivateIpAddressStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -24006,7 +24006,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ProcessorInfo
+    class ProcessorInfo
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ProcessorInfo, context: context)
         type = Types::ProcessorInfo.new
@@ -24019,7 +24019,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ProductCode
+    class ProductCode
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ProductCode, context: context)
         type = Types::ProductCode.new
@@ -24030,7 +24030,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ProductCodeList
+    class ProductCodeList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -24041,7 +24041,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ProductCodeStringList
+    class ProductCodeStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -24052,7 +24052,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ProductDescriptionList
+    class ProductDescriptionList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -24063,7 +24063,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PropagatingVgw
+    class PropagatingVgw
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PropagatingVgw, context: context)
         type = Types::PropagatingVgw.new
@@ -24073,7 +24073,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PropagatingVgwList
+    class PropagatingVgwList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -24084,7 +24084,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ProtocolIntList
+    class ProtocolIntList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -24095,7 +24095,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ProtocolList
+    class ProtocolList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -24106,7 +24106,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ProvisionByoipCidrInput
+    class ProvisionByoipCidrInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ProvisionByoipCidrInput, context: context)
         type = Types::ProvisionByoipCidrInput.new
@@ -24123,7 +24123,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ProvisionByoipCidrOutput
+    class ProvisionByoipCidrOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ProvisionByoipCidrOutput, context: context)
         type = Types::ProvisionByoipCidrOutput.new
@@ -24133,7 +24133,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ProvisionIpamByoasnInput
+    class ProvisionIpamByoasnInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ProvisionIpamByoasnInput, context: context)
         type = Types::ProvisionIpamByoasnInput.new
@@ -24146,7 +24146,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ProvisionIpamByoasnOutput
+    class ProvisionIpamByoasnOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ProvisionIpamByoasnOutput, context: context)
         type = Types::ProvisionIpamByoasnOutput.new
@@ -24156,7 +24156,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ProvisionIpamPoolCidrInput
+    class ProvisionIpamPoolCidrInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ProvisionIpamPoolCidrInput, context: context)
         type = Types::ProvisionIpamPoolCidrInput.new
@@ -24171,7 +24171,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ProvisionIpamPoolCidrOutput
+    class ProvisionIpamPoolCidrOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ProvisionIpamPoolCidrOutput, context: context)
         type = Types::ProvisionIpamPoolCidrOutput.new
@@ -24181,7 +24181,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ProvisionPublicIpv4PoolCidrInput
+    class ProvisionPublicIpv4PoolCidrInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ProvisionPublicIpv4PoolCidrInput, context: context)
         type = Types::ProvisionPublicIpv4PoolCidrInput.new
@@ -24194,7 +24194,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ProvisionPublicIpv4PoolCidrOutput
+    class ProvisionPublicIpv4PoolCidrOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ProvisionPublicIpv4PoolCidrOutput, context: context)
         type = Types::ProvisionPublicIpv4PoolCidrOutput.new
@@ -24205,7 +24205,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ProvisionedBandwidth
+    class ProvisionedBandwidth
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ProvisionedBandwidth, context: context)
         type = Types::ProvisionedBandwidth.new
@@ -24219,7 +24219,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PtrUpdateStatus
+    class PtrUpdateStatus
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PtrUpdateStatus, context: context)
         type = Types::PtrUpdateStatus.new
@@ -24231,7 +24231,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PublicIpStringList
+    class PublicIpStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -24242,7 +24242,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PublicIpv4Pool
+    class PublicIpv4Pool
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PublicIpv4Pool, context: context)
         type = Types::PublicIpv4Pool.new
@@ -24258,7 +24258,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PublicIpv4PoolIdStringList
+    class PublicIpv4PoolIdStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -24269,7 +24269,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PublicIpv4PoolRange
+    class PublicIpv4PoolRange
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PublicIpv4PoolRange, context: context)
         type = Types::PublicIpv4PoolRange.new
@@ -24282,7 +24282,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PublicIpv4PoolRangeSet
+    class PublicIpv4PoolRangeSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -24293,7 +24293,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PublicIpv4PoolSet
+    class PublicIpv4PoolSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -24304,7 +24304,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Purchase
+    class Purchase
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Purchase, context: context)
         type = Types::Purchase.new
@@ -24321,7 +24321,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PurchaseCapacityBlockInput
+    class PurchaseCapacityBlockInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PurchaseCapacityBlockInput, context: context)
         type = Types::PurchaseCapacityBlockInput.new
@@ -24334,7 +24334,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PurchaseCapacityBlockOutput
+    class PurchaseCapacityBlockOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PurchaseCapacityBlockOutput, context: context)
         type = Types::PurchaseCapacityBlockOutput.new
@@ -24344,7 +24344,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PurchaseHostReservationInput
+    class PurchaseHostReservationInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PurchaseHostReservationInput, context: context)
         type = Types::PurchaseHostReservationInput.new
@@ -24359,7 +24359,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PurchaseHostReservationOutput
+    class PurchaseHostReservationOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PurchaseHostReservationOutput, context: context)
         type = Types::PurchaseHostReservationOutput.new
@@ -24373,7 +24373,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PurchaseRequest
+    class PurchaseRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PurchaseRequest, context: context)
         type = Types::PurchaseRequest.new
@@ -24384,7 +24384,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PurchaseRequestSet
+    class PurchaseRequestSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -24395,7 +24395,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PurchaseReservedInstancesOfferingInput
+    class PurchaseReservedInstancesOfferingInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PurchaseReservedInstancesOfferingInput, context: context)
         type = Types::PurchaseReservedInstancesOfferingInput.new
@@ -24409,7 +24409,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PurchaseReservedInstancesOfferingOutput
+    class PurchaseReservedInstancesOfferingOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PurchaseReservedInstancesOfferingOutput, context: context)
         type = Types::PurchaseReservedInstancesOfferingOutput.new
@@ -24419,7 +24419,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PurchaseScheduledInstancesInput
+    class PurchaseScheduledInstancesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PurchaseScheduledInstancesInput, context: context)
         type = Types::PurchaseScheduledInstancesInput.new
@@ -24431,7 +24431,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PurchaseScheduledInstancesOutput
+    class PurchaseScheduledInstancesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PurchaseScheduledInstancesOutput, context: context)
         type = Types::PurchaseScheduledInstancesOutput.new
@@ -24441,7 +24441,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PurchaseSet
+    class PurchaseSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -24452,7 +24452,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module PurchasedScheduledInstanceSet
+    class PurchasedScheduledInstanceSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -24463,7 +24463,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ReasonCodesList
+    class ReasonCodesList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -24474,7 +24474,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RebootInstancesInput
+    class RebootInstancesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RebootInstancesInput, context: context)
         type = Types::RebootInstancesInput.new
@@ -24485,7 +24485,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RebootInstancesOutput
+    class RebootInstancesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RebootInstancesOutput, context: context)
         type = Types::RebootInstancesOutput.new
@@ -24494,7 +24494,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RecurringCharge
+    class RecurringCharge
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RecurringCharge, context: context)
         type = Types::RecurringCharge.new
@@ -24505,7 +24505,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RecurringChargesList
+    class RecurringChargesList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -24516,7 +24516,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ReferencedSecurityGroup
+    class ReferencedSecurityGroup
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReferencedSecurityGroup, context: context)
         type = Types::ReferencedSecurityGroup.new
@@ -24530,7 +24530,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Region
+    class Region
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Region, context: context)
         type = Types::Region.new
@@ -24542,7 +24542,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RegionList
+    class RegionList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -24553,7 +24553,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RegionNameStringList
+    class RegionNameStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -24564,7 +24564,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RegionNames
+    class RegionNames
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -24575,7 +24575,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RegisterImageInput
+    class RegisterImageInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RegisterImageInput, context: context)
         type = Types::RegisterImageInput.new
@@ -24601,7 +24601,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RegisterImageOutput
+    class RegisterImageOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RegisterImageOutput, context: context)
         type = Types::RegisterImageOutput.new
@@ -24611,7 +24611,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RegisterInstanceEventNotificationAttributesInput
+    class RegisterInstanceEventNotificationAttributesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RegisterInstanceEventNotificationAttributesInput, context: context)
         type = Types::RegisterInstanceEventNotificationAttributesInput.new
@@ -24622,7 +24622,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RegisterInstanceEventNotificationAttributesOutput
+    class RegisterInstanceEventNotificationAttributesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RegisterInstanceEventNotificationAttributesOutput, context: context)
         type = Types::RegisterInstanceEventNotificationAttributesOutput.new
@@ -24632,7 +24632,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RegisterInstanceTagAttributeRequest
+    class RegisterInstanceTagAttributeRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RegisterInstanceTagAttributeRequest, context: context)
         type = Types::RegisterInstanceTagAttributeRequest.new
@@ -24643,7 +24643,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RegisterTransitGatewayMulticastGroupMembersInput
+    class RegisterTransitGatewayMulticastGroupMembersInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RegisterTransitGatewayMulticastGroupMembersInput, context: context)
         type = Types::RegisterTransitGatewayMulticastGroupMembersInput.new
@@ -24656,7 +24656,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RegisterTransitGatewayMulticastGroupMembersOutput
+    class RegisterTransitGatewayMulticastGroupMembersOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RegisterTransitGatewayMulticastGroupMembersOutput, context: context)
         type = Types::RegisterTransitGatewayMulticastGroupMembersOutput.new
@@ -24666,7 +24666,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RegisterTransitGatewayMulticastGroupSourcesInput
+    class RegisterTransitGatewayMulticastGroupSourcesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RegisterTransitGatewayMulticastGroupSourcesInput, context: context)
         type = Types::RegisterTransitGatewayMulticastGroupSourcesInput.new
@@ -24679,7 +24679,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RegisterTransitGatewayMulticastGroupSourcesOutput
+    class RegisterTransitGatewayMulticastGroupSourcesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RegisterTransitGatewayMulticastGroupSourcesOutput, context: context)
         type = Types::RegisterTransitGatewayMulticastGroupSourcesOutput.new
@@ -24689,7 +24689,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RejectTransitGatewayMulticastDomainAssociationsInput
+    class RejectTransitGatewayMulticastDomainAssociationsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RejectTransitGatewayMulticastDomainAssociationsInput, context: context)
         type = Types::RejectTransitGatewayMulticastDomainAssociationsInput.new
@@ -24702,7 +24702,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RejectTransitGatewayMulticastDomainAssociationsOutput
+    class RejectTransitGatewayMulticastDomainAssociationsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RejectTransitGatewayMulticastDomainAssociationsOutput, context: context)
         type = Types::RejectTransitGatewayMulticastDomainAssociationsOutput.new
@@ -24712,7 +24712,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RejectTransitGatewayPeeringAttachmentInput
+    class RejectTransitGatewayPeeringAttachmentInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RejectTransitGatewayPeeringAttachmentInput, context: context)
         type = Types::RejectTransitGatewayPeeringAttachmentInput.new
@@ -24723,7 +24723,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RejectTransitGatewayPeeringAttachmentOutput
+    class RejectTransitGatewayPeeringAttachmentOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RejectTransitGatewayPeeringAttachmentOutput, context: context)
         type = Types::RejectTransitGatewayPeeringAttachmentOutput.new
@@ -24733,7 +24733,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RejectTransitGatewayVpcAttachmentInput
+    class RejectTransitGatewayVpcAttachmentInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RejectTransitGatewayVpcAttachmentInput, context: context)
         type = Types::RejectTransitGatewayVpcAttachmentInput.new
@@ -24744,7 +24744,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RejectTransitGatewayVpcAttachmentOutput
+    class RejectTransitGatewayVpcAttachmentOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RejectTransitGatewayVpcAttachmentOutput, context: context)
         type = Types::RejectTransitGatewayVpcAttachmentOutput.new
@@ -24754,7 +24754,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RejectVpcEndpointConnectionsInput
+    class RejectVpcEndpointConnectionsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RejectVpcEndpointConnectionsInput, context: context)
         type = Types::RejectVpcEndpointConnectionsInput.new
@@ -24766,7 +24766,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RejectVpcEndpointConnectionsOutput
+    class RejectVpcEndpointConnectionsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RejectVpcEndpointConnectionsOutput, context: context)
         type = Types::RejectVpcEndpointConnectionsOutput.new
@@ -24776,7 +24776,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RejectVpcPeeringConnectionInput
+    class RejectVpcPeeringConnectionInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RejectVpcPeeringConnectionInput, context: context)
         type = Types::RejectVpcPeeringConnectionInput.new
@@ -24787,7 +24787,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RejectVpcPeeringConnectionOutput
+    class RejectVpcPeeringConnectionOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RejectVpcPeeringConnectionOutput, context: context)
         type = Types::RejectVpcPeeringConnectionOutput.new
@@ -24797,7 +24797,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ReleaseAddressInput
+    class ReleaseAddressInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReleaseAddressInput, context: context)
         type = Types::ReleaseAddressInput.new
@@ -24810,7 +24810,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ReleaseAddressOutput
+    class ReleaseAddressOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReleaseAddressOutput, context: context)
         type = Types::ReleaseAddressOutput.new
@@ -24819,7 +24819,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ReleaseHostsInput
+    class ReleaseHostsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReleaseHostsInput, context: context)
         type = Types::ReleaseHostsInput.new
@@ -24829,7 +24829,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ReleaseHostsOutput
+    class ReleaseHostsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReleaseHostsOutput, context: context)
         type = Types::ReleaseHostsOutput.new
@@ -24840,7 +24840,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ReleaseIpamPoolAllocationInput
+    class ReleaseIpamPoolAllocationInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReleaseIpamPoolAllocationInput, context: context)
         type = Types::ReleaseIpamPoolAllocationInput.new
@@ -24853,7 +24853,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ReleaseIpamPoolAllocationOutput
+    class ReleaseIpamPoolAllocationOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReleaseIpamPoolAllocationOutput, context: context)
         type = Types::ReleaseIpamPoolAllocationOutput.new
@@ -24863,7 +24863,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RemoveIpamOperatingRegion
+    class RemoveIpamOperatingRegion
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RemoveIpamOperatingRegion, context: context)
         type = Types::RemoveIpamOperatingRegion.new
@@ -24873,7 +24873,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RemoveIpamOperatingRegionSet
+    class RemoveIpamOperatingRegionSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -24884,7 +24884,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RemovePrefixListEntries
+    class RemovePrefixListEntries
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -24895,7 +24895,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RemovePrefixListEntry
+    class RemovePrefixListEntry
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RemovePrefixListEntry, context: context)
         type = Types::RemovePrefixListEntry.new
@@ -24905,7 +24905,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ReplaceIamInstanceProfileAssociationInput
+    class ReplaceIamInstanceProfileAssociationInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReplaceIamInstanceProfileAssociationInput, context: context)
         type = Types::ReplaceIamInstanceProfileAssociationInput.new
@@ -24916,7 +24916,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ReplaceIamInstanceProfileAssociationOutput
+    class ReplaceIamInstanceProfileAssociationOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReplaceIamInstanceProfileAssociationOutput, context: context)
         type = Types::ReplaceIamInstanceProfileAssociationOutput.new
@@ -24926,7 +24926,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ReplaceNetworkAclAssociationInput
+    class ReplaceNetworkAclAssociationInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReplaceNetworkAclAssociationInput, context: context)
         type = Types::ReplaceNetworkAclAssociationInput.new
@@ -24938,7 +24938,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ReplaceNetworkAclAssociationOutput
+    class ReplaceNetworkAclAssociationOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReplaceNetworkAclAssociationOutput, context: context)
         type = Types::ReplaceNetworkAclAssociationOutput.new
@@ -24948,7 +24948,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ReplaceNetworkAclEntryInput
+    class ReplaceNetworkAclEntryInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReplaceNetworkAclEntryInput, context: context)
         type = Types::ReplaceNetworkAclEntryInput.new
@@ -24967,7 +24967,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ReplaceNetworkAclEntryOutput
+    class ReplaceNetworkAclEntryOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReplaceNetworkAclEntryOutput, context: context)
         type = Types::ReplaceNetworkAclEntryOutput.new
@@ -24976,7 +24976,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ReplaceRootVolumeTask
+    class ReplaceRootVolumeTask
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReplaceRootVolumeTask, context: context)
         type = Types::ReplaceRootVolumeTask.new
@@ -24994,7 +24994,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ReplaceRootVolumeTaskIds
+    class ReplaceRootVolumeTaskIds
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -25005,7 +25005,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ReplaceRootVolumeTasks
+    class ReplaceRootVolumeTasks
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -25016,7 +25016,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ReplaceRouteInput
+    class ReplaceRouteInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReplaceRouteInput, context: context)
         type = Types::ReplaceRouteInput.new
@@ -25042,7 +25042,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ReplaceRouteOutput
+    class ReplaceRouteOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReplaceRouteOutput, context: context)
         type = Types::ReplaceRouteOutput.new
@@ -25051,7 +25051,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ReplaceRouteTableAssociationInput
+    class ReplaceRouteTableAssociationInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReplaceRouteTableAssociationInput, context: context)
         type = Types::ReplaceRouteTableAssociationInput.new
@@ -25063,7 +25063,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ReplaceRouteTableAssociationOutput
+    class ReplaceRouteTableAssociationOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReplaceRouteTableAssociationOutput, context: context)
         type = Types::ReplaceRouteTableAssociationOutput.new
@@ -25074,7 +25074,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ReplaceTransitGatewayRouteInput
+    class ReplaceTransitGatewayRouteInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReplaceTransitGatewayRouteInput, context: context)
         type = Types::ReplaceTransitGatewayRouteInput.new
@@ -25088,7 +25088,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ReplaceTransitGatewayRouteOutput
+    class ReplaceTransitGatewayRouteOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReplaceTransitGatewayRouteOutput, context: context)
         type = Types::ReplaceTransitGatewayRouteOutput.new
@@ -25098,7 +25098,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ReplaceVpnTunnelInput
+    class ReplaceVpnTunnelInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReplaceVpnTunnelInput, context: context)
         type = Types::ReplaceVpnTunnelInput.new
@@ -25111,7 +25111,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ReplaceVpnTunnelOutput
+    class ReplaceVpnTunnelOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReplaceVpnTunnelOutput, context: context)
         type = Types::ReplaceVpnTunnelOutput.new
@@ -25121,7 +25121,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ReportInstanceStatusInput
+    class ReportInstanceStatusInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReportInstanceStatusInput, context: context)
         type = Types::ReportInstanceStatusInput.new
@@ -25137,7 +25137,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ReportInstanceStatusOutput
+    class ReportInstanceStatusOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReportInstanceStatusOutput, context: context)
         type = Types::ReportInstanceStatusOutput.new
@@ -25146,7 +25146,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RequestFilterPortRange
+    class RequestFilterPortRange
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RequestFilterPortRange, context: context)
         type = Types::RequestFilterPortRange.new
@@ -25157,7 +25157,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RequestHostIdList
+    class RequestHostIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -25168,7 +25168,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RequestHostIdSet
+    class RequestHostIdSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -25179,7 +25179,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RequestInstanceTypeList
+    class RequestInstanceTypeList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -25190,7 +25190,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RequestIpamResourceTag
+    class RequestIpamResourceTag
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RequestIpamResourceTag, context: context)
         type = Types::RequestIpamResourceTag.new
@@ -25201,7 +25201,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RequestIpamResourceTagList
+    class RequestIpamResourceTagList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -25212,7 +25212,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RequestLaunchTemplateData
+    class RequestLaunchTemplateData
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RequestLaunchTemplateData, context: context)
         type = Types::RequestLaunchTemplateData.new
@@ -25252,7 +25252,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RequestSpotFleetInput
+    class RequestSpotFleetInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RequestSpotFleetInput, context: context)
         type = Types::RequestSpotFleetInput.new
@@ -25263,7 +25263,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RequestSpotFleetOutput
+    class RequestSpotFleetOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RequestSpotFleetOutput, context: context)
         type = Types::RequestSpotFleetOutput.new
@@ -25273,7 +25273,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RequestSpotInstancesInput
+    class RequestSpotInstancesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RequestSpotInstancesInput, context: context)
         type = Types::RequestSpotInstancesInput.new
@@ -25295,7 +25295,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RequestSpotInstancesOutput
+    class RequestSpotInstancesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RequestSpotInstancesOutput, context: context)
         type = Types::RequestSpotInstancesOutput.new
@@ -25305,7 +25305,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RequestSpotLaunchSpecification
+    class RequestSpotLaunchSpecification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RequestSpotLaunchSpecification, context: context)
         type = Types::RequestSpotLaunchSpecification.new
@@ -25330,7 +25330,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RequestSpotLaunchSpecificationSecurityGroupIdList
+    class RequestSpotLaunchSpecificationSecurityGroupIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -25341,7 +25341,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RequestSpotLaunchSpecificationSecurityGroupList
+    class RequestSpotLaunchSpecificationSecurityGroupList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -25352,7 +25352,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Reservation
+    class Reservation
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Reservation, context: context)
         type = Types::Reservation.new
@@ -25366,7 +25366,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ReservationFleetInstanceSpecification
+    class ReservationFleetInstanceSpecification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReservationFleetInstanceSpecification, context: context)
         type = Types::ReservationFleetInstanceSpecification.new
@@ -25382,7 +25382,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ReservationFleetInstanceSpecificationList
+    class ReservationFleetInstanceSpecificationList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -25393,7 +25393,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ReservationList
+    class ReservationList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -25404,7 +25404,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ReservationValue
+    class ReservationValue
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReservationValue, context: context)
         type = Types::ReservationValue.new
@@ -25416,7 +25416,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ReservedInstanceIdSet
+    class ReservedInstanceIdSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -25427,7 +25427,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ReservedInstanceLimitPrice
+    class ReservedInstanceLimitPrice
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReservedInstanceLimitPrice, context: context)
         type = Types::ReservedInstanceLimitPrice.new
@@ -25438,7 +25438,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ReservedInstanceReservationValue
+    class ReservedInstanceReservationValue
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReservedInstanceReservationValue, context: context)
         type = Types::ReservedInstanceReservationValue.new
@@ -25449,7 +25449,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ReservedInstanceReservationValueSet
+    class ReservedInstanceReservationValueSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -25460,7 +25460,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ReservedInstances
+    class ReservedInstances
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReservedInstances, context: context)
         type = Types::ReservedInstances.new
@@ -25487,7 +25487,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ReservedInstancesConfiguration
+    class ReservedInstancesConfiguration
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReservedInstancesConfiguration, context: context)
         type = Types::ReservedInstancesConfiguration.new
@@ -25501,7 +25501,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ReservedInstancesConfigurationList
+    class ReservedInstancesConfigurationList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -25512,7 +25512,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ReservedInstancesId
+    class ReservedInstancesId
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReservedInstancesId, context: context)
         type = Types::ReservedInstancesId.new
@@ -25522,7 +25522,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ReservedInstancesIdStringList
+    class ReservedInstancesIdStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -25533,7 +25533,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ReservedInstancesList
+    class ReservedInstancesList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -25544,7 +25544,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ReservedInstancesListing
+    class ReservedInstancesListing
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReservedInstancesListing, context: context)
         type = Types::ReservedInstancesListing.new
@@ -25563,7 +25563,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ReservedInstancesListingList
+    class ReservedInstancesListingList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -25574,7 +25574,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ReservedInstancesModification
+    class ReservedInstancesModification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReservedInstancesModification, context: context)
         type = Types::ReservedInstancesModification.new
@@ -25592,7 +25592,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ReservedInstancesModificationIdStringList
+    class ReservedInstancesModificationIdStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -25603,7 +25603,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ReservedInstancesModificationList
+    class ReservedInstancesModificationList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -25614,7 +25614,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ReservedInstancesModificationResult
+    class ReservedInstancesModificationResult
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReservedInstancesModificationResult, context: context)
         type = Types::ReservedInstancesModificationResult.new
@@ -25625,7 +25625,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ReservedInstancesModificationResultList
+    class ReservedInstancesModificationResultList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -25636,7 +25636,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ReservedInstancesOffering
+    class ReservedInstancesOffering
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReservedInstancesOffering, context: context)
         type = Types::ReservedInstancesOffering.new
@@ -25660,7 +25660,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ReservedInstancesOfferingIdStringList
+    class ReservedInstancesOfferingIdStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -25671,7 +25671,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ReservedInstancesOfferingList
+    class ReservedInstancesOfferingList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -25682,7 +25682,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ReservedIntancesIds
+    class ReservedIntancesIds
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -25693,7 +25693,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ResetAddressAttributeInput
+    class ResetAddressAttributeInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ResetAddressAttributeInput, context: context)
         type = Types::ResetAddressAttributeInput.new
@@ -25705,7 +25705,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ResetAddressAttributeOutput
+    class ResetAddressAttributeOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ResetAddressAttributeOutput, context: context)
         type = Types::ResetAddressAttributeOutput.new
@@ -25715,7 +25715,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ResetEbsDefaultKmsKeyIdInput
+    class ResetEbsDefaultKmsKeyIdInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ResetEbsDefaultKmsKeyIdInput, context: context)
         type = Types::ResetEbsDefaultKmsKeyIdInput.new
@@ -25725,7 +25725,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ResetEbsDefaultKmsKeyIdOutput
+    class ResetEbsDefaultKmsKeyIdOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ResetEbsDefaultKmsKeyIdOutput, context: context)
         type = Types::ResetEbsDefaultKmsKeyIdOutput.new
@@ -25735,7 +25735,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ResetFpgaImageAttributeInput
+    class ResetFpgaImageAttributeInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ResetFpgaImageAttributeInput, context: context)
         type = Types::ResetFpgaImageAttributeInput.new
@@ -25747,7 +25747,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ResetFpgaImageAttributeOutput
+    class ResetFpgaImageAttributeOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ResetFpgaImageAttributeOutput, context: context)
         type = Types::ResetFpgaImageAttributeOutput.new
@@ -25757,7 +25757,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ResetImageAttributeInput
+    class ResetImageAttributeInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ResetImageAttributeInput, context: context)
         type = Types::ResetImageAttributeInput.new
@@ -25769,7 +25769,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ResetImageAttributeOutput
+    class ResetImageAttributeOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ResetImageAttributeOutput, context: context)
         type = Types::ResetImageAttributeOutput.new
@@ -25778,7 +25778,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ResetInstanceAttributeInput
+    class ResetInstanceAttributeInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ResetInstanceAttributeInput, context: context)
         type = Types::ResetInstanceAttributeInput.new
@@ -25790,7 +25790,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ResetInstanceAttributeOutput
+    class ResetInstanceAttributeOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ResetInstanceAttributeOutput, context: context)
         type = Types::ResetInstanceAttributeOutput.new
@@ -25799,7 +25799,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ResetNetworkInterfaceAttributeInput
+    class ResetNetworkInterfaceAttributeInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ResetNetworkInterfaceAttributeInput, context: context)
         type = Types::ResetNetworkInterfaceAttributeInput.new
@@ -25811,7 +25811,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ResetNetworkInterfaceAttributeOutput
+    class ResetNetworkInterfaceAttributeOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ResetNetworkInterfaceAttributeOutput, context: context)
         type = Types::ResetNetworkInterfaceAttributeOutput.new
@@ -25820,7 +25820,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ResetSnapshotAttributeInput
+    class ResetSnapshotAttributeInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ResetSnapshotAttributeInput, context: context)
         type = Types::ResetSnapshotAttributeInput.new
@@ -25832,7 +25832,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ResetSnapshotAttributeOutput
+    class ResetSnapshotAttributeOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ResetSnapshotAttributeOutput, context: context)
         type = Types::ResetSnapshotAttributeOutput.new
@@ -25841,7 +25841,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ResourceIdList
+    class ResourceIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -25852,7 +25852,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ResourceList
+    class ResourceList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -25863,7 +25863,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ResourceStatement
+    class ResourceStatement
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ResourceStatement, context: context)
         type = Types::ResourceStatement.new
@@ -25874,7 +25874,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ResourceStatementRequest
+    class ResourceStatementRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ResourceStatementRequest, context: context)
         type = Types::ResourceStatementRequest.new
@@ -25885,7 +25885,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ResponseError
+    class ResponseError
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ResponseError, context: context)
         type = Types::ResponseError.new
@@ -25896,7 +25896,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ResponseHostIdList
+    class ResponseHostIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -25907,7 +25907,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ResponseHostIdSet
+    class ResponseHostIdSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -25918,7 +25918,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ResponseLaunchTemplateData
+    class ResponseLaunchTemplateData
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ResponseLaunchTemplateData, context: context)
         type = Types::ResponseLaunchTemplateData.new
@@ -25958,7 +25958,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RestorableByStringList
+    class RestorableByStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -25969,7 +25969,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RestoreAddressToClassicInput
+    class RestoreAddressToClassicInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RestoreAddressToClassicInput, context: context)
         type = Types::RestoreAddressToClassicInput.new
@@ -25980,7 +25980,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RestoreAddressToClassicOutput
+    class RestoreAddressToClassicOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RestoreAddressToClassicOutput, context: context)
         type = Types::RestoreAddressToClassicOutput.new
@@ -25991,7 +25991,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RestoreImageFromRecycleBinInput
+    class RestoreImageFromRecycleBinInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RestoreImageFromRecycleBinInput, context: context)
         type = Types::RestoreImageFromRecycleBinInput.new
@@ -26002,7 +26002,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RestoreImageFromRecycleBinOutput
+    class RestoreImageFromRecycleBinOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RestoreImageFromRecycleBinOutput, context: context)
         type = Types::RestoreImageFromRecycleBinOutput.new
@@ -26012,7 +26012,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RestoreManagedPrefixListVersionInput
+    class RestoreManagedPrefixListVersionInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RestoreManagedPrefixListVersionInput, context: context)
         type = Types::RestoreManagedPrefixListVersionInput.new
@@ -26025,7 +26025,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RestoreManagedPrefixListVersionOutput
+    class RestoreManagedPrefixListVersionOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RestoreManagedPrefixListVersionOutput, context: context)
         type = Types::RestoreManagedPrefixListVersionOutput.new
@@ -26035,7 +26035,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RestoreSnapshotFromRecycleBinInput
+    class RestoreSnapshotFromRecycleBinInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RestoreSnapshotFromRecycleBinInput, context: context)
         type = Types::RestoreSnapshotFromRecycleBinInput.new
@@ -26046,7 +26046,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RestoreSnapshotFromRecycleBinOutput
+    class RestoreSnapshotFromRecycleBinOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RestoreSnapshotFromRecycleBinOutput, context: context)
         type = Types::RestoreSnapshotFromRecycleBinOutput.new
@@ -26066,7 +26066,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RestoreSnapshotTierInput
+    class RestoreSnapshotTierInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RestoreSnapshotTierInput, context: context)
         type = Types::RestoreSnapshotTierInput.new
@@ -26079,7 +26079,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RestoreSnapshotTierOutput
+    class RestoreSnapshotTierOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RestoreSnapshotTierOutput, context: context)
         type = Types::RestoreSnapshotTierOutput.new
@@ -26092,7 +26092,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RevokeClientVpnIngressInput
+    class RevokeClientVpnIngressInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RevokeClientVpnIngressInput, context: context)
         type = Types::RevokeClientVpnIngressInput.new
@@ -26106,7 +26106,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RevokeClientVpnIngressOutput
+    class RevokeClientVpnIngressOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RevokeClientVpnIngressOutput, context: context)
         type = Types::RevokeClientVpnIngressOutput.new
@@ -26116,7 +26116,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RevokeSecurityGroupEgressInput
+    class RevokeSecurityGroupEgressInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RevokeSecurityGroupEgressInput, context: context)
         type = Types::RevokeSecurityGroupEgressInput.new
@@ -26135,7 +26135,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RevokeSecurityGroupEgressOutput
+    class RevokeSecurityGroupEgressOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RevokeSecurityGroupEgressOutput, context: context)
         type = Types::RevokeSecurityGroupEgressOutput.new
@@ -26146,7 +26146,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RevokeSecurityGroupIngressInput
+    class RevokeSecurityGroupIngressInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RevokeSecurityGroupIngressInput, context: context)
         type = Types::RevokeSecurityGroupIngressInput.new
@@ -26166,7 +26166,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RevokeSecurityGroupIngressOutput
+    class RevokeSecurityGroupIngressOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RevokeSecurityGroupIngressOutput, context: context)
         type = Types::RevokeSecurityGroupIngressOutput.new
@@ -26177,7 +26177,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RootDeviceTypeList
+    class RootDeviceTypeList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -26188,7 +26188,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Route
+    class Route
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Route, context: context)
         type = Types::Route.new
@@ -26213,7 +26213,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RouteList
+    class RouteList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -26224,7 +26224,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RouteTable
+    class RouteTable
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RouteTable, context: context)
         type = Types::RouteTable.new
@@ -26240,7 +26240,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RouteTableAssociation
+    class RouteTableAssociation
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RouteTableAssociation, context: context)
         type = Types::RouteTableAssociation.new
@@ -26255,7 +26255,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RouteTableAssociationList
+    class RouteTableAssociationList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -26266,7 +26266,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RouteTableAssociationState
+    class RouteTableAssociationState
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RouteTableAssociationState, context: context)
         type = Types::RouteTableAssociationState.new
@@ -26277,7 +26277,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RouteTableIdStringList
+    class RouteTableIdStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -26288,7 +26288,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RouteTableList
+    class RouteTableList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -26299,7 +26299,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RuleGroupRuleOptionsPair
+    class RuleGroupRuleOptionsPair
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RuleGroupRuleOptionsPair, context: context)
         type = Types::RuleGroupRuleOptionsPair.new
@@ -26310,7 +26310,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RuleGroupRuleOptionsPairList
+    class RuleGroupRuleOptionsPairList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -26321,7 +26321,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RuleGroupTypePair
+    class RuleGroupTypePair
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RuleGroupTypePair, context: context)
         type = Types::RuleGroupTypePair.new
@@ -26332,7 +26332,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RuleGroupTypePairList
+    class RuleGroupTypePairList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -26343,7 +26343,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RuleOption
+    class RuleOption
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RuleOption, context: context)
         type = Types::RuleOption.new
@@ -26354,7 +26354,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RuleOptionList
+    class RuleOptionList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -26365,7 +26365,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RunInstancesInput
+    class RunInstancesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RunInstancesInput, context: context)
         type = Types::RunInstancesInput.new
@@ -26415,7 +26415,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RunInstancesMonitoringEnabled
+    class RunInstancesMonitoringEnabled
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RunInstancesMonitoringEnabled, context: context)
         type = Types::RunInstancesMonitoringEnabled.new
@@ -26425,7 +26425,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RunInstancesOutput
+    class RunInstancesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RunInstancesOutput, context: context)
         type = Types::RunInstancesOutput.new
@@ -26439,7 +26439,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RunScheduledInstancesInput
+    class RunScheduledInstancesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RunScheduledInstancesInput, context: context)
         type = Types::RunScheduledInstancesInput.new
@@ -26453,7 +26453,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module RunScheduledInstancesOutput
+    class RunScheduledInstancesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RunScheduledInstancesOutput, context: context)
         type = Types::RunScheduledInstancesOutput.new
@@ -26463,7 +26463,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module S3ObjectTag
+    class S3ObjectTag
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::S3ObjectTag, context: context)
         type = Types::S3ObjectTag.new
@@ -26474,7 +26474,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module S3ObjectTagList
+    class S3ObjectTagList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -26485,7 +26485,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module S3Storage
+    class S3Storage
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::S3Storage, context: context)
         type = Types::S3Storage.new
@@ -26499,7 +26499,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ScheduledInstance
+    class ScheduledInstance
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ScheduledInstance, context: context)
         type = Types::ScheduledInstance.new
@@ -26523,7 +26523,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ScheduledInstanceAvailability
+    class ScheduledInstanceAvailability
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ScheduledInstanceAvailability, context: context)
         type = Types::ScheduledInstanceAvailability.new
@@ -26545,7 +26545,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ScheduledInstanceAvailabilitySet
+    class ScheduledInstanceAvailabilitySet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -26556,7 +26556,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ScheduledInstanceIdRequestSet
+    class ScheduledInstanceIdRequestSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -26567,7 +26567,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ScheduledInstanceRecurrence
+    class ScheduledInstanceRecurrence
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ScheduledInstanceRecurrence, context: context)
         type = Types::ScheduledInstanceRecurrence.new
@@ -26581,7 +26581,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ScheduledInstanceRecurrenceRequest
+    class ScheduledInstanceRecurrenceRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ScheduledInstanceRecurrenceRequest, context: context)
         type = Types::ScheduledInstanceRecurrenceRequest.new
@@ -26595,7 +26595,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ScheduledInstanceSet
+    class ScheduledInstanceSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -26606,7 +26606,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ScheduledInstancesBlockDeviceMapping
+    class ScheduledInstancesBlockDeviceMapping
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ScheduledInstancesBlockDeviceMapping, context: context)
         type = Types::ScheduledInstancesBlockDeviceMapping.new
@@ -26619,7 +26619,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ScheduledInstancesBlockDeviceMappingSet
+    class ScheduledInstancesBlockDeviceMappingSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -26630,7 +26630,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ScheduledInstancesEbs
+    class ScheduledInstancesEbs
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ScheduledInstancesEbs, context: context)
         type = Types::ScheduledInstancesEbs.new
@@ -26645,7 +26645,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ScheduledInstancesIamInstanceProfile
+    class ScheduledInstancesIamInstanceProfile
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ScheduledInstancesIamInstanceProfile, context: context)
         type = Types::ScheduledInstancesIamInstanceProfile.new
@@ -26656,7 +26656,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ScheduledInstancesIpv6Address
+    class ScheduledInstancesIpv6Address
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ScheduledInstancesIpv6Address, context: context)
         type = Types::ScheduledInstancesIpv6Address.new
@@ -26666,7 +26666,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ScheduledInstancesIpv6AddressList
+    class ScheduledInstancesIpv6AddressList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -26677,7 +26677,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ScheduledInstancesLaunchSpecification
+    class ScheduledInstancesLaunchSpecification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ScheduledInstancesLaunchSpecification, context: context)
         type = Types::ScheduledInstancesLaunchSpecification.new
@@ -26700,7 +26700,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ScheduledInstancesMonitoring
+    class ScheduledInstancesMonitoring
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ScheduledInstancesMonitoring, context: context)
         type = Types::ScheduledInstancesMonitoring.new
@@ -26710,7 +26710,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ScheduledInstancesNetworkInterface
+    class ScheduledInstancesNetworkInterface
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ScheduledInstancesNetworkInterface, context: context)
         type = Types::ScheduledInstancesNetworkInterface.new
@@ -26731,7 +26731,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ScheduledInstancesNetworkInterfaceSet
+    class ScheduledInstancesNetworkInterfaceSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -26742,7 +26742,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ScheduledInstancesPlacement
+    class ScheduledInstancesPlacement
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ScheduledInstancesPlacement, context: context)
         type = Types::ScheduledInstancesPlacement.new
@@ -26753,7 +26753,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ScheduledInstancesPrivateIpAddressConfig
+    class ScheduledInstancesPrivateIpAddressConfig
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ScheduledInstancesPrivateIpAddressConfig, context: context)
         type = Types::ScheduledInstancesPrivateIpAddressConfig.new
@@ -26764,7 +26764,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ScheduledInstancesSecurityGroupIdSet
+    class ScheduledInstancesSecurityGroupIdSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -26775,7 +26775,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SearchLocalGatewayRoutesInput
+    class SearchLocalGatewayRoutesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SearchLocalGatewayRoutesInput, context: context)
         type = Types::SearchLocalGatewayRoutesInput.new
@@ -26789,7 +26789,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SearchLocalGatewayRoutesOutput
+    class SearchLocalGatewayRoutesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SearchLocalGatewayRoutesOutput, context: context)
         type = Types::SearchLocalGatewayRoutesOutput.new
@@ -26800,7 +26800,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SearchTransitGatewayMulticastGroupsInput
+    class SearchTransitGatewayMulticastGroupsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SearchTransitGatewayMulticastGroupsInput, context: context)
         type = Types::SearchTransitGatewayMulticastGroupsInput.new
@@ -26814,7 +26814,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SearchTransitGatewayMulticastGroupsOutput
+    class SearchTransitGatewayMulticastGroupsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SearchTransitGatewayMulticastGroupsOutput, context: context)
         type = Types::SearchTransitGatewayMulticastGroupsOutput.new
@@ -26825,7 +26825,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SearchTransitGatewayRoutesInput
+    class SearchTransitGatewayRoutesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SearchTransitGatewayRoutesInput, context: context)
         type = Types::SearchTransitGatewayRoutesInput.new
@@ -26838,7 +26838,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SearchTransitGatewayRoutesOutput
+    class SearchTransitGatewayRoutesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SearchTransitGatewayRoutesOutput, context: context)
         type = Types::SearchTransitGatewayRoutesOutput.new
@@ -26849,7 +26849,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SecurityGroup
+    class SecurityGroup
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SecurityGroup, context: context)
         type = Types::SecurityGroup.new
@@ -26866,7 +26866,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SecurityGroupForVpc
+    class SecurityGroupForVpc
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SecurityGroupForVpc, context: context)
         type = Types::SecurityGroupForVpc.new
@@ -26881,7 +26881,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SecurityGroupForVpcList
+    class SecurityGroupForVpcList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -26892,7 +26892,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SecurityGroupIdList
+    class SecurityGroupIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -26903,7 +26903,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SecurityGroupIdSet
+    class SecurityGroupIdSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -26914,7 +26914,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SecurityGroupIdStringList
+    class SecurityGroupIdStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -26925,7 +26925,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SecurityGroupIdStringListRequest
+    class SecurityGroupIdStringListRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -26936,7 +26936,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SecurityGroupIdentifier
+    class SecurityGroupIdentifier
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SecurityGroupIdentifier, context: context)
         type = Types::SecurityGroupIdentifier.new
@@ -26947,7 +26947,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SecurityGroupList
+    class SecurityGroupList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -26958,7 +26958,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SecurityGroupReference
+    class SecurityGroupReference
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SecurityGroupReference, context: context)
         type = Types::SecurityGroupReference.new
@@ -26971,7 +26971,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SecurityGroupReferences
+    class SecurityGroupReferences
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -26982,7 +26982,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SecurityGroupRule
+    class SecurityGroupRule
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SecurityGroupRule, context: context)
         type = Types::SecurityGroupRule.new
@@ -27004,7 +27004,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SecurityGroupRuleDescription
+    class SecurityGroupRuleDescription
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SecurityGroupRuleDescription, context: context)
         type = Types::SecurityGroupRuleDescription.new
@@ -27015,7 +27015,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SecurityGroupRuleDescriptionList
+    class SecurityGroupRuleDescriptionList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -27026,7 +27026,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SecurityGroupRuleIdList
+    class SecurityGroupRuleIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -27037,7 +27037,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SecurityGroupRuleList
+    class SecurityGroupRuleList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -27048,7 +27048,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SecurityGroupRuleRequest
+    class SecurityGroupRuleRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SecurityGroupRuleRequest, context: context)
         type = Types::SecurityGroupRuleRequest.new
@@ -27065,7 +27065,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SecurityGroupRuleUpdate
+    class SecurityGroupRuleUpdate
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SecurityGroupRuleUpdate, context: context)
         type = Types::SecurityGroupRuleUpdate.new
@@ -27076,7 +27076,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SecurityGroupRuleUpdateList
+    class SecurityGroupRuleUpdateList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -27087,7 +27087,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SecurityGroupStringList
+    class SecurityGroupStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -27098,7 +27098,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SendDiagnosticInterruptInput
+    class SendDiagnosticInterruptInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SendDiagnosticInterruptInput, context: context)
         type = Types::SendDiagnosticInterruptInput.new
@@ -27109,7 +27109,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SendDiagnosticInterruptOutput
+    class SendDiagnosticInterruptOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SendDiagnosticInterruptOutput, context: context)
         type = Types::SendDiagnosticInterruptOutput.new
@@ -27118,7 +27118,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ServiceConfiguration
+    class ServiceConfiguration
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ServiceConfiguration, context: context)
         type = Types::ServiceConfiguration.new
@@ -27142,7 +27142,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ServiceConfigurationSet
+    class ServiceConfigurationSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -27153,7 +27153,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ServiceDetail
+    class ServiceDetail
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ServiceDetail, context: context)
         type = Types::ServiceDetail.new
@@ -27177,7 +27177,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ServiceDetailSet
+    class ServiceDetailSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -27188,7 +27188,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ServiceTypeDetail
+    class ServiceTypeDetail
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ServiceTypeDetail, context: context)
         type = Types::ServiceTypeDetail.new
@@ -27198,7 +27198,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ServiceTypeDetailSet
+    class ServiceTypeDetailSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -27209,7 +27209,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SlotDateTimeRangeRequest
+    class SlotDateTimeRangeRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SlotDateTimeRangeRequest, context: context)
         type = Types::SlotDateTimeRangeRequest.new
@@ -27220,7 +27220,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SlotStartTimeRangeRequest
+    class SlotStartTimeRangeRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SlotStartTimeRangeRequest, context: context)
         type = Types::SlotStartTimeRangeRequest.new
@@ -27231,7 +27231,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Snapshot
+    class Snapshot
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Snapshot, context: context)
         type = Types::Snapshot.new
@@ -27258,7 +27258,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SnapshotDetail
+    class SnapshotDetail
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SnapshotDetail, context: context)
         type = Types::SnapshotDetail.new
@@ -27277,7 +27277,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SnapshotDetailList
+    class SnapshotDetailList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -27288,7 +27288,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SnapshotDiskContainer
+    class SnapshotDiskContainer
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SnapshotDiskContainer, context: context)
         type = Types::SnapshotDiskContainer.new
@@ -27301,7 +27301,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SnapshotIdStringList
+    class SnapshotIdStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -27312,7 +27312,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SnapshotInfo
+    class SnapshotInfo
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SnapshotInfo, context: context)
         type = Types::SnapshotInfo.new
@@ -27333,7 +27333,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SnapshotList
+    class SnapshotList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -27344,7 +27344,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SnapshotRecycleBinInfo
+    class SnapshotRecycleBinInfo
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SnapshotRecycleBinInfo, context: context)
         type = Types::SnapshotRecycleBinInfo.new
@@ -27358,7 +27358,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SnapshotRecycleBinInfoList
+    class SnapshotRecycleBinInfoList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -27369,7 +27369,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SnapshotSet
+    class SnapshotSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -27380,7 +27380,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SnapshotTaskDetail
+    class SnapshotTaskDetail
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SnapshotTaskDetail, context: context)
         type = Types::SnapshotTaskDetail.new
@@ -27400,7 +27400,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SnapshotTierStatus
+    class SnapshotTierStatus
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SnapshotTierStatus, context: context)
         type = Types::SnapshotTierStatus.new
@@ -27421,7 +27421,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SpotCapacityRebalance
+    class SpotCapacityRebalance
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SpotCapacityRebalance, context: context)
         type = Types::SpotCapacityRebalance.new
@@ -27432,7 +27432,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SpotDatafeedSubscription
+    class SpotDatafeedSubscription
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SpotDatafeedSubscription, context: context)
         type = Types::SpotDatafeedSubscription.new
@@ -27446,7 +27446,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SpotFleetLaunchSpecification
+    class SpotFleetLaunchSpecification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SpotFleetLaunchSpecification, context: context)
         type = Types::SpotFleetLaunchSpecification.new
@@ -27474,7 +27474,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SpotFleetMonitoring
+    class SpotFleetMonitoring
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SpotFleetMonitoring, context: context)
         type = Types::SpotFleetMonitoring.new
@@ -27484,7 +27484,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SpotFleetRequestConfig
+    class SpotFleetRequestConfig
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SpotFleetRequestConfig, context: context)
         type = Types::SpotFleetRequestConfig.new
@@ -27499,7 +27499,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SpotFleetRequestConfigData
+    class SpotFleetRequestConfigData
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SpotFleetRequestConfigData, context: context)
         type = Types::SpotFleetRequestConfigData.new
@@ -27534,7 +27534,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SpotFleetRequestConfigSet
+    class SpotFleetRequestConfigSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -27545,7 +27545,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SpotFleetRequestIdList
+    class SpotFleetRequestIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -27556,7 +27556,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SpotFleetTagSpecification
+    class SpotFleetTagSpecification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SpotFleetTagSpecification, context: context)
         type = Types::SpotFleetTagSpecification.new
@@ -27567,7 +27567,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SpotFleetTagSpecificationList
+    class SpotFleetTagSpecificationList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -27578,7 +27578,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SpotInstanceRequest
+    class SpotInstanceRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SpotInstanceRequest, context: context)
         type = Types::SpotInstanceRequest.new
@@ -27606,7 +27606,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SpotInstanceRequestIdList
+    class SpotInstanceRequestIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -27617,7 +27617,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SpotInstanceRequestList
+    class SpotInstanceRequestList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -27628,7 +27628,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SpotInstanceStateFault
+    class SpotInstanceStateFault
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SpotInstanceStateFault, context: context)
         type = Types::SpotInstanceStateFault.new
@@ -27639,7 +27639,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SpotInstanceStatus
+    class SpotInstanceStatus
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SpotInstanceStatus, context: context)
         type = Types::SpotInstanceStatus.new
@@ -27651,7 +27651,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SpotMaintenanceStrategies
+    class SpotMaintenanceStrategies
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SpotMaintenanceStrategies, context: context)
         type = Types::SpotMaintenanceStrategies.new
@@ -27661,7 +27661,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SpotMarketOptions
+    class SpotMarketOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SpotMarketOptions, context: context)
         type = Types::SpotMarketOptions.new
@@ -27675,7 +27675,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SpotOptions
+    class SpotOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SpotOptions, context: context)
         type = Types::SpotOptions.new
@@ -27692,7 +27692,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SpotOptionsRequest
+    class SpotOptionsRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SpotOptionsRequest, context: context)
         type = Types::SpotOptionsRequest.new
@@ -27709,7 +27709,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SpotPlacement
+    class SpotPlacement
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SpotPlacement, context: context)
         type = Types::SpotPlacement.new
@@ -27721,7 +27721,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SpotPlacementScore
+    class SpotPlacementScore
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SpotPlacementScore, context: context)
         type = Types::SpotPlacementScore.new
@@ -27733,7 +27733,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SpotPlacementScores
+    class SpotPlacementScores
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -27744,7 +27744,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SpotPrice
+    class SpotPrice
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SpotPrice, context: context)
         type = Types::SpotPrice.new
@@ -27758,7 +27758,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SpotPriceHistoryList
+    class SpotPriceHistoryList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -27769,7 +27769,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module StaleIpPermission
+    class StaleIpPermission
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::StaleIpPermission, context: context)
         type = Types::StaleIpPermission.new
@@ -27784,7 +27784,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module StaleIpPermissionSet
+    class StaleIpPermissionSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -27795,7 +27795,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module StaleSecurityGroup
+    class StaleSecurityGroup
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::StaleSecurityGroup, context: context)
         type = Types::StaleSecurityGroup.new
@@ -27810,7 +27810,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module StaleSecurityGroupSet
+    class StaleSecurityGroupSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -27821,7 +27821,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module StartInstancesInput
+    class StartInstancesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::StartInstancesInput, context: context)
         type = Types::StartInstancesInput.new
@@ -27833,7 +27833,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module StartInstancesOutput
+    class StartInstancesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::StartInstancesOutput, context: context)
         type = Types::StartInstancesOutput.new
@@ -27843,7 +27843,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module StartNetworkInsightsAccessScopeAnalysisInput
+    class StartNetworkInsightsAccessScopeAnalysisInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::StartNetworkInsightsAccessScopeAnalysisInput, context: context)
         type = Types::StartNetworkInsightsAccessScopeAnalysisInput.new
@@ -27856,7 +27856,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module StartNetworkInsightsAccessScopeAnalysisOutput
+    class StartNetworkInsightsAccessScopeAnalysisOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::StartNetworkInsightsAccessScopeAnalysisOutput, context: context)
         type = Types::StartNetworkInsightsAccessScopeAnalysisOutput.new
@@ -27866,7 +27866,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module StartNetworkInsightsAnalysisInput
+    class StartNetworkInsightsAnalysisInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::StartNetworkInsightsAnalysisInput, context: context)
         type = Types::StartNetworkInsightsAnalysisInput.new
@@ -27881,7 +27881,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module StartNetworkInsightsAnalysisOutput
+    class StartNetworkInsightsAnalysisOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::StartNetworkInsightsAnalysisOutput, context: context)
         type = Types::StartNetworkInsightsAnalysisOutput.new
@@ -27891,7 +27891,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module StartVpcEndpointServicePrivateDnsVerificationInput
+    class StartVpcEndpointServicePrivateDnsVerificationInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::StartVpcEndpointServicePrivateDnsVerificationInput, context: context)
         type = Types::StartVpcEndpointServicePrivateDnsVerificationInput.new
@@ -27902,7 +27902,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module StartVpcEndpointServicePrivateDnsVerificationOutput
+    class StartVpcEndpointServicePrivateDnsVerificationOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::StartVpcEndpointServicePrivateDnsVerificationOutput, context: context)
         type = Types::StartVpcEndpointServicePrivateDnsVerificationOutput.new
@@ -27912,7 +27912,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module StateReason
+    class StateReason
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::StateReason, context: context)
         type = Types::StateReason.new
@@ -27923,7 +27923,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module StopInstancesInput
+    class StopInstancesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::StopInstancesInput, context: context)
         type = Types::StopInstancesInput.new
@@ -27936,7 +27936,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module StopInstancesOutput
+    class StopInstancesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::StopInstancesOutput, context: context)
         type = Types::StopInstancesOutput.new
@@ -27946,7 +27946,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Storage
+    class Storage
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Storage, context: context)
         type = Types::Storage.new
@@ -27956,7 +27956,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module StorageLocation
+    class StorageLocation
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::StorageLocation, context: context)
         type = Types::StorageLocation.new
@@ -27967,7 +27967,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module StoreImageTaskResult
+    class StoreImageTaskResult
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::StoreImageTaskResult, context: context)
         type = Types::StoreImageTaskResult.new
@@ -27983,7 +27983,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module StoreImageTaskResultSet
+    class StoreImageTaskResultSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -27994,7 +27994,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module StringList
+    class StringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -28005,7 +28005,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Subnet
+    class Subnet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Subnet, context: context)
         type = Types::Subnet.new
@@ -28035,7 +28035,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SubnetAssociation
+    class SubnetAssociation
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SubnetAssociation, context: context)
         type = Types::SubnetAssociation.new
@@ -28046,7 +28046,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SubnetAssociationList
+    class SubnetAssociationList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -28057,7 +28057,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SubnetCidrBlockState
+    class SubnetCidrBlockState
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SubnetCidrBlockState, context: context)
         type = Types::SubnetCidrBlockState.new
@@ -28068,7 +28068,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SubnetCidrReservation
+    class SubnetCidrReservation
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SubnetCidrReservation, context: context)
         type = Types::SubnetCidrReservation.new
@@ -28084,7 +28084,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SubnetCidrReservationList
+    class SubnetCidrReservationList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -28095,7 +28095,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SubnetConfiguration
+    class SubnetConfiguration
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SubnetConfiguration, context: context)
         type = Types::SubnetConfiguration.new
@@ -28107,7 +28107,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SubnetConfigurationsList
+    class SubnetConfigurationsList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -28118,7 +28118,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SubnetIdStringList
+    class SubnetIdStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -28129,7 +28129,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SubnetIpv6CidrBlockAssociation
+    class SubnetIpv6CidrBlockAssociation
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SubnetIpv6CidrBlockAssociation, context: context)
         type = Types::SubnetIpv6CidrBlockAssociation.new
@@ -28141,7 +28141,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SubnetIpv6CidrBlockAssociationSet
+    class SubnetIpv6CidrBlockAssociationSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -28152,7 +28152,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SubnetList
+    class SubnetList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -28163,7 +28163,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Subscription
+    class Subscription
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Subscription, context: context)
         type = Types::Subscription.new
@@ -28177,7 +28177,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SubscriptionList
+    class SubscriptionList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -28188,7 +28188,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SuccessfulInstanceCreditSpecificationItem
+    class SuccessfulInstanceCreditSpecificationItem
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SuccessfulInstanceCreditSpecificationItem, context: context)
         type = Types::SuccessfulInstanceCreditSpecificationItem.new
@@ -28198,7 +28198,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SuccessfulInstanceCreditSpecificationSet
+    class SuccessfulInstanceCreditSpecificationSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -28209,7 +28209,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SuccessfulQueuedPurchaseDeletion
+    class SuccessfulQueuedPurchaseDeletion
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SuccessfulQueuedPurchaseDeletion, context: context)
         type = Types::SuccessfulQueuedPurchaseDeletion.new
@@ -28219,7 +28219,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SuccessfulQueuedPurchaseDeletionSet
+    class SuccessfulQueuedPurchaseDeletionSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -28230,7 +28230,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SupportedAdditionalProcessorFeatureList
+    class SupportedAdditionalProcessorFeatureList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -28241,7 +28241,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SupportedIpAddressTypes
+    class SupportedIpAddressTypes
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -28252,7 +28252,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Tag
+    class Tag
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Tag, context: context)
         type = Types::Tag.new
@@ -28263,7 +28263,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TagDescription
+    class TagDescription
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TagDescription, context: context)
         type = Types::TagDescription.new
@@ -28276,7 +28276,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TagDescriptionList
+    class TagDescriptionList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -28287,7 +28287,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TagList
+    class TagList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -28298,7 +28298,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TagSpecification
+    class TagSpecification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TagSpecification, context: context)
         type = Types::TagSpecification.new
@@ -28309,7 +28309,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TagSpecificationList
+    class TagSpecificationList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -28320,7 +28320,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TargetCapacitySpecification
+    class TargetCapacitySpecification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TargetCapacitySpecification, context: context)
         type = Types::TargetCapacitySpecification.new
@@ -28334,7 +28334,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TargetCapacitySpecificationRequest
+    class TargetCapacitySpecificationRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TargetCapacitySpecificationRequest, context: context)
         type = Types::TargetCapacitySpecificationRequest.new
@@ -28348,7 +28348,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TargetConfiguration
+    class TargetConfiguration
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TargetConfiguration, context: context)
         type = Types::TargetConfiguration.new
@@ -28359,7 +28359,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TargetConfigurationRequest
+    class TargetConfigurationRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TargetConfigurationRequest, context: context)
         type = Types::TargetConfigurationRequest.new
@@ -28370,7 +28370,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TargetConfigurationRequestSet
+    class TargetConfigurationRequestSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -28381,7 +28381,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TargetGroup
+    class TargetGroup
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TargetGroup, context: context)
         type = Types::TargetGroup.new
@@ -28391,7 +28391,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TargetGroups
+    class TargetGroups
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -28402,7 +28402,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TargetGroupsConfig
+    class TargetGroupsConfig
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TargetGroupsConfig, context: context)
         type = Types::TargetGroupsConfig.new
@@ -28412,7 +28412,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TargetNetwork
+    class TargetNetwork
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TargetNetwork, context: context)
         type = Types::TargetNetwork.new
@@ -28427,7 +28427,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TargetNetworkSet
+    class TargetNetworkSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -28438,7 +28438,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TargetReservationValue
+    class TargetReservationValue
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TargetReservationValue, context: context)
         type = Types::TargetReservationValue.new
@@ -28449,7 +28449,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TargetReservationValueSet
+    class TargetReservationValueSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -28460,7 +28460,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TerminateClientVpnConnectionsInput
+    class TerminateClientVpnConnectionsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TerminateClientVpnConnectionsInput, context: context)
         type = Types::TerminateClientVpnConnectionsInput.new
@@ -28473,7 +28473,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TerminateClientVpnConnectionsOutput
+    class TerminateClientVpnConnectionsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TerminateClientVpnConnectionsOutput, context: context)
         type = Types::TerminateClientVpnConnectionsOutput.new
@@ -28485,7 +28485,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TerminateConnectionStatus
+    class TerminateConnectionStatus
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TerminateConnectionStatus, context: context)
         type = Types::TerminateConnectionStatus.new
@@ -28497,7 +28497,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TerminateConnectionStatusSet
+    class TerminateConnectionStatusSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -28508,7 +28508,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TerminateInstancesInput
+    class TerminateInstancesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TerminateInstancesInput, context: context)
         type = Types::TerminateInstancesInput.new
@@ -28519,7 +28519,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TerminateInstancesOutput
+    class TerminateInstancesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TerminateInstancesOutput, context: context)
         type = Types::TerminateInstancesOutput.new
@@ -28529,7 +28529,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ThreadsPerCoreList
+    class ThreadsPerCoreList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -28540,7 +28540,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ThroughResourcesStatement
+    class ThroughResourcesStatement
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ThroughResourcesStatement, context: context)
         type = Types::ThroughResourcesStatement.new
@@ -28550,7 +28550,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ThroughResourcesStatementList
+    class ThroughResourcesStatementList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -28561,7 +28561,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ThroughResourcesStatementRequest
+    class ThroughResourcesStatementRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ThroughResourcesStatementRequest, context: context)
         type = Types::ThroughResourcesStatementRequest.new
@@ -28571,7 +28571,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ThroughResourcesStatementRequestList
+    class ThroughResourcesStatementRequestList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -28582,7 +28582,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TotalLocalStorageGB
+    class TotalLocalStorageGB
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TotalLocalStorageGB, context: context)
         type = Types::TotalLocalStorageGB.new
@@ -28593,7 +28593,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TotalLocalStorageGBRequest
+    class TotalLocalStorageGBRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TotalLocalStorageGBRequest, context: context)
         type = Types::TotalLocalStorageGBRequest.new
@@ -28604,7 +28604,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TrafficMirrorFilter
+    class TrafficMirrorFilter
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TrafficMirrorFilter, context: context)
         type = Types::TrafficMirrorFilter.new
@@ -28619,7 +28619,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TrafficMirrorFilterIdList
+    class TrafficMirrorFilterIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -28630,7 +28630,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TrafficMirrorFilterRule
+    class TrafficMirrorFilterRule
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TrafficMirrorFilterRule, context: context)
         type = Types::TrafficMirrorFilterRule.new
@@ -28650,7 +28650,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TrafficMirrorFilterRuleFieldList
+    class TrafficMirrorFilterRuleFieldList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -28661,7 +28661,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TrafficMirrorFilterRuleList
+    class TrafficMirrorFilterRuleList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -28672,7 +28672,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TrafficMirrorFilterSet
+    class TrafficMirrorFilterSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -28683,7 +28683,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TrafficMirrorNetworkServiceList
+    class TrafficMirrorNetworkServiceList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -28694,7 +28694,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TrafficMirrorPortRange
+    class TrafficMirrorPortRange
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TrafficMirrorPortRange, context: context)
         type = Types::TrafficMirrorPortRange.new
@@ -28705,7 +28705,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TrafficMirrorPortRangeRequest
+    class TrafficMirrorPortRangeRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TrafficMirrorPortRangeRequest, context: context)
         type = Types::TrafficMirrorPortRangeRequest.new
@@ -28716,7 +28716,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TrafficMirrorSession
+    class TrafficMirrorSession
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TrafficMirrorSession, context: context)
         type = Types::TrafficMirrorSession.new
@@ -28735,7 +28735,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TrafficMirrorSessionFieldList
+    class TrafficMirrorSessionFieldList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -28746,7 +28746,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TrafficMirrorSessionIdList
+    class TrafficMirrorSessionIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -28757,7 +28757,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TrafficMirrorSessionSet
+    class TrafficMirrorSessionSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -28768,7 +28768,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TrafficMirrorTarget
+    class TrafficMirrorTarget
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TrafficMirrorTarget, context: context)
         type = Types::TrafficMirrorTarget.new
@@ -28785,7 +28785,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TrafficMirrorTargetIdList
+    class TrafficMirrorTargetIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -28796,7 +28796,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TrafficMirrorTargetSet
+    class TrafficMirrorTargetSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -28807,7 +28807,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGateway
+    class TransitGateway
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransitGateway, context: context)
         type = Types::TransitGateway.new
@@ -28824,7 +28824,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayAssociation
+    class TransitGatewayAssociation
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransitGatewayAssociation, context: context)
         type = Types::TransitGatewayAssociation.new
@@ -28838,7 +28838,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayAttachment
+    class TransitGatewayAttachment
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransitGatewayAttachment, context: context)
         type = Types::TransitGatewayAttachment.new
@@ -28857,7 +28857,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayAttachmentAssociation
+    class TransitGatewayAttachmentAssociation
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransitGatewayAttachmentAssociation, context: context)
         type = Types::TransitGatewayAttachmentAssociation.new
@@ -28868,7 +28868,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayAttachmentBgpConfiguration
+    class TransitGatewayAttachmentBgpConfiguration
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransitGatewayAttachmentBgpConfiguration, context: context)
         type = Types::TransitGatewayAttachmentBgpConfiguration.new
@@ -28882,7 +28882,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayAttachmentBgpConfigurationList
+    class TransitGatewayAttachmentBgpConfigurationList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -28893,7 +28893,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayAttachmentIdStringList
+    class TransitGatewayAttachmentIdStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -28904,7 +28904,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayAttachmentList
+    class TransitGatewayAttachmentList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -28915,7 +28915,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayAttachmentPropagation
+    class TransitGatewayAttachmentPropagation
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransitGatewayAttachmentPropagation, context: context)
         type = Types::TransitGatewayAttachmentPropagation.new
@@ -28926,7 +28926,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayAttachmentPropagationList
+    class TransitGatewayAttachmentPropagationList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -28937,7 +28937,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayCidrBlockStringList
+    class TransitGatewayCidrBlockStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -28948,7 +28948,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayConnect
+    class TransitGatewayConnect
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransitGatewayConnect, context: context)
         type = Types::TransitGatewayConnect.new
@@ -28964,7 +28964,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayConnectList
+    class TransitGatewayConnectList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -28975,7 +28975,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayConnectOptions
+    class TransitGatewayConnectOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransitGatewayConnectOptions, context: context)
         type = Types::TransitGatewayConnectOptions.new
@@ -28985,7 +28985,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayConnectPeer
+    class TransitGatewayConnectPeer
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransitGatewayConnectPeer, context: context)
         type = Types::TransitGatewayConnectPeer.new
@@ -29000,7 +29000,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayConnectPeerConfiguration
+    class TransitGatewayConnectPeerConfiguration
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransitGatewayConnectPeerConfiguration, context: context)
         type = Types::TransitGatewayConnectPeerConfiguration.new
@@ -29014,7 +29014,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayConnectPeerIdStringList
+    class TransitGatewayConnectPeerIdStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -29025,7 +29025,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayConnectPeerList
+    class TransitGatewayConnectPeerList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -29036,7 +29036,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayConnectRequestBgpOptions
+    class TransitGatewayConnectRequestBgpOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransitGatewayConnectRequestBgpOptions, context: context)
         type = Types::TransitGatewayConnectRequestBgpOptions.new
@@ -29046,7 +29046,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayIdStringList
+    class TransitGatewayIdStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -29057,7 +29057,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayList
+    class TransitGatewayList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -29068,7 +29068,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayMulticastDeregisteredGroupMembers
+    class TransitGatewayMulticastDeregisteredGroupMembers
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransitGatewayMulticastDeregisteredGroupMembers, context: context)
         type = Types::TransitGatewayMulticastDeregisteredGroupMembers.new
@@ -29080,7 +29080,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayMulticastDeregisteredGroupSources
+    class TransitGatewayMulticastDeregisteredGroupSources
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransitGatewayMulticastDeregisteredGroupSources, context: context)
         type = Types::TransitGatewayMulticastDeregisteredGroupSources.new
@@ -29092,7 +29092,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayMulticastDomain
+    class TransitGatewayMulticastDomain
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransitGatewayMulticastDomain, context: context)
         type = Types::TransitGatewayMulticastDomain.new
@@ -29109,7 +29109,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayMulticastDomainAssociation
+    class TransitGatewayMulticastDomainAssociation
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransitGatewayMulticastDomainAssociation, context: context)
         type = Types::TransitGatewayMulticastDomainAssociation.new
@@ -29123,7 +29123,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayMulticastDomainAssociationList
+    class TransitGatewayMulticastDomainAssociationList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -29134,7 +29134,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayMulticastDomainAssociations
+    class TransitGatewayMulticastDomainAssociations
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransitGatewayMulticastDomainAssociations, context: context)
         type = Types::TransitGatewayMulticastDomainAssociations.new
@@ -29149,7 +29149,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayMulticastDomainIdStringList
+    class TransitGatewayMulticastDomainIdStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -29160,7 +29160,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayMulticastDomainList
+    class TransitGatewayMulticastDomainList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -29171,7 +29171,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayMulticastDomainOptions
+    class TransitGatewayMulticastDomainOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransitGatewayMulticastDomainOptions, context: context)
         type = Types::TransitGatewayMulticastDomainOptions.new
@@ -29183,7 +29183,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayMulticastGroup
+    class TransitGatewayMulticastGroup
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransitGatewayMulticastGroup, context: context)
         type = Types::TransitGatewayMulticastGroup.new
@@ -29203,7 +29203,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayMulticastGroupList
+    class TransitGatewayMulticastGroupList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -29214,7 +29214,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayMulticastRegisteredGroupMembers
+    class TransitGatewayMulticastRegisteredGroupMembers
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransitGatewayMulticastRegisteredGroupMembers, context: context)
         type = Types::TransitGatewayMulticastRegisteredGroupMembers.new
@@ -29226,7 +29226,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayMulticastRegisteredGroupSources
+    class TransitGatewayMulticastRegisteredGroupSources
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransitGatewayMulticastRegisteredGroupSources, context: context)
         type = Types::TransitGatewayMulticastRegisteredGroupSources.new
@@ -29238,7 +29238,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayNetworkInterfaceIdList
+    class TransitGatewayNetworkInterfaceIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -29249,7 +29249,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayOptions
+    class TransitGatewayOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransitGatewayOptions, context: context)
         type = Types::TransitGatewayOptions.new
@@ -29269,7 +29269,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayPeeringAttachment
+    class TransitGatewayPeeringAttachment
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransitGatewayPeeringAttachment, context: context)
         type = Types::TransitGatewayPeeringAttachment.new
@@ -29287,7 +29287,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayPeeringAttachmentList
+    class TransitGatewayPeeringAttachmentList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -29298,7 +29298,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayPeeringAttachmentOptions
+    class TransitGatewayPeeringAttachmentOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransitGatewayPeeringAttachmentOptions, context: context)
         type = Types::TransitGatewayPeeringAttachmentOptions.new
@@ -29308,7 +29308,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayPolicyRule
+    class TransitGatewayPolicyRule
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransitGatewayPolicyRule, context: context)
         type = Types::TransitGatewayPolicyRule.new
@@ -29323,7 +29323,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayPolicyRuleMetaData
+    class TransitGatewayPolicyRuleMetaData
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransitGatewayPolicyRuleMetaData, context: context)
         type = Types::TransitGatewayPolicyRuleMetaData.new
@@ -29334,7 +29334,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayPolicyTable
+    class TransitGatewayPolicyTable
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransitGatewayPolicyTable, context: context)
         type = Types::TransitGatewayPolicyTable.new
@@ -29348,7 +29348,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayPolicyTableAssociation
+    class TransitGatewayPolicyTableAssociation
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransitGatewayPolicyTableAssociation, context: context)
         type = Types::TransitGatewayPolicyTableAssociation.new
@@ -29362,7 +29362,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayPolicyTableAssociationList
+    class TransitGatewayPolicyTableAssociationList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -29373,7 +29373,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayPolicyTableEntry
+    class TransitGatewayPolicyTableEntry
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransitGatewayPolicyTableEntry, context: context)
         type = Types::TransitGatewayPolicyTableEntry.new
@@ -29385,7 +29385,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayPolicyTableEntryList
+    class TransitGatewayPolicyTableEntryList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -29396,7 +29396,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayPolicyTableIdStringList
+    class TransitGatewayPolicyTableIdStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -29407,7 +29407,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayPolicyTableList
+    class TransitGatewayPolicyTableList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -29418,7 +29418,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayPrefixListAttachment
+    class TransitGatewayPrefixListAttachment
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransitGatewayPrefixListAttachment, context: context)
         type = Types::TransitGatewayPrefixListAttachment.new
@@ -29430,7 +29430,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayPrefixListReference
+    class TransitGatewayPrefixListReference
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransitGatewayPrefixListReference, context: context)
         type = Types::TransitGatewayPrefixListReference.new
@@ -29445,7 +29445,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayPrefixListReferenceSet
+    class TransitGatewayPrefixListReferenceSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -29456,7 +29456,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayPropagation
+    class TransitGatewayPropagation
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransitGatewayPropagation, context: context)
         type = Types::TransitGatewayPropagation.new
@@ -29471,7 +29471,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayRequestOptions
+    class TransitGatewayRequestOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransitGatewayRequestOptions, context: context)
         type = Types::TransitGatewayRequestOptions.new
@@ -29489,7 +29489,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayRoute
+    class TransitGatewayRoute
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransitGatewayRoute, context: context)
         type = Types::TransitGatewayRoute.new
@@ -29504,7 +29504,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayRouteAttachment
+    class TransitGatewayRouteAttachment
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransitGatewayRouteAttachment, context: context)
         type = Types::TransitGatewayRouteAttachment.new
@@ -29516,7 +29516,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayRouteAttachmentList
+    class TransitGatewayRouteAttachmentList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -29527,7 +29527,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayRouteList
+    class TransitGatewayRouteList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -29538,7 +29538,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayRouteTable
+    class TransitGatewayRouteTable
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransitGatewayRouteTable, context: context)
         type = Types::TransitGatewayRouteTable.new
@@ -29554,7 +29554,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayRouteTableAnnouncement
+    class TransitGatewayRouteTableAnnouncement
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransitGatewayRouteTableAnnouncement, context: context)
         type = Types::TransitGatewayRouteTableAnnouncement.new
@@ -29574,7 +29574,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayRouteTableAnnouncementIdStringList
+    class TransitGatewayRouteTableAnnouncementIdStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -29585,7 +29585,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayRouteTableAnnouncementList
+    class TransitGatewayRouteTableAnnouncementList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -29596,7 +29596,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayRouteTableAssociation
+    class TransitGatewayRouteTableAssociation
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransitGatewayRouteTableAssociation, context: context)
         type = Types::TransitGatewayRouteTableAssociation.new
@@ -29609,7 +29609,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayRouteTableAssociationList
+    class TransitGatewayRouteTableAssociationList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -29620,7 +29620,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayRouteTableIdStringList
+    class TransitGatewayRouteTableIdStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -29631,7 +29631,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayRouteTableList
+    class TransitGatewayRouteTableList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -29642,7 +29642,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayRouteTablePropagation
+    class TransitGatewayRouteTablePropagation
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransitGatewayRouteTablePropagation, context: context)
         type = Types::TransitGatewayRouteTablePropagation.new
@@ -29656,7 +29656,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayRouteTablePropagationList
+    class TransitGatewayRouteTablePropagationList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -29667,7 +29667,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayRouteTableRoute
+    class TransitGatewayRouteTableRoute
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransitGatewayRouteTableRoute, context: context)
         type = Types::TransitGatewayRouteTableRoute.new
@@ -29683,7 +29683,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewaySubnetIdList
+    class TransitGatewaySubnetIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -29694,7 +29694,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayVpcAttachment
+    class TransitGatewayVpcAttachment
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransitGatewayVpcAttachment, context: context)
         type = Types::TransitGatewayVpcAttachment.new
@@ -29712,7 +29712,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayVpcAttachmentList
+    class TransitGatewayVpcAttachmentList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -29723,7 +29723,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TransitGatewayVpcAttachmentOptions
+    class TransitGatewayVpcAttachmentOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransitGatewayVpcAttachmentOptions, context: context)
         type = Types::TransitGatewayVpcAttachmentOptions.new
@@ -29736,7 +29736,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TrunkInterfaceAssociation
+    class TrunkInterfaceAssociation
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TrunkInterfaceAssociation, context: context)
         type = Types::TrunkInterfaceAssociation.new
@@ -29752,7 +29752,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TrunkInterfaceAssociationIdList
+    class TrunkInterfaceAssociationIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -29763,7 +29763,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TrunkInterfaceAssociationList
+    class TrunkInterfaceAssociationList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -29774,7 +29774,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TunnelOption
+    class TunnelOption
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TunnelOption, context: context)
         type = Types::TunnelOption.new
@@ -29804,7 +29804,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module TunnelOptionsList
+    class TunnelOptionsList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -29815,7 +29815,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module UnassignIpv6AddressesInput
+    class UnassignIpv6AddressesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UnassignIpv6AddressesInput, context: context)
         type = Types::UnassignIpv6AddressesInput.new
@@ -29827,7 +29827,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module UnassignIpv6AddressesOutput
+    class UnassignIpv6AddressesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UnassignIpv6AddressesOutput, context: context)
         type = Types::UnassignIpv6AddressesOutput.new
@@ -29839,7 +29839,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module UnassignPrivateIpAddressesInput
+    class UnassignPrivateIpAddressesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UnassignPrivateIpAddressesInput, context: context)
         type = Types::UnassignPrivateIpAddressesInput.new
@@ -29851,7 +29851,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module UnassignPrivateIpAddressesOutput
+    class UnassignPrivateIpAddressesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UnassignPrivateIpAddressesOutput, context: context)
         type = Types::UnassignPrivateIpAddressesOutput.new
@@ -29860,7 +29860,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module UnassignPrivateNatGatewayAddressInput
+    class UnassignPrivateNatGatewayAddressInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UnassignPrivateNatGatewayAddressInput, context: context)
         type = Types::UnassignPrivateNatGatewayAddressInput.new
@@ -29873,7 +29873,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module UnassignPrivateNatGatewayAddressOutput
+    class UnassignPrivateNatGatewayAddressOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UnassignPrivateNatGatewayAddressOutput, context: context)
         type = Types::UnassignPrivateNatGatewayAddressOutput.new
@@ -29884,7 +29884,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module UnlockSnapshotInput
+    class UnlockSnapshotInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UnlockSnapshotInput, context: context)
         type = Types::UnlockSnapshotInput.new
@@ -29895,7 +29895,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module UnlockSnapshotOutput
+    class UnlockSnapshotOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UnlockSnapshotOutput, context: context)
         type = Types::UnlockSnapshotOutput.new
@@ -29905,7 +29905,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module UnmonitorInstancesInput
+    class UnmonitorInstancesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UnmonitorInstancesInput, context: context)
         type = Types::UnmonitorInstancesInput.new
@@ -29916,7 +29916,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module UnmonitorInstancesOutput
+    class UnmonitorInstancesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UnmonitorInstancesOutput, context: context)
         type = Types::UnmonitorInstancesOutput.new
@@ -29926,7 +29926,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module UnsuccessfulInstanceCreditSpecificationItem
+    class UnsuccessfulInstanceCreditSpecificationItem
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UnsuccessfulInstanceCreditSpecificationItem, context: context)
         type = Types::UnsuccessfulInstanceCreditSpecificationItem.new
@@ -29937,7 +29937,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module UnsuccessfulInstanceCreditSpecificationItemError
+    class UnsuccessfulInstanceCreditSpecificationItemError
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UnsuccessfulInstanceCreditSpecificationItemError, context: context)
         type = Types::UnsuccessfulInstanceCreditSpecificationItemError.new
@@ -29948,7 +29948,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module UnsuccessfulInstanceCreditSpecificationSet
+    class UnsuccessfulInstanceCreditSpecificationSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -29959,7 +29959,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module UnsuccessfulItem
+    class UnsuccessfulItem
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UnsuccessfulItem, context: context)
         type = Types::UnsuccessfulItem.new
@@ -29970,7 +29970,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module UnsuccessfulItemError
+    class UnsuccessfulItemError
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UnsuccessfulItemError, context: context)
         type = Types::UnsuccessfulItemError.new
@@ -29981,7 +29981,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module UnsuccessfulItemList
+    class UnsuccessfulItemList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -29992,7 +29992,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module UnsuccessfulItemSet
+    class UnsuccessfulItemSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -30003,7 +30003,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module UpdateSecurityGroupRuleDescriptionsEgressInput
+    class UpdateSecurityGroupRuleDescriptionsEgressInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateSecurityGroupRuleDescriptionsEgressInput, context: context)
         type = Types::UpdateSecurityGroupRuleDescriptionsEgressInput.new
@@ -30017,7 +30017,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module UpdateSecurityGroupRuleDescriptionsEgressOutput
+    class UpdateSecurityGroupRuleDescriptionsEgressOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateSecurityGroupRuleDescriptionsEgressOutput, context: context)
         type = Types::UpdateSecurityGroupRuleDescriptionsEgressOutput.new
@@ -30027,7 +30027,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module UpdateSecurityGroupRuleDescriptionsIngressInput
+    class UpdateSecurityGroupRuleDescriptionsIngressInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateSecurityGroupRuleDescriptionsIngressInput, context: context)
         type = Types::UpdateSecurityGroupRuleDescriptionsIngressInput.new
@@ -30041,7 +30041,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module UpdateSecurityGroupRuleDescriptionsIngressOutput
+    class UpdateSecurityGroupRuleDescriptionsIngressOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateSecurityGroupRuleDescriptionsIngressOutput, context: context)
         type = Types::UpdateSecurityGroupRuleDescriptionsIngressOutput.new
@@ -30051,7 +30051,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module UsageClassTypeList
+    class UsageClassTypeList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -30062,7 +30062,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module UserBucket
+    class UserBucket
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UserBucket, context: context)
         type = Types::UserBucket.new
@@ -30073,7 +30073,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module UserBucketDetails
+    class UserBucketDetails
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UserBucketDetails, context: context)
         type = Types::UserBucketDetails.new
@@ -30084,7 +30084,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module UserData
+    class UserData
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UserData, context: context)
         type = Types::UserData.new
@@ -30094,7 +30094,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module UserGroupStringList
+    class UserGroupStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -30105,7 +30105,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module UserIdGroupPair
+    class UserIdGroupPair
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UserIdGroupPair, context: context)
         type = Types::UserIdGroupPair.new
@@ -30121,7 +30121,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module UserIdGroupPairList
+    class UserIdGroupPairList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -30132,7 +30132,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module UserIdGroupPairSet
+    class UserIdGroupPairSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -30143,7 +30143,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module UserIdStringList
+    class UserIdStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -30154,7 +30154,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VCpuCountRange
+    class VCpuCountRange
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VCpuCountRange, context: context)
         type = Types::VCpuCountRange.new
@@ -30165,7 +30165,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VCpuCountRangeRequest
+    class VCpuCountRangeRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VCpuCountRangeRequest, context: context)
         type = Types::VCpuCountRangeRequest.new
@@ -30176,7 +30176,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VCpuInfo
+    class VCpuInfo
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VCpuInfo, context: context)
         type = Types::VCpuInfo.new
@@ -30190,7 +30190,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ValidationError
+    class ValidationError
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ValidationError, context: context)
         type = Types::ValidationError.new
@@ -30201,7 +30201,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ValidationWarning
+    class ValidationWarning
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ValidationWarning, context: context)
         type = Types::ValidationWarning.new
@@ -30211,7 +30211,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ValueStringList
+    class ValueStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -30222,7 +30222,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VerifiedAccessEndpoint
+    class VerifiedAccessEndpoint
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VerifiedAccessEndpoint, context: context)
         type = Types::VerifiedAccessEndpoint.new
@@ -30250,7 +30250,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VerifiedAccessEndpointEniOptions
+    class VerifiedAccessEndpointEniOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VerifiedAccessEndpointEniOptions, context: context)
         type = Types::VerifiedAccessEndpointEniOptions.new
@@ -30262,7 +30262,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VerifiedAccessEndpointIdList
+    class VerifiedAccessEndpointIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -30273,7 +30273,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VerifiedAccessEndpointList
+    class VerifiedAccessEndpointList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -30284,7 +30284,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VerifiedAccessEndpointLoadBalancerOptions
+    class VerifiedAccessEndpointLoadBalancerOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VerifiedAccessEndpointLoadBalancerOptions, context: context)
         type = Types::VerifiedAccessEndpointLoadBalancerOptions.new
@@ -30297,7 +30297,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VerifiedAccessEndpointStatus
+    class VerifiedAccessEndpointStatus
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VerifiedAccessEndpointStatus, context: context)
         type = Types::VerifiedAccessEndpointStatus.new
@@ -30308,7 +30308,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VerifiedAccessEndpointSubnetIdList
+    class VerifiedAccessEndpointSubnetIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -30319,7 +30319,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VerifiedAccessGroup
+    class VerifiedAccessGroup
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VerifiedAccessGroup, context: context)
         type = Types::VerifiedAccessGroup.new
@@ -30338,7 +30338,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VerifiedAccessGroupIdList
+    class VerifiedAccessGroupIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -30349,7 +30349,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VerifiedAccessGroupList
+    class VerifiedAccessGroupList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -30360,7 +30360,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VerifiedAccessInstance
+    class VerifiedAccessInstance
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VerifiedAccessInstance, context: context)
         type = Types::VerifiedAccessInstance.new
@@ -30376,7 +30376,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VerifiedAccessInstanceIdList
+    class VerifiedAccessInstanceIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -30387,7 +30387,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VerifiedAccessInstanceList
+    class VerifiedAccessInstanceList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -30398,7 +30398,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VerifiedAccessInstanceLoggingConfiguration
+    class VerifiedAccessInstanceLoggingConfiguration
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VerifiedAccessInstanceLoggingConfiguration, context: context)
         type = Types::VerifiedAccessInstanceLoggingConfiguration.new
@@ -30409,7 +30409,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VerifiedAccessInstanceLoggingConfigurationList
+    class VerifiedAccessInstanceLoggingConfigurationList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -30420,7 +30420,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VerifiedAccessLogCloudWatchLogsDestination
+    class VerifiedAccessLogCloudWatchLogsDestination
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VerifiedAccessLogCloudWatchLogsDestination, context: context)
         type = Types::VerifiedAccessLogCloudWatchLogsDestination.new
@@ -30432,7 +30432,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VerifiedAccessLogCloudWatchLogsDestinationOptions
+    class VerifiedAccessLogCloudWatchLogsDestinationOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VerifiedAccessLogCloudWatchLogsDestinationOptions, context: context)
         type = Types::VerifiedAccessLogCloudWatchLogsDestinationOptions.new
@@ -30443,7 +30443,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VerifiedAccessLogDeliveryStatus
+    class VerifiedAccessLogDeliveryStatus
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VerifiedAccessLogDeliveryStatus, context: context)
         type = Types::VerifiedAccessLogDeliveryStatus.new
@@ -30454,7 +30454,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VerifiedAccessLogKinesisDataFirehoseDestination
+    class VerifiedAccessLogKinesisDataFirehoseDestination
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VerifiedAccessLogKinesisDataFirehoseDestination, context: context)
         type = Types::VerifiedAccessLogKinesisDataFirehoseDestination.new
@@ -30466,7 +30466,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VerifiedAccessLogKinesisDataFirehoseDestinationOptions
+    class VerifiedAccessLogKinesisDataFirehoseDestinationOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VerifiedAccessLogKinesisDataFirehoseDestinationOptions, context: context)
         type = Types::VerifiedAccessLogKinesisDataFirehoseDestinationOptions.new
@@ -30477,7 +30477,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VerifiedAccessLogOptions
+    class VerifiedAccessLogOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VerifiedAccessLogOptions, context: context)
         type = Types::VerifiedAccessLogOptions.new
@@ -30491,7 +30491,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VerifiedAccessLogS3Destination
+    class VerifiedAccessLogS3Destination
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VerifiedAccessLogS3Destination, context: context)
         type = Types::VerifiedAccessLogS3Destination.new
@@ -30505,7 +30505,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VerifiedAccessLogS3DestinationOptions
+    class VerifiedAccessLogS3DestinationOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VerifiedAccessLogS3DestinationOptions, context: context)
         type = Types::VerifiedAccessLogS3DestinationOptions.new
@@ -30518,7 +30518,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VerifiedAccessLogs
+    class VerifiedAccessLogs
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VerifiedAccessLogs, context: context)
         type = Types::VerifiedAccessLogs.new
@@ -30532,7 +30532,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VerifiedAccessSseSpecificationRequest
+    class VerifiedAccessSseSpecificationRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VerifiedAccessSseSpecificationRequest, context: context)
         type = Types::VerifiedAccessSseSpecificationRequest.new
@@ -30543,7 +30543,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VerifiedAccessSseSpecificationResponse
+    class VerifiedAccessSseSpecificationResponse
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VerifiedAccessSseSpecificationResponse, context: context)
         type = Types::VerifiedAccessSseSpecificationResponse.new
@@ -30554,7 +30554,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VerifiedAccessTrustProvider
+    class VerifiedAccessTrustProvider
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VerifiedAccessTrustProvider, context: context)
         type = Types::VerifiedAccessTrustProvider.new
@@ -30575,7 +30575,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VerifiedAccessTrustProviderCondensed
+    class VerifiedAccessTrustProviderCondensed
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VerifiedAccessTrustProviderCondensed, context: context)
         type = Types::VerifiedAccessTrustProviderCondensed.new
@@ -30589,7 +30589,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VerifiedAccessTrustProviderCondensedList
+    class VerifiedAccessTrustProviderCondensedList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -30600,7 +30600,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VerifiedAccessTrustProviderIdList
+    class VerifiedAccessTrustProviderIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -30611,7 +30611,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VerifiedAccessTrustProviderList
+    class VerifiedAccessTrustProviderList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -30622,7 +30622,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VersionStringList
+    class VersionStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -30633,7 +30633,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VgwTelemetry
+    class VgwTelemetry
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VgwTelemetry, context: context)
         type = Types::VgwTelemetry.new
@@ -30648,7 +30648,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VgwTelemetryList
+    class VgwTelemetryList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -30659,7 +30659,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VirtualizationTypeList
+    class VirtualizationTypeList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -30670,7 +30670,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VirtualizationTypeSet
+    class VirtualizationTypeSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -30681,7 +30681,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Volume
+    class Volume
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Volume, context: context)
         type = Types::Volume.new
@@ -30707,7 +30707,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VolumeAttachment
+    class VolumeAttachment
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VolumeAttachment, context: context)
         type = Types::VolumeAttachment.new
@@ -30724,7 +30724,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VolumeAttachmentList
+    class VolumeAttachmentList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -30735,7 +30735,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VolumeDetail
+    class VolumeDetail
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VolumeDetail, context: context)
         type = Types::VolumeDetail.new
@@ -30745,7 +30745,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VolumeIdStringList
+    class VolumeIdStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -30756,7 +30756,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VolumeList
+    class VolumeList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -30767,7 +30767,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VolumeModification
+    class VolumeModification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VolumeModification, context: context)
         type = Types::VolumeModification.new
@@ -30792,7 +30792,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VolumeModificationList
+    class VolumeModificationList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -30803,7 +30803,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VolumeStatusAction
+    class VolumeStatusAction
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VolumeStatusAction, context: context)
         type = Types::VolumeStatusAction.new
@@ -30816,7 +30816,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VolumeStatusActionsList
+    class VolumeStatusActionsList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -30827,7 +30827,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VolumeStatusAttachmentStatus
+    class VolumeStatusAttachmentStatus
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VolumeStatusAttachmentStatus, context: context)
         type = Types::VolumeStatusAttachmentStatus.new
@@ -30838,7 +30838,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VolumeStatusAttachmentStatusList
+    class VolumeStatusAttachmentStatusList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -30849,7 +30849,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VolumeStatusDetails
+    class VolumeStatusDetails
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VolumeStatusDetails, context: context)
         type = Types::VolumeStatusDetails.new
@@ -30860,7 +30860,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VolumeStatusDetailsList
+    class VolumeStatusDetailsList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -30871,7 +30871,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VolumeStatusEvent
+    class VolumeStatusEvent
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VolumeStatusEvent, context: context)
         type = Types::VolumeStatusEvent.new
@@ -30886,7 +30886,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VolumeStatusEventsList
+    class VolumeStatusEventsList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -30897,7 +30897,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VolumeStatusInfo
+    class VolumeStatusInfo
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VolumeStatusInfo, context: context)
         type = Types::VolumeStatusInfo.new
@@ -30908,7 +30908,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VolumeStatusItem
+    class VolumeStatusItem
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VolumeStatusItem, context: context)
         type = Types::VolumeStatusItem.new
@@ -30924,7 +30924,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VolumeStatusList
+    class VolumeStatusList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -30935,7 +30935,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module Vpc
+    class Vpc
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Vpc, context: context)
         type = Types::Vpc.new
@@ -30954,7 +30954,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VpcAttachment
+    class VpcAttachment
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VpcAttachment, context: context)
         type = Types::VpcAttachment.new
@@ -30965,7 +30965,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VpcAttachmentList
+    class VpcAttachmentList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -30976,7 +30976,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VpcCidrBlockAssociation
+    class VpcCidrBlockAssociation
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VpcCidrBlockAssociation, context: context)
         type = Types::VpcCidrBlockAssociation.new
@@ -30988,7 +30988,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VpcCidrBlockAssociationSet
+    class VpcCidrBlockAssociationSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -30999,7 +30999,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VpcCidrBlockState
+    class VpcCidrBlockState
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VpcCidrBlockState, context: context)
         type = Types::VpcCidrBlockState.new
@@ -31010,7 +31010,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VpcClassicLink
+    class VpcClassicLink
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VpcClassicLink, context: context)
         type = Types::VpcClassicLink.new
@@ -31022,7 +31022,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VpcClassicLinkIdList
+    class VpcClassicLinkIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -31033,7 +31033,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VpcClassicLinkList
+    class VpcClassicLinkList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -31044,7 +31044,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VpcEndpoint
+    class VpcEndpoint
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VpcEndpoint, context: context)
         type = Types::VpcEndpoint.new
@@ -31072,7 +31072,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VpcEndpointConnection
+    class VpcEndpointConnection
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VpcEndpointConnection, context: context)
         type = Types::VpcEndpointConnection.new
@@ -31092,7 +31092,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VpcEndpointConnectionSet
+    class VpcEndpointConnectionSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -31103,7 +31103,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VpcEndpointIdList
+    class VpcEndpointIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -31114,7 +31114,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VpcEndpointRouteTableIdList
+    class VpcEndpointRouteTableIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -31125,7 +31125,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VpcEndpointSecurityGroupIdList
+    class VpcEndpointSecurityGroupIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -31136,7 +31136,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VpcEndpointServiceIdList
+    class VpcEndpointServiceIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -31147,7 +31147,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VpcEndpointSet
+    class VpcEndpointSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -31158,7 +31158,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VpcEndpointSubnetIdList
+    class VpcEndpointSubnetIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -31169,7 +31169,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VpcIdStringList
+    class VpcIdStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -31180,7 +31180,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VpcIpv6CidrBlockAssociation
+    class VpcIpv6CidrBlockAssociation
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VpcIpv6CidrBlockAssociation, context: context)
         type = Types::VpcIpv6CidrBlockAssociation.new
@@ -31194,7 +31194,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VpcIpv6CidrBlockAssociationSet
+    class VpcIpv6CidrBlockAssociationSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -31205,7 +31205,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VpcList
+    class VpcList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -31216,7 +31216,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VpcPeeringConnection
+    class VpcPeeringConnection
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VpcPeeringConnection, context: context)
         type = Types::VpcPeeringConnection.new
@@ -31231,7 +31231,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VpcPeeringConnectionIdList
+    class VpcPeeringConnectionIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -31242,7 +31242,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VpcPeeringConnectionList
+    class VpcPeeringConnectionList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -31253,7 +31253,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VpcPeeringConnectionOptionsDescription
+    class VpcPeeringConnectionOptionsDescription
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VpcPeeringConnectionOptionsDescription, context: context)
         type = Types::VpcPeeringConnectionOptionsDescription.new
@@ -31265,7 +31265,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VpcPeeringConnectionStateReason
+    class VpcPeeringConnectionStateReason
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VpcPeeringConnectionStateReason, context: context)
         type = Types::VpcPeeringConnectionStateReason.new
@@ -31276,7 +31276,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VpcPeeringConnectionVpcInfo
+    class VpcPeeringConnectionVpcInfo
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VpcPeeringConnectionVpcInfo, context: context)
         type = Types::VpcPeeringConnectionVpcInfo.new
@@ -31292,7 +31292,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VpnConnection
+    class VpnConnection
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VpnConnection, context: context)
         type = Types::VpnConnection.new
@@ -31316,7 +31316,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VpnConnectionDeviceType
+    class VpnConnectionDeviceType
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VpnConnectionDeviceType, context: context)
         type = Types::VpnConnectionDeviceType.new
@@ -31329,7 +31329,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VpnConnectionDeviceTypeList
+    class VpnConnectionDeviceTypeList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -31340,7 +31340,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VpnConnectionIdStringList
+    class VpnConnectionIdStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -31351,7 +31351,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VpnConnectionList
+    class VpnConnectionList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -31362,7 +31362,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VpnConnectionOptions
+    class VpnConnectionOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VpnConnectionOptions, context: context)
         type = Types::VpnConnectionOptions.new
@@ -31381,7 +31381,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VpnConnectionOptionsSpecification
+    class VpnConnectionOptionsSpecification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VpnConnectionOptionsSpecification, context: context)
         type = Types::VpnConnectionOptionsSpecification.new
@@ -31400,7 +31400,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VpnGateway
+    class VpnGateway
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VpnGateway, context: context)
         type = Types::VpnGateway.new
@@ -31416,7 +31416,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VpnGatewayIdStringList
+    class VpnGatewayIdStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -31427,7 +31427,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VpnGatewayList
+    class VpnGatewayList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -31438,7 +31438,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VpnStaticRoute
+    class VpnStaticRoute
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VpnStaticRoute, context: context)
         type = Types::VpnStaticRoute.new
@@ -31450,7 +31450,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VpnStaticRouteList
+    class VpnStaticRouteList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -31461,7 +31461,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VpnTunnelLogOptions
+    class VpnTunnelLogOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VpnTunnelLogOptions, context: context)
         type = Types::VpnTunnelLogOptions.new
@@ -31471,7 +31471,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VpnTunnelLogOptionsSpecification
+    class VpnTunnelLogOptionsSpecification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VpnTunnelLogOptionsSpecification, context: context)
         type = Types::VpnTunnelLogOptionsSpecification.new
@@ -31481,7 +31481,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VpnTunnelOptionsSpecification
+    class VpnTunnelOptionsSpecification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VpnTunnelOptionsSpecification, context: context)
         type = Types::VpnTunnelOptionsSpecification.new
@@ -31510,7 +31510,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module VpnTunnelOptionsSpecificationsList
+    class VpnTunnelOptionsSpecificationsList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -31521,7 +31521,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module WithdrawByoipCidrInput
+    class WithdrawByoipCidrInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::WithdrawByoipCidrInput, context: context)
         type = Types::WithdrawByoipCidrInput.new
@@ -31532,7 +31532,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module WithdrawByoipCidrOutput
+    class WithdrawByoipCidrOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::WithdrawByoipCidrOutput, context: context)
         type = Types::WithdrawByoipCidrOutput.new
@@ -31542,7 +31542,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ZoneIdStringList
+    class ZoneIdStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -31553,7 +31553,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module ZoneNameStringList
+    class ZoneNameStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -31564,7 +31564,7 @@ module AWS::SDK::EC2
       end
     end
 
-    module SnapshotTierStatusSet
+    class SnapshotTierStatusSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []

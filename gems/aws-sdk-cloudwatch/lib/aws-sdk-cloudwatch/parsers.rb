@@ -363,7 +363,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Parser for DeleteAlarms
     class DeleteAlarms
       def self.parse(http_resp)
         data = Types::DeleteAlarmsOutput.new
@@ -374,7 +373,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Parser for DeleteAnomalyDetector
     class DeleteAnomalyDetector
       def self.parse(http_resp)
         data = Types::DeleteAnomalyDetectorOutput.new
@@ -385,7 +383,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Parser for DeleteDashboards
     class DeleteDashboards
       def self.parse(http_resp)
         data = Types::DeleteDashboardsOutput.new
@@ -396,7 +393,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Parser for DeleteInsightRules
     class DeleteInsightRules
       def self.parse(http_resp)
         data = Types::DeleteInsightRulesOutput.new
@@ -411,7 +407,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Parser for DeleteMetricStream
     class DeleteMetricStream
       def self.parse(http_resp)
         data = Types::DeleteMetricStreamOutput.new
@@ -422,7 +417,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Parser for DescribeAlarmHistory
     class DescribeAlarmHistory
       def self.parse(http_resp)
         data = Types::DescribeAlarmHistoryOutput.new
@@ -440,7 +434,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Parser for DescribeAlarms
     class DescribeAlarms
       def self.parse(http_resp)
         data = Types::DescribeAlarmsOutput.new
@@ -462,7 +455,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Parser for DescribeAlarmsForMetric
     class DescribeAlarmsForMetric
       def self.parse(http_resp)
         data = Types::DescribeAlarmsForMetricOutput.new
@@ -477,7 +469,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Parser for DescribeAnomalyDetectors
     class DescribeAnomalyDetectors
       def self.parse(http_resp)
         data = Types::DescribeAnomalyDetectorsOutput.new
@@ -495,7 +486,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Parser for DescribeInsightRules
     class DescribeInsightRules
       def self.parse(http_resp)
         data = Types::DescribeInsightRulesOutput.new
@@ -536,7 +526,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Parser for DisableAlarmActions
     class DisableAlarmActions
       def self.parse(http_resp)
         data = Types::DisableAlarmActionsOutput.new
@@ -547,7 +536,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Parser for DisableInsightRules
     class DisableInsightRules
       def self.parse(http_resp)
         data = Types::DisableInsightRulesOutput.new
@@ -562,7 +550,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Parser for EnableAlarmActions
     class EnableAlarmActions
       def self.parse(http_resp)
         data = Types::EnableAlarmActionsOutput.new
@@ -573,7 +560,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Parser for EnableInsightRules
     class EnableInsightRules
       def self.parse(http_resp)
         data = Types::EnableInsightRulesOutput.new
@@ -588,7 +574,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Parser for GetDashboard
     class GetDashboard
       def self.parse(http_resp)
         data = Types::GetDashboardOutput.new
@@ -608,7 +593,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Parser for GetInsightRuleReport
     class GetInsightRuleReport
       def self.parse(http_resp)
         data = Types::GetInsightRuleReportOutput.new
@@ -640,7 +624,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Parser for GetMetricData
     class GetMetricData
       def self.parse(http_resp)
         data = Types::GetMetricDataOutput.new
@@ -662,7 +645,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Parser for GetMetricStatistics
     class GetMetricStatistics
       def self.parse(http_resp)
         data = Types::GetMetricStatisticsOutput.new
@@ -680,7 +662,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Parser for GetMetricStream
     class GetMetricStream
       def self.parse(http_resp)
         data = Types::GetMetricStreamOutput.new
@@ -730,7 +711,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Parser for GetMetricWidgetImage
     class GetMetricWidgetImage
       def self.parse(http_resp)
         data = Types::GetMetricWidgetImageOutput.new
@@ -986,7 +966,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Parser for ListDashboards
     class ListDashboards
       def self.parse(http_resp)
         data = Types::ListDashboardsOutput.new
@@ -1004,7 +983,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Parser for ListManagedInsightRules
     class ListManagedInsightRules
       def self.parse(http_resp)
         data = Types::ListManagedInsightRulesOutput.new
@@ -1022,7 +1000,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Parser for ListMetricStreams
     class ListMetricStreams
       def self.parse(http_resp)
         data = Types::ListMetricStreamsOutput.new
@@ -1040,7 +1017,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Parser for ListMetrics
     class ListMetrics
       def self.parse(http_resp)
         data = Types::ListMetricsOutput.new
@@ -1062,7 +1038,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Parser for ListTagsForResource
     class ListTagsForResource
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
@@ -1554,7 +1529,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Parser for PutAnomalyDetector
     class PutAnomalyDetector
       def self.parse(http_resp)
         data = Types::PutAnomalyDetectorOutput.new
@@ -1565,7 +1539,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Parser for PutCompositeAlarm
     class PutCompositeAlarm
       def self.parse(http_resp)
         data = Types::PutCompositeAlarmOutput.new
@@ -1576,7 +1549,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Parser for PutDashboard
     class PutDashboard
       def self.parse(http_resp)
         data = Types::PutDashboardOutput.new
@@ -1591,7 +1563,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Parser for PutInsightRule
     class PutInsightRule
       def self.parse(http_resp)
         data = Types::PutInsightRuleOutput.new
@@ -1602,7 +1573,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Parser for PutManagedInsightRules
     class PutManagedInsightRules
       def self.parse(http_resp)
         data = Types::PutManagedInsightRulesOutput.new
@@ -1617,7 +1587,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Parser for PutMetricAlarm
     class PutMetricAlarm
       def self.parse(http_resp)
         data = Types::PutMetricAlarmOutput.new
@@ -1628,7 +1597,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Parser for PutMetricData
     class PutMetricData
       def self.parse(http_resp)
         data = Types::PutMetricDataOutput.new
@@ -1639,7 +1607,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Parser for PutMetricStream
     class PutMetricStream
       def self.parse(http_resp)
         data = Types::PutMetricStreamOutput.new
@@ -1710,7 +1677,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Parser for SetAlarmState
     class SetAlarmState
       def self.parse(http_resp)
         data = Types::SetAlarmStateOutput.new
@@ -1741,7 +1707,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Parser for StartMetricStreams
     class StartMetricStreams
       def self.parse(http_resp)
         data = Types::StartMetricStreamsOutput.new
@@ -1752,7 +1717,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Parser for StopMetricStreams
     class StopMetricStreams
       def self.parse(http_resp)
         data = Types::StopMetricStreamsOutput.new
@@ -1786,7 +1750,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Parser for TagResource
     class TagResource
       def self.parse(http_resp)
         data = Types::TagResourceOutput.new
@@ -1807,7 +1770,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Parser for UntagResource
     class UntagResource
       def self.parse(http_resp)
         data = Types::UntagResourceOutput.new

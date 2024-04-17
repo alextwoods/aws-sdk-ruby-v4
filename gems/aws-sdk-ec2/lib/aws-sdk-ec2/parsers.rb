@@ -69,7 +69,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for AcceptAddressTransfer
     class AcceptAddressTransfer
       def self.parse(http_resp)
         data = Types::AcceptAddressTransferOutput.new
@@ -83,7 +82,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for AcceptReservedInstancesExchangeQuote
     class AcceptReservedInstancesExchangeQuote
       def self.parse(http_resp)
         data = Types::AcceptReservedInstancesExchangeQuoteOutput.new
@@ -97,7 +95,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for AcceptTransitGatewayMulticastDomainAssociations
     class AcceptTransitGatewayMulticastDomainAssociations
       def self.parse(http_resp)
         data = Types::AcceptTransitGatewayMulticastDomainAssociationsOutput.new
@@ -111,7 +108,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for AcceptTransitGatewayPeeringAttachment
     class AcceptTransitGatewayPeeringAttachment
       def self.parse(http_resp)
         data = Types::AcceptTransitGatewayPeeringAttachmentOutput.new
@@ -125,7 +121,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for AcceptTransitGatewayVpcAttachment
     class AcceptTransitGatewayVpcAttachment
       def self.parse(http_resp)
         data = Types::AcceptTransitGatewayVpcAttachmentOutput.new
@@ -139,7 +134,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for AcceptVpcEndpointConnections
     class AcceptVpcEndpointConnections
       def self.parse(http_resp)
         data = Types::AcceptVpcEndpointConnectionsOutput.new
@@ -154,7 +148,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for AcceptVpcPeeringConnection
     class AcceptVpcPeeringConnection
       def self.parse(http_resp)
         data = Types::AcceptVpcPeeringConnectionOutput.new
@@ -496,7 +489,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for AdvertiseByoipCidr
     class AdvertiseByoipCidr
       def self.parse(http_resp)
         data = Types::AdvertiseByoipCidrOutput.new
@@ -510,7 +502,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for AllocateAddress
     class AllocateAddress
       def self.parse(http_resp)
         data = Types::AllocateAddressOutput.new
@@ -545,7 +536,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for AllocateHosts
     class AllocateHosts
       def self.parse(http_resp)
         data = Types::AllocateHostsOutput.new
@@ -560,7 +550,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for AllocateIpamPoolCidr
     class AllocateIpamPoolCidr
       def self.parse(http_resp)
         data = Types::AllocateIpamPoolCidrOutput.new
@@ -823,7 +812,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ApplySecurityGroupsToClientVpnTargetNetwork
     class ApplySecurityGroupsToClientVpnTargetNetwork
       def self.parse(http_resp)
         data = Types::ApplySecurityGroupsToClientVpnTargetNetworkOutput.new
@@ -887,7 +875,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for AssignIpv6Addresses
     class AssignIpv6Addresses
       def self.parse(http_resp)
         data = Types::AssignIpv6AddressesOutput.new
@@ -909,7 +896,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for AssignPrivateIpAddresses
     class AssignPrivateIpAddresses
       def self.parse(http_resp)
         data = Types::AssignPrivateIpAddressesOutput.new
@@ -931,7 +917,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for AssignPrivateNatGatewayAddress
     class AssignPrivateNatGatewayAddress
       def self.parse(http_resp)
         data = Types::AssignPrivateNatGatewayAddressOutput.new
@@ -969,7 +954,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for AssociateAddress
     class AssociateAddress
       def self.parse(http_resp)
         data = Types::AssociateAddressOutput.new
@@ -983,7 +967,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for AssociateClientVpnTargetNetwork
     class AssociateClientVpnTargetNetwork
       def self.parse(http_resp)
         data = Types::AssociateClientVpnTargetNetworkOutput.new
@@ -1000,7 +983,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for AssociateDhcpOptions
     class AssociateDhcpOptions
       def self.parse(http_resp)
         data = Types::AssociateDhcpOptionsOutput.new
@@ -1011,7 +993,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for AssociateEnclaveCertificateIamRole
     class AssociateEnclaveCertificateIamRole
       def self.parse(http_resp)
         data = Types::AssociateEnclaveCertificateIamRoleOutput.new
@@ -1031,7 +1012,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for AssociateIamInstanceProfile
     class AssociateIamInstanceProfile
       def self.parse(http_resp)
         data = Types::AssociateIamInstanceProfileOutput.new
@@ -1045,7 +1025,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for AssociateInstanceEventWindow
     class AssociateInstanceEventWindow
       def self.parse(http_resp)
         data = Types::AssociateInstanceEventWindowOutput.new
@@ -1059,7 +1038,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for AssociateIpamByoasn
     class AssociateIpamByoasn
       def self.parse(http_resp)
         data = Types::AssociateIpamByoasnOutput.new
@@ -1073,7 +1051,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for AssociateIpamResourceDiscovery
     class AssociateIpamResourceDiscovery
       def self.parse(http_resp)
         data = Types::AssociateIpamResourceDiscoveryOutput.new
@@ -1087,7 +1064,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for AssociateNatGatewayAddress
     class AssociateNatGatewayAddress
       def self.parse(http_resp)
         data = Types::AssociateNatGatewayAddressOutput.new
@@ -1105,7 +1081,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for AssociateRouteTable
     class AssociateRouteTable
       def self.parse(http_resp)
         data = Types::AssociateRouteTableOutput.new
@@ -1122,7 +1097,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for AssociateSubnetCidrBlock
     class AssociateSubnetCidrBlock
       def self.parse(http_resp)
         data = Types::AssociateSubnetCidrBlockOutput.new
@@ -1139,7 +1113,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for AssociateTransitGatewayMulticastDomain
     class AssociateTransitGatewayMulticastDomain
       def self.parse(http_resp)
         data = Types::AssociateTransitGatewayMulticastDomainOutput.new
@@ -1153,7 +1126,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for AssociateTransitGatewayPolicyTable
     class AssociateTransitGatewayPolicyTable
       def self.parse(http_resp)
         data = Types::AssociateTransitGatewayPolicyTableOutput.new
@@ -1167,7 +1139,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for AssociateTransitGatewayRouteTable
     class AssociateTransitGatewayRouteTable
       def self.parse(http_resp)
         data = Types::AssociateTransitGatewayRouteTableOutput.new
@@ -1181,7 +1152,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for AssociateTrunkInterface
     class AssociateTrunkInterface
       def self.parse(http_resp)
         data = Types::AssociateTrunkInterfaceOutput.new
@@ -1198,7 +1168,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for AssociateVpcCidrBlock
     class AssociateVpcCidrBlock
       def self.parse(http_resp)
         data = Types::AssociateVpcCidrBlockOutput.new
@@ -1283,7 +1252,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for AttachClassicLinkVpc
     class AttachClassicLinkVpc
       def self.parse(http_resp)
         data = Types::AttachClassicLinkVpcOutput.new
@@ -1297,7 +1265,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for AttachInternetGateway
     class AttachInternetGateway
       def self.parse(http_resp)
         data = Types::AttachInternetGatewayOutput.new
@@ -1308,7 +1275,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for AttachNetworkInterface
     class AttachNetworkInterface
       def self.parse(http_resp)
         data = Types::AttachNetworkInterfaceOutput.new
@@ -1325,7 +1291,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for AttachVerifiedAccessTrustProvider
     class AttachVerifiedAccessTrustProvider
       def self.parse(http_resp)
         data = Types::AttachVerifiedAccessTrustProviderOutput.new
@@ -1342,7 +1307,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for AttachVolume
     class AttachVolume
       def self.parse(http_resp)
         data = Types::AttachVolumeOutput.new
@@ -1377,7 +1341,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for AttachVpnGateway
     class AttachVpnGateway
       def self.parse(http_resp)
         data = Types::AttachVpnGatewayOutput.new
@@ -1469,7 +1432,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for AuthorizeClientVpnIngress
     class AuthorizeClientVpnIngress
       def self.parse(http_resp)
         data = Types::AuthorizeClientVpnIngressOutput.new
@@ -1483,7 +1445,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for AuthorizeSecurityGroupEgress
     class AuthorizeSecurityGroupEgress
       def self.parse(http_resp)
         data = Types::AuthorizeSecurityGroupEgressOutput.new
@@ -1501,7 +1462,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for AuthorizeSecurityGroupIngress
     class AuthorizeSecurityGroupIngress
       def self.parse(http_resp)
         data = Types::AuthorizeSecurityGroupIngressOutput.new
@@ -1666,7 +1626,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for BundleInstance
     class BundleInstance
       def self.parse(http_resp)
         data = Types::BundleInstanceOutput.new
@@ -1799,7 +1758,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CancelBundleTask
     class CancelBundleTask
       def self.parse(http_resp)
         data = Types::CancelBundleTaskOutput.new
@@ -1813,7 +1771,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CancelCapacityReservation
     class CancelCapacityReservation
       def self.parse(http_resp)
         data = Types::CancelCapacityReservationOutput.new
@@ -1840,7 +1797,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CancelCapacityReservationFleets
     class CancelCapacityReservationFleets
       def self.parse(http_resp)
         data = Types::CancelCapacityReservationFleetsOutput.new
@@ -1859,7 +1815,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CancelConversionTask
     class CancelConversionTask
       def self.parse(http_resp)
         data = Types::CancelConversionTaskOutput.new
@@ -1870,7 +1825,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CancelExportTask
     class CancelExportTask
       def self.parse(http_resp)
         data = Types::CancelExportTaskOutput.new
@@ -1881,7 +1835,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CancelImageLaunchPermission
     class CancelImageLaunchPermission
       def self.parse(http_resp)
         data = Types::CancelImageLaunchPermissionOutput.new
@@ -1895,7 +1848,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CancelImportTask
     class CancelImportTask
       def self.parse(http_resp)
         data = Types::CancelImportTaskOutput.new
@@ -1915,7 +1867,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CancelReservedInstancesListing
     class CancelReservedInstancesListing
       def self.parse(http_resp)
         data = Types::CancelReservedInstancesListingOutput.new
@@ -1930,7 +1881,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CancelSpotFleetRequests
     class CancelSpotFleetRequests
       def self.parse(http_resp)
         data = Types::CancelSpotFleetRequestsOutput.new
@@ -2011,7 +1961,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CancelSpotInstanceRequests
     class CancelSpotInstanceRequests
       def self.parse(http_resp)
         data = Types::CancelSpotInstanceRequestsOutput.new
@@ -2918,7 +2867,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ConfirmProductInstance
     class ConfirmProductInstance
       def self.parse(http_resp)
         data = Types::ConfirmProductInstanceOutput.new
@@ -3083,7 +3031,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CopyFpgaImage
     class CopyFpgaImage
       def self.parse(http_resp)
         data = Types::CopyFpgaImageOutput.new
@@ -3097,7 +3044,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CopyImage
     class CopyImage
       def self.parse(http_resp)
         data = Types::CopyImageOutput.new
@@ -3111,7 +3057,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CopySnapshot
     class CopySnapshot
       def self.parse(http_resp)
         data = Types::CopySnapshotOutput.new
@@ -3165,7 +3110,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateCapacityReservation
     class CreateCapacityReservation
       def self.parse(http_resp)
         data = Types::CreateCapacityReservationOutput.new
@@ -3179,7 +3123,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateCapacityReservationFleet
     class CreateCapacityReservationFleet
       def self.parse(http_resp)
         data = Types::CreateCapacityReservationFleetOutput.new
@@ -3225,7 +3168,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateCarrierGateway
     class CreateCarrierGateway
       def self.parse(http_resp)
         data = Types::CreateCarrierGatewayOutput.new
@@ -3239,7 +3181,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateClientVpnEndpoint
     class CreateClientVpnEndpoint
       def self.parse(http_resp)
         data = Types::CreateClientVpnEndpointOutput.new
@@ -3259,7 +3200,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateClientVpnRoute
     class CreateClientVpnRoute
       def self.parse(http_resp)
         data = Types::CreateClientVpnRouteOutput.new
@@ -3273,7 +3213,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateCoipCidr
     class CreateCoipCidr
       def self.parse(http_resp)
         data = Types::CreateCoipCidrOutput.new
@@ -3287,7 +3226,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateCoipPool
     class CreateCoipPool
       def self.parse(http_resp)
         data = Types::CreateCoipPoolOutput.new
@@ -3301,7 +3239,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateCustomerGateway
     class CreateCustomerGateway
       def self.parse(http_resp)
         data = Types::CreateCustomerGatewayOutput.new
@@ -3315,7 +3252,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateDefaultSubnet
     class CreateDefaultSubnet
       def self.parse(http_resp)
         data = Types::CreateDefaultSubnetOutput.new
@@ -3329,7 +3265,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateDefaultVpc
     class CreateDefaultVpc
       def self.parse(http_resp)
         data = Types::CreateDefaultVpcOutput.new
@@ -3343,7 +3278,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateDhcpOptions
     class CreateDhcpOptions
       def self.parse(http_resp)
         data = Types::CreateDhcpOptionsOutput.new
@@ -3357,7 +3291,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateEgressOnlyInternetGateway
     class CreateEgressOnlyInternetGateway
       def self.parse(http_resp)
         data = Types::CreateEgressOnlyInternetGatewayOutput.new
@@ -3374,7 +3307,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateFleet
     class CreateFleet
       def self.parse(http_resp)
         data = Types::CreateFleetOutput.new
@@ -3458,7 +3390,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateFlowLogs
     class CreateFlowLogs
       def self.parse(http_resp)
         data = Types::CreateFlowLogsOutput.new
@@ -3480,7 +3411,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateFpgaImage
     class CreateFpgaImage
       def self.parse(http_resp)
         data = Types::CreateFpgaImageOutput.new
@@ -3497,7 +3427,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateImage
     class CreateImage
       def self.parse(http_resp)
         data = Types::CreateImageOutput.new
@@ -3511,7 +3440,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateInstanceConnectEndpoint
     class CreateInstanceConnectEndpoint
       def self.parse(http_resp)
         data = Types::CreateInstanceConnectEndpointOutput.new
@@ -3528,7 +3456,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateInstanceEventWindow
     class CreateInstanceEventWindow
       def self.parse(http_resp)
         data = Types::CreateInstanceEventWindowOutput.new
@@ -3542,7 +3469,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateInstanceExportTask
     class CreateInstanceExportTask
       def self.parse(http_resp)
         data = Types::CreateInstanceExportTaskOutput.new
@@ -3556,7 +3482,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateInternetGateway
     class CreateInternetGateway
       def self.parse(http_resp)
         data = Types::CreateInternetGatewayOutput.new
@@ -3570,7 +3495,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateIpam
     class CreateIpam
       def self.parse(http_resp)
         data = Types::CreateIpamOutput.new
@@ -3584,7 +3508,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateIpamPool
     class CreateIpamPool
       def self.parse(http_resp)
         data = Types::CreateIpamPoolOutput.new
@@ -3598,7 +3521,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateIpamResourceDiscovery
     class CreateIpamResourceDiscovery
       def self.parse(http_resp)
         data = Types::CreateIpamResourceDiscoveryOutput.new
@@ -3612,7 +3534,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateIpamScope
     class CreateIpamScope
       def self.parse(http_resp)
         data = Types::CreateIpamScopeOutput.new
@@ -3626,7 +3547,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateKeyPair
     class CreateKeyPair
       def self.parse(http_resp)
         data = Types::CreateKeyPairOutput.new
@@ -3653,7 +3573,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateLaunchTemplate
     class CreateLaunchTemplate
       def self.parse(http_resp)
         data = Types::CreateLaunchTemplateOutput.new
@@ -3670,7 +3589,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateLaunchTemplateVersion
     class CreateLaunchTemplateVersion
       def self.parse(http_resp)
         data = Types::CreateLaunchTemplateVersionOutput.new
@@ -3687,7 +3605,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateLocalGatewayRoute
     class CreateLocalGatewayRoute
       def self.parse(http_resp)
         data = Types::CreateLocalGatewayRouteOutput.new
@@ -3701,7 +3618,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateLocalGatewayRouteTable
     class CreateLocalGatewayRouteTable
       def self.parse(http_resp)
         data = Types::CreateLocalGatewayRouteTableOutput.new
@@ -3715,7 +3631,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation
     class CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation
       def self.parse(http_resp)
         data = Types::CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationOutput.new
@@ -3729,7 +3644,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateLocalGatewayRouteTableVpcAssociation
     class CreateLocalGatewayRouteTableVpcAssociation
       def self.parse(http_resp)
         data = Types::CreateLocalGatewayRouteTableVpcAssociationOutput.new
@@ -3743,7 +3657,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateManagedPrefixList
     class CreateManagedPrefixList
       def self.parse(http_resp)
         data = Types::CreateManagedPrefixListOutput.new
@@ -3757,7 +3670,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateNatGateway
     class CreateNatGateway
       def self.parse(http_resp)
         data = Types::CreateNatGatewayOutput.new
@@ -3774,7 +3686,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateNetworkAcl
     class CreateNetworkAcl
       def self.parse(http_resp)
         data = Types::CreateNetworkAclOutput.new
@@ -3791,7 +3702,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateNetworkAclEntry
     class CreateNetworkAclEntry
       def self.parse(http_resp)
         data = Types::CreateNetworkAclEntryOutput.new
@@ -3802,7 +3712,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateNetworkInsightsAccessScope
     class CreateNetworkInsightsAccessScope
       def self.parse(http_resp)
         data = Types::CreateNetworkInsightsAccessScopeOutput.new
@@ -3819,7 +3728,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateNetworkInsightsPath
     class CreateNetworkInsightsPath
       def self.parse(http_resp)
         data = Types::CreateNetworkInsightsPathOutput.new
@@ -3833,7 +3741,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateNetworkInterface
     class CreateNetworkInterface
       def self.parse(http_resp)
         data = Types::CreateNetworkInterfaceOutput.new
@@ -3850,7 +3757,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateNetworkInterfacePermission
     class CreateNetworkInterfacePermission
       def self.parse(http_resp)
         data = Types::CreateNetworkInterfacePermissionOutput.new
@@ -3864,7 +3770,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreatePlacementGroup
     class CreatePlacementGroup
       def self.parse(http_resp)
         data = Types::CreatePlacementGroupOutput.new
@@ -3878,7 +3783,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreatePublicIpv4Pool
     class CreatePublicIpv4Pool
       def self.parse(http_resp)
         data = Types::CreatePublicIpv4PoolOutput.new
@@ -3892,7 +3796,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateReplaceRootVolumeTask
     class CreateReplaceRootVolumeTask
       def self.parse(http_resp)
         data = Types::CreateReplaceRootVolumeTaskOutput.new
@@ -3906,7 +3809,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateReservedInstancesListing
     class CreateReservedInstancesListing
       def self.parse(http_resp)
         data = Types::CreateReservedInstancesListingOutput.new
@@ -3921,7 +3823,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateRestoreImageTask
     class CreateRestoreImageTask
       def self.parse(http_resp)
         data = Types::CreateRestoreImageTaskOutput.new
@@ -3935,7 +3836,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateRoute
     class CreateRoute
       def self.parse(http_resp)
         data = Types::CreateRouteOutput.new
@@ -3949,7 +3849,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateRouteTable
     class CreateRouteTable
       def self.parse(http_resp)
         data = Types::CreateRouteTableOutput.new
@@ -3966,7 +3865,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateSecurityGroup
     class CreateSecurityGroup
       def self.parse(http_resp)
         data = Types::CreateSecurityGroupOutput.new
@@ -3984,7 +3882,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateSnapshot
     class CreateSnapshot
       def self.parse(http_resp)
         data = Types::CreateSnapshotOutput.new
@@ -4050,7 +3947,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateSnapshots
     class CreateSnapshots
       def self.parse(http_resp)
         data = Types::CreateSnapshotsOutput.new
@@ -4065,7 +3961,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateSpotDatafeedSubscription
     class CreateSpotDatafeedSubscription
       def self.parse(http_resp)
         data = Types::CreateSpotDatafeedSubscriptionOutput.new
@@ -4079,7 +3974,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateStoreImageTask
     class CreateStoreImageTask
       def self.parse(http_resp)
         data = Types::CreateStoreImageTaskOutput.new
@@ -4093,7 +3987,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateSubnet
     class CreateSubnet
       def self.parse(http_resp)
         data = Types::CreateSubnetOutput.new
@@ -4107,7 +4000,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateSubnetCidrReservation
     class CreateSubnetCidrReservation
       def self.parse(http_resp)
         data = Types::CreateSubnetCidrReservationOutput.new
@@ -4121,7 +4013,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateTags
     class CreateTags
       def self.parse(http_resp)
         data = Types::CreateTagsOutput.new
@@ -4132,7 +4023,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateTrafficMirrorFilter
     class CreateTrafficMirrorFilter
       def self.parse(http_resp)
         data = Types::CreateTrafficMirrorFilterOutput.new
@@ -4149,7 +4039,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateTrafficMirrorFilterRule
     class CreateTrafficMirrorFilterRule
       def self.parse(http_resp)
         data = Types::CreateTrafficMirrorFilterRuleOutput.new
@@ -4166,7 +4055,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateTrafficMirrorSession
     class CreateTrafficMirrorSession
       def self.parse(http_resp)
         data = Types::CreateTrafficMirrorSessionOutput.new
@@ -4183,7 +4071,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateTrafficMirrorTarget
     class CreateTrafficMirrorTarget
       def self.parse(http_resp)
         data = Types::CreateTrafficMirrorTargetOutput.new
@@ -4200,7 +4087,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateTransitGateway
     class CreateTransitGateway
       def self.parse(http_resp)
         data = Types::CreateTransitGatewayOutput.new
@@ -4214,7 +4100,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateTransitGatewayConnect
     class CreateTransitGatewayConnect
       def self.parse(http_resp)
         data = Types::CreateTransitGatewayConnectOutput.new
@@ -4228,7 +4113,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateTransitGatewayConnectPeer
     class CreateTransitGatewayConnectPeer
       def self.parse(http_resp)
         data = Types::CreateTransitGatewayConnectPeerOutput.new
@@ -4242,7 +4126,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateTransitGatewayMulticastDomain
     class CreateTransitGatewayMulticastDomain
       def self.parse(http_resp)
         data = Types::CreateTransitGatewayMulticastDomainOutput.new
@@ -4256,7 +4139,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateTransitGatewayPeeringAttachment
     class CreateTransitGatewayPeeringAttachment
       def self.parse(http_resp)
         data = Types::CreateTransitGatewayPeeringAttachmentOutput.new
@@ -4270,7 +4152,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateTransitGatewayPolicyTable
     class CreateTransitGatewayPolicyTable
       def self.parse(http_resp)
         data = Types::CreateTransitGatewayPolicyTableOutput.new
@@ -4284,7 +4165,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateTransitGatewayPrefixListReference
     class CreateTransitGatewayPrefixListReference
       def self.parse(http_resp)
         data = Types::CreateTransitGatewayPrefixListReferenceOutput.new
@@ -4298,7 +4178,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateTransitGatewayRoute
     class CreateTransitGatewayRoute
       def self.parse(http_resp)
         data = Types::CreateTransitGatewayRouteOutput.new
@@ -4312,7 +4191,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateTransitGatewayRouteTable
     class CreateTransitGatewayRouteTable
       def self.parse(http_resp)
         data = Types::CreateTransitGatewayRouteTableOutput.new
@@ -4326,7 +4204,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateTransitGatewayRouteTableAnnouncement
     class CreateTransitGatewayRouteTableAnnouncement
       def self.parse(http_resp)
         data = Types::CreateTransitGatewayRouteTableAnnouncementOutput.new
@@ -4340,7 +4217,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateTransitGatewayVpcAttachment
     class CreateTransitGatewayVpcAttachment
       def self.parse(http_resp)
         data = Types::CreateTransitGatewayVpcAttachmentOutput.new
@@ -4354,7 +4230,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateVerifiedAccessEndpoint
     class CreateVerifiedAccessEndpoint
       def self.parse(http_resp)
         data = Types::CreateVerifiedAccessEndpointOutput.new
@@ -4368,7 +4243,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateVerifiedAccessGroup
     class CreateVerifiedAccessGroup
       def self.parse(http_resp)
         data = Types::CreateVerifiedAccessGroupOutput.new
@@ -4382,7 +4256,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateVerifiedAccessInstance
     class CreateVerifiedAccessInstance
       def self.parse(http_resp)
         data = Types::CreateVerifiedAccessInstanceOutput.new
@@ -4396,7 +4269,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateVerifiedAccessTrustProvider
     class CreateVerifiedAccessTrustProvider
       def self.parse(http_resp)
         data = Types::CreateVerifiedAccessTrustProviderOutput.new
@@ -4410,7 +4282,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateVolume
     class CreateVolume
       def self.parse(http_resp)
         data = Types::CreateVolumeOutput.new
@@ -4497,7 +4368,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateVpc
     class CreateVpc
       def self.parse(http_resp)
         data = Types::CreateVpcOutput.new
@@ -4511,7 +4381,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateVpcEndpoint
     class CreateVpcEndpoint
       def self.parse(http_resp)
         data = Types::CreateVpcEndpointOutput.new
@@ -4528,7 +4397,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateVpcEndpointConnectionNotification
     class CreateVpcEndpointConnectionNotification
       def self.parse(http_resp)
         data = Types::CreateVpcEndpointConnectionNotificationOutput.new
@@ -4545,7 +4413,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateVpcEndpointServiceConfiguration
     class CreateVpcEndpointServiceConfiguration
       def self.parse(http_resp)
         data = Types::CreateVpcEndpointServiceConfigurationOutput.new
@@ -4562,7 +4429,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateVpcPeeringConnection
     class CreateVpcPeeringConnection
       def self.parse(http_resp)
         data = Types::CreateVpcPeeringConnectionOutput.new
@@ -4576,7 +4442,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateVpnConnection
     class CreateVpnConnection
       def self.parse(http_resp)
         data = Types::CreateVpnConnectionOutput.new
@@ -4590,7 +4455,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateVpnConnectionRoute
     class CreateVpnConnectionRoute
       def self.parse(http_resp)
         data = Types::CreateVpnConnectionRouteOutput.new
@@ -4601,7 +4465,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for CreateVpnGateway
     class CreateVpnGateway
       def self.parse(http_resp)
         data = Types::CreateVpnGatewayOutput.new
@@ -4716,7 +4579,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteCarrierGateway
     class DeleteCarrierGateway
       def self.parse(http_resp)
         data = Types::DeleteCarrierGatewayOutput.new
@@ -4730,7 +4592,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteClientVpnEndpoint
     class DeleteClientVpnEndpoint
       def self.parse(http_resp)
         data = Types::DeleteClientVpnEndpointOutput.new
@@ -4744,7 +4605,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteClientVpnRoute
     class DeleteClientVpnRoute
       def self.parse(http_resp)
         data = Types::DeleteClientVpnRouteOutput.new
@@ -4758,7 +4618,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteCoipCidr
     class DeleteCoipCidr
       def self.parse(http_resp)
         data = Types::DeleteCoipCidrOutput.new
@@ -4772,7 +4631,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteCoipPool
     class DeleteCoipPool
       def self.parse(http_resp)
         data = Types::DeleteCoipPoolOutput.new
@@ -4786,7 +4644,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteCustomerGateway
     class DeleteCustomerGateway
       def self.parse(http_resp)
         data = Types::DeleteCustomerGatewayOutput.new
@@ -4797,7 +4654,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteDhcpOptions
     class DeleteDhcpOptions
       def self.parse(http_resp)
         data = Types::DeleteDhcpOptionsOutput.new
@@ -4808,7 +4664,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteEgressOnlyInternetGateway
     class DeleteEgressOnlyInternetGateway
       def self.parse(http_resp)
         data = Types::DeleteEgressOnlyInternetGatewayOutput.new
@@ -4884,7 +4739,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteFleets
     class DeleteFleets
       def self.parse(http_resp)
         data = Types::DeleteFleetsOutput.new
@@ -4903,7 +4757,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteFlowLogs
     class DeleteFlowLogs
       def self.parse(http_resp)
         data = Types::DeleteFlowLogsOutput.new
@@ -4918,7 +4771,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteFpgaImage
     class DeleteFpgaImage
       def self.parse(http_resp)
         data = Types::DeleteFpgaImageOutput.new
@@ -4932,7 +4784,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteInstanceConnectEndpoint
     class DeleteInstanceConnectEndpoint
       def self.parse(http_resp)
         data = Types::DeleteInstanceConnectEndpointOutput.new
@@ -4946,7 +4797,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteInstanceEventWindow
     class DeleteInstanceEventWindow
       def self.parse(http_resp)
         data = Types::DeleteInstanceEventWindowOutput.new
@@ -4960,7 +4810,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteInternetGateway
     class DeleteInternetGateway
       def self.parse(http_resp)
         data = Types::DeleteInternetGatewayOutput.new
@@ -4971,7 +4820,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteIpam
     class DeleteIpam
       def self.parse(http_resp)
         data = Types::DeleteIpamOutput.new
@@ -4985,7 +4833,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteIpamPool
     class DeleteIpamPool
       def self.parse(http_resp)
         data = Types::DeleteIpamPoolOutput.new
@@ -4999,7 +4846,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteIpamResourceDiscovery
     class DeleteIpamResourceDiscovery
       def self.parse(http_resp)
         data = Types::DeleteIpamResourceDiscoveryOutput.new
@@ -5013,7 +4859,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteIpamScope
     class DeleteIpamScope
       def self.parse(http_resp)
         data = Types::DeleteIpamScopeOutput.new
@@ -5027,7 +4872,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteKeyPair
     class DeleteKeyPair
       def self.parse(http_resp)
         data = Types::DeleteKeyPairOutput.new
@@ -5044,7 +4888,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteLaunchTemplate
     class DeleteLaunchTemplate
       def self.parse(http_resp)
         data = Types::DeleteLaunchTemplateOutput.new
@@ -5058,7 +4901,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteLaunchTemplateVersions
     class DeleteLaunchTemplateVersions
       def self.parse(http_resp)
         data = Types::DeleteLaunchTemplateVersionsOutput.new
@@ -5132,7 +4974,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteLocalGatewayRoute
     class DeleteLocalGatewayRoute
       def self.parse(http_resp)
         data = Types::DeleteLocalGatewayRouteOutput.new
@@ -5146,7 +4987,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteLocalGatewayRouteTable
     class DeleteLocalGatewayRouteTable
       def self.parse(http_resp)
         data = Types::DeleteLocalGatewayRouteTableOutput.new
@@ -5160,7 +5000,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation
     class DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation
       def self.parse(http_resp)
         data = Types::DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationOutput.new
@@ -5174,7 +5013,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteLocalGatewayRouteTableVpcAssociation
     class DeleteLocalGatewayRouteTableVpcAssociation
       def self.parse(http_resp)
         data = Types::DeleteLocalGatewayRouteTableVpcAssociationOutput.new
@@ -5188,7 +5026,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteManagedPrefixList
     class DeleteManagedPrefixList
       def self.parse(http_resp)
         data = Types::DeleteManagedPrefixListOutput.new
@@ -5202,7 +5039,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteNatGateway
     class DeleteNatGateway
       def self.parse(http_resp)
         data = Types::DeleteNatGatewayOutput.new
@@ -5216,7 +5052,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteNetworkAcl
     class DeleteNetworkAcl
       def self.parse(http_resp)
         data = Types::DeleteNetworkAclOutput.new
@@ -5227,7 +5062,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteNetworkAclEntry
     class DeleteNetworkAclEntry
       def self.parse(http_resp)
         data = Types::DeleteNetworkAclEntryOutput.new
@@ -5238,7 +5072,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteNetworkInsightsAccessScope
     class DeleteNetworkInsightsAccessScope
       def self.parse(http_resp)
         data = Types::DeleteNetworkInsightsAccessScopeOutput.new
@@ -5252,7 +5085,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteNetworkInsightsAccessScopeAnalysis
     class DeleteNetworkInsightsAccessScopeAnalysis
       def self.parse(http_resp)
         data = Types::DeleteNetworkInsightsAccessScopeAnalysisOutput.new
@@ -5266,7 +5098,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteNetworkInsightsAnalysis
     class DeleteNetworkInsightsAnalysis
       def self.parse(http_resp)
         data = Types::DeleteNetworkInsightsAnalysisOutput.new
@@ -5280,7 +5111,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteNetworkInsightsPath
     class DeleteNetworkInsightsPath
       def self.parse(http_resp)
         data = Types::DeleteNetworkInsightsPathOutput.new
@@ -5294,7 +5124,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteNetworkInterface
     class DeleteNetworkInterface
       def self.parse(http_resp)
         data = Types::DeleteNetworkInterfaceOutput.new
@@ -5305,7 +5134,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteNetworkInterfacePermission
     class DeleteNetworkInterfacePermission
       def self.parse(http_resp)
         data = Types::DeleteNetworkInterfacePermissionOutput.new
@@ -5319,7 +5147,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeletePlacementGroup
     class DeletePlacementGroup
       def self.parse(http_resp)
         data = Types::DeletePlacementGroupOutput.new
@@ -5330,7 +5157,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeletePublicIpv4Pool
     class DeletePublicIpv4Pool
       def self.parse(http_resp)
         data = Types::DeletePublicIpv4PoolOutput.new
@@ -5344,7 +5170,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteQueuedReservedInstances
     class DeleteQueuedReservedInstances
       def self.parse(http_resp)
         data = Types::DeleteQueuedReservedInstancesOutput.new
@@ -5376,7 +5201,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteRoute
     class DeleteRoute
       def self.parse(http_resp)
         data = Types::DeleteRouteOutput.new
@@ -5387,7 +5211,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteRouteTable
     class DeleteRouteTable
       def self.parse(http_resp)
         data = Types::DeleteRouteTableOutput.new
@@ -5398,7 +5221,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteSecurityGroup
     class DeleteSecurityGroup
       def self.parse(http_resp)
         data = Types::DeleteSecurityGroupOutput.new
@@ -5409,7 +5231,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteSnapshot
     class DeleteSnapshot
       def self.parse(http_resp)
         data = Types::DeleteSnapshotOutput.new
@@ -5420,7 +5241,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteSpotDatafeedSubscription
     class DeleteSpotDatafeedSubscription
       def self.parse(http_resp)
         data = Types::DeleteSpotDatafeedSubscriptionOutput.new
@@ -5431,7 +5251,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteSubnet
     class DeleteSubnet
       def self.parse(http_resp)
         data = Types::DeleteSubnetOutput.new
@@ -5442,7 +5261,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteSubnetCidrReservation
     class DeleteSubnetCidrReservation
       def self.parse(http_resp)
         data = Types::DeleteSubnetCidrReservationOutput.new
@@ -5456,7 +5274,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteTags
     class DeleteTags
       def self.parse(http_resp)
         data = Types::DeleteTagsOutput.new
@@ -5467,7 +5284,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteTrafficMirrorFilter
     class DeleteTrafficMirrorFilter
       def self.parse(http_resp)
         data = Types::DeleteTrafficMirrorFilterOutput.new
@@ -5481,7 +5297,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteTrafficMirrorFilterRule
     class DeleteTrafficMirrorFilterRule
       def self.parse(http_resp)
         data = Types::DeleteTrafficMirrorFilterRuleOutput.new
@@ -5495,7 +5310,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteTrafficMirrorSession
     class DeleteTrafficMirrorSession
       def self.parse(http_resp)
         data = Types::DeleteTrafficMirrorSessionOutput.new
@@ -5509,7 +5323,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteTrafficMirrorTarget
     class DeleteTrafficMirrorTarget
       def self.parse(http_resp)
         data = Types::DeleteTrafficMirrorTargetOutput.new
@@ -5523,7 +5336,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteTransitGateway
     class DeleteTransitGateway
       def self.parse(http_resp)
         data = Types::DeleteTransitGatewayOutput.new
@@ -5537,7 +5349,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteTransitGatewayConnect
     class DeleteTransitGatewayConnect
       def self.parse(http_resp)
         data = Types::DeleteTransitGatewayConnectOutput.new
@@ -5551,7 +5362,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteTransitGatewayConnectPeer
     class DeleteTransitGatewayConnectPeer
       def self.parse(http_resp)
         data = Types::DeleteTransitGatewayConnectPeerOutput.new
@@ -5565,7 +5375,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteTransitGatewayMulticastDomain
     class DeleteTransitGatewayMulticastDomain
       def self.parse(http_resp)
         data = Types::DeleteTransitGatewayMulticastDomainOutput.new
@@ -5579,7 +5388,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteTransitGatewayPeeringAttachment
     class DeleteTransitGatewayPeeringAttachment
       def self.parse(http_resp)
         data = Types::DeleteTransitGatewayPeeringAttachmentOutput.new
@@ -5593,7 +5401,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteTransitGatewayPolicyTable
     class DeleteTransitGatewayPolicyTable
       def self.parse(http_resp)
         data = Types::DeleteTransitGatewayPolicyTableOutput.new
@@ -5607,7 +5414,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteTransitGatewayPrefixListReference
     class DeleteTransitGatewayPrefixListReference
       def self.parse(http_resp)
         data = Types::DeleteTransitGatewayPrefixListReferenceOutput.new
@@ -5621,7 +5427,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteTransitGatewayRoute
     class DeleteTransitGatewayRoute
       def self.parse(http_resp)
         data = Types::DeleteTransitGatewayRouteOutput.new
@@ -5635,7 +5440,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteTransitGatewayRouteTable
     class DeleteTransitGatewayRouteTable
       def self.parse(http_resp)
         data = Types::DeleteTransitGatewayRouteTableOutput.new
@@ -5649,7 +5453,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteTransitGatewayRouteTableAnnouncement
     class DeleteTransitGatewayRouteTableAnnouncement
       def self.parse(http_resp)
         data = Types::DeleteTransitGatewayRouteTableAnnouncementOutput.new
@@ -5663,7 +5466,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteTransitGatewayVpcAttachment
     class DeleteTransitGatewayVpcAttachment
       def self.parse(http_resp)
         data = Types::DeleteTransitGatewayVpcAttachmentOutput.new
@@ -5677,7 +5479,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteVerifiedAccessEndpoint
     class DeleteVerifiedAccessEndpoint
       def self.parse(http_resp)
         data = Types::DeleteVerifiedAccessEndpointOutput.new
@@ -5691,7 +5492,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteVerifiedAccessGroup
     class DeleteVerifiedAccessGroup
       def self.parse(http_resp)
         data = Types::DeleteVerifiedAccessGroupOutput.new
@@ -5705,7 +5505,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteVerifiedAccessInstance
     class DeleteVerifiedAccessInstance
       def self.parse(http_resp)
         data = Types::DeleteVerifiedAccessInstanceOutput.new
@@ -5719,7 +5518,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteVerifiedAccessTrustProvider
     class DeleteVerifiedAccessTrustProvider
       def self.parse(http_resp)
         data = Types::DeleteVerifiedAccessTrustProviderOutput.new
@@ -5733,7 +5531,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteVolume
     class DeleteVolume
       def self.parse(http_resp)
         data = Types::DeleteVolumeOutput.new
@@ -5744,7 +5541,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteVpc
     class DeleteVpc
       def self.parse(http_resp)
         data = Types::DeleteVpcOutput.new
@@ -5755,7 +5551,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteVpcEndpointConnectionNotifications
     class DeleteVpcEndpointConnectionNotifications
       def self.parse(http_resp)
         data = Types::DeleteVpcEndpointConnectionNotificationsOutput.new
@@ -5770,7 +5565,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteVpcEndpointServiceConfigurations
     class DeleteVpcEndpointServiceConfigurations
       def self.parse(http_resp)
         data = Types::DeleteVpcEndpointServiceConfigurationsOutput.new
@@ -5785,7 +5579,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteVpcEndpoints
     class DeleteVpcEndpoints
       def self.parse(http_resp)
         data = Types::DeleteVpcEndpointsOutput.new
@@ -5800,7 +5593,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteVpcPeeringConnection
     class DeleteVpcPeeringConnection
       def self.parse(http_resp)
         data = Types::DeleteVpcPeeringConnectionOutput.new
@@ -5814,7 +5606,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteVpnConnection
     class DeleteVpnConnection
       def self.parse(http_resp)
         data = Types::DeleteVpnConnectionOutput.new
@@ -5825,7 +5616,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteVpnConnectionRoute
     class DeleteVpnConnectionRoute
       def self.parse(http_resp)
         data = Types::DeleteVpnConnectionRouteOutput.new
@@ -5836,7 +5626,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeleteVpnGateway
     class DeleteVpnGateway
       def self.parse(http_resp)
         data = Types::DeleteVpnGatewayOutput.new
@@ -5847,7 +5636,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeprovisionByoipCidr
     class DeprovisionByoipCidr
       def self.parse(http_resp)
         data = Types::DeprovisionByoipCidrOutput.new
@@ -5861,7 +5649,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeprovisionIpamByoasn
     class DeprovisionIpamByoasn
       def self.parse(http_resp)
         data = Types::DeprovisionIpamByoasnOutput.new
@@ -5875,7 +5662,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeprovisionIpamPoolCidr
     class DeprovisionIpamPoolCidr
       def self.parse(http_resp)
         data = Types::DeprovisionIpamPoolCidrOutput.new
@@ -5889,7 +5675,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeprovisionPublicIpv4PoolCidr
     class DeprovisionPublicIpv4PoolCidr
       def self.parse(http_resp)
         data = Types::DeprovisionPublicIpv4PoolCidrOutput.new
@@ -5917,7 +5702,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeregisterImage
     class DeregisterImage
       def self.parse(http_resp)
         data = Types::DeregisterImageOutput.new
@@ -5928,7 +5712,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeregisterInstanceEventNotificationAttributes
     class DeregisterInstanceEventNotificationAttributes
       def self.parse(http_resp)
         data = Types::DeregisterInstanceEventNotificationAttributesOutput.new
@@ -5942,7 +5725,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeregisterTransitGatewayMulticastGroupMembers
     class DeregisterTransitGatewayMulticastGroupMembers
       def self.parse(http_resp)
         data = Types::DeregisterTransitGatewayMulticastGroupMembersOutput.new
@@ -5956,7 +5738,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DeregisterTransitGatewayMulticastGroupSources
     class DeregisterTransitGatewayMulticastGroupSources
       def self.parse(http_resp)
         data = Types::DeregisterTransitGatewayMulticastGroupSourcesOutput.new
@@ -5970,7 +5751,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeAccountAttributes
     class DescribeAccountAttributes
       def self.parse(http_resp)
         data = Types::DescribeAccountAttributesOutput.new
@@ -5985,7 +5765,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeAddressTransfers
     class DescribeAddressTransfers
       def self.parse(http_resp)
         data = Types::DescribeAddressTransfersOutput.new
@@ -6003,7 +5782,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeAddresses
     class DescribeAddresses
       def self.parse(http_resp)
         data = Types::DescribeAddressesOutput.new
@@ -6018,7 +5796,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeAddressesAttribute
     class DescribeAddressesAttribute
       def self.parse(http_resp)
         data = Types::DescribeAddressesAttributeOutput.new
@@ -6036,7 +5813,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeAggregateIdFormat
     class DescribeAggregateIdFormat
       def self.parse(http_resp)
         data = Types::DescribeAggregateIdFormatOutput.new
@@ -6054,7 +5830,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeAvailabilityZones
     class DescribeAvailabilityZones
       def self.parse(http_resp)
         data = Types::DescribeAvailabilityZonesOutput.new
@@ -6069,7 +5844,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeAwsNetworkPerformanceMetricSubscriptions
     class DescribeAwsNetworkPerformanceMetricSubscriptions
       def self.parse(http_resp)
         data = Types::DescribeAwsNetworkPerformanceMetricSubscriptionsOutput.new
@@ -6087,7 +5861,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeBundleTasks
     class DescribeBundleTasks
       def self.parse(http_resp)
         data = Types::DescribeBundleTasksOutput.new
@@ -6102,7 +5875,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeByoipCidrs
     class DescribeByoipCidrs
       def self.parse(http_resp)
         data = Types::DescribeByoipCidrsOutput.new
@@ -6120,7 +5892,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeCapacityBlockOfferings
     class DescribeCapacityBlockOfferings
       def self.parse(http_resp)
         data = Types::DescribeCapacityBlockOfferingsOutput.new
@@ -6138,7 +5909,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeCapacityReservationFleets
     class DescribeCapacityReservationFleets
       def self.parse(http_resp)
         data = Types::DescribeCapacityReservationFleetsOutput.new
@@ -6156,7 +5926,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeCapacityReservations
     class DescribeCapacityReservations
       def self.parse(http_resp)
         data = Types::DescribeCapacityReservationsOutput.new
@@ -6174,7 +5943,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeCarrierGateways
     class DescribeCarrierGateways
       def self.parse(http_resp)
         data = Types::DescribeCarrierGatewaysOutput.new
@@ -6192,7 +5960,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeClassicLinkInstances
     class DescribeClassicLinkInstances
       def self.parse(http_resp)
         data = Types::DescribeClassicLinkInstancesOutput.new
@@ -6210,7 +5977,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeClientVpnAuthorizationRules
     class DescribeClientVpnAuthorizationRules
       def self.parse(http_resp)
         data = Types::DescribeClientVpnAuthorizationRulesOutput.new
@@ -6228,7 +5994,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeClientVpnConnections
     class DescribeClientVpnConnections
       def self.parse(http_resp)
         data = Types::DescribeClientVpnConnectionsOutput.new
@@ -6246,7 +6011,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeClientVpnEndpoints
     class DescribeClientVpnEndpoints
       def self.parse(http_resp)
         data = Types::DescribeClientVpnEndpointsOutput.new
@@ -6264,7 +6028,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeClientVpnRoutes
     class DescribeClientVpnRoutes
       def self.parse(http_resp)
         data = Types::DescribeClientVpnRoutesOutput.new
@@ -6282,7 +6045,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeClientVpnTargetNetworks
     class DescribeClientVpnTargetNetworks
       def self.parse(http_resp)
         data = Types::DescribeClientVpnTargetNetworksOutput.new
@@ -6300,7 +6062,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeCoipPools
     class DescribeCoipPools
       def self.parse(http_resp)
         data = Types::DescribeCoipPoolsOutput.new
@@ -6328,7 +6089,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeConversionTasks
     class DescribeConversionTasks
       def self.parse(http_resp)
         data = Types::DescribeConversionTasksOutput.new
@@ -6343,7 +6103,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeCustomerGateways
     class DescribeCustomerGateways
       def self.parse(http_resp)
         data = Types::DescribeCustomerGatewaysOutput.new
@@ -6358,7 +6117,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeDhcpOptions
     class DescribeDhcpOptions
       def self.parse(http_resp)
         data = Types::DescribeDhcpOptionsOutput.new
@@ -6376,7 +6134,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeEgressOnlyInternetGateways
     class DescribeEgressOnlyInternetGateways
       def self.parse(http_resp)
         data = Types::DescribeEgressOnlyInternetGatewaysOutput.new
@@ -6394,7 +6151,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeElasticGpus
     class DescribeElasticGpus
       def self.parse(http_resp)
         data = Types::DescribeElasticGpusOutput.new
@@ -6415,7 +6171,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeExportImageTasks
     class DescribeExportImageTasks
       def self.parse(http_resp)
         data = Types::DescribeExportImageTasksOutput.new
@@ -6433,7 +6188,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeExportTasks
     class DescribeExportTasks
       def self.parse(http_resp)
         data = Types::DescribeExportTasksOutput.new
@@ -6448,7 +6202,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeFastLaunchImages
     class DescribeFastLaunchImages
       def self.parse(http_resp)
         data = Types::DescribeFastLaunchImagesOutput.new
@@ -6560,7 +6313,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeFastSnapshotRestores
     class DescribeFastSnapshotRestores
       def self.parse(http_resp)
         data = Types::DescribeFastSnapshotRestoresOutput.new
@@ -6597,7 +6349,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeFleetHistory
     class DescribeFleetHistory
       def self.parse(http_resp)
         data = Types::DescribeFleetHistoryOutput.new
@@ -6624,7 +6375,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeFleetInstances
     class DescribeFleetInstances
       def self.parse(http_resp)
         data = Types::DescribeFleetInstancesOutput.new
@@ -6645,7 +6395,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeFleets
     class DescribeFleets
       def self.parse(http_resp)
         data = Types::DescribeFleetsOutput.new
@@ -6706,7 +6455,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeFlowLogs
     class DescribeFlowLogs
       def self.parse(http_resp)
         data = Types::DescribeFlowLogsOutput.new
@@ -6724,7 +6472,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeFpgaImageAttribute
     class DescribeFpgaImageAttribute
       def self.parse(http_resp)
         data = Types::DescribeFpgaImageAttributeOutput.new
@@ -6738,7 +6485,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeFpgaImages
     class DescribeFpgaImages
       def self.parse(http_resp)
         data = Types::DescribeFpgaImagesOutput.new
@@ -6756,7 +6502,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeHostReservationOfferings
     class DescribeHostReservationOfferings
       def self.parse(http_resp)
         data = Types::DescribeHostReservationOfferingsOutput.new
@@ -6774,7 +6519,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeHostReservations
     class DescribeHostReservations
       def self.parse(http_resp)
         data = Types::DescribeHostReservationsOutput.new
@@ -6792,7 +6536,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeHosts
     class DescribeHosts
       def self.parse(http_resp)
         data = Types::DescribeHostsOutput.new
@@ -6810,7 +6553,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeIamInstanceProfileAssociations
     class DescribeIamInstanceProfileAssociations
       def self.parse(http_resp)
         data = Types::DescribeIamInstanceProfileAssociationsOutput.new
@@ -6828,7 +6570,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeIdFormat
     class DescribeIdFormat
       def self.parse(http_resp)
         data = Types::DescribeIdFormatOutput.new
@@ -6843,7 +6584,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeIdentityIdFormat
     class DescribeIdentityIdFormat
       def self.parse(http_resp)
         data = Types::DescribeIdentityIdFormatOutput.new
@@ -6858,7 +6598,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeImageAttribute
     class DescribeImageAttribute
       def self.parse(http_resp)
         data = Types::DescribeImageAttributeOutput.new
@@ -6911,7 +6650,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeImages
     class DescribeImages
       def self.parse(http_resp)
         data = Types::DescribeImagesOutput.new
@@ -6929,7 +6667,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeImportImageTasks
     class DescribeImportImageTasks
       def self.parse(http_resp)
         data = Types::DescribeImportImageTasksOutput.new
@@ -6947,7 +6684,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeImportSnapshotTasks
     class DescribeImportSnapshotTasks
       def self.parse(http_resp)
         data = Types::DescribeImportSnapshotTasksOutput.new
@@ -6965,7 +6701,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeInstanceAttribute
     class DescribeInstanceAttribute
       def self.parse(http_resp)
         data = Types::DescribeInstanceAttributeOutput.new
@@ -7030,7 +6765,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeInstanceConnectEndpoints
     class DescribeInstanceConnectEndpoints
       def self.parse(http_resp)
         data = Types::DescribeInstanceConnectEndpointsOutput.new
@@ -7048,7 +6782,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeInstanceCreditSpecifications
     class DescribeInstanceCreditSpecifications
       def self.parse(http_resp)
         data = Types::DescribeInstanceCreditSpecificationsOutput.new
@@ -7066,7 +6799,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeInstanceEventNotificationAttributes
     class DescribeInstanceEventNotificationAttributes
       def self.parse(http_resp)
         data = Types::DescribeInstanceEventNotificationAttributesOutput.new
@@ -7080,7 +6812,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeInstanceEventWindows
     class DescribeInstanceEventWindows
       def self.parse(http_resp)
         data = Types::DescribeInstanceEventWindowsOutput.new
@@ -7098,7 +6829,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeInstanceStatus
     class DescribeInstanceStatus
       def self.parse(http_resp)
         data = Types::DescribeInstanceStatusOutput.new
@@ -7116,7 +6846,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeInstanceTopology
     class DescribeInstanceTopology
       def self.parse(http_resp)
         data = Types::DescribeInstanceTopologyOutput.new
@@ -7134,7 +6863,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeInstanceTypeOfferings
     class DescribeInstanceTypeOfferings
       def self.parse(http_resp)
         data = Types::DescribeInstanceTypeOfferingsOutput.new
@@ -7152,7 +6880,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeInstanceTypes
     class DescribeInstanceTypes
       def self.parse(http_resp)
         data = Types::DescribeInstanceTypesOutput.new
@@ -7170,7 +6897,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeInstances
     class DescribeInstances
       def self.parse(http_resp)
         data = Types::DescribeInstancesOutput.new
@@ -7188,7 +6914,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeInternetGateways
     class DescribeInternetGateways
       def self.parse(http_resp)
         data = Types::DescribeInternetGatewaysOutput.new
@@ -7206,7 +6931,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeIpamByoasn
     class DescribeIpamByoasn
       def self.parse(http_resp)
         data = Types::DescribeIpamByoasnOutput.new
@@ -7224,7 +6948,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeIpamPools
     class DescribeIpamPools
       def self.parse(http_resp)
         data = Types::DescribeIpamPoolsOutput.new
@@ -7242,7 +6965,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeIpamResourceDiscoveries
     class DescribeIpamResourceDiscoveries
       def self.parse(http_resp)
         data = Types::DescribeIpamResourceDiscoveriesOutput.new
@@ -7260,7 +6982,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeIpamResourceDiscoveryAssociations
     class DescribeIpamResourceDiscoveryAssociations
       def self.parse(http_resp)
         data = Types::DescribeIpamResourceDiscoveryAssociationsOutput.new
@@ -7278,7 +6999,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeIpamScopes
     class DescribeIpamScopes
       def self.parse(http_resp)
         data = Types::DescribeIpamScopesOutput.new
@@ -7296,7 +7016,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeIpams
     class DescribeIpams
       def self.parse(http_resp)
         data = Types::DescribeIpamsOutput.new
@@ -7314,7 +7033,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeIpv6Pools
     class DescribeIpv6Pools
       def self.parse(http_resp)
         data = Types::DescribeIpv6PoolsOutput.new
@@ -7332,7 +7050,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeKeyPairs
     class DescribeKeyPairs
       def self.parse(http_resp)
         data = Types::DescribeKeyPairsOutput.new
@@ -7347,7 +7064,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeLaunchTemplateVersions
     class DescribeLaunchTemplateVersions
       def self.parse(http_resp)
         data = Types::DescribeLaunchTemplateVersionsOutput.new
@@ -7365,7 +7081,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeLaunchTemplates
     class DescribeLaunchTemplates
       def self.parse(http_resp)
         data = Types::DescribeLaunchTemplatesOutput.new
@@ -7383,7 +7098,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations
     class DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations
       def self.parse(http_resp)
         data = Types::DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsOutput.new
@@ -7401,7 +7115,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeLocalGatewayRouteTableVpcAssociations
     class DescribeLocalGatewayRouteTableVpcAssociations
       def self.parse(http_resp)
         data = Types::DescribeLocalGatewayRouteTableVpcAssociationsOutput.new
@@ -7419,7 +7132,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeLocalGatewayRouteTables
     class DescribeLocalGatewayRouteTables
       def self.parse(http_resp)
         data = Types::DescribeLocalGatewayRouteTablesOutput.new
@@ -7437,7 +7149,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeLocalGatewayVirtualInterfaceGroups
     class DescribeLocalGatewayVirtualInterfaceGroups
       def self.parse(http_resp)
         data = Types::DescribeLocalGatewayVirtualInterfaceGroupsOutput.new
@@ -7455,7 +7166,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeLocalGatewayVirtualInterfaces
     class DescribeLocalGatewayVirtualInterfaces
       def self.parse(http_resp)
         data = Types::DescribeLocalGatewayVirtualInterfacesOutput.new
@@ -7473,7 +7183,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeLocalGateways
     class DescribeLocalGateways
       def self.parse(http_resp)
         data = Types::DescribeLocalGatewaysOutput.new
@@ -7491,7 +7200,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeLockedSnapshots
     class DescribeLockedSnapshots
       def self.parse(http_resp)
         data = Types::DescribeLockedSnapshotsOutput.new
@@ -7509,7 +7217,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeManagedPrefixLists
     class DescribeManagedPrefixLists
       def self.parse(http_resp)
         data = Types::DescribeManagedPrefixListsOutput.new
@@ -7527,7 +7234,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeMovingAddresses
     class DescribeMovingAddresses
       def self.parse(http_resp)
         data = Types::DescribeMovingAddressesOutput.new
@@ -7545,7 +7251,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeNatGateways
     class DescribeNatGateways
       def self.parse(http_resp)
         data = Types::DescribeNatGatewaysOutput.new
@@ -7563,7 +7268,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeNetworkAcls
     class DescribeNetworkAcls
       def self.parse(http_resp)
         data = Types::DescribeNetworkAclsOutput.new
@@ -7581,7 +7285,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeNetworkInsightsAccessScopeAnalyses
     class DescribeNetworkInsightsAccessScopeAnalyses
       def self.parse(http_resp)
         data = Types::DescribeNetworkInsightsAccessScopeAnalysesOutput.new
@@ -7599,7 +7302,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeNetworkInsightsAccessScopes
     class DescribeNetworkInsightsAccessScopes
       def self.parse(http_resp)
         data = Types::DescribeNetworkInsightsAccessScopesOutput.new
@@ -7617,7 +7319,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeNetworkInsightsAnalyses
     class DescribeNetworkInsightsAnalyses
       def self.parse(http_resp)
         data = Types::DescribeNetworkInsightsAnalysesOutput.new
@@ -7635,7 +7336,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeNetworkInsightsPaths
     class DescribeNetworkInsightsPaths
       def self.parse(http_resp)
         data = Types::DescribeNetworkInsightsPathsOutput.new
@@ -7653,7 +7353,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeNetworkInterfaceAttribute
     class DescribeNetworkInterfaceAttribute
       def self.parse(http_resp)
         data = Types::DescribeNetworkInterfaceAttributeOutput.new
@@ -7680,7 +7379,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeNetworkInterfacePermissions
     class DescribeNetworkInterfacePermissions
       def self.parse(http_resp)
         data = Types::DescribeNetworkInterfacePermissionsOutput.new
@@ -7698,7 +7396,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeNetworkInterfaces
     class DescribeNetworkInterfaces
       def self.parse(http_resp)
         data = Types::DescribeNetworkInterfacesOutput.new
@@ -7716,7 +7413,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribePlacementGroups
     class DescribePlacementGroups
       def self.parse(http_resp)
         data = Types::DescribePlacementGroupsOutput.new
@@ -7731,7 +7427,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribePrefixLists
     class DescribePrefixLists
       def self.parse(http_resp)
         data = Types::DescribePrefixListsOutput.new
@@ -7749,7 +7444,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribePrincipalIdFormat
     class DescribePrincipalIdFormat
       def self.parse(http_resp)
         data = Types::DescribePrincipalIdFormatOutput.new
@@ -7767,7 +7461,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribePublicIpv4Pools
     class DescribePublicIpv4Pools
       def self.parse(http_resp)
         data = Types::DescribePublicIpv4PoolsOutput.new
@@ -7785,7 +7478,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeRegions
     class DescribeRegions
       def self.parse(http_resp)
         data = Types::DescribeRegionsOutput.new
@@ -7800,7 +7492,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeReplaceRootVolumeTasks
     class DescribeReplaceRootVolumeTasks
       def self.parse(http_resp)
         data = Types::DescribeReplaceRootVolumeTasksOutput.new
@@ -7818,7 +7509,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeReservedInstances
     class DescribeReservedInstances
       def self.parse(http_resp)
         data = Types::DescribeReservedInstancesOutput.new
@@ -7833,7 +7523,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeReservedInstancesListings
     class DescribeReservedInstancesListings
       def self.parse(http_resp)
         data = Types::DescribeReservedInstancesListingsOutput.new
@@ -7848,7 +7537,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeReservedInstancesModifications
     class DescribeReservedInstancesModifications
       def self.parse(http_resp)
         data = Types::DescribeReservedInstancesModificationsOutput.new
@@ -7866,7 +7554,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeReservedInstancesOfferings
     class DescribeReservedInstancesOfferings
       def self.parse(http_resp)
         data = Types::DescribeReservedInstancesOfferingsOutput.new
@@ -7884,7 +7571,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeRouteTables
     class DescribeRouteTables
       def self.parse(http_resp)
         data = Types::DescribeRouteTablesOutput.new
@@ -7902,7 +7588,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeScheduledInstanceAvailability
     class DescribeScheduledInstanceAvailability
       def self.parse(http_resp)
         data = Types::DescribeScheduledInstanceAvailabilityOutput.new
@@ -7920,7 +7605,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeScheduledInstances
     class DescribeScheduledInstances
       def self.parse(http_resp)
         data = Types::DescribeScheduledInstancesOutput.new
@@ -7938,7 +7622,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeSecurityGroupReferences
     class DescribeSecurityGroupReferences
       def self.parse(http_resp)
         data = Types::DescribeSecurityGroupReferencesOutput.new
@@ -7953,7 +7636,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeSecurityGroupRules
     class DescribeSecurityGroupRules
       def self.parse(http_resp)
         data = Types::DescribeSecurityGroupRulesOutput.new
@@ -7971,7 +7653,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeSecurityGroups
     class DescribeSecurityGroups
       def self.parse(http_resp)
         data = Types::DescribeSecurityGroupsOutput.new
@@ -7989,7 +7670,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeSnapshotAttribute
     class DescribeSnapshotAttribute
       def self.parse(http_resp)
         data = Types::DescribeSnapshotAttributeOutput.new
@@ -8011,7 +7691,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeSnapshotTierStatus
     class DescribeSnapshotTierStatus
       def self.parse(http_resp)
         data = Types::DescribeSnapshotTierStatusOutput.new
@@ -8029,7 +7708,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeSnapshots
     class DescribeSnapshots
       def self.parse(http_resp)
         data = Types::DescribeSnapshotsOutput.new
@@ -8047,7 +7725,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeSpotDatafeedSubscription
     class DescribeSpotDatafeedSubscription
       def self.parse(http_resp)
         data = Types::DescribeSpotDatafeedSubscriptionOutput.new
@@ -8061,7 +7738,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeSpotFleetInstances
     class DescribeSpotFleetInstances
       def self.parse(http_resp)
         data = Types::DescribeSpotFleetInstancesOutput.new
@@ -8082,7 +7758,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeSpotFleetRequestHistory
     class DescribeSpotFleetRequestHistory
       def self.parse(http_resp)
         data = Types::DescribeSpotFleetRequestHistoryOutput.new
@@ -8109,7 +7784,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeSpotFleetRequests
     class DescribeSpotFleetRequests
       def self.parse(http_resp)
         data = Types::DescribeSpotFleetRequestsOutput.new
@@ -8127,7 +7801,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeSpotInstanceRequests
     class DescribeSpotInstanceRequests
       def self.parse(http_resp)
         data = Types::DescribeSpotInstanceRequestsOutput.new
@@ -8145,7 +7818,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeSpotPriceHistory
     class DescribeSpotPriceHistory
       def self.parse(http_resp)
         data = Types::DescribeSpotPriceHistoryOutput.new
@@ -8163,7 +7835,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeStaleSecurityGroups
     class DescribeStaleSecurityGroups
       def self.parse(http_resp)
         data = Types::DescribeStaleSecurityGroupsOutput.new
@@ -8181,7 +7852,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeStoreImageTasks
     class DescribeStoreImageTasks
       def self.parse(http_resp)
         data = Types::DescribeStoreImageTasksOutput.new
@@ -8199,7 +7869,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeSubnets
     class DescribeSubnets
       def self.parse(http_resp)
         data = Types::DescribeSubnetsOutput.new
@@ -8217,7 +7886,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeTags
     class DescribeTags
       def self.parse(http_resp)
         data = Types::DescribeTagsOutput.new
@@ -8235,7 +7903,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeTrafficMirrorFilters
     class DescribeTrafficMirrorFilters
       def self.parse(http_resp)
         data = Types::DescribeTrafficMirrorFiltersOutput.new
@@ -8253,7 +7920,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeTrafficMirrorSessions
     class DescribeTrafficMirrorSessions
       def self.parse(http_resp)
         data = Types::DescribeTrafficMirrorSessionsOutput.new
@@ -8271,7 +7937,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeTrafficMirrorTargets
     class DescribeTrafficMirrorTargets
       def self.parse(http_resp)
         data = Types::DescribeTrafficMirrorTargetsOutput.new
@@ -8289,7 +7954,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeTransitGatewayAttachments
     class DescribeTransitGatewayAttachments
       def self.parse(http_resp)
         data = Types::DescribeTransitGatewayAttachmentsOutput.new
@@ -8307,7 +7971,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeTransitGatewayConnectPeers
     class DescribeTransitGatewayConnectPeers
       def self.parse(http_resp)
         data = Types::DescribeTransitGatewayConnectPeersOutput.new
@@ -8325,7 +7988,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeTransitGatewayConnects
     class DescribeTransitGatewayConnects
       def self.parse(http_resp)
         data = Types::DescribeTransitGatewayConnectsOutput.new
@@ -8343,7 +8005,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeTransitGatewayMulticastDomains
     class DescribeTransitGatewayMulticastDomains
       def self.parse(http_resp)
         data = Types::DescribeTransitGatewayMulticastDomainsOutput.new
@@ -8361,7 +8022,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeTransitGatewayPeeringAttachments
     class DescribeTransitGatewayPeeringAttachments
       def self.parse(http_resp)
         data = Types::DescribeTransitGatewayPeeringAttachmentsOutput.new
@@ -8379,7 +8039,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeTransitGatewayPolicyTables
     class DescribeTransitGatewayPolicyTables
       def self.parse(http_resp)
         data = Types::DescribeTransitGatewayPolicyTablesOutput.new
@@ -8397,7 +8056,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeTransitGatewayRouteTableAnnouncements
     class DescribeTransitGatewayRouteTableAnnouncements
       def self.parse(http_resp)
         data = Types::DescribeTransitGatewayRouteTableAnnouncementsOutput.new
@@ -8415,7 +8073,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeTransitGatewayRouteTables
     class DescribeTransitGatewayRouteTables
       def self.parse(http_resp)
         data = Types::DescribeTransitGatewayRouteTablesOutput.new
@@ -8433,7 +8090,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeTransitGatewayVpcAttachments
     class DescribeTransitGatewayVpcAttachments
       def self.parse(http_resp)
         data = Types::DescribeTransitGatewayVpcAttachmentsOutput.new
@@ -8451,7 +8107,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeTransitGateways
     class DescribeTransitGateways
       def self.parse(http_resp)
         data = Types::DescribeTransitGatewaysOutput.new
@@ -8469,7 +8124,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeTrunkInterfaceAssociations
     class DescribeTrunkInterfaceAssociations
       def self.parse(http_resp)
         data = Types::DescribeTrunkInterfaceAssociationsOutput.new
@@ -8487,7 +8141,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeVerifiedAccessEndpoints
     class DescribeVerifiedAccessEndpoints
       def self.parse(http_resp)
         data = Types::DescribeVerifiedAccessEndpointsOutput.new
@@ -8505,7 +8158,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeVerifiedAccessGroups
     class DescribeVerifiedAccessGroups
       def self.parse(http_resp)
         data = Types::DescribeVerifiedAccessGroupsOutput.new
@@ -8523,7 +8175,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeVerifiedAccessInstanceLoggingConfigurations
     class DescribeVerifiedAccessInstanceLoggingConfigurations
       def self.parse(http_resp)
         data = Types::DescribeVerifiedAccessInstanceLoggingConfigurationsOutput.new
@@ -8541,7 +8192,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeVerifiedAccessInstances
     class DescribeVerifiedAccessInstances
       def self.parse(http_resp)
         data = Types::DescribeVerifiedAccessInstancesOutput.new
@@ -8559,7 +8209,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeVerifiedAccessTrustProviders
     class DescribeVerifiedAccessTrustProviders
       def self.parse(http_resp)
         data = Types::DescribeVerifiedAccessTrustProvidersOutput.new
@@ -8577,7 +8226,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeVolumeAttribute
     class DescribeVolumeAttribute
       def self.parse(http_resp)
         data = Types::DescribeVolumeAttributeOutput.new
@@ -8598,7 +8246,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeVolumeStatus
     class DescribeVolumeStatus
       def self.parse(http_resp)
         data = Types::DescribeVolumeStatusOutput.new
@@ -8616,7 +8263,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeVolumes
     class DescribeVolumes
       def self.parse(http_resp)
         data = Types::DescribeVolumesOutput.new
@@ -8634,7 +8280,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeVolumesModifications
     class DescribeVolumesModifications
       def self.parse(http_resp)
         data = Types::DescribeVolumesModificationsOutput.new
@@ -8652,7 +8297,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeVpcAttribute
     class DescribeVpcAttribute
       def self.parse(http_resp)
         data = Types::DescribeVpcAttributeOutput.new
@@ -8675,7 +8319,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeVpcClassicLink
     class DescribeVpcClassicLink
       def self.parse(http_resp)
         data = Types::DescribeVpcClassicLinkOutput.new
@@ -8690,7 +8333,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeVpcClassicLinkDnsSupport
     class DescribeVpcClassicLinkDnsSupport
       def self.parse(http_resp)
         data = Types::DescribeVpcClassicLinkDnsSupportOutput.new
@@ -8708,7 +8350,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeVpcEndpointConnectionNotifications
     class DescribeVpcEndpointConnectionNotifications
       def self.parse(http_resp)
         data = Types::DescribeVpcEndpointConnectionNotificationsOutput.new
@@ -8726,7 +8367,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeVpcEndpointConnections
     class DescribeVpcEndpointConnections
       def self.parse(http_resp)
         data = Types::DescribeVpcEndpointConnectionsOutput.new
@@ -8744,7 +8384,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeVpcEndpointServiceConfigurations
     class DescribeVpcEndpointServiceConfigurations
       def self.parse(http_resp)
         data = Types::DescribeVpcEndpointServiceConfigurationsOutput.new
@@ -8762,7 +8401,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeVpcEndpointServicePermissions
     class DescribeVpcEndpointServicePermissions
       def self.parse(http_resp)
         data = Types::DescribeVpcEndpointServicePermissionsOutput.new
@@ -8780,7 +8418,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeVpcEndpointServices
     class DescribeVpcEndpointServices
       def self.parse(http_resp)
         data = Types::DescribeVpcEndpointServicesOutput.new
@@ -8802,7 +8439,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeVpcEndpoints
     class DescribeVpcEndpoints
       def self.parse(http_resp)
         data = Types::DescribeVpcEndpointsOutput.new
@@ -8820,7 +8456,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeVpcPeeringConnections
     class DescribeVpcPeeringConnections
       def self.parse(http_resp)
         data = Types::DescribeVpcPeeringConnectionsOutput.new
@@ -8838,7 +8473,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeVpcs
     class DescribeVpcs
       def self.parse(http_resp)
         data = Types::DescribeVpcsOutput.new
@@ -8856,7 +8490,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeVpnConnections
     class DescribeVpnConnections
       def self.parse(http_resp)
         data = Types::DescribeVpnConnectionsOutput.new
@@ -8871,7 +8504,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DescribeVpnGateways
     class DescribeVpnGateways
       def self.parse(http_resp)
         data = Types::DescribeVpnGatewaysOutput.new
@@ -8902,7 +8534,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DetachClassicLinkVpc
     class DetachClassicLinkVpc
       def self.parse(http_resp)
         data = Types::DetachClassicLinkVpcOutput.new
@@ -8916,7 +8547,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DetachInternetGateway
     class DetachInternetGateway
       def self.parse(http_resp)
         data = Types::DetachInternetGatewayOutput.new
@@ -8927,7 +8557,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DetachNetworkInterface
     class DetachNetworkInterface
       def self.parse(http_resp)
         data = Types::DetachNetworkInterfaceOutput.new
@@ -8938,7 +8567,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DetachVerifiedAccessTrustProvider
     class DetachVerifiedAccessTrustProvider
       def self.parse(http_resp)
         data = Types::DetachVerifiedAccessTrustProviderOutput.new
@@ -8955,7 +8583,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DetachVolume
     class DetachVolume
       def self.parse(http_resp)
         data = Types::DetachVolumeOutput.new
@@ -8990,7 +8617,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DetachVpnGateway
     class DetachVpnGateway
       def self.parse(http_resp)
         data = Types::DetachVpnGatewayOutput.new
@@ -9089,7 +8715,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DisableAddressTransfer
     class DisableAddressTransfer
       def self.parse(http_resp)
         data = Types::DisableAddressTransferOutput.new
@@ -9103,7 +8728,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DisableAwsNetworkPerformanceMetricSubscription
     class DisableAwsNetworkPerformanceMetricSubscription
       def self.parse(http_resp)
         data = Types::DisableAwsNetworkPerformanceMetricSubscriptionOutput.new
@@ -9117,7 +8741,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DisableEbsEncryptionByDefault
     class DisableEbsEncryptionByDefault
       def self.parse(http_resp)
         data = Types::DisableEbsEncryptionByDefaultOutput.new
@@ -9131,7 +8754,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DisableFastLaunch
     class DisableFastLaunch
       def self.parse(http_resp)
         data = Types::DisableFastLaunchOutput.new
@@ -9279,7 +8901,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DisableFastSnapshotRestores
     class DisableFastSnapshotRestores
       def self.parse(http_resp)
         data = Types::DisableFastSnapshotRestoresOutput.new
@@ -9298,7 +8919,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DisableImage
     class DisableImage
       def self.parse(http_resp)
         data = Types::DisableImageOutput.new
@@ -9312,7 +8932,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DisableImageBlockPublicAccess
     class DisableImageBlockPublicAccess
       def self.parse(http_resp)
         data = Types::DisableImageBlockPublicAccessOutput.new
@@ -9326,7 +8945,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DisableImageDeprecation
     class DisableImageDeprecation
       def self.parse(http_resp)
         data = Types::DisableImageDeprecationOutput.new
@@ -9340,7 +8958,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DisableIpamOrganizationAdminAccount
     class DisableIpamOrganizationAdminAccount
       def self.parse(http_resp)
         data = Types::DisableIpamOrganizationAdminAccountOutput.new
@@ -9354,7 +8971,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DisableSerialConsoleAccess
     class DisableSerialConsoleAccess
       def self.parse(http_resp)
         data = Types::DisableSerialConsoleAccessOutput.new
@@ -9368,7 +8984,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DisableSnapshotBlockPublicAccess
     class DisableSnapshotBlockPublicAccess
       def self.parse(http_resp)
         data = Types::DisableSnapshotBlockPublicAccessOutput.new
@@ -9382,7 +8997,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DisableTransitGatewayRouteTablePropagation
     class DisableTransitGatewayRouteTablePropagation
       def self.parse(http_resp)
         data = Types::DisableTransitGatewayRouteTablePropagationOutput.new
@@ -9396,7 +9010,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DisableVgwRoutePropagation
     class DisableVgwRoutePropagation
       def self.parse(http_resp)
         data = Types::DisableVgwRoutePropagationOutput.new
@@ -9407,7 +9020,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DisableVpcClassicLink
     class DisableVpcClassicLink
       def self.parse(http_resp)
         data = Types::DisableVpcClassicLinkOutput.new
@@ -9421,7 +9033,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DisableVpcClassicLinkDnsSupport
     class DisableVpcClassicLinkDnsSupport
       def self.parse(http_resp)
         data = Types::DisableVpcClassicLinkDnsSupportOutput.new
@@ -9435,7 +9046,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DisassociateAddress
     class DisassociateAddress
       def self.parse(http_resp)
         data = Types::DisassociateAddressOutput.new
@@ -9446,7 +9056,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DisassociateClientVpnTargetNetwork
     class DisassociateClientVpnTargetNetwork
       def self.parse(http_resp)
         data = Types::DisassociateClientVpnTargetNetworkOutput.new
@@ -9463,7 +9072,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DisassociateEnclaveCertificateIamRole
     class DisassociateEnclaveCertificateIamRole
       def self.parse(http_resp)
         data = Types::DisassociateEnclaveCertificateIamRoleOutput.new
@@ -9477,7 +9085,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DisassociateIamInstanceProfile
     class DisassociateIamInstanceProfile
       def self.parse(http_resp)
         data = Types::DisassociateIamInstanceProfileOutput.new
@@ -9491,7 +9098,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DisassociateInstanceEventWindow
     class DisassociateInstanceEventWindow
       def self.parse(http_resp)
         data = Types::DisassociateInstanceEventWindowOutput.new
@@ -9505,7 +9111,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DisassociateIpamByoasn
     class DisassociateIpamByoasn
       def self.parse(http_resp)
         data = Types::DisassociateIpamByoasnOutput.new
@@ -9519,7 +9124,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DisassociateIpamResourceDiscovery
     class DisassociateIpamResourceDiscovery
       def self.parse(http_resp)
         data = Types::DisassociateIpamResourceDiscoveryOutput.new
@@ -9533,7 +9137,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DisassociateNatGatewayAddress
     class DisassociateNatGatewayAddress
       def self.parse(http_resp)
         data = Types::DisassociateNatGatewayAddressOutput.new
@@ -9551,7 +9154,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DisassociateRouteTable
     class DisassociateRouteTable
       def self.parse(http_resp)
         data = Types::DisassociateRouteTableOutput.new
@@ -9562,7 +9164,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DisassociateSubnetCidrBlock
     class DisassociateSubnetCidrBlock
       def self.parse(http_resp)
         data = Types::DisassociateSubnetCidrBlockOutput.new
@@ -9579,7 +9180,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DisassociateTransitGatewayMulticastDomain
     class DisassociateTransitGatewayMulticastDomain
       def self.parse(http_resp)
         data = Types::DisassociateTransitGatewayMulticastDomainOutput.new
@@ -9593,7 +9193,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DisassociateTransitGatewayPolicyTable
     class DisassociateTransitGatewayPolicyTable
       def self.parse(http_resp)
         data = Types::DisassociateTransitGatewayPolicyTableOutput.new
@@ -9607,7 +9206,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DisassociateTransitGatewayRouteTable
     class DisassociateTransitGatewayRouteTable
       def self.parse(http_resp)
         data = Types::DisassociateTransitGatewayRouteTableOutput.new
@@ -9621,7 +9219,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DisassociateTrunkInterface
     class DisassociateTrunkInterface
       def self.parse(http_resp)
         data = Types::DisassociateTrunkInterfaceOutput.new
@@ -9638,7 +9235,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for DisassociateVpcCidrBlock
     class DisassociateVpcCidrBlock
       def self.parse(http_resp)
         data = Types::DisassociateVpcCidrBlockOutput.new
@@ -10098,7 +9694,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for EnableAddressTransfer
     class EnableAddressTransfer
       def self.parse(http_resp)
         data = Types::EnableAddressTransferOutput.new
@@ -10112,7 +9707,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for EnableAwsNetworkPerformanceMetricSubscription
     class EnableAwsNetworkPerformanceMetricSubscription
       def self.parse(http_resp)
         data = Types::EnableAwsNetworkPerformanceMetricSubscriptionOutput.new
@@ -10126,7 +9720,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for EnableEbsEncryptionByDefault
     class EnableEbsEncryptionByDefault
       def self.parse(http_resp)
         data = Types::EnableEbsEncryptionByDefaultOutput.new
@@ -10140,7 +9733,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for EnableFastLaunch
     class EnableFastLaunch
       def self.parse(http_resp)
         data = Types::EnableFastLaunchOutput.new
@@ -10288,7 +9880,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for EnableFastSnapshotRestores
     class EnableFastSnapshotRestores
       def self.parse(http_resp)
         data = Types::EnableFastSnapshotRestoresOutput.new
@@ -10307,7 +9898,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for EnableImage
     class EnableImage
       def self.parse(http_resp)
         data = Types::EnableImageOutput.new
@@ -10321,7 +9911,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for EnableImageBlockPublicAccess
     class EnableImageBlockPublicAccess
       def self.parse(http_resp)
         data = Types::EnableImageBlockPublicAccessOutput.new
@@ -10335,7 +9924,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for EnableImageDeprecation
     class EnableImageDeprecation
       def self.parse(http_resp)
         data = Types::EnableImageDeprecationOutput.new
@@ -10349,7 +9937,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for EnableIpamOrganizationAdminAccount
     class EnableIpamOrganizationAdminAccount
       def self.parse(http_resp)
         data = Types::EnableIpamOrganizationAdminAccountOutput.new
@@ -10363,7 +9950,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for EnableReachabilityAnalyzerOrganizationSharing
     class EnableReachabilityAnalyzerOrganizationSharing
       def self.parse(http_resp)
         data = Types::EnableReachabilityAnalyzerOrganizationSharingOutput.new
@@ -10377,7 +9963,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for EnableSerialConsoleAccess
     class EnableSerialConsoleAccess
       def self.parse(http_resp)
         data = Types::EnableSerialConsoleAccessOutput.new
@@ -10391,7 +9976,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for EnableSnapshotBlockPublicAccess
     class EnableSnapshotBlockPublicAccess
       def self.parse(http_resp)
         data = Types::EnableSnapshotBlockPublicAccessOutput.new
@@ -10405,7 +9989,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for EnableTransitGatewayRouteTablePropagation
     class EnableTransitGatewayRouteTablePropagation
       def self.parse(http_resp)
         data = Types::EnableTransitGatewayRouteTablePropagationOutput.new
@@ -10419,7 +10002,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for EnableVgwRoutePropagation
     class EnableVgwRoutePropagation
       def self.parse(http_resp)
         data = Types::EnableVgwRoutePropagationOutput.new
@@ -10430,7 +10012,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for EnableVolumeIO
     class EnableVolumeIO
       def self.parse(http_resp)
         data = Types::EnableVolumeIOOutput.new
@@ -10441,7 +10022,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for EnableVpcClassicLink
     class EnableVpcClassicLink
       def self.parse(http_resp)
         data = Types::EnableVpcClassicLinkOutput.new
@@ -10455,7 +10035,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for EnableVpcClassicLinkDnsSupport
     class EnableVpcClassicLinkDnsSupport
       def self.parse(http_resp)
         data = Types::EnableVpcClassicLinkDnsSupportOutput.new
@@ -10708,7 +10287,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ExportClientVpnClientCertificateRevocationList
     class ExportClientVpnClientCertificateRevocationList
       def self.parse(http_resp)
         data = Types::ExportClientVpnClientCertificateRevocationListOutput.new
@@ -10725,7 +10303,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ExportClientVpnClientConfiguration
     class ExportClientVpnClientConfiguration
       def self.parse(http_resp)
         data = Types::ExportClientVpnClientConfigurationOutput.new
@@ -10739,7 +10316,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ExportImage
     class ExportImage
       def self.parse(http_resp)
         data = Types::ExportImageOutput.new
@@ -10894,7 +10470,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ExportTransitGatewayRoutes
     class ExportTransitGatewayRoutes
       def self.parse(http_resp)
         data = Types::ExportTransitGatewayRoutesOutput.new
@@ -11542,7 +11117,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for GetAssociatedEnclaveCertificateIamRoles
     class GetAssociatedEnclaveCertificateIamRoles
       def self.parse(http_resp)
         data = Types::GetAssociatedEnclaveCertificateIamRolesOutput.new
@@ -11557,7 +11131,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for GetAssociatedIpv6PoolCidrs
     class GetAssociatedIpv6PoolCidrs
       def self.parse(http_resp)
         data = Types::GetAssociatedIpv6PoolCidrsOutput.new
@@ -11575,7 +11148,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for GetAwsNetworkPerformanceData
     class GetAwsNetworkPerformanceData
       def self.parse(http_resp)
         data = Types::GetAwsNetworkPerformanceDataOutput.new
@@ -11593,7 +11165,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for GetCapacityReservationUsage
     class GetCapacityReservationUsage
       def self.parse(http_resp)
         data = Types::GetCapacityReservationUsageOutput.new
@@ -11626,7 +11197,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for GetCoipPoolUsage
     class GetCoipPoolUsage
       def self.parse(http_resp)
         data = Types::GetCoipPoolUsageOutput.new
@@ -11650,7 +11220,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for GetConsoleOutput
     class GetConsoleOutput
       def self.parse(http_resp)
         data = Types::GetConsoleOutputOutput.new
@@ -11670,7 +11239,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for GetConsoleScreenshot
     class GetConsoleScreenshot
       def self.parse(http_resp)
         data = Types::GetConsoleScreenshotOutput.new
@@ -11687,7 +11255,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for GetDefaultCreditSpecification
     class GetDefaultCreditSpecification
       def self.parse(http_resp)
         data = Types::GetDefaultCreditSpecificationOutput.new
@@ -11701,7 +11268,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for GetEbsDefaultKmsKeyId
     class GetEbsDefaultKmsKeyId
       def self.parse(http_resp)
         data = Types::GetEbsDefaultKmsKeyIdOutput.new
@@ -11715,7 +11281,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for GetEbsEncryptionByDefault
     class GetEbsEncryptionByDefault
       def self.parse(http_resp)
         data = Types::GetEbsEncryptionByDefaultOutput.new
@@ -11732,7 +11297,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for GetFlowLogsIntegrationTemplate
     class GetFlowLogsIntegrationTemplate
       def self.parse(http_resp)
         data = Types::GetFlowLogsIntegrationTemplateOutput.new
@@ -11746,7 +11310,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for GetGroupsForCapacityReservation
     class GetGroupsForCapacityReservation
       def self.parse(http_resp)
         data = Types::GetGroupsForCapacityReservationOutput.new
@@ -11764,7 +11327,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for GetHostReservationPurchasePreview
     class GetHostReservationPurchasePreview
       def self.parse(http_resp)
         data = Types::GetHostReservationPurchasePreviewOutput.new
@@ -11788,7 +11350,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for GetImageBlockPublicAccessState
     class GetImageBlockPublicAccessState
       def self.parse(http_resp)
         data = Types::GetImageBlockPublicAccessStateOutput.new
@@ -11802,7 +11363,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for GetInstanceTypesFromInstanceRequirements
     class GetInstanceTypesFromInstanceRequirements
       def self.parse(http_resp)
         data = Types::GetInstanceTypesFromInstanceRequirementsOutput.new
@@ -11820,7 +11380,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for GetInstanceUefiData
     class GetInstanceUefiData
       def self.parse(http_resp)
         data = Types::GetInstanceUefiDataOutput.new
@@ -11837,7 +11396,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for GetIpamAddressHistory
     class GetIpamAddressHistory
       def self.parse(http_resp)
         data = Types::GetIpamAddressHistoryOutput.new
@@ -11855,7 +11413,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for GetIpamDiscoveredAccounts
     class GetIpamDiscoveredAccounts
       def self.parse(http_resp)
         data = Types::GetIpamDiscoveredAccountsOutput.new
@@ -11873,7 +11430,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for GetIpamDiscoveredPublicAddresses
     class GetIpamDiscoveredPublicAddresses
       def self.parse(http_resp)
         data = Types::GetIpamDiscoveredPublicAddressesOutput.new
@@ -11894,7 +11450,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for GetIpamDiscoveredResourceCidrs
     class GetIpamDiscoveredResourceCidrs
       def self.parse(http_resp)
         data = Types::GetIpamDiscoveredResourceCidrsOutput.new
@@ -11912,7 +11467,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for GetIpamPoolAllocations
     class GetIpamPoolAllocations
       def self.parse(http_resp)
         data = Types::GetIpamPoolAllocationsOutput.new
@@ -11930,7 +11484,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for GetIpamPoolCidrs
     class GetIpamPoolCidrs
       def self.parse(http_resp)
         data = Types::GetIpamPoolCidrsOutput.new
@@ -11948,7 +11501,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for GetIpamResourceCidrs
     class GetIpamResourceCidrs
       def self.parse(http_resp)
         data = Types::GetIpamResourceCidrsOutput.new
@@ -11966,7 +11518,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for GetLaunchTemplateData
     class GetLaunchTemplateData
       def self.parse(http_resp)
         data = Types::GetLaunchTemplateDataOutput.new
@@ -11980,7 +11531,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for GetManagedPrefixListAssociations
     class GetManagedPrefixListAssociations
       def self.parse(http_resp)
         data = Types::GetManagedPrefixListAssociationsOutput.new
@@ -11998,7 +11548,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for GetManagedPrefixListEntries
     class GetManagedPrefixListEntries
       def self.parse(http_resp)
         data = Types::GetManagedPrefixListEntriesOutput.new
@@ -12016,7 +11565,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for GetNetworkInsightsAccessScopeAnalysisFindings
     class GetNetworkInsightsAccessScopeAnalysisFindings
       def self.parse(http_resp)
         data = Types::GetNetworkInsightsAccessScopeAnalysisFindingsOutput.new
@@ -12040,7 +11588,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for GetNetworkInsightsAccessScopeContent
     class GetNetworkInsightsAccessScopeContent
       def self.parse(http_resp)
         data = Types::GetNetworkInsightsAccessScopeContentOutput.new
@@ -12054,7 +11601,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for GetPasswordData
     class GetPasswordData
       def self.parse(http_resp)
         data = Types::GetPasswordDataOutput.new
@@ -12074,7 +11620,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for GetReservedInstancesExchangeQuote
     class GetReservedInstancesExchangeQuote
       def self.parse(http_resp)
         data = Types::GetReservedInstancesExchangeQuoteOutput.new
@@ -12114,7 +11659,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for GetSecurityGroupsForVpc
     class GetSecurityGroupsForVpc
       def self.parse(http_resp)
         data = Types::GetSecurityGroupsForVpcOutput.new
@@ -12132,7 +11676,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for GetSerialConsoleAccessStatus
     class GetSerialConsoleAccessStatus
       def self.parse(http_resp)
         data = Types::GetSerialConsoleAccessStatusOutput.new
@@ -12146,7 +11689,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for GetSnapshotBlockPublicAccessState
     class GetSnapshotBlockPublicAccessState
       def self.parse(http_resp)
         data = Types::GetSnapshotBlockPublicAccessStateOutput.new
@@ -12160,7 +11702,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for GetSpotPlacementScores
     class GetSpotPlacementScores
       def self.parse(http_resp)
         data = Types::GetSpotPlacementScoresOutput.new
@@ -12178,7 +11719,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for GetSubnetCidrReservations
     class GetSubnetCidrReservations
       def self.parse(http_resp)
         data = Types::GetSubnetCidrReservationsOutput.new
@@ -12200,7 +11740,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for GetTransitGatewayAttachmentPropagations
     class GetTransitGatewayAttachmentPropagations
       def self.parse(http_resp)
         data = Types::GetTransitGatewayAttachmentPropagationsOutput.new
@@ -12218,7 +11757,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for GetTransitGatewayMulticastDomainAssociations
     class GetTransitGatewayMulticastDomainAssociations
       def self.parse(http_resp)
         data = Types::GetTransitGatewayMulticastDomainAssociationsOutput.new
@@ -12236,7 +11774,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for GetTransitGatewayPolicyTableAssociations
     class GetTransitGatewayPolicyTableAssociations
       def self.parse(http_resp)
         data = Types::GetTransitGatewayPolicyTableAssociationsOutput.new
@@ -12254,7 +11791,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for GetTransitGatewayPolicyTableEntries
     class GetTransitGatewayPolicyTableEntries
       def self.parse(http_resp)
         data = Types::GetTransitGatewayPolicyTableEntriesOutput.new
@@ -12269,7 +11805,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for GetTransitGatewayPrefixListReferences
     class GetTransitGatewayPrefixListReferences
       def self.parse(http_resp)
         data = Types::GetTransitGatewayPrefixListReferencesOutput.new
@@ -12287,7 +11822,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for GetTransitGatewayRouteTableAssociations
     class GetTransitGatewayRouteTableAssociations
       def self.parse(http_resp)
         data = Types::GetTransitGatewayRouteTableAssociationsOutput.new
@@ -12305,7 +11839,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for GetTransitGatewayRouteTablePropagations
     class GetTransitGatewayRouteTablePropagations
       def self.parse(http_resp)
         data = Types::GetTransitGatewayRouteTablePropagationsOutput.new
@@ -12323,7 +11856,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for GetVerifiedAccessEndpointPolicy
     class GetVerifiedAccessEndpointPolicy
       def self.parse(http_resp)
         data = Types::GetVerifiedAccessEndpointPolicyOutput.new
@@ -12340,7 +11872,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for GetVerifiedAccessGroupPolicy
     class GetVerifiedAccessGroupPolicy
       def self.parse(http_resp)
         data = Types::GetVerifiedAccessGroupPolicyOutput.new
@@ -12357,7 +11888,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for GetVpnConnectionDeviceSampleConfiguration
     class GetVpnConnectionDeviceSampleConfiguration
       def self.parse(http_resp)
         data = Types::GetVpnConnectionDeviceSampleConfigurationOutput.new
@@ -12371,7 +11901,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for GetVpnConnectionDeviceTypes
     class GetVpnConnectionDeviceTypes
       def self.parse(http_resp)
         data = Types::GetVpnConnectionDeviceTypesOutput.new
@@ -12389,7 +11918,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for GetVpnTunnelReplacementStatus
     class GetVpnTunnelReplacementStatus
       def self.parse(http_resp)
         data = Types::GetVpnTunnelReplacementStatusOutput.new
@@ -13064,7 +12592,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ImportClientVpnClientCertificateRevocationList
     class ImportClientVpnClientCertificateRevocationList
       def self.parse(http_resp)
         data = Types::ImportClientVpnClientCertificateRevocationListOutput.new
@@ -13078,7 +12605,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ImportImage
     class ImportImage
       def self.parse(http_resp)
         data = Types::ImportImageOutput.new
@@ -13231,7 +12757,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ImportInstance
     class ImportInstance
       def self.parse(http_resp)
         data = Types::ImportInstanceOutput.new
@@ -13303,7 +12828,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ImportKeyPair
     class ImportKeyPair
       def self.parse(http_resp)
         data = Types::ImportKeyPairOutput.new
@@ -13327,7 +12851,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ImportSnapshot
     class ImportSnapshot
       def self.parse(http_resp)
         data = Types::ImportSnapshotOutput.new
@@ -13381,7 +12904,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ImportVolume
     class ImportVolume
       def self.parse(http_resp)
         data = Types::ImportVolumeOutput.new
@@ -16745,7 +16267,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ListImagesInRecycleBin
     class ListImagesInRecycleBin
       def self.parse(http_resp)
         data = Types::ListImagesInRecycleBinOutput.new
@@ -16763,7 +16284,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ListSnapshotsInRecycleBin
     class ListSnapshotsInRecycleBin
       def self.parse(http_resp)
         data = Types::ListSnapshotsInRecycleBinOutput.new
@@ -17128,7 +16648,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for LockSnapshot
     class LockSnapshot
       def self.parse(http_resp)
         data = Types::LockSnapshotOutput.new
@@ -17336,7 +16855,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyAddressAttribute
     class ModifyAddressAttribute
       def self.parse(http_resp)
         data = Types::ModifyAddressAttributeOutput.new
@@ -17350,7 +16868,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyAvailabilityZoneGroup
     class ModifyAvailabilityZoneGroup
       def self.parse(http_resp)
         data = Types::ModifyAvailabilityZoneGroupOutput.new
@@ -17364,7 +16881,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyCapacityReservation
     class ModifyCapacityReservation
       def self.parse(http_resp)
         data = Types::ModifyCapacityReservationOutput.new
@@ -17378,7 +16894,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyCapacityReservationFleet
     class ModifyCapacityReservationFleet
       def self.parse(http_resp)
         data = Types::ModifyCapacityReservationFleetOutput.new
@@ -17392,7 +16907,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyClientVpnEndpoint
     class ModifyClientVpnEndpoint
       def self.parse(http_resp)
         data = Types::ModifyClientVpnEndpointOutput.new
@@ -17406,7 +16920,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyDefaultCreditSpecification
     class ModifyDefaultCreditSpecification
       def self.parse(http_resp)
         data = Types::ModifyDefaultCreditSpecificationOutput.new
@@ -17420,7 +16933,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyEbsDefaultKmsKeyId
     class ModifyEbsDefaultKmsKeyId
       def self.parse(http_resp)
         data = Types::ModifyEbsDefaultKmsKeyIdOutput.new
@@ -17434,7 +16946,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyFleet
     class ModifyFleet
       def self.parse(http_resp)
         data = Types::ModifyFleetOutput.new
@@ -17448,7 +16959,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyFpgaImageAttribute
     class ModifyFpgaImageAttribute
       def self.parse(http_resp)
         data = Types::ModifyFpgaImageAttributeOutput.new
@@ -17462,7 +16972,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyHosts
     class ModifyHosts
       def self.parse(http_resp)
         data = Types::ModifyHostsOutput.new
@@ -17481,7 +16990,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyIdFormat
     class ModifyIdFormat
       def self.parse(http_resp)
         data = Types::ModifyIdFormatOutput.new
@@ -17492,7 +17000,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyIdentityIdFormat
     class ModifyIdentityIdFormat
       def self.parse(http_resp)
         data = Types::ModifyIdentityIdFormatOutput.new
@@ -17503,7 +17010,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyImageAttribute
     class ModifyImageAttribute
       def self.parse(http_resp)
         data = Types::ModifyImageAttributeOutput.new
@@ -17514,7 +17020,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyInstanceAttribute
     class ModifyInstanceAttribute
       def self.parse(http_resp)
         data = Types::ModifyInstanceAttributeOutput.new
@@ -17525,7 +17030,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyInstanceCapacityReservationAttributes
     class ModifyInstanceCapacityReservationAttributes
       def self.parse(http_resp)
         data = Types::ModifyInstanceCapacityReservationAttributesOutput.new
@@ -17539,7 +17043,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyInstanceCreditSpecification
     class ModifyInstanceCreditSpecification
       def self.parse(http_resp)
         data = Types::ModifyInstanceCreditSpecificationOutput.new
@@ -17558,7 +17061,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyInstanceEventStartTime
     class ModifyInstanceEventStartTime
       def self.parse(http_resp)
         data = Types::ModifyInstanceEventStartTimeOutput.new
@@ -17572,7 +17074,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyInstanceEventWindow
     class ModifyInstanceEventWindow
       def self.parse(http_resp)
         data = Types::ModifyInstanceEventWindowOutput.new
@@ -17586,7 +17087,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyInstanceMaintenanceOptions
     class ModifyInstanceMaintenanceOptions
       def self.parse(http_resp)
         data = Types::ModifyInstanceMaintenanceOptionsOutput.new
@@ -17603,7 +17103,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyInstanceMetadataOptions
     class ModifyInstanceMetadataOptions
       def self.parse(http_resp)
         data = Types::ModifyInstanceMetadataOptionsOutput.new
@@ -17620,7 +17119,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyInstancePlacement
     class ModifyInstancePlacement
       def self.parse(http_resp)
         data = Types::ModifyInstancePlacementOutput.new
@@ -17634,7 +17132,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyIpam
     class ModifyIpam
       def self.parse(http_resp)
         data = Types::ModifyIpamOutput.new
@@ -17648,7 +17145,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyIpamPool
     class ModifyIpamPool
       def self.parse(http_resp)
         data = Types::ModifyIpamPoolOutput.new
@@ -17662,7 +17158,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyIpamResourceCidr
     class ModifyIpamResourceCidr
       def self.parse(http_resp)
         data = Types::ModifyIpamResourceCidrOutput.new
@@ -17676,7 +17171,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyIpamResourceDiscovery
     class ModifyIpamResourceDiscovery
       def self.parse(http_resp)
         data = Types::ModifyIpamResourceDiscoveryOutput.new
@@ -17690,7 +17184,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyIpamScope
     class ModifyIpamScope
       def self.parse(http_resp)
         data = Types::ModifyIpamScopeOutput.new
@@ -17704,7 +17197,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyLaunchTemplate
     class ModifyLaunchTemplate
       def self.parse(http_resp)
         data = Types::ModifyLaunchTemplateOutput.new
@@ -17718,7 +17210,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyLocalGatewayRoute
     class ModifyLocalGatewayRoute
       def self.parse(http_resp)
         data = Types::ModifyLocalGatewayRouteOutput.new
@@ -17732,7 +17223,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyManagedPrefixList
     class ModifyManagedPrefixList
       def self.parse(http_resp)
         data = Types::ModifyManagedPrefixListOutput.new
@@ -17746,7 +17236,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyNetworkInterfaceAttribute
     class ModifyNetworkInterfaceAttribute
       def self.parse(http_resp)
         data = Types::ModifyNetworkInterfaceAttributeOutput.new
@@ -17757,7 +17246,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyPrivateDnsNameOptions
     class ModifyPrivateDnsNameOptions
       def self.parse(http_resp)
         data = Types::ModifyPrivateDnsNameOptionsOutput.new
@@ -17771,7 +17259,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyReservedInstances
     class ModifyReservedInstances
       def self.parse(http_resp)
         data = Types::ModifyReservedInstancesOutput.new
@@ -17785,7 +17272,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifySecurityGroupRules
     class ModifySecurityGroupRules
       def self.parse(http_resp)
         data = Types::ModifySecurityGroupRulesOutput.new
@@ -17799,7 +17285,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifySnapshotAttribute
     class ModifySnapshotAttribute
       def self.parse(http_resp)
         data = Types::ModifySnapshotAttributeOutput.new
@@ -17810,7 +17295,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifySnapshotTier
     class ModifySnapshotTier
       def self.parse(http_resp)
         data = Types::ModifySnapshotTierOutput.new
@@ -17827,7 +17311,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifySpotFleetRequest
     class ModifySpotFleetRequest
       def self.parse(http_resp)
         data = Types::ModifySpotFleetRequestOutput.new
@@ -17841,7 +17324,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifySubnetAttribute
     class ModifySubnetAttribute
       def self.parse(http_resp)
         data = Types::ModifySubnetAttributeOutput.new
@@ -17852,7 +17334,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyTrafficMirrorFilterNetworkServices
     class ModifyTrafficMirrorFilterNetworkServices
       def self.parse(http_resp)
         data = Types::ModifyTrafficMirrorFilterNetworkServicesOutput.new
@@ -17866,7 +17347,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyTrafficMirrorFilterRule
     class ModifyTrafficMirrorFilterRule
       def self.parse(http_resp)
         data = Types::ModifyTrafficMirrorFilterRuleOutput.new
@@ -17880,7 +17360,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyTrafficMirrorSession
     class ModifyTrafficMirrorSession
       def self.parse(http_resp)
         data = Types::ModifyTrafficMirrorSessionOutput.new
@@ -17894,7 +17373,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyTransitGateway
     class ModifyTransitGateway
       def self.parse(http_resp)
         data = Types::ModifyTransitGatewayOutput.new
@@ -17908,7 +17386,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyTransitGatewayPrefixListReference
     class ModifyTransitGatewayPrefixListReference
       def self.parse(http_resp)
         data = Types::ModifyTransitGatewayPrefixListReferenceOutput.new
@@ -17922,7 +17399,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyTransitGatewayVpcAttachment
     class ModifyTransitGatewayVpcAttachment
       def self.parse(http_resp)
         data = Types::ModifyTransitGatewayVpcAttachmentOutput.new
@@ -17936,7 +17412,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyVerifiedAccessEndpoint
     class ModifyVerifiedAccessEndpoint
       def self.parse(http_resp)
         data = Types::ModifyVerifiedAccessEndpointOutput.new
@@ -17950,7 +17425,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyVerifiedAccessEndpointPolicy
     class ModifyVerifiedAccessEndpointPolicy
       def self.parse(http_resp)
         data = Types::ModifyVerifiedAccessEndpointPolicyOutput.new
@@ -17970,7 +17444,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyVerifiedAccessGroup
     class ModifyVerifiedAccessGroup
       def self.parse(http_resp)
         data = Types::ModifyVerifiedAccessGroupOutput.new
@@ -17984,7 +17457,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyVerifiedAccessGroupPolicy
     class ModifyVerifiedAccessGroupPolicy
       def self.parse(http_resp)
         data = Types::ModifyVerifiedAccessGroupPolicyOutput.new
@@ -18004,7 +17476,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyVerifiedAccessInstance
     class ModifyVerifiedAccessInstance
       def self.parse(http_resp)
         data = Types::ModifyVerifiedAccessInstanceOutput.new
@@ -18018,7 +17489,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyVerifiedAccessInstanceLoggingConfiguration
     class ModifyVerifiedAccessInstanceLoggingConfiguration
       def self.parse(http_resp)
         data = Types::ModifyVerifiedAccessInstanceLoggingConfigurationOutput.new
@@ -18032,7 +17502,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyVerifiedAccessTrustProvider
     class ModifyVerifiedAccessTrustProvider
       def self.parse(http_resp)
         data = Types::ModifyVerifiedAccessTrustProviderOutput.new
@@ -18046,7 +17515,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyVolume
     class ModifyVolume
       def self.parse(http_resp)
         data = Types::ModifyVolumeOutput.new
@@ -18060,7 +17528,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyVolumeAttribute
     class ModifyVolumeAttribute
       def self.parse(http_resp)
         data = Types::ModifyVolumeAttributeOutput.new
@@ -18071,7 +17538,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyVpcAttribute
     class ModifyVpcAttribute
       def self.parse(http_resp)
         data = Types::ModifyVpcAttributeOutput.new
@@ -18082,7 +17548,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyVpcEndpoint
     class ModifyVpcEndpoint
       def self.parse(http_resp)
         data = Types::ModifyVpcEndpointOutput.new
@@ -18096,7 +17561,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyVpcEndpointConnectionNotification
     class ModifyVpcEndpointConnectionNotification
       def self.parse(http_resp)
         data = Types::ModifyVpcEndpointConnectionNotificationOutput.new
@@ -18110,7 +17574,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyVpcEndpointServiceConfiguration
     class ModifyVpcEndpointServiceConfiguration
       def self.parse(http_resp)
         data = Types::ModifyVpcEndpointServiceConfigurationOutput.new
@@ -18124,7 +17587,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyVpcEndpointServicePayerResponsibility
     class ModifyVpcEndpointServicePayerResponsibility
       def self.parse(http_resp)
         data = Types::ModifyVpcEndpointServicePayerResponsibilityOutput.new
@@ -18138,7 +17600,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyVpcEndpointServicePermissions
     class ModifyVpcEndpointServicePermissions
       def self.parse(http_resp)
         data = Types::ModifyVpcEndpointServicePermissionsOutput.new
@@ -18156,7 +17617,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyVpcPeeringConnectionOptions
     class ModifyVpcPeeringConnectionOptions
       def self.parse(http_resp)
         data = Types::ModifyVpcPeeringConnectionOptionsOutput.new
@@ -18173,7 +17633,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyVpcTenancy
     class ModifyVpcTenancy
       def self.parse(http_resp)
         data = Types::ModifyVpcTenancyOutput.new
@@ -18187,7 +17646,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyVpnConnection
     class ModifyVpnConnection
       def self.parse(http_resp)
         data = Types::ModifyVpnConnectionOutput.new
@@ -18201,7 +17659,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyVpnConnectionOptions
     class ModifyVpnConnectionOptions
       def self.parse(http_resp)
         data = Types::ModifyVpnConnectionOptionsOutput.new
@@ -18215,7 +17672,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyVpnTunnelCertificate
     class ModifyVpnTunnelCertificate
       def self.parse(http_resp)
         data = Types::ModifyVpnTunnelCertificateOutput.new
@@ -18229,7 +17685,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ModifyVpnTunnelOptions
     class ModifyVpnTunnelOptions
       def self.parse(http_resp)
         data = Types::ModifyVpnTunnelOptionsOutput.new
@@ -18243,7 +17698,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for MonitorInstances
     class MonitorInstances
       def self.parse(http_resp)
         data = Types::MonitorInstancesOutput.new
@@ -18268,7 +17722,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for MoveAddressToVpc
     class MoveAddressToVpc
       def self.parse(http_resp)
         data = Types::MoveAddressToVpcOutput.new
@@ -18285,7 +17738,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for MoveByoipCidrToIpam
     class MoveByoipCidrToIpam
       def self.parse(http_resp)
         data = Types::MoveByoipCidrToIpamOutput.new
@@ -20079,7 +19531,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ProvisionByoipCidr
     class ProvisionByoipCidr
       def self.parse(http_resp)
         data = Types::ProvisionByoipCidrOutput.new
@@ -20093,7 +19544,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ProvisionIpamByoasn
     class ProvisionIpamByoasn
       def self.parse(http_resp)
         data = Types::ProvisionIpamByoasnOutput.new
@@ -20107,7 +19557,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ProvisionIpamPoolCidr
     class ProvisionIpamPoolCidr
       def self.parse(http_resp)
         data = Types::ProvisionIpamPoolCidrOutput.new
@@ -20121,7 +19570,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ProvisionPublicIpv4PoolCidr
     class ProvisionPublicIpv4PoolCidr
       def self.parse(http_resp)
         data = Types::ProvisionPublicIpv4PoolCidrOutput.new
@@ -20277,7 +19725,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for PurchaseCapacityBlock
     class PurchaseCapacityBlock
       def self.parse(http_resp)
         data = Types::PurchaseCapacityBlockOutput.new
@@ -20291,7 +19738,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for PurchaseHostReservation
     class PurchaseHostReservation
       def self.parse(http_resp)
         data = Types::PurchaseHostReservationOutput.new
@@ -20318,7 +19764,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for PurchaseReservedInstancesOffering
     class PurchaseReservedInstancesOffering
       def self.parse(http_resp)
         data = Types::PurchaseReservedInstancesOfferingOutput.new
@@ -20332,7 +19777,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for PurchaseScheduledInstances
     class PurchaseScheduledInstances
       def self.parse(http_resp)
         data = Types::PurchaseScheduledInstancesOutput.new
@@ -20367,7 +19811,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for RebootInstances
     class RebootInstances
       def self.parse(http_resp)
         data = Types::RebootInstancesOutput.new
@@ -20449,7 +19892,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for RegisterImage
     class RegisterImage
       def self.parse(http_resp)
         data = Types::RegisterImageOutput.new
@@ -20463,7 +19905,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for RegisterInstanceEventNotificationAttributes
     class RegisterInstanceEventNotificationAttributes
       def self.parse(http_resp)
         data = Types::RegisterInstanceEventNotificationAttributesOutput.new
@@ -20477,7 +19918,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for RegisterTransitGatewayMulticastGroupMembers
     class RegisterTransitGatewayMulticastGroupMembers
       def self.parse(http_resp)
         data = Types::RegisterTransitGatewayMulticastGroupMembersOutput.new
@@ -20491,7 +19931,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for RegisterTransitGatewayMulticastGroupSources
     class RegisterTransitGatewayMulticastGroupSources
       def self.parse(http_resp)
         data = Types::RegisterTransitGatewayMulticastGroupSourcesOutput.new
@@ -20505,7 +19944,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for RejectTransitGatewayMulticastDomainAssociations
     class RejectTransitGatewayMulticastDomainAssociations
       def self.parse(http_resp)
         data = Types::RejectTransitGatewayMulticastDomainAssociationsOutput.new
@@ -20519,7 +19957,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for RejectTransitGatewayPeeringAttachment
     class RejectTransitGatewayPeeringAttachment
       def self.parse(http_resp)
         data = Types::RejectTransitGatewayPeeringAttachmentOutput.new
@@ -20533,7 +19970,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for RejectTransitGatewayVpcAttachment
     class RejectTransitGatewayVpcAttachment
       def self.parse(http_resp)
         data = Types::RejectTransitGatewayVpcAttachmentOutput.new
@@ -20547,7 +19983,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for RejectVpcEndpointConnections
     class RejectVpcEndpointConnections
       def self.parse(http_resp)
         data = Types::RejectVpcEndpointConnectionsOutput.new
@@ -20562,7 +19997,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for RejectVpcPeeringConnection
     class RejectVpcPeeringConnection
       def self.parse(http_resp)
         data = Types::RejectVpcPeeringConnectionOutput.new
@@ -20576,7 +20010,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ReleaseAddress
     class ReleaseAddress
       def self.parse(http_resp)
         data = Types::ReleaseAddressOutput.new
@@ -20587,7 +20020,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ReleaseHosts
     class ReleaseHosts
       def self.parse(http_resp)
         data = Types::ReleaseHostsOutput.new
@@ -20606,7 +20038,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ReleaseIpamPoolAllocation
     class ReleaseIpamPoolAllocation
       def self.parse(http_resp)
         data = Types::ReleaseIpamPoolAllocationOutput.new
@@ -20620,7 +20051,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ReplaceIamInstanceProfileAssociation
     class ReplaceIamInstanceProfileAssociation
       def self.parse(http_resp)
         data = Types::ReplaceIamInstanceProfileAssociationOutput.new
@@ -20634,7 +20064,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ReplaceNetworkAclAssociation
     class ReplaceNetworkAclAssociation
       def self.parse(http_resp)
         data = Types::ReplaceNetworkAclAssociationOutput.new
@@ -20648,7 +20077,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ReplaceNetworkAclEntry
     class ReplaceNetworkAclEntry
       def self.parse(http_resp)
         data = Types::ReplaceNetworkAclEntryOutput.new
@@ -20704,7 +20132,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ReplaceRoute
     class ReplaceRoute
       def self.parse(http_resp)
         data = Types::ReplaceRouteOutput.new
@@ -20715,7 +20142,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ReplaceRouteTableAssociation
     class ReplaceRouteTableAssociation
       def self.parse(http_resp)
         data = Types::ReplaceRouteTableAssociationOutput.new
@@ -20732,7 +20158,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ReplaceTransitGatewayRoute
     class ReplaceTransitGatewayRoute
       def self.parse(http_resp)
         data = Types::ReplaceTransitGatewayRouteOutput.new
@@ -20746,7 +20171,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ReplaceVpnTunnel
     class ReplaceVpnTunnel
       def self.parse(http_resp)
         data = Types::ReplaceVpnTunnelOutput.new
@@ -20760,7 +20184,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ReportInstanceStatus
     class ReportInstanceStatus
       def self.parse(http_resp)
         data = Types::ReportInstanceStatusOutput.new
@@ -20771,7 +20194,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for RequestSpotFleet
     class RequestSpotFleet
       def self.parse(http_resp)
         data = Types::RequestSpotFleetOutput.new
@@ -20785,7 +20207,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for RequestSpotInstances
     class RequestSpotInstances
       def self.parse(http_resp)
         data = Types::RequestSpotInstancesOutput.new
@@ -21171,7 +20592,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ResetAddressAttribute
     class ResetAddressAttribute
       def self.parse(http_resp)
         data = Types::ResetAddressAttributeOutput.new
@@ -21185,7 +20605,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ResetEbsDefaultKmsKeyId
     class ResetEbsDefaultKmsKeyId
       def self.parse(http_resp)
         data = Types::ResetEbsDefaultKmsKeyIdOutput.new
@@ -21199,7 +20618,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ResetFpgaImageAttribute
     class ResetFpgaImageAttribute
       def self.parse(http_resp)
         data = Types::ResetFpgaImageAttributeOutput.new
@@ -21213,7 +20631,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ResetImageAttribute
     class ResetImageAttribute
       def self.parse(http_resp)
         data = Types::ResetImageAttributeOutput.new
@@ -21224,7 +20641,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ResetInstanceAttribute
     class ResetInstanceAttribute
       def self.parse(http_resp)
         data = Types::ResetInstanceAttributeOutput.new
@@ -21235,7 +20651,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ResetNetworkInterfaceAttribute
     class ResetNetworkInterfaceAttribute
       def self.parse(http_resp)
         data = Types::ResetNetworkInterfaceAttributeOutput.new
@@ -21246,7 +20661,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for ResetSnapshotAttribute
     class ResetSnapshotAttribute
       def self.parse(http_resp)
         data = Types::ResetSnapshotAttributeOutput.new
@@ -21413,7 +20827,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for RestoreAddressToClassic
     class RestoreAddressToClassic
       def self.parse(http_resp)
         data = Types::RestoreAddressToClassicOutput.new
@@ -21430,7 +20843,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for RestoreImageFromRecycleBin
     class RestoreImageFromRecycleBin
       def self.parse(http_resp)
         data = Types::RestoreImageFromRecycleBinOutput.new
@@ -21444,7 +20856,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for RestoreManagedPrefixListVersion
     class RestoreManagedPrefixListVersion
       def self.parse(http_resp)
         data = Types::RestoreManagedPrefixListVersionOutput.new
@@ -21458,7 +20869,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for RestoreSnapshotFromRecycleBin
     class RestoreSnapshotFromRecycleBin
       def self.parse(http_resp)
         data = Types::RestoreSnapshotFromRecycleBinOutput.new
@@ -21502,7 +20912,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for RestoreSnapshotTier
     class RestoreSnapshotTier
       def self.parse(http_resp)
         data = Types::RestoreSnapshotTierOutput.new
@@ -21525,7 +20934,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for RevokeClientVpnIngress
     class RevokeClientVpnIngress
       def self.parse(http_resp)
         data = Types::RevokeClientVpnIngressOutput.new
@@ -21539,7 +20947,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for RevokeSecurityGroupEgress
     class RevokeSecurityGroupEgress
       def self.parse(http_resp)
         data = Types::RevokeSecurityGroupEgressOutput.new
@@ -21557,7 +20964,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for RevokeSecurityGroupIngress
     class RevokeSecurityGroupIngress
       def self.parse(http_resp)
         data = Types::RevokeSecurityGroupIngressOutput.new
@@ -21811,7 +21217,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for RunInstances
     class RunInstances
       def self.parse(http_resp)
         data = Types::RunInstancesOutput.new
@@ -21849,7 +21254,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for RunScheduledInstances
     class RunScheduledInstances
       def self.parse(http_resp)
         data = Types::RunScheduledInstancesOutput.new
@@ -22027,7 +21431,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for SearchLocalGatewayRoutes
     class SearchLocalGatewayRoutes
       def self.parse(http_resp)
         data = Types::SearchLocalGatewayRoutesOutput.new
@@ -22045,7 +21448,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for SearchTransitGatewayMulticastGroups
     class SearchTransitGatewayMulticastGroups
       def self.parse(http_resp)
         data = Types::SearchTransitGatewayMulticastGroupsOutput.new
@@ -22063,7 +21465,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for SearchTransitGatewayRoutes
     class SearchTransitGatewayRoutes
       def self.parse(http_resp)
         data = Types::SearchTransitGatewayRoutesOutput.new
@@ -22290,7 +21691,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for SendDiagnosticInterrupt
     class SendDiagnosticInterrupt
       def self.parse(http_resp)
         data = Types::SendDiagnosticInterruptOutput.new
@@ -23302,7 +22702,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for StartInstances
     class StartInstances
       def self.parse(http_resp)
         data = Types::StartInstancesOutput.new
@@ -23317,7 +22716,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for StartNetworkInsightsAccessScopeAnalysis
     class StartNetworkInsightsAccessScopeAnalysis
       def self.parse(http_resp)
         data = Types::StartNetworkInsightsAccessScopeAnalysisOutput.new
@@ -23331,7 +22729,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for StartNetworkInsightsAnalysis
     class StartNetworkInsightsAnalysis
       def self.parse(http_resp)
         data = Types::StartNetworkInsightsAnalysisOutput.new
@@ -23345,7 +22742,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for StartVpcEndpointServicePrivateDnsVerification
     class StartVpcEndpointServicePrivateDnsVerification
       def self.parse(http_resp)
         data = Types::StartVpcEndpointServicePrivateDnsVerificationOutput.new
@@ -23372,7 +22768,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for StopInstances
     class StopInstances
       def self.parse(http_resp)
         data = Types::StopInstancesOutput.new
@@ -23921,7 +23316,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for TerminateClientVpnConnections
     class TerminateClientVpnConnections
       def self.parse(http_resp)
         data = Types::TerminateClientVpnConnectionsOutput.new
@@ -23968,7 +23362,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for TerminateInstances
     class TerminateInstances
       def self.parse(http_resp)
         data = Types::TerminateInstancesOutput.new
@@ -25484,7 +24877,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for UnassignIpv6Addresses
     class UnassignIpv6Addresses
       def self.parse(http_resp)
         data = Types::UnassignIpv6AddressesOutput.new
@@ -25506,7 +24898,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for UnassignPrivateIpAddresses
     class UnassignPrivateIpAddresses
       def self.parse(http_resp)
         data = Types::UnassignPrivateIpAddressesOutput.new
@@ -25517,7 +24908,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for UnassignPrivateNatGatewayAddress
     class UnassignPrivateNatGatewayAddress
       def self.parse(http_resp)
         data = Types::UnassignPrivateNatGatewayAddressOutput.new
@@ -25535,7 +24925,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for UnlockSnapshot
     class UnlockSnapshot
       def self.parse(http_resp)
         data = Types::UnlockSnapshotOutput.new
@@ -25549,7 +24938,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for UnmonitorInstances
     class UnmonitorInstances
       def self.parse(http_resp)
         data = Types::UnmonitorInstancesOutput.new
@@ -25646,7 +25034,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for UpdateSecurityGroupRuleDescriptionsEgress
     class UpdateSecurityGroupRuleDescriptionsEgress
       def self.parse(http_resp)
         data = Types::UpdateSecurityGroupRuleDescriptionsEgressOutput.new
@@ -25660,7 +25047,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for UpdateSecurityGroupRuleDescriptionsIngress
     class UpdateSecurityGroupRuleDescriptionsIngress
       def self.parse(http_resp)
         data = Types::UpdateSecurityGroupRuleDescriptionsIngressOutput.new
@@ -27244,7 +26630,6 @@ module AWS::SDK::EC2
       end
     end
 
-    # Operation Parser for WithdrawByoipCidr
     class WithdrawByoipCidr
       def self.parse(http_resp)
         data = Types::WithdrawByoipCidrOutput.new

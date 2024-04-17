@@ -13,7 +13,7 @@ module AWS::SDK::DynamoDB
   # @api private
   module Params
 
-    module ArchivalSummary
+    class ArchivalSummary
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ArchivalSummary, context: context)
         type = Types::ArchivalSummary.new
@@ -25,7 +25,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module AttributeDefinition
+    class AttributeDefinition
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AttributeDefinition, context: context)
         type = Types::AttributeDefinition.new
@@ -36,7 +36,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module AttributeDefinitions
+    class AttributeDefinitions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -47,7 +47,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module AttributeMap
+    class AttributeMap
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, context: context)
         data = {}
@@ -58,7 +58,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module AttributeNameList
+    class AttributeNameList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -69,7 +69,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module AttributeUpdates
+    class AttributeUpdates
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, context: context)
         data = {}
@@ -80,7 +80,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module AttributeValue
+    class AttributeValue
       def self.build(params, context:)
         return params if params.is_a?(Types::AttributeValue)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AttributeValue, context: context)
@@ -137,7 +137,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module AttributeValueList
+    class AttributeValueList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -148,7 +148,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module AttributeValueUpdate
+    class AttributeValueUpdate
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AttributeValueUpdate, context: context)
         type = Types::AttributeValueUpdate.new
@@ -159,7 +159,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module AutoScalingPolicyDescription
+    class AutoScalingPolicyDescription
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AutoScalingPolicyDescription, context: context)
         type = Types::AutoScalingPolicyDescription.new
@@ -170,7 +170,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module AutoScalingPolicyDescriptionList
+    class AutoScalingPolicyDescriptionList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -181,7 +181,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module AutoScalingPolicyUpdate
+    class AutoScalingPolicyUpdate
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AutoScalingPolicyUpdate, context: context)
         type = Types::AutoScalingPolicyUpdate.new
@@ -192,7 +192,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module AutoScalingSettingsDescription
+    class AutoScalingSettingsDescription
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AutoScalingSettingsDescription, context: context)
         type = Types::AutoScalingSettingsDescription.new
@@ -206,7 +206,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module AutoScalingSettingsUpdate
+    class AutoScalingSettingsUpdate
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AutoScalingSettingsUpdate, context: context)
         type = Types::AutoScalingSettingsUpdate.new
@@ -220,7 +220,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module AutoScalingTargetTrackingScalingPolicyConfigurationDescription
+    class AutoScalingTargetTrackingScalingPolicyConfigurationDescription
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AutoScalingTargetTrackingScalingPolicyConfigurationDescription, context: context)
         type = Types::AutoScalingTargetTrackingScalingPolicyConfigurationDescription.new
@@ -233,7 +233,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module AutoScalingTargetTrackingScalingPolicyConfigurationUpdate
+    class AutoScalingTargetTrackingScalingPolicyConfigurationUpdate
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AutoScalingTargetTrackingScalingPolicyConfigurationUpdate, context: context)
         type = Types::AutoScalingTargetTrackingScalingPolicyConfigurationUpdate.new
@@ -246,7 +246,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module BackupDescription
+    class BackupDescription
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::BackupDescription, context: context)
         type = Types::BackupDescription.new
@@ -258,7 +258,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module BackupDetails
+    class BackupDetails
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::BackupDetails, context: context)
         type = Types::BackupDetails.new
@@ -274,7 +274,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module BackupInUseException
+    class BackupInUseException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::BackupInUseException, context: context)
         type = Types::BackupInUseException.new
@@ -284,7 +284,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module BackupNotFoundException
+    class BackupNotFoundException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::BackupNotFoundException, context: context)
         type = Types::BackupNotFoundException.new
@@ -294,7 +294,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module BackupSummaries
+    class BackupSummaries
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -305,7 +305,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module BackupSummary
+    class BackupSummary
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::BackupSummary, context: context)
         type = Types::BackupSummary.new
@@ -324,7 +324,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module BatchExecuteStatementInput
+    class BatchExecuteStatementInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::BatchExecuteStatementInput, context: context)
         type = Types::BatchExecuteStatementInput.new
@@ -335,7 +335,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module BatchExecuteStatementOutput
+    class BatchExecuteStatementOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::BatchExecuteStatementOutput, context: context)
         type = Types::BatchExecuteStatementOutput.new
@@ -346,7 +346,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module BatchGetItemInput
+    class BatchGetItemInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::BatchGetItemInput, context: context)
         type = Types::BatchGetItemInput.new
@@ -357,7 +357,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module BatchGetItemOutput
+    class BatchGetItemOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::BatchGetItemOutput, context: context)
         type = Types::BatchGetItemOutput.new
@@ -369,7 +369,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module BatchGetRequestMap
+    class BatchGetRequestMap
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, context: context)
         data = {}
@@ -380,7 +380,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module BatchGetResponseMap
+    class BatchGetResponseMap
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, context: context)
         data = {}
@@ -391,7 +391,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module BatchStatementError
+    class BatchStatementError
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::BatchStatementError, context: context)
         type = Types::BatchStatementError.new
@@ -403,7 +403,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module BatchStatementRequest
+    class BatchStatementRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::BatchStatementRequest, context: context)
         type = Types::BatchStatementRequest.new
@@ -416,7 +416,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module BatchStatementResponse
+    class BatchStatementResponse
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::BatchStatementResponse, context: context)
         type = Types::BatchStatementResponse.new
@@ -428,7 +428,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module BatchWriteItemInput
+    class BatchWriteItemInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::BatchWriteItemInput, context: context)
         type = Types::BatchWriteItemInput.new
@@ -440,7 +440,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module BatchWriteItemOutput
+    class BatchWriteItemOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::BatchWriteItemOutput, context: context)
         type = Types::BatchWriteItemOutput.new
@@ -452,7 +452,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module BatchWriteItemRequestMap
+    class BatchWriteItemRequestMap
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, context: context)
         data = {}
@@ -463,7 +463,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module BillingModeSummary
+    class BillingModeSummary
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::BillingModeSummary, context: context)
         type = Types::BillingModeSummary.new
@@ -474,7 +474,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module BinarySetAttributeValue
+    class BinarySetAttributeValue
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -485,7 +485,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module CancellationReason
+    class CancellationReason
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CancellationReason, context: context)
         type = Types::CancellationReason.new
@@ -497,7 +497,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module CancellationReasonList
+    class CancellationReasonList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -508,7 +508,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module Capacity
+    class Capacity
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Capacity, context: context)
         type = Types::Capacity.new
@@ -520,7 +520,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module Condition
+    class Condition
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Condition, context: context)
         type = Types::Condition.new
@@ -531,7 +531,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ConditionCheck
+    class ConditionCheck
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ConditionCheck, context: context)
         type = Types::ConditionCheck.new
@@ -546,7 +546,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ConditionalCheckFailedException
+    class ConditionalCheckFailedException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ConditionalCheckFailedException, context: context)
         type = Types::ConditionalCheckFailedException.new
@@ -557,7 +557,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ConsumedCapacity
+    class ConsumedCapacity
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ConsumedCapacity, context: context)
         type = Types::ConsumedCapacity.new
@@ -573,7 +573,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ConsumedCapacityMultiple
+    class ConsumedCapacityMultiple
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -584,7 +584,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ContinuousBackupsDescription
+    class ContinuousBackupsDescription
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ContinuousBackupsDescription, context: context)
         type = Types::ContinuousBackupsDescription.new
@@ -595,7 +595,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ContinuousBackupsUnavailableException
+    class ContinuousBackupsUnavailableException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ContinuousBackupsUnavailableException, context: context)
         type = Types::ContinuousBackupsUnavailableException.new
@@ -605,7 +605,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ContributorInsightsRuleList
+    class ContributorInsightsRuleList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -616,7 +616,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ContributorInsightsSummaries
+    class ContributorInsightsSummaries
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -627,7 +627,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ContributorInsightsSummary
+    class ContributorInsightsSummary
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ContributorInsightsSummary, context: context)
         type = Types::ContributorInsightsSummary.new
@@ -639,7 +639,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module CreateBackupInput
+    class CreateBackupInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateBackupInput, context: context)
         type = Types::CreateBackupInput.new
@@ -650,7 +650,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module CreateBackupOutput
+    class CreateBackupOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateBackupOutput, context: context)
         type = Types::CreateBackupOutput.new
@@ -660,7 +660,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module CreateGlobalSecondaryIndexAction
+    class CreateGlobalSecondaryIndexAction
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateGlobalSecondaryIndexAction, context: context)
         type = Types::CreateGlobalSecondaryIndexAction.new
@@ -673,7 +673,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module CreateGlobalTableInput
+    class CreateGlobalTableInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateGlobalTableInput, context: context)
         type = Types::CreateGlobalTableInput.new
@@ -684,7 +684,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module CreateGlobalTableOutput
+    class CreateGlobalTableOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateGlobalTableOutput, context: context)
         type = Types::CreateGlobalTableOutput.new
@@ -694,7 +694,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module CreateReplicaAction
+    class CreateReplicaAction
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateReplicaAction, context: context)
         type = Types::CreateReplicaAction.new
@@ -704,7 +704,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module CreateReplicationGroupMemberAction
+    class CreateReplicationGroupMemberAction
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateReplicationGroupMemberAction, context: context)
         type = Types::CreateReplicationGroupMemberAction.new
@@ -718,7 +718,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module CreateTableInput
+    class CreateTableInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateTableInput, context: context)
         type = Types::CreateTableInput.new
@@ -739,7 +739,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module CreateTableOutput
+    class CreateTableOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateTableOutput, context: context)
         type = Types::CreateTableOutput.new
@@ -749,7 +749,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module CsvHeaderList
+    class CsvHeaderList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -760,7 +760,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module CsvOptions
+    class CsvOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CsvOptions, context: context)
         type = Types::CsvOptions.new
@@ -771,7 +771,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module Delete
+    class Delete
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Delete, context: context)
         type = Types::Delete.new
@@ -786,7 +786,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module DeleteBackupInput
+    class DeleteBackupInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteBackupInput, context: context)
         type = Types::DeleteBackupInput.new
@@ -796,7 +796,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module DeleteBackupOutput
+    class DeleteBackupOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteBackupOutput, context: context)
         type = Types::DeleteBackupOutput.new
@@ -806,7 +806,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module DeleteGlobalSecondaryIndexAction
+    class DeleteGlobalSecondaryIndexAction
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteGlobalSecondaryIndexAction, context: context)
         type = Types::DeleteGlobalSecondaryIndexAction.new
@@ -816,7 +816,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module DeleteItemInput
+    class DeleteItemInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteItemInput, context: context)
         type = Types::DeleteItemInput.new
@@ -836,7 +836,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module DeleteItemOutput
+    class DeleteItemOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteItemOutput, context: context)
         type = Types::DeleteItemOutput.new
@@ -848,7 +848,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module DeleteReplicaAction
+    class DeleteReplicaAction
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteReplicaAction, context: context)
         type = Types::DeleteReplicaAction.new
@@ -858,7 +858,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module DeleteReplicationGroupMemberAction
+    class DeleteReplicationGroupMemberAction
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteReplicationGroupMemberAction, context: context)
         type = Types::DeleteReplicationGroupMemberAction.new
@@ -868,7 +868,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module DeleteRequest
+    class DeleteRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteRequest, context: context)
         type = Types::DeleteRequest.new
@@ -878,7 +878,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module DeleteTableInput
+    class DeleteTableInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteTableInput, context: context)
         type = Types::DeleteTableInput.new
@@ -888,7 +888,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module DeleteTableOutput
+    class DeleteTableOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteTableOutput, context: context)
         type = Types::DeleteTableOutput.new
@@ -898,7 +898,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module DescribeBackupInput
+    class DescribeBackupInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeBackupInput, context: context)
         type = Types::DescribeBackupInput.new
@@ -908,7 +908,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module DescribeBackupOutput
+    class DescribeBackupOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeBackupOutput, context: context)
         type = Types::DescribeBackupOutput.new
@@ -918,7 +918,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module DescribeContinuousBackupsInput
+    class DescribeContinuousBackupsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeContinuousBackupsInput, context: context)
         type = Types::DescribeContinuousBackupsInput.new
@@ -928,7 +928,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module DescribeContinuousBackupsOutput
+    class DescribeContinuousBackupsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeContinuousBackupsOutput, context: context)
         type = Types::DescribeContinuousBackupsOutput.new
@@ -938,7 +938,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module DescribeContributorInsightsInput
+    class DescribeContributorInsightsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeContributorInsightsInput, context: context)
         type = Types::DescribeContributorInsightsInput.new
@@ -949,7 +949,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module DescribeContributorInsightsOutput
+    class DescribeContributorInsightsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeContributorInsightsOutput, context: context)
         type = Types::DescribeContributorInsightsOutput.new
@@ -964,7 +964,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module DescribeEndpointsInput
+    class DescribeEndpointsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeEndpointsInput, context: context)
         type = Types::DescribeEndpointsInput.new
@@ -973,7 +973,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module DescribeEndpointsOutput
+    class DescribeEndpointsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeEndpointsOutput, context: context)
         type = Types::DescribeEndpointsOutput.new
@@ -983,7 +983,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module DescribeExportInput
+    class DescribeExportInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeExportInput, context: context)
         type = Types::DescribeExportInput.new
@@ -993,7 +993,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module DescribeExportOutput
+    class DescribeExportOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeExportOutput, context: context)
         type = Types::DescribeExportOutput.new
@@ -1003,7 +1003,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module DescribeGlobalTableInput
+    class DescribeGlobalTableInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeGlobalTableInput, context: context)
         type = Types::DescribeGlobalTableInput.new
@@ -1013,7 +1013,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module DescribeGlobalTableOutput
+    class DescribeGlobalTableOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeGlobalTableOutput, context: context)
         type = Types::DescribeGlobalTableOutput.new
@@ -1023,7 +1023,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module DescribeGlobalTableSettingsInput
+    class DescribeGlobalTableSettingsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeGlobalTableSettingsInput, context: context)
         type = Types::DescribeGlobalTableSettingsInput.new
@@ -1033,7 +1033,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module DescribeGlobalTableSettingsOutput
+    class DescribeGlobalTableSettingsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeGlobalTableSettingsOutput, context: context)
         type = Types::DescribeGlobalTableSettingsOutput.new
@@ -1044,7 +1044,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module DescribeImportInput
+    class DescribeImportInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeImportInput, context: context)
         type = Types::DescribeImportInput.new
@@ -1054,7 +1054,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module DescribeImportOutput
+    class DescribeImportOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeImportOutput, context: context)
         type = Types::DescribeImportOutput.new
@@ -1064,7 +1064,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module DescribeKinesisStreamingDestinationInput
+    class DescribeKinesisStreamingDestinationInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeKinesisStreamingDestinationInput, context: context)
         type = Types::DescribeKinesisStreamingDestinationInput.new
@@ -1074,7 +1074,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module DescribeKinesisStreamingDestinationOutput
+    class DescribeKinesisStreamingDestinationOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeKinesisStreamingDestinationOutput, context: context)
         type = Types::DescribeKinesisStreamingDestinationOutput.new
@@ -1085,7 +1085,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module DescribeLimitsInput
+    class DescribeLimitsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeLimitsInput, context: context)
         type = Types::DescribeLimitsInput.new
@@ -1094,7 +1094,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module DescribeLimitsOutput
+    class DescribeLimitsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeLimitsOutput, context: context)
         type = Types::DescribeLimitsOutput.new
@@ -1107,7 +1107,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module DescribeTableInput
+    class DescribeTableInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeTableInput, context: context)
         type = Types::DescribeTableInput.new
@@ -1117,7 +1117,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module DescribeTableOutput
+    class DescribeTableOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeTableOutput, context: context)
         type = Types::DescribeTableOutput.new
@@ -1127,7 +1127,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module DescribeTableReplicaAutoScalingInput
+    class DescribeTableReplicaAutoScalingInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeTableReplicaAutoScalingInput, context: context)
         type = Types::DescribeTableReplicaAutoScalingInput.new
@@ -1137,7 +1137,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module DescribeTableReplicaAutoScalingOutput
+    class DescribeTableReplicaAutoScalingOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeTableReplicaAutoScalingOutput, context: context)
         type = Types::DescribeTableReplicaAutoScalingOutput.new
@@ -1147,7 +1147,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module DescribeTimeToLiveInput
+    class DescribeTimeToLiveInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeTimeToLiveInput, context: context)
         type = Types::DescribeTimeToLiveInput.new
@@ -1157,7 +1157,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module DescribeTimeToLiveOutput
+    class DescribeTimeToLiveOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeTimeToLiveOutput, context: context)
         type = Types::DescribeTimeToLiveOutput.new
@@ -1167,7 +1167,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module DisableKinesisStreamingDestinationInput
+    class DisableKinesisStreamingDestinationInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisableKinesisStreamingDestinationInput, context: context)
         type = Types::DisableKinesisStreamingDestinationInput.new
@@ -1179,7 +1179,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module DisableKinesisStreamingDestinationOutput
+    class DisableKinesisStreamingDestinationOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisableKinesisStreamingDestinationOutput, context: context)
         type = Types::DisableKinesisStreamingDestinationOutput.new
@@ -1192,7 +1192,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module DuplicateItemException
+    class DuplicateItemException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DuplicateItemException, context: context)
         type = Types::DuplicateItemException.new
@@ -1202,7 +1202,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module EnableKinesisStreamingConfiguration
+    class EnableKinesisStreamingConfiguration
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableKinesisStreamingConfiguration, context: context)
         type = Types::EnableKinesisStreamingConfiguration.new
@@ -1212,7 +1212,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module EnableKinesisStreamingDestinationInput
+    class EnableKinesisStreamingDestinationInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableKinesisStreamingDestinationInput, context: context)
         type = Types::EnableKinesisStreamingDestinationInput.new
@@ -1224,7 +1224,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module EnableKinesisStreamingDestinationOutput
+    class EnableKinesisStreamingDestinationOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableKinesisStreamingDestinationOutput, context: context)
         type = Types::EnableKinesisStreamingDestinationOutput.new
@@ -1237,7 +1237,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module Endpoint
+    class Endpoint
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Endpoint, context: context)
         type = Types::Endpoint.new
@@ -1248,7 +1248,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module Endpoints
+    class Endpoints
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -1259,7 +1259,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ExecuteStatementInput
+    class ExecuteStatementInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ExecuteStatementInput, context: context)
         type = Types::ExecuteStatementInput.new
@@ -1275,7 +1275,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ExecuteStatementOutput
+    class ExecuteStatementOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ExecuteStatementOutput, context: context)
         type = Types::ExecuteStatementOutput.new
@@ -1288,7 +1288,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ExecuteTransactionInput
+    class ExecuteTransactionInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ExecuteTransactionInput, context: context)
         type = Types::ExecuteTransactionInput.new
@@ -1300,7 +1300,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ExecuteTransactionOutput
+    class ExecuteTransactionOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ExecuteTransactionOutput, context: context)
         type = Types::ExecuteTransactionOutput.new
@@ -1311,7 +1311,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ExpectedAttributeMap
+    class ExpectedAttributeMap
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, context: context)
         data = {}
@@ -1322,7 +1322,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ExpectedAttributeValue
+    class ExpectedAttributeValue
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ExpectedAttributeValue, context: context)
         type = Types::ExpectedAttributeValue.new
@@ -1335,7 +1335,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ExportConflictException
+    class ExportConflictException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ExportConflictException, context: context)
         type = Types::ExportConflictException.new
@@ -1345,7 +1345,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ExportDescription
+    class ExportDescription
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ExportDescription, context: context)
         type = Types::ExportDescription.new
@@ -1375,7 +1375,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ExportNotFoundException
+    class ExportNotFoundException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ExportNotFoundException, context: context)
         type = Types::ExportNotFoundException.new
@@ -1385,7 +1385,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ExportSummaries
+    class ExportSummaries
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -1396,7 +1396,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ExportSummary
+    class ExportSummary
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ExportSummary, context: context)
         type = Types::ExportSummary.new
@@ -1408,7 +1408,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ExportTableToPointInTimeInput
+    class ExportTableToPointInTimeInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ExportTableToPointInTimeInput, context: context)
         type = Types::ExportTableToPointInTimeInput.new
@@ -1428,7 +1428,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ExportTableToPointInTimeOutput
+    class ExportTableToPointInTimeOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ExportTableToPointInTimeOutput, context: context)
         type = Types::ExportTableToPointInTimeOutput.new
@@ -1438,7 +1438,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ExpressionAttributeNameMap
+    class ExpressionAttributeNameMap
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, context: context)
         data = {}
@@ -1449,7 +1449,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ExpressionAttributeValueMap
+    class ExpressionAttributeValueMap
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, context: context)
         data = {}
@@ -1460,7 +1460,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module FailureException
+    class FailureException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::FailureException, context: context)
         type = Types::FailureException.new
@@ -1471,7 +1471,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module FilterConditionMap
+    class FilterConditionMap
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, context: context)
         data = {}
@@ -1482,7 +1482,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module Get
+    class Get
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Get, context: context)
         type = Types::Get.new
@@ -1495,7 +1495,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module GetItemInput
+    class GetItemInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetItemInput, context: context)
         type = Types::GetItemInput.new
@@ -1511,7 +1511,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module GetItemOutput
+    class GetItemOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetItemOutput, context: context)
         type = Types::GetItemOutput.new
@@ -1522,7 +1522,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module GlobalSecondaryIndex
+    class GlobalSecondaryIndex
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GlobalSecondaryIndex, context: context)
         type = Types::GlobalSecondaryIndex.new
@@ -1535,7 +1535,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module GlobalSecondaryIndexAutoScalingUpdate
+    class GlobalSecondaryIndexAutoScalingUpdate
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GlobalSecondaryIndexAutoScalingUpdate, context: context)
         type = Types::GlobalSecondaryIndexAutoScalingUpdate.new
@@ -1546,7 +1546,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module GlobalSecondaryIndexAutoScalingUpdateList
+    class GlobalSecondaryIndexAutoScalingUpdateList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -1557,7 +1557,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module GlobalSecondaryIndexDescription
+    class GlobalSecondaryIndexDescription
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GlobalSecondaryIndexDescription, context: context)
         type = Types::GlobalSecondaryIndexDescription.new
@@ -1575,7 +1575,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module GlobalSecondaryIndexDescriptionList
+    class GlobalSecondaryIndexDescriptionList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -1586,7 +1586,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module GlobalSecondaryIndexInfo
+    class GlobalSecondaryIndexInfo
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GlobalSecondaryIndexInfo, context: context)
         type = Types::GlobalSecondaryIndexInfo.new
@@ -1599,7 +1599,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module GlobalSecondaryIndexList
+    class GlobalSecondaryIndexList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -1610,7 +1610,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module GlobalSecondaryIndexUpdate
+    class GlobalSecondaryIndexUpdate
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GlobalSecondaryIndexUpdate, context: context)
         type = Types::GlobalSecondaryIndexUpdate.new
@@ -1622,7 +1622,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module GlobalSecondaryIndexUpdateList
+    class GlobalSecondaryIndexUpdateList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -1633,7 +1633,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module GlobalSecondaryIndexes
+    class GlobalSecondaryIndexes
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -1644,7 +1644,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module GlobalTable
+    class GlobalTable
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GlobalTable, context: context)
         type = Types::GlobalTable.new
@@ -1655,7 +1655,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module GlobalTableAlreadyExistsException
+    class GlobalTableAlreadyExistsException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GlobalTableAlreadyExistsException, context: context)
         type = Types::GlobalTableAlreadyExistsException.new
@@ -1665,7 +1665,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module GlobalTableDescription
+    class GlobalTableDescription
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GlobalTableDescription, context: context)
         type = Types::GlobalTableDescription.new
@@ -1679,7 +1679,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module GlobalTableGlobalSecondaryIndexSettingsUpdate
+    class GlobalTableGlobalSecondaryIndexSettingsUpdate
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GlobalTableGlobalSecondaryIndexSettingsUpdate, context: context)
         type = Types::GlobalTableGlobalSecondaryIndexSettingsUpdate.new
@@ -1691,7 +1691,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module GlobalTableGlobalSecondaryIndexSettingsUpdateList
+    class GlobalTableGlobalSecondaryIndexSettingsUpdateList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -1702,7 +1702,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module GlobalTableList
+    class GlobalTableList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -1713,7 +1713,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module GlobalTableNotFoundException
+    class GlobalTableNotFoundException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GlobalTableNotFoundException, context: context)
         type = Types::GlobalTableNotFoundException.new
@@ -1723,7 +1723,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module IdempotentParameterMismatchException
+    class IdempotentParameterMismatchException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::IdempotentParameterMismatchException, context: context)
         type = Types::IdempotentParameterMismatchException.new
@@ -1733,7 +1733,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ImportConflictException
+    class ImportConflictException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ImportConflictException, context: context)
         type = Types::ImportConflictException.new
@@ -1743,7 +1743,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ImportNotFoundException
+    class ImportNotFoundException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ImportNotFoundException, context: context)
         type = Types::ImportNotFoundException.new
@@ -1753,7 +1753,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ImportSummary
+    class ImportSummary
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ImportSummary, context: context)
         type = Types::ImportSummary.new
@@ -1770,7 +1770,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ImportSummaryList
+    class ImportSummaryList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -1781,7 +1781,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ImportTableDescription
+    class ImportTableDescription
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ImportTableDescription, context: context)
         type = Types::ImportTableDescription.new
@@ -1809,7 +1809,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ImportTableInput
+    class ImportTableInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ImportTableInput, context: context)
         type = Types::ImportTableInput.new
@@ -1824,7 +1824,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ImportTableOutput
+    class ImportTableOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ImportTableOutput, context: context)
         type = Types::ImportTableOutput.new
@@ -1834,7 +1834,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module IncrementalExportSpecification
+    class IncrementalExportSpecification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::IncrementalExportSpecification, context: context)
         type = Types::IncrementalExportSpecification.new
@@ -1846,7 +1846,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module IndexNotFoundException
+    class IndexNotFoundException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::IndexNotFoundException, context: context)
         type = Types::IndexNotFoundException.new
@@ -1856,7 +1856,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module InputFormatOptions
+    class InputFormatOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InputFormatOptions, context: context)
         type = Types::InputFormatOptions.new
@@ -1866,7 +1866,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module InternalServerError
+    class InternalServerError
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InternalServerError, context: context)
         type = Types::InternalServerError.new
@@ -1876,7 +1876,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module InvalidEndpointException
+    class InvalidEndpointException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InvalidEndpointException, context: context)
         type = Types::InvalidEndpointException.new
@@ -1886,7 +1886,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module InvalidExportTimeException
+    class InvalidExportTimeException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InvalidExportTimeException, context: context)
         type = Types::InvalidExportTimeException.new
@@ -1896,7 +1896,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module InvalidRestoreTimeException
+    class InvalidRestoreTimeException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InvalidRestoreTimeException, context: context)
         type = Types::InvalidRestoreTimeException.new
@@ -1906,7 +1906,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ItemCollectionKeyAttributeMap
+    class ItemCollectionKeyAttributeMap
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, context: context)
         data = {}
@@ -1917,7 +1917,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ItemCollectionMetrics
+    class ItemCollectionMetrics
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ItemCollectionMetrics, context: context)
         type = Types::ItemCollectionMetrics.new
@@ -1928,7 +1928,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ItemCollectionMetricsMultiple
+    class ItemCollectionMetricsMultiple
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -1939,7 +1939,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ItemCollectionMetricsPerTable
+    class ItemCollectionMetricsPerTable
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, context: context)
         data = {}
@@ -1950,7 +1950,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ItemCollectionSizeEstimateRange
+    class ItemCollectionSizeEstimateRange
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -1961,7 +1961,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ItemCollectionSizeLimitExceededException
+    class ItemCollectionSizeLimitExceededException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ItemCollectionSizeLimitExceededException, context: context)
         type = Types::ItemCollectionSizeLimitExceededException.new
@@ -1971,7 +1971,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ItemList
+    class ItemList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -1982,7 +1982,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ItemResponse
+    class ItemResponse
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ItemResponse, context: context)
         type = Types::ItemResponse.new
@@ -1992,7 +1992,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ItemResponseList
+    class ItemResponseList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2003,7 +2003,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module Key
+    class Key
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, context: context)
         data = {}
@@ -2014,7 +2014,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module KeyConditions
+    class KeyConditions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, context: context)
         data = {}
@@ -2025,7 +2025,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module KeyList
+    class KeyList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2036,7 +2036,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module KeySchema
+    class KeySchema
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2047,7 +2047,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module KeySchemaElement
+    class KeySchemaElement
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::KeySchemaElement, context: context)
         type = Types::KeySchemaElement.new
@@ -2058,7 +2058,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module KeysAndAttributes
+    class KeysAndAttributes
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::KeysAndAttributes, context: context)
         type = Types::KeysAndAttributes.new
@@ -2072,7 +2072,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module KinesisDataStreamDestination
+    class KinesisDataStreamDestination
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::KinesisDataStreamDestination, context: context)
         type = Types::KinesisDataStreamDestination.new
@@ -2085,7 +2085,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module KinesisDataStreamDestinations
+    class KinesisDataStreamDestinations
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2096,7 +2096,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module LimitExceededException
+    class LimitExceededException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LimitExceededException, context: context)
         type = Types::LimitExceededException.new
@@ -2106,7 +2106,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ListAttributeValue
+    class ListAttributeValue
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2117,7 +2117,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ListBackupsInput
+    class ListBackupsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListBackupsInput, context: context)
         type = Types::ListBackupsInput.new
@@ -2132,7 +2132,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ListBackupsOutput
+    class ListBackupsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListBackupsOutput, context: context)
         type = Types::ListBackupsOutput.new
@@ -2143,7 +2143,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ListContributorInsightsInput
+    class ListContributorInsightsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListContributorInsightsInput, context: context)
         type = Types::ListContributorInsightsInput.new
@@ -2155,7 +2155,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ListContributorInsightsOutput
+    class ListContributorInsightsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListContributorInsightsOutput, context: context)
         type = Types::ListContributorInsightsOutput.new
@@ -2166,7 +2166,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ListExportsInput
+    class ListExportsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListExportsInput, context: context)
         type = Types::ListExportsInput.new
@@ -2178,7 +2178,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ListExportsOutput
+    class ListExportsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListExportsOutput, context: context)
         type = Types::ListExportsOutput.new
@@ -2189,7 +2189,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ListGlobalTablesInput
+    class ListGlobalTablesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListGlobalTablesInput, context: context)
         type = Types::ListGlobalTablesInput.new
@@ -2201,7 +2201,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ListGlobalTablesOutput
+    class ListGlobalTablesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListGlobalTablesOutput, context: context)
         type = Types::ListGlobalTablesOutput.new
@@ -2212,7 +2212,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ListImportsInput
+    class ListImportsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListImportsInput, context: context)
         type = Types::ListImportsInput.new
@@ -2224,7 +2224,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ListImportsOutput
+    class ListImportsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListImportsOutput, context: context)
         type = Types::ListImportsOutput.new
@@ -2235,7 +2235,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ListTablesInput
+    class ListTablesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListTablesInput, context: context)
         type = Types::ListTablesInput.new
@@ -2246,7 +2246,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ListTablesOutput
+    class ListTablesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListTablesOutput, context: context)
         type = Types::ListTablesOutput.new
@@ -2257,7 +2257,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ListTagsOfResourceInput
+    class ListTagsOfResourceInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListTagsOfResourceInput, context: context)
         type = Types::ListTagsOfResourceInput.new
@@ -2268,7 +2268,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ListTagsOfResourceOutput
+    class ListTagsOfResourceOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListTagsOfResourceOutput, context: context)
         type = Types::ListTagsOfResourceOutput.new
@@ -2279,7 +2279,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module LocalSecondaryIndex
+    class LocalSecondaryIndex
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LocalSecondaryIndex, context: context)
         type = Types::LocalSecondaryIndex.new
@@ -2291,7 +2291,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module LocalSecondaryIndexDescription
+    class LocalSecondaryIndexDescription
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LocalSecondaryIndexDescription, context: context)
         type = Types::LocalSecondaryIndexDescription.new
@@ -2306,7 +2306,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module LocalSecondaryIndexDescriptionList
+    class LocalSecondaryIndexDescriptionList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2317,7 +2317,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module LocalSecondaryIndexInfo
+    class LocalSecondaryIndexInfo
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LocalSecondaryIndexInfo, context: context)
         type = Types::LocalSecondaryIndexInfo.new
@@ -2329,7 +2329,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module LocalSecondaryIndexList
+    class LocalSecondaryIndexList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2340,7 +2340,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module LocalSecondaryIndexes
+    class LocalSecondaryIndexes
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2351,7 +2351,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module MapAttributeValue
+    class MapAttributeValue
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, context: context)
         data = {}
@@ -2362,7 +2362,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module NonKeyAttributeNameList
+    class NonKeyAttributeNameList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2373,7 +2373,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module NumberSetAttributeValue
+    class NumberSetAttributeValue
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2384,7 +2384,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ParameterizedStatement
+    class ParameterizedStatement
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ParameterizedStatement, context: context)
         type = Types::ParameterizedStatement.new
@@ -2396,7 +2396,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ParameterizedStatements
+    class ParameterizedStatements
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2407,7 +2407,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module PartiQLBatchRequest
+    class PartiQLBatchRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2418,7 +2418,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module PartiQLBatchResponse
+    class PartiQLBatchResponse
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2429,7 +2429,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module PointInTimeRecoveryDescription
+    class PointInTimeRecoveryDescription
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PointInTimeRecoveryDescription, context: context)
         type = Types::PointInTimeRecoveryDescription.new
@@ -2441,7 +2441,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module PointInTimeRecoverySpecification
+    class PointInTimeRecoverySpecification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PointInTimeRecoverySpecification, context: context)
         type = Types::PointInTimeRecoverySpecification.new
@@ -2451,7 +2451,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module PointInTimeRecoveryUnavailableException
+    class PointInTimeRecoveryUnavailableException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PointInTimeRecoveryUnavailableException, context: context)
         type = Types::PointInTimeRecoveryUnavailableException.new
@@ -2461,7 +2461,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module PreparedStatementParameters
+    class PreparedStatementParameters
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2472,7 +2472,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module Projection
+    class Projection
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Projection, context: context)
         type = Types::Projection.new
@@ -2483,7 +2483,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ProvisionedThroughput
+    class ProvisionedThroughput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ProvisionedThroughput, context: context)
         type = Types::ProvisionedThroughput.new
@@ -2494,7 +2494,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ProvisionedThroughputDescription
+    class ProvisionedThroughputDescription
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ProvisionedThroughputDescription, context: context)
         type = Types::ProvisionedThroughputDescription.new
@@ -2508,7 +2508,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ProvisionedThroughputExceededException
+    class ProvisionedThroughputExceededException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ProvisionedThroughputExceededException, context: context)
         type = Types::ProvisionedThroughputExceededException.new
@@ -2518,7 +2518,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ProvisionedThroughputOverride
+    class ProvisionedThroughputOverride
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ProvisionedThroughputOverride, context: context)
         type = Types::ProvisionedThroughputOverride.new
@@ -2528,7 +2528,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module Put
+    class Put
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Put, context: context)
         type = Types::Put.new
@@ -2543,7 +2543,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module PutItemInput
+    class PutItemInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutItemInput, context: context)
         type = Types::PutItemInput.new
@@ -2563,7 +2563,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module PutItemInputAttributeMap
+    class PutItemInputAttributeMap
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, context: context)
         data = {}
@@ -2574,7 +2574,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module PutItemOutput
+    class PutItemOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutItemOutput, context: context)
         type = Types::PutItemOutput.new
@@ -2586,7 +2586,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module PutRequest
+    class PutRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutRequest, context: context)
         type = Types::PutRequest.new
@@ -2596,7 +2596,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module QueryInput
+    class QueryInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::QueryInput, context: context)
         type = Types::QueryInput.new
@@ -2622,7 +2622,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module QueryOutput
+    class QueryOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::QueryOutput, context: context)
         type = Types::QueryOutput.new
@@ -2636,7 +2636,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module Replica
+    class Replica
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Replica, context: context)
         type = Types::Replica.new
@@ -2646,7 +2646,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ReplicaAlreadyExistsException
+    class ReplicaAlreadyExistsException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReplicaAlreadyExistsException, context: context)
         type = Types::ReplicaAlreadyExistsException.new
@@ -2656,7 +2656,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ReplicaAutoScalingDescription
+    class ReplicaAutoScalingDescription
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReplicaAutoScalingDescription, context: context)
         type = Types::ReplicaAutoScalingDescription.new
@@ -2670,7 +2670,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ReplicaAutoScalingDescriptionList
+    class ReplicaAutoScalingDescriptionList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2681,7 +2681,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ReplicaAutoScalingUpdate
+    class ReplicaAutoScalingUpdate
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReplicaAutoScalingUpdate, context: context)
         type = Types::ReplicaAutoScalingUpdate.new
@@ -2693,7 +2693,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ReplicaAutoScalingUpdateList
+    class ReplicaAutoScalingUpdateList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2704,7 +2704,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ReplicaDescription
+    class ReplicaDescription
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReplicaDescription, context: context)
         type = Types::ReplicaDescription.new
@@ -2722,7 +2722,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ReplicaDescriptionList
+    class ReplicaDescriptionList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2733,7 +2733,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ReplicaGlobalSecondaryIndex
+    class ReplicaGlobalSecondaryIndex
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReplicaGlobalSecondaryIndex, context: context)
         type = Types::ReplicaGlobalSecondaryIndex.new
@@ -2744,7 +2744,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ReplicaGlobalSecondaryIndexAutoScalingDescription
+    class ReplicaGlobalSecondaryIndexAutoScalingDescription
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReplicaGlobalSecondaryIndexAutoScalingDescription, context: context)
         type = Types::ReplicaGlobalSecondaryIndexAutoScalingDescription.new
@@ -2757,7 +2757,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ReplicaGlobalSecondaryIndexAutoScalingDescriptionList
+    class ReplicaGlobalSecondaryIndexAutoScalingDescriptionList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2768,7 +2768,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ReplicaGlobalSecondaryIndexAutoScalingUpdate
+    class ReplicaGlobalSecondaryIndexAutoScalingUpdate
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReplicaGlobalSecondaryIndexAutoScalingUpdate, context: context)
         type = Types::ReplicaGlobalSecondaryIndexAutoScalingUpdate.new
@@ -2779,7 +2779,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ReplicaGlobalSecondaryIndexAutoScalingUpdateList
+    class ReplicaGlobalSecondaryIndexAutoScalingUpdateList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2790,7 +2790,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ReplicaGlobalSecondaryIndexDescription
+    class ReplicaGlobalSecondaryIndexDescription
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReplicaGlobalSecondaryIndexDescription, context: context)
         type = Types::ReplicaGlobalSecondaryIndexDescription.new
@@ -2801,7 +2801,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ReplicaGlobalSecondaryIndexDescriptionList
+    class ReplicaGlobalSecondaryIndexDescriptionList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2812,7 +2812,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ReplicaGlobalSecondaryIndexList
+    class ReplicaGlobalSecondaryIndexList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2823,7 +2823,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ReplicaGlobalSecondaryIndexSettingsDescription
+    class ReplicaGlobalSecondaryIndexSettingsDescription
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReplicaGlobalSecondaryIndexSettingsDescription, context: context)
         type = Types::ReplicaGlobalSecondaryIndexSettingsDescription.new
@@ -2838,7 +2838,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ReplicaGlobalSecondaryIndexSettingsDescriptionList
+    class ReplicaGlobalSecondaryIndexSettingsDescriptionList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2849,7 +2849,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ReplicaGlobalSecondaryIndexSettingsUpdate
+    class ReplicaGlobalSecondaryIndexSettingsUpdate
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReplicaGlobalSecondaryIndexSettingsUpdate, context: context)
         type = Types::ReplicaGlobalSecondaryIndexSettingsUpdate.new
@@ -2861,7 +2861,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ReplicaGlobalSecondaryIndexSettingsUpdateList
+    class ReplicaGlobalSecondaryIndexSettingsUpdateList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2872,7 +2872,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ReplicaList
+    class ReplicaList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2883,7 +2883,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ReplicaNotFoundException
+    class ReplicaNotFoundException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReplicaNotFoundException, context: context)
         type = Types::ReplicaNotFoundException.new
@@ -2893,7 +2893,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ReplicaSettingsDescription
+    class ReplicaSettingsDescription
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReplicaSettingsDescription, context: context)
         type = Types::ReplicaSettingsDescription.new
@@ -2911,7 +2911,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ReplicaSettingsDescriptionList
+    class ReplicaSettingsDescriptionList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2922,7 +2922,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ReplicaSettingsUpdate
+    class ReplicaSettingsUpdate
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReplicaSettingsUpdate, context: context)
         type = Types::ReplicaSettingsUpdate.new
@@ -2936,7 +2936,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ReplicaSettingsUpdateList
+    class ReplicaSettingsUpdateList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2947,7 +2947,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ReplicaUpdate
+    class ReplicaUpdate
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReplicaUpdate, context: context)
         type = Types::ReplicaUpdate.new
@@ -2958,7 +2958,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ReplicaUpdateList
+    class ReplicaUpdateList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2969,7 +2969,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ReplicationGroupUpdate
+    class ReplicationGroupUpdate
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReplicationGroupUpdate, context: context)
         type = Types::ReplicationGroupUpdate.new
@@ -2981,7 +2981,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ReplicationGroupUpdateList
+    class ReplicationGroupUpdateList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2992,7 +2992,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module RequestLimitExceeded
+    class RequestLimitExceeded
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RequestLimitExceeded, context: context)
         type = Types::RequestLimitExceeded.new
@@ -3002,7 +3002,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ResourceInUseException
+    class ResourceInUseException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ResourceInUseException, context: context)
         type = Types::ResourceInUseException.new
@@ -3012,7 +3012,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ResourceNotFoundException
+    class ResourceNotFoundException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ResourceNotFoundException, context: context)
         type = Types::ResourceNotFoundException.new
@@ -3022,7 +3022,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module RestoreSummary
+    class RestoreSummary
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RestoreSummary, context: context)
         type = Types::RestoreSummary.new
@@ -3035,7 +3035,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module RestoreTableFromBackupInput
+    class RestoreTableFromBackupInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RestoreTableFromBackupInput, context: context)
         type = Types::RestoreTableFromBackupInput.new
@@ -3051,7 +3051,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module RestoreTableFromBackupOutput
+    class RestoreTableFromBackupOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RestoreTableFromBackupOutput, context: context)
         type = Types::RestoreTableFromBackupOutput.new
@@ -3061,7 +3061,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module RestoreTableToPointInTimeInput
+    class RestoreTableToPointInTimeInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RestoreTableToPointInTimeInput, context: context)
         type = Types::RestoreTableToPointInTimeInput.new
@@ -3080,7 +3080,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module RestoreTableToPointInTimeOutput
+    class RestoreTableToPointInTimeOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RestoreTableToPointInTimeOutput, context: context)
         type = Types::RestoreTableToPointInTimeOutput.new
@@ -3090,7 +3090,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module S3BucketSource
+    class S3BucketSource
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::S3BucketSource, context: context)
         type = Types::S3BucketSource.new
@@ -3102,7 +3102,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module SSEDescription
+    class SSEDescription
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SSEDescription, context: context)
         type = Types::SSEDescription.new
@@ -3115,7 +3115,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module SSESpecification
+    class SSESpecification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SSESpecification, context: context)
         type = Types::SSESpecification.new
@@ -3127,7 +3127,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ScanInput
+    class ScanInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ScanInput, context: context)
         type = Types::ScanInput.new
@@ -3152,7 +3152,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module ScanOutput
+    class ScanOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ScanOutput, context: context)
         type = Types::ScanOutput.new
@@ -3166,7 +3166,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module SecondaryIndexesCapacityMap
+    class SecondaryIndexesCapacityMap
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, context: context)
         data = {}
@@ -3177,7 +3177,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module SourceTableDetails
+    class SourceTableDetails
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SourceTableDetails, context: context)
         type = Types::SourceTableDetails.new
@@ -3195,7 +3195,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module SourceTableFeatureDetails
+    class SourceTableFeatureDetails
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SourceTableFeatureDetails, context: context)
         type = Types::SourceTableFeatureDetails.new
@@ -3209,7 +3209,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module StreamSpecification
+    class StreamSpecification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::StreamSpecification, context: context)
         type = Types::StreamSpecification.new
@@ -3220,7 +3220,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module StringSetAttributeValue
+    class StringSetAttributeValue
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -3231,7 +3231,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module TableAlreadyExistsException
+    class TableAlreadyExistsException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TableAlreadyExistsException, context: context)
         type = Types::TableAlreadyExistsException.new
@@ -3241,7 +3241,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module TableAutoScalingDescription
+    class TableAutoScalingDescription
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TableAutoScalingDescription, context: context)
         type = Types::TableAutoScalingDescription.new
@@ -3253,7 +3253,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module TableClassSummary
+    class TableClassSummary
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TableClassSummary, context: context)
         type = Types::TableClassSummary.new
@@ -3264,7 +3264,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module TableCreationParameters
+    class TableCreationParameters
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TableCreationParameters, context: context)
         type = Types::TableCreationParameters.new
@@ -3280,7 +3280,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module TableDescription
+    class TableDescription
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TableDescription, context: context)
         type = Types::TableDescription.new
@@ -3312,7 +3312,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module TableInUseException
+    class TableInUseException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TableInUseException, context: context)
         type = Types::TableInUseException.new
@@ -3322,7 +3322,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module TableNameList
+    class TableNameList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -3333,7 +3333,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module TableNotFoundException
+    class TableNotFoundException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TableNotFoundException, context: context)
         type = Types::TableNotFoundException.new
@@ -3343,7 +3343,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module Tag
+    class Tag
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Tag, context: context)
         type = Types::Tag.new
@@ -3354,7 +3354,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module TagKeyList
+    class TagKeyList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -3365,7 +3365,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module TagList
+    class TagList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -3376,7 +3376,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module TagResourceInput
+    class TagResourceInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TagResourceInput, context: context)
         type = Types::TagResourceInput.new
@@ -3387,7 +3387,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module TagResourceOutput
+    class TagResourceOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TagResourceOutput, context: context)
         type = Types::TagResourceOutput.new
@@ -3396,7 +3396,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module TimeToLiveDescription
+    class TimeToLiveDescription
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TimeToLiveDescription, context: context)
         type = Types::TimeToLiveDescription.new
@@ -3407,7 +3407,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module TimeToLiveSpecification
+    class TimeToLiveSpecification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TimeToLiveSpecification, context: context)
         type = Types::TimeToLiveSpecification.new
@@ -3418,7 +3418,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module TransactGetItem
+    class TransactGetItem
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransactGetItem, context: context)
         type = Types::TransactGetItem.new
@@ -3428,7 +3428,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module TransactGetItemList
+    class TransactGetItemList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -3439,7 +3439,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module TransactGetItemsInput
+    class TransactGetItemsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransactGetItemsInput, context: context)
         type = Types::TransactGetItemsInput.new
@@ -3450,7 +3450,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module TransactGetItemsOutput
+    class TransactGetItemsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransactGetItemsOutput, context: context)
         type = Types::TransactGetItemsOutput.new
@@ -3461,7 +3461,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module TransactWriteItem
+    class TransactWriteItem
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransactWriteItem, context: context)
         type = Types::TransactWriteItem.new
@@ -3474,7 +3474,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module TransactWriteItemList
+    class TransactWriteItemList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -3485,7 +3485,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module TransactWriteItemsInput
+    class TransactWriteItemsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransactWriteItemsInput, context: context)
         type = Types::TransactWriteItemsInput.new
@@ -3498,7 +3498,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module TransactWriteItemsOutput
+    class TransactWriteItemsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransactWriteItemsOutput, context: context)
         type = Types::TransactWriteItemsOutput.new
@@ -3509,7 +3509,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module TransactionCanceledException
+    class TransactionCanceledException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransactionCanceledException, context: context)
         type = Types::TransactionCanceledException.new
@@ -3520,7 +3520,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module TransactionConflictException
+    class TransactionConflictException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransactionConflictException, context: context)
         type = Types::TransactionConflictException.new
@@ -3530,7 +3530,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module TransactionInProgressException
+    class TransactionInProgressException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransactionInProgressException, context: context)
         type = Types::TransactionInProgressException.new
@@ -3540,7 +3540,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module UntagResourceInput
+    class UntagResourceInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UntagResourceInput, context: context)
         type = Types::UntagResourceInput.new
@@ -3551,7 +3551,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module UntagResourceOutput
+    class UntagResourceOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UntagResourceOutput, context: context)
         type = Types::UntagResourceOutput.new
@@ -3560,7 +3560,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module Update
+    class Update
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Update, context: context)
         type = Types::Update.new
@@ -3576,7 +3576,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module UpdateContinuousBackupsInput
+    class UpdateContinuousBackupsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateContinuousBackupsInput, context: context)
         type = Types::UpdateContinuousBackupsInput.new
@@ -3587,7 +3587,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module UpdateContinuousBackupsOutput
+    class UpdateContinuousBackupsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateContinuousBackupsOutput, context: context)
         type = Types::UpdateContinuousBackupsOutput.new
@@ -3597,7 +3597,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module UpdateContributorInsightsInput
+    class UpdateContributorInsightsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateContributorInsightsInput, context: context)
         type = Types::UpdateContributorInsightsInput.new
@@ -3609,7 +3609,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module UpdateContributorInsightsOutput
+    class UpdateContributorInsightsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateContributorInsightsOutput, context: context)
         type = Types::UpdateContributorInsightsOutput.new
@@ -3621,7 +3621,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module UpdateGlobalSecondaryIndexAction
+    class UpdateGlobalSecondaryIndexAction
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateGlobalSecondaryIndexAction, context: context)
         type = Types::UpdateGlobalSecondaryIndexAction.new
@@ -3632,7 +3632,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module UpdateGlobalTableInput
+    class UpdateGlobalTableInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateGlobalTableInput, context: context)
         type = Types::UpdateGlobalTableInput.new
@@ -3643,7 +3643,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module UpdateGlobalTableOutput
+    class UpdateGlobalTableOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateGlobalTableOutput, context: context)
         type = Types::UpdateGlobalTableOutput.new
@@ -3653,7 +3653,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module UpdateGlobalTableSettingsInput
+    class UpdateGlobalTableSettingsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateGlobalTableSettingsInput, context: context)
         type = Types::UpdateGlobalTableSettingsInput.new
@@ -3668,7 +3668,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module UpdateGlobalTableSettingsOutput
+    class UpdateGlobalTableSettingsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateGlobalTableSettingsOutput, context: context)
         type = Types::UpdateGlobalTableSettingsOutput.new
@@ -3679,7 +3679,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module UpdateItemInput
+    class UpdateItemInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateItemInput, context: context)
         type = Types::UpdateItemInput.new
@@ -3701,7 +3701,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module UpdateItemOutput
+    class UpdateItemOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateItemOutput, context: context)
         type = Types::UpdateItemOutput.new
@@ -3713,7 +3713,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module UpdateKinesisStreamingConfiguration
+    class UpdateKinesisStreamingConfiguration
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateKinesisStreamingConfiguration, context: context)
         type = Types::UpdateKinesisStreamingConfiguration.new
@@ -3723,7 +3723,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module UpdateKinesisStreamingDestinationInput
+    class UpdateKinesisStreamingDestinationInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateKinesisStreamingDestinationInput, context: context)
         type = Types::UpdateKinesisStreamingDestinationInput.new
@@ -3735,7 +3735,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module UpdateKinesisStreamingDestinationOutput
+    class UpdateKinesisStreamingDestinationOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateKinesisStreamingDestinationOutput, context: context)
         type = Types::UpdateKinesisStreamingDestinationOutput.new
@@ -3748,7 +3748,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module UpdateReplicationGroupMemberAction
+    class UpdateReplicationGroupMemberAction
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateReplicationGroupMemberAction, context: context)
         type = Types::UpdateReplicationGroupMemberAction.new
@@ -3762,7 +3762,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module UpdateTableInput
+    class UpdateTableInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateTableInput, context: context)
         type = Types::UpdateTableInput.new
@@ -3781,7 +3781,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module UpdateTableOutput
+    class UpdateTableOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateTableOutput, context: context)
         type = Types::UpdateTableOutput.new
@@ -3791,7 +3791,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module UpdateTableReplicaAutoScalingInput
+    class UpdateTableReplicaAutoScalingInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateTableReplicaAutoScalingInput, context: context)
         type = Types::UpdateTableReplicaAutoScalingInput.new
@@ -3804,7 +3804,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module UpdateTableReplicaAutoScalingOutput
+    class UpdateTableReplicaAutoScalingOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateTableReplicaAutoScalingOutput, context: context)
         type = Types::UpdateTableReplicaAutoScalingOutput.new
@@ -3814,7 +3814,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module UpdateTimeToLiveInput
+    class UpdateTimeToLiveInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateTimeToLiveInput, context: context)
         type = Types::UpdateTimeToLiveInput.new
@@ -3825,7 +3825,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module UpdateTimeToLiveOutput
+    class UpdateTimeToLiveOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateTimeToLiveOutput, context: context)
         type = Types::UpdateTimeToLiveOutput.new
@@ -3835,7 +3835,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module WriteRequest
+    class WriteRequest
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::WriteRequest, context: context)
         type = Types::WriteRequest.new
@@ -3846,7 +3846,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    module WriteRequests
+    class WriteRequests
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []

@@ -24,4 +24,5 @@ module AWS::SDK::SSO
       end
     end
   end
+
 end

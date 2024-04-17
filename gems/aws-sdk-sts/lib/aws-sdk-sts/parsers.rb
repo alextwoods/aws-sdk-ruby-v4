@@ -11,7 +11,6 @@ module AWS::SDK::STS
   # @api private
   module Parsers
 
-    # Operation Parser for AssumeRole
     class AssumeRole
       def self.parse(http_resp)
         data = Types::AssumeRoleOutput.new
@@ -34,7 +33,6 @@ module AWS::SDK::STS
       end
     end
 
-    # Operation Parser for AssumeRoleWithSAML
     class AssumeRoleWithSAML
       def self.parse(http_resp)
         data = Types::AssumeRoleWithSAMLOutput.new
@@ -72,7 +70,6 @@ module AWS::SDK::STS
       end
     end
 
-    # Operation Parser for AssumeRoleWithWebIdentity
     class AssumeRoleWithWebIdentity
       def self.parse(http_resp)
         data = Types::AssumeRoleWithWebIdentityOutput.new
@@ -136,7 +133,6 @@ module AWS::SDK::STS
       end
     end
 
-    # Operation Parser for DecodeAuthorizationMessage
     class DecodeAuthorizationMessage
       def self.parse(http_resp)
         data = Types::DecodeAuthorizationMessageOutput.new
@@ -177,7 +173,6 @@ module AWS::SDK::STS
       end
     end
 
-    # Operation Parser for GetAccessKeyInfo
     class GetAccessKeyInfo
       def self.parse(http_resp)
         data = Types::GetAccessKeyInfoOutput.new
@@ -191,7 +186,6 @@ module AWS::SDK::STS
       end
     end
 
-    # Operation Parser for GetCallerIdentity
     class GetCallerIdentity
       def self.parse(http_resp)
         data = Types::GetCallerIdentityOutput.new
@@ -211,7 +205,6 @@ module AWS::SDK::STS
       end
     end
 
-    # Operation Parser for GetFederationToken
     class GetFederationToken
       def self.parse(http_resp)
         data = Types::GetFederationTokenOutput.new
@@ -231,7 +224,6 @@ module AWS::SDK::STS
       end
     end
 
-    # Operation Parser for GetSessionToken
     class GetSessionToken
       def self.parse(http_resp)
         data = Types::GetSessionTokenOutput.new

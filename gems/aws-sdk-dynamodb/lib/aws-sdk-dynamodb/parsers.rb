@@ -168,7 +168,7 @@ module AWS::SDK::DynamoDB
         data = Types::BackupInUseException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -180,7 +180,7 @@ module AWS::SDK::DynamoDB
         data = Types::BackupNotFoundException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -211,26 +211,24 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for BatchExecuteStatement
     class BatchExecuteStatement
       def self.parse(http_resp)
         data = Types::BatchExecuteStatementOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.responses = (PartiQLBatchResponse.parse(map['Responses']) unless map['Responses'].nil?)
         data.consumed_capacity = (ConsumedCapacityMultiple.parse(map['ConsumedCapacity']) unless map['ConsumedCapacity'].nil?)
         data
       end
     end
 
-    # Operation Parser for BatchGetItem
     class BatchGetItem
       def self.parse(http_resp)
         data = Types::BatchGetItemOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.responses = (BatchGetResponseMap.parse(map['Responses']) unless map['Responses'].nil?)
         data.unprocessed_keys = (BatchGetRequestMap.parse(map['UnprocessedKeys']) unless map['UnprocessedKeys'].nil?)
         data.consumed_capacity = (ConsumedCapacityMultiple.parse(map['ConsumedCapacity']) unless map['ConsumedCapacity'].nil?)
@@ -278,13 +276,12 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for BatchWriteItem
     class BatchWriteItem
       def self.parse(http_resp)
         data = Types::BatchWriteItemOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.unprocessed_items = (BatchWriteItemRequestMap.parse(map['UnprocessedItems']) unless map['UnprocessedItems'].nil?)
         data.item_collection_metrics = (ItemCollectionMetricsPerTable.parse(map['ItemCollectionMetrics']) unless map['ItemCollectionMetrics'].nil?)
         data.consumed_capacity = (ConsumedCapacityMultiple.parse(map['ConsumedCapacity']) unless map['ConsumedCapacity'].nil?)
@@ -353,7 +350,7 @@ module AWS::SDK::DynamoDB
         data = Types::ConditionalCheckFailedException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data.item = (AttributeMap.parse(map['Item']) unless map['Item'].nil?)
         data
@@ -397,7 +394,7 @@ module AWS::SDK::DynamoDB
         data = Types::ContinuousBackupsUnavailableException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -429,37 +426,34 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for CreateBackup
     class CreateBackup
       def self.parse(http_resp)
         data = Types::CreateBackupOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.backup_details = (BackupDetails.parse(map['BackupDetails']) unless map['BackupDetails'].nil?)
         data
       end
     end
 
-    # Operation Parser for CreateGlobalTable
     class CreateGlobalTable
       def self.parse(http_resp)
         data = Types::CreateGlobalTableOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.global_table_description = (GlobalTableDescription.parse(map['GlobalTableDescription']) unless map['GlobalTableDescription'].nil?)
         data
       end
     end
 
-    # Operation Parser for CreateTable
     class CreateTable
       def self.parse(http_resp)
         data = Types::CreateTableOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.table_description = (TableDescription.parse(map['TableDescription']) unless map['TableDescription'].nil?)
         data
       end
@@ -482,25 +476,23 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for DeleteBackup
     class DeleteBackup
       def self.parse(http_resp)
         data = Types::DeleteBackupOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.backup_description = (BackupDescription.parse(map['BackupDescription']) unless map['BackupDescription'].nil?)
         data
       end
     end
 
-    # Operation Parser for DeleteItem
     class DeleteItem
       def self.parse(http_resp)
         data = Types::DeleteItemOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.attributes = (AttributeMap.parse(map['Attributes']) unless map['Attributes'].nil?)
         data.consumed_capacity = (ConsumedCapacity.parse(map['ConsumedCapacity']) unless map['ConsumedCapacity'].nil?)
         data.item_collection_metrics = (ItemCollectionMetrics.parse(map['ItemCollectionMetrics']) unless map['ItemCollectionMetrics'].nil?)
@@ -516,49 +508,45 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for DeleteTable
     class DeleteTable
       def self.parse(http_resp)
         data = Types::DeleteTableOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.table_description = (TableDescription.parse(map['TableDescription']) unless map['TableDescription'].nil?)
         data
       end
     end
 
-    # Operation Parser for DescribeBackup
     class DescribeBackup
       def self.parse(http_resp)
         data = Types::DescribeBackupOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.backup_description = (BackupDescription.parse(map['BackupDescription']) unless map['BackupDescription'].nil?)
         data
       end
     end
 
-    # Operation Parser for DescribeContinuousBackups
     class DescribeContinuousBackups
       def self.parse(http_resp)
         data = Types::DescribeContinuousBackupsOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.continuous_backups_description = (ContinuousBackupsDescription.parse(map['ContinuousBackupsDescription']) unless map['ContinuousBackupsDescription'].nil?)
         data
       end
     end
 
-    # Operation Parser for DescribeContributorInsights
     class DescribeContributorInsights
       def self.parse(http_resp)
         data = Types::DescribeContributorInsightsOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.table_name = map['TableName']
         data.index_name = map['IndexName']
         data.contributor_insights_rule_list = (ContributorInsightsRuleList.parse(map['ContributorInsightsRuleList']) unless map['ContributorInsightsRuleList'].nil?)
@@ -569,87 +557,80 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for DescribeEndpoints
     class DescribeEndpoints
       def self.parse(http_resp)
         data = Types::DescribeEndpointsOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.endpoints = (Endpoints.parse(map['Endpoints']) unless map['Endpoints'].nil?)
         data
       end
     end
 
-    # Operation Parser for DescribeExport
     class DescribeExport
       def self.parse(http_resp)
         data = Types::DescribeExportOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.export_description = (ExportDescription.parse(map['ExportDescription']) unless map['ExportDescription'].nil?)
         data
       end
     end
 
-    # Operation Parser for DescribeGlobalTable
     class DescribeGlobalTable
       def self.parse(http_resp)
         data = Types::DescribeGlobalTableOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.global_table_description = (GlobalTableDescription.parse(map['GlobalTableDescription']) unless map['GlobalTableDescription'].nil?)
         data
       end
     end
 
-    # Operation Parser for DescribeGlobalTableSettings
     class DescribeGlobalTableSettings
       def self.parse(http_resp)
         data = Types::DescribeGlobalTableSettingsOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.global_table_name = map['GlobalTableName']
         data.replica_settings = (ReplicaSettingsDescriptionList.parse(map['ReplicaSettings']) unless map['ReplicaSettings'].nil?)
         data
       end
     end
 
-    # Operation Parser for DescribeImport
     class DescribeImport
       def self.parse(http_resp)
         data = Types::DescribeImportOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.import_table_description = (ImportTableDescription.parse(map['ImportTableDescription']) unless map['ImportTableDescription'].nil?)
         data
       end
     end
 
-    # Operation Parser for DescribeKinesisStreamingDestination
     class DescribeKinesisStreamingDestination
       def self.parse(http_resp)
         data = Types::DescribeKinesisStreamingDestinationOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.table_name = map['TableName']
         data.kinesis_data_stream_destinations = (KinesisDataStreamDestinations.parse(map['KinesisDataStreamDestinations']) unless map['KinesisDataStreamDestinations'].nil?)
         data
       end
     end
 
-    # Operation Parser for DescribeLimits
     class DescribeLimits
       def self.parse(http_resp)
         data = Types::DescribeLimitsOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.account_max_read_capacity_units = map['AccountMaxReadCapacityUnits']
         data.account_max_write_capacity_units = map['AccountMaxWriteCapacityUnits']
         data.table_max_read_capacity_units = map['TableMaxReadCapacityUnits']
@@ -658,49 +639,45 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for DescribeTable
     class DescribeTable
       def self.parse(http_resp)
         data = Types::DescribeTableOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.table = (TableDescription.parse(map['Table']) unless map['Table'].nil?)
         data
       end
     end
 
-    # Operation Parser for DescribeTableReplicaAutoScaling
     class DescribeTableReplicaAutoScaling
       def self.parse(http_resp)
         data = Types::DescribeTableReplicaAutoScalingOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.table_auto_scaling_description = (TableAutoScalingDescription.parse(map['TableAutoScalingDescription']) unless map['TableAutoScalingDescription'].nil?)
         data
       end
     end
 
-    # Operation Parser for DescribeTimeToLive
     class DescribeTimeToLive
       def self.parse(http_resp)
         data = Types::DescribeTimeToLiveOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.time_to_live_description = (TimeToLiveDescription.parse(map['TimeToLiveDescription']) unless map['TimeToLiveDescription'].nil?)
         data
       end
     end
 
-    # Operation Parser for DisableKinesisStreamingDestination
     class DisableKinesisStreamingDestination
       def self.parse(http_resp)
         data = Types::DisableKinesisStreamingDestinationOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.table_name = map['TableName']
         data.stream_arn = map['StreamArn']
         data.destination_status = map['DestinationStatus']
@@ -715,7 +692,7 @@ module AWS::SDK::DynamoDB
         data = Types::DuplicateItemException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -729,13 +706,12 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for EnableKinesisStreamingDestination
     class EnableKinesisStreamingDestination
       def self.parse(http_resp)
         data = Types::EnableKinesisStreamingDestinationOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.table_name = map['TableName']
         data.stream_arn = map['StreamArn']
         data.destination_status = map['DestinationStatus']
@@ -761,13 +737,12 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for ExecuteStatement
     class ExecuteStatement
       def self.parse(http_resp)
         data = Types::ExecuteStatementOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.items = (ItemList.parse(map['Items']) unless map['Items'].nil?)
         data.next_token = map['NextToken']
         data.consumed_capacity = (ConsumedCapacity.parse(map['ConsumedCapacity']) unless map['ConsumedCapacity'].nil?)
@@ -776,13 +751,12 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for ExecuteTransaction
     class ExecuteTransaction
       def self.parse(http_resp)
         data = Types::ExecuteTransactionOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.responses = (ItemResponseList.parse(map['Responses']) unless map['Responses'].nil?)
         data.consumed_capacity = (ConsumedCapacityMultiple.parse(map['ConsumedCapacity']) unless map['ConsumedCapacity'].nil?)
         data
@@ -795,7 +769,7 @@ module AWS::SDK::DynamoDB
         data = Types::ExportConflictException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -835,7 +809,7 @@ module AWS::SDK::DynamoDB
         data = Types::ExportNotFoundException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -859,13 +833,12 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for ExportTableToPointInTime
     class ExportTableToPointInTime
       def self.parse(http_resp)
         data = Types::ExportTableToPointInTimeOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.export_description = (ExportDescription.parse(map['ExportDescription']) unless map['ExportDescription'].nil?)
         data
       end
@@ -890,13 +863,12 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for GetItem
     class GetItem
       def self.parse(http_resp)
         data = Types::GetItemOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.item = (AttributeMap.parse(map['Item']) unless map['Item'].nil?)
         data.consumed_capacity = (ConsumedCapacity.parse(map['ConsumedCapacity']) unless map['ConsumedCapacity'].nil?)
         data
@@ -980,7 +952,7 @@ module AWS::SDK::DynamoDB
         data = Types::GlobalTableAlreadyExistsException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -1012,7 +984,7 @@ module AWS::SDK::DynamoDB
         data = Types::GlobalTableNotFoundException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -1024,7 +996,7 @@ module AWS::SDK::DynamoDB
         data = Types::IdempotentParameterMismatchException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['Message']
         data
       end
@@ -1036,7 +1008,7 @@ module AWS::SDK::DynamoDB
         data = Types::ImportConflictException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -1048,7 +1020,7 @@ module AWS::SDK::DynamoDB
         data = Types::ImportNotFoundException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -1077,13 +1049,12 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for ImportTable
     class ImportTable
       def self.parse(http_resp)
         data = Types::ImportTableOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.import_table_description = (ImportTableDescription.parse(map['ImportTableDescription']) unless map['ImportTableDescription'].nil?)
         data
       end
@@ -1131,7 +1102,7 @@ module AWS::SDK::DynamoDB
         data = Types::IndexNotFoundException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -1151,7 +1122,7 @@ module AWS::SDK::DynamoDB
         data = Types::InternalServerError.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -1163,7 +1134,7 @@ module AWS::SDK::DynamoDB
         data = Types::InvalidEndpointException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['Message']
         data
       end
@@ -1175,7 +1146,7 @@ module AWS::SDK::DynamoDB
         data = Types::InvalidExportTimeException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -1187,7 +1158,7 @@ module AWS::SDK::DynamoDB
         data = Types::InvalidRestoreTimeException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -1244,7 +1215,7 @@ module AWS::SDK::DynamoDB
         data = Types::ItemCollectionSizeLimitExceededException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -1346,7 +1317,7 @@ module AWS::SDK::DynamoDB
         data = Types::LimitExceededException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -1360,91 +1331,84 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for ListBackups
     class ListBackups
       def self.parse(http_resp)
         data = Types::ListBackupsOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.backup_summaries = (BackupSummaries.parse(map['BackupSummaries']) unless map['BackupSummaries'].nil?)
         data.last_evaluated_backup_arn = map['LastEvaluatedBackupArn']
         data
       end
     end
 
-    # Operation Parser for ListContributorInsights
     class ListContributorInsights
       def self.parse(http_resp)
         data = Types::ListContributorInsightsOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.contributor_insights_summaries = (ContributorInsightsSummaries.parse(map['ContributorInsightsSummaries']) unless map['ContributorInsightsSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
     end
 
-    # Operation Parser for ListExports
     class ListExports
       def self.parse(http_resp)
         data = Types::ListExportsOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.export_summaries = (ExportSummaries.parse(map['ExportSummaries']) unless map['ExportSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
     end
 
-    # Operation Parser for ListGlobalTables
     class ListGlobalTables
       def self.parse(http_resp)
         data = Types::ListGlobalTablesOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.global_tables = (GlobalTableList.parse(map['GlobalTables']) unless map['GlobalTables'].nil?)
         data.last_evaluated_global_table_name = map['LastEvaluatedGlobalTableName']
         data
       end
     end
 
-    # Operation Parser for ListImports
     class ListImports
       def self.parse(http_resp)
         data = Types::ListImportsOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.import_summary_list = (ImportSummaryList.parse(map['ImportSummaryList']) unless map['ImportSummaryList'].nil?)
         data.next_token = map['NextToken']
         data
       end
     end
 
-    # Operation Parser for ListTables
     class ListTables
       def self.parse(http_resp)
         data = Types::ListTablesOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.table_names = (TableNameList.parse(map['TableNames']) unless map['TableNames'].nil?)
         data.last_evaluated_table_name = map['LastEvaluatedTableName']
         data
       end
     end
 
-    # Operation Parser for ListTagsOfResource
     class ListTagsOfResource
       def self.parse(http_resp)
         data = Types::ListTagsOfResourceOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data.next_token = map['NextToken']
         data
@@ -1540,7 +1504,7 @@ module AWS::SDK::DynamoDB
         data = Types::PointInTimeRecoveryUnavailableException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -1582,7 +1546,7 @@ module AWS::SDK::DynamoDB
         data = Types::ProvisionedThroughputExceededException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -1596,13 +1560,12 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for PutItem
     class PutItem
       def self.parse(http_resp)
         data = Types::PutItemOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.attributes = (AttributeMap.parse(map['Attributes']) unless map['Attributes'].nil?)
         data.consumed_capacity = (ConsumedCapacity.parse(map['ConsumedCapacity']) unless map['ConsumedCapacity'].nil?)
         data.item_collection_metrics = (ItemCollectionMetrics.parse(map['ItemCollectionMetrics']) unless map['ItemCollectionMetrics'].nil?)
@@ -1628,13 +1591,12 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for Query
     class Query
       def self.parse(http_resp)
         data = Types::QueryOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.items = (ItemList.parse(map['Items']) unless map['Items'].nil?)
         data.count = map['Count']
         data.scanned_count = map['ScannedCount']
@@ -1658,7 +1620,7 @@ module AWS::SDK::DynamoDB
         data = Types::ReplicaAlreadyExistsException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -1779,7 +1741,7 @@ module AWS::SDK::DynamoDB
         data = Types::ReplicaNotFoundException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -1815,7 +1777,7 @@ module AWS::SDK::DynamoDB
         data = Types::RequestLimitExceeded.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -1827,7 +1789,7 @@ module AWS::SDK::DynamoDB
         data = Types::ResourceInUseException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -1839,7 +1801,7 @@ module AWS::SDK::DynamoDB
         data = Types::ResourceNotFoundException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -1856,25 +1818,23 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for RestoreTableFromBackup
     class RestoreTableFromBackup
       def self.parse(http_resp)
         data = Types::RestoreTableFromBackupOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.table_description = (TableDescription.parse(map['TableDescription']) unless map['TableDescription'].nil?)
         data
       end
     end
 
-    # Operation Parser for RestoreTableToPointInTime
     class RestoreTableToPointInTime
       def self.parse(http_resp)
         data = Types::RestoreTableToPointInTimeOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.table_description = (TableDescription.parse(map['TableDescription']) unless map['TableDescription'].nil?)
         data
       end
@@ -1911,13 +1871,12 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for Scan
     class Scan
       def self.parse(http_resp)
         data = Types::ScanOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.items = (ItemList.parse(map['Items']) unless map['Items'].nil?)
         data.count = map['Count']
         data.scanned_count = map['ScannedCount']
@@ -1988,7 +1947,7 @@ module AWS::SDK::DynamoDB
         data = Types::TableAlreadyExistsException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -2063,7 +2022,7 @@ module AWS::SDK::DynamoDB
         data = Types::TableInUseException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -2083,7 +2042,7 @@ module AWS::SDK::DynamoDB
         data = Types::TableNotFoundException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -2106,13 +2065,12 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for TagResource
     class TagResource
       def self.parse(http_resp)
         data = Types::TagResourceOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data
       end
     end
@@ -2135,26 +2093,24 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for TransactGetItems
     class TransactGetItems
       def self.parse(http_resp)
         data = Types::TransactGetItemsOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.consumed_capacity = (ConsumedCapacityMultiple.parse(map['ConsumedCapacity']) unless map['ConsumedCapacity'].nil?)
         data.responses = (ItemResponseList.parse(map['Responses']) unless map['Responses'].nil?)
         data
       end
     end
 
-    # Operation Parser for TransactWriteItems
     class TransactWriteItems
       def self.parse(http_resp)
         data = Types::TransactWriteItemsOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.consumed_capacity = (ConsumedCapacityMultiple.parse(map['ConsumedCapacity']) unless map['ConsumedCapacity'].nil?)
         data.item_collection_metrics = (ItemCollectionMetricsPerTable.parse(map['ItemCollectionMetrics']) unless map['ItemCollectionMetrics'].nil?)
         data
@@ -2167,7 +2123,7 @@ module AWS::SDK::DynamoDB
         data = Types::TransactionCanceledException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['Message']
         data.cancellation_reasons = (CancellationReasonList.parse(map['CancellationReasons']) unless map['CancellationReasons'].nil?)
         data
@@ -2180,7 +2136,7 @@ module AWS::SDK::DynamoDB
         data = Types::TransactionConflictException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -2192,42 +2148,39 @@ module AWS::SDK::DynamoDB
         data = Types::TransactionInProgressException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['Message']
         data
       end
     end
 
-    # Operation Parser for UntagResource
     class UntagResource
       def self.parse(http_resp)
         data = Types::UntagResourceOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data
       end
     end
 
-    # Operation Parser for UpdateContinuousBackups
     class UpdateContinuousBackups
       def self.parse(http_resp)
         data = Types::UpdateContinuousBackupsOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.continuous_backups_description = (ContinuousBackupsDescription.parse(map['ContinuousBackupsDescription']) unless map['ContinuousBackupsDescription'].nil?)
         data
       end
     end
 
-    # Operation Parser for UpdateContributorInsights
     class UpdateContributorInsights
       def self.parse(http_resp)
         data = Types::UpdateContributorInsightsOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.table_name = map['TableName']
         data.index_name = map['IndexName']
         data.contributor_insights_status = map['ContributorInsightsStatus']
@@ -2235,38 +2188,35 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for UpdateGlobalTable
     class UpdateGlobalTable
       def self.parse(http_resp)
         data = Types::UpdateGlobalTableOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.global_table_description = (GlobalTableDescription.parse(map['GlobalTableDescription']) unless map['GlobalTableDescription'].nil?)
         data
       end
     end
 
-    # Operation Parser for UpdateGlobalTableSettings
     class UpdateGlobalTableSettings
       def self.parse(http_resp)
         data = Types::UpdateGlobalTableSettingsOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.global_table_name = map['GlobalTableName']
         data.replica_settings = (ReplicaSettingsDescriptionList.parse(map['ReplicaSettings']) unless map['ReplicaSettings'].nil?)
         data
       end
     end
 
-    # Operation Parser for UpdateItem
     class UpdateItem
       def self.parse(http_resp)
         data = Types::UpdateItemOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.attributes = (AttributeMap.parse(map['Attributes']) unless map['Attributes'].nil?)
         data.consumed_capacity = (ConsumedCapacity.parse(map['ConsumedCapacity']) unless map['ConsumedCapacity'].nil?)
         data.item_collection_metrics = (ItemCollectionMetrics.parse(map['ItemCollectionMetrics']) unless map['ItemCollectionMetrics'].nil?)
@@ -2282,13 +2232,12 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for UpdateKinesisStreamingDestination
     class UpdateKinesisStreamingDestination
       def self.parse(http_resp)
         data = Types::UpdateKinesisStreamingDestinationOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.table_name = map['TableName']
         data.stream_arn = map['StreamArn']
         data.destination_status = map['DestinationStatus']
@@ -2297,37 +2246,34 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for UpdateTable
     class UpdateTable
       def self.parse(http_resp)
         data = Types::UpdateTableOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.table_description = (TableDescription.parse(map['TableDescription']) unless map['TableDescription'].nil?)
         data
       end
     end
 
-    # Operation Parser for UpdateTableReplicaAutoScaling
     class UpdateTableReplicaAutoScaling
       def self.parse(http_resp)
         data = Types::UpdateTableReplicaAutoScalingOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.table_auto_scaling_description = (TableAutoScalingDescription.parse(map['TableAutoScalingDescription']) unless map['TableAutoScalingDescription'].nil?)
         data
       end
     end
 
-    # Operation Parser for UpdateTimeToLive
     class UpdateTimeToLive
       def self.parse(http_resp)
         data = Types::UpdateTimeToLiveOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.time_to_live_specification = (TimeToLiveSpecification.parse(map['TimeToLiveSpecification']) unless map['TimeToLiveSpecification'].nil?)
         data
       end

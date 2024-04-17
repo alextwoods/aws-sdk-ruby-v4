@@ -79,15 +79,12 @@ module AWS
     #   )
     #
     class Signer
-      # rubocop:disable Style/ClassVars
-      @@use_crt =
+      @use_crt =
         begin
           require 'aws-crt'
-          true
         rescue LoadError
           false
         end
-      # rubocop:enable Style/ClassVars
 
       # @option options [String] :service The service signing name, e.g. 's3'.
       #
@@ -265,7 +262,11 @@ module AWS
         sigv4_headers['host'] = headers['host'] || host(url)
         sigv4_headers['x-amz-date'] = datetime
         if creds.session_token && !options[:omit_session_token]
-          sigv4_headers['x-amz-security-token'] = creds.session_token
+          if options[:signing_algorithm] == :'sigv4-s3express'
+            sigv4_headers['x-amz-s3session-token'] = creds.session_token
+          else
+            sigv4_headers['x-amz-security-token'] = creds.session_token
+          end
         end
         if options[:apply_checksum_header]
           sigv4_headers['x-amz-content-sha256'] ||= content_sha256
@@ -485,7 +486,11 @@ module AWS
         params['X-Amz-Date'] = datetime
         params['X-Amz-Expires'] = options[:expires_in].to_s
         if creds.session_token && !options[:omit_session_token]
-          params['X-Amz-Security-Token'] = creds.session_token
+          if options[:signing_algorithm] == :'sigv4-s3express'
+            params['X-Amz-S3session-Token'] = creds.session_token
+          else
+            params['X-Amz-Security-Token'] = creds.session_token
+          end
         end
         params['X-Amz-SignedHeaders'] = signed_headers(
           headers, options[:unsigned_headers]
@@ -798,9 +803,10 @@ module AWS
         # defaults to sigv4 in initialize
         signing_algorithm = kwargs[:signing_algorithm] || @signing_algorithm
 
-        unless %i[sigv4 sigv4a].include?(signing_algorithm)
+        unless %i[sigv4 sigv4a sigv4-s3express].include?(signing_algorithm)
           raise ArgumentError,
-                'Signing algorithm must be `:sigv4` or `:sigv4a`.'
+                'Signing algorithm must be `:sigv4`, `:sigv4a`, ' \
+                "or `:'sigv4-s3express'`."
         end
 
         if signing_algorithm == :sigv4a && !Signer.use_crt?
@@ -980,7 +986,7 @@ module AWS
       class << self
         # @api private
         def use_crt?
-          @@use_crt
+          @use_crt
         end
 
         # @api private

@@ -11,7 +11,7 @@ module AWS::SDK::SSO
   module Errors
     def self.error_code(resp)
       if !(200..299).cover?(resp.status)
-        json = Hearth::JSON.load(resp.body)
+        json = Hearth::JSON.parse(resp.body.read)
         resp.body.rewind
         code = json['__type'] || json['code'] if json
       end

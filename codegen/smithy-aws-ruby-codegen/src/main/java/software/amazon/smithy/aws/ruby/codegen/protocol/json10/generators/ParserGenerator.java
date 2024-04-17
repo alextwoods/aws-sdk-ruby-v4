@@ -139,7 +139,7 @@ public class ParserGenerator extends ParserGeneratorBase {
                 .write("data = $T.new", context.symbolProvider().toSymbol(outputShape))
                 .write("body = http_resp.body.read")
                 .write("return data if body.empty?")
-                .write("map = $T.load(body)", Hearth.JSON);
+                .write("map = $T.parse(body)", Hearth.JSON);
         renderMemberParsers(outputShape);
         writer
                 .write("data")
@@ -153,7 +153,7 @@ public class ParserGenerator extends ParserGeneratorBase {
                 .write("data = $T.new", context.symbolProvider().toSymbol(shape))
                 .write("body = http_resp.body.read")
                 .write("return data if body.empty?")
-                .write("map = $T.load(body)", Hearth.JSON);
+                .write("map = $T.parse(body)", Hearth.JSON);
         renderMemberParsers(shape);
         writer
                 .write("data")
