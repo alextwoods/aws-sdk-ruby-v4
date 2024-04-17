@@ -157,5 +157,5 @@ tasks.register<Copy>("copyGeneratedGems") {
     into("$buildDir/../../../gems/")
 }
 
-// tasks["buildSdk"].dependsOn(tasks["cleanGems"])
+tasks["buildSdk"].dependsOn(tasks["cleanGems"])
 tasks["buildSdk"].finalizedBy(tasks["copyGeneratedGems"])
