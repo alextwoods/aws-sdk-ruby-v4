@@ -45,7 +45,7 @@ module AWS::SDK::Core
 
           # verify client is created with credentials from B
           expect(AWS::SDK::STS::Client).to receive(:new) do |cfg|
-            expect(cfg.credential_provider).to be(credentials_from_b)
+            expect(cfg.sigv4_identity_resolver).to be(credentials_from_b)
           end.and_return(client)
 
           # verify client is used to assume role a
@@ -86,7 +86,7 @@ module AWS::SDK::Core
 
           # verify client is created with credentials from B
           expect(AWS::SDK::STS::Client).to receive(:new) do |cfg|
-            expect(cfg.credential_provider).to be(credentials_from_b)
+            expect(cfg.sigv4_identity_resolver).to be(credentials_from_b)
           end.and_return(client)
 
           # verify client is used to assume role a
@@ -131,7 +131,7 @@ module AWS::SDK::Core
 
           # verify client is created with credentials from B
           expect(AWS::SDK::STS::Client).to receive(:new) do |cfg|
-            expect(cfg.credential_provider).to be(credentials_from_b)
+            expect(cfg.sigv4_identity_resolver).to be(credentials_from_b)
           end.and_return(client)
 
           # verify client is used
@@ -173,7 +173,7 @@ module AWS::SDK::Core
 
           # verify client is created with credentials from B
           expect(AWS::SDK::STS::Client).to receive(:new) do |cfg|
-            expect(cfg.credential_provider).to be(source_credentials)
+            expect(cfg.sigv4_identity_resolver).to be(source_credentials)
           end.and_return(client)
 
           # verify client is used to assume role a
@@ -204,7 +204,7 @@ module AWS::SDK::Core
 
           # verify client is created with credentials from B
           expect(AWS::SDK::STS::Client).to receive(:new) do |cfg|
-            expect(cfg.credential_provider).to be(source_credentials)
+            expect(cfg.sigv4_identity_resolver).to be(source_credentials)
           end.and_return(client)
 
           # verify client is used to assume role a
@@ -247,7 +247,7 @@ module AWS::SDK::Core
 
           # verify client is created with credentials from B
           expect(AWS::SDK::STS::Client).to receive(:new) do |cfg|
-            expect(cfg.credential_provider).to be(source_credentials)
+            expect(cfg.sigv4_identity_resolver).to be(source_credentials)
           end.and_return(client)
 
           # verify client is used to assume role a
@@ -410,7 +410,7 @@ module AWS::SDK::Core
 
           # verify client for B is created with credentials from C
           expect(AWS::SDK::STS::Client).to receive(:new) do |cfg|
-            expect(cfg.credential_provider).to be(credentials_from_c)
+            expect(cfg.sigv4_identity_resolver).to be(credentials_from_c)
           end.and_return(client_b)
 
           # verify client_b is used to assume role b
@@ -421,7 +421,7 @@ module AWS::SDK::Core
 
           # verify client for A  is created with credentials from B
           expect(AWS::SDK::STS::Client).to receive(:new) do |cfg|
-            expect(cfg.credential_provider).to be(credentials_from_b)
+            expect(cfg.sigv4_identity_resolver).to be(credentials_from_b)
           end.and_return(client_a)
 
           # verify client a is used to assume role a
@@ -468,7 +468,7 @@ module AWS::SDK::Core
 
           # verify client is created with credentials from B
           expect(AWS::SDK::STS::Client).to receive(:new) do |cfg|
-            expect(cfg.credential_provider).to be(credentials_from_b)
+            expect(cfg.sigv4_identity_resolver).to be(credentials_from_b)
           end.and_return(client_a)
 
           # verify client is used to assume role a

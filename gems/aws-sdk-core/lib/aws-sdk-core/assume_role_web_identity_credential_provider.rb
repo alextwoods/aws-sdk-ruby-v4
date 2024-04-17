@@ -37,7 +37,7 @@ module AWS::SDK::Core
       if profile_config && profile_config['web_identity_token_file'] &&
          profile_config['role_arn']
         client = AWS::SDK::STS::Client.new(
-          AWS::SDK::STS::Config.new(profile: cfg[:profile])
+          profile: cfg[:profile]
         )
 
         new(
