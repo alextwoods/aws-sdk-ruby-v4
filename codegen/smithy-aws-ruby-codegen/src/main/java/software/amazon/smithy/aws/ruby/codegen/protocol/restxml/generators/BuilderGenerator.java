@@ -100,7 +100,7 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
                     }
                     renderMemberBuilders(inputShape);
                 })
-                .write("http_req.body = $T.new(xml.to_str)", RubyImportContainer.STRING_IO);
+                .write("http_req.body = $T.new(xml.to_str) if xml", RubyImportContainer.STRING_IO);
     }
 
     @Override
@@ -508,7 +508,7 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
                                     "xml");
                         }
                     })
-                    .write("http_req.body = $T.new(xml.to_str)", RubyImportContainer.STRING_IO);
+                    .write("http_req.body = $T.new(xml.to_str) if xml", RubyImportContainer.STRING_IO);
         }
 
     }

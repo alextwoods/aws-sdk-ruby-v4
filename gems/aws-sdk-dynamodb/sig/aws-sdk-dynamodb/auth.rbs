@@ -10,8 +10,8 @@
 module AWS::SDK::DynamoDB
   module Auth
     class Params < ::Struct[untyped]
-      attr_accessor operation_name (): ::Symbol
       attr_accessor region (): ::String
+      attr_accessor operation_name (): ::Symbol
     end
 
     SCHEMES: ::Array[Hearth::AuthSchemes::Base]

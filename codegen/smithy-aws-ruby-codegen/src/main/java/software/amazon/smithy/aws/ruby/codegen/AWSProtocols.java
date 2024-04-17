@@ -10,6 +10,7 @@ import software.amazon.smithy.aws.traits.auth.SigV4Trait;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
 import software.amazon.smithy.ruby.codegen.Hearth;
 import software.amazon.smithy.ruby.codegen.ProtocolGenerator;
+import software.amazon.smithy.ruby.codegen.RubyCodeWriter;
 import software.amazon.smithy.ruby.codegen.RubyDependency;
 import software.amazon.smithy.ruby.codegen.RubyIntegration;
 import software.amazon.smithy.ruby.codegen.auth.AuthParam;
@@ -54,6 +55,11 @@ public class AWSProtocols implements RubyIntegration {
     @Override
     public List<AuthScheme> getAdditionalAuthSchemes(GenerationContext context) {
         return List.of(sigv4AuthScheme());
+    }
+
+    @Override
+    public void writeAdditionalSpecHelper(RubyCodeWriter writer) {
+        writer.write("require_relative '../../aws-sdk-core/spec/spec_helper'");
     }
 
     private AuthScheme sigv4AuthScheme() {

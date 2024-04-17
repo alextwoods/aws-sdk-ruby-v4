@@ -7,7 +7,7 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-require 'aws-sdk-cloudwatch'
+require_relative 'spec_helper'
 
 module AWS::SDK::CloudWatch
   module Endpoint

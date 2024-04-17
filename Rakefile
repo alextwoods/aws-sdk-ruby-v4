@@ -8,6 +8,9 @@ GEMS_DIR = "#{ROOT}/gems"
 # $LOAD_PATH.unshift("#{GEMS_DIR}/aws-sdk-core/lib")
 # $LOAD_PATH.unshift("#{GEMS_DIR}/aws-sigv4/lib")
 
+desc 'Cleans and Builds all codegen projects and SDKs'
+task :codegen => ['codegen:clean', 'codegen:build']
+
 namespace :codegen do
   desc 'Verify java version is 17 - required for running codegen with gradle'
   task 'verify-java' do
@@ -16,11 +19,11 @@ namespace :codegen do
     out = `java -XshowSettings:properties -version 2>&1`
     java_version = out.split("\n")
                       .map(&:strip).find { |l| l.start_with?('java.specification.version') }
-      &.split&.last
+                      &.split&.last
 
     unless java_version == '17'
-      raise "Invalid Java language version: '#{java_version || 'unknown'}'. \n"\
-            "Ensure you have installed the JDK and set your JAVA_HOME directory correctly.\n"\
+      raise "Invalid Java language version: '#{java_version || 'unknown'}'. \n" \
+            "Ensure you have installed the JDK and set your JAVA_HOME directory correctly.\n" \
             'Or ensure you have setup jenv using `jenv local 17.0` after adding the correct jdk'
     end
   end
@@ -59,8 +62,7 @@ end
 desc 'Run rspec for all gems'
 task 'test' do
   spec_file_list = Dir.glob('gems/**/spec')
-  include_list = Dir.glob('gems/**/lib').map { |p| "-I#{p}" }
-  sh("bundle exec rspec #{include_list.join(' ')} #{spec_file_list.join(' ')}")
+  sh("bundle exec rspec #{spec_file_list.join(' ')}")
 end
 
 namespace :test do
@@ -93,6 +95,12 @@ namespace :test do
     includes = "-I #{test_sdk_dir}/lib -I gems/aws-sdk-core/lib -I gems/aws-sigv4/lib"
 
     sh("bundle exec rspec #{test_sdk_dir}/spec #{includes}")
+  end
+
+  rule(/test:.+/) do |task|
+    gem = task.name.split(':').last
+    spec_file_list = Dir.glob("gems/#{gem}/spec")
+    sh("bundle exec rspec #{spec_file_list.join(' ')}")
   end
 end
 

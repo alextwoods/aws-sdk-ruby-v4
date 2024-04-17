@@ -7,7 +7,7 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-require 'aws-sdk-sso'
+require_relative 'spec_helper'
 
 module AWS::SDK::SSO
   module Endpoint

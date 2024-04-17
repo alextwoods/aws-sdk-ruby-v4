@@ -7,7 +7,7 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-require 'aws-sdk-sts'
+require_relative 'spec_helper'
 
 module AWS::SDK::STS
   module Endpoint
