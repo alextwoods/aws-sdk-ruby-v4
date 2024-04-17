@@ -57,11 +57,6 @@ public class AWSProtocols implements RubyIntegration {
         return List.of(sigv4AuthScheme());
     }
 
-    @Override
-    public void writeAdditionalSpecHelper(RubyCodeWriter writer) {
-        writer.write("require_relative '../../aws-sdk-core/spec/spec_helper'");
-    }
-
     private AuthScheme sigv4AuthScheme() {
         String identityProviderDocumentation = """
                 A credential provider is a class that fetches your AWS credentials. This can be an instance

@@ -86,6 +86,7 @@ plugins {
 
 dependencies {
     implementation(project(":smithy-aws-ruby-codegen"))
+    implementation(project(":sdk-gem-utils"))
 }
 
 // This project doesn't produce a JAR.
