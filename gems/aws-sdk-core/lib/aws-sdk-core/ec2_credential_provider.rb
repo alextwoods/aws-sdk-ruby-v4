@@ -12,8 +12,8 @@ module AWS::SDK::Core
   #
   # If you omit the `:client` option, a new {AWS::SDK::Core::EC2Metadata} will
   # be created.
-  class EC2CredentialProvider
-    include RefreshingCredentialProvider
+  class EC2CredentialProvider < Hearth::IdentityProvider
+    include Hearth::RefreshingIdentityProvider
 
     # Initializes an instance of EC2CredentialProvider using
     # ENV and shared config values.
@@ -49,14 +49,14 @@ module AWS::SDK::Core
 
     private
 
-    def fetch
+    def refresh(_properties = {})
       if @no_refresh_until && @no_refresh_until > Time.now
         warn_expired_credentials
         return
       end
       new_creds = fetch_credentials
 
-      if !empty_credentials?(@credentials) &&
+      if !empty_credentials?(@identity) &&
          (!new_creds['AccessKeyId'] || new_creds['AccessKeyId'].empty?)
         # credentials are already set
         # error getting new credentials
@@ -72,7 +72,7 @@ module AWS::SDK::Core
       expiration = if new_creds['Expiration']
                      Time.iso8601(new_creds['Expiration'])
                    end
-      @credentials = AWS::SigV4::Credentials.new(
+      @identity = AWS::SDK::Core::Credentials.new(
         access_key_id: new_creds['AccessKeyId'],
         secret_access_key: new_creds['SecretAccessKey'],
         session_token: new_creds['Token'],

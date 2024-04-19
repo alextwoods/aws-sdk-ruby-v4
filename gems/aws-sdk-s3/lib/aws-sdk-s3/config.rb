@@ -17,8 +17,44 @@ module AWS::SDK::S3
   #     ordered list of {Hearth::AuthOption} objects to be considered for authentication.
   #   @option args [Array<Hearth::AuthSchemes::Base>] :auth_schemes (Auth::SCHEMES)
   #     An ordered list of {Hearth::AuthSchemes::Base} objects that will considered when attempting to authenticate
-  #     the request. The first scheme that returns an Identity from its Hearth::IdentityResolver will be used to
+  #     the request. The first scheme that returns an Identity from its Hearth::IdentityProvider will be used to
   #     authenticate the request.
+  #   @option args [Hearth::IdentityProvider] :credential_provider
+  #     A credential provider is a class that fetches your AWS credentials. This can be an instance
+  #     of any one of the following classes:
+  #
+  #     * `AWS::SDK::Core::StaticCredentialProvider` - Used for fetching static, non-refreshing
+  #       credentials.
+  #
+  #     * `AWS::SDK::Core::AssumeRoleCredentialProvider` - Used when you need to assume a role.
+  #
+  #     * `AWS::SDK::Core::AssumeRoleWebIdentityCredentialProvider` - Used when you need to
+  #       assume a role after providing credentials via the web using a token.
+  #
+  #     * `AWS::SDK::Core::SSOCredentialProvider` - Used for loading credentials from AWS SSO
+  #       using an access token generated from `aws login`.
+  #
+  #     * `AWS::SDK::Core::ProcessCredentialProvider` - Used for loading credentials from a
+  #       process that outputs JSON to stdout.
+  #
+  #     * `AWS::SDK::Core::EC2CredentialProvider` - Used for loading credentials from the instance
+  #       metadata service (IMDS) on an EC2 instance.
+  #
+  #     * `AWS::SDK::Core::ECSCredentialProvider - Used for loading credentials from instances
+  #       running in ECS.
+  #
+  #     * `AWS::SDK::CognitoIdentity::CredentialProvider` - Used for loading credentials
+  #       from the Cognito Identity service.
+  #
+  #     When `:credential_provider` is not configured directly, the following
+  #     locations will be searched for credentials:
+  #
+  #     * ENV['AWS_ACCESS_KEY_ID'], ENV['AWS_SECRET_ACCESS_KEY'], and other
+  #       ENV variables that influence credentials.
+  #     * `~/.aws/credentials` and `~/.aws/config`
+  #     * EC2/ECS instance profiles.
+  #
+  #     @see AWS::SDK::Core::CREDENTIAL_PROVIDER_CHAIN
   #   @option args [Boolean] :disable_host_prefix (false)
   #     When `true`, does not perform host prefix injection using @endpoint trait's hostPrefix property.
   #   @option args [Boolean] :disable_multi_region_access_points
@@ -31,8 +67,8 @@ module AWS::SDK::S3
   #     Disables this client's usage of Session Auth for S3Express       buckets and reverts to using conventional SigV4 for those.
   #   @option args [String] :endpoint
   #     Endpoint of the service
-  #   @option args [#resolve(params)] :endpoint_provider (Endpoint::Provider.new)
-  #     The endpoint provider used to resolve endpoints. Any object that responds to
+  #   @option args [#resolve(params)] :endpoint_resolver (Endpoint::Resolver.new)
+  #     The endpoint resolver used to resolve endpoints. Any object that responds to
   #     `#resolve(parameters)`
   #   @option args [Boolean] :force_path_style (false)
   #     When set to `true`, the bucket name is always left in the
@@ -73,42 +109,6 @@ module AWS::SDK::S3
   #     * `Retry::Adaptive` - An experimental retry mode that includes all the functionality
   #       of `standard` mode along with automatic client side throttling. This is a provisional
   #       mode that may change behavior in the future.
-  #   @option args [Hearth::IdentityResolver] :sigv4_identity_resolver
-  #     A credential provider is a class that fetches your AWS credentials. This can be an instance
-  #     of any one of the following classes:
-  #
-  #     * `AWS::SDK::Core::StaticCredentialProvider` - Used for fetching static, non-refreshing
-  #       credentials.
-  #
-  #     * `AWS::SDK::Core::AssumeRoleCredentialProvider` - Used when you need to assume a role.
-  #
-  #     * `AWS::SDK::Core::AssumeRoleWebIdentityCredentialProvider` - Used when you need to
-  #       assume a role after providing credentials via the web using a token.
-  #
-  #     * `AWS::SDK::Core::SSOCredentialProvider` - Used for loading credentials from AWS SSO
-  #       using an access token generated from `aws login`.
-  #
-  #     * `AWS::SDK::Core::ProcessCredentialProvider` - Used for loading credentials from a
-  #       process that outputs JSON to stdout.
-  #
-  #     * `AWS::SDK::Core::EC2CredentialProvider` - Used for loading credentials from the instance
-  #       metadata service (IMDS) on an EC2 instance.
-  #
-  #     * `AWS::SDK::Core::ECSCredentialProvider - Used for loading credentials from instances
-  #       running in ECS.
-  #
-  #     * `AWS::SDK::CognitoIdentity::CredentialProvider` - Used for loading credentials
-  #       from the Cognito Identity service.
-  #
-  #     When `:credential_provider` is not configured directly, the following
-  #     locations will be searched for credentials:
-  #
-  #     * ENV['AWS_ACCESS_KEY_ID'], ENV['AWS_SECRET_ACCESS_KEY'], and other
-  #       ENV variables that influence credentials.
-  #     * `~/.aws/credentials` and `~/.aws/config`
-  #     * EC2/ECS instance profiles.
-  #
-  #     @see AWS::SDK::Core::CREDENTIAL_PROVIDER_CHAIN
   #   @option args [Boolean] :stub_responses (false)
   #     Enable response stubbing for testing. See {Hearth::ClientStubs#stub_responses}.
   #   @option args [Boolean] :use_accelerate_endpoint (false)
@@ -134,6 +134,8 @@ module AWS::SDK::S3
   #   @return [#resolve(params)]
   # @!attribute auth_schemes
   #   @return [Array<Hearth::AuthSchemes::Base>]
+  # @!attribute credential_provider
+  #   @return [Hearth::IdentityProvider]
   # @!attribute disable_host_prefix
   #   @return [Boolean]
   # @!attribute disable_multi_region_access_points
@@ -144,7 +146,7 @@ module AWS::SDK::S3
   #   @return [Boolean]
   # @!attribute endpoint
   #   @return [String]
-  # @!attribute endpoint_provider
+  # @!attribute endpoint_resolver
   #   @return [#resolve(params)]
   # @!attribute force_path_style
   #   @return [Boolean]
@@ -162,8 +164,6 @@ module AWS::SDK::S3
   #   @return [String]
   # @!attribute retry_strategy
   #   @return [#acquire_initial_retry_token(token_scope),#refresh_retry_token(retry_token, error_info),#record_success(retry_token)]
-  # @!attribute sigv4_identity_resolver
-  #   @return [Hearth::IdentityResolver]
   # @!attribute stub_responses
   #   @return [Boolean]
   # @!attribute use_accelerate_endpoint
@@ -180,12 +180,13 @@ module AWS::SDK::S3
     :accelerate,
     :auth_resolver,
     :auth_schemes,
+    :credential_provider,
     :disable_host_prefix,
     :disable_multi_region_access_points,
     :disable_multiregion_access_points,
     :disable_s3_express_session_auth,
     :endpoint,
-    :endpoint_provider,
+    :endpoint_resolver,
     :force_path_style,
     :http_client,
     :interceptors,
@@ -194,7 +195,6 @@ module AWS::SDK::S3
     :profile,
     :region,
     :retry_strategy,
-    :sigv4_identity_resolver,
     :stub_responses,
     :use_accelerate_endpoint,
     :use_arn_region,
@@ -210,12 +210,13 @@ module AWS::SDK::S3
       Hearth::Validator.validate_types!(accelerate, TrueClass, FalseClass, context: 'config[:accelerate]')
       Hearth::Validator.validate_responds_to!(auth_resolver, :resolve, context: 'config[:auth_resolver]')
       Hearth::Validator.validate_types!(auth_schemes, Array, context: 'config[:auth_schemes]')
+      Hearth::Validator.validate_types!(credential_provider, Hearth::IdentityProvider, context: 'config[:credential_provider]')
       Hearth::Validator.validate_types!(disable_host_prefix, TrueClass, FalseClass, context: 'config[:disable_host_prefix]')
       Hearth::Validator.validate_types!(disable_multi_region_access_points, TrueClass, FalseClass, context: 'config[:disable_multi_region_access_points]')
       Hearth::Validator.validate_types!(disable_multiregion_access_points, TrueClass, FalseClass, context: 'config[:disable_multiregion_access_points]')
       Hearth::Validator.validate_types!(disable_s3_express_session_auth, TrueClass, FalseClass, context: 'config[:disable_s3_express_session_auth]')
       Hearth::Validator.validate_types!(endpoint, String, context: 'config[:endpoint]')
-      Hearth::Validator.validate_responds_to!(endpoint_provider, :resolve, context: 'config[:endpoint_provider]')
+      Hearth::Validator.validate_responds_to!(endpoint_resolver, :resolve, context: 'config[:endpoint_resolver]')
       Hearth::Validator.validate_types!(force_path_style, TrueClass, FalseClass, context: 'config[:force_path_style]')
       Hearth::Validator.validate_types!(http_client, Hearth::HTTP::Client, context: 'config[:http_client]')
       Hearth::Validator.validate_types!(interceptors, Hearth::InterceptorList, context: 'config[:interceptors]')
@@ -224,7 +225,6 @@ module AWS::SDK::S3
       Hearth::Validator.validate_types!(profile, String, context: 'config[:profile]')
       Hearth::Validator.validate_types!(region, String, context: 'config[:region]')
       Hearth::Validator.validate_responds_to!(retry_strategy, :acquire_initial_retry_token, :refresh_retry_token, :record_success, context: 'config[:retry_strategy]')
-      Hearth::Validator.validate_types!(sigv4_identity_resolver, Hearth::IdentityResolver, context: 'config[:sigv4_identity_resolver]')
       Hearth::Validator.validate_types!(stub_responses, TrueClass, FalseClass, context: 'config[:stub_responses]')
       Hearth::Validator.validate_types!(use_accelerate_endpoint, TrueClass, FalseClass, context: 'config[:use_accelerate_endpoint]')
       Hearth::Validator.validate_types!(use_arn_region, TrueClass, FalseClass, context: 'config[:use_arn_region]')
@@ -240,12 +240,13 @@ module AWS::SDK::S3
         accelerate: [],
         auth_resolver: [Auth::Resolver.new],
         auth_schemes: [Auth::SCHEMES],
+        credential_provider: [proc { |cfg| cfg[:stub_responses] ? Hearth::IdentityProvider.new(proc { AWS::SDK::Core::Credentials.new(access_key_id: 'stubbed-akid', secret_access_key: 'stubbed-secret') }) : nil }],
         disable_host_prefix: [false],
         disable_multi_region_access_points: [],
         disable_multiregion_access_points: [Hearth::Config::EnvProvider.new('AWS_S3_DISABLE_MULTIREGION_ACCESS_POINTS', type: 'Boolean'),AWS::SDK::Core::SharedConfigProvider.new('s3_disable_multiregion_access_points', type: 'Boolean'),false],
         disable_s3_express_session_auth: [],
         endpoint: [proc { |cfg| cfg[:stub_responses] ? 'http://localhost' : nil }],
-        endpoint_provider: [Endpoint::Provider.new],
+        endpoint_resolver: [Endpoint::Resolver.new],
         force_path_style: [false],
         http_client: [proc { |cfg| Hearth::HTTP::Client.new(logger: cfg[:logger]) }],
         interceptors: [Hearth::InterceptorList.new],
@@ -254,7 +255,6 @@ module AWS::SDK::S3
         profile: [Hearth::Config::EnvProvider.new('AWS_PROFILE', type: 'String'),'default'],
         region: [proc { |cfg| cfg[:stub_responses] ?  'us-stubbed-1' : nil },Hearth::Config::EnvProvider.new('AWS_REGION', type: 'String'),AWS::SDK::Core::SharedConfigProvider.new('region', type: 'String')],
         retry_strategy: [Hearth::Retry::Standard.new],
-        sigv4_identity_resolver: [proc { |cfg| cfg[:stub_responses] ? Hearth::IdentityResolver.new(proc { AWS::SDK::Core::Identities::SigV4.new(access_key_id: 'stubbed-akid', secret_access_key: 'stubbed-secret') }) : nil }],
         stub_responses: [false],
         use_accelerate_endpoint: [false],
         use_arn_region: [Hearth::Config::EnvProvider.new('AWS_S3_USE_ARN_REGION', type: 'Boolean'),AWS::SDK::Core::SharedConfigProvider.new('s3_use_arn_region', type: 'Boolean'),true],

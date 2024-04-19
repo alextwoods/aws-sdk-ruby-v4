@@ -5,12 +5,13 @@ module AWS::SDK::S3
     attr_accessor accelerate (): bool
     attr_accessor auth_resolver (): Hearth::_AuthResolver[Auth::Params]
     attr_accessor auth_schemes (): Array[Hearth::AuthSchemes::Base]
+    attr_accessor credential_provider (): Hearth::IdentityProvider
     attr_accessor disable_host_prefix (): bool
     attr_accessor disable_multi_region_access_points (): bool
     attr_accessor disable_multiregion_access_points (): bool
     attr_accessor disable_s3_express_session_auth (): bool
     attr_accessor endpoint (): String
-    attr_accessor endpoint_provider (): Hearth::_EndpointResolver[Endpoint::Params]
+    attr_accessor endpoint_resolver (): Hearth::_EndpointResolver[Endpoint::Params]
     attr_accessor force_path_style (): bool
     attr_accessor http_client (): Hearth::HTTP::Client
     attr_accessor interceptors (): Hearth::InterceptorList
@@ -19,7 +20,6 @@ module AWS::SDK::S3
     attr_accessor profile (): String
     attr_accessor region (): String
     attr_accessor retry_strategy (): Hearth::_RetryStrategy
-    attr_accessor sigv4_identity_resolver (): Hearth::IdentityResolver
     attr_accessor stub_responses (): bool
     attr_accessor use_accelerate_endpoint (): bool
     attr_accessor use_arn_region (): bool

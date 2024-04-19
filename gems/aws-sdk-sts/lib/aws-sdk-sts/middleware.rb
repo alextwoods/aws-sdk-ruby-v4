@@ -28,15 +28,15 @@ module AWS::SDK::STS
           auth_params: Auth::Params.new(operation_name: :assume_role, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::AssumeRole,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -79,15 +79,15 @@ module AWS::SDK::STS
           auth_params: Auth::Params.new(operation_name: :assume_role_with_saml, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::AssumeRoleWithSAML,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -130,15 +130,15 @@ module AWS::SDK::STS
           auth_params: Auth::Params.new(operation_name: :assume_role_with_web_identity, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::AssumeRoleWithWebIdentity,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -181,15 +181,15 @@ module AWS::SDK::STS
           auth_params: Auth::Params.new(operation_name: :decode_authorization_message, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::DecodeAuthorizationMessage,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -232,15 +232,15 @@ module AWS::SDK::STS
           auth_params: Auth::Params.new(operation_name: :get_access_key_info, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::GetAccessKeyInfo,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -283,15 +283,15 @@ module AWS::SDK::STS
           auth_params: Auth::Params.new(operation_name: :get_caller_identity, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::GetCallerIdentity,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -334,15 +334,15 @@ module AWS::SDK::STS
           auth_params: Auth::Params.new(operation_name: :get_federation_token, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::GetFederationToken,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -385,15 +385,15 @@ module AWS::SDK::STS
           auth_params: Auth::Params.new(operation_name: :get_session_token, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::GetSessionToken,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,

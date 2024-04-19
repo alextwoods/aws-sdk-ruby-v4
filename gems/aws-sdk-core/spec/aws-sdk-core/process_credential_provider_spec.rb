@@ -62,9 +62,9 @@ module AWS::SDK::Core
 
     include_examples 'refreshing_credential_provider'
 
-    describe '#credentials' do
+    describe '#identity' do
       it 'will read valid credentials from a process' do
-        creds = subject.credentials
+        creds = subject.identity
         expect(creds.access_key_id).to eq('ACCESS_KEY_1')
         expect(creds.secret_access_key).to eq('SECRET_KEY_1')
         expect(creds.session_token).to eq('TOKEN_1')
@@ -80,7 +80,7 @@ module AWS::SDK::Core
         end
 
         it 'raises an error when credential values are missing' do
-          expect { subject.credentials }
+          expect { subject.identity }
             .to raise_error(/Invalid JSON payload/)
         end
       end
@@ -91,7 +91,7 @@ module AWS::SDK::Core
         end
 
         it 'raises an error when the payload is malformed' do
-          expect { subject.credentials }
+          expect { subject.identity }
             .to raise_error(/Malformed JSON payload/)
         end
       end
@@ -102,7 +102,7 @@ module AWS::SDK::Core
         end
 
         it 'raises an error when payload version is not version 1' do
-          expect { subject.credentials }
+          expect { subject.identity }
             .to raise_error(/Invalid version \(3\)/)
         end
       end
@@ -113,7 +113,7 @@ module AWS::SDK::Core
         end
 
         it 'raises an error and expose stderr output' do
-          expect { subject.credentials }
+          expect { subject.identity }
             .to raise_error(/non zero exit status/)
             .and output("Credential Provider Error\n")
             .to_stderr_from_any_process
@@ -126,7 +126,7 @@ module AWS::SDK::Core
         end
 
         it 'raises an error' do
-          expect { subject.credentials }
+          expect { subject.identity }
             .to raise_error(ArgumentError, /Could not find process/)
         end
       end

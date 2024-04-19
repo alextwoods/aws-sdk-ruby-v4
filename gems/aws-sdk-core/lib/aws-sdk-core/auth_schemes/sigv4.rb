@@ -8,7 +8,7 @@ module AWS::SDK::Core
         super(
           scheme_id: 'aws.auth#sigv4',
           signer: signer,
-          identity_type: Identities::SigV4
+          identity_type: Credentials
         )
       end
     end

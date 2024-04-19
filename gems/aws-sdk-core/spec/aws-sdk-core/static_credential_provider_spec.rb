@@ -54,7 +54,7 @@ module AWS::SDK::Core
         it 'returns an instance of StaticCredentialProvider' do
           provider = StaticCredentialProvider::ENVIRONMENT.call({})
           expect(provider).to be_an_instance_of(StaticCredentialProvider)
-          credentials = provider.credentials
+          credentials = provider.identity
           expect(credentials.access_key_id).to eq('ACCESS_KEY_1')
           expect(credentials.secret_access_key).to eq('SECRET_KEY_1')
           expect(credentials.session_token).to eq('SESSION_TOKEN_1')
@@ -81,9 +81,9 @@ module AWS::SDK::Core
 
     include_examples 'credential_provider'
 
-    describe '#credentials' do
+    describe '#identity' do
       it 'returns the credentials' do
-        creds = subject.credentials
+        creds = subject.identity
         expect(creds.access_key_id).to eq('ACCESS_KEY_1')
         expect(creds.secret_access_key).to eq('SECRET_KEY_1')
         expect(creds.session_token).to eq('TOKEN_1')

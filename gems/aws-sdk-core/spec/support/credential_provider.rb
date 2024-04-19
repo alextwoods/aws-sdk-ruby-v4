@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 RSpec.shared_examples 'credential_provider' do
-  it 'is a credential provider' do
-    expect(subject).to be_a(AWS::SDK::Core::CredentialProvider)
+  it 'is an identity provider' do
+    expect(subject).to be_a(Hearth::IdentityProvider)
   end
 
-  it 'has a credentials method' do
-    expect(subject.respond_to?(:credentials)).to be true
+  it 'has an identity method' do
+    expect(subject.respond_to?(:identity)).to be true
   end
 end

@@ -14,8 +14,8 @@ module AWS::SDK::Core
   # provided in the credentials payload.
   #
   # @see https://docs.aws.amazon.com/cli/latest/topic/config-vars.html#sourcing-credentials-from-external-processes
-  class ProcessCredentialProvider
-    include RefreshingCredentialProvider
+  class ProcessCredentialProvider < Hearth::IdentityProvider
+    include Hearth::RefreshingIdentityProvider
 
     # Initializes an instance of ProcessCredentialProvider using
     # shared config profile.
@@ -38,8 +38,8 @@ module AWS::SDK::Core
 
     private
 
-    def fetch
-      @credentials = credentials_from_process(@process)
+    def refresh(_properties = {})
+      @identity = credentials_from_process(@process)
     end
 
     def credentials_from_process(proc_invocation)
@@ -81,7 +81,7 @@ module AWS::SDK::Core
       expiration = if creds_json['Expiration']
                      Time.iso8601(creds_json['Expiration'])
                    end
-      AWS::SigV4::Credentials.new(
+      AWS::SDK::Core::Credentials.new(
         access_key_id: creds_json['AccessKeyId'],
         secret_access_key: creds_json['SecretAccessKey'],
         session_token: creds_json['SessionToken'],

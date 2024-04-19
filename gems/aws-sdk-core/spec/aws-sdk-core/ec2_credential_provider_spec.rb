@@ -91,7 +91,7 @@ module AWS::SDK::Core
       end
     end
 
-    describe '#credentials' do
+    describe '#identity' do
       it 'will read valid credentials from EC2 Metadata' do
         allow(client).to receive(:get)
           .with(EC2CredentialProvider::METADATA_PATH_BASE)
@@ -100,7 +100,7 @@ module AWS::SDK::Core
           .with(EC2CredentialProvider::METADATA_PATH_BASE + metadata_resp)
           .and_return(credential_json)
 
-        creds = subject.credentials
+        creds = subject.identity
         expect(creds.access_key_id).to eq('ACCESS_KEY_1')
         expect(creds.secret_access_key).to eq('SECRET_KEY_1')
         expect(creds.session_token).to eq('TOKEN_1')
@@ -150,16 +150,16 @@ module AWS::SDK::Core
             .once
             .and_return(expired_resp)
 
-          creds = subject.credentials
+          creds = subject.identity
           expect(creds.access_key_id).to eq('akid')
           expect(creds.secret_access_key).to eq('secret')
           expect(creds.session_token).to eq('token')
           expect(creds.expiration).to eq(expired)
 
           # successive requests/credential gets don't result in more calls
-          subject.credentials
-          subject.credentials
-          subject.credentials
+          subject.identity
+          subject.identity
+          subject.identity
         end
 
         it 'provides credentials after a read timeout during a refresh' do
@@ -167,7 +167,7 @@ module AWS::SDK::Core
           expect(client).to receive(:get)
             .with(EC2CredentialProvider::METADATA_PATH_BASE + metadata_resp)
             .and_return(near_expiration_resp)
-          subject.credentials
+          subject.identity
 
           # failed response
           expect(client).to receive(:get)
@@ -175,7 +175,7 @@ module AWS::SDK::Core
             .and_raise(Timeout::Error)
           expect(subject).to receive(:warn)
 
-          creds = subject.credentials
+          creds = subject.identity
           expect(creds.access_key_id).to eq('akid-2')
           expect(creds.secret_access_key).to eq('secret-2')
           expect(creds.session_token).to eq('token-2')
@@ -187,7 +187,7 @@ module AWS::SDK::Core
           expect(client).to receive(:get)
             .with(EC2CredentialProvider::METADATA_PATH_BASE + metadata_resp)
             .and_return(near_expiration_resp)
-          subject.credentials
+          subject.identity
 
           # expired response
           expect(client).to receive(:get)
@@ -195,7 +195,7 @@ module AWS::SDK::Core
             .and_return(expired_resp)
           expect(subject).to receive(:warn)
 
-          creds = subject.credentials
+          creds = subject.identity
           expect(creds.access_key_id).to eq('akid')
           expect(creds.secret_access_key).to eq('secret')
           expect(creds.session_token).to eq('token')

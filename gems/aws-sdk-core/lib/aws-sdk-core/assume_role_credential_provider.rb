@@ -16,8 +16,8 @@ module AWS::SDK::Core
   # constructed with additional options that were provided.
   #
   # @see AWS::SDK::STS::Client#assume_role
-  class AssumeRoleCredentialProvider
-    include RefreshingCredentialProvider
+  class AssumeRoleCredentialProvider < Hearth::IdentityProvider
+    include Hearth::RefreshingIdentityProvider
 
     # Raised when a client is constructed and the specified shared
     # credentials profile does not exist.
@@ -96,7 +96,7 @@ module AWS::SDK::Core
 
     private
 
-    def fetch
+    def refresh(_properties = {})
       token_code = if @token_code.respond_to?(:call)
                      @token_code.call
                    else
@@ -105,7 +105,7 @@ module AWS::SDK::Core
       c = @client.assume_role(
         @assume_role_params.merge(token_code: token_code)
       ).data.credentials
-      @credentials = AWS::SigV4::Credentials.new(
+      @identity = AWS::SDK::Core::Credentials.new(
         access_key_id: c.access_key_id,
         secret_access_key: c.secret_access_key,
         session_token: c.session_token,
@@ -198,11 +198,10 @@ module AWS::SDK::Core
       end
 
       def build_profile_provider(cfg, profile_config, source_provider)
-        sts_config = AWS::SDK::STS::Config.new(
+        sts_client = AWS::SDK::STS::Client.new(
           region: cfg[:region],
-          sigv4_identity_resolver: source_provider
+          credential_provider: source_provider
         )
-        sts_client = AWS::SDK::STS::Client.new(sts_config)
         new(
           client: sts_client,
           role_session_name: profile_config['role_session_name'],

@@ -32,10 +32,10 @@ module AWS::SDK::SSO
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::GetRoleCredentials,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -82,10 +82,10 @@ module AWS::SDK::SSO
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::ListAccountRoles,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -132,10 +132,10 @@ module AWS::SDK::SSO
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::ListAccounts,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -182,10 +182,10 @@ module AWS::SDK::SSO
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::Logout,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,

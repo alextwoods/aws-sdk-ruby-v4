@@ -61,7 +61,7 @@ module AWS::SDK::Core
       )
 
       it 'will read valid credentials from ECS metadata' do
-        creds = subject.credentials
+        creds = subject.identity
         expect(creds.access_key_id).to eq('ACCESS_KEY_1')
         expect(creds.secret_access_key).to eq('SECRET_KEY_1')
         expect(creds.session_token).to eq('TOKEN_1')
@@ -78,7 +78,7 @@ module AWS::SDK::Core
         end
 
         it 'raises Non200Response' do
-          expect { subject.credentials }
+          expect { subject.identity }
             .to raise_error(
               ECSCredentialProvider::Non200Response,
               /404 page not found/
@@ -96,7 +96,7 @@ module AWS::SDK::Core
         end
 
         it 'raises the json message' do
-          expect { subject.credentials }
+          expect { subject.identity }
             .to raise_error(
               ECSCredentialProvider::Non200Response,
               /Error!/
@@ -119,14 +119,14 @@ module AWS::SDK::Core
           expect(Kernel).to receive(:sleep).with(1)
           expect(Kernel).to receive(:sleep).with(2)
           expect(Kernel).to receive(:sleep).with(4)
-          expect { provider.credentials }
+          expect { provider.identity }
             .to raise_error(Errno::ECONNREFUSED)
         end
 
         it 'retries with a number of seconds to sleep' do
           provider = ECSCredentialProvider.new(backoff: 3)
           expect(Kernel).to receive(:sleep).with(3).exactly(3).times
-          expect { provider.credentials }
+          expect { provider.identity }
             .to raise_error(Errno::ECONNREFUSED)
         end
 
@@ -135,7 +135,7 @@ module AWS::SDK::Core
           expect(Kernel).to receive(:sleep).with(1.0)
           expect(Kernel).to receive(:sleep).with(1.2)
           expect(Kernel).to receive(:sleep).with(1.44)
-          expect { provider.credentials }
+          expect { provider.identity }
             .to raise_error(Errno::ECONNREFUSED)
         end
       end

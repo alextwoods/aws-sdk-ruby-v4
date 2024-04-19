@@ -32,8 +32,8 @@ module AWS::SDK::Core
   #
   # @see AWS::SDK::SSO::Client#get_role_credentials
   # @see https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html
-  class SSOCredentialProvider
-    include RefreshingCredentialProvider
+  class SSOCredentialProvider < Hearth::IdentityProvider
+    include Hearth::RefreshingIdentityProvider
 
     # @api private
     SSO_LOGIN_GUIDANCE =
@@ -97,7 +97,7 @@ module AWS::SDK::Core
 
     private
 
-    def fetch
+    def refresh(_properties = {})
       cached_token = read_cached_token
       c = @client.get_role_credentials(
         account_id: @sso_account_id,
@@ -105,7 +105,7 @@ module AWS::SDK::Core
         access_token: cached_token['accessToken']
       ).data.role_credentials
 
-      @credentials = AWS::SigV4::Credentials.new(
+      @identity = AWS::SDK::Core::Credentials.new(
         access_key_id: c.access_key_id,
         secret_access_key: c.secret_access_key,
         session_token: c.session_token,

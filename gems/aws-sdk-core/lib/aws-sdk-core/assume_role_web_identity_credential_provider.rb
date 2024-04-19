@@ -19,8 +19,8 @@ module AWS::SDK::Core
   # created.
   #
   # @see AWS::SDK::STS::Client#assume_role_with_web_identity
-  class AssumeRoleWebIdentityCredentialProvider
-    include RefreshingCredentialProvider
+  class AssumeRoleWebIdentityCredentialProvider < Hearth::IdentityProvider
+    include Hearth::RefreshingIdentityProvider
 
     # Raised when :web_identity_token_file parameter is not
     # provided or the file doesn't exist when initializing
@@ -91,7 +91,7 @@ module AWS::SDK::Core
 
     private
 
-    def fetch
+    def refresh(_properties = {})
       # read from token file everytime it refreshes
       @assume_role_with_web_identity_params[:web_identity_token] =
         token_from_file
@@ -99,7 +99,7 @@ module AWS::SDK::Core
       c = @client.assume_role_with_web_identity(
         @assume_role_with_web_identity_params
       ).data.credentials
-      @credentials = AWS::SigV4::Credentials.new(
+      @identity = AWS::SDK::Core::Credentials.new(
         access_key_id: c.access_key_id,
         secret_access_key: c.secret_access_key,
         session_token: c.session_token,

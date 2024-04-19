@@ -9,8 +9,8 @@ module AWS::SDK::Core
   #     )
   #     ec2_config = AWS::SDK::EC2::Config.new(credential_provider: provider)
   #     ec2 = AWS::SDK::EC2::Client.new(ec2_config)
-  class ECSCredentialProvider
-    include RefreshingCredentialProvider
+  class ECSCredentialProvider < Hearth::IdentityProvider
+    include Hearth::RefreshingIdentityProvider
 
     # Initializes an instance of ECSCredentialProvider using ENV.
     # @api private
@@ -54,12 +54,12 @@ module AWS::SDK::Core
 
     private
 
-    def fetch
+    def refresh(_properties = {})
       retry_errors do
         open_connection do |conn|
           c = JSON.parse(http_get(conn))
           expiration = Time.iso8601(c['Expiration']) if c['Expiration']
-          @credentials = AWS::SigV4::Credentials.new(
+          @identity = AWS::SDK::Core::Credentials.new(
             access_key_id: c['AccessKeyId'],
             secret_access_key: c['SecretAccessKey'],
             session_token: c['Token'],

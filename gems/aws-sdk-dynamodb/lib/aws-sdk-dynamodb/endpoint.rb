@@ -25,7 +25,7 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    class Provider
+    class Resolver
       def resolve(params)
         region = params.region
         use_dual_stack = params.use_dual_stack

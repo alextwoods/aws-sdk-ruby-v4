@@ -54,9 +54,12 @@ module AWS
   end
 end
 
+# SigV4
+require_relative 'aws-sdk-core/auth_schemes/sigv4'
+require_relative 'aws-sdk-core/credentials'
+require_relative 'aws-sdk-core/signers/sigv4'
+
 # Credential Providers
-require_relative 'aws-sdk-core/credential_provider'
-require_relative 'aws-sdk-core/refreshing_credential_provider'
 
 require_relative 'aws-sdk-core/assume_role_credential_provider'
 require_relative 'aws-sdk-core/assume_role_web_identity_credential_provider'
@@ -86,11 +89,6 @@ require_relative 'aws-sdk-core/middleware'
 
 # Endpoint Rules
 require_relative 'aws-sdk-core/endpoint_rules'
-
-# SigV4
-require_relative 'aws-sdk-core/auth_schemes/sigv4'
-require_relative 'aws-sdk-core/identities/sigv4'
-require_relative 'aws-sdk-core/signers/sigv4'
 
 # Namespace for AWS::SDK Core components
 module AWS::SDK::Core

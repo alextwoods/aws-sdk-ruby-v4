@@ -19,7 +19,7 @@ module AWS::SDK::STS
     end
   end
   Config = Struct.new(
-    :region, :profile, :sigv4_identity_resolver, keyword_init: true
+    :region, :profile, :credential_provider, keyword_init: true
   )
 end
 

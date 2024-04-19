@@ -10,7 +10,6 @@ import software.amazon.smithy.aws.traits.auth.SigV4Trait;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
 import software.amazon.smithy.ruby.codegen.Hearth;
 import software.amazon.smithy.ruby.codegen.ProtocolGenerator;
-import software.amazon.smithy.ruby.codegen.RubyCodeWriter;
 import software.amazon.smithy.ruby.codegen.RubyDependency;
 import software.amazon.smithy.ruby.codegen.RubyIntegration;
 import software.amazon.smithy.ruby.codegen.auth.AuthParam;
@@ -21,7 +20,7 @@ import software.amazon.smithy.utils.ListUtils;
 import java.util.List;
 import java.util.Map;
 
-import static software.amazon.smithy.aws.ruby.codegen.Aws.SIGV4_IDENTITY;
+import static software.amazon.smithy.aws.ruby.codegen.Aws.AWS_CREDENTIALS_IDENTITY;
 
 public class AWSProtocols implements RubyIntegration {
     @Override
@@ -58,7 +57,7 @@ public class AWSProtocols implements RubyIntegration {
     }
 
     private AuthScheme sigv4AuthScheme() {
-        String identityProviderDocumentation = """
+        String credentialProviderDocumentation = """
                 A credential provider is a class that fetches your AWS credentials. This can be an instance
                 of any one of the following classes:
                         
@@ -97,22 +96,22 @@ public class AWSProtocols implements RubyIntegration {
 
         String identityProviderChain = "nil"; // TODO: Add the actual credential/identity provider chain
         String defaultIdentity = "%s.new(access_key_id: 'stubbed-akid', secret_access_key: 'stubbed-secret')"
-                .formatted(SIGV4_IDENTITY);
+                .formatted(AWS_CREDENTIALS_IDENTITY);
         String defaultConfigValue = "cfg[:stub_responses] ? %s.new(proc { %s }) : %s"
-                .formatted(Hearth.IDENTITY_RESOLVER, defaultIdentity, identityProviderChain);
+                .formatted(Hearth.IDENTITY_PROVIDER, defaultIdentity, identityProviderChain);
 
-        ClientConfig identityResolverConfig = ClientConfig.builder()
-                .name("sigv4_identity_resolver")
-                .documentationRbsAndValidationType(Hearth.IDENTITY_RESOLVER.toString())
-                .documentation(identityProviderDocumentation)
+        ClientConfig identityProviderConfig = ClientConfig.builder()
+                .name("credential_provider")
+                .documentationRbsAndValidationType(Hearth.IDENTITY_PROVIDER.toString())
+                .documentation(credentialProviderDocumentation)
                 .defaultDynamicValue(defaultConfigValue)
                 .build();
 
         return AuthScheme.builder()
                 .shapeId(SigV4Trait.ID)
                 .rubyAuthScheme("AWS::SDK::Core::AuthSchemes::SigV4.new")
-                .rubyIdentityType(Aws.SIGV4_IDENTITY.toString())
-                .identityResolverConfig(identityResolverConfig)
+                .rubyIdentityType(Aws.AWS_CREDENTIALS_IDENTITY.toString())
+                .identityProviderConfig(identityProviderConfig)
                 .extractSignerProperties((trait -> {
                     SigV4Trait sigv4 = (SigV4Trait) trait;
                     return Map.of(

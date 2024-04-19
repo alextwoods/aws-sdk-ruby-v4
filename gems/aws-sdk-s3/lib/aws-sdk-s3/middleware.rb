@@ -28,14 +28,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :abort_multipart_upload, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::AbortMultipartUpload,
@@ -86,14 +86,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :complete_multipart_upload, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::CompleteMultipartUpload,
@@ -144,14 +144,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :copy_object, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::CopyObject,
@@ -202,14 +202,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :create_bucket, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::CreateBucket,
@@ -260,14 +260,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :create_multipart_upload, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::CreateMultipartUpload,
@@ -318,14 +318,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :create_session, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::CreateSession,
@@ -376,14 +376,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :delete_bucket, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::DeleteBucket,
@@ -434,14 +434,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :delete_bucket_analytics_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::DeleteBucketAnalyticsConfiguration,
@@ -492,14 +492,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :delete_bucket_cors, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::DeleteBucketCors,
@@ -550,14 +550,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :delete_bucket_encryption, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::DeleteBucketEncryption,
@@ -608,14 +608,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :delete_bucket_intelligent_tiering_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::DeleteBucketIntelligentTieringConfiguration,
@@ -666,14 +666,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :delete_bucket_inventory_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::DeleteBucketInventoryConfiguration,
@@ -724,14 +724,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :delete_bucket_lifecycle, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::DeleteBucketLifecycle,
@@ -782,14 +782,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :delete_bucket_metrics_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::DeleteBucketMetricsConfiguration,
@@ -840,14 +840,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :delete_bucket_ownership_controls, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::DeleteBucketOwnershipControls,
@@ -898,14 +898,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :delete_bucket_policy, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::DeleteBucketPolicy,
@@ -956,14 +956,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :delete_bucket_replication, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::DeleteBucketReplication,
@@ -1014,14 +1014,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :delete_bucket_tagging, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::DeleteBucketTagging,
@@ -1072,14 +1072,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :delete_bucket_website, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::DeleteBucketWebsite,
@@ -1130,14 +1130,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :delete_object, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::DeleteObject,
@@ -1188,14 +1188,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :delete_object_tagging, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::DeleteObjectTagging,
@@ -1246,7 +1246,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :delete_objects, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -1255,9 +1255,9 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::DeleteObjects,
@@ -1308,14 +1308,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :delete_public_access_block, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::DeletePublicAccessBlock,
@@ -1366,14 +1366,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_bucket_accelerate_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::GetBucketAccelerateConfiguration,
@@ -1424,14 +1424,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_bucket_acl, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::GetBucketAcl,
@@ -1482,14 +1482,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_bucket_analytics_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::GetBucketAnalyticsConfiguration,
@@ -1540,14 +1540,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_bucket_cors, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::GetBucketCors,
@@ -1598,14 +1598,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_bucket_encryption, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::GetBucketEncryption,
@@ -1656,14 +1656,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_bucket_intelligent_tiering_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::GetBucketIntelligentTieringConfiguration,
@@ -1714,14 +1714,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_bucket_inventory_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::GetBucketInventoryConfiguration,
@@ -1772,14 +1772,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_bucket_lifecycle_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::GetBucketLifecycleConfiguration,
@@ -1830,14 +1830,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_bucket_location, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::GetBucketLocation,
@@ -1888,14 +1888,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_bucket_logging, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::GetBucketLogging,
@@ -1946,14 +1946,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_bucket_metrics_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::GetBucketMetricsConfiguration,
@@ -2004,14 +2004,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_bucket_notification_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::GetBucketNotificationConfiguration,
@@ -2062,14 +2062,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_bucket_ownership_controls, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::GetBucketOwnershipControls,
@@ -2120,14 +2120,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_bucket_policy, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::GetBucketPolicy,
@@ -2178,14 +2178,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_bucket_policy_status, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::GetBucketPolicyStatus,
@@ -2236,14 +2236,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_bucket_replication, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::GetBucketReplication,
@@ -2294,14 +2294,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_bucket_request_payment, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::GetBucketRequestPayment,
@@ -2352,14 +2352,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_bucket_tagging, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::GetBucketTagging,
@@ -2410,14 +2410,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_bucket_versioning, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::GetBucketVersioning,
@@ -2468,14 +2468,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_bucket_website, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::GetBucketWebsite,
@@ -2526,7 +2526,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_object, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -2536,9 +2536,9 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::GetObject,
@@ -2589,14 +2589,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_object_acl, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::GetObjectAcl,
@@ -2647,14 +2647,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_object_attributes, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::GetObjectAttributes,
@@ -2705,14 +2705,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_object_legal_hold, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::GetObjectLegalHold,
@@ -2763,14 +2763,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_object_lock_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::GetObjectLockConfiguration,
@@ -2821,14 +2821,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_object_retention, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::GetObjectRetention,
@@ -2879,14 +2879,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_object_tagging, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::GetObjectTagging,
@@ -2937,14 +2937,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_object_torrent, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::GetObjectTorrent,
@@ -2995,14 +2995,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_public_access_block, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::GetPublicAccessBlock,
@@ -3053,14 +3053,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :head_bucket, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::HeadBucket,
@@ -3111,14 +3111,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :head_object, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::HeadObject,
@@ -3169,14 +3169,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :list_bucket_analytics_configurations, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::ListBucketAnalyticsConfigurations,
@@ -3227,14 +3227,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :list_bucket_intelligent_tiering_configurations, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::ListBucketIntelligentTieringConfigurations,
@@ -3285,14 +3285,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :list_bucket_inventory_configurations, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::ListBucketInventoryConfigurations,
@@ -3343,14 +3343,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :list_bucket_metrics_configurations, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::ListBucketMetricsConfigurations,
@@ -3401,14 +3401,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :list_buckets, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::ListBuckets,
@@ -3459,14 +3459,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :list_directory_buckets, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::ListDirectoryBuckets,
@@ -3517,14 +3517,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :list_multipart_uploads, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::ListMultipartUploads,
@@ -3575,14 +3575,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :list_object_versions, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::ListObjectVersions,
@@ -3633,14 +3633,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :list_objects, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::ListObjects,
@@ -3691,14 +3691,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :list_objects_v2, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::ListObjectsV2,
@@ -3749,14 +3749,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :list_parts, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::ListParts,
@@ -3807,7 +3807,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :put_bucket_accelerate_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -3816,9 +3816,9 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::PutBucketAccelerateConfiguration,
@@ -3869,7 +3869,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :put_bucket_acl, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -3878,9 +3878,9 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::PutBucketAcl,
@@ -3931,14 +3931,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :put_bucket_analytics_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::PutBucketAnalyticsConfiguration,
@@ -3989,7 +3989,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :put_bucket_cors, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -3998,9 +3998,9 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::PutBucketCors,
@@ -4051,7 +4051,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :put_bucket_encryption, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -4060,9 +4060,9 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::PutBucketEncryption,
@@ -4113,14 +4113,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :put_bucket_intelligent_tiering_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::PutBucketIntelligentTieringConfiguration,
@@ -4171,14 +4171,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :put_bucket_inventory_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::PutBucketInventoryConfiguration,
@@ -4229,7 +4229,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :put_bucket_lifecycle_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -4238,9 +4238,9 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::PutBucketLifecycleConfiguration,
@@ -4291,7 +4291,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :put_bucket_logging, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -4300,9 +4300,9 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::PutBucketLogging,
@@ -4353,14 +4353,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :put_bucket_metrics_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::PutBucketMetricsConfiguration,
@@ -4411,14 +4411,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :put_bucket_notification_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::PutBucketNotificationConfiguration,
@@ -4469,7 +4469,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :put_bucket_ownership_controls, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -4477,9 +4477,9 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::PutBucketOwnershipControls,
@@ -4530,7 +4530,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :put_bucket_policy, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -4539,9 +4539,9 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::PutBucketPolicy,
@@ -4592,7 +4592,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :put_bucket_replication, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -4601,9 +4601,9 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::PutBucketReplication,
@@ -4654,7 +4654,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :put_bucket_request_payment, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -4663,9 +4663,9 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::PutBucketRequestPayment,
@@ -4716,7 +4716,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :put_bucket_tagging, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -4725,9 +4725,9 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::PutBucketTagging,
@@ -4778,7 +4778,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :put_bucket_versioning, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -4787,9 +4787,9 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::PutBucketVersioning,
@@ -4840,7 +4840,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :put_bucket_website, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -4849,9 +4849,9 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::PutBucketWebsite,
@@ -4902,7 +4902,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :put_object, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(AWS::SDK::Core::Middleware::Checksum,
           request_algorithm_member: :checksum_algorithm,
@@ -4913,9 +4913,9 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::PutObject,
@@ -4966,7 +4966,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :put_object_acl, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -4975,9 +4975,9 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::PutObjectAcl,
@@ -5028,7 +5028,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :put_object_legal_hold, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -5037,9 +5037,9 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::PutObjectLegalHold,
@@ -5090,7 +5090,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :put_object_lock_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -5099,9 +5099,9 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::PutObjectLockConfiguration,
@@ -5152,7 +5152,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :put_object_retention, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -5161,9 +5161,9 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::PutObjectRetention,
@@ -5214,7 +5214,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :put_object_tagging, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -5223,9 +5223,9 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::PutObjectTagging,
@@ -5276,7 +5276,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :put_public_access_block, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -5285,9 +5285,9 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::PutPublicAccessBlock,
@@ -5338,7 +5338,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :restore_object, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -5347,9 +5347,9 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::RestoreObject,
@@ -5400,7 +5400,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :upload_part, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(AWS::SDK::Core::Middleware::Checksum,
           request_algorithm_member: :checksum_algorithm,
@@ -5411,9 +5411,9 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::UploadPart,
@@ -5464,14 +5464,14 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :upload_part_copy, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::UploadPartCopy,
@@ -5522,13 +5522,13 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :write_get_object_response, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Credentials => config.credential_provider
         )
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint,
           force_path_style: config.force_path_style,
-          endpoint_provider: config.endpoint_provider,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
           disable_multi_region_access_points: config.disable_multi_region_access_points,
           param_builder: Endpoint::Parameters::WriteGetObjectResponse,

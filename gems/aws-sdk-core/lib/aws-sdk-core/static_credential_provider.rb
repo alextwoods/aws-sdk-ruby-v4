@@ -10,9 +10,7 @@ module AWS::SDK::Core
   #     )
   #     ec2_config = AWS::SDK::EC2::Config.new(credential_provider: provider)
   #     ec2 = AWS::SDK::EC2::Client.new(ec2_config)
-  class StaticCredentialProvider
-    include CredentialProvider
-
+  class StaticCredentialProvider < Hearth::IdentityProvider
     # Initializes an instance of StaticCredentialProvider using
     # shared config profile.
     # @api private
@@ -41,11 +39,16 @@ module AWS::SDK::Core
     end
 
     def initialize(options = {})
-      @credentials = AWS::SigV4::Credentials.new(
+      @identity = AWS::SDK::Core::Credentials.new(
         access_key_id: options[:access_key_id],
         secret_access_key: options[:secret_access_key],
         session_token: options[:session_token]
       )
+      super(nil)
+    end
+
+    def identity(_properties = nil)
+      @identity
     end
   end
 end

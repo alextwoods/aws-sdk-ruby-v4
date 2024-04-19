@@ -159,10 +159,10 @@ module AWS::SDK::Core
       end
     end
 
-    describe '#credentials' do
+    describe '#identity' do
       it 'will read valid credentials from assume_role_with_web_identity' do
         mock_token_file(web_identity_token_file)
-        creds = subject.credentials
+        creds = subject.identity
         expect(creds.access_key_id).to eq('ACCESS_KEY_1')
         expect(creds.secret_access_key).to eq('SECRET_KEY_1')
         expect(creds.session_token).to eq('TOKEN_1')
@@ -173,7 +173,7 @@ module AWS::SDK::Core
         allow(File).to receive(:exist?)
           .with(web_identity_token_file).and_return(false)
 
-        expect { subject.credentials }
+        expect { subject.identity }
           .to raise_error(
             AssumeRoleWebIdentityCredentialProvider::
                 MissingWebIdentityTokenFile,
