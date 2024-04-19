@@ -7,7 +7,7 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-require 'aws-sdk-kms'
+require_relative 'spec_helper'
 
 module AWS::SDK::KMS
   module Endpoint

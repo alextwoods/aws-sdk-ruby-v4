@@ -264,7 +264,7 @@ module AWS::SDK::S3
         http_req.append_query_param_list(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::CompletedMultipartUpload.build('CompleteMultipartUpload', input[:multipart_upload]) unless input[:multipart_upload].nil?
-        http_req.body = ::StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str) if xml
         http_req.headers['x-amz-checksum-crc32'] = input[:checksum_crc32] unless input[:checksum_crc32].nil? || input[:checksum_crc32].empty?
         http_req.headers['x-amz-checksum-crc32c'] = input[:checksum_crc32_c] unless input[:checksum_crc32_c].nil? || input[:checksum_crc32_c].empty?
         http_req.headers['x-amz-checksum-sha1'] = input[:checksum_sha1] unless input[:checksum_sha1].nil? || input[:checksum_sha1].empty?
@@ -396,7 +396,7 @@ module AWS::SDK::S3
         http_req.append_query_param_list(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::CreateBucketConfiguration.build('CreateBucketConfiguration', input[:create_bucket_configuration]) unless input[:create_bucket_configuration].nil?
-        http_req.body = ::StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str) if xml
         http_req.headers['x-amz-acl'] = input[:acl] unless input[:acl].nil? || input[:acl].empty?
         http_req.headers['x-amz-grant-full-control'] = input[:grant_full_control] unless input[:grant_full_control].nil? || input[:grant_full_control].empty?
         http_req.headers['x-amz-grant-read'] = input[:grant_read] unless input[:grant_read].nil? || input[:grant_read].empty?
@@ -849,7 +849,7 @@ module AWS::SDK::S3
         http_req.append_query_param_list(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::Delete.build('Delete', input[:delete]) unless input[:delete].nil?
-        http_req.body = ::StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str) if xml
         http_req.headers['x-amz-mfa'] = input[:mfa] unless input[:mfa].nil? || input[:mfa].empty?
         http_req.headers['x-amz-request-payer'] = input[:request_payer] unless input[:request_payer].nil? || input[:request_payer].empty?
         http_req.headers['x-amz-bypass-governance-retention'] = input[:bypass_governance_retention].to_s unless input[:bypass_governance_retention].nil?
@@ -2493,7 +2493,7 @@ module AWS::SDK::S3
         http_req.append_query_param_list(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::AccelerateConfiguration.build('AccelerateConfiguration', input[:accelerate_configuration]) unless input[:accelerate_configuration].nil?
-        http_req.body = ::StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str) if xml
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
         http_req.headers['x-amz-sdk-checksum-algorithm'] = input[:checksum_algorithm] unless input[:checksum_algorithm].nil? || input[:checksum_algorithm].empty?
       end
@@ -2517,7 +2517,7 @@ module AWS::SDK::S3
         http_req.append_query_param_list(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::AccessControlPolicy.build('AccessControlPolicy', input[:access_control_policy]) unless input[:access_control_policy].nil?
-        http_req.body = ::StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str) if xml
         http_req.headers['x-amz-acl'] = input[:acl] unless input[:acl].nil? || input[:acl].empty?
         http_req.headers['Content-MD5'] = input[:content_md5] unless input[:content_md5].nil? || input[:content_md5].empty?
         http_req.headers['x-amz-sdk-checksum-algorithm'] = input[:checksum_algorithm] unless input[:checksum_algorithm].nil? || input[:checksum_algorithm].empty?
@@ -2549,7 +2549,7 @@ module AWS::SDK::S3
         http_req.append_query_param_list(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::AnalyticsConfiguration.build('AnalyticsConfiguration', input[:analytics_configuration]) unless input[:analytics_configuration].nil?
-        http_req.body = ::StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str) if xml
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
     end
@@ -2572,7 +2572,7 @@ module AWS::SDK::S3
         http_req.append_query_param_list(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::CORSConfiguration.build('CORSConfiguration', input[:cors_configuration]) unless input[:cors_configuration].nil?
-        http_req.body = ::StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str) if xml
         http_req.headers['Content-MD5'] = input[:content_md5] unless input[:content_md5].nil? || input[:content_md5].empty?
         http_req.headers['x-amz-sdk-checksum-algorithm'] = input[:checksum_algorithm] unless input[:checksum_algorithm].nil? || input[:checksum_algorithm].empty?
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
@@ -2597,7 +2597,7 @@ module AWS::SDK::S3
         http_req.append_query_param_list(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::ServerSideEncryptionConfiguration.build('ServerSideEncryptionConfiguration', input[:server_side_encryption_configuration]) unless input[:server_side_encryption_configuration].nil?
-        http_req.body = ::StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str) if xml
         http_req.headers['Content-MD5'] = input[:content_md5] unless input[:content_md5].nil? || input[:content_md5].empty?
         http_req.headers['x-amz-sdk-checksum-algorithm'] = input[:checksum_algorithm] unless input[:checksum_algorithm].nil? || input[:checksum_algorithm].empty?
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
@@ -2623,7 +2623,7 @@ module AWS::SDK::S3
         http_req.append_query_param_list(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::IntelligentTieringConfiguration.build('IntelligentTieringConfiguration', input[:intelligent_tiering_configuration]) unless input[:intelligent_tiering_configuration].nil?
-        http_req.body = ::StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str) if xml
       end
     end
 
@@ -2646,7 +2646,7 @@ module AWS::SDK::S3
         http_req.append_query_param_list(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::InventoryConfiguration.build('InventoryConfiguration', input[:inventory_configuration]) unless input[:inventory_configuration].nil?
-        http_req.body = ::StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str) if xml
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
     end
@@ -2669,7 +2669,7 @@ module AWS::SDK::S3
         http_req.append_query_param_list(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::BucketLifecycleConfiguration.build('LifecycleConfiguration', input[:lifecycle_configuration]) unless input[:lifecycle_configuration].nil?
-        http_req.body = ::StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str) if xml
         http_req.headers['x-amz-sdk-checksum-algorithm'] = input[:checksum_algorithm] unless input[:checksum_algorithm].nil? || input[:checksum_algorithm].empty?
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
@@ -2693,7 +2693,7 @@ module AWS::SDK::S3
         http_req.append_query_param_list(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::BucketLoggingStatus.build('BucketLoggingStatus', input[:bucket_logging_status]) unless input[:bucket_logging_status].nil?
-        http_req.body = ::StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str) if xml
         http_req.headers['Content-MD5'] = input[:content_md5] unless input[:content_md5].nil? || input[:content_md5].empty?
         http_req.headers['x-amz-sdk-checksum-algorithm'] = input[:checksum_algorithm] unless input[:checksum_algorithm].nil? || input[:checksum_algorithm].empty?
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
@@ -2719,7 +2719,7 @@ module AWS::SDK::S3
         http_req.append_query_param_list(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::MetricsConfiguration.build('MetricsConfiguration', input[:metrics_configuration]) unless input[:metrics_configuration].nil?
-        http_req.body = ::StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str) if xml
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
     end
@@ -2742,7 +2742,7 @@ module AWS::SDK::S3
         http_req.append_query_param_list(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::NotificationConfiguration.build('NotificationConfiguration', input[:notification_configuration]) unless input[:notification_configuration].nil?
-        http_req.body = ::StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str) if xml
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
         http_req.headers['x-amz-skip-destination-validation'] = input[:skip_destination_validation].to_s unless input[:skip_destination_validation].nil?
       end
@@ -2766,7 +2766,7 @@ module AWS::SDK::S3
         http_req.append_query_param_list(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::OwnershipControls.build('OwnershipControls', input[:ownership_controls]) unless input[:ownership_controls].nil?
-        http_req.body = ::StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str) if xml
         http_req.headers['Content-MD5'] = input[:content_md5] unless input[:content_md5].nil? || input[:content_md5].empty?
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
@@ -2815,7 +2815,7 @@ module AWS::SDK::S3
         http_req.append_query_param_list(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::ReplicationConfiguration.build('ReplicationConfiguration', input[:replication_configuration]) unless input[:replication_configuration].nil?
-        http_req.body = ::StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str) if xml
         http_req.headers['Content-MD5'] = input[:content_md5] unless input[:content_md5].nil? || input[:content_md5].empty?
         http_req.headers['x-amz-sdk-checksum-algorithm'] = input[:checksum_algorithm] unless input[:checksum_algorithm].nil? || input[:checksum_algorithm].empty?
         http_req.headers['x-amz-bucket-object-lock-token'] = input[:token] unless input[:token].nil? || input[:token].empty?
@@ -2841,7 +2841,7 @@ module AWS::SDK::S3
         http_req.append_query_param_list(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::RequestPaymentConfiguration.build('RequestPaymentConfiguration', input[:request_payment_configuration]) unless input[:request_payment_configuration].nil?
-        http_req.body = ::StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str) if xml
         http_req.headers['Content-MD5'] = input[:content_md5] unless input[:content_md5].nil? || input[:content_md5].empty?
         http_req.headers['x-amz-sdk-checksum-algorithm'] = input[:checksum_algorithm] unless input[:checksum_algorithm].nil? || input[:checksum_algorithm].empty?
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
@@ -2866,7 +2866,7 @@ module AWS::SDK::S3
         http_req.append_query_param_list(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::Tagging.build('Tagging', input[:tagging]) unless input[:tagging].nil?
-        http_req.body = ::StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str) if xml
         http_req.headers['Content-MD5'] = input[:content_md5] unless input[:content_md5].nil? || input[:content_md5].empty?
         http_req.headers['x-amz-sdk-checksum-algorithm'] = input[:checksum_algorithm] unless input[:checksum_algorithm].nil? || input[:checksum_algorithm].empty?
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
@@ -2891,7 +2891,7 @@ module AWS::SDK::S3
         http_req.append_query_param_list(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::VersioningConfiguration.build('VersioningConfiguration', input[:versioning_configuration]) unless input[:versioning_configuration].nil?
-        http_req.body = ::StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str) if xml
         http_req.headers['Content-MD5'] = input[:content_md5] unless input[:content_md5].nil? || input[:content_md5].empty?
         http_req.headers['x-amz-sdk-checksum-algorithm'] = input[:checksum_algorithm] unless input[:checksum_algorithm].nil? || input[:checksum_algorithm].empty?
         http_req.headers['x-amz-mfa'] = input[:mfa] unless input[:mfa].nil? || input[:mfa].empty?
@@ -2917,7 +2917,7 @@ module AWS::SDK::S3
         http_req.append_query_param_list(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::WebsiteConfiguration.build('WebsiteConfiguration', input[:website_configuration]) unless input[:website_configuration].nil?
-        http_req.body = ::StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str) if xml
         http_req.headers['Content-MD5'] = input[:content_md5] unless input[:content_md5].nil? || input[:content_md5].empty?
         http_req.headers['x-amz-sdk-checksum-algorithm'] = input[:checksum_algorithm] unless input[:checksum_algorithm].nil? || input[:checksum_algorithm].empty?
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
@@ -3009,7 +3009,7 @@ module AWS::SDK::S3
         http_req.append_query_param_list(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::AccessControlPolicy.build('AccessControlPolicy', input[:access_control_policy]) unless input[:access_control_policy].nil?
-        http_req.body = ::StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str) if xml
         http_req.headers['x-amz-acl'] = input[:acl] unless input[:acl].nil? || input[:acl].empty?
         http_req.headers['Content-MD5'] = input[:content_md5] unless input[:content_md5].nil? || input[:content_md5].empty?
         http_req.headers['x-amz-sdk-checksum-algorithm'] = input[:checksum_algorithm] unless input[:checksum_algorithm].nil? || input[:checksum_algorithm].empty?
@@ -3046,7 +3046,7 @@ module AWS::SDK::S3
         http_req.append_query_param_list(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::ObjectLockLegalHold.build('LegalHold', input[:legal_hold]) unless input[:legal_hold].nil?
-        http_req.body = ::StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str) if xml
         http_req.headers['x-amz-request-payer'] = input[:request_payer] unless input[:request_payer].nil? || input[:request_payer].empty?
         http_req.headers['Content-MD5'] = input[:content_md5] unless input[:content_md5].nil? || input[:content_md5].empty?
         http_req.headers['x-amz-sdk-checksum-algorithm'] = input[:checksum_algorithm] unless input[:checksum_algorithm].nil? || input[:checksum_algorithm].empty?
@@ -3072,7 +3072,7 @@ module AWS::SDK::S3
         http_req.append_query_param_list(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::ObjectLockConfiguration.build('ObjectLockConfiguration', input[:object_lock_configuration]) unless input[:object_lock_configuration].nil?
-        http_req.body = ::StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str) if xml
         http_req.headers['x-amz-request-payer'] = input[:request_payer] unless input[:request_payer].nil? || input[:request_payer].empty?
         http_req.headers['x-amz-bucket-object-lock-token'] = input[:token] unless input[:token].nil? || input[:token].empty?
         http_req.headers['Content-MD5'] = input[:content_md5] unless input[:content_md5].nil? || input[:content_md5].empty?
@@ -3104,7 +3104,7 @@ module AWS::SDK::S3
         http_req.append_query_param_list(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::ObjectLockRetention.build('Retention', input[:retention]) unless input[:retention].nil?
-        http_req.body = ::StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str) if xml
         http_req.headers['x-amz-request-payer'] = input[:request_payer] unless input[:request_payer].nil? || input[:request_payer].empty?
         http_req.headers['x-amz-bypass-governance-retention'] = input[:bypass_governance_retention].to_s unless input[:bypass_governance_retention].nil?
         http_req.headers['Content-MD5'] = input[:content_md5] unless input[:content_md5].nil? || input[:content_md5].empty?
@@ -3136,7 +3136,7 @@ module AWS::SDK::S3
         http_req.append_query_param_list(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::Tagging.build('Tagging', input[:tagging]) unless input[:tagging].nil?
-        http_req.body = ::StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str) if xml
         http_req.headers['Content-MD5'] = input[:content_md5] unless input[:content_md5].nil? || input[:content_md5].empty?
         http_req.headers['x-amz-sdk-checksum-algorithm'] = input[:checksum_algorithm] unless input[:checksum_algorithm].nil? || input[:checksum_algorithm].empty?
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
@@ -3162,7 +3162,7 @@ module AWS::SDK::S3
         http_req.append_query_param_list(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::PublicAccessBlockConfiguration.build('PublicAccessBlockConfiguration', input[:public_access_block_configuration]) unless input[:public_access_block_configuration].nil?
-        http_req.body = ::StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str) if xml
         http_req.headers['Content-MD5'] = input[:content_md5] unless input[:content_md5].nil? || input[:content_md5].empty?
         http_req.headers['x-amz-sdk-checksum-algorithm'] = input[:checksum_algorithm] unless input[:checksum_algorithm].nil? || input[:checksum_algorithm].empty?
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
@@ -3330,7 +3330,7 @@ module AWS::SDK::S3
         http_req.append_query_param_list(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::RestoreRequest.build('RestoreRequest', input[:restore_request]) unless input[:restore_request].nil?
-        http_req.body = ::StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str) if xml
         http_req.headers['x-amz-request-payer'] = input[:request_payer] unless input[:request_payer].nil? || input[:request_payer].empty?
         http_req.headers['x-amz-sdk-checksum-algorithm'] = input[:checksum_algorithm] unless input[:checksum_algorithm].nil? || input[:checksum_algorithm].empty?
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?

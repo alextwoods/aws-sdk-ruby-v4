@@ -7,7 +7,7 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-require 'aws-sdk-ec2'
+require_relative 'spec_helper'
 
 module AWS::SDK::EC2
   module Endpoint

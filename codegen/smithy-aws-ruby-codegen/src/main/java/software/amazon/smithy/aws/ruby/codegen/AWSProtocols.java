@@ -10,6 +10,7 @@ import software.amazon.smithy.aws.traits.auth.SigV4Trait;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
 import software.amazon.smithy.ruby.codegen.Hearth;
 import software.amazon.smithy.ruby.codegen.ProtocolGenerator;
+import software.amazon.smithy.ruby.codegen.RubyCodeWriter;
 import software.amazon.smithy.ruby.codegen.RubyDependency;
 import software.amazon.smithy.ruby.codegen.RubyIntegration;
 import software.amazon.smithy.ruby.codegen.auth.AuthParam;

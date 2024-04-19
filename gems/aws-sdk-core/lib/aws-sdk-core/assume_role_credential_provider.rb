@@ -200,7 +200,7 @@ module AWS::SDK::Core
       def build_profile_provider(cfg, profile_config, source_provider)
         sts_config = AWS::SDK::STS::Config.new(
           region: cfg[:region],
-          credential_provider: source_provider
+          sigv4_identity_resolver: source_provider
         )
         sts_client = AWS::SDK::STS::Client.new(sts_config)
         new(

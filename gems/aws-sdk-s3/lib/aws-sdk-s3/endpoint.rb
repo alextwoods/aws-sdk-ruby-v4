@@ -1027,10 +1027,10 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
           params.key = input.key unless input.key.nil?
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
@@ -1046,10 +1046,10 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
           params.key = input.key unless input.key.nil?
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
@@ -1065,9 +1065,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.disable_s3_express_session_auth = true
           params
@@ -1083,10 +1083,10 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
           params.disable_access_points = true
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -1103,10 +1103,10 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
           params.key = input.key unless input.key.nil?
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
@@ -1122,9 +1122,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.disable_s3_express_session_auth = true
           params
@@ -1140,9 +1140,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -1159,9 +1159,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -1178,9 +1178,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -1197,9 +1197,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -1216,9 +1216,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -1235,9 +1235,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -1254,9 +1254,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -1273,9 +1273,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -1292,9 +1292,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -1311,9 +1311,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -1330,9 +1330,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -1349,9 +1349,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -1368,9 +1368,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -1387,10 +1387,10 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
           params.key = input.key unless input.key.nil?
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
@@ -1406,9 +1406,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
@@ -1424,9 +1424,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
@@ -1442,9 +1442,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -1461,9 +1461,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -1480,9 +1480,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -1499,9 +1499,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -1518,9 +1518,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -1537,9 +1537,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -1556,9 +1556,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -1575,9 +1575,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -1594,9 +1594,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -1613,9 +1613,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -1632,9 +1632,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -1651,9 +1651,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -1670,9 +1670,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -1689,9 +1689,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -1708,9 +1708,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -1727,9 +1727,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -1746,9 +1746,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -1765,9 +1765,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -1784,9 +1784,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -1803,9 +1803,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -1822,9 +1822,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -1841,10 +1841,10 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
           params.key = input.key unless input.key.nil?
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
@@ -1860,10 +1860,10 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
           params.key = input.key unless input.key.nil?
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
@@ -1879,9 +1879,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
@@ -1897,9 +1897,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
@@ -1915,9 +1915,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
@@ -1933,9 +1933,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
@@ -1951,9 +1951,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
@@ -1969,9 +1969,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
@@ -1987,9 +1987,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -2006,9 +2006,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
@@ -2024,10 +2024,10 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
           params.key = input.key unless input.key.nil?
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
@@ -2043,9 +2043,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -2062,9 +2062,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -2081,9 +2081,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -2100,9 +2100,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
@@ -2117,9 +2117,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
@@ -2134,9 +2134,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -2153,10 +2153,10 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
           params.prefix = input.prefix unless input.prefix.nil?
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
@@ -2172,10 +2172,10 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
           params.prefix = input.prefix unless input.prefix.nil?
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
@@ -2191,10 +2191,10 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
           params.prefix = input.prefix unless input.prefix.nil?
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
@@ -2210,10 +2210,10 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
           params.prefix = input.prefix unless input.prefix.nil?
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
@@ -2229,10 +2229,10 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
           params.key = input.key unless input.key.nil?
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
@@ -2248,9 +2248,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -2267,9 +2267,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -2286,9 +2286,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -2305,9 +2305,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -2324,9 +2324,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -2343,9 +2343,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -2362,9 +2362,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -2381,9 +2381,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -2400,9 +2400,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -2419,9 +2419,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -2438,9 +2438,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -2457,9 +2457,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -2476,9 +2476,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -2495,9 +2495,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -2514,9 +2514,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -2533,9 +2533,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -2552,9 +2552,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -2571,9 +2571,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -2590,10 +2590,10 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
           params.key = input.key unless input.key.nil?
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
@@ -2609,10 +2609,10 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
           params.key = input.key unless input.key.nil?
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
@@ -2628,9 +2628,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
@@ -2646,9 +2646,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
@@ -2664,9 +2664,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
@@ -2682,9 +2682,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
@@ -2700,9 +2700,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
@@ -2719,9 +2719,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
@@ -2737,9 +2737,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
@@ -2755,10 +2755,10 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
           params.key = input.key unless input.key.nil?
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
@@ -2774,9 +2774,9 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.disable_s3_express_session_auth = true
           params
@@ -2791,10 +2791,10 @@ module AWS::SDK::S3
           params.use_dual_stack = config[:use_dualstack_endpoint] unless config[:use_dualstack_endpoint].nil?
           params.endpoint = config[:endpoint] unless config[:endpoint].nil?
           params.force_path_style = config[:force_path_style] unless config[:force_path_style].nil?
-          params.accelerate = config[:accelerate] unless config[:accelerate].nil?
+          params.accelerate = config[:use_accelerate_endpoint] unless config[:use_accelerate_endpoint].nil?
           params.use_global_endpoint = false
           params.use_object_lambda_endpoint = true
-          params.disable_multi_region_access_points = config[:disable_multi_region_access_points] unless config[:disable_multi_region_access_points].nil?
+          params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params

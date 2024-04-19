@@ -7,7 +7,7 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-require 'aws-sdk-dynamodb'
+require_relative 'spec_helper'
 
 module AWS::SDK::DynamoDB
   module Endpoint

@@ -88,8 +88,7 @@ module AWS::SDK::Core
       # validate we can read the token file
       read_cached_token
 
-      sso_config = AWS::SDK::SSO::Config.new(region: sso_region)
-      @client = client || AWS::SDK::SSO::Client.new(sso_config)
+      @client = client || AWS::SDK::SSO::Client.new(region: sso_region)
       super()
     end
 

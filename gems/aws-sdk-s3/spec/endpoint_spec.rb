@@ -7,7 +7,7 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-require 'aws-sdk-s3'
+require_relative 'spec_helper'
 
 module AWS::SDK::S3
   module Endpoint

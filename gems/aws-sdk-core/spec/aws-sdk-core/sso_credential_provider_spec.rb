@@ -120,10 +120,8 @@ module AWS::SDK::Core
 
     describe '#initialize' do
       it 'constructs an client with sso_region if not provided' do
-        expect(AWS::SDK::SSO::Config).to receive(:new)
-          .with(region: sso_region).and_return(config)
         expect(AWS::SDK::SSO::Client).to receive(:new)
-          .with(config).and_return(client)
+          .with(region: sso_region).and_return(client)
         mock_token_file(sso_start_url, cached_token)
 
         provider = SSOCredentialProvider.new(**provider_options)

@@ -504,7 +504,7 @@ module AWS::SDK::S3
         xml << Hearth::XML::Node.new('ChecksumCRC32C', stub[:checksum_crc32_c].to_s) unless stub[:checksum_crc32_c].nil?
         xml << Hearth::XML::Node.new('ChecksumSHA1', stub[:checksum_sha1].to_s) unless stub[:checksum_sha1].nil?
         xml << Hearth::XML::Node.new('ChecksumSHA256', stub[:checksum_sha256].to_s) unless stub[:checksum_sha256].nil?
-        http_resp.body = ::StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
 
@@ -582,7 +582,7 @@ module AWS::SDK::S3
         http_resp.headers['x-amz-request-charged'] = stub[:request_charged] unless stub[:request_charged].nil? || stub[:request_charged].empty?
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::CopyObjectResult.build('CopyObjectResult', stub[:copy_object_result]) unless stub[:copy_object_result].nil?
-        http_resp.body = ::StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
 
@@ -709,7 +709,7 @@ module AWS::SDK::S3
         xml << Hearth::XML::Node.new('Bucket', stub[:bucket].to_s) unless stub[:bucket].nil?
         xml << Hearth::XML::Node.new('Key', stub[:key].to_s) unless stub[:key].nil?
         xml << Hearth::XML::Node.new('UploadId', stub[:upload_id].to_s) unless stub[:upload_id].nil?
-        http_resp.body = ::StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
 
@@ -736,7 +736,7 @@ module AWS::SDK::S3
         xml = Hearth::XML::Node.new('CreateSessionOutput')
         xml.attributes['xmlns'] = 'http://s3.amazonaws.com/doc/2006-03-01/'
         xml << Stubs::SessionCredentials.stub('Credentials', stub[:credentials]) unless stub[:credentials].nil?
-        http_resp.body = ::StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
 
@@ -1157,7 +1157,7 @@ module AWS::SDK::S3
         xml.attributes['xmlns'] = 'http://s3.amazonaws.com/doc/2006-03-01/'
         xml << Stubs::DeletedObjects.stub('Deleted', stub[:deleted]) unless stub[:deleted].nil?
         xml << Stubs::Errors.stub('Error', stub[:errors]) unless stub[:errors].nil?
-        http_resp.body = ::StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
 
@@ -1476,7 +1476,7 @@ module AWS::SDK::S3
         xml = Hearth::XML::Node.new('AccelerateConfiguration')
         xml.attributes['xmlns'] = 'http://s3.amazonaws.com/doc/2006-03-01/'
         xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
-        http_resp.body = ::StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
 
@@ -1505,7 +1505,7 @@ module AWS::SDK::S3
         xml.attributes['xmlns'] = 'http://s3.amazonaws.com/doc/2006-03-01/'
         xml << Stubs::Owner.stub('Owner', stub[:owner]) unless stub[:owner].nil?
         xml << Hearth::XML::Node.new('AccessControlList', Stubs::Grants.stub('Grant', stub[:grants])) unless stub[:grants].nil?
-        http_resp.body = ::StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
 
@@ -1529,7 +1529,7 @@ module AWS::SDK::S3
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::AnalyticsConfiguration.build('AnalyticsConfiguration', stub[:analytics_configuration]) unless stub[:analytics_configuration].nil?
-        http_resp.body = ::StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
 
@@ -1556,7 +1556,7 @@ module AWS::SDK::S3
         xml = Hearth::XML::Node.new('CORSConfiguration')
         xml.attributes['xmlns'] = 'http://s3.amazonaws.com/doc/2006-03-01/'
         xml << Stubs::CORSRules.stub('CORSRule', stub[:cors_rules]) unless stub[:cors_rules].nil?
-        http_resp.body = ::StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
 
@@ -1580,7 +1580,7 @@ module AWS::SDK::S3
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::ServerSideEncryptionConfiguration.build('ServerSideEncryptionConfiguration', stub[:server_side_encryption_configuration]) unless stub[:server_side_encryption_configuration].nil?
-        http_resp.body = ::StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
 
@@ -1604,7 +1604,7 @@ module AWS::SDK::S3
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::IntelligentTieringConfiguration.build('IntelligentTieringConfiguration', stub[:intelligent_tiering_configuration]) unless stub[:intelligent_tiering_configuration].nil?
-        http_resp.body = ::StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
 
@@ -1628,7 +1628,7 @@ module AWS::SDK::S3
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::InventoryConfiguration.build('InventoryConfiguration', stub[:inventory_configuration]) unless stub[:inventory_configuration].nil?
-        http_resp.body = ::StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
 
@@ -1655,7 +1655,7 @@ module AWS::SDK::S3
         xml = Hearth::XML::Node.new('LifecycleConfiguration')
         xml.attributes['xmlns'] = 'http://s3.amazonaws.com/doc/2006-03-01/'
         xml << Stubs::LifecycleRules.stub('Rule', stub[:rules]) unless stub[:rules].nil?
-        http_resp.body = ::StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
 
@@ -1682,7 +1682,7 @@ module AWS::SDK::S3
         xml = Hearth::XML::Node.new('LocationConstraint')
         xml.attributes['xmlns'] = 'http://s3.amazonaws.com/doc/2006-03-01/'
         xml << Hearth::XML::Node.new('LocationConstraint', stub[:location_constraint].to_s) unless stub[:location_constraint].nil?
-        http_resp.body = ::StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
 
@@ -1709,7 +1709,7 @@ module AWS::SDK::S3
         xml = Hearth::XML::Node.new('BucketLoggingStatus')
         xml.attributes['xmlns'] = 'http://s3.amazonaws.com/doc/2006-03-01/'
         xml << Stubs::LoggingEnabled.stub('LoggingEnabled', stub[:logging_enabled]) unless stub[:logging_enabled].nil?
-        http_resp.body = ::StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
 
@@ -1733,7 +1733,7 @@ module AWS::SDK::S3
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::MetricsConfiguration.build('MetricsConfiguration', stub[:metrics_configuration]) unless stub[:metrics_configuration].nil?
-        http_resp.body = ::StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
 
@@ -1766,7 +1766,7 @@ module AWS::SDK::S3
         xml << Stubs::QueueConfigurationList.stub('QueueConfiguration', stub[:queue_configurations]) unless stub[:queue_configurations].nil?
         xml << Stubs::LambdaFunctionConfigurationList.stub('CloudFunctionConfiguration', stub[:lambda_function_configurations]) unless stub[:lambda_function_configurations].nil?
         xml << Stubs::EventBridgeConfiguration.stub('EventBridgeConfiguration', stub[:event_bridge_configuration]) unless stub[:event_bridge_configuration].nil?
-        http_resp.body = ::StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
 
@@ -1790,7 +1790,7 @@ module AWS::SDK::S3
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::OwnershipControls.build('OwnershipControls', stub[:ownership_controls]) unless stub[:ownership_controls].nil?
-        http_resp.body = ::StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
 
@@ -1837,7 +1837,7 @@ module AWS::SDK::S3
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::PolicyStatus.build('PolicyStatus', stub[:policy_status]) unless stub[:policy_status].nil?
-        http_resp.body = ::StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
 
@@ -1861,7 +1861,7 @@ module AWS::SDK::S3
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::ReplicationConfiguration.build('ReplicationConfiguration', stub[:replication_configuration]) unless stub[:replication_configuration].nil?
-        http_resp.body = ::StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
 
@@ -1888,7 +1888,7 @@ module AWS::SDK::S3
         xml = Hearth::XML::Node.new('RequestPaymentConfiguration')
         xml.attributes['xmlns'] = 'http://s3.amazonaws.com/doc/2006-03-01/'
         xml << Hearth::XML::Node.new('Payer', stub[:payer].to_s) unless stub[:payer].nil?
-        http_resp.body = ::StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
 
@@ -1915,7 +1915,7 @@ module AWS::SDK::S3
         xml = Hearth::XML::Node.new('Tagging')
         xml.attributes['xmlns'] = 'http://s3.amazonaws.com/doc/2006-03-01/'
         xml << Hearth::XML::Node.new('TagSet', Stubs::TagSet.stub('Tag', stub[:tag_set])) unless stub[:tag_set].nil?
-        http_resp.body = ::StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
 
@@ -1944,7 +1944,7 @@ module AWS::SDK::S3
         xml.attributes['xmlns'] = 'http://s3.amazonaws.com/doc/2006-03-01/'
         xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
         xml << Hearth::XML::Node.new('MfaDelete', stub[:mfa_delete].to_s) unless stub[:mfa_delete].nil?
-        http_resp.body = ::StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
 
@@ -1977,7 +1977,7 @@ module AWS::SDK::S3
         xml << Stubs::IndexDocument.stub('IndexDocument', stub[:index_document]) unless stub[:index_document].nil?
         xml << Stubs::ErrorDocument.stub('ErrorDocument', stub[:error_document]) unless stub[:error_document].nil?
         xml << Hearth::XML::Node.new('RoutingRules', Stubs::RoutingRules.stub('RoutingRule', stub[:routing_rules])) unless stub[:routing_rules].nil?
-        http_resp.body = ::StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
 
@@ -2102,7 +2102,7 @@ module AWS::SDK::S3
         xml.attributes['xmlns'] = 'http://s3.amazonaws.com/doc/2006-03-01/'
         xml << Stubs::Owner.stub('Owner', stub[:owner]) unless stub[:owner].nil?
         xml << Hearth::XML::Node.new('AccessControlList', Stubs::Grants.stub('Grant', stub[:grants])) unless stub[:grants].nil?
-        http_resp.body = ::StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
 
@@ -2145,7 +2145,7 @@ module AWS::SDK::S3
         xml << Stubs::GetObjectAttributesParts.stub('ObjectParts', stub[:object_parts]) unless stub[:object_parts].nil?
         xml << Hearth::XML::Node.new('StorageClass', stub[:storage_class].to_s) unless stub[:storage_class].nil?
         xml << Hearth::XML::Node.new('ObjectSize', stub[:object_size].to_s) unless stub[:object_size].nil?
-        http_resp.body = ::StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
 
@@ -2196,7 +2196,7 @@ module AWS::SDK::S3
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::ObjectLockLegalHold.build('ObjectLockLegalHold', stub[:legal_hold]) unless stub[:legal_hold].nil?
-        http_resp.body = ::StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
 
@@ -2220,7 +2220,7 @@ module AWS::SDK::S3
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::ObjectLockConfiguration.build('ObjectLockConfiguration', stub[:object_lock_configuration]) unless stub[:object_lock_configuration].nil?
-        http_resp.body = ::StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
 
@@ -2244,7 +2244,7 @@ module AWS::SDK::S3
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::ObjectLockRetention.build('ObjectLockRetention', stub[:retention]) unless stub[:retention].nil?
-        http_resp.body = ::StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
 
@@ -2273,7 +2273,7 @@ module AWS::SDK::S3
         xml = Hearth::XML::Node.new('Tagging')
         xml.attributes['xmlns'] = 'http://s3.amazonaws.com/doc/2006-03-01/'
         xml << Hearth::XML::Node.new('TagSet', Stubs::TagSet.stub('Tag', stub[:tag_set])) unless stub[:tag_set].nil?
-        http_resp.body = ::StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
 
@@ -2321,7 +2321,7 @@ module AWS::SDK::S3
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::PublicAccessBlockConfiguration.build('PublicAccessBlockConfiguration', stub[:public_access_block_configuration]) unless stub[:public_access_block_configuration].nil?
-        http_resp.body = ::StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
 
@@ -2653,7 +2653,7 @@ module AWS::SDK::S3
         xml.attributes['xmlns'] = 'http://s3.amazonaws.com/doc/2006-03-01/'
         xml << Hearth::XML::Node.new('StorageClass', stub[:storage_class].to_s) unless stub[:storage_class].nil?
         xml << Hearth::XML::Node.new('AccessTier', stub[:access_tier].to_s) unless stub[:access_tier].nil?
-        http_resp.body = ::StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
 
@@ -3017,7 +3017,7 @@ module AWS::SDK::S3
         xml << Hearth::XML::Node.new('ContinuationToken', stub[:continuation_token].to_s) unless stub[:continuation_token].nil?
         xml << Hearth::XML::Node.new('NextContinuationToken', stub[:next_continuation_token].to_s) unless stub[:next_continuation_token].nil?
         xml << Stubs::AnalyticsConfigurationList.stub('AnalyticsConfiguration', stub[:analytics_configuration_list]) unless stub[:analytics_configuration_list].nil?
-        http_resp.body = ::StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
 
@@ -3050,7 +3050,7 @@ module AWS::SDK::S3
         xml << Hearth::XML::Node.new('ContinuationToken', stub[:continuation_token].to_s) unless stub[:continuation_token].nil?
         xml << Hearth::XML::Node.new('NextContinuationToken', stub[:next_continuation_token].to_s) unless stub[:next_continuation_token].nil?
         xml << Stubs::IntelligentTieringConfigurationList.stub('IntelligentTieringConfiguration', stub[:intelligent_tiering_configuration_list]) unless stub[:intelligent_tiering_configuration_list].nil?
-        http_resp.body = ::StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
 
@@ -3083,7 +3083,7 @@ module AWS::SDK::S3
         xml << Stubs::InventoryConfigurationList.stub('InventoryConfiguration', stub[:inventory_configuration_list]) unless stub[:inventory_configuration_list].nil?
         xml << Hearth::XML::Node.new('IsTruncated', stub[:is_truncated].to_s) unless stub[:is_truncated].nil?
         xml << Hearth::XML::Node.new('NextContinuationToken', stub[:next_continuation_token].to_s) unless stub[:next_continuation_token].nil?
-        http_resp.body = ::StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
 
@@ -3116,7 +3116,7 @@ module AWS::SDK::S3
         xml << Hearth::XML::Node.new('ContinuationToken', stub[:continuation_token].to_s) unless stub[:continuation_token].nil?
         xml << Hearth::XML::Node.new('NextContinuationToken', stub[:next_continuation_token].to_s) unless stub[:next_continuation_token].nil?
         xml << Stubs::MetricsConfigurationList.stub('MetricsConfiguration', stub[:metrics_configuration_list]) unless stub[:metrics_configuration_list].nil?
-        http_resp.body = ::StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
 
@@ -3145,7 +3145,7 @@ module AWS::SDK::S3
         xml.attributes['xmlns'] = 'http://s3.amazonaws.com/doc/2006-03-01/'
         xml << Hearth::XML::Node.new('Buckets', Stubs::Buckets.stub('Bucket', stub[:buckets])) unless stub[:buckets].nil?
         xml << Stubs::Owner.stub('Owner', stub[:owner]) unless stub[:owner].nil?
-        http_resp.body = ::StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
 
@@ -3174,7 +3174,7 @@ module AWS::SDK::S3
         xml.attributes['xmlns'] = 'http://s3.amazonaws.com/doc/2006-03-01/'
         xml << Hearth::XML::Node.new('Buckets', Stubs::Buckets.stub('Bucket', stub[:buckets])) unless stub[:buckets].nil?
         xml << Hearth::XML::Node.new('ContinuationToken', stub[:continuation_token].to_s) unless stub[:continuation_token].nil?
-        http_resp.body = ::StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
 
@@ -3225,7 +3225,7 @@ module AWS::SDK::S3
         xml << Stubs::MultipartUploadList.stub('Upload', stub[:uploads]) unless stub[:uploads].nil?
         xml << Stubs::CommonPrefixList.stub('CommonPrefixes', stub[:common_prefixes]) unless stub[:common_prefixes].nil?
         xml << Hearth::XML::Node.new('EncodingType', stub[:encoding_type].to_s) unless stub[:encoding_type].nil?
-        http_resp.body = ::StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
 
@@ -3278,7 +3278,7 @@ module AWS::SDK::S3
         xml << Hearth::XML::Node.new('MaxKeys', stub[:max_keys].to_s) unless stub[:max_keys].nil?
         xml << Stubs::CommonPrefixList.stub('CommonPrefixes', stub[:common_prefixes]) unless stub[:common_prefixes].nil?
         xml << Hearth::XML::Node.new('EncodingType', stub[:encoding_type].to_s) unless stub[:encoding_type].nil?
-        http_resp.body = ::StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
 
@@ -3325,7 +3325,7 @@ module AWS::SDK::S3
         xml << Hearth::XML::Node.new('MaxKeys', stub[:max_keys].to_s) unless stub[:max_keys].nil?
         xml << Stubs::CommonPrefixList.stub('CommonPrefixes', stub[:common_prefixes]) unless stub[:common_prefixes].nil?
         xml << Hearth::XML::Node.new('EncodingType', stub[:encoding_type].to_s) unless stub[:encoding_type].nil?
-        http_resp.body = ::StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
 
@@ -3376,7 +3376,7 @@ module AWS::SDK::S3
         xml << Hearth::XML::Node.new('ContinuationToken', stub[:continuation_token].to_s) unless stub[:continuation_token].nil?
         xml << Hearth::XML::Node.new('NextContinuationToken', stub[:next_continuation_token].to_s) unless stub[:next_continuation_token].nil?
         xml << Hearth::XML::Node.new('StartAfter', stub[:start_after].to_s) unless stub[:start_after].nil?
-        http_resp.body = ::StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
 
@@ -3431,7 +3431,7 @@ module AWS::SDK::S3
         xml << Stubs::Owner.stub('Owner', stub[:owner]) unless stub[:owner].nil?
         xml << Hearth::XML::Node.new('StorageClass', stub[:storage_class].to_s) unless stub[:storage_class].nil?
         xml << Hearth::XML::Node.new('ChecksumAlgorithm', stub[:checksum_algorithm].to_s) unless stub[:checksum_algorithm].nil?
-        http_resp.body = ::StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
 
@@ -5781,7 +5781,7 @@ module AWS::SDK::S3
         http_resp.headers['x-amz-request-charged'] = stub[:request_charged] unless stub[:request_charged].nil? || stub[:request_charged].empty?
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::CopyPartResult.build('CopyPartResult', stub[:copy_part_result]) unless stub[:copy_part_result].nil?
-        http_resp.body = ::StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
 
