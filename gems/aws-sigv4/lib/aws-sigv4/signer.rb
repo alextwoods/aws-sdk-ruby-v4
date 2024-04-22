@@ -48,7 +48,7 @@ module AWS
     # If you are using the AWS SDK for Ruby, you can use any of the credential
     # provider classes:
     #
-    # * AWS::SDK::Core::AssumeRoleCredentialProvider
+    # * AWS::SDK::Core::AssumeRoleCredentialsProvider
     # * AWS::SDK::Core::AssumeRoleWebIdentityCredentialProvider
     # * AWS::SDK::Core::EC2CredentialProvider
     # * AWS::SDK::Core::ECSCredentialProvider

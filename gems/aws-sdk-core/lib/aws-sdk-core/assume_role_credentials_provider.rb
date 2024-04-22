@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 module AWS::SDK::Core
-  # An auto-refreshing credential provider that assumes a role via
+  # An auto-refreshing credentials provider that assumes a role via
   # {AWS::SDK::STS::Client#assume_role}.
   #
-  #     provider = AWS::SDK::Core::AssumeRoleCredentialProvider.new(
+  #     provider = AWS::SDK::Core::AssumeRoleCredentialsProvider.new(
   #       client: AWS::SDK::STS::Client.new(...),
   #       role_arn: "linked::account::arn",
   #       role_session_name: "session-name"
@@ -16,7 +16,7 @@ module AWS::SDK::Core
   # constructed with additional options that were provided.
   #
   # @see AWS::SDK::STS::Client#assume_role
-  class AssumeRoleCredentialProvider < Hearth::IdentityProvider
+  class AssumeRoleCredentialsProvider < Hearth::IdentityProvider
     include Hearth::RefreshingIdentityProvider
 
     # Raised when a client is constructed and the specified shared
@@ -43,7 +43,7 @@ module AWS::SDK::Core
     # a credential_source, and that source doesn't provide credentials.
     class NoSourceCredentialsError < RuntimeError; end
 
-    # Initializes an instance of AssumeRoleCredentialProvider using
+    # Initializes an instance of AssumeRoleCredentialsProvider using
     # shared config profile.
     # @api private
     PROFILE = proc do |cfg|
@@ -84,7 +84,7 @@ module AWS::SDK::Core
     def initialize(options)
       unless AWS::SDK::Core.sts_loaded?
         raise 'aws-sdk-sts is required to create an ' \
-              'AssumeRoleCredentialProvider.'
+              'AssumeRoleCredentialsProvider.'
       end
       @client = options.delete(:client) || AWS::SDK::STS::Client.new
       @token_code = options.delete(:token_code)
@@ -175,11 +175,11 @@ module AWS::SDK::Core
         when 'Ec2InstanceMetadata'
           profile_config = AWS::SDK::Core.shared_config[cfg[:profile]]
           client = build_ec2_metadata_client(profile_config)
-          EC2CredentialProvider.new(client: client)
+          EC2CredentialsProvider.new(client: client)
         when 'EcsContainer'
-          ECSCredentialProvider.new
+          ECSCredentialsProvider.new
         when 'Environment'
-          StaticCredentialProvider::ENVIRONMENT.call(cfg)
+          StaticCredentialsProvider::ENVIRONMENT.call(cfg)
         else
           raise InvalidCredentialSourceError,
                 "Unsupported credential_source: #{credentials_source}"

@@ -9,8 +9,8 @@ require 'webmock/rspec'
 
 require 'aws-sdk-core'
 
-require_relative 'support/credential_provider'
-require_relative 'support/refreshing_credential_provider'
+require_relative 'support/credentials_provider'
+require_relative 'support/refreshing_credentials_provider'
 
 module AWS::SDK::STS
   class Client

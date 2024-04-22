@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module AWS::SDK::Core
-  # An auto-refreshing credential provider that loads credentials from
+  # An auto-refreshing credentials provider that loads credentials from
   # EC2 instances using IMDSv2.
   #
   #     provider = AWS::SDK::Core::EC2CredentialProvider.new(
@@ -12,7 +12,7 @@ module AWS::SDK::Core
   #
   # If you omit the `:client` option, a new {AWS::SDK::Core::EC2Metadata} will
   # be created.
-  class EC2CredentialProvider < Hearth::IdentityProvider
+  class EC2CredentialsProvider < Hearth::IdentityProvider
     include Hearth::RefreshingIdentityProvider
 
     # Initializes an instance of EC2CredentialProvider using

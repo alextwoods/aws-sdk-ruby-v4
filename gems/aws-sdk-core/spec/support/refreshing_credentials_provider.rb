@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-RSpec.shared_examples 'refreshing_credential_provider' do
-  include_examples 'credential_provider'
+RSpec.shared_examples 'refreshing_credentials_provider' do
+  include_examples 'credentials_provider'
 
   it 'is a refreshable identity provider' do
     expect(subject).to be_a(Hearth::RefreshingIdentityProvider)

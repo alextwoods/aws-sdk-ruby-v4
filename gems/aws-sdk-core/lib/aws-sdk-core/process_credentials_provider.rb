@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module AWS::SDK::Core
-  # A credential provider that executes a given process and attempts
+  # A credentials provider that executes a given process and attempts
   # to read its stdout to parse a JSON payload containing the credentials.
   #
   #     provider = AWS::SDK::Core::ProcessCredentials.new(
@@ -14,7 +14,7 @@ module AWS::SDK::Core
   # provided in the credentials payload.
   #
   # @see https://docs.aws.amazon.com/cli/latest/topic/config-vars.html#sourcing-credentials-from-external-processes
-  class ProcessCredentialProvider < Hearth::IdentityProvider
+  class ProcessCredentialsProvider < Hearth::IdentityProvider
     include Hearth::RefreshingIdentityProvider
 
     # Initializes an instance of ProcessCredentialProvider using

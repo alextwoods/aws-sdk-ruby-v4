@@ -3,7 +3,7 @@
 require 'openssl'
 
 module AWS::SDK::Core
-  # An auto-refreshing credential provider that assumes a role via
+  # An auto-refreshing credentials provider that assumes a role via
   # {AWS::SDK::SSO::Client#get_role_credentials} using a cached access
   # token. This class does NOT implement the SSO login token flow - tokens
   # must generated and refreshed separately by running `aws login` from the
@@ -32,7 +32,7 @@ module AWS::SDK::Core
   #
   # @see AWS::SDK::SSO::Client#get_role_credentials
   # @see https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html
-  class SSOCredentialProvider < Hearth::IdentityProvider
+  class SSOCredentialsProvider < Hearth::IdentityProvider
     include Hearth::RefreshingIdentityProvider
 
     # @api private

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module AWS::SDK::Core
-  # An auto-refreshing credential provider that loads credentials from
+  # An auto-refreshing credentials provider that loads credentials from
   # instances running in ECS.
   #
   #     provider = AWS::SDK::Core::ECSCredentialProvider.new(
@@ -9,7 +9,7 @@ module AWS::SDK::Core
   #     )
   #     ec2_config = AWS::SDK::EC2::Config.new(credential_provider: provider)
   #     ec2 = AWS::SDK::EC2::Client.new(ec2_config)
-  class ECSCredentialProvider < Hearth::IdentityProvider
+  class ECSCredentialsProvider < Hearth::IdentityProvider
     include Hearth::RefreshingIdentityProvider
 
     # Initializes an instance of ECSCredentialProvider using ENV.

@@ -101,7 +101,7 @@ public class AWSProtocols implements RubyIntegration {
                 .formatted(Hearth.IDENTITY_PROVIDER, defaultIdentity, identityProviderChain);
 
         ClientConfig identityProviderConfig = ClientConfig.builder()
-                .name("credential_provider")
+                .name("credentials_identity_provider")
                 .documentationRbsAndValidationType(Hearth.IDENTITY_PROVIDER.toString())
                 .documentation(credentialProviderDocumentation)
                 .defaultDynamicValue(defaultConfigValue)

@@ -3,7 +3,7 @@
 require_relative '../spec_helper'
 
 module AWS::SDK::Core
-  describe StaticCredentialProvider do
+  describe StaticCredentialsProvider do
     describe 'StaticCredentialProvider::PROFILE' do
       before do
         allow(AWS::SDK::Core).to receive(:shared_config)
@@ -22,8 +22,8 @@ module AWS::SDK::Core
 
         it 'returns an instance of StaticCredentialProvider' do
           cfg = { profile: 'static_credentials' }
-          provider = StaticCredentialProvider::PROFILE.call(cfg)
-          expect(provider).to be_an_instance_of(StaticCredentialProvider)
+          provider = StaticCredentialsProvider::PROFILE.call(cfg)
+          expect(provider).to be_an_instance_of(StaticCredentialsProvider)
         end
       end
 
@@ -37,7 +37,7 @@ module AWS::SDK::Core
 
         it 'returns nil' do
           cfg = { profile: 'default' }
-          provider = StaticCredentialProvider::PROFILE.call(cfg)
+          provider = StaticCredentialsProvider::PROFILE.call(cfg)
           expect(provider).to be_nil
         end
       end
@@ -52,8 +52,8 @@ module AWS::SDK::Core
         )
 
         it 'returns an instance of StaticCredentialProvider' do
-          provider = StaticCredentialProvider::ENVIRONMENT.call({})
-          expect(provider).to be_an_instance_of(StaticCredentialProvider)
+          provider = StaticCredentialsProvider::ENVIRONMENT.call({})
+          expect(provider).to be_an_instance_of(StaticCredentialsProvider)
           credentials = provider.identity
           expect(credentials.access_key_id).to eq('ACCESS_KEY_1')
           expect(credentials.secret_access_key).to eq('SECRET_KEY_1')
@@ -63,13 +63,13 @@ module AWS::SDK::Core
 
       context 'environment does not have credentials' do
         it 'returns nil' do
-          provider = StaticCredentialProvider::ENVIRONMENT.call({})
+          provider = StaticCredentialsProvider::ENVIRONMENT.call({})
           expect(provider).to be_nil
         end
       end
     end
 
-    let(:credential_hash) do
+    let(:credentials_hash) do
       {
         access_key_id: 'ACCESS_KEY_1',
         secret_access_key: 'SECRET_KEY_1',
@@ -77,9 +77,9 @@ module AWS::SDK::Core
       }
     end
 
-    subject { StaticCredentialProvider.new(credential_hash) }
+    subject { StaticCredentialsProvider.new(credentials_hash) }
 
-    include_examples 'credential_provider'
+    include_examples 'credentials_provider'
 
     describe '#identity' do
       it 'returns the credentials' do

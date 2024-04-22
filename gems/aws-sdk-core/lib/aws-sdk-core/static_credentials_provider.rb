@@ -3,15 +3,15 @@
 module AWS::SDK::Core
   # A class that provides credentials from a static location, either from
   # shared configuration files or through code implementations.
-  #     provider = AWS::SDK::Core::StaticCredentialProvider.new(
+  #     provider = AWS::SDK::Core::StaticCredentialsProvider.new(
   #       access_key_id: 'ACCESS_KEY_1',
   #       secret_access_key: 'SECRET_KEY_1',
   #       session_token: 'TOKEN_1'
   #     )
   #     ec2_config = AWS::SDK::EC2::Config.new(credential_provider: provider)
   #     ec2 = AWS::SDK::EC2::Client.new(ec2_config)
-  class StaticCredentialProvider < Hearth::IdentityProvider
-    # Initializes an instance of StaticCredentialProvider using
+  class StaticCredentialsProvider < Hearth::IdentityProvider
+    # Initializes an instance of StaticCredentialsProvider using
     # shared config profile.
     # @api private
     PROFILE = proc do |cfg|
@@ -26,7 +26,7 @@ module AWS::SDK::Core
       end
     end
 
-    # Initializes an instance of StaticCredentialProvider using ENV.
+    # Initializes an instance of StaticCredentialsProvider using ENV.
     # @api private
     ENVIRONMENT = proc do |_cfg|
       if ENV['AWS_ACCESS_KEY_ID'] && ENV['AWS_SECRET_ACCESS_KEY']

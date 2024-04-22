@@ -3,7 +3,7 @@
 require 'securerandom'
 
 module AWS::SDK::Core
-  # An auto-refreshing credential provider that assumes a role via
+  # An auto-refreshing credentials provider that assumes a role via
   # {AWS::SDK::STS::Client#assume_role_with_web_identity}.
   #
   #     provider = AWS::SDK::Core::AssumeRoleWebIdentityCredentialProvider.new(
@@ -19,7 +19,7 @@ module AWS::SDK::Core
   # created.
   #
   # @see AWS::SDK::STS::Client#assume_role_with_web_identity
-  class AssumeRoleWebIdentityCredentialProvider < Hearth::IdentityProvider
+  class AssumeRoleWebIdentityCredentialsProvider < Hearth::IdentityProvider
     include Hearth::RefreshingIdentityProvider
 
     # Raised when :web_identity_token_file parameter is not

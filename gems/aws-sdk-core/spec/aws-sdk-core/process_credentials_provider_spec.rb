@@ -3,7 +3,7 @@
 require_relative '../spec_helper'
 
 module AWS::SDK::Core
-  describe ProcessCredentialProvider do
+  describe ProcessCredentialsProvider do
     describe 'ProcessCredentialProvider::PROFILE' do
       before do
         allow(AWS::SDK::Core).to receive(:shared_config)
@@ -20,8 +20,8 @@ module AWS::SDK::Core
 
         it 'returns an instance of ProcessCredentialProvider' do
           cfg = { profile: 'process_credentials' }
-          provider = ProcessCredentialProvider::PROFILE.call(cfg)
-          expect(provider).to be_an_instance_of(ProcessCredentialProvider)
+          provider = ProcessCredentialsProvider::PROFILE.call(cfg)
+          expect(provider).to be_an_instance_of(ProcessCredentialsProvider)
         end
       end
 
@@ -35,14 +35,14 @@ module AWS::SDK::Core
 
         it 'returns nil' do
           cfg = { profile: 'default' }
-          provider = ProcessCredentialProvider::PROFILE.call(cfg)
+          provider = ProcessCredentialsProvider::PROFILE.call(cfg)
           expect(provider).to be_nil
         end
       end
     end
 
     let(:expiration) { Time.parse('2022-07-04').utc }
-    let(:credential_hash) do
+    let(:credentials_hash) do
       {
         Version: 1,
         AccessKeyId: 'ACCESS_KEY_1',
@@ -53,14 +53,14 @@ module AWS::SDK::Core
     end
 
     let(:process) do
-      "echo '#{credential_hash.to_json}'"
+      "echo '#{credentials_hash.to_json}'"
     end
 
     let(:provider_options) { { process: process } }
 
-    subject { ProcessCredentialProvider.new(process: process) }
+    subject { ProcessCredentialsProvider.new(process: process) }
 
-    include_examples 'refreshing_credential_provider'
+    include_examples 'refreshing_credentials_provider'
 
     describe '#identity' do
       it 'will read valid credentials from a process' do
@@ -71,8 +71,8 @@ module AWS::SDK::Core
         expect(creds.expiration).to eq(expiration)
       end
 
-      context 'missing credential fields' do
-        let(:credential_hash) do
+      context 'missing credentials fields' do
+        let(:credentials_hash) do
           {
             Version: 1,
             SessionToken: ''

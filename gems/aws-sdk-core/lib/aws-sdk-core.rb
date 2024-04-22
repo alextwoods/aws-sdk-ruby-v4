@@ -61,13 +61,13 @@ require_relative 'aws-sdk-core/signers/sigv4'
 
 # Credential Providers
 
-require_relative 'aws-sdk-core/assume_role_credential_provider'
-require_relative 'aws-sdk-core/assume_role_web_identity_credential_provider'
-require_relative 'aws-sdk-core/ec2_credential_provider'
-require_relative 'aws-sdk-core/ecs_credential_provider'
-require_relative 'aws-sdk-core/process_credential_provider'
-require_relative 'aws-sdk-core/sso_credential_provider'
-require_relative 'aws-sdk-core/static_credential_provider'
+require_relative 'aws-sdk-core/assume_role_credentials_provider'
+require_relative 'aws-sdk-core/assume_role_web_identity_credentials_provider'
+require_relative 'aws-sdk-core/ec2_credentials_provider'
+require_relative 'aws-sdk-core/ecs_credentials_provider'
+require_relative 'aws-sdk-core/process_credentials_provider'
+require_relative 'aws-sdk-core/sso_credentials_provider'
+require_relative 'aws-sdk-core/static_credentials_provider'
 
 # ARNS
 require_relative 'aws-sdk-core/arn'
@@ -97,27 +97,27 @@ module AWS::SDK::Core
   # This chain is the order in which Credential Providers are loaded.
   # @api private
   CREDENTIAL_PROVIDER_CHAIN = [
-    AssumeRoleWebIdentityCredentialProvider::PROFILE,
-    SSOCredentialProvider::PROFILE,
-    AssumeRoleCredentialProvider::PROFILE,
-    StaticCredentialProvider::PROFILE,
-    ProcessCredentialProvider::PROFILE,
-    StaticCredentialProvider::ENVIRONMENT,
-    AssumeRoleWebIdentityCredentialProvider::ENVIRONMENT,
-    ECSCredentialProvider::ENVIRONMENT,
-    EC2CredentialProvider::ENVIRONMENT
+    AssumeRoleWebIdentityCredentialsProvider::PROFILE,
+    SSOCredentialsProvider::PROFILE,
+    AssumeRoleCredentialsProvider::PROFILE,
+    StaticCredentialsProvider::PROFILE,
+    ProcessCredentialsProvider::PROFILE,
+    StaticCredentialsProvider::ENVIRONMENT,
+    AssumeRoleWebIdentityCredentialsProvider::ENVIRONMENT,
+    ECSCredentialsProvider::ENVIRONMENT,
+    EC2CredentialsProvider::ENVIRONMENT
   ].freeze
 
-  # This chain is the used by the AssumeRoleCredentialProvider
+  # This chain is the used by the AssumeRoleCredentialsProvider
   # when a source_profile is specified to resolve the credentials
   # from that source profile.
   # @api private
   ASSUME_ROLE_PROFILE_CREDENTIAL_PROVIDER_CHAIN = [
-    StaticCredentialProvider::PROFILE,
-    AssumeRoleCredentialProvider::PROFILE,
-    AssumeRoleWebIdentityCredentialProvider::PROFILE,
-    ProcessCredentialProvider::PROFILE,
-    SSOCredentialProvider::PROFILE
+    StaticCredentialsProvider::PROFILE,
+    AssumeRoleCredentialsProvider::PROFILE,
+    AssumeRoleWebIdentityCredentialsProvider::PROFILE,
+    ProcessCredentialsProvider::PROFILE,
+    SSOCredentialsProvider::PROFILE
   ].freeze
 
   def self.shared_config
