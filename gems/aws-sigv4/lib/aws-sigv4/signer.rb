@@ -48,7 +48,7 @@ module AWS
     # If you are using the AWS SDK for Ruby, you can use any of the credential
     # provider classes:
     #
-    # * AWS::SDK::Core::AssumeRoleCredentialsProvider
+    # * AWS::SDK::Core::AssumeRoleCredentialProvider
     # * AWS::SDK::Core::AssumeRoleWebIdentityCredentialProvider
     # * AWS::SDK::Core::EC2CredentialProvider
     # * AWS::SDK::Core::ECSCredentialProvider
@@ -1025,4 +1025,10 @@ module AWS
       end
     end
   end
+end
+
+
+text.gsub(/body:[\n\s]*"""((.|\n)*)"""/m) do |m|
+  puts $1
+  m
 end
