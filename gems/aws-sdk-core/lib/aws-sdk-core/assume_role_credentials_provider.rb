@@ -9,7 +9,7 @@ module AWS::SDK::Core
   #       role_arn: "linked::account::arn",
   #       role_session_name: "session-name"
   #     )
-  #     ec2_config = AWS::SDK::EC2::Config.new(credential_provider: provider)
+  #     ec2_config = AWS::SDK::EC2::Config.new(credentials_provider: provider)
   #     ec2 = AWS::SDK::EC2::Client.new(ec2_config)
   #
   # If you omit `:client` option, a new {AWS::SDK::STS::Client} object will be
@@ -200,7 +200,7 @@ module AWS::SDK::Core
       def build_profile_provider(cfg, profile_config, source_provider)
         sts_client = AWS::SDK::STS::Client.new(
           region: cfg[:region],
-          credential_provider: source_provider
+          credentials_provider: source_provider
         )
         new(
           client: sts_client,

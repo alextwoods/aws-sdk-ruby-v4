@@ -7,7 +7,7 @@ module AWS::SDK::Core
   #     provider = AWS::SDK::Core::EC2CredentialProvider.new(
   #       client: AWS::SDK::Core::EC2Metadata.new(...)
   #     )
-  #     ec2_config = AWS::SDK::EC2::Config.new(credential_provider: provider)
+  #     ec2_config = AWS::SDK::EC2::Config.new(credentials_provider: provider)
   #     ec2 = AWS::SDK::EC2::Client.new(ec2_config)
   #
   # If you omit the `:client` option, a new {AWS::SDK::Core::EC2Metadata} will

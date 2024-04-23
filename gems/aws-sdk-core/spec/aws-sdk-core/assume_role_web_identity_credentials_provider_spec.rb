@@ -34,7 +34,10 @@ module AWS::SDK::Core
 
         it 'forwards profile to the STS client' do
           expect(AWS::SDK::STS::Client).to receive(:new)
-            .with(profile: 'assume_role_web_identity_credentials')
+            .with(
+              profile: 'assume_role_web_identity_credentials',
+              credentials_provider: nil
+            )
             .and_return(client)
           provider = AssumeRoleWebIdentityCredentialsProvider::PROFILE.call(cfg)
           expect(provider.client).to be(client)

@@ -8,7 +8,7 @@ module AWS::SDK::Core
   #       secret_access_key: 'SECRET_KEY_1',
   #       session_token: 'TOKEN_1'
   #     )
-  #     ec2_config = AWS::SDK::EC2::Config.new(credential_provider: provider)
+  #     ec2_config = AWS::SDK::EC2::Config.new(credentials_provider: provider)
   #     ec2 = AWS::SDK::EC2::Client.new(ec2_config)
   class StaticCredentialsProvider < Hearth::IdentityProvider
     # Initializes an instance of StaticCredentialsProvider using

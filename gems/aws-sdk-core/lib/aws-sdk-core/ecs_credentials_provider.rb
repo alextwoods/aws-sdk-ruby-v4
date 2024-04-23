@@ -7,7 +7,7 @@ module AWS::SDK::Core
   #     provider = AWS::SDK::Core::ECSCredentialProvider.new(
   #       credential_path: '/path/to/credentials.json'
   #     )
-  #     ec2_config = AWS::SDK::EC2::Config.new(credential_provider: provider)
+  #     ec2_config = AWS::SDK::EC2::Config.new(credentials_provider: provider)
   #     ec2 = AWS::SDK::EC2::Client.new(ec2_config)
   class ECSCredentialsProvider < Hearth::IdentityProvider
     include Hearth::RefreshingIdentityProvider

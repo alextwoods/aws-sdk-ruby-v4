@@ -24,7 +24,7 @@ module AWS::SDK::Core
   #       sso_region: "us-east-1",
   #       sso_start_url: 'https://your-start-url.awsapps.com/start'
   #     )
-  #     ec2_config = AWS::SDK::EC2::Config.new(credential_provider: provider)
+  #     ec2_config = AWS::SDK::EC2::Config.new(credentials_provider: provider)
   #     ec2 = AWS::SDK::EC2::Client.new(ec2_config)
   #
   # If you omit the `:client` option, a new {AWS::SDK::SSO::Client} object

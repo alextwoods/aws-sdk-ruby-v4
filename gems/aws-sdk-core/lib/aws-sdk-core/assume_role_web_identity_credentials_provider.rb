@@ -12,7 +12,7 @@ module AWS::SDK::Core
   #       role_arn: "linked::account::arn",
   #       role_session_name: "session-name"
   #     )
-  #     ec2_config = AWS::SDK::EC2::Config.new(credential_provider: provider)
+  #     ec2_config = AWS::SDK::EC2::Config.new(credentials_provider: provider)
   #     ec2 = AWS::SDK::EC2::Client.new(ec2_config)
   #
   # If you omit the `:client` option, a new {AWS::SDK::STS::Client} will be
@@ -37,7 +37,8 @@ module AWS::SDK::Core
       if profile_config && profile_config['web_identity_token_file'] &&
          profile_config['role_arn']
         client = AWS::SDK::STS::Client.new(
-          profile: cfg[:profile]
+          profile: cfg[:profile],
+          credentials_provider: nil
         )
 
         new(
@@ -78,7 +79,9 @@ module AWS::SDK::Core
               'AssumeRoleWebIdentityCredentialProvider.'
       end
 
-      @client = options.delete(:client) || AWS::SDK::STS::Client.new
+      @client = options.delete(:client) || AWS::SDK::STS::Client.new(
+        credentials_provider: nil
+      )
       @web_identity_token_file = options.delete(:web_identity_token_file)
       @assume_role_with_web_identity_params = options
       @assume_role_with_web_identity_params[:role_session_name] ||=

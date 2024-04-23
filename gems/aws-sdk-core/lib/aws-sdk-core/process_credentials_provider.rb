@@ -7,7 +7,7 @@ module AWS::SDK::Core
   #     provider = AWS::SDK::Core::ProcessCredentials.new(
   #       '/usr/bin/credential_proc'
   #     )
-  #     ec2_config = AWS::SDK::EC2::Config.new(credential_provider: provider)
+  #     ec2_config = AWS::SDK::EC2::Config.new(credentials_provider: provider)
   #     ec2 = AWS::SDK::EC2::Client.new(ec2_config)
   #
   # Automatically handles refreshing credentials if an Expiration time is
