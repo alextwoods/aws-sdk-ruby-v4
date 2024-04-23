@@ -72,7 +72,7 @@ module AWS::SDK::Core
       expiration = if new_creds['Expiration']
                      Time.iso8601(new_creds['Expiration'])
                    end
-      @identity = AWS::SDK::Core::Credentials.new(
+      @identity = AWS::SDK::Core::Identities::Credentials.new(
         access_key_id: new_creds['AccessKeyId'],
         secret_access_key: new_creds['SecretAccessKey'],
         session_token: new_creds['Token'],

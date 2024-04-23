@@ -56,7 +56,7 @@ end
 
 # SigV4
 require_relative 'aws-sdk-core/auth_schemes/sigv4'
-require_relative 'aws-sdk-core/credentials'
+require_relative 'aws-sdk-core/identities/credentials'
 require_relative 'aws-sdk-core/signers/sigv4'
 
 # Credential Providers
@@ -96,7 +96,7 @@ module AWS::SDK::Core
 
   # This chain is the order in which Credential Providers are loaded.
   # @api private
-  CREDENTIAL_PROVIDER_CHAIN = [
+  CREDENTIALS_PROVIDER_CHAIN = [
     AssumeRoleWebIdentityCredentialsProvider::PROFILE,
     SSOCredentialsProvider::PROFILE,
     AssumeRoleCredentialsProvider::PROFILE,

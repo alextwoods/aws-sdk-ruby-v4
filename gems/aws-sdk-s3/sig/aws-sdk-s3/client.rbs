@@ -18,7 +18,7 @@ module AWS::SDK::S3
         ?accelerate: bool,
         ?auth_resolver: Hearth::_AuthResolver[Auth::Params],
         ?auth_schemes: Array[Hearth::AuthSchemes::Base],
-        ?credential_provider: Hearth::IdentityProvider,
+        ?credentials_provider: Hearth::IdentityProvider,
         ?disable_host_prefix: bool,
         ?disable_multi_region_access_points: bool,
         ?disable_multiregion_access_points: bool,

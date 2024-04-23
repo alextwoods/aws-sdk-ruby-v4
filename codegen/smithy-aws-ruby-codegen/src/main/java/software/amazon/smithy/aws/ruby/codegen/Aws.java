@@ -10,6 +10,6 @@ public final class Aws {
     private Aws() { }
 
     public static final Symbol AWS_CREDENTIALS_IDENTITY = Symbol.builder()
-            .namespace("AWS::SDK::Core", "::")
+            .namespace("AWS::SDK::Core::Identities", "::")
             .name("Credentials").build();
 }

@@ -17,7 +17,7 @@ module AWS::SDK::CloudWatch
       (
         ?auth_resolver: Hearth::_AuthResolver[Auth::Params],
         ?auth_schemes: Array[Hearth::AuthSchemes::Base],
-        ?credential_provider: Hearth::IdentityProvider,
+        ?credentials_provider: Hearth::IdentityProvider,
         ?disable_host_prefix: bool,
         ?disable_request_compression: bool,
         ?endpoint: String,

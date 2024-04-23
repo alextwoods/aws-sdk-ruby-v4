@@ -1026,9 +1026,3 @@ module AWS
     end
   end
 end
-
-
-text.gsub(/body:[\n\s]*"""((.|\n)*)"""/m) do |m|
-  puts $1
-  m
-end

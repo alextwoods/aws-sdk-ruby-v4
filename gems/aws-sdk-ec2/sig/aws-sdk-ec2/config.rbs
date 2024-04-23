@@ -4,7 +4,7 @@ module AWS::SDK::EC2
 
     attr_accessor auth_resolver (): Hearth::_AuthResolver[Auth::Params]
     attr_accessor auth_schemes (): Array[Hearth::AuthSchemes::Base]
-    attr_accessor credential_provider (): Hearth::IdentityProvider
+    attr_accessor credentials_provider (): Hearth::IdentityProvider
     attr_accessor disable_host_prefix (): bool
     attr_accessor endpoint (): String
     attr_accessor endpoint_resolver (): Hearth::_EndpointResolver[Endpoint::Params]

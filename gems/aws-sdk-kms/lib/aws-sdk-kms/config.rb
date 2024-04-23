@@ -17,34 +17,34 @@ module AWS::SDK::KMS
   #     An ordered list of {Hearth::AuthSchemes::Base} objects that will considered when attempting to authenticate
   #     the request. The first scheme that returns an Identity from its Hearth::IdentityProvider will be used to
   #     authenticate the request.
-  #   @option args [Hearth::IdentityProvider] :credential_provider
-  #     A credential provider is a class that fetches your AWS credentials. This can be an instance
-  #     of any one of the following classes:
+  #   @option args [Hearth::IdentityProvider] :credentials_provider ( *AWS::SDK::Core::CREDENTIALS_PROVIDER_CHAIN)
+  #     A credentials provider is a class that fetches your AWS credentials and responds to the `#identity`
+  #     method. This can be an instance of any one of the following classes
   #
-  #     * `AWS::SDK::Core::StaticCredentialProvider` - Used for fetching static, non-refreshing
+  #     * `AWS::SDK::Core::StaticCredentialsProvider` - Used for fetching static, non-refreshing
   #       credentials.
   #
-  #     * `AWS::SDK::Core::AssumeRoleCredentialProvider` - Used when you need to assume a role.
+  #     * `AWS::SDK::Core::AssumeRoleCredentialsProvider` - Used when you need to assume a role.
   #
-  #     * `AWS::SDK::Core::AssumeRoleWebIdentityCredentialProvider` - Used when you need to
+  #     * `AWS::SDK::Core::AssumeRoleWebIdentityCredentialsProvider` - Used when you need to
   #       assume a role after providing credentials via the web using a token.
   #
-  #     * `AWS::SDK::Core::SSOCredentialProvider` - Used for loading credentials from AWS SSO
+  #     * `AWS::SDK::Core::SSOCredentialsProvider` - Used for loading credentials from AWS SSO
   #       using an access token generated from `aws login`.
   #
-  #     * `AWS::SDK::Core::ProcessCredentialProvider` - Used for loading credentials from a
+  #     * `AWS::SDK::Core::ProcessCredentialsProvider` - Used for loading credentials from a
   #       process that outputs JSON to stdout.
   #
-  #     * `AWS::SDK::Core::EC2CredentialProvider` - Used for loading credentials from the instance
+  #     * `AWS::SDK::Core::EC2CredentialsProvider` - Used for loading credentials from the instance
   #       metadata service (IMDS) on an EC2 instance.
   #
-  #     * `AWS::SDK::Core::ECSCredentialProvider - Used for loading credentials from instances
+  #     * `AWS::SDK::Core::ECSCredentialsProvider - Used for loading credentials from instances
   #       running in ECS.
   #
-  #     * `AWS::SDK::CognitoIdentity::CredentialProvider` - Used for loading credentials
+  #     * `AWS::SDK::CognitoIdentity::CredentialsProvider` - Used for loading credentials
   #       from the Cognito Identity service.
   #
-  #     When `:credential_provider` is not configured directly, the following
+  #     When `:credentials_provider` is not configured directly, the following
   #     locations will be searched for credentials:
   #
   #     * ENV['AWS_ACCESS_KEY_ID'], ENV['AWS_SECRET_ACCESS_KEY'], and other
@@ -52,7 +52,7 @@ module AWS::SDK::KMS
   #     * `~/.aws/credentials` and `~/.aws/config`
   #     * EC2/ECS instance profiles.
   #
-  #     @see AWS::SDK::Core::CREDENTIAL_PROVIDER_CHAIN
+  #     @see AWS::SDK::Core::CREDENTIALS_PROVIDER_CHAIN
   #   @option args [Boolean] :disable_host_prefix (false)
   #     When `true`, does not perform host prefix injection using @endpoint trait's hostPrefix property.
   #   @option args [String] :endpoint
@@ -111,7 +111,7 @@ module AWS::SDK::KMS
   #   @return [#resolve(params)]
   # @!attribute auth_schemes
   #   @return [Array<Hearth::AuthSchemes::Base>]
-  # @!attribute credential_provider
+  # @!attribute credentials_provider
   #   @return [Hearth::IdentityProvider]
   # @!attribute disable_host_prefix
   #   @return [Boolean]
@@ -144,7 +144,7 @@ module AWS::SDK::KMS
   Config = ::Struct.new(
     :auth_resolver,
     :auth_schemes,
-    :credential_provider,
+    :credentials_provider,
     :disable_host_prefix,
     :endpoint,
     :endpoint_resolver,
@@ -167,7 +167,7 @@ module AWS::SDK::KMS
     def validate!
       Hearth::Validator.validate_responds_to!(auth_resolver, :resolve, context: 'config[:auth_resolver]')
       Hearth::Validator.validate_types!(auth_schemes, Array, context: 'config[:auth_schemes]')
-      Hearth::Validator.validate_types!(credential_provider, Hearth::IdentityProvider, context: 'config[:credential_provider]')
+      Hearth::Validator.validate_types!(credentials_provider, Hearth::IdentityProvider, context: 'config[:credentials_provider]')
       Hearth::Validator.validate_types!(disable_host_prefix, TrueClass, FalseClass, context: 'config[:disable_host_prefix]')
       Hearth::Validator.validate_types!(endpoint, String, context: 'config[:endpoint]')
       Hearth::Validator.validate_responds_to!(endpoint_resolver, :resolve, context: 'config[:endpoint_resolver]')
@@ -190,7 +190,7 @@ module AWS::SDK::KMS
       {
         auth_resolver: [Auth::Resolver.new],
         auth_schemes: [Auth::SCHEMES],
-        credential_provider: [proc { |cfg| cfg[:stub_responses] ? Hearth::IdentityProvider.new(proc { AWS::SDK::Core::Credentials.new(access_key_id: 'stubbed-akid', secret_access_key: 'stubbed-secret') }) : nil }],
+        credentials_provider: [proc { |cfg| cfg[:stub_responses] ? Hearth::IdentityProvider.new(proc { AWS::SDK::Core::Identities::Credentials.new(access_key_id: 'stubbed-akid', secret_access_key: 'stubbed-secret') }) : nil }, *AWS::SDK::Core::CREDENTIALS_PROVIDER_CHAIN],
         disable_host_prefix: [false],
         endpoint: [proc { |cfg| cfg[:stub_responses] ? 'http://localhost' : nil }],
         endpoint_resolver: [Endpoint::Resolver.new],

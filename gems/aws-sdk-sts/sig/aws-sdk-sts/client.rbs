@@ -17,7 +17,7 @@ module AWS::SDK::STS
       (
         ?auth_resolver: Hearth::_AuthResolver[Auth::Params],
         ?auth_schemes: Array[Hearth::AuthSchemes::Base],
-        ?credential_provider: Hearth::IdentityProvider,
+        ?credentials_provider: Hearth::IdentityProvider,
         ?disable_host_prefix: bool,
         ?endpoint: String,
         ?endpoint_resolver: Hearth::_EndpointResolver[Endpoint::Params],

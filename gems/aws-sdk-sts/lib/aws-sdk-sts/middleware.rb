@@ -28,7 +28,7 @@ module AWS::SDK::STS
           auth_params: Auth::Params.new(operation_name: :assume_role, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -79,7 +79,7 @@ module AWS::SDK::STS
           auth_params: Auth::Params.new(operation_name: :assume_role_with_saml, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -130,7 +130,7 @@ module AWS::SDK::STS
           auth_params: Auth::Params.new(operation_name: :assume_role_with_web_identity, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -181,7 +181,7 @@ module AWS::SDK::STS
           auth_params: Auth::Params.new(operation_name: :decode_authorization_message, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -232,7 +232,7 @@ module AWS::SDK::STS
           auth_params: Auth::Params.new(operation_name: :get_access_key_info, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -283,7 +283,7 @@ module AWS::SDK::STS
           auth_params: Auth::Params.new(operation_name: :get_caller_identity, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -334,7 +334,7 @@ module AWS::SDK::STS
           auth_params: Auth::Params.new(operation_name: :get_federation_token, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -385,7 +385,7 @@ module AWS::SDK::STS
           auth_params: Auth::Params.new(operation_name: :get_session_token, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,

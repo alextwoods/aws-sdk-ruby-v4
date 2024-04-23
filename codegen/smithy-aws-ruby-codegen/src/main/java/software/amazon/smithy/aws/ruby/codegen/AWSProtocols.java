@@ -15,12 +15,11 @@ import software.amazon.smithy.ruby.codegen.RubyIntegration;
 import software.amazon.smithy.ruby.codegen.auth.AuthParam;
 import software.amazon.smithy.ruby.codegen.auth.AuthScheme;
 import software.amazon.smithy.ruby.codegen.config.ClientConfig;
+import software.amazon.smithy.ruby.codegen.config.ConfigProviderChain;
 import software.amazon.smithy.utils.ListUtils;
 
 import java.util.List;
 import java.util.Map;
-
-import static software.amazon.smithy.aws.ruby.codegen.Aws.AWS_CREDENTIALS_IDENTITY;
 
 public class AWSProtocols implements RubyIntegration {
     @Override
@@ -58,33 +57,33 @@ public class AWSProtocols implements RubyIntegration {
 
     private AuthScheme sigv4AuthScheme() {
         String credentialProviderDocumentation = """
-                A credential provider is a class that fetches your AWS credentials. This can be an instance
-                of any one of the following classes:
+                A credentials provider is a class that fetches your AWS credentials and responds to the `#identity` 
+                method. This can be an instance of any one of the following classes
                         
-                * `AWS::SDK::Core::StaticCredentialProvider` - Used for fetching static, non-refreshing
+                * `AWS::SDK::Core::StaticCredentialsProvider` - Used for fetching static, non-refreshing
                   credentials.
                         
-                * `AWS::SDK::Core::AssumeRoleCredentialProvider` - Used when you need to assume a role.
+                * `AWS::SDK::Core::AssumeRoleCredentialsProvider` - Used when you need to assume a role.
                         
-                * `AWS::SDK::Core::AssumeRoleWebIdentityCredentialProvider` - Used when you need to
+                * `AWS::SDK::Core::AssumeRoleWebIdentityCredentialsProvider` - Used when you need to
                   assume a role after providing credentials via the web using a token.
                         
-                * `AWS::SDK::Core::SSOCredentialProvider` - Used for loading credentials from AWS SSO
+                * `AWS::SDK::Core::SSOCredentialsProvider` - Used for loading credentials from AWS SSO
                   using an access token generated from `aws login`.
                         
-                * `AWS::SDK::Core::ProcessCredentialProvider` - Used for loading credentials from a
+                * `AWS::SDK::Core::ProcessCredentialsProvider` - Used for loading credentials from a
                   process that outputs JSON to stdout.
                         
-                * `AWS::SDK::Core::EC2CredentialProvider` - Used for loading credentials from the instance
+                * `AWS::SDK::Core::EC2CredentialsProvider` - Used for loading credentials from the instance
                   metadata service (IMDS) on an EC2 instance.
                         
-                * `AWS::SDK::Core::ECSCredentialProvider - Used for loading credentials from instances
+                * `AWS::SDK::Core::ECSCredentialsProvider - Used for loading credentials from instances
                   running in ECS.
                         
-                * `AWS::SDK::CognitoIdentity::CredentialProvider` - Used for loading credentials
+                * `AWS::SDK::CognitoIdentity::CredentialsProvider` - Used for loading credentials
                   from the Cognito Identity service.
                         
-                When `:credential_provider` is not configured directly, the following
+                When `:credentials_provider` is not configured directly, the following
                 locations will be searched for credentials:
                         
                 * ENV['AWS_ACCESS_KEY_ID'], ENV['AWS_SECRET_ACCESS_KEY'], and other
@@ -92,19 +91,22 @@ public class AWSProtocols implements RubyIntegration {
                 * `~/.aws/credentials` and `~/.aws/config`
                 * EC2/ECS instance profiles.
                   
-                @see AWS::SDK::Core::CREDENTIAL_PROVIDER_CHAIN""";
+                @see AWS::SDK::Core::CREDENTIALS_PROVIDER_CHAIN""";
 
-        String identityProviderChain = "nil"; // TODO: Add the actual credential/identity provider chain
+        String identityProviderChain = " *AWS::SDK::Core::CREDENTIALS_PROVIDER_CHAIN";
         String defaultIdentity = "%s.new(access_key_id: 'stubbed-akid', secret_access_key: 'stubbed-secret')"
-                .formatted(AWS_CREDENTIALS_IDENTITY);
-        String defaultConfigValue = "cfg[:stub_responses] ? %s.new(proc { %s }) : %s"
-                .formatted(Hearth.IDENTITY_PROVIDER, defaultIdentity, identityProviderChain);
+                .formatted(Aws.AWS_CREDENTIALS_IDENTITY);
+        String defaultConfigValue = "cfg[:stub_responses] ? %s.new(proc { %s }) : nil"
+                .formatted(Hearth.IDENTITY_PROVIDER, defaultIdentity);
 
         ClientConfig identityProviderConfig = ClientConfig.builder()
-                .name("credentials_identity_provider")
+                .name("credentials_provider")
                 .documentationRbsAndValidationType(Hearth.IDENTITY_PROVIDER.toString())
                 .documentation(credentialProviderDocumentation)
-                .defaultDynamicValue(defaultConfigValue)
+                .defaults(ConfigProviderChain.builder()
+                        .dynamicProvider(defaultConfigValue)
+                        .staticProvider(identityProviderChain)
+                        .build())
                 .build();
 
         return AuthScheme.builder()

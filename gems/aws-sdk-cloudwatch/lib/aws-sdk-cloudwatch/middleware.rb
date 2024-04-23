@@ -28,7 +28,7 @@ module AWS::SDK::CloudWatch
           auth_params: Auth::Params.new(operation_name: :delete_alarms, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -79,7 +79,7 @@ module AWS::SDK::CloudWatch
           auth_params: Auth::Params.new(operation_name: :delete_anomaly_detector, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -130,7 +130,7 @@ module AWS::SDK::CloudWatch
           auth_params: Auth::Params.new(operation_name: :delete_dashboards, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -181,7 +181,7 @@ module AWS::SDK::CloudWatch
           auth_params: Auth::Params.new(operation_name: :delete_insight_rules, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -232,7 +232,7 @@ module AWS::SDK::CloudWatch
           auth_params: Auth::Params.new(operation_name: :delete_metric_stream, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -283,7 +283,7 @@ module AWS::SDK::CloudWatch
           auth_params: Auth::Params.new(operation_name: :describe_alarm_history, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -334,7 +334,7 @@ module AWS::SDK::CloudWatch
           auth_params: Auth::Params.new(operation_name: :describe_alarms, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -385,7 +385,7 @@ module AWS::SDK::CloudWatch
           auth_params: Auth::Params.new(operation_name: :describe_alarms_for_metric, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -436,7 +436,7 @@ module AWS::SDK::CloudWatch
           auth_params: Auth::Params.new(operation_name: :describe_anomaly_detectors, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -487,7 +487,7 @@ module AWS::SDK::CloudWatch
           auth_params: Auth::Params.new(operation_name: :describe_insight_rules, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -538,7 +538,7 @@ module AWS::SDK::CloudWatch
           auth_params: Auth::Params.new(operation_name: :disable_alarm_actions, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -589,7 +589,7 @@ module AWS::SDK::CloudWatch
           auth_params: Auth::Params.new(operation_name: :disable_insight_rules, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -640,7 +640,7 @@ module AWS::SDK::CloudWatch
           auth_params: Auth::Params.new(operation_name: :enable_alarm_actions, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -691,7 +691,7 @@ module AWS::SDK::CloudWatch
           auth_params: Auth::Params.new(operation_name: :enable_insight_rules, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -742,7 +742,7 @@ module AWS::SDK::CloudWatch
           auth_params: Auth::Params.new(operation_name: :get_dashboard, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -793,7 +793,7 @@ module AWS::SDK::CloudWatch
           auth_params: Auth::Params.new(operation_name: :get_insight_rule_report, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -844,7 +844,7 @@ module AWS::SDK::CloudWatch
           auth_params: Auth::Params.new(operation_name: :get_metric_data, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -895,7 +895,7 @@ module AWS::SDK::CloudWatch
           auth_params: Auth::Params.new(operation_name: :get_metric_statistics, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -946,7 +946,7 @@ module AWS::SDK::CloudWatch
           auth_params: Auth::Params.new(operation_name: :get_metric_stream, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -997,7 +997,7 @@ module AWS::SDK::CloudWatch
           auth_params: Auth::Params.new(operation_name: :get_metric_widget_image, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1048,7 +1048,7 @@ module AWS::SDK::CloudWatch
           auth_params: Auth::Params.new(operation_name: :list_dashboards, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1099,7 +1099,7 @@ module AWS::SDK::CloudWatch
           auth_params: Auth::Params.new(operation_name: :list_managed_insight_rules, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1150,7 +1150,7 @@ module AWS::SDK::CloudWatch
           auth_params: Auth::Params.new(operation_name: :list_metric_streams, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1201,7 +1201,7 @@ module AWS::SDK::CloudWatch
           auth_params: Auth::Params.new(operation_name: :list_metrics, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1252,7 +1252,7 @@ module AWS::SDK::CloudWatch
           auth_params: Auth::Params.new(operation_name: :list_tags_for_resource, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1303,7 +1303,7 @@ module AWS::SDK::CloudWatch
           auth_params: Auth::Params.new(operation_name: :put_anomaly_detector, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1354,7 +1354,7 @@ module AWS::SDK::CloudWatch
           auth_params: Auth::Params.new(operation_name: :put_composite_alarm, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1405,7 +1405,7 @@ module AWS::SDK::CloudWatch
           auth_params: Auth::Params.new(operation_name: :put_dashboard, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1456,7 +1456,7 @@ module AWS::SDK::CloudWatch
           auth_params: Auth::Params.new(operation_name: :put_insight_rule, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1507,7 +1507,7 @@ module AWS::SDK::CloudWatch
           auth_params: Auth::Params.new(operation_name: :put_managed_insight_rules, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1558,7 +1558,7 @@ module AWS::SDK::CloudWatch
           auth_params: Auth::Params.new(operation_name: :put_metric_alarm, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1609,7 +1609,7 @@ module AWS::SDK::CloudWatch
           auth_params: Auth::Params.new(operation_name: :put_metric_data, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::HTTP::Middleware::RequestCompression,
@@ -1666,7 +1666,7 @@ module AWS::SDK::CloudWatch
           auth_params: Auth::Params.new(operation_name: :put_metric_stream, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1717,7 +1717,7 @@ module AWS::SDK::CloudWatch
           auth_params: Auth::Params.new(operation_name: :set_alarm_state, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1768,7 +1768,7 @@ module AWS::SDK::CloudWatch
           auth_params: Auth::Params.new(operation_name: :start_metric_streams, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1819,7 +1819,7 @@ module AWS::SDK::CloudWatch
           auth_params: Auth::Params.new(operation_name: :stop_metric_streams, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1870,7 +1870,7 @@ module AWS::SDK::CloudWatch
           auth_params: Auth::Params.new(operation_name: :tag_resource, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1921,7 +1921,7 @@ module AWS::SDK::CloudWatch
           auth_params: Auth::Params.new(operation_name: :untag_resource, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,

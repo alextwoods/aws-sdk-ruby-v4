@@ -28,7 +28,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :abort_multipart_upload, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -86,7 +86,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :complete_multipart_upload, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -144,7 +144,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :copy_object, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -202,7 +202,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :create_bucket, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -260,7 +260,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :create_multipart_upload, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -318,7 +318,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :create_session, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -376,7 +376,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :delete_bucket, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -434,7 +434,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :delete_bucket_analytics_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -492,7 +492,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :delete_bucket_cors, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -550,7 +550,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :delete_bucket_encryption, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -608,7 +608,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :delete_bucket_intelligent_tiering_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -666,7 +666,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :delete_bucket_inventory_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -724,7 +724,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :delete_bucket_lifecycle, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -782,7 +782,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :delete_bucket_metrics_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -840,7 +840,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :delete_bucket_ownership_controls, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -898,7 +898,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :delete_bucket_policy, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -956,7 +956,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :delete_bucket_replication, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1014,7 +1014,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :delete_bucket_tagging, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1072,7 +1072,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :delete_bucket_website, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1130,7 +1130,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :delete_object, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1188,7 +1188,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :delete_object_tagging, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1246,7 +1246,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :delete_objects, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -1308,7 +1308,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :delete_public_access_block, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1366,7 +1366,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_bucket_accelerate_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1424,7 +1424,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_bucket_acl, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1482,7 +1482,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_bucket_analytics_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1540,7 +1540,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_bucket_cors, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1598,7 +1598,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_bucket_encryption, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1656,7 +1656,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_bucket_intelligent_tiering_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1714,7 +1714,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_bucket_inventory_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1772,7 +1772,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_bucket_lifecycle_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1830,7 +1830,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_bucket_location, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1888,7 +1888,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_bucket_logging, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1946,7 +1946,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_bucket_metrics_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2004,7 +2004,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_bucket_notification_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2062,7 +2062,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_bucket_ownership_controls, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2120,7 +2120,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_bucket_policy, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2178,7 +2178,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_bucket_policy_status, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2236,7 +2236,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_bucket_replication, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2294,7 +2294,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_bucket_request_payment, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2352,7 +2352,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_bucket_tagging, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2410,7 +2410,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_bucket_versioning, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2468,7 +2468,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_bucket_website, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2526,7 +2526,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_object, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -2589,7 +2589,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_object_acl, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2647,7 +2647,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_object_attributes, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2705,7 +2705,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_object_legal_hold, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2763,7 +2763,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_object_lock_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2821,7 +2821,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_object_retention, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2879,7 +2879,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_object_tagging, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2937,7 +2937,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_object_torrent, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2995,7 +2995,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :get_public_access_block, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -3053,7 +3053,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :head_bucket, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -3111,7 +3111,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :head_object, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -3169,7 +3169,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :list_bucket_analytics_configurations, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -3227,7 +3227,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :list_bucket_intelligent_tiering_configurations, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -3285,7 +3285,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :list_bucket_inventory_configurations, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -3343,7 +3343,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :list_bucket_metrics_configurations, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -3401,7 +3401,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :list_buckets, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -3459,7 +3459,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :list_directory_buckets, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -3517,7 +3517,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :list_multipart_uploads, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -3575,7 +3575,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :list_object_versions, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -3633,7 +3633,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :list_objects, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -3691,7 +3691,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :list_objects_v2, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -3749,7 +3749,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :list_parts, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -3807,7 +3807,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :put_bucket_accelerate_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -3869,7 +3869,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :put_bucket_acl, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -3931,7 +3931,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :put_bucket_analytics_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -3989,7 +3989,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :put_bucket_cors, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -4051,7 +4051,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :put_bucket_encryption, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -4113,7 +4113,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :put_bucket_intelligent_tiering_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -4171,7 +4171,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :put_bucket_inventory_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -4229,7 +4229,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :put_bucket_lifecycle_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -4291,7 +4291,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :put_bucket_logging, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -4353,7 +4353,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :put_bucket_metrics_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -4411,7 +4411,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :put_bucket_notification_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -4469,7 +4469,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :put_bucket_ownership_controls, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -4530,7 +4530,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :put_bucket_policy, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -4592,7 +4592,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :put_bucket_replication, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -4654,7 +4654,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :put_bucket_request_payment, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -4716,7 +4716,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :put_bucket_tagging, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -4778,7 +4778,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :put_bucket_versioning, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -4840,7 +4840,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :put_bucket_website, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -4902,7 +4902,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :put_object, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(AWS::SDK::Core::Middleware::Checksum,
           request_algorithm_member: :checksum_algorithm,
@@ -4966,7 +4966,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :put_object_acl, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -5028,7 +5028,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :put_object_legal_hold, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -5090,7 +5090,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :put_object_lock_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -5152,7 +5152,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :put_object_retention, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -5214,7 +5214,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :put_object_tagging, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -5276,7 +5276,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :put_public_access_block, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -5338,7 +5338,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :restore_object, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(AWS::SDK::Core::Middleware::Checksum,
@@ -5400,7 +5400,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :upload_part, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(AWS::SDK::Core::Middleware::Checksum,
           request_algorithm_member: :checksum_algorithm,
@@ -5464,7 +5464,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :upload_part_copy, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -5522,7 +5522,7 @@ module AWS::SDK::S3
           auth_params: Auth::Params.new(operation_name: :write_get_object_response, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,

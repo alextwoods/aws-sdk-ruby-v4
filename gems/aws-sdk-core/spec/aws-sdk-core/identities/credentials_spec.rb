@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require_relative '../spec_helper'
+require_relative '../../spec_helper'
 
-module AWS::SDK::Core
+module AWS::SDK::Core::Identities
   describe Credentials do
     let(:akid) { 'akid' }
     let(:secret) { 'secret' }

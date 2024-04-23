@@ -28,7 +28,7 @@ module AWS::SDK::KMS
           auth_params: Auth::Params.new(operation_name: :cancel_key_deletion, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -79,7 +79,7 @@ module AWS::SDK::KMS
           auth_params: Auth::Params.new(operation_name: :connect_custom_key_store, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -130,7 +130,7 @@ module AWS::SDK::KMS
           auth_params: Auth::Params.new(operation_name: :create_alias, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -181,7 +181,7 @@ module AWS::SDK::KMS
           auth_params: Auth::Params.new(operation_name: :create_custom_key_store, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -232,7 +232,7 @@ module AWS::SDK::KMS
           auth_params: Auth::Params.new(operation_name: :create_grant, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -283,7 +283,7 @@ module AWS::SDK::KMS
           auth_params: Auth::Params.new(operation_name: :create_key, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -334,7 +334,7 @@ module AWS::SDK::KMS
           auth_params: Auth::Params.new(operation_name: :decrypt, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -385,7 +385,7 @@ module AWS::SDK::KMS
           auth_params: Auth::Params.new(operation_name: :delete_alias, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -436,7 +436,7 @@ module AWS::SDK::KMS
           auth_params: Auth::Params.new(operation_name: :delete_custom_key_store, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -487,7 +487,7 @@ module AWS::SDK::KMS
           auth_params: Auth::Params.new(operation_name: :delete_imported_key_material, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -538,7 +538,7 @@ module AWS::SDK::KMS
           auth_params: Auth::Params.new(operation_name: :describe_custom_key_stores, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -589,7 +589,7 @@ module AWS::SDK::KMS
           auth_params: Auth::Params.new(operation_name: :describe_key, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -640,7 +640,7 @@ module AWS::SDK::KMS
           auth_params: Auth::Params.new(operation_name: :disable_key, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -691,7 +691,7 @@ module AWS::SDK::KMS
           auth_params: Auth::Params.new(operation_name: :disable_key_rotation, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -742,7 +742,7 @@ module AWS::SDK::KMS
           auth_params: Auth::Params.new(operation_name: :disconnect_custom_key_store, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -793,7 +793,7 @@ module AWS::SDK::KMS
           auth_params: Auth::Params.new(operation_name: :enable_key, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -844,7 +844,7 @@ module AWS::SDK::KMS
           auth_params: Auth::Params.new(operation_name: :enable_key_rotation, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -895,7 +895,7 @@ module AWS::SDK::KMS
           auth_params: Auth::Params.new(operation_name: :encrypt, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -946,7 +946,7 @@ module AWS::SDK::KMS
           auth_params: Auth::Params.new(operation_name: :generate_data_key, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -997,7 +997,7 @@ module AWS::SDK::KMS
           auth_params: Auth::Params.new(operation_name: :generate_data_key_pair, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1048,7 +1048,7 @@ module AWS::SDK::KMS
           auth_params: Auth::Params.new(operation_name: :generate_data_key_pair_without_plaintext, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1099,7 +1099,7 @@ module AWS::SDK::KMS
           auth_params: Auth::Params.new(operation_name: :generate_data_key_without_plaintext, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1150,7 +1150,7 @@ module AWS::SDK::KMS
           auth_params: Auth::Params.new(operation_name: :generate_mac, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1201,7 +1201,7 @@ module AWS::SDK::KMS
           auth_params: Auth::Params.new(operation_name: :generate_random, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1252,7 +1252,7 @@ module AWS::SDK::KMS
           auth_params: Auth::Params.new(operation_name: :get_key_policy, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1303,7 +1303,7 @@ module AWS::SDK::KMS
           auth_params: Auth::Params.new(operation_name: :get_key_rotation_status, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1354,7 +1354,7 @@ module AWS::SDK::KMS
           auth_params: Auth::Params.new(operation_name: :get_parameters_for_import, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1405,7 +1405,7 @@ module AWS::SDK::KMS
           auth_params: Auth::Params.new(operation_name: :get_public_key, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1456,7 +1456,7 @@ module AWS::SDK::KMS
           auth_params: Auth::Params.new(operation_name: :import_key_material, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1507,7 +1507,7 @@ module AWS::SDK::KMS
           auth_params: Auth::Params.new(operation_name: :list_aliases, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1558,7 +1558,7 @@ module AWS::SDK::KMS
           auth_params: Auth::Params.new(operation_name: :list_grants, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1609,7 +1609,7 @@ module AWS::SDK::KMS
           auth_params: Auth::Params.new(operation_name: :list_key_policies, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1660,7 +1660,7 @@ module AWS::SDK::KMS
           auth_params: Auth::Params.new(operation_name: :list_keys, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1711,7 +1711,7 @@ module AWS::SDK::KMS
           auth_params: Auth::Params.new(operation_name: :list_resource_tags, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1762,7 +1762,7 @@ module AWS::SDK::KMS
           auth_params: Auth::Params.new(operation_name: :list_retirable_grants, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1813,7 +1813,7 @@ module AWS::SDK::KMS
           auth_params: Auth::Params.new(operation_name: :put_key_policy, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1864,7 +1864,7 @@ module AWS::SDK::KMS
           auth_params: Auth::Params.new(operation_name: :re_encrypt, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1915,7 +1915,7 @@ module AWS::SDK::KMS
           auth_params: Auth::Params.new(operation_name: :replicate_key, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1966,7 +1966,7 @@ module AWS::SDK::KMS
           auth_params: Auth::Params.new(operation_name: :retire_grant, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2017,7 +2017,7 @@ module AWS::SDK::KMS
           auth_params: Auth::Params.new(operation_name: :revoke_grant, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2068,7 +2068,7 @@ module AWS::SDK::KMS
           auth_params: Auth::Params.new(operation_name: :schedule_key_deletion, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2119,7 +2119,7 @@ module AWS::SDK::KMS
           auth_params: Auth::Params.new(operation_name: :sign, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2170,7 +2170,7 @@ module AWS::SDK::KMS
           auth_params: Auth::Params.new(operation_name: :tag_resource, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2221,7 +2221,7 @@ module AWS::SDK::KMS
           auth_params: Auth::Params.new(operation_name: :untag_resource, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2272,7 +2272,7 @@ module AWS::SDK::KMS
           auth_params: Auth::Params.new(operation_name: :update_alias, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2323,7 +2323,7 @@ module AWS::SDK::KMS
           auth_params: Auth::Params.new(operation_name: :update_custom_key_store, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2374,7 +2374,7 @@ module AWS::SDK::KMS
           auth_params: Auth::Params.new(operation_name: :update_key_description, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2425,7 +2425,7 @@ module AWS::SDK::KMS
           auth_params: Auth::Params.new(operation_name: :update_primary_region, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2476,7 +2476,7 @@ module AWS::SDK::KMS
           auth_params: Auth::Params.new(operation_name: :verify, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2527,7 +2527,7 @@ module AWS::SDK::KMS
           auth_params: Auth::Params.new(operation_name: :verify_mac, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Credentials => config.credential_provider
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,

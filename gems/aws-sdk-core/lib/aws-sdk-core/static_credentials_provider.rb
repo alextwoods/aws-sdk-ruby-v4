@@ -39,7 +39,7 @@ module AWS::SDK::Core
     end
 
     def initialize(options = {})
-      @identity = AWS::SDK::Core::Credentials.new(
+      @identity = AWS::SDK::Core::Identities::Credentials.new(
         access_key_id: options[:access_key_id],
         secret_access_key: options[:secret_access_key],
         session_token: options[:session_token]
