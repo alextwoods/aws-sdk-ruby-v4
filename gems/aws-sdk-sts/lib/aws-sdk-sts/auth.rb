@@ -9,7 +9,7 @@
 
 module AWS::SDK::STS
   module Auth
-    Params = Struct.new(:region, :operation_name, keyword_init: true)
+    Params = Struct.new(:operation_name, :region, keyword_init: true)
 
     SCHEMES = [
       AWS::SDK::Core::AuthSchemes::SigV4.new,

@@ -212,6 +212,15 @@ module AWS::SDK::STS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        data = {}
+        http_resp.status = 400
+        xml = Hearth::XML::Node.new('Error')
+        xml << Hearth::XML::Node.new('Type', 'Sender')
+        xml << Hearth::XML::Node.new('Code', 'ExpiredTokenException')
+        xml << Hearth::XML::Node.new('message', stub[:message].to_s) unless stub[:message].nil?
+        http_req.body = ::StringIO.new(Hearth::XML::Node.new('ErrorResponse', xml).to_str) if xml
+      end
     end
 
     class FederatedUser
@@ -364,6 +373,15 @@ module AWS::SDK::STS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        data = {}
+        http_resp.status = 400
+        xml = Hearth::XML::Node.new('Error')
+        xml << Hearth::XML::Node.new('Type', 'Sender')
+        xml << Hearth::XML::Node.new('Code', 'IDPCommunicationError')
+        xml << Hearth::XML::Node.new('message', stub[:message].to_s) unless stub[:message].nil?
+        http_req.body = ::StringIO.new(Hearth::XML::Node.new('ErrorResponse', xml).to_str) if xml
+      end
     end
 
     class IDPRejectedClaimException
@@ -381,6 +399,15 @@ module AWS::SDK::STS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        data = {}
+        http_resp.status = 403
+        xml = Hearth::XML::Node.new('Error')
+        xml << Hearth::XML::Node.new('Type', 'Sender')
+        xml << Hearth::XML::Node.new('Code', 'IDPRejectedClaim')
+        xml << Hearth::XML::Node.new('message', stub[:message].to_s) unless stub[:message].nil?
+        http_req.body = ::StringIO.new(Hearth::XML::Node.new('ErrorResponse', xml).to_str) if xml
+      end
     end
 
     class InvalidAuthorizationMessageException
@@ -398,6 +425,15 @@ module AWS::SDK::STS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        data = {}
+        http_resp.status = 400
+        xml = Hearth::XML::Node.new('Error')
+        xml << Hearth::XML::Node.new('Type', 'Sender')
+        xml << Hearth::XML::Node.new('Code', 'InvalidAuthorizationMessageException')
+        xml << Hearth::XML::Node.new('message', stub[:message].to_s) unless stub[:message].nil?
+        http_req.body = ::StringIO.new(Hearth::XML::Node.new('ErrorResponse', xml).to_str) if xml
+      end
     end
 
     class InvalidIdentityTokenException
@@ -415,6 +451,15 @@ module AWS::SDK::STS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        data = {}
+        http_resp.status = 400
+        xml = Hearth::XML::Node.new('Error')
+        xml << Hearth::XML::Node.new('Type', 'Sender')
+        xml << Hearth::XML::Node.new('Code', 'InvalidIdentityToken')
+        xml << Hearth::XML::Node.new('message', stub[:message].to_s) unless stub[:message].nil?
+        http_req.body = ::StringIO.new(Hearth::XML::Node.new('ErrorResponse', xml).to_str) if xml
+      end
     end
 
     class MalformedPolicyDocumentException
@@ -432,6 +477,15 @@ module AWS::SDK::STS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        data = {}
+        http_resp.status = 400
+        xml = Hearth::XML::Node.new('Error')
+        xml << Hearth::XML::Node.new('Type', 'Sender')
+        xml << Hearth::XML::Node.new('Code', 'MalformedPolicyDocument')
+        xml << Hearth::XML::Node.new('message', stub[:message].to_s) unless stub[:message].nil?
+        http_req.body = ::StringIO.new(Hearth::XML::Node.new('ErrorResponse', xml).to_str) if xml
+      end
     end
 
     class PackedPolicyTooLargeException
@@ -449,6 +503,15 @@ module AWS::SDK::STS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        data = {}
+        http_resp.status = 400
+        xml = Hearth::XML::Node.new('Error')
+        xml << Hearth::XML::Node.new('Type', 'Sender')
+        xml << Hearth::XML::Node.new('Code', 'PackedPolicyTooLarge')
+        xml << Hearth::XML::Node.new('message', stub[:message].to_s) unless stub[:message].nil?
+        http_req.body = ::StringIO.new(Hearth::XML::Node.new('ErrorResponse', xml).to_str) if xml
+      end
     end
 
     class RegionDisabledException
@@ -466,6 +529,15 @@ module AWS::SDK::STS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        data = {}
+        http_resp.status = 403
+        xml = Hearth::XML::Node.new('Error')
+        xml << Hearth::XML::Node.new('Type', 'Sender')
+        xml << Hearth::XML::Node.new('Code', 'RegionDisabledException')
+        xml << Hearth::XML::Node.new('message', stub[:message].to_s) unless stub[:message].nil?
+        http_req.body = ::StringIO.new(Hearth::XML::Node.new('ErrorResponse', xml).to_str) if xml
+      end
     end
   end
 end

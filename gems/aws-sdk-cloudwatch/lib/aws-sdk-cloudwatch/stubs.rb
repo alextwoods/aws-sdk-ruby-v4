@@ -249,6 +249,15 @@ module AWS::SDK::CloudWatch
         }
       end
 
+      def self.stub(http_resp, stub:)
+        data = {}
+        http_resp.status = 429
+        xml = Hearth::XML::Node.new('Error')
+        xml << Hearth::XML::Node.new('Type', 'Sender')
+        xml << Hearth::XML::Node.new('Code', 'ConcurrentModificationException')
+        xml << Hearth::XML::Node.new('Message', stub[:message].to_s) unless stub[:message].nil?
+        http_req.body = ::StringIO.new(Hearth::XML::Node.new('ErrorResponse', xml).to_str) if xml
+      end
     end
 
     class DashboardEntries
@@ -308,6 +317,16 @@ module AWS::SDK::CloudWatch
         }
       end
 
+      def self.stub(http_resp, stub:)
+        data = {}
+        http_resp.status = 400
+        xml = Hearth::XML::Node.new('Error')
+        xml << Hearth::XML::Node.new('Type', 'Sender')
+        xml << Hearth::XML::Node.new('Code', 'InvalidParameterInput')
+        xml << Hearth::XML::Node.new('message', stub[:message].to_s) unless stub[:message].nil?
+        xml << Hearth::XML::Node.new('dashboardValidationMessages', DashboardValidationMessages.stub('member', stub[:dashboard_validation_messages])) unless stub[:dashboard_validation_messages].nil?
+        http_req.body = ::StringIO.new(Hearth::XML::Node.new('ErrorResponse', xml).to_str) if xml
+      end
     end
 
     class DashboardNotFoundError
@@ -325,6 +344,15 @@ module AWS::SDK::CloudWatch
         }
       end
 
+      def self.stub(http_resp, stub:)
+        data = {}
+        http_resp.status = 404
+        xml = Hearth::XML::Node.new('Error')
+        xml << Hearth::XML::Node.new('Type', 'Sender')
+        xml << Hearth::XML::Node.new('Code', 'ResourceNotFound')
+        xml << Hearth::XML::Node.new('message', stub[:message].to_s) unless stub[:message].nil?
+        http_req.body = ::StringIO.new(Hearth::XML::Node.new('ErrorResponse', xml).to_str) if xml
+      end
     end
 
     class DashboardValidationMessage
@@ -1288,6 +1316,15 @@ module AWS::SDK::CloudWatch
         }
       end
 
+      def self.stub(http_resp, stub:)
+        data = {}
+        http_resp.status = 500
+        xml = Hearth::XML::Node.new('Error')
+        xml << Hearth::XML::Node.new('Type', 'Receiver')
+        xml << Hearth::XML::Node.new('Code', 'InternalServiceError')
+        xml << Hearth::XML::Node.new('Message', stub[:message].to_s) unless stub[:message].nil?
+        http_req.body = ::StringIO.new(Hearth::XML::Node.new('ErrorResponse', xml).to_str) if xml
+      end
     end
 
     class InvalidFormatFault
@@ -1305,6 +1342,15 @@ module AWS::SDK::CloudWatch
         }
       end
 
+      def self.stub(http_resp, stub:)
+        data = {}
+        http_resp.status = 400
+        xml = Hearth::XML::Node.new('Error')
+        xml << Hearth::XML::Node.new('Type', 'Sender')
+        xml << Hearth::XML::Node.new('Code', 'InvalidFormat')
+        xml << Hearth::XML::Node.new('message', stub[:message].to_s) unless stub[:message].nil?
+        http_req.body = ::StringIO.new(Hearth::XML::Node.new('ErrorResponse', xml).to_str) if xml
+      end
     end
 
     class InvalidNextToken
@@ -1322,6 +1368,15 @@ module AWS::SDK::CloudWatch
         }
       end
 
+      def self.stub(http_resp, stub:)
+        data = {}
+        http_resp.status = 400
+        xml = Hearth::XML::Node.new('Error')
+        xml << Hearth::XML::Node.new('Type', 'Sender')
+        xml << Hearth::XML::Node.new('Code', 'InvalidNextToken')
+        xml << Hearth::XML::Node.new('message', stub[:message].to_s) unless stub[:message].nil?
+        http_req.body = ::StringIO.new(Hearth::XML::Node.new('ErrorResponse', xml).to_str) if xml
+      end
     end
 
     class InvalidParameterCombinationException
@@ -1339,6 +1394,15 @@ module AWS::SDK::CloudWatch
         }
       end
 
+      def self.stub(http_resp, stub:)
+        data = {}
+        http_resp.status = 400
+        xml = Hearth::XML::Node.new('Error')
+        xml << Hearth::XML::Node.new('Type', 'Sender')
+        xml << Hearth::XML::Node.new('Code', 'InvalidParameterCombination')
+        xml << Hearth::XML::Node.new('message', stub[:message].to_s) unless stub[:message].nil?
+        http_req.body = ::StringIO.new(Hearth::XML::Node.new('ErrorResponse', xml).to_str) if xml
+      end
     end
 
     class InvalidParameterValueException
@@ -1356,6 +1420,15 @@ module AWS::SDK::CloudWatch
         }
       end
 
+      def self.stub(http_resp, stub:)
+        data = {}
+        http_resp.status = 400
+        xml = Hearth::XML::Node.new('Error')
+        xml << Hearth::XML::Node.new('Type', 'Sender')
+        xml << Hearth::XML::Node.new('Code', 'InvalidParameterValue')
+        xml << Hearth::XML::Node.new('message', stub[:message].to_s) unless stub[:message].nil?
+        http_req.body = ::StringIO.new(Hearth::XML::Node.new('ErrorResponse', xml).to_str) if xml
+      end
     end
 
     class LimitExceededException
@@ -1373,6 +1446,15 @@ module AWS::SDK::CloudWatch
         }
       end
 
+      def self.stub(http_resp, stub:)
+        data = {}
+        http_resp.status = 400
+        xml = Hearth::XML::Node.new('Error')
+        xml << Hearth::XML::Node.new('Type', 'Sender')
+        xml << Hearth::XML::Node.new('Code', 'LimitExceededException')
+        xml << Hearth::XML::Node.new('Message', stub[:message].to_s) unless stub[:message].nil?
+        http_req.body = ::StringIO.new(Hearth::XML::Node.new('ErrorResponse', xml).to_str) if xml
+      end
     end
 
     class LimitExceededFault
@@ -1390,6 +1472,15 @@ module AWS::SDK::CloudWatch
         }
       end
 
+      def self.stub(http_resp, stub:)
+        data = {}
+        http_resp.status = 400
+        xml = Hearth::XML::Node.new('Error')
+        xml << Hearth::XML::Node.new('Type', 'Sender')
+        xml << Hearth::XML::Node.new('Code', 'LimitExceeded')
+        xml << Hearth::XML::Node.new('message', stub[:message].to_s) unless stub[:message].nil?
+        http_req.body = ::StringIO.new(Hearth::XML::Node.new('ErrorResponse', xml).to_str) if xml
+      end
     end
 
     class ListDashboards
@@ -2103,6 +2194,15 @@ module AWS::SDK::CloudWatch
         }
       end
 
+      def self.stub(http_resp, stub:)
+        data = {}
+        http_resp.status = 400
+        xml = Hearth::XML::Node.new('Error')
+        xml << Hearth::XML::Node.new('Type', 'Sender')
+        xml << Hearth::XML::Node.new('Code', 'MissingParameter')
+        xml << Hearth::XML::Node.new('message', stub[:message].to_s) unless stub[:message].nil?
+        http_req.body = ::StringIO.new(Hearth::XML::Node.new('ErrorResponse', xml).to_str) if xml
+      end
     end
 
     class OwningAccounts
@@ -2404,6 +2504,15 @@ module AWS::SDK::CloudWatch
         }
       end
 
+      def self.stub(http_resp, stub:)
+        data = {}
+        http_resp.status = 404
+        xml = Hearth::XML::Node.new('Error')
+        xml << Hearth::XML::Node.new('Type', 'Sender')
+        xml << Hearth::XML::Node.new('Code', 'ResourceNotFound')
+        xml << Hearth::XML::Node.new('message', stub[:message].to_s) unless stub[:message].nil?
+        http_req.body = ::StringIO.new(Hearth::XML::Node.new('ErrorResponse', xml).to_str) if xml
+      end
     end
 
     class ResourceNotFoundException
@@ -2423,6 +2532,17 @@ module AWS::SDK::CloudWatch
         }
       end
 
+      def self.stub(http_resp, stub:)
+        data = {}
+        http_resp.status = 404
+        xml = Hearth::XML::Node.new('Error')
+        xml << Hearth::XML::Node.new('Type', 'Sender')
+        xml << Hearth::XML::Node.new('Code', 'ResourceNotFoundException')
+        xml << Hearth::XML::Node.new('ResourceType', stub[:resource_type].to_s) unless stub[:resource_type].nil?
+        xml << Hearth::XML::Node.new('ResourceId', stub[:resource_id].to_s) unless stub[:resource_id].nil?
+        xml << Hearth::XML::Node.new('Message', stub[:message].to_s) unless stub[:message].nil?
+        http_req.body = ::StringIO.new(Hearth::XML::Node.new('ErrorResponse', xml).to_str) if xml
+      end
     end
 
     class SetAlarmState

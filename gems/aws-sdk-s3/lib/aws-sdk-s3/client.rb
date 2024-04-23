@@ -11676,9 +11676,10 @@ module AWS::SDK::S3
     def initialize_config(options)
       client_interceptors = options.delete(:interceptors)
       config = Config.new(**options)
+      config.validate!
       Client.plugins.each { |p| p.call(config) }
       config.plugins.each { |p| p.call(config) }
-      config.interceptors.concat(Hearth::InterceptorList.new(client_interceptors)) if client_interceptors
+      config.interceptors.concat(client_interceptors) if client_interceptors
       config.validate!
       config.freeze
     end
@@ -11689,8 +11690,9 @@ module AWS::SDK::S3
       operation_plugins = options.delete(:plugins)
       operation_interceptors = options.delete(:interceptors)
       config = @config.merge(options)
-      Hearth::PluginList.new(operation_plugins).each { |p| p.call(config) } if operation_plugins
-      config.interceptors.concat(Hearth::InterceptorList.new(operation_interceptors)) if operation_interceptors
+      config.validate!
+      operation_plugins.each { |p| p.call(config) } if operation_plugins
+      config.interceptors.concat(operation_interceptors) if operation_interceptors
       config.validate!
       config.freeze
     end

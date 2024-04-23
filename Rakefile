@@ -42,6 +42,9 @@ namespace :codegen do
     end
   end
 
+  desc 'Cleans and builds all codegen projects'
+  task 'clean-build' => [:clean, :build]
+
   desc 'Run build on a single codegen project'
   rule(/codegen:build:.+/ => 'codegen:verify-java') do |task|
     project = task.name.split(':').last

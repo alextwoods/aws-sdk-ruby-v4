@@ -18,6 +18,7 @@ package software.amazon.smithy.aws.ruby.codegen.protocol.query.generators;
 import java.util.Optional;
 import java.util.stream.Stream;
 
+import software.amazon.smithy.aws.traits.protocols.AwsQueryErrorTrait;
 import software.amazon.smithy.codegen.core.Symbol;
 import software.amazon.smithy.model.shapes.BlobShape;
 import software.amazon.smithy.model.shapes.DoubleShape;
@@ -31,6 +32,8 @@ import software.amazon.smithy.model.shapes.ShapeVisitor;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.shapes.TimestampShape;
 import software.amazon.smithy.model.shapes.UnionShape;
+import software.amazon.smithy.model.traits.ErrorTrait;
+import software.amazon.smithy.model.traits.HttpErrorTrait;
 import software.amazon.smithy.model.traits.SparseTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait;
 import software.amazon.smithy.model.traits.XmlAttributeTrait;
@@ -189,8 +192,45 @@ public class StubsGenerator extends StubsGeneratorBase {
     }
 
     @Override
-    protected void renderErrorStubMethod(Shape shape) {
-        // todo
+    protected void renderErrorStubMethod(Shape errorShape) {
+        writer
+                .openBlock("def self.stub(http_resp, stub:)")
+                .write("data = {}")
+                .call(() -> renderStatusCodeStubber(errorShape))
+                .write("xml = $T.new('Error')", Hearth.XML_NODE )
+                .write("xml << $T.new('Type', '$L')", Hearth.XML_NODE, errorType(errorShape))
+                .write("xml << $T.new('Code', '$L')", Hearth.XML_NODE, errorCode(errorShape))
+                .call(() -> renderMemberBuilders(errorShape))
+                .write("http_resp.body = ::StringIO.new($T.new('ErrorResponse', xml).to_str) if xml",
+                        Hearth.XML_NODE)
+                .closeBlock("end");
+    }
+
+    private String errorType(Shape errorShape) {
+        ErrorTrait errorTrait = errorShape.getTrait(ErrorTrait.class).get();
+        return errorTrait.isClientError() ? "Sender" : "Receiver";
+    }
+
+    private String errorCode(Shape errorShape) {
+        return errorShape.getTrait(AwsQueryErrorTrait.class)
+                .map(t -> t.getCode()).orElse(errorShape.getId().getName());
+    }
+
+    private void renderStatusCodeStubber(Shape errorShape) {
+        String statusCode = "";
+        Optional<AwsQueryErrorTrait> optionalHttpErrorTrait = errorShape.getTrait(AwsQueryErrorTrait.class);
+        if (optionalHttpErrorTrait.isPresent()) {
+            statusCode = Integer.toString(optionalHttpErrorTrait.get().getHttpResponseCode());
+        } else {
+            ErrorTrait errorTrait = errorShape.getTrait(ErrorTrait.class).get();
+            if (errorTrait.isClientError()) {
+                statusCode = "400";
+            } else if (errorTrait.isServerError()) {
+                statusCode = "500";
+            }
+        }
+
+        this.writer.write("http_resp.status = $1L", new Object[]{statusCode});
     }
 
     private void writeXmlNamespaceForShape(Shape shape, String dataSetter) {
