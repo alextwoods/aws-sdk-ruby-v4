@@ -4,10 +4,11 @@ module AWS::SDK::CloudWatch
 
     attr_accessor auth_resolver (): Hearth::_AuthResolver[Auth::Params]
     attr_accessor auth_schemes (): Array[Hearth::AuthSchemes::Base]
+    attr_accessor credentials_provider (): Hearth::IdentityProvider
     attr_accessor disable_host_prefix (): bool
     attr_accessor disable_request_compression (): bool
     attr_accessor endpoint (): String
-    attr_accessor endpoint_provider (): Hearth::_EndpointResolver[Endpoint::Params]
+    attr_accessor endpoint_resolver (): Hearth::_EndpointResolver[Endpoint::Params]
     attr_accessor http_client (): Hearth::HTTP::Client
     attr_accessor interceptors (): Hearth::InterceptorList
     attr_accessor logger (): Logger
@@ -16,7 +17,6 @@ module AWS::SDK::CloudWatch
     attr_accessor region (): String
     attr_accessor request_min_compression_size_bytes (): Integer
     attr_accessor retry_strategy (): Hearth::_RetryStrategy
-    attr_accessor sigv4_identity_resolver (): Hearth::IdentityResolver
     attr_accessor stub_responses (): bool
     attr_accessor use_dualstack_endpoint (): bool
     attr_accessor use_fips_endpoint (): bool

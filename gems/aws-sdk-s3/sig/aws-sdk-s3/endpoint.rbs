@@ -28,7 +28,7 @@ module AWS::SDK::S3
       attr_accessor use_global_endpoint: bool
     end
 
-    class Provider
+    class Resolver
       def resolve: (Params params) -> Hearth::EndpointRules::Endpoint
     end
   end

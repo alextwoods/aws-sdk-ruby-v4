@@ -3,7 +3,7 @@
 require 'openssl'
 
 module AWS::SDK::Core
-  # An auto-refreshing credential provider that assumes a role via
+  # An auto-refreshing credentials provider that assumes a role via
   # {AWS::SDK::SSO::Client#get_role_credentials} using a cached access
   # token. This class does NOT implement the SSO login token flow - tokens
   # must generated and refreshed separately by running `aws login` from the
@@ -24,7 +24,7 @@ module AWS::SDK::Core
   #       sso_region: "us-east-1",
   #       sso_start_url: 'https://your-start-url.awsapps.com/start'
   #     )
-  #     ec2_config = AWS::SDK::EC2::Config.new(credential_provider: provider)
+  #     ec2_config = AWS::SDK::EC2::Config.new(credentials_provider: provider)
   #     ec2 = AWS::SDK::EC2::Client.new(ec2_config)
   #
   # If you omit the `:client` option, a new {AWS::SDK::SSO::Client} object
@@ -32,8 +32,8 @@ module AWS::SDK::Core
   #
   # @see AWS::SDK::SSO::Client#get_role_credentials
   # @see https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html
-  class SSOCredentialProvider
-    include RefreshingCredentialProvider
+  class SSOCredentialsProvider < Hearth::IdentityProvider
+    include Hearth::RefreshingIdentityProvider
 
     # @api private
     SSO_LOGIN_GUIDANCE =
@@ -97,7 +97,7 @@ module AWS::SDK::Core
 
     private
 
-    def fetch
+    def refresh(_properties = {})
       cached_token = read_cached_token
       c = @client.get_role_credentials(
         account_id: @sso_account_id,
@@ -105,7 +105,7 @@ module AWS::SDK::Core
         access_token: cached_token['accessToken']
       ).data.role_credentials
 
-      @credentials = AWS::SigV4::Credentials.new(
+      @identity = AWS::SDK::Core::Identities::Credentials.new(
         access_key_id: c.access_key_id,
         secret_access_key: c.secret_access_key,
         session_token: c.session_token,

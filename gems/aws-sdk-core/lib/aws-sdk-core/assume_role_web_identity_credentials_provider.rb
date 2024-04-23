@@ -3,7 +3,7 @@
 require 'securerandom'
 
 module AWS::SDK::Core
-  # An auto-refreshing credential provider that assumes a role via
+  # An auto-refreshing credentials provider that assumes a role via
   # {AWS::SDK::STS::Client#assume_role_with_web_identity}.
   #
   #     provider = AWS::SDK::Core::AssumeRoleWebIdentityCredentialProvider.new(
@@ -12,15 +12,15 @@ module AWS::SDK::Core
   #       role_arn: "linked::account::arn",
   #       role_session_name: "session-name"
   #     )
-  #     ec2_config = AWS::SDK::EC2::Config.new(credential_provider: provider)
+  #     ec2_config = AWS::SDK::EC2::Config.new(credentials_provider: provider)
   #     ec2 = AWS::SDK::EC2::Client.new(ec2_config)
   #
   # If you omit the `:client` option, a new {AWS::SDK::STS::Client} will be
   # created.
   #
   # @see AWS::SDK::STS::Client#assume_role_with_web_identity
-  class AssumeRoleWebIdentityCredentialProvider
-    include RefreshingCredentialProvider
+  class AssumeRoleWebIdentityCredentialsProvider < Hearth::IdentityProvider
+    include Hearth::RefreshingIdentityProvider
 
     # Raised when :web_identity_token_file parameter is not
     # provided or the file doesn't exist when initializing
@@ -37,7 +37,8 @@ module AWS::SDK::Core
       if profile_config && profile_config['web_identity_token_file'] &&
          profile_config['role_arn']
         client = AWS::SDK::STS::Client.new(
-          profile: cfg[:profile]
+          profile: cfg[:profile],
+          credentials_provider: nil
         )
 
         new(
@@ -78,7 +79,9 @@ module AWS::SDK::Core
               'AssumeRoleWebIdentityCredentialProvider.'
       end
 
-      @client = options.delete(:client) || AWS::SDK::STS::Client.new
+      @client = options.delete(:client) || AWS::SDK::STS::Client.new(
+        credentials_provider: nil
+      )
       @web_identity_token_file = options.delete(:web_identity_token_file)
       @assume_role_with_web_identity_params = options
       @assume_role_with_web_identity_params[:role_session_name] ||=
@@ -91,7 +94,7 @@ module AWS::SDK::Core
 
     private
 
-    def fetch
+    def refresh(_properties = {})
       # read from token file everytime it refreshes
       @assume_role_with_web_identity_params[:web_identity_token] =
         token_from_file
@@ -99,7 +102,7 @@ module AWS::SDK::Core
       c = @client.assume_role_with_web_identity(
         @assume_role_with_web_identity_params
       ).data.credentials
-      @credentials = AWS::SigV4::Credentials.new(
+      @identity = AWS::SDK::Core::Identities::Credentials.new(
         access_key_id: c.access_key_id,
         secret_access_key: c.secret_access_key,
         session_token: c.session_token,

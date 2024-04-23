@@ -9,10 +9,10 @@ module AWS::SDK::Core
       # credentials file, and optionally the shared configuration file, as ini
       # files which support profiles.
       #
-      # By default, the shared credential file (the default path for which is
+      # By default, the shared credentials file (the default path for which is
       # `~/.aws/credentials`) and the shared config file (the default path for
       # which is `~/.aws/config`) are loaded. You can specify the shared
-      # credential file path with the `ENV['AWS_SHARED_CREDENTIALS_FILE']`
+      # credentials file path with the `ENV['AWS_SHARED_CREDENTIALS_FILE']`
       # environment variable or with the `:credentials_path` option. Similarly,
       # you can specify the shared config file path with the
       # `ENV['AWS_CONFIG_FILE']`environment variable or with the `:config_path`

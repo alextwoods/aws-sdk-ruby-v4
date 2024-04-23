@@ -28,15 +28,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :batch_execute_statement, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::BatchExecuteStatement,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -79,15 +79,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :batch_get_item, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::BatchGetItem,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -130,15 +130,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :batch_write_item, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::BatchWriteItem,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -181,15 +181,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :create_backup, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::CreateBackup,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -232,15 +232,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :create_global_table, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::CreateGlobalTable,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -283,15 +283,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :create_table, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::CreateTable,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -334,15 +334,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :delete_backup, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::DeleteBackup,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -385,15 +385,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :delete_item, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::DeleteItem,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -436,15 +436,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :delete_table, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::DeleteTable,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -487,15 +487,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :describe_backup, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::DescribeBackup,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -538,15 +538,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :describe_continuous_backups, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::DescribeContinuousBackups,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -589,15 +589,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :describe_contributor_insights, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::DescribeContributorInsights,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -640,15 +640,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :describe_endpoints, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::DescribeEndpoints,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -691,15 +691,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :describe_export, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::DescribeExport,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -742,15 +742,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :describe_global_table, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::DescribeGlobalTable,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -793,15 +793,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :describe_global_table_settings, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::DescribeGlobalTableSettings,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -844,15 +844,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :describe_import, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::DescribeImport,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -895,15 +895,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :describe_kinesis_streaming_destination, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::DescribeKinesisStreamingDestination,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -946,15 +946,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :describe_limits, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::DescribeLimits,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -997,15 +997,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :describe_table, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::DescribeTable,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -1048,15 +1048,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :describe_table_replica_auto_scaling, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::DescribeTableReplicaAutoScaling,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -1099,15 +1099,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :describe_time_to_live, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::DescribeTimeToLive,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -1150,15 +1150,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :disable_kinesis_streaming_destination, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::DisableKinesisStreamingDestination,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -1201,15 +1201,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :enable_kinesis_streaming_destination, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::EnableKinesisStreamingDestination,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -1252,15 +1252,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :execute_statement, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::ExecuteStatement,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -1303,15 +1303,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :execute_transaction, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::ExecuteTransaction,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -1354,15 +1354,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :export_table_to_point_in_time, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::ExportTableToPointInTime,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -1405,15 +1405,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :get_item, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::GetItem,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -1456,15 +1456,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :import_table, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::ImportTable,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -1507,15 +1507,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :list_backups, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::ListBackups,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -1558,15 +1558,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :list_contributor_insights, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::ListContributorInsights,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -1609,15 +1609,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :list_exports, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::ListExports,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -1660,15 +1660,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :list_global_tables, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::ListGlobalTables,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -1711,15 +1711,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :list_imports, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::ListImports,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -1762,15 +1762,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :list_tables, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::ListTables,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -1813,15 +1813,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :list_tags_of_resource, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::ListTagsOfResource,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -1864,15 +1864,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :put_item, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::PutItem,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -1915,15 +1915,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :query, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::Query,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -1966,15 +1966,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :restore_table_from_backup, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::RestoreTableFromBackup,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -2017,15 +2017,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :restore_table_to_point_in_time, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::RestoreTableToPointInTime,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -2068,15 +2068,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :scan, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::Scan,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -2119,15 +2119,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :tag_resource, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::TagResource,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -2170,15 +2170,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :transact_get_items, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::TransactGetItems,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -2221,15 +2221,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :transact_write_items, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::TransactWriteItems,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -2272,15 +2272,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :untag_resource, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::UntagResource,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -2323,15 +2323,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :update_continuous_backups, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::UpdateContinuousBackups,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -2374,15 +2374,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :update_contributor_insights, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::UpdateContributorInsights,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -2425,15 +2425,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :update_global_table, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::UpdateGlobalTable,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -2476,15 +2476,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :update_global_table_settings, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::UpdateGlobalTableSettings,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -2527,15 +2527,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :update_item, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::UpdateItem,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -2578,15 +2578,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :update_kinesis_streaming_destination, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::UpdateKinesisStreamingDestination,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -2629,15 +2629,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :update_table, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::UpdateTable,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -2680,15 +2680,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :update_table_replica_auto_scaling, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::UpdateTableReplicaAutoScaling,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
@@ -2731,15 +2731,15 @@ module AWS::SDK::DynamoDB
           auth_params: Auth::Params.new(operation_name: :update_time_to_live, region: config.region),
           auth_resolver: config.auth_resolver,
           auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_provider: config.endpoint_provider,
           region: config.region,
           param_builder: Endpoint::Parameters::UpdateTimeToLive,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,

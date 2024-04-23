@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 module AWS::SDK::Core
+  # AWS Identities
   module Identities
-    # Identity class for SigV4.
-    class SigV4 < Hearth::Identities::Base
+    # AWS Credentials Identity used for Sigv4 and Sigv4a
+    class Credentials < Hearth::Identities::Base
       def initialize(access_key_id:, secret_access_key:, session_token: nil,
                      **kwargs)
         super(**kwargs)

@@ -16,7 +16,7 @@ module AWS::SDK::SSO
       attr_accessor region: ::String
     end
 
-    class Provider
+    class Resolver
       def resolve: (Params params) -> Hearth::EndpointRules::Endpoint
     end
   end

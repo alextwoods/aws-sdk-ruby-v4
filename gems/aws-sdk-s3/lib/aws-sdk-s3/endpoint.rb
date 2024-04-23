@@ -43,7 +43,7 @@ module AWS::SDK::S3
       end
     end
 
-    class Provider
+    class Resolver
       def resolve(params)
         bucket = params.bucket
         region = params.region

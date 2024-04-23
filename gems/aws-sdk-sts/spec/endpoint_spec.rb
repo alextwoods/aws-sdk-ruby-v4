@@ -11,8 +11,8 @@ require_relative 'spec_helper'
 
 module AWS::SDK::STS
   module Endpoint
-    describe Provider do
-      subject { Provider.new }
+    describe Resolver do
+      subject { Resolver.new }
 
       context "For region af-south-1 with FIPS disabled and DualStack disabled" do
         let(:expected) do
@@ -23,7 +23,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "af-south-1", use_fips: false, use_dual_stack: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -41,7 +41,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "ap-east-1", use_fips: false, use_dual_stack: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -59,7 +59,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "ap-northeast-1", use_fips: false, use_dual_stack: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -77,7 +77,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "ap-northeast-2", use_fips: false, use_dual_stack: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -95,7 +95,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "ap-northeast-3", use_fips: false, use_dual_stack: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -113,7 +113,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "ap-south-1", use_fips: false, use_dual_stack: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -131,7 +131,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "ap-southeast-1", use_fips: false, use_dual_stack: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -149,7 +149,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "ap-southeast-2", use_fips: false, use_dual_stack: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -167,7 +167,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "ap-southeast-3", use_fips: false, use_dual_stack: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -185,7 +185,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "aws-global", use_fips: false, use_dual_stack: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -203,7 +203,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "ca-central-1", use_fips: false, use_dual_stack: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -221,7 +221,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "eu-central-1", use_fips: false, use_dual_stack: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -239,7 +239,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "eu-north-1", use_fips: false, use_dual_stack: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -257,7 +257,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "eu-south-1", use_fips: false, use_dual_stack: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -275,7 +275,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "eu-west-1", use_fips: false, use_dual_stack: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -293,7 +293,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "eu-west-2", use_fips: false, use_dual_stack: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -311,7 +311,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "eu-west-3", use_fips: false, use_dual_stack: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -329,7 +329,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "me-south-1", use_fips: false, use_dual_stack: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -347,7 +347,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "sa-east-1", use_fips: false, use_dual_stack: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -365,7 +365,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", use_fips: false, use_dual_stack: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -383,7 +383,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", use_fips: true, use_dual_stack: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -401,7 +401,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-2", use_fips: false, use_dual_stack: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -419,7 +419,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-2", use_fips: true, use_dual_stack: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -437,7 +437,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-west-1", use_fips: false, use_dual_stack: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -455,7 +455,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-west-1", use_fips: true, use_dual_stack: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -473,7 +473,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-west-2", use_fips: false, use_dual_stack: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -491,7 +491,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-west-2", use_fips: true, use_dual_stack: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -509,7 +509,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", use_fips: true, use_dual_stack: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -527,7 +527,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", use_fips: false, use_dual_stack: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -545,7 +545,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "cn-north-1", use_fips: false, use_dual_stack: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -563,7 +563,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "cn-northwest-1", use_fips: false, use_dual_stack: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -581,7 +581,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "cn-north-1", use_fips: true, use_dual_stack: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -599,7 +599,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "cn-north-1", use_fips: true, use_dual_stack: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -617,7 +617,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "cn-north-1", use_fips: false, use_dual_stack: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -635,7 +635,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-gov-east-1", use_fips: false, use_dual_stack: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -653,7 +653,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-gov-east-1", use_fips: true, use_dual_stack: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -671,7 +671,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-gov-west-1", use_fips: false, use_dual_stack: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -689,7 +689,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-gov-west-1", use_fips: true, use_dual_stack: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -707,7 +707,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-gov-east-1", use_fips: true, use_dual_stack: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -725,7 +725,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-gov-east-1", use_fips: false, use_dual_stack: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -743,7 +743,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-iso-east-1", use_fips: false, use_dual_stack: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -761,7 +761,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-iso-west-1", use_fips: false, use_dual_stack: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -775,7 +775,7 @@ module AWS::SDK::STS
           {error: "FIPS and DualStack are enabled, but this partition does not support one or both"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-iso-east-1", use_fips: true, use_dual_stack: true)
           expect do
             subject.resolve(params)
@@ -792,7 +792,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-iso-east-1", use_fips: true, use_dual_stack: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -806,7 +806,7 @@ module AWS::SDK::STS
           {error: "DualStack is enabled but this partition does not support DualStack"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-iso-east-1", use_fips: false, use_dual_stack: true)
           expect do
             subject.resolve(params)
@@ -823,7 +823,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-isob-east-1", use_fips: false, use_dual_stack: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -837,7 +837,7 @@ module AWS::SDK::STS
           {error: "FIPS and DualStack are enabled, but this partition does not support one or both"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-isob-east-1", use_fips: true, use_dual_stack: true)
           expect do
             subject.resolve(params)
@@ -854,7 +854,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-isob-east-1", use_fips: true, use_dual_stack: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -868,7 +868,7 @@ module AWS::SDK::STS
           {error: "DualStack is enabled but this partition does not support DualStack"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-isob-east-1", use_fips: false, use_dual_stack: true)
           expect do
             subject.resolve(params)
@@ -885,7 +885,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", use_fips: false, use_dual_stack: false, endpoint: "https://example.com")
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -903,7 +903,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(use_fips: false, use_dual_stack: false, endpoint: "https://example.com")
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -917,7 +917,7 @@ module AWS::SDK::STS
           {error: "Invalid Configuration: FIPS and custom endpoint are not supported"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", use_fips: true, use_dual_stack: false, endpoint: "https://example.com")
           expect do
             subject.resolve(params)
@@ -930,7 +930,7 @@ module AWS::SDK::STS
           {error: "Invalid Configuration: Dualstack and custom endpoint are not supported"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", use_fips: false, use_dual_stack: true, endpoint: "https://example.com")
           expect do
             subject.resolve(params)
@@ -943,7 +943,7 @@ module AWS::SDK::STS
           {error: "Invalid Configuration: Missing Region"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new()
           expect do
             subject.resolve(params)
@@ -960,7 +960,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "ap-northeast-1", use_fips: false, use_dual_stack: false, use_global_endpoint: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -1000,7 +1000,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "ap-south-1", use_fips: false, use_dual_stack: false, use_global_endpoint: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -1040,7 +1040,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "ap-southeast-1", use_fips: false, use_dual_stack: false, use_global_endpoint: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -1080,7 +1080,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "ap-southeast-2", use_fips: false, use_dual_stack: false, use_global_endpoint: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -1120,7 +1120,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "aws-global", use_fips: false, use_dual_stack: false, use_global_endpoint: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -1160,7 +1160,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "ca-central-1", use_fips: false, use_dual_stack: false, use_global_endpoint: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -1200,7 +1200,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "eu-central-1", use_fips: false, use_dual_stack: false, use_global_endpoint: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -1240,7 +1240,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "eu-north-1", use_fips: false, use_dual_stack: false, use_global_endpoint: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -1280,7 +1280,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "eu-west-1", use_fips: false, use_dual_stack: false, use_global_endpoint: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -1320,7 +1320,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "eu-west-2", use_fips: false, use_dual_stack: false, use_global_endpoint: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -1360,7 +1360,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "eu-west-3", use_fips: false, use_dual_stack: false, use_global_endpoint: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -1400,7 +1400,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "sa-east-1", use_fips: false, use_dual_stack: false, use_global_endpoint: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -1440,7 +1440,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", use_fips: false, use_dual_stack: false, use_global_endpoint: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -1480,7 +1480,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-2", use_fips: false, use_dual_stack: false, use_global_endpoint: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -1520,7 +1520,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-west-1", use_fips: false, use_dual_stack: false, use_global_endpoint: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -1560,7 +1560,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-west-2", use_fips: false, use_dual_stack: false, use_global_endpoint: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -1600,7 +1600,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-3", use_fips: false, use_dual_stack: false, use_global_endpoint: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -1640,7 +1640,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-west-1", use_fips: false, use_dual_stack: false, use_global_endpoint: true, endpoint: "https://example.com")
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -1681,7 +1681,7 @@ module AWS::SDK::STS
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(use_fips: false, use_dual_stack: false, use_global_endpoint: false, endpoint: "https://example.com")
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])

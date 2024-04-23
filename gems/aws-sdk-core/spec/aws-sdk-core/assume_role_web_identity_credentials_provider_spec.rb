@@ -3,7 +3,7 @@
 require_relative '../spec_helper'
 
 module AWS::SDK::Core
-  describe AssumeRoleWebIdentityCredentialProvider do
+  describe AssumeRoleWebIdentityCredentialsProvider do
     before do
       allow(AWS::SDK::Core).to receive(:sts_loaded?).and_return(true)
     end
@@ -27,16 +27,19 @@ module AWS::SDK::Core
         let(:cfg) { { profile: 'assume_role_web_identity_credentials' } }
 
         it 'returns an instance of AssumeRoleWebIdentityCredentialProvider' do
-          provider = AssumeRoleWebIdentityCredentialProvider::PROFILE.call(cfg)
+          provider = AssumeRoleWebIdentityCredentialsProvider::PROFILE.call(cfg)
           expect(provider)
-            .to be_an_instance_of(AssumeRoleWebIdentityCredentialProvider)
+            .to be_an_instance_of(AssumeRoleWebIdentityCredentialsProvider)
         end
 
         it 'forwards profile to the STS client' do
           expect(AWS::SDK::STS::Client).to receive(:new)
-            .with(profile: 'assume_role_web_identity_credentials')
+            .with(
+              profile: 'assume_role_web_identity_credentials',
+              credentials_provider: nil
+            )
             .and_return(client)
-          provider = AssumeRoleWebIdentityCredentialProvider::PROFILE.call(cfg)
+          provider = AssumeRoleWebIdentityCredentialsProvider::PROFILE.call(cfg)
           expect(provider.client).to be(client)
         end
       end
@@ -51,7 +54,7 @@ module AWS::SDK::Core
 
         it 'returns nil' do
           cfg = { profile: 'default' }
-          provider = AssumeRoleWebIdentityCredentialProvider::PROFILE.call(cfg)
+          provider = AssumeRoleWebIdentityCredentialsProvider::PROFILE.call(cfg)
           expect(provider).to be_nil
         end
       end
@@ -66,16 +69,16 @@ module AWS::SDK::Core
         )
 
         it 'returns an instance of AssumeRoleWebIdentityCredentialProvider' do
-          provider = AssumeRoleWebIdentityCredentialProvider::
+          provider = AssumeRoleWebIdentityCredentialsProvider::
               ENVIRONMENT.call({})
           expect(provider)
-            .to be_an_instance_of(AssumeRoleWebIdentityCredentialProvider)
+            .to be_an_instance_of(AssumeRoleWebIdentityCredentialsProvider)
         end
       end
 
       context 'environment does not have assume role web identity' do
         it 'returns nil' do
-          provider = AssumeRoleWebIdentityCredentialProvider::
+          provider = AssumeRoleWebIdentityCredentialsProvider::
               ENVIRONMENT.call({})
           expect(provider).to be_nil
         end
@@ -92,7 +95,7 @@ module AWS::SDK::Core
     end
 
     subject do
-      AssumeRoleWebIdentityCredentialProvider.new(
+      AssumeRoleWebIdentityCredentialsProvider.new(
         **provider_options.merge(client: client)
       )
     end
@@ -109,12 +112,12 @@ module AWS::SDK::Core
         'Hearth::Output',
         data: double(
           'AWS::SDK::SSO::Types::AssumeRoleWithWebIdentityResponse',
-          credentials: double(**credential_hash)
+          credentials: double(**credentials_hash)
         )
       )
     end
     let(:expiration) { Time.now }
-    let(:credential_hash) do
+    let(:credentials_hash) do
       {
         access_key_id: 'ACCESS_KEY_1',
         secret_access_key: 'SECRET_KEY_1',
@@ -129,14 +132,14 @@ module AWS::SDK::Core
         .with(token_file).and_return('web-identity-token')
     end
 
-    include_examples 'refreshing_credential_provider'
+    include_examples 'refreshing_credentials_provider'
 
     describe '#initialize' do
       it 'constructs an client if not provided' do
         expect(AWS::SDK::STS::Client).to receive(:new)
           .and_return(client)
 
-        provider = AssumeRoleWebIdentityCredentialProvider.new(
+        provider = AssumeRoleWebIdentityCredentialsProvider.new(
           **provider_options
         )
         expect(provider.client).to be(client)
@@ -145,24 +148,24 @@ module AWS::SDK::Core
       it 'raises when aws-sdk-sts is not available' do
         expect(AWS::SDK::Core).to receive(:sts_loaded?).and_return(false)
         expect do
-          AssumeRoleWebIdentityCredentialProvider.new(**provider_options)
+          AssumeRoleWebIdentityCredentialsProvider.new(**provider_options)
         end.to raise_error(RuntimeError, /aws-sdk-sts is required/)
       end
 
       it 'uses a provided client' do
         expect(AWS::SDK::SSO::Client).not_to receive(:new)
 
-        provider = AssumeRoleWebIdentityCredentialProvider.new(
+        provider = AssumeRoleWebIdentityCredentialsProvider.new(
           **provider_options.merge(client: client)
         )
         expect(provider.client).to be(client)
       end
     end
 
-    describe '#credentials' do
+    describe '#identity' do
       it 'will read valid credentials from assume_role_with_web_identity' do
         mock_token_file(web_identity_token_file)
-        creds = subject.credentials
+        creds = subject.identity
         expect(creds.access_key_id).to eq('ACCESS_KEY_1')
         expect(creds.secret_access_key).to eq('SECRET_KEY_1')
         expect(creds.session_token).to eq('TOKEN_1')
@@ -173,9 +176,9 @@ module AWS::SDK::Core
         allow(File).to receive(:exist?)
           .with(web_identity_token_file).and_return(false)
 
-        expect { subject.credentials }
+        expect { subject.identity }
           .to raise_error(
-            AssumeRoleWebIdentityCredentialProvider::
+            AssumeRoleWebIdentityCredentialsProvider::
                 MissingWebIdentityTokenFile,
             /#{web_identity_token_file} does not exist/
           )

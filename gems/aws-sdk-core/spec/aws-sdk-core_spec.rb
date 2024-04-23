@@ -4,7 +4,7 @@ require_relative 'spec_helper'
 
 describe AWS::SDK::Core do
   describe '.shared_config' do
-    let(:credential_file) do
+    let(:credentials_file) do
       File.expand_path(
         File.join(
           File.dirname(__FILE__),
@@ -26,7 +26,7 @@ describe AWS::SDK::Core do
     # It is used to test credential provider procs.
     let(:shared_config) do
       AWS::SDK::Core::SharedConfig.load(
-        credentials_path: credential_file,
+        credentials_path: credentials_file,
         config_path: config_file
       )
     end

@@ -11,15 +11,15 @@ require_relative 'spec_helper'
 
 module AWS::SDK::S3
   module Endpoint
-    describe Provider do
-      subject { Provider.new }
+    describe Resolver do
+      subject { Resolver.new }
 
       context "region is not a valid DNS-suffix" do
         let(:expected) do
           {error: "Invalid region: region was not a valid DNS name."}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "a b", use_fips: false, use_dual_stack: false, accelerate: false)
           expect do
             subject.resolve(params)
@@ -32,7 +32,7 @@ module AWS::SDK::S3
           {error: "Invalid ARN: The ARN was not for the S3 service, found: not-s3"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", use_fips: false, use_dual_stack: false, accelerate: false, bucket: "arn:aws:not-s3:us-west-2:123456789012:accesspoint:myendpoint")
           expect do
             subject.resolve(params)
@@ -57,7 +57,7 @@ module AWS::SDK::S3
           {error: "Invalid ARN: The ARN may only contain a single resource component after `accesspoint`."}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", use_fips: false, use_dual_stack: false, accelerate: false, bucket: "arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint:more-data")
           expect do
             subject.resolve(params)
@@ -82,7 +82,7 @@ module AWS::SDK::S3
           {error: "Invalid ARN: Expected a resource of the format `accesspoint:<accesspoint name>` but no name was provided"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", use_fips: false, use_dual_stack: false, accelerate: false, bucket: "arn:aws:s3:us-west-2:123456789012:accesspoint:")
           expect do
             subject.resolve(params)
@@ -107,7 +107,7 @@ module AWS::SDK::S3
           {error: "Invalid ARN: The account id may only contain a-z, A-Z, 0-9 and `-`. Found: `123456_789012`"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", use_fips: false, use_dual_stack: false, accelerate: false, bucket: "arn:aws:s3:us-west-2:123456_789012:accesspoint:apname")
           expect do
             subject.resolve(params)
@@ -132,7 +132,7 @@ module AWS::SDK::S3
           {error: "Invalid ARN: The access point name may only contain a-z, A-Z, 0-9 and `-`. Found: `ap_name`"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", use_fips: false, use_dual_stack: false, accelerate: false, bucket: "arn:aws:s3:us-west-2:123456789012:accesspoint:ap_name")
           expect do
             subject.resolve(params)
@@ -161,7 +161,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", use_fips: false, use_dual_stack: false, accelerate: false, disable_access_points: false, bucket: "arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint")
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -196,7 +196,7 @@ module AWS::SDK::S3
           {error: "Partition does not support FIPS"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "cn-north-1", use_fips: true, use_dual_stack: false, accelerate: false, bucket: "arn:aws:s3:cn-north-1:123456789012:accesspoint:myendpoint")
           expect do
             subject.resolve(params)
@@ -222,7 +222,7 @@ module AWS::SDK::S3
           {error: "Invalid region in ARN: `us-west -2` (invalid DNS name)"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", use_fips: false, use_dual_stack: false, accelerate: false, disable_access_points: false, bucket: "arn:aws:s3:us-west -2:123456789012:accesspoint:myendpoint")
           expect do
             subject.resolve(params)
@@ -247,7 +247,7 @@ module AWS::SDK::S3
           {error: "Access points are not supported for this operation"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", use_fips: false, use_dual_stack: false, accelerate: false, disable_access_points: true, bucket: "arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint")
           expect do
             subject.resolve(params)
@@ -272,7 +272,7 @@ module AWS::SDK::S3
           {error: "Invalid ARN: `arn:aws:s3:us-west-2:123456789012:` was not a valid ARN"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", use_fips: false, use_dual_stack: false, accelerate: false, disable_access_points: true, bucket: "arn:aws:s3:us-west-2:123456789012:")
           expect do
             subject.resolve(params)
@@ -297,7 +297,7 @@ module AWS::SDK::S3
           {error: "Cannot set dual-stack in combination with a custom endpoint."}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "arn:aws-cn:s3:cn-north-1:123456789012:accesspoint:myendpoint", force_path_style: false, endpoint: "https://beta.example.com", region: "cn-north-1", use_dual_stack: true, use_fips: false)
           expect do
             subject.resolve(params)
@@ -328,7 +328,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", use_fips: true, use_dual_stack: true, accelerate: false, disable_access_points: false, bucket: "arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint")
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -369,7 +369,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", use_fips: false, use_dual_stack: true, accelerate: false, disable_access_points: false, bucket: "arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint")
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -409,7 +409,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(bucket: "arn:aws:s3::123456789012:accesspoint:mfzwi23gnjvgw.mrap", region: "us-east-1", disable_multi_region_access_points: false, use_fips: false, use_dual_stack: false, accelerate: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -444,7 +444,7 @@ module AWS::SDK::S3
           {error: "S3 MRAP does not support FIPS"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(bucket: "arn:aws:s3::123456789012:accesspoint:mfzwi23gnjvgw.mrap", region: "us-east-1", disable_multi_region_access_points: false, use_fips: true, use_dual_stack: false, accelerate: false)
           expect do
             subject.resolve(params)
@@ -470,7 +470,7 @@ module AWS::SDK::S3
           {error: "S3 MRAP does not support dual-stack"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(bucket: "arn:aws:s3::123456789012:accesspoint:mfzwi23gnjvgw.mrap", region: "us-east-1", disable_multi_region_access_points: false, use_fips: false, use_dual_stack: true, accelerate: false)
           expect do
             subject.resolve(params)
@@ -496,7 +496,7 @@ module AWS::SDK::S3
           {error: "S3 MRAP does not support S3 Accelerate"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(bucket: "arn:aws:s3::123456789012:accesspoint:mfzwi23gnjvgw.mrap", region: "us-east-1", disable_multi_region_access_points: false, use_fips: false, use_dual_stack: false, accelerate: true)
           expect do
             subject.resolve(params)
@@ -522,7 +522,7 @@ module AWS::SDK::S3
           {error: "Invalid configuration: Multi-Region Access Point ARNs are disabled."}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(bucket: "arn:aws:s3::123456789012:accesspoint:mfzwi23gnjvgw.mrap", region: "us-east-1", disable_multi_region_access_points: true, use_fips: false, use_dual_stack: false, accelerate: false)
           expect do
             subject.resolve(params)
@@ -552,7 +552,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(bucket: "bucketname", region: "us-west-2", force_path_style: true, use_fips: false, accelerate: false, use_dual_stack: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -589,7 +589,7 @@ module AWS::SDK::S3
           {error: "Cannot set dual-stack in combination with a custom endpoint."}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(bucket: "bucketname", region: "us-west-2", force_path_style: true, use_fips: false, accelerate: false, use_dual_stack: true, endpoint: "https://abc.com")
           expect do
             subject.resolve(params)
@@ -617,7 +617,7 @@ module AWS::SDK::S3
           {error: "Path-style addressing cannot be used with ARN buckets"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "arn:aws:s3::123456789012:accesspoint:mfzwi23gnjvgw.mrap", force_path_style: true, region: "us-west-2", use_dual_stack: false, use_fips: false)
           expect do
             subject.resolve(params)
@@ -647,7 +647,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "99_ab", region: "us-west-2", use_dual_stack: true, use_fips: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -683,7 +683,7 @@ module AWS::SDK::S3
           {error: "Cannot set dual-stack in combination with a custom endpoint."}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "99_ab", region: "us-west-2", use_dual_stack: true, use_fips: false, endpoint: "http://abc.com")
           expect do
             subject.resolve(params)
@@ -714,7 +714,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(bucket: "example.com#", region: "us-west-2", use_dual_stack: false, use_fips: false, accelerate: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -753,7 +753,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(bucket: "bucket name", region: "us-west-2", use_dual_stack: false, use_fips: false, accelerate: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -792,7 +792,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "99_ab", endpoint: "http://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com", region: "af-south-1", use_dual_stack: false, use_fips: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -810,7 +810,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "bucketname", endpoint: "http://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com/foo", region: "af-south-1", use_dual_stack: false, use_fips: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -828,7 +828,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "99_ab", endpoint: "https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com", region: "af-south-1", use_dual_stack: false, use_fips: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -864,7 +864,7 @@ module AWS::SDK::S3
           {error: "Custom endpoint `abcde://nota#url` was not a valid URI"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "bucketname", endpoint: "abcde://nota#url", region: "af-south-1", use_dual_stack: false, use_fips: false)
           expect do
             subject.resolve(params)
@@ -881,7 +881,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "bucketname", endpoint: "https://123.123.0.1", region: "af-south-1", use_dual_stack: false, use_fips: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -917,7 +917,7 @@ module AWS::SDK::S3
           {error: "Invalid configuration: region from ARN `us-east-1` does not match client region `us-west-2` and UseArnRegion is `false`"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "arn:aws:s3:us-east-1:123456789012:accesspoint:myendpoint", force_path_style: false, use_arn_region: false, region: "us-west-2", use_dual_stack: false, use_fips: false)
           expect do
             subject.resolve(params)
@@ -947,7 +947,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint", force_path_style: false, region: "us-east-1", use_dual_stack: false, use_fips: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -986,7 +986,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint", force_path_style: false, use_arn_region: true, region: "us-east-1", use_dual_stack: false, use_fips: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -1026,7 +1026,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(bucket: "bucket.name", region: "us-east-1")
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -1065,7 +1065,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(bucket: "aaa", region: "us-east-1")
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -1104,7 +1104,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(bucket: "aa", region: "us-east-1")
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -1143,7 +1143,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(bucket: "BucketName", region: "us-east-1")
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -1182,7 +1182,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(bucket: "bucket.name", region: "us-east-1", endpoint: "http://example.com")
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -1218,7 +1218,7 @@ module AWS::SDK::S3
           {error: "A region must be set when sending requests to S3."}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(bucket: "bucket-name")
           expect do
             subject.resolve(params)
@@ -1235,7 +1235,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", use_global_endpoint: true, use_fips: false, use_dual_stack: false, accelerate: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -1275,7 +1275,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-west-2", use_global_endpoint: true, use_fips: false, use_dual_stack: false, accelerate: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -1315,7 +1315,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "cn-north-1", use_global_endpoint: true, use_fips: false, use_dual_stack: false, accelerate: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -1355,7 +1355,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", use_global_endpoint: true, use_fips: true, use_dual_stack: false, accelerate: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -1396,7 +1396,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", use_global_endpoint: true, use_fips: false, use_dual_stack: true, accelerate: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -1437,7 +1437,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", use_global_endpoint: true, use_fips: true, use_dual_stack: true, accelerate: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -1479,7 +1479,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", endpoint: "https://example.com", use_global_endpoint: true, use_fips: false, use_dual_stack: false, accelerate: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -1520,7 +1520,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-west-2", endpoint: "https://example.com", use_global_endpoint: true, use_fips: false, use_dual_stack: false, accelerate: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -1561,7 +1561,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", use_global_endpoint: true, use_fips: false, use_dual_stack: false, accelerate: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -1602,7 +1602,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "aws-global", use_fips: false, use_dual_stack: false, accelerate: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -1641,7 +1641,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "aws-global", use_fips: true, use_dual_stack: false, accelerate: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -1681,7 +1681,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "aws-global", use_fips: false, use_dual_stack: true, accelerate: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -1721,7 +1721,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "aws-global", use_fips: true, use_dual_stack: true, accelerate: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -1762,7 +1762,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "aws-global", use_fips: false, use_dual_stack: false, accelerate: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -1802,7 +1802,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "aws-global", endpoint: "https://example.com", use_global_endpoint: false, use_fips: false, use_dual_stack: false, accelerate: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -1842,7 +1842,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "aws-global", bucket: "bucket-name", use_fips: false, use_dual_stack: false, accelerate: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -1881,7 +1881,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "aws-global", bucket: "bucket-name", use_fips: false, use_dual_stack: false, accelerate: false, prefix: "prefix", key: "key")
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -1920,7 +1920,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "aws-global", bucket: "bucket-name", use_fips: true, use_dual_stack: false, accelerate: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -1960,7 +1960,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "aws-global", bucket: "bucket-name", use_fips: false, use_dual_stack: true, accelerate: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -2000,7 +2000,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "aws-global", bucket: "bucket-name", use_fips: true, use_dual_stack: true, accelerate: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -2041,7 +2041,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "aws-global", bucket: "bucket-name", use_fips: false, use_dual_stack: false, accelerate: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -2081,7 +2081,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "aws-global", endpoint: "https://example.com", bucket: "bucket-name", use_fips: false, use_dual_stack: false, accelerate: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -2121,7 +2121,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", use_global_endpoint: true, bucket: "bucket-name", use_fips: false, use_dual_stack: false, accelerate: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -2161,7 +2161,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-west-2", use_global_endpoint: true, bucket: "bucket-name", use_fips: false, use_dual_stack: false, accelerate: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -2201,7 +2201,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", use_global_endpoint: true, bucket: "bucket-name", use_fips: true, use_dual_stack: false, accelerate: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -2242,7 +2242,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", use_global_endpoint: true, bucket: "bucket-name", use_fips: false, use_dual_stack: true, accelerate: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -2283,7 +2283,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", use_global_endpoint: true, bucket: "bucket-name", use_fips: false, use_dual_stack: false, accelerate: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -2324,7 +2324,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", endpoint: "https://example.com", use_global_endpoint: true, bucket: "bucket-name", use_fips: false, use_dual_stack: false, accelerate: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -2365,7 +2365,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "aws-global", bucket: "bucket-name", force_path_style: true, use_fips: false, use_dual_stack: false, accelerate: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -2405,7 +2405,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "aws-global", bucket: "bucket-name", force_path_style: true, use_fips: true, use_dual_stack: false, accelerate: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -2423,7 +2423,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "aws-global", bucket: "bucket-name", force_path_style: true, use_fips: false, use_dual_stack: true, accelerate: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -2464,7 +2464,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "aws-global", endpoint: "https://example.com", bucket: "bucket-name", force_path_style: true, use_fips: false, use_dual_stack: false, accelerate: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -2505,7 +2505,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", bucket: "bucket-name", use_global_endpoint: true, force_path_style: true, use_fips: false, use_dual_stack: false, accelerate: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -2546,7 +2546,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-west-2", bucket: "bucket-name", use_global_endpoint: true, force_path_style: true, use_fips: false, use_dual_stack: false, accelerate: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -2587,7 +2587,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", bucket: "bucket-name", use_global_endpoint: true, force_path_style: true, use_fips: false, use_dual_stack: true, accelerate: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -2629,7 +2629,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", bucket: "bucket-name", endpoint: "https://example.com", use_global_endpoint: true, force_path_style: true, use_fips: false, use_dual_stack: false, accelerate: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -2671,7 +2671,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "aws-global", use_arn_region: true, use_fips: false, use_dual_stack: false, accelerate: false, bucket: "arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-01234567890123456/accesspoint/reports")
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -2707,7 +2707,7 @@ module AWS::SDK::S3
           {error: "Client was configured for partition `aws` but bucket referred to partition `aws-cn`"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(bucket: "arn:aws-cn:s3::123456789012:accesspoint:mfzwi23gnjvgw.mrap", region: "us-west-1")
           expect do
             subject.resolve(params)
@@ -2736,7 +2736,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(endpoint: "http://beta.example.com:1234", region: "us-west-2", bucket: "arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint")
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -2776,7 +2776,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-west-2", bucket: "arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint", endpoint: "http://beta.example.com:1234/path", use_fips: false, use_dual_stack: false, accelerate: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -2790,7 +2790,7 @@ module AWS::SDK::S3
           {error: "A custom endpoint cannot be combined with FIPS"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-west-2", endpoint: "http://beta.example.com:1234/path", use_fips: true, use_dual_stack: false)
           expect do
             subject.resolve(params)
@@ -2803,7 +2803,7 @@ module AWS::SDK::S3
           {error: "Cannot set dual-stack in combination with a custom endpoint."}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-west-2", endpoint: "http://beta.example.com:1234/path", use_fips: true, use_dual_stack: true)
           expect do
             subject.resolve(params)
@@ -2816,7 +2816,7 @@ module AWS::SDK::S3
           {error: "Cannot set dual-stack in combination with a custom endpoint."}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-west-2", endpoint: "http://beta.example.com:1234/path", use_fips: false, use_dual_stack: true)
           expect do
             subject.resolve(params)
@@ -2833,7 +2833,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-west-2", endpoint: "http://beta.example.com:1234/path", use_fips: false, use_dual_stack: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -2847,7 +2847,7 @@ module AWS::SDK::S3
           {error: "Access points are not supported for this operation"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-west-2", bucket: "arn:aws:s3-object-lambda:us-west-2:123456789012:accesspoint:myendpoint", disable_access_points: true)
           expect do
             subject.resolve(params)
@@ -2864,7 +2864,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-west-2", use_fips: true, use_dual_stack: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -2882,7 +2882,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-west-2", use_fips: false, use_dual_stack: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -2900,7 +2900,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-west-2", use_fips: true, use_dual_stack: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -2918,7 +2918,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-west-2", use_fips: false, use_dual_stack: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -2936,7 +2936,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", bucket: "bucket", use_fips: false, use_dual_stack: false, endpoint: "http://127.0.0.1", use_global_endpoint: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -2954,7 +2954,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", bucket: "bucket!", use_fips: false, use_dual_stack: false, use_global_endpoint: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -2972,7 +2972,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", bucket: "bucket!", use_fips: false, use_dual_stack: false, use_global_endpoint: true, endpoint: "http://foo.com")
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -2990,7 +2990,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", bucket: "bucket!", use_fips: true, use_dual_stack: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -3008,7 +3008,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", bucket: "bucket!", force_path_style: true, use_fips: true, use_dual_stack: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -3022,7 +3022,7 @@ module AWS::SDK::S3
           {error: "A custom endpoint cannot be combined with FIPS"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", bucket: "bucket!", force_path_style: true, use_fips: true, use_dual_stack: false, endpoint: "http://foo.com")
           expect do
             subject.resolve(params)
@@ -3035,7 +3035,7 @@ module AWS::SDK::S3
           {error: "A custom endpoint cannot be combined with FIPS"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", bucket: "bucket!", use_fips: true, use_dual_stack: false, endpoint: "http://foo.com")
           expect do
             subject.resolve(params)
@@ -3052,7 +3052,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", bucket: "bucket!", force_path_style: true, use_fips: true, use_dual_stack: false, use_global_endpoint: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -3070,7 +3070,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", bucket: "bucket", force_path_style: true, use_fips: true, use_dual_stack: true, use_global_endpoint: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -3088,7 +3088,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", bucket: "bucket", use_fips: true, use_dual_stack: true, use_global_endpoint: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -3102,7 +3102,7 @@ module AWS::SDK::S3
           {error: "A custom endpoint cannot be combined with FIPS"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", bucket: "bucket!", use_fips: true, use_dual_stack: false, use_global_endpoint: true, endpoint: "https://foo.com")
           expect do
             subject.resolve(params)
@@ -3119,7 +3119,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", bucket: "bucket!", use_fips: true, use_dual_stack: false, accelerate: false, use_global_endpoint: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -3137,7 +3137,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", bucket: "bucket", use_fips: false, use_dual_stack: true, accelerate: true, use_global_endpoint: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -3155,7 +3155,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", bucket: "bucket!", accelerate: false, use_dual_stack: true, use_fips: false, use_global_endpoint: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -3173,7 +3173,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", bucket: "bucket!", force_path_style: true, accelerate: false, use_dual_stack: false, use_fips: true, use_global_endpoint: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -3187,7 +3187,7 @@ module AWS::SDK::S3
           {error: "A custom endpoint cannot be combined with FIPS"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", bucket: "bucket!", force_path_style: true, accelerate: false, use_dual_stack: false, use_fips: true, endpoint: "http://foo.com", use_global_endpoint: true)
           expect do
             subject.resolve(params)
@@ -3204,7 +3204,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", bucket: "bucket!", accelerate: false, use_dual_stack: true, use_fips: true, use_global_endpoint: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -3218,7 +3218,7 @@ module AWS::SDK::S3
           {error: "Cannot set dual-stack in combination with a custom endpoint."}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", use_dual_stack: true, use_fips: true, use_global_endpoint: true, endpoint: "http://foo.com")
           expect do
             subject.resolve(params)
@@ -3231,7 +3231,7 @@ module AWS::SDK::S3
           {error: "Cannot set dual-stack in combination with a custom endpoint."}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", use_fips: false, use_dual_stack: true, use_global_endpoint: true, endpoint: "http://foo.com")
           expect do
             subject.resolve(params)
@@ -3244,7 +3244,7 @@ module AWS::SDK::S3
           {error: "A custom endpoint cannot be combined with FIPS"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", use_fips: true, use_dual_stack: false, use_global_endpoint: true, endpoint: "http://foo.com")
           expect do
             subject.resolve(params)
@@ -3257,7 +3257,7 @@ module AWS::SDK::S3
           {error: "Partition does not support FIPS"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "cn-north-1", use_fips: true, use_dual_stack: false, use_global_endpoint: true)
           expect do
             subject.resolve(params)
@@ -3274,7 +3274,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "aws-global", bucket: "bucket!", use_fips: true, accelerate: false, use_dual_stack: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -3292,7 +3292,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "aws-global", bucket: "bucket", use_dual_stack: false, use_fips: false, accelerate: false, endpoint: "https://foo.com")
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -3310,7 +3310,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "aws-global", bucket: "bucket!", use_dual_stack: true, use_fips: false, accelerate: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -3328,7 +3328,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "aws-global", bucket: "bucket!")
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -3342,7 +3342,7 @@ module AWS::SDK::S3
           {error: "A custom endpoint cannot be combined with FIPS"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "aws-global", bucket: "bucket!", use_dual_stack: false, use_fips: true, accelerate: false, endpoint: "http://foo.com")
           expect do
             subject.resolve(params)
@@ -3359,7 +3359,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "aws-global", bucket: "bucket!", use_dual_stack: false, use_fips: false, accelerate: false, endpoint: "http://foo.com")
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -3373,7 +3373,7 @@ module AWS::SDK::S3
           {error: "Cannot set dual-stack in combination with a custom endpoint."}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "aws-global", use_dual_stack: true, use_fips: false, accelerate: false, endpoint: "http://foo.com")
           expect do
             subject.resolve(params)
@@ -3390,7 +3390,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "aws-global", bucket: "bucket", use_dual_stack: true, use_fips: false, accelerate: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -3408,7 +3408,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "aws-global", bucket: "bucket!", force_path_style: true, use_dual_stack: true, use_fips: true, accelerate: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -3422,7 +3422,7 @@ module AWS::SDK::S3
           {error: "A custom endpoint cannot be combined with FIPS"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "aws-global", use_fips: true, endpoint: "http://foo.com")
           expect do
             subject.resolve(params)
@@ -3435,7 +3435,7 @@ module AWS::SDK::S3
           {error: "A custom endpoint cannot be combined with FIPS"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "aws-global", bucket: "bucket!", force_path_style: true, use_fips: true, endpoint: "http://foo.com")
           expect do
             subject.resolve(params)
@@ -3452,7 +3452,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "aws-global", bucket: "bucket", endpoint: "http://192.168.1.1")
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -3466,7 +3466,7 @@ module AWS::SDK::S3
           {error: "Cannot set dual-stack in combination with a custom endpoint."}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "aws-global", use_fips: true, use_dual_stack: true, endpoint: "http://foo.com")
           expect do
             subject.resolve(params)
@@ -3483,7 +3483,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "aws-global", bucket: "bucket!", use_fips: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -3497,7 +3497,7 @@ module AWS::SDK::S3
           {error: "Invalid ARN: No ARN type specified"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-2", bucket: "arn:aws:not-s3:us-west-2:123456789012::myendpoint")
           expect do
             subject.resolve(params)
@@ -3510,7 +3510,7 @@ module AWS::SDK::S3
           {error: "Path-style addressing cannot be used with S3 Accelerate"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-2", bucket: "bucket!", accelerate: true)
           expect do
             subject.resolve(params)
@@ -3523,7 +3523,7 @@ module AWS::SDK::S3
           {error: "Invalid region: region was not a valid DNS name."}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-2!", bucket: "bucket.subdomain", endpoint: "http://foo.com")
           expect do
             subject.resolve(params)
@@ -3536,7 +3536,7 @@ module AWS::SDK::S3
           {error: "Invalid region: region was not a valid DNS name."}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-2!", bucket: "bucket", endpoint: "http://foo.com")
           expect do
             subject.resolve(params)
@@ -3549,7 +3549,7 @@ module AWS::SDK::S3
           {error: "Invalid Access Point Name"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-2", bucket: "arn:aws:s3::123456789012:accesspoint:my_endpoint")
           expect do
             subject.resolve(params)
@@ -3562,7 +3562,7 @@ module AWS::SDK::S3
           {error: "Client was configured for partition `aws` but ARN (`arn:aws:s3:cn-north-1:123456789012:accesspoint:my-endpoint`) has `aws-cn`"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-2", bucket: "arn:aws:s3:cn-north-1:123456789012:accesspoint:my-endpoint", use_arn_region: true)
           expect do
             subject.resolve(params)
@@ -3575,7 +3575,7 @@ module AWS::SDK::S3
           {error: "Invalid region in ARN: `us-east_2` (invalid DNS name)"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-2", bucket: "arn:aws:s3-object-lambda:us-east_2:123456789012:accesspoint:my-endpoint", use_arn_region: true)
           expect do
             subject.resolve(params)
@@ -3588,7 +3588,7 @@ module AWS::SDK::S3
           {error: "Invalid ARN: The outpost Id may only contain a-z, A-Z, 0-9 and `-`. Found: `op_01234567890123456`"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-2", bucket: "arn:aws:s3-outposts:us-east-1:123456789012:outpost/op_01234567890123456/accesspoint/reports", use_arn_region: true)
           expect do
             subject.resolve(params)
@@ -3601,7 +3601,7 @@ module AWS::SDK::S3
           {error: "Invalid ARN: expected an access point name"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-2", bucket: "arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-01234567890123456/reports")
           expect do
             subject.resolve(params)
@@ -3614,7 +3614,7 @@ module AWS::SDK::S3
           {error: "Invalid ARN: Expected a 4-component resource"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-2", bucket: "arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-01234567890123456")
           expect do
             subject.resolve(params)
@@ -3627,7 +3627,7 @@ module AWS::SDK::S3
           {error: "Expected an outpost type `accesspoint`, found not-accesspoint"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-2", bucket: "arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-01234567890123456/not-accesspoint/reports")
           expect do
             subject.resolve(params)
@@ -3640,7 +3640,7 @@ module AWS::SDK::S3
           {error: "Invalid region in ARN: `us-east_1` (invalid DNS name)"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-2", bucket: "arn:aws:s3-outposts:us-east_1:123456789012:outpost/op-01234567890123456/not-accesspoint/reports")
           expect do
             subject.resolve(params)
@@ -3653,7 +3653,7 @@ module AWS::SDK::S3
           {error: "Invalid ARN: The account id may only contain a-z, A-Z, 0-9 and `-`. Found: `12345_789012`"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-2", bucket: "arn:aws:s3-outposts:us-east-1:12345_789012:outpost/op-01234567890123456/not-accesspoint/reports")
           expect do
             subject.resolve(params)
@@ -3666,7 +3666,7 @@ module AWS::SDK::S3
           {error: "Invalid ARN: The Outpost Id was not set"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-2", bucket: "arn:aws:s3-outposts:us-east-1:12345789012:outpost")
           expect do
             subject.resolve(params)
@@ -3683,7 +3683,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-2", bucket: "bucket", endpoint: "http://example.com", use_global_endpoint: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -3701,7 +3701,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-2", bucket: "bucket", endpoint: "http://192.168.0.1", use_global_endpoint: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -3719,7 +3719,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-2", bucket: "bucket!", use_global_endpoint: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -3737,7 +3737,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-2", bucket: "bucket", accelerate: true, use_global_endpoint: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -3755,7 +3755,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-2", bucket: "bucket!", use_global_endpoint: true, endpoint: "http://foo.com")
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -3773,7 +3773,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-2", bucket: "bucket!", use_global_endpoint: true, force_path_style: true, endpoint: "http://foo.com")
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -3791,7 +3791,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "bucket-name", force_path_style: false, region: "us-west-2", use_dual_stack: false, use_fips: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -3830,7 +3830,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "bucket-name", force_path_style: false, region: "us-west-2", use_dual_stack: true, use_fips: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -3870,7 +3870,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: true, bucket: "bucket-name", force_path_style: false, region: "us-west-2", use_dual_stack: true, use_fips: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -3911,7 +3911,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: true, bucket: "bucket-name", force_path_style: false, region: "us-west-2", use_dual_stack: false, use_fips: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -3951,7 +3951,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "bucket-name", force_path_style: false, region: "us-west-2", use_dual_stack: false, use_fips: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -3991,7 +3991,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "bucket-name", force_path_style: false, region: "us-west-2", use_dual_stack: true, use_fips: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -4028,7 +4028,7 @@ module AWS::SDK::S3
           {error: "Accelerate cannot be used with FIPS"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: true, bucket: "bucket-name", force_path_style: false, region: "us-west-2", use_dual_stack: false, use_fips: true)
           expect do
             subject.resolve(params)
@@ -4059,7 +4059,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "bucket-name", force_path_style: false, region: "cn-north-1", use_dual_stack: false, use_fips: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -4098,7 +4098,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "bucket-name", force_path_style: false, region: "cn-north-1", use_dual_stack: true, use_fips: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -4134,7 +4134,7 @@ module AWS::SDK::S3
           {error: "S3 Accelerate cannot be used in this region"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: true, bucket: "bucket-name", force_path_style: false, region: "cn-north-1", use_dual_stack: false, use_fips: false)
           expect do
             subject.resolve(params)
@@ -4147,7 +4147,7 @@ module AWS::SDK::S3
           {error: "Partition does not support FIPS"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "bucket-name", force_path_style: false, region: "cn-north-1", use_dual_stack: false, use_fips: true)
           expect do
             subject.resolve(params)
@@ -4164,7 +4164,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "bucket-name", force_path_style: false, region: "af-south-1", use_dual_stack: false, use_fips: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -4203,7 +4203,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "bucket-name", force_path_style: false, region: "af-south-1", use_dual_stack: true, use_fips: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -4243,7 +4243,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: true, bucket: "bucket-name", force_path_style: false, region: "af-south-1", use_dual_stack: true, use_fips: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -4284,7 +4284,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: true, bucket: "bucket-name", force_path_style: false, region: "af-south-1", use_dual_stack: false, use_fips: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -4324,7 +4324,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "bucket-name", force_path_style: false, region: "af-south-1", use_dual_stack: false, use_fips: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -4364,7 +4364,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "bucket-name", force_path_style: false, region: "af-south-1", use_dual_stack: true, use_fips: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -4401,7 +4401,7 @@ module AWS::SDK::S3
           {error: "Accelerate cannot be used with FIPS"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: true, bucket: "bucket-name", force_path_style: false, region: "af-south-1", use_dual_stack: false, use_fips: true)
           expect do
             subject.resolve(params)
@@ -4432,7 +4432,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "bucket-name", force_path_style: true, region: "us-west-2", use_dual_stack: false, use_fips: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -4472,7 +4472,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "bucket.with.dots", region: "us-gov-west-1", use_dual_stack: false, use_fips: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -4509,7 +4509,7 @@ module AWS::SDK::S3
           {error: "Path-style addressing cannot be used with S3 Accelerate"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: true, bucket: "bucket-name", force_path_style: true, region: "us-west-2", use_dual_stack: false, use_fips: false)
           expect do
             subject.resolve(params)
@@ -4540,7 +4540,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "bucket-name", force_path_style: true, region: "us-west-2", use_dual_stack: true, use_fips: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -4577,7 +4577,7 @@ module AWS::SDK::S3
           {error: "Path-style addressing cannot be used with ARN buckets"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "arn:PARTITION:s3-outposts:REGION:123456789012:outpost:op-01234567890123456:bucket:mybucket", force_path_style: true, region: "us-west-2", use_dual_stack: false, use_fips: false)
           expect do
             subject.resolve(params)
@@ -4607,7 +4607,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "99a_b", force_path_style: true, region: "us-west-2", use_dual_stack: false, use_fips: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -4647,7 +4647,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "99a_b", region: "us-west-2", use_dual_stack: false, use_fips: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -4686,7 +4686,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "bucket-name", force_path_style: true, region: "cn-north-1", use_dual_stack: false, use_fips: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -4722,7 +4722,7 @@ module AWS::SDK::S3
           {error: "Partition does not support FIPS"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "bucket-name", force_path_style: true, region: "cn-north-1", use_dual_stack: false, use_fips: true)
           expect do
             subject.resolve(params)
@@ -4749,7 +4749,7 @@ module AWS::SDK::S3
           {error: "Path-style addressing cannot be used with S3 Accelerate"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: true, bucket: "bucket-name", force_path_style: true, region: "cn-north-1", use_dual_stack: false, use_fips: false)
           expect do
             subject.resolve(params)
@@ -4780,7 +4780,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "bucket-name", force_path_style: true, region: "cn-north-1", use_dual_stack: true, use_fips: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -4817,7 +4817,7 @@ module AWS::SDK::S3
           {error: "Path-style addressing cannot be used with ARN buckets"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "arn:PARTITION:s3-outposts:REGION:123456789012:outpost:op-01234567890123456:bucket:mybucket", force_path_style: true, region: "cn-north-1", use_dual_stack: false, use_fips: false)
           expect do
             subject.resolve(params)
@@ -4847,7 +4847,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "99a_b", force_path_style: true, region: "cn-north-1", use_dual_stack: false, use_fips: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -4887,7 +4887,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "99a_b", region: "cn-north-1", use_dual_stack: false, use_fips: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -4926,7 +4926,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "bucket-name", force_path_style: true, region: "af-south-1", use_dual_stack: false, use_fips: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -4966,7 +4966,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "bucket-name", force_path_style: true, region: "af-south-1", use_dual_stack: false, use_fips: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -5003,7 +5003,7 @@ module AWS::SDK::S3
           {error: "Path-style addressing cannot be used with S3 Accelerate"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: true, bucket: "bucket-name", force_path_style: true, region: "af-south-1", use_dual_stack: false, use_fips: false)
           expect do
             subject.resolve(params)
@@ -5034,7 +5034,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "bucket-name", force_path_style: true, region: "af-south-1", use_dual_stack: true, use_fips: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -5071,7 +5071,7 @@ module AWS::SDK::S3
           {error: "Path-style addressing cannot be used with ARN buckets"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "arn:PARTITION:s3-outposts:REGION:123456789012:outpost:op-01234567890123456:bucket:mybucket", force_path_style: true, region: "af-south-1", use_dual_stack: false, use_fips: false)
           expect do
             subject.resolve(params)
@@ -5101,7 +5101,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "99a_b", force_path_style: true, region: "af-south-1", use_dual_stack: false, use_fips: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -5141,7 +5141,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "99a_b", region: "af-south-1", use_dual_stack: false, use_fips: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -5180,7 +5180,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "bucket-name", force_path_style: false, endpoint: "http://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com", region: "us-west-2", use_dual_stack: false, use_fips: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -5220,7 +5220,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "bucket-name", force_path_style: true, endpoint: "https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com", region: "us-west-2", use_dual_stack: false, use_fips: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -5257,7 +5257,7 @@ module AWS::SDK::S3
           {error: "A custom endpoint cannot be combined with FIPS"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "bucket-name", force_path_style: false, endpoint: "https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com", region: "us-west-2", use_dual_stack: false, use_fips: true)
           expect do
             subject.resolve(params)
@@ -5284,7 +5284,7 @@ module AWS::SDK::S3
           {error: "Cannot set dual-stack in combination with a custom endpoint."}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "bucket-name", force_path_style: false, endpoint: "https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com", region: "us-west-2", use_dual_stack: true, use_fips: false)
           expect do
             subject.resolve(params)
@@ -5311,7 +5311,7 @@ module AWS::SDK::S3
           {error: "A custom endpoint cannot be combined with S3 Accelerate"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: true, bucket: "bucket-name", force_path_style: false, endpoint: "http://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com", region: "us-west-2", use_dual_stack: false, use_fips: false)
           expect do
             subject.resolve(params)
@@ -5342,7 +5342,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint", force_path_style: false, endpoint: "https://beta.example.com", region: "us-west-2", use_dual_stack: false, use_fips: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -5382,7 +5382,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "bucket-name", force_path_style: false, endpoint: "https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com", region: "cn-north-1", use_dual_stack: false, use_fips: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -5422,7 +5422,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "bucket-name", force_path_style: true, endpoint: "https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com", region: "cn-north-1", use_dual_stack: false, use_fips: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -5459,7 +5459,7 @@ module AWS::SDK::S3
           {error: "Partition does not support FIPS"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "bucket-name", force_path_style: false, region: "cn-north-1", use_dual_stack: false, use_fips: true)
           expect do
             subject.resolve(params)
@@ -5472,7 +5472,7 @@ module AWS::SDK::S3
           {error: "Cannot set dual-stack in combination with a custom endpoint."}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "bucket-name", force_path_style: false, endpoint: "https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com", region: "cn-north-1", use_dual_stack: true, use_fips: false)
           expect do
             subject.resolve(params)
@@ -5499,7 +5499,7 @@ module AWS::SDK::S3
           {error: "A custom endpoint cannot be combined with S3 Accelerate"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: true, bucket: "bucket-name", force_path_style: false, endpoint: "https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com", region: "cn-north-1", use_dual_stack: false, use_fips: false)
           expect do
             subject.resolve(params)
@@ -5516,7 +5516,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "arn:aws-cn:s3:cn-north-1:123456789012:accesspoint:myendpoint", force_path_style: false, endpoint: "https://beta.example.com", region: "cn-north-1", use_dual_stack: false, use_fips: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -5556,7 +5556,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "bucket-name", force_path_style: false, endpoint: "https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com", region: "af-south-1", use_dual_stack: false, use_fips: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -5596,7 +5596,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "bucket-name", force_path_style: true, endpoint: "https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com", region: "af-south-1", use_dual_stack: false, use_fips: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -5633,7 +5633,7 @@ module AWS::SDK::S3
           {error: "A custom endpoint cannot be combined with FIPS"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "bucket-name", force_path_style: false, endpoint: "https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com", region: "af-south-1", use_dual_stack: false, use_fips: true)
           expect do
             subject.resolve(params)
@@ -5660,7 +5660,7 @@ module AWS::SDK::S3
           {error: "Cannot set dual-stack in combination with a custom endpoint."}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "bucket-name", force_path_style: false, endpoint: "https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com", region: "af-south-1", use_dual_stack: true, use_fips: false)
           expect do
             subject.resolve(params)
@@ -5687,7 +5687,7 @@ module AWS::SDK::S3
           {error: "A custom endpoint cannot be combined with S3 Accelerate"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: true, bucket: "bucket-name", force_path_style: false, endpoint: "https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com", region: "af-south-1", use_dual_stack: false, use_fips: false)
           expect do
             subject.resolve(params)
@@ -5718,7 +5718,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "arn:aws:s3:af-south-1:123456789012:accesspoint:myendpoint", force_path_style: false, endpoint: "https://beta.example.com", region: "af-south-1", use_dual_stack: false, use_fips: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -5758,7 +5758,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint", force_path_style: false, region: "us-west-2", use_dual_stack: false, use_fips: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -5797,7 +5797,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint", force_path_style: false, region: "us-west-2", use_dual_stack: false, use_fips: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -5833,7 +5833,7 @@ module AWS::SDK::S3
           {error: "Access Points do not support S3 Accelerate"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: true, bucket: "arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint", force_path_style: false, region: "us-west-2", use_dual_stack: false, use_fips: false)
           expect do
             subject.resolve(params)
@@ -5863,7 +5863,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint", force_path_style: false, region: "us-west-2", use_dual_stack: true, use_fips: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -5904,7 +5904,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "arn:aws-cn:s3:cn-north-1:123456789012:accesspoint:myendpoint", force_path_style: false, region: "cn-north-1", use_dual_stack: false, use_fips: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -5939,7 +5939,7 @@ module AWS::SDK::S3
           {error: "Partition does not support FIPS"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "arn:aws-cn:s3:cn-north-1:123456789012:accesspoint:myendpoint", force_path_style: false, region: "cn-north-1", use_dual_stack: false, use_fips: true)
           expect do
             subject.resolve(params)
@@ -5952,7 +5952,7 @@ module AWS::SDK::S3
           {error: "Access Points do not support S3 Accelerate"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: true, bucket: "arn:aws-cn:s3:cn-north-1:123456789012:accesspoint:myendpoint", force_path_style: false, region: "cn-north-1", use_dual_stack: false, use_fips: false)
           expect do
             subject.resolve(params)
@@ -5978,7 +5978,7 @@ module AWS::SDK::S3
           {error: "Partition does not support FIPS"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "arn:aws-cn:s3:cn-north-1:123456789012:accesspoint:myendpoint", force_path_style: false, region: "cn-north-1", use_dual_stack: true, use_fips: true)
           expect do
             subject.resolve(params)
@@ -5995,7 +5995,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "arn:aws:s3:af-south-1:123456789012:accesspoint:myendpoint", force_path_style: false, region: "af-south-1", use_dual_stack: false, use_fips: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -6034,7 +6034,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "arn:aws:s3:af-south-1:123456789012:accesspoint:myendpoint", force_path_style: false, region: "af-south-1", use_dual_stack: false, use_fips: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -6070,7 +6070,7 @@ module AWS::SDK::S3
           {error: "Access Points do not support S3 Accelerate"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: true, bucket: "arn:aws:s3:af-south-1:123456789012:accesspoint:myendpoint", force_path_style: false, region: "af-south-1", use_dual_stack: false, use_fips: false)
           expect do
             subject.resolve(params)
@@ -6100,7 +6100,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "arn:aws:s3:af-south-1:123456789012:accesspoint:myendpoint", force_path_style: false, region: "af-south-1", use_dual_stack: true, use_fips: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -6141,7 +6141,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-west-2", use_fips: false, use_dual_stack: false, accelerate: false, bucket: "arn:aws:s3-outposts:us-west-2:123456789012:outpost/op-01234567890123456/accesspoint/reports")
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -6180,7 +6180,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-west-2", use_fips: false, use_dual_stack: false, accelerate: false, bucket: "arn:aws:s3-outposts:us-west-2:123456789012:outpost/op-01234567890123456/accesspoint/reports", endpoint: "https://example.amazonaws.com")
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -6216,7 +6216,7 @@ module AWS::SDK::S3
           {error: "Invalid configuration: region from ARN `us-east-1` does not match client region `us-west-2` and UseArnRegion is `false`"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "arn:aws:s3-outposts:us-east-1:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint", force_path_style: false, use_arn_region: false, region: "us-west-2", use_dual_stack: false, use_fips: false)
           expect do
             subject.resolve(params)
@@ -6242,7 +6242,7 @@ module AWS::SDK::S3
           {error: "Invalid configuration: region from ARN `us-east-1` does not match client region `us-west-2` and UseArnRegion is `false`"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "arn:aws:s3-outposts:us-east-1:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint", endpoint: "https://example.com", force_path_style: false, use_arn_region: false, region: "us-west-2", use_dual_stack: false, use_fips: false)
           expect do
             subject.resolve(params)
@@ -6273,7 +6273,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "arn:aws:s3-outposts:us-east-1:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint", force_path_style: false, use_arn_region: true, region: "us-west-2", use_dual_stack: false, use_fips: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -6313,7 +6313,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "arn:aws:s3-outposts:us-east-1:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint", force_path_style: false, region: "us-west-2", use_dual_stack: false, use_fips: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -6348,7 +6348,7 @@ module AWS::SDK::S3
           {error: "Client was configured for partition `aws` but ARN (`arn:aws:s3-outposts:cn-north-1:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint`) has `aws-cn`"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "arn:aws:s3-outposts:cn-north-1:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint", force_path_style: false, use_arn_region: true, region: "us-west-2", use_dual_stack: false, use_fips: false)
           expect do
             subject.resolve(params)
@@ -6378,7 +6378,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", use_global_endpoint: true, use_fips: false, use_dual_stack: false, accelerate: false, bucket: "arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-01234567890123456/accesspoint/reports")
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -6414,7 +6414,7 @@ module AWS::SDK::S3
           {error: "S3 Outposts does not support Dual-stack"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", use_fips: false, use_dual_stack: true, accelerate: false, bucket: "arn:aws:s3-outposts:us-west-2:123456789012:outpost/op-01234567890123456/accesspoint/reports")
           expect do
             subject.resolve(params)
@@ -6427,7 +6427,7 @@ module AWS::SDK::S3
           {error: "S3 Outposts does not support FIPS"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", use_fips: true, use_dual_stack: false, accelerate: false, bucket: "arn:aws:s3-outposts:us-west-2:123456789012:outpost/op-01234567890123456/accesspoint/reports")
           expect do
             subject.resolve(params)
@@ -6440,7 +6440,7 @@ module AWS::SDK::S3
           {error: "S3 Outposts does not support S3 Accelerate"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", use_fips: false, use_dual_stack: false, accelerate: true, bucket: "arn:aws:s3-outposts:us-west-2:123456789012:outpost/op-01234567890123456/accesspoint/reports")
           expect do
             subject.resolve(params)
@@ -6453,7 +6453,7 @@ module AWS::SDK::S3
           {error: "Invalid Arn: Outpost Access Point ARN contains sub resources"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-west-2", use_fips: false, use_dual_stack: false, accelerate: false, bucket: "arn:aws:s3-outposts:us-west-2:123456789012:outpost:op-01234567890123456:accesspoint:mybucket:object:foo")
           expect do
             subject.resolve(params)
@@ -6470,7 +6470,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", use_fips: false, use_dual_stack: false, accelerate: false, use_arn_region: false, bucket: "arn:aws:s3-object-lambda:us-east-1:123456789012:accesspoint/mybanner")
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -6510,7 +6510,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-west-2", use_fips: false, use_dual_stack: false, accelerate: false, use_arn_region: false, bucket: "arn:aws:s3-object-lambda:us-west-2:123456789012:accesspoint/mybanner")
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -6550,7 +6550,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-west-2", use_fips: false, use_dual_stack: false, accelerate: false, use_arn_region: false, bucket: "arn:aws:s3-object-lambda:us-west-2:123456789012:accesspoint:mybanner")
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -6590,7 +6590,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-west-2", use_fips: false, use_dual_stack: false, accelerate: false, use_arn_region: true, bucket: "arn:aws:s3-object-lambda:us-east-1:123456789012:accesspoint/mybanner")
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -6630,7 +6630,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "s3-external-1", use_fips: false, use_dual_stack: false, accelerate: false, use_arn_region: true, bucket: "arn:aws:s3-object-lambda:us-east-1:123456789012:accesspoint/mybanner")
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -6666,7 +6666,7 @@ module AWS::SDK::S3
           {error: "Invalid configuration: region from ARN `us-east-1` does not match client region `s3-external-1` and UseArnRegion is `false`"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "s3-external-1", use_fips: false, use_dual_stack: false, accelerate: false, use_arn_region: false, bucket: "arn:aws:s3-object-lambda:us-east-1:123456789012:accesspoint/mybanner")
           expect do
             subject.resolve(params)
@@ -6696,7 +6696,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "aws-global", use_fips: false, use_dual_stack: false, accelerate: false, use_arn_region: true, bucket: "arn:aws:s3-object-lambda:us-east-1:123456789012:accesspoint/mybanner")
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -6732,7 +6732,7 @@ module AWS::SDK::S3
           {error: "Invalid configuration: region from ARN `us-east-1` does not match client region `aws-global` and UseArnRegion is `false`"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "aws-global", use_fips: false, use_dual_stack: false, accelerate: false, use_arn_region: false, bucket: "arn:aws:s3-object-lambda:us-east-1:123456789012:accesspoint/mybanner")
           expect do
             subject.resolve(params)
@@ -6758,7 +6758,7 @@ module AWS::SDK::S3
           {error: "Client was configured for partition `aws` but ARN (`arn:aws-cn:s3-object-lambda:cn-north-1:123456789012:accesspoint/mybanner`) has `aws-cn`"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "aws-global", use_fips: false, use_dual_stack: false, accelerate: false, use_arn_region: true, bucket: "arn:aws-cn:s3-object-lambda:cn-north-1:123456789012:accesspoint/mybanner")
           expect do
             subject.resolve(params)
@@ -6784,7 +6784,7 @@ module AWS::SDK::S3
           {error: "S3 Object Lambda does not support Dual-stack"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-west-2", use_fips: false, use_dual_stack: true, accelerate: false, use_arn_region: false, bucket: "arn:aws:s3-object-lambda:us-west-2:123456789012:accesspoint/mybanner")
           expect do
             subject.resolve(params)
@@ -6815,7 +6815,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-gov-east-1", use_fips: false, use_dual_stack: false, accelerate: false, use_arn_region: false, bucket: "arn:aws-us-gov:s3-object-lambda:us-gov-east-1:123456789012:accesspoint/mybanner")
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -6833,7 +6833,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-gov-east-1", use_fips: true, use_dual_stack: false, accelerate: false, use_arn_region: false, bucket: "arn:aws-us-gov:s3-object-lambda:us-gov-east-1:123456789012:accesspoint/mybanner")
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -6847,7 +6847,7 @@ module AWS::SDK::S3
           {error: "Partition does not support FIPS"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "cn-north-1", use_fips: true, use_dual_stack: false, accelerate: false, use_arn_region: false, bucket: "arn:aws-cn:s3-object-lambda:cn-north-1:123456789012:accesspoint/mybanner")
           expect do
             subject.resolve(params)
@@ -6860,7 +6860,7 @@ module AWS::SDK::S3
           {error: "S3 Object Lambda does not support S3 Accelerate"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-west-2", use_fips: false, use_dual_stack: false, accelerate: true, use_arn_region: false, bucket: "arn:aws:s3-object-lambda:us-west-2:123456789012:accesspoint/mybanner")
           expect do
             subject.resolve(params)
@@ -6887,7 +6887,7 @@ module AWS::SDK::S3
           {error: "Invalid ARN: Unrecognized format: arn:aws:sqs:us-west-2:123456789012:someresource (type: someresource)"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-west-2", use_fips: false, use_dual_stack: false, accelerate: false, use_arn_region: false, bucket: "arn:aws:sqs:us-west-2:123456789012:someresource")
           expect do
             subject.resolve(params)
@@ -6913,7 +6913,7 @@ module AWS::SDK::S3
           {error: "Invalid ARN: Object Lambda ARNs only support `accesspoint` arn types, but found: `bucket_name`"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-west-2", use_fips: false, use_dual_stack: false, accelerate: false, use_arn_region: false, bucket: "arn:aws:s3-object-lambda:us-west-2:123456789012:bucket_name:mybucket")
           expect do
             subject.resolve(params)
@@ -6926,7 +6926,7 @@ module AWS::SDK::S3
           {error: "Invalid ARN: bucket ARN is missing a region"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-west-2", use_fips: false, use_dual_stack: false, accelerate: false, use_arn_region: false, bucket: "arn:aws:s3-object-lambda::123456789012:accesspoint/mybanner")
           expect do
             subject.resolve(params)
@@ -6939,7 +6939,7 @@ module AWS::SDK::S3
           {error: "Invalid ARN: Missing account id"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-west-2", use_fips: false, use_dual_stack: false, accelerate: false, use_arn_region: true, bucket: "arn:aws:s3-object-lambda:us-west-2::accesspoint/mybanner")
           expect do
             subject.resolve(params)
@@ -6952,7 +6952,7 @@ module AWS::SDK::S3
           {error: "Invalid ARN: The account id may only contain a-z, A-Z, 0-9 and `-`. Found: `123.45678.9012`"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-west-2", use_fips: false, use_dual_stack: false, accelerate: false, use_arn_region: true, bucket: "arn:aws:s3-object-lambda:us-west-2:123.45678.9012:accesspoint:mybucket")
           expect do
             subject.resolve(params)
@@ -6978,7 +6978,7 @@ module AWS::SDK::S3
           {error: "Invalid ARN: Expected a resource of the format `accesspoint:<accesspoint name>` but no name was provided"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-west-2", use_fips: false, use_dual_stack: false, accelerate: false, use_arn_region: true, bucket: "arn:aws:s3-object-lambda:us-west-2:123456789012:accesspoint")
           expect do
             subject.resolve(params)
@@ -6991,7 +6991,7 @@ module AWS::SDK::S3
           {error: "Invalid ARN: The access point name may only contain a-z, A-Z, 0-9 and `-`. Found: `*`"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-west-2", use_fips: false, use_dual_stack: false, accelerate: false, use_arn_region: true, bucket: "arn:aws:s3-object-lambda:us-west-2:123456789012:accesspoint:*")
           expect do
             subject.resolve(params)
@@ -7004,7 +7004,7 @@ module AWS::SDK::S3
           {error: "Invalid ARN: The access point name may only contain a-z, A-Z, 0-9 and `-`. Found: `my.bucket`"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-west-2", use_fips: false, use_dual_stack: false, accelerate: false, use_arn_region: true, bucket: "arn:aws:s3-object-lambda:us-west-2:123456789012:accesspoint:my.bucket")
           expect do
             subject.resolve(params)
@@ -7017,7 +7017,7 @@ module AWS::SDK::S3
           {error: "Invalid ARN: The ARN may only contain a single resource component after `accesspoint`."}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-west-2", use_fips: false, use_dual_stack: false, accelerate: false, use_arn_region: true, bucket: "arn:aws:s3-object-lambda:us-west-2:123456789012:accesspoint:mybucket:object:foo")
           expect do
             subject.resolve(params)
@@ -7034,7 +7034,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-west-2", use_fips: false, use_dual_stack: false, accelerate: false, use_arn_region: false, bucket: "arn:aws:s3-object-lambda:us-west-2:123456789012:accesspoint/mybanner", endpoint: "https://my-endpoint.com")
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -7071,7 +7071,7 @@ module AWS::SDK::S3
           {error: "Invalid configuration: region from ARN `us-east-1` does not match client region `us-west-2` and UseArnRegion is `false`"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, bucket: "arn:aws:s3-object-lambda:us-east-1:123456789012:accesspoint/mybanner", force_path_style: false, use_arn_region: false, region: "us-west-2", use_dual_stack: false, use_fips: false)
           expect do
             subject.resolve(params)
@@ -7101,7 +7101,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, use_object_lambda_endpoint: true, region: "us-west-2", use_dual_stack: false, use_fips: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -7140,7 +7140,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, use_object_lambda_endpoint: true, endpoint: "https://my-endpoint.com", region: "us-west-2", use_dual_stack: false, use_fips: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -7180,7 +7180,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, use_object_lambda_endpoint: true, region: "us-east-1", use_dual_stack: false, use_fips: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -7219,7 +7219,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, use_object_lambda_endpoint: true, region: "us-east-1", use_dual_stack: false, use_fips: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -7255,7 +7255,7 @@ module AWS::SDK::S3
           {error: "S3 Object Lambda does not support Dual-stack"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, use_object_lambda_endpoint: true, region: "us-east-1", use_dual_stack: true, use_fips: false)
           expect do
             subject.resolve(params)
@@ -7281,7 +7281,7 @@ module AWS::SDK::S3
           {error: "S3 Object Lambda does not support S3 Accelerate"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: true, use_object_lambda_endpoint: true, region: "us-east-1", use_dual_stack: false, use_fips: false)
           expect do
             subject.resolve(params)
@@ -7294,7 +7294,7 @@ module AWS::SDK::S3
           {error: "Partition does not support FIPS"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, region: "cn-north-1", use_object_lambda_endpoint: true, use_dual_stack: false, use_fips: true)
           expect do
             subject.resolve(params)
@@ -7307,7 +7307,7 @@ module AWS::SDK::S3
           {error: "Invalid region: region was not a valid DNS name."}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, use_object_lambda_endpoint: true, region: "not a valid DNS name", use_dual_stack: false, use_fips: false)
           expect do
             subject.resolve(params)
@@ -7324,7 +7324,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(accelerate: false, use_object_lambda_endpoint: true, region: "us-east.special", use_dual_stack: false, use_fips: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -7342,7 +7342,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-west-1", bucket: "test-accessp-o0b1d075431d83bebde8xz5w8ijx1qzlbp3i3kuse10--op-s3", use_fips: false, use_dual_stack: false, accelerate: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -7360,7 +7360,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "ap-east-1", bucket: "test-accessp-o0b1d075431d83bebde8xz5w8ijx1qzlbp3i3kuse10--op-s3", use_fips: false, use_dual_stack: false, accelerate: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -7378,7 +7378,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", bucket: "test-accessp-e0000075431d83bebde8xz5w8ijx1qzlbp3i3kuse10--op-s3", use_fips: false, use_dual_stack: false, accelerate: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -7396,7 +7396,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "me-south-1", bucket: "test-accessp-e0000075431d83bebde8xz5w8ijx1qzlbp3i3kuse10--op-s3", use_fips: false, use_dual_stack: false, accelerate: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -7414,7 +7414,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", bucket: "test-accessp-o0b1d075431d83bebde8xz5w8ijx1qzlbp3i3kbeta0--op-s3", endpoint: "https://example.amazonaws.com", use_fips: false, use_dual_stack: false, accelerate: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -7432,7 +7432,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", bucket: "161743052723-e00000136899934034jeahy1t8gpzpbwjj8kb7beta0--op-s3", endpoint: "https://example.amazonaws.com", use_fips: false, use_dual_stack: false, accelerate: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -7446,7 +7446,7 @@ module AWS::SDK::S3
           {error: "Expected a endpoint to be specified but no endpoint was found"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", bucket: "test-accessp-o0b1d075431d83bebde8xz5w8ijx1qzlbp3i3kbeta0--op-s3", use_fips: false, use_dual_stack: false, accelerate: false)
           expect do
             subject.resolve(params)
@@ -7459,7 +7459,7 @@ module AWS::SDK::S3
           {error: "Unrecognized hardware type: \"Expected hardware type o or e but got h\""}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", bucket: "test-accessp-h0000075431d83bebde8xz5w8ijx1qzlbp3i3kuse10--op-s3", use_fips: false, use_dual_stack: false, accelerate: false)
           expect do
             subject.resolve(params)
@@ -7472,7 +7472,7 @@ module AWS::SDK::S3
           {error: "Invalid ARN: The outpost Id must only contain a-z, A-Z, 0-9 and `-`."}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", bucket: "test-accessp-o00000754%1d83bebde8xz5w8ijx1qzlbp3i3kuse10--op-s3", use_fips: false, use_dual_stack: false, accelerate: false)
           expect do
             subject.resolve(params)
@@ -7485,7 +7485,7 @@ module AWS::SDK::S3
           {error: "Expected a endpoint to be specified but no endpoint was found"}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", bucket: "test-accessp-e0b1d075431d83bebde8xz5w8ijx1qzlbp3i3ebeta0--op-s3", use_fips: false, use_dual_stack: false, accelerate: false)
           expect do
             subject.resolve(params)
@@ -7502,7 +7502,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "snow", bucket: "bucketName", endpoint: "http://10.0.1.12:433", use_fips: false, use_dual_stack: false, accelerate: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -7520,7 +7520,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "snow", endpoint: "https://10.0.1.12:433", use_fips: false, use_dual_stack: false, accelerate: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -7538,7 +7538,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "snow", bucket: "bucketName", endpoint: "http://10.0.1.12", use_fips: false, use_dual_stack: false, accelerate: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -7556,7 +7556,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "snow", bucket: "bucketName", endpoint: "https://amazonaws.com", use_fips: false, use_dual_stack: false, accelerate: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -7574,7 +7574,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", bucket: "mybucket--use1-az1--x-s3", use_fips: false, use_dual_stack: false, accelerate: false, use_s3_express_control_endpoint: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -7613,7 +7613,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", bucket: "mybucket--use1-az1--x-s3", use_fips: true, use_dual_stack: false, accelerate: false, use_s3_express_control_endpoint: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -7653,7 +7653,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "ap-northeast-1", bucket: "mybucket--apne1-az1--x-s3", use_fips: false, use_dual_stack: false, accelerate: false, use_s3_express_control_endpoint: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -7692,7 +7692,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "ap-northeast-1", bucket: "mybucket--apne1-az1--x-s3", use_fips: true, use_dual_stack: false, accelerate: false, use_s3_express_control_endpoint: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -7732,7 +7732,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", bucket: "mybucket--use1-az1--x-s3", use_fips: false, use_dual_stack: false, accelerate: false, use_s3_express_control_endpoint: true, disable_s3_express_session_auth: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -7771,7 +7771,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", bucket: "mybucket--use1-az1--x-s3", use_fips: true, use_dual_stack: false, accelerate: false, use_s3_express_control_endpoint: true, disable_s3_express_session_auth: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -7811,7 +7811,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", use_fips: false, use_dual_stack: false, accelerate: false, use_s3_express_control_endpoint: true, disable_s3_express_session_auth: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -7850,7 +7850,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", use_fips: true, use_dual_stack: false, accelerate: false, use_s3_express_control_endpoint: true, disable_s3_express_session_auth: false)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -7890,7 +7890,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-west-2", bucket: "mybucket--usw2-az1--x-s3", use_fips: false, use_dual_stack: false, accelerate: false, disable_s3_express_session_auth: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -7908,7 +7908,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-west-2", bucket: "mybucket--usw2-az1--x-s3", use_fips: true, use_dual_stack: false, accelerate: false, disable_s3_express_session_auth: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -7926,7 +7926,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "ap-northeast-1", bucket: "mybucket--apne1-az1--x-s3", use_fips: false, use_dual_stack: false, accelerate: false, use_s3_express_control_endpoint: false, disable_s3_express_session_auth: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -7944,7 +7944,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "ap-northeast-1", bucket: "mybucket--apne1-az1--x-s3", use_fips: true, use_dual_stack: false, accelerate: false, use_s3_express_control_endpoint: false, disable_s3_express_session_auth: true)
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -7962,7 +7962,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-west-2", bucket: "mybucket--usw2-az1--x-s3", use_fips: false, use_dual_stack: false, accelerate: false, use_s3_express_control_endpoint: true, disable_s3_express_session_auth: true, endpoint: "https://custom.com")
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -7980,7 +7980,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-west-2", use_fips: false, use_dual_stack: false, accelerate: false, use_s3_express_control_endpoint: true, disable_s3_express_session_auth: true, endpoint: "https://custom.com")
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -7998,7 +7998,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-west-2", bucket: "mybucket--usw2-az1--x-s3", use_fips: false, use_dual_stack: false, accelerate: false, endpoint: "https://10.0.0.1")
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -8038,7 +8038,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-west-2", bucket: "mybucket--usw2-az1--x-s3", use_fips: false, use_dual_stack: false, accelerate: false, use_s3_express_control_endpoint: true, disable_s3_express_session_auth: true, endpoint: "https://10.0.0.1")
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -8056,7 +8056,7 @@ module AWS::SDK::S3
           }
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-west-2", bucket: "mybucket--usw2-az1--x-s3", use_fips: false, use_dual_stack: false, accelerate: false, endpoint: "https://custom.com")
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
@@ -8092,7 +8092,7 @@ module AWS::SDK::S3
           {error: "Unrecognized S3Express bucket name format."}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", bucket: "mybucket--usaz1--x-s3", use_fips: false, use_dual_stack: false, accelerate: false, use_s3_express_control_endpoint: false)
           expect do
             subject.resolve(params)
@@ -8117,7 +8117,7 @@ module AWS::SDK::S3
           {error: "Unrecognized S3Express bucket name format."}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", bucket: "mybucket--usaz1--x-s3", use_fips: false, use_dual_stack: false, accelerate: false, use_s3_express_control_endpoint: false, disable_s3_express_session_auth: true)
           expect do
             subject.resolve(params)
@@ -8142,7 +8142,7 @@ module AWS::SDK::S3
           {error: "S3Express does not support Dual-stack."}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", bucket: "mybucket--use1-az1--x-s3", use_fips: false, use_dual_stack: true, accelerate: false, use_s3_express_control_endpoint: false)
           expect do
             subject.resolve(params)
@@ -8168,7 +8168,7 @@ module AWS::SDK::S3
           {error: "S3Express does not support S3 Accelerate."}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", bucket: "mybucket--use1-az1--x-s3", use_fips: false, use_dual_stack: false, accelerate: true, use_s3_express_control_endpoint: false)
           expect do
             subject.resolve(params)
@@ -8194,7 +8194,7 @@ module AWS::SDK::S3
           {error: "S3Express bucket name is not a valid virtual hostable name."}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-east-1", bucket: "my.bucket--use1-az1--x-s3", use_fips: false, use_dual_stack: false, accelerate: false, use_s3_express_control_endpoint: false)
           expect do
             subject.resolve(params)
@@ -8219,7 +8219,7 @@ module AWS::SDK::S3
           {error: "S3Express bucket name is not a valid virtual hostable name."}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-west-2", bucket: "my.bucket--usw2-az1--x-s3", use_fips: false, use_dual_stack: false, accelerate: false, endpoint: "https://custom.com")
           expect do
             subject.resolve(params)
@@ -8245,7 +8245,7 @@ module AWS::SDK::S3
           {error: "S3Express bucket name is not a valid virtual hostable name."}
         end
 
-        it 'produces the expected output from the EndpointProvider' do
+        it 'produces the expected output from the EndpointResolver' do
           params = Params.new(region: "us-west-2", bucket: "my.bucket--usw2-az1--x-s3", use_fips: false, use_dual_stack: false, accelerate: false, endpoint: "https://custom.com", disable_s3_express_session_auth: true)
           expect do
             subject.resolve(params)

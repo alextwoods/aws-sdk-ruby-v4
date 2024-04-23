@@ -4,7 +4,7 @@ require_relative '../spec_helper'
 
 module AWS::SDK::Core
   describe SharedConfig do
-    let(:credential_file) do
+    let(:credentials_file) do
       File.expand_path(
         File.join(
           File.dirname(__FILE__),
@@ -63,7 +63,7 @@ module AWS::SDK::Core
       it 'merges values from config and credentials and prefers credentials' do
         config = SharedConfig.load(
           config_path: config_file,
-          credentials_path: credential_file
+          credentials_path: credentials_file
         )
         # defined only in config
         expect(config['default']['region']).to eq('us-east-1')

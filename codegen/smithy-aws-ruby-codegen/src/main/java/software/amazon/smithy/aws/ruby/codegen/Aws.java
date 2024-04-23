@@ -9,7 +9,7 @@ public final class Aws {
 
     private Aws() { }
 
-    public static final Symbol SIGV4_IDENTITY = Symbol.builder()
+    public static final Symbol AWS_CREDENTIALS_IDENTITY = Symbol.builder()
             .namespace("AWS::SDK::Core::Identities", "::")
-            .name("SigV4").build();
+            .name("Credentials").build();
 }
