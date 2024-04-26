@@ -26,22 +26,14 @@ module AWS::SDK::SSO
   #         convenient way to create programmatic access to IAM Identity Center and other AWS services. For more
   #         information about the AWS SDKs, including how to download and install them, see <a href="http://aws.amazon.com/tools/">Tools for Amazon Web Services</a>.</p>
   #          </note>
-  class Client
-    include Hearth::ClientStubs
+  class Client < Hearth::Client
 
     # @api private
     @plugins = Hearth::PluginList.new
-
-    # @return [Hearth::PluginList]
-    def self.plugins
-      @plugins
-    end
-
     # @param [Hash] options
     #   Options used to construct an instance of {Config}
     def initialize(options = {})
-      @config = initialize_config(options)
-      @stubs = Hearth::Stubs.new
+      super(options, Config)
     end
 
     # @return [Config] config
@@ -73,7 +65,7 @@ module AWS::SDK::SSO
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetRoleCredentialsInput.build(params, context: 'params')
-      stack = AWS::SDK::SSO::Middleware::GetRoleCredentials.build(config, @stubs)
+      stack = AWS::SDK::SSO::Middleware::GetRoleCredentials.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -117,7 +109,7 @@ module AWS::SDK::SSO
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ListAccountRolesInput.build(params, context: 'params')
-      stack = AWS::SDK::SSO::Middleware::ListAccountRoles.build(config, @stubs)
+      stack = AWS::SDK::SSO::Middleware::ListAccountRoles.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -163,7 +155,7 @@ module AWS::SDK::SSO
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ListAccountsInput.build(params, context: 'params')
-      stack = AWS::SDK::SSO::Middleware::ListAccounts.build(config, @stubs)
+      stack = AWS::SDK::SSO::Middleware::ListAccounts.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -212,7 +204,7 @@ module AWS::SDK::SSO
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::LogoutInput.build(params, context: 'params')
-      stack = AWS::SDK::SSO::Middleware::Logout.build(config, @stubs)
+      stack = AWS::SDK::SSO::Middleware::Logout.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -228,32 +220,6 @@ module AWS::SDK::SSO
       end
       context.logger.info("[#{context.invocation_id}] [#{self.class}#logout] #{output.data}")
       output
-    end
-
-    private
-
-    def initialize_config(options)
-      client_interceptors = options.delete(:interceptors)
-      config = Config.new(**options)
-      config.validate!
-      Client.plugins.each { |p| p.call(config) }
-      config.plugins.each { |p| p.call(config) }
-      config.interceptors.concat(client_interceptors) if client_interceptors
-      config.validate!
-      config.freeze
-    end
-
-    def operation_config(options)
-      return @config if options.empty?
-
-      operation_plugins = options.delete(:plugins)
-      operation_interceptors = options.delete(:interceptors)
-      config = @config.merge(options)
-      config.validate!
-      operation_plugins.each { |p| p.call(config) } if operation_plugins
-      config.interceptors.concat(operation_interceptors) if operation_interceptors
-      config.validate!
-      config.freeze
     end
   end
 end

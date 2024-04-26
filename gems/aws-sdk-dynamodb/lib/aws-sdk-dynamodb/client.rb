@@ -27,22 +27,14 @@ module AWS::SDK::DynamoDB
   #             disks (SSDs) and automatically replicated across multiple Availability Zones in an
   #                 Amazon Web Services Region, providing built-in high availability and data
   #             durability.</p>
-  class Client
-    include Hearth::ClientStubs
+  class Client < Hearth::Client
 
     # @api private
     @plugins = Hearth::PluginList.new
-
-    # @return [Hearth::PluginList]
-    def self.plugins
-      @plugins
-    end
-
     # @param [Hash] options
     #   Options used to construct an instance of {Config}
     def initialize(options = {})
-      @config = initialize_config(options)
-      @stubs = Hearth::Stubs.new
+      super(options, Config)
     end
 
     # @return [Config] config
@@ -138,7 +130,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::BatchExecuteStatementInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::BatchExecuteStatement.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::BatchExecuteStatement.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -350,7 +342,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::BatchGetItemInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::BatchGetItem.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::BatchGetItem.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -594,7 +586,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::BatchWriteItemInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::BatchWriteItem.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::BatchWriteItem.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -668,7 +660,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateBackupInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::CreateBackup.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::CreateBackup.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -793,7 +785,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateGlobalTableInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::CreateGlobalTable.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::CreateGlobalTable.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -977,7 +969,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateTableInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::CreateTable.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::CreateTable.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1065,7 +1057,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteBackupInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::DeleteBackup.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::DeleteBackup.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1196,7 +1188,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteItemInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::DeleteItem.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::DeleteItem.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1360,7 +1352,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteTableInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::DeleteTable.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::DeleteTable.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1448,7 +1440,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeBackupInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::DescribeBackup.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::DescribeBackup.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1501,7 +1493,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeContinuousBackupsInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::DescribeContinuousBackups.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::DescribeContinuousBackups.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1548,7 +1540,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeContributorInsightsInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::DescribeContributorInsights.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::DescribeContributorInsights.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1587,7 +1579,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeEndpointsInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::DescribeEndpoints.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::DescribeEndpoints.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1648,7 +1640,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeExportInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::DescribeExport.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::DescribeExport.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1718,7 +1710,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeGlobalTableInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::DescribeGlobalTable.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::DescribeGlobalTable.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1801,7 +1793,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeGlobalTableSettingsInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::DescribeGlobalTableSettings.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::DescribeGlobalTableSettings.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1890,7 +1882,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeImportInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::DescribeImport.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::DescribeImport.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1933,7 +1925,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeKinesisStreamingDestinationInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::DescribeKinesisStreamingDestination.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::DescribeKinesisStreamingDestination.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2050,7 +2042,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeLimitsInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::DescribeLimits.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::DescribeLimits.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2186,7 +2178,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeTableInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::DescribeTable.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::DescribeTable.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2253,7 +2245,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeTableReplicaAutoScalingInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::DescribeTableReplicaAutoScaling.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::DescribeTableReplicaAutoScaling.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2292,7 +2284,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeTimeToLiveInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::DescribeTimeToLive.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::DescribeTimeToLive.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2338,7 +2330,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DisableKinesisStreamingDestinationInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::DisableKinesisStreamingDestination.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::DisableKinesisStreamingDestination.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2386,7 +2378,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::EnableKinesisStreamingDestinationInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::EnableKinesisStreamingDestination.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::EnableKinesisStreamingDestination.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2487,7 +2479,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ExecuteStatementInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::ExecuteStatement.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::ExecuteStatement.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2585,7 +2577,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ExecuteTransactionInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::ExecuteTransaction.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::ExecuteTransaction.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2662,7 +2654,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ExportTableToPointInTimeInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::ExportTableToPointInTime.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::ExportTableToPointInTime.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2787,7 +2779,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetItemInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::GetItem.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::GetItem.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2927,7 +2919,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ImportTableInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::ImportTable.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::ImportTable.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2990,7 +2982,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ListBackupsInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::ListBackups.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::ListBackups.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3035,7 +3027,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ListContributorInsightsInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::ListContributorInsights.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::ListContributorInsights.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3079,7 +3071,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ListExportsInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::ListExports.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::ListExports.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3136,7 +3128,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ListGlobalTablesInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::ListGlobalTables.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::ListGlobalTables.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3188,7 +3180,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ListImportsInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::ListImports.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::ListImports.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3242,7 +3234,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ListTablesInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::ListTables.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::ListTables.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3287,7 +3279,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ListTagsOfResourceInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::ListTagsOfResource.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::ListTagsOfResource.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3433,7 +3425,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::PutItemInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::PutItem.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::PutItem.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3617,7 +3609,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::QueryInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::Query.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::Query.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3796,7 +3788,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::RestoreTableFromBackupInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::RestoreTableFromBackup.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::RestoreTableFromBackup.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4003,7 +3995,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::RestoreTableToPointInTimeInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::RestoreTableToPointInTime.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::RestoreTableToPointInTime.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4193,7 +4185,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ScanInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::Scan.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::Scan.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4240,7 +4232,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::TagResourceInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::TagResource.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::TagResource.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4361,7 +4353,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::TransactGetItemsInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::TransactGetItems.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::TransactGetItems.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4550,7 +4542,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::TransactWriteItemsInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::TransactWriteItems.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::TransactWriteItems.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4592,7 +4584,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::UntagResourceInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::UntagResource.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::UntagResource.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4648,7 +4640,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::UpdateContinuousBackupsInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::UpdateContinuousBackups.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::UpdateContinuousBackups.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4695,7 +4687,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::UpdateContributorInsightsInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::UpdateContributorInsights.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::UpdateContributorInsights.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4805,7 +4797,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::UpdateGlobalTableInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::UpdateGlobalTable.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::UpdateGlobalTable.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4924,7 +4916,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::UpdateGlobalTableSettingsInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::UpdateGlobalTableSettings.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::UpdateGlobalTableSettings.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5081,7 +5073,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::UpdateItemInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::UpdateItem.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::UpdateItem.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5126,7 +5118,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::UpdateKinesisStreamingDestinationInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::UpdateKinesisStreamingDestination.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::UpdateKinesisStreamingDestination.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5349,7 +5341,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::UpdateTableInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::UpdateTable.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::UpdateTable.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5447,7 +5439,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::UpdateTableReplicaAutoScalingInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::UpdateTableReplicaAutoScaling.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::UpdateTableReplicaAutoScaling.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5514,7 +5506,7 @@ module AWS::SDK::DynamoDB
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::UpdateTimeToLiveInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::UpdateTimeToLive.build(config, @stubs)
+      stack = AWS::SDK::DynamoDB::Middleware::UpdateTimeToLive.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5530,32 +5522,6 @@ module AWS::SDK::DynamoDB
       end
       context.logger.info("[#{context.invocation_id}] [#{self.class}#update_time_to_live] #{output.data}")
       output
-    end
-
-    private
-
-    def initialize_config(options)
-      client_interceptors = options.delete(:interceptors)
-      config = Config.new(**options)
-      config.validate!
-      Client.plugins.each { |p| p.call(config) }
-      config.plugins.each { |p| p.call(config) }
-      config.interceptors.concat(client_interceptors) if client_interceptors
-      config.validate!
-      config.freeze
-    end
-
-    def operation_config(options)
-      return @config if options.empty?
-
-      operation_plugins = options.delete(:plugins)
-      operation_interceptors = options.delete(:interceptors)
-      config = @config.merge(options)
-      config.validate!
-      operation_plugins.each { |p| p.call(config) } if operation_plugins
-      config.interceptors.concat(operation_interceptors) if operation_interceptors
-      config.validate!
-      config.freeze
     end
   end
 end

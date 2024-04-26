@@ -338,7 +338,14 @@ public class StubsGenerator extends RestStubsGeneratorBase {
 
         @Override
         public Void unionShape(UnionShape shape) {
-            defaultComplexSerializer(shape);
+            writer
+                    .write("http_resp.headers['Content-Type'] = 'application/json'")
+                    .openBlock("unless $L.nil?", inputGetter)
+                    .write("data = $1L.stub($2L)", symbolProvider.toSymbol(shape).getName(),
+                            inputGetter)
+                    .write("http_resp.body = $T.new($T.dump(data))",
+                            RubyImportContainer.STRING_IO, Hearth.JSON)
+                    .closeBlock("end");
             return null;
         }
 

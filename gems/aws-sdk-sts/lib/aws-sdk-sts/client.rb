@@ -14,22 +14,14 @@ module AWS::SDK::STS
   #          <p>Security Token Service (STS) enables you to request temporary, limited-privilege
   #       credentials for users. This guide provides descriptions of the STS API. For
   #       more information about using this service, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html">Temporary Security Credentials</a>.</p>
-  class Client
-    include Hearth::ClientStubs
+  class Client < Hearth::Client
 
     # @api private
     @plugins = Hearth::PluginList.new
-
-    # @return [Hearth::PluginList]
-    def self.plugins
-      @plugins
-    end
-
     # @param [Hash] options
     #   Options used to construct an instance of {Config}
     def initialize(options = {})
-      @config = initialize_config(options)
-      @stubs = Hearth::Stubs.new
+      super(options, Config)
     end
 
     # @return [Config] config
@@ -218,7 +210,7 @@ module AWS::SDK::STS
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::AssumeRoleInput.build(params, context: 'params')
-      stack = AWS::SDK::STS::Middleware::AssumeRole.build(config, @stubs)
+      stack = AWS::SDK::STS::Middleware::AssumeRole.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -434,7 +426,7 @@ module AWS::SDK::STS
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::AssumeRoleWithSAMLInput.build(params, context: 'params')
-      stack = AWS::SDK::STS::Middleware::AssumeRoleWithSAML.build(config, @stubs)
+      stack = AWS::SDK::STS::Middleware::AssumeRoleWithSAML.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -652,7 +644,7 @@ module AWS::SDK::STS
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::AssumeRoleWithWebIdentityInput.build(params, context: 'params')
-      stack = AWS::SDK::STS::Middleware::AssumeRoleWithWebIdentity.build(config, @stubs)
+      stack = AWS::SDK::STS::Middleware::AssumeRoleWithWebIdentity.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -734,7 +726,7 @@ module AWS::SDK::STS
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DecodeAuthorizationMessageInput.build(params, context: 'params')
-      stack = AWS::SDK::STS::Middleware::DecodeAuthorizationMessage.build(config, @stubs)
+      stack = AWS::SDK::STS::Middleware::DecodeAuthorizationMessage.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -787,7 +779,7 @@ module AWS::SDK::STS
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetAccessKeyInfoInput.build(params, context: 'params')
-      stack = AWS::SDK::STS::Middleware::GetAccessKeyInfo.build(config, @stubs)
+      stack = AWS::SDK::STS::Middleware::GetAccessKeyInfo.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -860,7 +852,7 @@ module AWS::SDK::STS
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetCallerIdentityInput.build(params, context: 'params')
-      stack = AWS::SDK::STS::Middleware::GetCallerIdentity.build(config, @stubs)
+      stack = AWS::SDK::STS::Middleware::GetCallerIdentity.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1038,7 +1030,7 @@ module AWS::SDK::STS
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetFederationTokenInput.build(params, context: 'params')
-      stack = AWS::SDK::STS::Middleware::GetFederationToken.build(config, @stubs)
+      stack = AWS::SDK::STS::Middleware::GetFederationToken.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1156,7 +1148,7 @@ module AWS::SDK::STS
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetSessionTokenInput.build(params, context: 'params')
-      stack = AWS::SDK::STS::Middleware::GetSessionToken.build(config, @stubs)
+      stack = AWS::SDK::STS::Middleware::GetSessionToken.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1172,32 +1164,6 @@ module AWS::SDK::STS
       end
       context.logger.info("[#{context.invocation_id}] [#{self.class}#get_session_token] #{output.data}")
       output
-    end
-
-    private
-
-    def initialize_config(options)
-      client_interceptors = options.delete(:interceptors)
-      config = Config.new(**options)
-      config.validate!
-      Client.plugins.each { |p| p.call(config) }
-      config.plugins.each { |p| p.call(config) }
-      config.interceptors.concat(client_interceptors) if client_interceptors
-      config.validate!
-      config.freeze
-    end
-
-    def operation_config(options)
-      return @config if options.empty?
-
-      operation_plugins = options.delete(:plugins)
-      operation_interceptors = options.delete(:interceptors)
-      config = @config.merge(options)
-      config.validate!
-      operation_plugins.each { |p| p.call(config) } if operation_plugins
-      config.interceptors.concat(operation_interceptors) if operation_interceptors
-      config.validate!
-      config.freeze
     end
   end
 end

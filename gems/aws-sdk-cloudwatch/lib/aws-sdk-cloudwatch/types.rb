@@ -10,15 +10,12 @@
 module AWS::SDK::CloudWatch
   module Types
 
-    # Includes enum constants for ActionsSuppressedBy
+    # Enum constants for ActionsSuppressedBy
     module ActionsSuppressedBy
-      # No documentation available.
       WAIT_PERIOD = "WaitPeriod"
 
-      # No documentation available.
       EXTENSION_PERIOD = "ExtensionPeriod"
 
-      # No documentation available.
       ALARM = "Alarm"
     end
 
@@ -63,12 +60,10 @@ module AWS::SDK::CloudWatch
       include Hearth::Structure
     end
 
-    # Includes enum constants for AlarmType
+    # Enum constants for AlarmType
     module AlarmType
-      # No documentation available.
       COMPOSITE_ALARM = "CompositeAlarm"
 
-      # No documentation available.
       METRIC_ALARM = "MetricAlarm"
     end
 
@@ -163,48 +158,36 @@ module AWS::SDK::CloudWatch
       include Hearth::Structure
     end
 
-    # Includes enum constants for AnomalyDetectorStateValue
+    # Enum constants for AnomalyDetectorStateValue
     module AnomalyDetectorStateValue
-      # No documentation available.
       PENDING_TRAINING = "PENDING_TRAINING"
 
-      # No documentation available.
       TRAINED_INSUFFICIENT_DATA = "TRAINED_INSUFFICIENT_DATA"
 
-      # No documentation available.
       TRAINED = "TRAINED"
     end
 
-    # Includes enum constants for AnomalyDetectorType
+    # Enum constants for AnomalyDetectorType
     module AnomalyDetectorType
-      # No documentation available.
       SINGLE_METRIC = "SINGLE_METRIC"
 
-      # No documentation available.
       METRIC_MATH = "METRIC_MATH"
     end
 
-    # Includes enum constants for ComparisonOperator
+    # Enum constants for ComparisonOperator
     module ComparisonOperator
-      # No documentation available.
       GREATER_THAN_OR_EQUAL_TO_THRESHOLD = "GreaterThanOrEqualToThreshold"
 
-      # No documentation available.
       GREATER_THAN_THRESHOLD = "GreaterThanThreshold"
 
-      # No documentation available.
       LESS_THAN_THRESHOLD = "LessThanThreshold"
 
-      # No documentation available.
       LESS_THAN_OR_EQUAL_TO_THRESHOLD = "LessThanOrEqualToThreshold"
 
-      # No documentation available.
       LESS_THAN_LOWER_OR_GREATER_THAN_UPPER_THRESHOLD = "LessThanLowerOrGreaterThanUpperThreshold"
 
-      # No documentation available.
       LESS_THAN_LOWER_THRESHOLD = "LessThanLowerThreshold"
 
-      # No documentation available.
       GREATER_THAN_UPPER_THRESHOLD = "GreaterThanUpperThreshold"
     end
 
@@ -1229,9 +1212,8 @@ module AWS::SDK::CloudWatch
       include Hearth::Structure
     end
 
-    # Includes enum constants for EvaluationState
+    # Enum constants for EvaluationState
     module EvaluationState
-      # No documentation available.
       PARTIAL_DATA = "PARTIAL_DATA"
     end
 
@@ -1810,15 +1792,12 @@ module AWS::SDK::CloudWatch
       include Hearth::Structure
     end
 
-    # Includes enum constants for HistoryItemType
+    # Enum constants for HistoryItemType
     module HistoryItemType
-      # No documentation available.
       CONFIGURATION_UPDATE = "ConfigurationUpdate"
 
-      # No documentation available.
       STATE_UPDATE = "StateUpdate"
 
-      # No documentation available.
       ACTION = "Action"
     end
 
@@ -3122,15 +3101,12 @@ module AWS::SDK::CloudWatch
       include Hearth::Structure
     end
 
-    # Includes enum constants for MetricStreamOutputFormat
+    # Enum constants for MetricStreamOutputFormat
     module MetricStreamOutputFormat
-      # No documentation available.
       JSON = "json"
 
-      # No documentation available.
       OPEN_TELEMETRY_0_7 = "opentelemetry0.7"
 
-      # No documentation available.
       OPEN_TELEMETRY_1_0 = "opentelemetry1.0"
     end
 
@@ -4378,9 +4354,8 @@ module AWS::SDK::CloudWatch
       include Hearth::Structure
     end
 
-    # Includes enum constants for RecentlyActive
+    # Enum constants for RecentlyActive
     module RecentlyActive
-      # No documentation available.
       PT3_H = "PT3H"
     end
 
@@ -4419,12 +4394,10 @@ module AWS::SDK::CloudWatch
       include Hearth::Structure
     end
 
-    # Includes enum constants for ScanBy
+    # Enum constants for ScanBy
     module ScanBy
-      # No documentation available.
       TIMESTAMP_DESCENDING = "TimestampDescending"
 
-      # No documentation available.
       TIMESTAMP_ASCENDING = "TimestampAscending"
     end
 
@@ -4498,87 +4471,60 @@ module AWS::SDK::CloudWatch
       include Hearth::Structure
     end
 
-    # Includes enum constants for StandardUnit
+    # Enum constants for StandardUnit
     module StandardUnit
-      # No documentation available.
       SECONDS = "Seconds"
 
-      # No documentation available.
       MICROSECONDS = "Microseconds"
 
-      # No documentation available.
       MILLISECONDS = "Milliseconds"
 
-      # No documentation available.
       BYTES = "Bytes"
 
-      # No documentation available.
       KILOBYTES = "Kilobytes"
 
-      # No documentation available.
       MEGABYTES = "Megabytes"
 
-      # No documentation available.
       GIGABYTES = "Gigabytes"
 
-      # No documentation available.
       TERABYTES = "Terabytes"
 
-      # No documentation available.
       BITS = "Bits"
 
-      # No documentation available.
       KILOBITS = "Kilobits"
 
-      # No documentation available.
       MEGABITS = "Megabits"
 
-      # No documentation available.
       GIGABITS = "Gigabits"
 
-      # No documentation available.
       TERABITS = "Terabits"
 
-      # No documentation available.
       PERCENT = "Percent"
 
-      # No documentation available.
       COUNT = "Count"
 
-      # No documentation available.
       BYTES_SECOND = "Bytes/Second"
 
-      # No documentation available.
       KILOBYTES_SECOND = "Kilobytes/Second"
 
-      # No documentation available.
       MEGABYTES_SECOND = "Megabytes/Second"
 
-      # No documentation available.
       GIGABYTES_SECOND = "Gigabytes/Second"
 
-      # No documentation available.
       TERABYTES_SECOND = "Terabytes/Second"
 
-      # No documentation available.
       BITS_SECOND = "Bits/Second"
 
-      # No documentation available.
       KILOBITS_SECOND = "Kilobits/Second"
 
-      # No documentation available.
       MEGABITS_SECOND = "Megabits/Second"
 
-      # No documentation available.
       GIGABITS_SECOND = "Gigabits/Second"
 
-      # No documentation available.
       TERABITS_SECOND = "Terabits/Second"
 
-      # No documentation available.
       COUNT_SECOND = "Count/Second"
 
-      # No documentation available.
       NONE = "None"
     end
 
@@ -4607,33 +4553,25 @@ module AWS::SDK::CloudWatch
       include Hearth::Structure
     end
 
-    # Includes enum constants for StateValue
+    # Enum constants for StateValue
     module StateValue
-      # No documentation available.
       OK = "OK"
 
-      # No documentation available.
       ALARM = "ALARM"
 
-      # No documentation available.
       INSUFFICIENT_DATA = "INSUFFICIENT_DATA"
     end
 
-    # Includes enum constants for Statistic
+    # Enum constants for Statistic
     module Statistic
-      # No documentation available.
       SAMPLE_COUNT = "SampleCount"
 
-      # No documentation available.
       AVERAGE = "Average"
 
-      # No documentation available.
       SUM = "Sum"
 
-      # No documentation available.
       MINIMUM = "Minimum"
 
-      # No documentation available.
       MAXIMUM = "Maximum"
     end
 
@@ -4666,18 +4604,14 @@ module AWS::SDK::CloudWatch
       include Hearth::Structure
     end
 
-    # Includes enum constants for StatusCode
+    # Enum constants for StatusCode
     module StatusCode
-      # No documentation available.
       COMPLETE = "Complete"
 
-      # No documentation available.
       INTERNAL_ERROR = "InternalError"
 
-      # No documentation available.
       PARTIAL_DATA = "PartialData"
 
-      # No documentation available.
       FORBIDDEN = "Forbidden"
     end
 

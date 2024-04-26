@@ -8,8 +8,7 @@
 # WARNING ABOUT GENERATED CODE
 
 module AWS::SDK::CloudWatch
-  class Client
-    include Hearth::ClientStubs
+  class Client < Hearth::Client
 
     def self.plugins: () -> Hearth::PluginList[Config]
 
@@ -31,6 +30,7 @@ module AWS::SDK::CloudWatch
         ?request_min_compression_size_bytes: Integer,
         ?retry_strategy: Hearth::_RetryStrategy,
         ?stub_responses: bool,
+        ?stubs: Hearth::Stubs,
         ?use_dualstack_endpoint: bool,
         ?use_fips_endpoint: bool,
         ?validate_input: bool

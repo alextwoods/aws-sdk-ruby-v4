@@ -8,8 +8,7 @@
 # WARNING ABOUT GENERATED CODE
 
 module AWS::SDK::S3
-  class Client
-    include Hearth::ClientStubs
+  class Client < Hearth::Client
 
     def self.plugins: () -> Hearth::PluginList[Config]
 
@@ -34,6 +33,7 @@ module AWS::SDK::S3
         ?region: String,
         ?retry_strategy: Hearth::_RetryStrategy,
         ?stub_responses: bool,
+        ?stubs: Hearth::Stubs,
         ?use_accelerate_endpoint: bool,
         ?use_arn_region: bool,
         ?use_dualstack_endpoint: bool,

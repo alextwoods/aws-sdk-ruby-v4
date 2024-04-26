@@ -103,6 +103,8 @@ module AWS::SDK::CloudWatch
   #       mode that may change behavior in the future.
   #   @option args [Boolean] :stub_responses (false)
   #     Enable response stubbing for testing. See {Hearth::ClientStubs#stub_responses}.
+  #   @option args [Hearth::Stubs] :stubs (Hearth::Stubs.new)
+  #     Enable response stubbing for testing. See {Hearth::ClientStubs#stub_responses}.
   #   @option args [Boolean] :use_dualstack_endpoint
   #     When set to `true`, dualstack enabled endpoints (with `.aws` TLD)
   #      will be used if available.
@@ -144,6 +146,8 @@ module AWS::SDK::CloudWatch
   #   @return [#acquire_initial_retry_token(token_scope),#refresh_retry_token(retry_token, error_info),#record_success(retry_token)]
   # @!attribute stub_responses
   #   @return [Boolean]
+  # @!attribute stubs
+  #   @return [Hearth::Stubs]
   # @!attribute use_dualstack_endpoint
   #   @return [Boolean]
   # @!attribute use_fips_endpoint
@@ -167,6 +171,7 @@ module AWS::SDK::CloudWatch
     :request_min_compression_size_bytes,
     :retry_strategy,
     :stub_responses,
+    :stubs,
     :use_dualstack_endpoint,
     :use_fips_endpoint,
     :validate_input,
@@ -193,6 +198,7 @@ module AWS::SDK::CloudWatch
       Hearth::Validator.validate_range!(request_min_compression_size_bytes, min: 0, max: 10485760, context: 'config[:request_min_compression_size_bytes]')
       Hearth::Validator.validate_responds_to!(retry_strategy, :acquire_initial_retry_token, :refresh_retry_token, :record_success, context: 'config[:retry_strategy]')
       Hearth::Validator.validate_types!(stub_responses, TrueClass, FalseClass, context: 'config[:stub_responses]')
+      Hearth::Validator.validate_types!(stubs, Hearth::Stubs, context: 'config[:stubs]')
       Hearth::Validator.validate_types!(use_dualstack_endpoint, TrueClass, FalseClass, context: 'config[:use_dualstack_endpoint]')
       Hearth::Validator.validate_types!(use_fips_endpoint, TrueClass, FalseClass, context: 'config[:use_fips_endpoint]')
       Hearth::Validator.validate_types!(validate_input, TrueClass, FalseClass, context: 'config[:validate_input]')
@@ -218,6 +224,7 @@ module AWS::SDK::CloudWatch
         request_min_compression_size_bytes: [10240],
         retry_strategy: [Hearth::Retry::Standard.new],
         stub_responses: [false],
+        stubs: [Hearth::Stubs.new],
         use_dualstack_endpoint: [Hearth::Config::EnvProvider.new('AWS_USE_DUALSTACK_ENDPOINT', type: 'Boolean'),AWS::SDK::Core::SharedConfigProvider.new('use_dualstack_endpoint', type: 'Boolean')],
         use_fips_endpoint: [Hearth::Config::EnvProvider.new('AWS_USE_FIPS_ENDPOINT', type: 'Boolean'),AWS::SDK::Core::SharedConfigProvider.new('use_fips_endpoint', type: 'Boolean')],
         validate_input: [true]

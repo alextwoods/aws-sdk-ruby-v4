@@ -14,7 +14,7 @@ module AWS::SDK::S3
   module Middleware
 
     class AbortMultipartUpload
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -65,14 +65,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [Stubs::NoSuchUpload],
           stub_data_class: Stubs::AbortMultipartUpload,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CompleteMultipartUpload
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -123,14 +123,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CompleteMultipartUpload,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CopyObject
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -181,14 +181,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [Stubs::ObjectNotInActiveTierError],
           stub_data_class: Stubs::CopyObject,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateBucket
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -239,14 +239,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [Stubs::BucketAlreadyExists, Stubs::BucketAlreadyOwnedByYou],
           stub_data_class: Stubs::CreateBucket,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateMultipartUpload
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -297,14 +297,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateMultipartUpload,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateSession
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -355,14 +355,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [Stubs::NoSuchBucket],
           stub_data_class: Stubs::CreateSession,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteBucket
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -413,14 +413,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteBucket,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteBucketAnalyticsConfiguration
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -471,14 +471,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteBucketAnalyticsConfiguration,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteBucketCors
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -529,14 +529,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteBucketCors,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteBucketEncryption
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -587,14 +587,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteBucketEncryption,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteBucketIntelligentTieringConfiguration
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -645,14 +645,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteBucketIntelligentTieringConfiguration,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteBucketInventoryConfiguration
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -703,14 +703,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteBucketInventoryConfiguration,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteBucketLifecycle
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -761,14 +761,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteBucketLifecycle,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteBucketMetricsConfiguration
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -819,14 +819,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteBucketMetricsConfiguration,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteBucketOwnershipControls
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -877,14 +877,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteBucketOwnershipControls,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteBucketPolicy
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -935,14 +935,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteBucketPolicy,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteBucketReplication
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -993,14 +993,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteBucketReplication,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteBucketTagging
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1051,14 +1051,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteBucketTagging,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteBucketWebsite
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1109,14 +1109,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteBucketWebsite,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteObject
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1167,14 +1167,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteObject,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteObjectTagging
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1225,14 +1225,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteObjectTagging,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteObjects
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1287,14 +1287,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteObjects,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeletePublicAccessBlock
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1345,14 +1345,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeletePublicAccessBlock,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetBucketAccelerateConfiguration
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1403,14 +1403,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetBucketAccelerateConfiguration,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetBucketAcl
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1461,14 +1461,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetBucketAcl,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetBucketAnalyticsConfiguration
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1519,14 +1519,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetBucketAnalyticsConfiguration,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetBucketCors
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1577,14 +1577,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetBucketCors,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetBucketEncryption
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1635,14 +1635,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetBucketEncryption,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetBucketIntelligentTieringConfiguration
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1693,14 +1693,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetBucketIntelligentTieringConfiguration,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetBucketInventoryConfiguration
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1751,14 +1751,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetBucketInventoryConfiguration,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetBucketLifecycleConfiguration
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1809,14 +1809,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetBucketLifecycleConfiguration,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetBucketLocation
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1867,14 +1867,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetBucketLocation,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetBucketLogging
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1925,14 +1925,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetBucketLogging,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetBucketMetricsConfiguration
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1983,14 +1983,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetBucketMetricsConfiguration,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetBucketNotificationConfiguration
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2041,14 +2041,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetBucketNotificationConfiguration,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetBucketOwnershipControls
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2099,14 +2099,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetBucketOwnershipControls,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetBucketPolicy
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2157,14 +2157,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetBucketPolicy,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetBucketPolicyStatus
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2215,14 +2215,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetBucketPolicyStatus,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetBucketReplication
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2273,14 +2273,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetBucketReplication,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetBucketRequestPayment
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2331,14 +2331,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetBucketRequestPayment,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetBucketTagging
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2389,14 +2389,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetBucketTagging,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetBucketVersioning
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2447,14 +2447,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetBucketVersioning,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetBucketWebsite
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2505,14 +2505,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetBucketWebsite,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetObject
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2568,14 +2568,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [Stubs::InvalidObjectState, Stubs::NoSuchKey],
           stub_data_class: Stubs::GetObject,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetObjectAcl
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2626,14 +2626,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [Stubs::NoSuchKey],
           stub_data_class: Stubs::GetObjectAcl,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetObjectAttributes
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2684,14 +2684,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [Stubs::NoSuchKey],
           stub_data_class: Stubs::GetObjectAttributes,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetObjectLegalHold
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2742,14 +2742,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetObjectLegalHold,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetObjectLockConfiguration
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2800,14 +2800,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetObjectLockConfiguration,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetObjectRetention
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2858,14 +2858,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetObjectRetention,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetObjectTagging
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2916,14 +2916,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetObjectTagging,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetObjectTorrent
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2974,14 +2974,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetObjectTorrent,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetPublicAccessBlock
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3032,14 +3032,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetPublicAccessBlock,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class HeadBucket
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3090,14 +3090,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [Stubs::NotFound],
           stub_data_class: Stubs::HeadBucket,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class HeadObject
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3148,14 +3148,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [Stubs::NotFound],
           stub_data_class: Stubs::HeadObject,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ListBucketAnalyticsConfigurations
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3206,14 +3206,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ListBucketAnalyticsConfigurations,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ListBucketIntelligentTieringConfigurations
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3264,14 +3264,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ListBucketIntelligentTieringConfigurations,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ListBucketInventoryConfigurations
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3322,14 +3322,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ListBucketInventoryConfigurations,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ListBucketMetricsConfigurations
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3380,14 +3380,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ListBucketMetricsConfigurations,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ListBuckets
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3438,14 +3438,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ListBuckets,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ListDirectoryBuckets
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3496,14 +3496,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ListDirectoryBuckets,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ListMultipartUploads
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3554,14 +3554,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ListMultipartUploads,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ListObjectVersions
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3612,14 +3612,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ListObjectVersions,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ListObjects
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3670,14 +3670,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [Stubs::NoSuchBucket],
           stub_data_class: Stubs::ListObjects,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ListObjectsV2
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3728,14 +3728,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [Stubs::NoSuchBucket],
           stub_data_class: Stubs::ListObjectsV2,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ListParts
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3786,14 +3786,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ListParts,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class PutBucketAccelerateConfiguration
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3848,14 +3848,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::PutBucketAccelerateConfiguration,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class PutBucketAcl
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3910,14 +3910,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::PutBucketAcl,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class PutBucketAnalyticsConfiguration
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3968,14 +3968,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::PutBucketAnalyticsConfiguration,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class PutBucketCors
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4030,14 +4030,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::PutBucketCors,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class PutBucketEncryption
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4092,14 +4092,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::PutBucketEncryption,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class PutBucketIntelligentTieringConfiguration
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4150,14 +4150,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::PutBucketIntelligentTieringConfiguration,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class PutBucketInventoryConfiguration
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4208,14 +4208,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::PutBucketInventoryConfiguration,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class PutBucketLifecycleConfiguration
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4270,14 +4270,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::PutBucketLifecycleConfiguration,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class PutBucketLogging
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4332,14 +4332,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::PutBucketLogging,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class PutBucketMetricsConfiguration
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4390,14 +4390,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::PutBucketMetricsConfiguration,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class PutBucketNotificationConfiguration
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4448,14 +4448,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::PutBucketNotificationConfiguration,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class PutBucketOwnershipControls
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4509,14 +4509,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::PutBucketOwnershipControls,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class PutBucketPolicy
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4571,14 +4571,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::PutBucketPolicy,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class PutBucketReplication
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4633,14 +4633,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::PutBucketReplication,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class PutBucketRequestPayment
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4695,14 +4695,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::PutBucketRequestPayment,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class PutBucketTagging
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4757,14 +4757,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::PutBucketTagging,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class PutBucketVersioning
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4819,14 +4819,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::PutBucketVersioning,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class PutBucketWebsite
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4881,14 +4881,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::PutBucketWebsite,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class PutObject
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4945,14 +4945,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::PutObject,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class PutObjectAcl
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5007,14 +5007,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [Stubs::NoSuchKey],
           stub_data_class: Stubs::PutObjectAcl,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class PutObjectLegalHold
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5069,14 +5069,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::PutObjectLegalHold,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class PutObjectLockConfiguration
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5131,14 +5131,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::PutObjectLockConfiguration,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class PutObjectRetention
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5193,14 +5193,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::PutObjectRetention,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class PutObjectTagging
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5255,14 +5255,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::PutObjectTagging,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class PutPublicAccessBlock
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5317,14 +5317,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::PutPublicAccessBlock,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class RestoreObject
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5379,14 +5379,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [Stubs::ObjectAlreadyInActiveTierError],
           stub_data_class: Stubs::RestoreObject,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class UploadPart
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5443,14 +5443,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::UploadPart,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class UploadPartCopy
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5501,14 +5501,14 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::UploadPartCopy,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class WriteGetObjectResponse
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5562,7 +5562,7 @@ module AWS::SDK::S3
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::WriteGetObjectResponse,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end

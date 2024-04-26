@@ -10,12 +10,10 @@
 module AWS::SDK::DynamoDB
   module Types
 
-    # Includes enum constants for ApproximateCreationDateTimePrecision
+    # Enum constants for ApproximateCreationDateTimePrecision
     module ApproximateCreationDateTimePrecision
-      # No documentation available.
       MILLISECOND = "MILLISECOND"
 
-      # No documentation available.
       MICROSECOND = "MICROSECOND"
     end
 
@@ -54,15 +52,12 @@ module AWS::SDK::DynamoDB
       include Hearth::Structure
     end
 
-    # Includes enum constants for AttributeAction
+    # Enum constants for AttributeAction
     module AttributeAction
-      # No documentation available.
       ADD = "ADD"
 
-      # No documentation available.
       PUT = "PUT"
 
-      # No documentation available.
       DELETE = "DELETE"
     end
 
@@ -710,15 +705,12 @@ module AWS::SDK::DynamoDB
       include Hearth::Structure
     end
 
-    # Includes enum constants for BackupStatus
+    # Enum constants for BackupStatus
     module BackupStatus
-      # No documentation available.
       CREATING = "CREATING"
 
-      # No documentation available.
       DELETED = "DELETED"
 
-      # No documentation available.
       AVAILABLE = "AVAILABLE"
     end
 
@@ -803,30 +795,23 @@ module AWS::SDK::DynamoDB
       include Hearth::Structure
     end
 
-    # Includes enum constants for BackupType
+    # Enum constants for BackupType
     module BackupType
-      # No documentation available.
       USER = "USER"
 
-      # No documentation available.
       SYSTEM = "SYSTEM"
 
-      # No documentation available.
       AWS_BACKUP = "AWS_BACKUP"
     end
 
-    # Includes enum constants for BackupTypeFilter
+    # Enum constants for BackupTypeFilter
     module BackupTypeFilter
-      # No documentation available.
       USER = "USER"
 
-      # No documentation available.
       SYSTEM = "SYSTEM"
 
-      # No documentation available.
       AWS_BACKUP = "AWS_BACKUP"
 
-      # No documentation available.
       ALL = "ALL"
     end
 
@@ -1125,39 +1110,28 @@ module AWS::SDK::DynamoDB
       include Hearth::Structure
     end
 
-    # Includes enum constants for BatchStatementErrorCodeEnum
+    # Enum constants for BatchStatementErrorCodeEnum
     module BatchStatementErrorCodeEnum
-      # No documentation available.
       CONDITIONAL_CHECK_FAILED = "ConditionalCheckFailed"
 
-      # No documentation available.
       ITEM_COLLECTION_SIZE_LIMIT_EXCEEDED = "ItemCollectionSizeLimitExceeded"
 
-      # No documentation available.
       REQUEST_LIMIT_EXCEEDED = "RequestLimitExceeded"
 
-      # No documentation available.
       VALIDATION_ERROR = "ValidationError"
 
-      # No documentation available.
       PROVISIONED_THROUGHPUT_EXCEEDED = "ProvisionedThroughputExceeded"
 
-      # No documentation available.
       TRANSACTION_CONFLICT = "TransactionConflict"
 
-      # No documentation available.
       THROTTLING_ERROR = "ThrottlingError"
 
-      # No documentation available.
       INTERNAL_SERVER_ERROR = "InternalServerError"
 
-      # No documentation available.
       RESOURCE_NOT_FOUND = "ResourceNotFound"
 
-      # No documentation available.
       ACCESS_DENIED = "AccessDenied"
 
-      # No documentation available.
       DUPLICATE_ITEM = "DuplicateItem"
     end
 
@@ -1417,12 +1391,10 @@ module AWS::SDK::DynamoDB
       include Hearth::Structure
     end
 
-    # Includes enum constants for BillingMode
+    # Enum constants for BillingMode
     module BillingMode
-      # No documentation available.
       PROVISIONED = "PROVISIONED"
 
-      # No documentation available.
       PAY_PER_REQUEST = "PAY_PER_REQUEST"
     end
 
@@ -1520,45 +1492,32 @@ module AWS::SDK::DynamoDB
       include Hearth::Structure
     end
 
-    # Includes enum constants for ComparisonOperator
+    # Enum constants for ComparisonOperator
     module ComparisonOperator
-      # No documentation available.
       EQ = "EQ"
 
-      # No documentation available.
       NE = "NE"
 
-      # No documentation available.
       IN = "IN"
 
-      # No documentation available.
       LE = "LE"
 
-      # No documentation available.
       LT = "LT"
 
-      # No documentation available.
       GE = "GE"
 
-      # No documentation available.
       GT = "GT"
 
-      # No documentation available.
       BETWEEN = "BETWEEN"
 
-      # No documentation available.
       NOT_NULL = "NOT_NULL"
 
-      # No documentation available.
       NULL = "NULL"
 
-      # No documentation available.
       CONTAINS = "CONTAINS"
 
-      # No documentation available.
       NOT_CONTAINS = "NOT_CONTAINS"
 
-      # No documentation available.
       BEGINS_WITH = "BEGINS_WITH"
     end
 
@@ -1862,12 +1821,10 @@ module AWS::SDK::DynamoDB
       include Hearth::Structure
     end
 
-    # Includes enum constants for ConditionalOperator
+    # Enum constants for ConditionalOperator
     module ConditionalOperator
-      # No documentation available.
       AND = "AND"
 
-      # No documentation available.
       OR = "OR"
     end
 
@@ -1944,12 +1901,10 @@ module AWS::SDK::DynamoDB
       include Hearth::Structure
     end
 
-    # Includes enum constants for ContinuousBackupsStatus
+    # Enum constants for ContinuousBackupsStatus
     module ContinuousBackupsStatus
-      # No documentation available.
       ENABLED = "ENABLED"
 
-      # No documentation available.
       DISABLED = "DISABLED"
     end
 
@@ -1966,30 +1921,23 @@ module AWS::SDK::DynamoDB
       include Hearth::Structure
     end
 
-    # Includes enum constants for ContributorInsightsAction
+    # Enum constants for ContributorInsightsAction
     module ContributorInsightsAction
-      # No documentation available.
       ENABLE = "ENABLE"
 
-      # No documentation available.
       DISABLE = "DISABLE"
     end
 
-    # Includes enum constants for ContributorInsightsStatus
+    # Enum constants for ContributorInsightsStatus
     module ContributorInsightsStatus
-      # No documentation available.
       ENABLING = "ENABLING"
 
-      # No documentation available.
       ENABLED = "ENABLED"
 
-      # No documentation available.
       DISABLING = "DISABLING"
 
-      # No documentation available.
       DISABLED = "DISABLED"
 
-      # No documentation available.
       FAILED = "FAILED"
     end
 
@@ -3347,24 +3295,18 @@ module AWS::SDK::DynamoDB
       include Hearth::Structure
     end
 
-    # Includes enum constants for DestinationStatus
+    # Enum constants for DestinationStatus
     module DestinationStatus
-      # No documentation available.
       ENABLING = "ENABLING"
 
-      # No documentation available.
       ACTIVE = "ACTIVE"
 
-      # No documentation available.
       DISABLING = "DISABLING"
 
-      # No documentation available.
       DISABLED = "DISABLED"
 
-      # No documentation available.
       ENABLE_FAILED = "ENABLE_FAILED"
 
-      # No documentation available.
       UPDATING = "UPDATING"
     end
 
@@ -4130,12 +4072,10 @@ module AWS::SDK::DynamoDB
       include Hearth::Structure
     end
 
-    # Includes enum constants for ExportFormat
+    # Enum constants for ExportFormat
     module ExportFormat
-      # No documentation available.
       DYNAMODB_JSON = "DYNAMODB_JSON"
 
-      # No documentation available.
       ION = "ION"
     end
 
@@ -4152,15 +4092,12 @@ module AWS::SDK::DynamoDB
       include Hearth::Structure
     end
 
-    # Includes enum constants for ExportStatus
+    # Enum constants for ExportStatus
     module ExportStatus
-      # No documentation available.
       IN_PROGRESS = "IN_PROGRESS"
 
-      # No documentation available.
       COMPLETED = "COMPLETED"
 
-      # No documentation available.
       FAILED = "FAILED"
     end
 
@@ -4298,21 +4235,17 @@ module AWS::SDK::DynamoDB
       include Hearth::Structure
     end
 
-    # Includes enum constants for ExportType
+    # Enum constants for ExportType
     module ExportType
-      # No documentation available.
       FULL_EXPORT = "FULL_EXPORT"
 
-      # No documentation available.
       INCREMENTAL_EXPORT = "INCREMENTAL_EXPORT"
     end
 
-    # Includes enum constants for ExportViewType
+    # Enum constants for ExportViewType
     module ExportViewType
-      # No documentation available.
       NEW_IMAGE = "NEW_IMAGE"
 
-      # No documentation available.
       NEW_AND_OLD_IMAGES = "NEW_AND_OLD_IMAGES"
     end
 
@@ -4969,18 +4902,14 @@ module AWS::SDK::DynamoDB
       include Hearth::Structure
     end
 
-    # Includes enum constants for GlobalTableStatus
+    # Enum constants for GlobalTableStatus
     module GlobalTableStatus
-      # No documentation available.
       CREATING = "CREATING"
 
-      # No documentation available.
       ACTIVE = "ACTIVE"
 
-      # No documentation available.
       DELETING = "DELETING"
 
-      # No documentation available.
       UPDATING = "UPDATING"
     end
 
@@ -5030,21 +4959,16 @@ module AWS::SDK::DynamoDB
       include Hearth::Structure
     end
 
-    # Includes enum constants for ImportStatus
+    # Enum constants for ImportStatus
     module ImportStatus
-      # No documentation available.
       IN_PROGRESS = "IN_PROGRESS"
 
-      # No documentation available.
       COMPLETED = "COMPLETED"
 
-      # No documentation available.
       CANCELLING = "CANCELLING"
 
-      # No documentation available.
       CANCELLED = "CANCELLED"
 
-      # No documentation available.
       FAILED = "FAILED"
     end
 
@@ -5336,42 +5260,32 @@ module AWS::SDK::DynamoDB
       include Hearth::Structure
     end
 
-    # Includes enum constants for IndexStatus
+    # Enum constants for IndexStatus
     module IndexStatus
-      # No documentation available.
       CREATING = "CREATING"
 
-      # No documentation available.
       UPDATING = "UPDATING"
 
-      # No documentation available.
       DELETING = "DELETING"
 
-      # No documentation available.
       ACTIVE = "ACTIVE"
     end
 
-    # Includes enum constants for InputCompressionType
+    # Enum constants for InputCompressionType
     module InputCompressionType
-      # No documentation available.
       GZIP = "GZIP"
 
-      # No documentation available.
       ZSTD = "ZSTD"
 
-      # No documentation available.
       NONE = "NONE"
     end
 
-    # Includes enum constants for InputFormat
+    # Enum constants for InputFormat
     module InputFormat
-      # No documentation available.
       DYNAMODB_JSON = "DYNAMODB_JSON"
 
-      # No documentation available.
       ION = "ION"
 
-      # No documentation available.
       CSV = "CSV"
     end
 
@@ -5553,12 +5467,10 @@ module AWS::SDK::DynamoDB
       include Hearth::Structure
     end
 
-    # Includes enum constants for KeyType
+    # Enum constants for KeyType
     module KeyType
-      # No documentation available.
       HASH = "HASH"
 
-      # No documentation available.
       RANGE = "RANGE"
     end
 
@@ -6324,12 +6236,10 @@ module AWS::SDK::DynamoDB
       include Hearth::Structure
     end
 
-    # Includes enum constants for PointInTimeRecoveryStatus
+    # Enum constants for PointInTimeRecoveryStatus
     module PointInTimeRecoveryStatus
-      # No documentation available.
       ENABLED = "ENABLED"
 
-      # No documentation available.
       DISABLED = "DISABLED"
     end
 
@@ -6390,15 +6300,12 @@ module AWS::SDK::DynamoDB
       include Hearth::Structure
     end
 
-    # Includes enum constants for ProjectionType
+    # Enum constants for ProjectionType
     module ProjectionType
-      # No documentation available.
       ALL = "ALL"
 
-      # No documentation available.
       KEYS_ONLY = "KEYS_ONLY"
 
-      # No documentation available.
       INCLUDE = "INCLUDE"
     end
 
@@ -7874,27 +7781,20 @@ module AWS::SDK::DynamoDB
       include Hearth::Structure
     end
 
-    # Includes enum constants for ReplicaStatus
+    # Enum constants for ReplicaStatus
     module ReplicaStatus
-      # No documentation available.
       CREATING = "CREATING"
 
-      # No documentation available.
       CREATION_FAILED = "CREATION_FAILED"
 
-      # No documentation available.
       UPDATING = "UPDATING"
 
-      # No documentation available.
       DELETING = "DELETING"
 
-      # No documentation available.
       ACTIVE = "ACTIVE"
 
-      # No documentation available.
       REGION_DISABLED = "REGION_DISABLED"
 
-      # No documentation available.
       INACCESSIBLE_ENCRYPTION_CREDENTIALS = "INACCESSIBLE_ENCRYPTION_CREDENTIALS"
     end
 
@@ -8187,51 +8087,64 @@ module AWS::SDK::DynamoDB
       include Hearth::Structure
     end
 
-    # Includes enum constants for ReturnConsumedCapacity
+    # Enum constants for ReturnConsumedCapacity
+    # <p>Determines the level of detail about either provisioned or on-demand throughput
+    #             consumption that is returned in the response:</p>
+    #          <ul>
+    #             <li>
+    #                <p>
+    #                   <code>INDEXES</code> - The response includes the aggregate
+    #                         <code>ConsumedCapacity</code> for the operation, together with
+    #                         <code>ConsumedCapacity</code> for each table and secondary index that was
+    #                     accessed.</p>
+    #                <p>Note that some operations, such as <code>GetItem</code> and
+    #                         <code>BatchGetItem</code>, do not access any indexes at all. In these cases,
+    #                     specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code>
+    #                     information for table(s).</p>
+    #             </li>
+    #             <li>
+    #                <p>
+    #                   <code>TOTAL</code> - The response includes only the aggregate
+    #                         <code>ConsumedCapacity</code> for the operation.</p>
+    #             </li>
+    #             <li>
+    #                <p>
+    #                   <code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the
+    #                     response.</p>
+    #             </li>
+    #          </ul>
     module ReturnConsumedCapacity
-      # No documentation available.
       INDEXES = "INDEXES"
 
-      # No documentation available.
       TOTAL = "TOTAL"
 
-      # No documentation available.
       NONE = "NONE"
     end
 
-    # Includes enum constants for ReturnItemCollectionMetrics
+    # Enum constants for ReturnItemCollectionMetrics
     module ReturnItemCollectionMetrics
-      # No documentation available.
       SIZE = "SIZE"
 
-      # No documentation available.
       NONE = "NONE"
     end
 
-    # Includes enum constants for ReturnValue
+    # Enum constants for ReturnValue
     module ReturnValue
-      # No documentation available.
       NONE = "NONE"
 
-      # No documentation available.
       ALL_OLD = "ALL_OLD"
 
-      # No documentation available.
       UPDATED_OLD = "UPDATED_OLD"
 
-      # No documentation available.
       ALL_NEW = "ALL_NEW"
 
-      # No documentation available.
       UPDATED_NEW = "UPDATED_NEW"
     end
 
-    # Includes enum constants for ReturnValuesOnConditionCheckFailure
+    # Enum constants for ReturnValuesOnConditionCheckFailure
     module ReturnValuesOnConditionCheckFailure
-      # No documentation available.
       ALL_OLD = "ALL_OLD"
 
-      # No documentation available.
       NONE = "NONE"
     end
 
@@ -8260,12 +8173,10 @@ module AWS::SDK::DynamoDB
       include Hearth::Structure
     end
 
-    # Includes enum constants for S3SseAlgorithm
+    # Enum constants for S3SseAlgorithm
     module S3SseAlgorithm
-      # No documentation available.
       AES256 = "AES256"
 
-      # No documentation available.
       KMS = "KMS"
     end
 
@@ -8359,42 +8270,32 @@ module AWS::SDK::DynamoDB
       include Hearth::Structure
     end
 
-    # Includes enum constants for SSEStatus
+    # Enum constants for SSEStatus
     module SSEStatus
-      # No documentation available.
       ENABLING = "ENABLING"
 
-      # No documentation available.
       ENABLED = "ENABLED"
 
-      # No documentation available.
       DISABLING = "DISABLING"
 
-      # No documentation available.
       DISABLED = "DISABLED"
 
-      # No documentation available.
       UPDATING = "UPDATING"
     end
 
-    # Includes enum constants for SSEType
+    # Enum constants for SSEType
     module SSEType
-      # No documentation available.
       AES256 = "AES256"
 
-      # No documentation available.
       KMS = "KMS"
     end
 
-    # Includes enum constants for ScalarAttributeType
+    # Enum constants for ScalarAttributeType
     module ScalarAttributeType
-      # No documentation available.
       S = "S"
 
-      # No documentation available.
       N = "N"
 
-      # No documentation available.
       B = "B"
     end
 
@@ -8777,18 +8678,14 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Includes enum constants for Select
+    # Enum constants for Select
     module Select
-      # No documentation available.
       ALL_ATTRIBUTES = "ALL_ATTRIBUTES"
 
-      # No documentation available.
       ALL_PROJECTED_ATTRIBUTES = "ALL_PROJECTED_ATTRIBUTES"
 
-      # No documentation available.
       SPECIFIC_ATTRIBUTES = "SPECIFIC_ATTRIBUTES"
 
-      # No documentation available.
       COUNT = "COUNT"
     end
 
@@ -8947,18 +8844,14 @@ module AWS::SDK::DynamoDB
       include Hearth::Structure
     end
 
-    # Includes enum constants for StreamViewType
+    # Enum constants for StreamViewType
     module StreamViewType
-      # No documentation available.
       NEW_IMAGE = "NEW_IMAGE"
 
-      # No documentation available.
       OLD_IMAGE = "OLD_IMAGE"
 
-      # No documentation available.
       NEW_AND_OLD_IMAGES = "NEW_AND_OLD_IMAGES"
 
-      # No documentation available.
       KEYS_ONLY = "KEYS_ONLY"
     end
 
@@ -9018,12 +8911,10 @@ module AWS::SDK::DynamoDB
       include Hearth::Structure
     end
 
-    # Includes enum constants for TableClass
+    # Enum constants for TableClass
     module TableClass
-      # No documentation available.
       STANDARD = "STANDARD"
 
-      # No documentation available.
       STANDARD_INFREQUENT_ACCESS = "STANDARD_INFREQUENT_ACCESS"
     end
 
@@ -9538,27 +9429,20 @@ module AWS::SDK::DynamoDB
       include Hearth::Structure
     end
 
-    # Includes enum constants for TableStatus
+    # Enum constants for TableStatus
     module TableStatus
-      # No documentation available.
       CREATING = "CREATING"
 
-      # No documentation available.
       UPDATING = "UPDATING"
 
-      # No documentation available.
       DELETING = "DELETING"
 
-      # No documentation available.
       ACTIVE = "ACTIVE"
 
-      # No documentation available.
       INACCESSIBLE_ENCRYPTION_CREDENTIALS = "INACCESSIBLE_ENCRYPTION_CREDENTIALS"
 
-      # No documentation available.
       ARCHIVING = "ARCHIVING"
 
-      # No documentation available.
       ARCHIVED = "ARCHIVED"
     end
 
@@ -9661,18 +9545,14 @@ module AWS::SDK::DynamoDB
       include Hearth::Structure
     end
 
-    # Includes enum constants for TimeToLiveStatus
+    # Enum constants for TimeToLiveStatus
     module TimeToLiveStatus
-      # No documentation available.
       ENABLING = "ENABLING"
 
-      # No documentation available.
       DISABLING = "DISABLING"
 
-      # No documentation available.
       ENABLED = "ENABLED"
 
-      # No documentation available.
       DISABLED = "DISABLED"
     end
 

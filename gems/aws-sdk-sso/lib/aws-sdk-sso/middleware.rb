@@ -14,7 +14,7 @@ module AWS::SDK::SSO
   module Middleware
 
     class GetRoleCredentials
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -57,14 +57,14 @@ module AWS::SDK::SSO
           client: config.http_client,
           stub_error_classes: [Stubs::InvalidRequestException, Stubs::ResourceNotFoundException, Stubs::TooManyRequestsException, Stubs::UnauthorizedException],
           stub_data_class: Stubs::GetRoleCredentials,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ListAccountRoles
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -107,14 +107,14 @@ module AWS::SDK::SSO
           client: config.http_client,
           stub_error_classes: [Stubs::InvalidRequestException, Stubs::ResourceNotFoundException, Stubs::TooManyRequestsException, Stubs::UnauthorizedException],
           stub_data_class: Stubs::ListAccountRoles,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ListAccounts
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -157,14 +157,14 @@ module AWS::SDK::SSO
           client: config.http_client,
           stub_error_classes: [Stubs::InvalidRequestException, Stubs::ResourceNotFoundException, Stubs::TooManyRequestsException, Stubs::UnauthorizedException],
           stub_data_class: Stubs::ListAccounts,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class Logout
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -207,7 +207,7 @@ module AWS::SDK::SSO
           client: config.http_client,
           stub_error_classes: [Stubs::InvalidRequestException, Stubs::TooManyRequestsException, Stubs::UnauthorizedException],
           stub_data_class: Stubs::Logout,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end

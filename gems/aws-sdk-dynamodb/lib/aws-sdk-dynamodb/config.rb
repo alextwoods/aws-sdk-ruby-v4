@@ -98,6 +98,8 @@ module AWS::SDK::DynamoDB
   #       mode that may change behavior in the future.
   #   @option args [Boolean] :stub_responses (false)
   #     Enable response stubbing for testing. See {Hearth::ClientStubs#stub_responses}.
+  #   @option args [Hearth::Stubs] :stubs (Hearth::Stubs.new)
+  #     Enable response stubbing for testing. See {Hearth::ClientStubs#stub_responses}.
   #   @option args [Boolean] :use_dualstack_endpoint
   #     When set to `true`, dualstack enabled endpoints (with `.aws` TLD)
   #      will be used if available.
@@ -135,6 +137,8 @@ module AWS::SDK::DynamoDB
   #   @return [#acquire_initial_retry_token(token_scope),#refresh_retry_token(retry_token, error_info),#record_success(retry_token)]
   # @!attribute stub_responses
   #   @return [Boolean]
+  # @!attribute stubs
+  #   @return [Hearth::Stubs]
   # @!attribute use_dualstack_endpoint
   #   @return [Boolean]
   # @!attribute use_fips_endpoint
@@ -156,6 +160,7 @@ module AWS::SDK::DynamoDB
     :region,
     :retry_strategy,
     :stub_responses,
+    :stubs,
     :use_dualstack_endpoint,
     :use_fips_endpoint,
     :validate_input,
@@ -179,6 +184,7 @@ module AWS::SDK::DynamoDB
       Hearth::Validator.validate_types!(region, String, context: 'config[:region]')
       Hearth::Validator.validate_responds_to!(retry_strategy, :acquire_initial_retry_token, :refresh_retry_token, :record_success, context: 'config[:retry_strategy]')
       Hearth::Validator.validate_types!(stub_responses, TrueClass, FalseClass, context: 'config[:stub_responses]')
+      Hearth::Validator.validate_types!(stubs, Hearth::Stubs, context: 'config[:stubs]')
       Hearth::Validator.validate_types!(use_dualstack_endpoint, TrueClass, FalseClass, context: 'config[:use_dualstack_endpoint]')
       Hearth::Validator.validate_types!(use_fips_endpoint, TrueClass, FalseClass, context: 'config[:use_fips_endpoint]')
       Hearth::Validator.validate_types!(validate_input, TrueClass, FalseClass, context: 'config[:validate_input]')
@@ -202,6 +208,7 @@ module AWS::SDK::DynamoDB
         region: [proc { |cfg| cfg[:stub_responses] ?  'us-stubbed-1' : nil },Hearth::Config::EnvProvider.new('AWS_REGION', type: 'String'),AWS::SDK::Core::SharedConfigProvider.new('region', type: 'String')],
         retry_strategy: [Hearth::Retry::Standard.new],
         stub_responses: [false],
+        stubs: [Hearth::Stubs.new],
         use_dualstack_endpoint: [Hearth::Config::EnvProvider.new('AWS_USE_DUALSTACK_ENDPOINT', type: 'Boolean'),AWS::SDK::Core::SharedConfigProvider.new('use_dualstack_endpoint', type: 'Boolean')],
         use_fips_endpoint: [Hearth::Config::EnvProvider.new('AWS_USE_FIPS_ENDPOINT', type: 'Boolean'),AWS::SDK::Core::SharedConfigProvider.new('use_fips_endpoint', type: 'Boolean')],
         validate_input: [true]

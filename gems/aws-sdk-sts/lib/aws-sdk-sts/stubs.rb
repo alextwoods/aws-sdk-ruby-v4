@@ -219,7 +219,7 @@ module AWS::SDK::STS
         xml << Hearth::XML::Node.new('Type', 'Sender')
         xml << Hearth::XML::Node.new('Code', 'ExpiredTokenException')
         xml << Hearth::XML::Node.new('message', stub[:message].to_s) unless stub[:message].nil?
-        http_req.body = ::StringIO.new(Hearth::XML::Node.new('ErrorResponse', xml).to_str) if xml
+        http_resp.body = ::StringIO.new(Hearth::XML::Node.new('ErrorResponse', xml).to_str) if xml
       end
     end
 
@@ -380,7 +380,7 @@ module AWS::SDK::STS
         xml << Hearth::XML::Node.new('Type', 'Sender')
         xml << Hearth::XML::Node.new('Code', 'IDPCommunicationError')
         xml << Hearth::XML::Node.new('message', stub[:message].to_s) unless stub[:message].nil?
-        http_req.body = ::StringIO.new(Hearth::XML::Node.new('ErrorResponse', xml).to_str) if xml
+        http_resp.body = ::StringIO.new(Hearth::XML::Node.new('ErrorResponse', xml).to_str) if xml
       end
     end
 
@@ -406,7 +406,7 @@ module AWS::SDK::STS
         xml << Hearth::XML::Node.new('Type', 'Sender')
         xml << Hearth::XML::Node.new('Code', 'IDPRejectedClaim')
         xml << Hearth::XML::Node.new('message', stub[:message].to_s) unless stub[:message].nil?
-        http_req.body = ::StringIO.new(Hearth::XML::Node.new('ErrorResponse', xml).to_str) if xml
+        http_resp.body = ::StringIO.new(Hearth::XML::Node.new('ErrorResponse', xml).to_str) if xml
       end
     end
 
@@ -432,7 +432,7 @@ module AWS::SDK::STS
         xml << Hearth::XML::Node.new('Type', 'Sender')
         xml << Hearth::XML::Node.new('Code', 'InvalidAuthorizationMessageException')
         xml << Hearth::XML::Node.new('message', stub[:message].to_s) unless stub[:message].nil?
-        http_req.body = ::StringIO.new(Hearth::XML::Node.new('ErrorResponse', xml).to_str) if xml
+        http_resp.body = ::StringIO.new(Hearth::XML::Node.new('ErrorResponse', xml).to_str) if xml
       end
     end
 
@@ -458,7 +458,7 @@ module AWS::SDK::STS
         xml << Hearth::XML::Node.new('Type', 'Sender')
         xml << Hearth::XML::Node.new('Code', 'InvalidIdentityToken')
         xml << Hearth::XML::Node.new('message', stub[:message].to_s) unless stub[:message].nil?
-        http_req.body = ::StringIO.new(Hearth::XML::Node.new('ErrorResponse', xml).to_str) if xml
+        http_resp.body = ::StringIO.new(Hearth::XML::Node.new('ErrorResponse', xml).to_str) if xml
       end
     end
 
@@ -484,7 +484,7 @@ module AWS::SDK::STS
         xml << Hearth::XML::Node.new('Type', 'Sender')
         xml << Hearth::XML::Node.new('Code', 'MalformedPolicyDocument')
         xml << Hearth::XML::Node.new('message', stub[:message].to_s) unless stub[:message].nil?
-        http_req.body = ::StringIO.new(Hearth::XML::Node.new('ErrorResponse', xml).to_str) if xml
+        http_resp.body = ::StringIO.new(Hearth::XML::Node.new('ErrorResponse', xml).to_str) if xml
       end
     end
 
@@ -510,7 +510,7 @@ module AWS::SDK::STS
         xml << Hearth::XML::Node.new('Type', 'Sender')
         xml << Hearth::XML::Node.new('Code', 'PackedPolicyTooLarge')
         xml << Hearth::XML::Node.new('message', stub[:message].to_s) unless stub[:message].nil?
-        http_req.body = ::StringIO.new(Hearth::XML::Node.new('ErrorResponse', xml).to_str) if xml
+        http_resp.body = ::StringIO.new(Hearth::XML::Node.new('ErrorResponse', xml).to_str) if xml
       end
     end
 
@@ -536,7 +536,7 @@ module AWS::SDK::STS
         xml << Hearth::XML::Node.new('Type', 'Sender')
         xml << Hearth::XML::Node.new('Code', 'RegionDisabledException')
         xml << Hearth::XML::Node.new('message', stub[:message].to_s) unless stub[:message].nil?
-        http_req.body = ::StringIO.new(Hearth::XML::Node.new('ErrorResponse', xml).to_str) if xml
+        http_resp.body = ::StringIO.new(Hearth::XML::Node.new('ErrorResponse', xml).to_str) if xml
       end
     end
   end

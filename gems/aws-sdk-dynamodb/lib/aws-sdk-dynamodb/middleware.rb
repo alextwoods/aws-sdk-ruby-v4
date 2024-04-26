@@ -14,7 +14,7 @@ module AWS::SDK::DynamoDB
   module Middleware
 
     class BatchExecuteStatement
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -58,14 +58,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::InternalServerError, Stubs::RequestLimitExceeded],
           stub_data_class: Stubs::BatchExecuteStatement,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class BatchGetItem
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -109,14 +109,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::RequestLimitExceeded, Stubs::ProvisionedThroughputExceededException],
           stub_data_class: Stubs::BatchGetItem,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class BatchWriteItem
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -160,14 +160,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::RequestLimitExceeded, Stubs::ItemCollectionSizeLimitExceededException, Stubs::ProvisionedThroughputExceededException],
           stub_data_class: Stubs::BatchWriteItem,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateBackup
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -211,14 +211,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::LimitExceededException, Stubs::TableInUseException, Stubs::BackupInUseException, Stubs::TableNotFoundException, Stubs::ContinuousBackupsUnavailableException],
           stub_data_class: Stubs::CreateBackup,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateGlobalTable
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -262,14 +262,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::LimitExceededException, Stubs::TableNotFoundException, Stubs::GlobalTableAlreadyExistsException],
           stub_data_class: Stubs::CreateGlobalTable,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateTable
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -313,14 +313,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::LimitExceededException, Stubs::ResourceInUseException],
           stub_data_class: Stubs::CreateTable,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteBackup
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -364,14 +364,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::BackupNotFoundException, Stubs::LimitExceededException, Stubs::BackupInUseException],
           stub_data_class: Stubs::DeleteBackup,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteItem
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -415,14 +415,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::RequestLimitExceeded, Stubs::TransactionConflictException, Stubs::ConditionalCheckFailedException, Stubs::ItemCollectionSizeLimitExceededException, Stubs::ProvisionedThroughputExceededException],
           stub_data_class: Stubs::DeleteItem,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteTable
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -466,14 +466,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::LimitExceededException, Stubs::ResourceInUseException],
           stub_data_class: Stubs::DeleteTable,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeBackup
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -517,14 +517,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::BackupNotFoundException],
           stub_data_class: Stubs::DescribeBackup,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeContinuousBackups
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -568,14 +568,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::TableNotFoundException],
           stub_data_class: Stubs::DescribeContinuousBackups,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeContributorInsights
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -619,14 +619,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::InternalServerError, Stubs::ResourceNotFoundException],
           stub_data_class: Stubs::DescribeContributorInsights,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeEndpoints
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -670,14 +670,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeEndpoints,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeExport
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -721,14 +721,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::InternalServerError, Stubs::LimitExceededException, Stubs::ExportNotFoundException],
           stub_data_class: Stubs::DescribeExport,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeGlobalTable
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -772,14 +772,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::GlobalTableNotFoundException],
           stub_data_class: Stubs::DescribeGlobalTable,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeGlobalTableSettings
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -823,14 +823,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::GlobalTableNotFoundException],
           stub_data_class: Stubs::DescribeGlobalTableSettings,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeImport
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -874,14 +874,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::ImportNotFoundException],
           stub_data_class: Stubs::DescribeImport,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeKinesisStreamingDestination
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -925,14 +925,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException],
           stub_data_class: Stubs::DescribeKinesisStreamingDestination,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeLimits
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -976,14 +976,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException],
           stub_data_class: Stubs::DescribeLimits,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeTable
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1027,14 +1027,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException],
           stub_data_class: Stubs::DescribeTable,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeTableReplicaAutoScaling
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1078,14 +1078,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::InternalServerError, Stubs::ResourceNotFoundException],
           stub_data_class: Stubs::DescribeTableReplicaAutoScaling,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeTimeToLive
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1129,14 +1129,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException],
           stub_data_class: Stubs::DescribeTimeToLive,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DisableKinesisStreamingDestination
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1180,14 +1180,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::LimitExceededException, Stubs::ResourceInUseException, Stubs::ResourceNotFoundException],
           stub_data_class: Stubs::DisableKinesisStreamingDestination,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class EnableKinesisStreamingDestination
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1231,14 +1231,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::LimitExceededException, Stubs::ResourceInUseException, Stubs::ResourceNotFoundException],
           stub_data_class: Stubs::EnableKinesisStreamingDestination,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ExecuteStatement
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1282,14 +1282,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::InternalServerError, Stubs::ResourceNotFoundException, Stubs::DuplicateItemException, Stubs::RequestLimitExceeded, Stubs::TransactionConflictException, Stubs::ConditionalCheckFailedException, Stubs::ItemCollectionSizeLimitExceededException, Stubs::ProvisionedThroughputExceededException],
           stub_data_class: Stubs::ExecuteStatement,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ExecuteTransaction
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1333,14 +1333,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::InternalServerError, Stubs::ResourceNotFoundException, Stubs::IdempotentParameterMismatchException, Stubs::TransactionCanceledException, Stubs::RequestLimitExceeded, Stubs::ProvisionedThroughputExceededException, Stubs::TransactionInProgressException],
           stub_data_class: Stubs::ExecuteTransaction,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ExportTableToPointInTime
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1384,14 +1384,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidExportTimeException, Stubs::LimitExceededException, Stubs::PointInTimeRecoveryUnavailableException, Stubs::ExportConflictException, Stubs::TableNotFoundException],
           stub_data_class: Stubs::ExportTableToPointInTime,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetItem
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1435,14 +1435,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::RequestLimitExceeded, Stubs::ProvisionedThroughputExceededException],
           stub_data_class: Stubs::GetItem,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ImportTable
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1486,14 +1486,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::LimitExceededException, Stubs::ResourceInUseException, Stubs::ImportConflictException],
           stub_data_class: Stubs::ImportTable,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ListBackups
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1537,14 +1537,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException],
           stub_data_class: Stubs::ListBackups,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ListContributorInsights
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1588,14 +1588,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::InternalServerError, Stubs::ResourceNotFoundException],
           stub_data_class: Stubs::ListContributorInsights,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ListExports
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1639,14 +1639,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::InternalServerError, Stubs::LimitExceededException],
           stub_data_class: Stubs::ListExports,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ListGlobalTables
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1690,14 +1690,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException],
           stub_data_class: Stubs::ListGlobalTables,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ListImports
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1741,14 +1741,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::LimitExceededException],
           stub_data_class: Stubs::ListImports,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ListTables
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1792,14 +1792,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException],
           stub_data_class: Stubs::ListTables,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ListTagsOfResource
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1843,14 +1843,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException],
           stub_data_class: Stubs::ListTagsOfResource,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class PutItem
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1894,14 +1894,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::RequestLimitExceeded, Stubs::TransactionConflictException, Stubs::ConditionalCheckFailedException, Stubs::ItemCollectionSizeLimitExceededException, Stubs::ProvisionedThroughputExceededException],
           stub_data_class: Stubs::PutItem,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class Query
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1945,14 +1945,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::RequestLimitExceeded, Stubs::ProvisionedThroughputExceededException],
           stub_data_class: Stubs::Query,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class RestoreTableFromBackup
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1996,14 +1996,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::BackupNotFoundException, Stubs::LimitExceededException, Stubs::TableInUseException, Stubs::BackupInUseException, Stubs::TableAlreadyExistsException],
           stub_data_class: Stubs::RestoreTableFromBackup,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class RestoreTableToPointInTime
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2047,14 +2047,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::LimitExceededException, Stubs::TableInUseException, Stubs::PointInTimeRecoveryUnavailableException, Stubs::InvalidRestoreTimeException, Stubs::TableAlreadyExistsException, Stubs::TableNotFoundException],
           stub_data_class: Stubs::RestoreTableToPointInTime,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class Scan
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2098,14 +2098,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::RequestLimitExceeded, Stubs::ProvisionedThroughputExceededException],
           stub_data_class: Stubs::Scan,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class TagResource
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2149,14 +2149,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::LimitExceededException, Stubs::ResourceInUseException, Stubs::ResourceNotFoundException],
           stub_data_class: Stubs::TagResource,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class TransactGetItems
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2200,14 +2200,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::TransactionCanceledException, Stubs::RequestLimitExceeded, Stubs::ProvisionedThroughputExceededException],
           stub_data_class: Stubs::TransactGetItems,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class TransactWriteItems
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2251,14 +2251,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::IdempotentParameterMismatchException, Stubs::TransactionCanceledException, Stubs::RequestLimitExceeded, Stubs::ProvisionedThroughputExceededException, Stubs::TransactionInProgressException],
           stub_data_class: Stubs::TransactWriteItems,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class UntagResource
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2302,14 +2302,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::LimitExceededException, Stubs::ResourceInUseException, Stubs::ResourceNotFoundException],
           stub_data_class: Stubs::UntagResource,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class UpdateContinuousBackups
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2353,14 +2353,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::TableNotFoundException, Stubs::ContinuousBackupsUnavailableException],
           stub_data_class: Stubs::UpdateContinuousBackups,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class UpdateContributorInsights
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2404,14 +2404,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::InternalServerError, Stubs::ResourceNotFoundException],
           stub_data_class: Stubs::UpdateContributorInsights,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class UpdateGlobalTable
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2455,14 +2455,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::GlobalTableNotFoundException, Stubs::ReplicaNotFoundException, Stubs::TableNotFoundException, Stubs::ReplicaAlreadyExistsException],
           stub_data_class: Stubs::UpdateGlobalTable,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class UpdateGlobalTableSettings
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2506,14 +2506,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::LimitExceededException, Stubs::GlobalTableNotFoundException, Stubs::IndexNotFoundException, Stubs::ReplicaNotFoundException, Stubs::ResourceInUseException],
           stub_data_class: Stubs::UpdateGlobalTableSettings,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class UpdateItem
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2557,14 +2557,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::RequestLimitExceeded, Stubs::TransactionConflictException, Stubs::ConditionalCheckFailedException, Stubs::ItemCollectionSizeLimitExceededException, Stubs::ProvisionedThroughputExceededException],
           stub_data_class: Stubs::UpdateItem,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class UpdateKinesisStreamingDestination
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2608,14 +2608,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::LimitExceededException, Stubs::ResourceInUseException],
           stub_data_class: Stubs::UpdateKinesisStreamingDestination,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class UpdateTable
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2659,14 +2659,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::LimitExceededException, Stubs::ResourceInUseException],
           stub_data_class: Stubs::UpdateTable,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class UpdateTableReplicaAutoScaling
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2710,14 +2710,14 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::InternalServerError, Stubs::ResourceNotFoundException, Stubs::LimitExceededException, Stubs::ResourceInUseException],
           stub_data_class: Stubs::UpdateTableReplicaAutoScaling,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class UpdateTimeToLive
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2761,7 +2761,7 @@ module AWS::SDK::DynamoDB
           client: config.http_client,
           stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::LimitExceededException, Stubs::ResourceInUseException],
           stub_data_class: Stubs::UpdateTimeToLive,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end

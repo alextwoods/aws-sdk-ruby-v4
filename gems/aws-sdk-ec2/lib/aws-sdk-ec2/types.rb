@@ -56,60 +56,43 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for AcceleratorManufacturer
+    # Enum constants for AcceleratorManufacturer
     module AcceleratorManufacturer
-      # No documentation available.
       AMAZON_WEB_SERVICES = "amazon-web-services"
 
-      # No documentation available.
       AMD = "amd"
 
-      # No documentation available.
       NVIDIA = "nvidia"
 
-      # No documentation available.
       XILINX = "xilinx"
 
-      # No documentation available.
       HABANA = "habana"
     end
 
-    # Includes enum constants for AcceleratorName
+    # Enum constants for AcceleratorName
     module AcceleratorName
-      # No documentation available.
       A100 = "a100"
 
-      # No documentation available.
       INFERENTIA = "inferentia"
 
-      # No documentation available.
       K520 = "k520"
 
-      # No documentation available.
       K80 = "k80"
 
-      # No documentation available.
       M60 = "m60"
 
-      # No documentation available.
       RADEON_PRO_V520 = "radeon-pro-v520"
 
-      # No documentation available.
       T4 = "t4"
 
-      # No documentation available.
       VU9_P = "vu9p"
 
-      # No documentation available.
       V100 = "v100"
 
-      # No documentation available.
       A10_G = "a10g"
 
-      # No documentation available.
       H100 = "h100"
 
-      # No documentation available.
       T4_G = "t4g"
     end
 
@@ -155,15 +138,12 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for AcceleratorType
+    # Enum constants for AcceleratorType
     module AcceleratorType
-      # No documentation available.
       GPU = "gpu"
 
-      # No documentation available.
       FPGA = "fpga"
 
-      # No documentation available.
       INFERENCE = "inference"
     end
 
@@ -527,12 +507,10 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for AccountAttributeName
+    # Enum constants for AccountAttributeName
     module AccountAttributeName
-      # No documentation available.
       SUPPORTED_PLATFORMS = "supported-platforms"
 
-      # No documentation available.
       DEFAULT_VPC = "default-vpc"
     end
 
@@ -582,18 +560,14 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for ActivityStatus
+    # Enum constants for ActivityStatus
     module ActivityStatus
-      # No documentation available.
       ERROR = "error"
 
-      # No documentation available.
       PENDING_FULFILLMENT = "pending_fulfillment"
 
-      # No documentation available.
       PENDING_TERMINATION = "pending_termination"
 
-      # No documentation available.
       FULFILLED = "fulfilled"
     end
 
@@ -823,18 +797,15 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for AddressAttributeName
+    # Enum constants for AddressAttributeName
     module AddressAttributeName
-      # No documentation available.
       DOMAIN_NAME = "domain-name"
     end
 
-    # Includes enum constants for AddressFamily
+    # Enum constants for AddressFamily
     module AddressFamily
-      # No documentation available.
       IPV4 = "ipv4"
 
-      # No documentation available.
       IPV6 = "ipv6"
     end
 
@@ -880,15 +851,12 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for AddressTransferStatus
+    # Enum constants for AddressTransferStatus
     module AddressTransferStatus
-      # No documentation available.
       PENDING = "pending"
 
-      # No documentation available.
       DISABLED = "disabled"
 
-      # No documentation available.
       ACCEPTED = "accepted"
     end
 
@@ -951,12 +919,10 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for Affinity
+    # Enum constants for Affinity
     module Affinity
-      # No documentation available.
       DEFAULT = "default"
 
-      # No documentation available.
       HOST = "host"
     end
 
@@ -1275,48 +1241,36 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for AllocationState
+    # Enum constants for AllocationState
     module AllocationState
-      # No documentation available.
       AVAILABLE = "available"
 
-      # No documentation available.
       UNDER_ASSESSMENT = "under-assessment"
 
-      # No documentation available.
       PERMANENT_FAILURE = "permanent-failure"
 
-      # No documentation available.
       RELEASED = "released"
 
-      # No documentation available.
       RELEASED_PERMANENT_FAILURE = "released-permanent-failure"
 
-      # No documentation available.
       PENDING = "pending"
     end
 
-    # Includes enum constants for AllocationStrategy
+    # Enum constants for AllocationStrategy
     module AllocationStrategy
-      # No documentation available.
       LOWEST_PRICE = "lowestPrice"
 
-      # No documentation available.
       DIVERSIFIED = "diversified"
 
-      # No documentation available.
       CAPACITY_OPTIMIZED = "capacityOptimized"
 
-      # No documentation available.
       CAPACITY_OPTIMIZED_PRIORITIZED = "capacityOptimizedPrioritized"
 
-      # No documentation available.
       PRICE_CAPACITY_OPTIMIZED = "priceCapacityOptimized"
     end
 
-    # Includes enum constants for AllocationType
+    # Enum constants for AllocationType
     module AllocationType
-      # No documentation available.
       USED = "used"
     end
 
@@ -1355,12 +1309,10 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for AllowsMultipleInstanceTypes
+    # Enum constants for AllowsMultipleInstanceTypes
     module AllowsMultipleInstanceTypes
-      # No documentation available.
       ON = "on"
 
-      # No documentation available.
       OFF = "off"
     end
 
@@ -1383,12 +1335,10 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for AmdSevSnpSpecification
+    # Enum constants for AmdSevSnpSpecification
     module AmdSevSnpSpecification
-      # No documentation available.
       ENABLED = "enabled"
 
-      # No documentation available.
       DISABLED = "disabled"
     end
 
@@ -1683,24 +1633,19 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for AnalysisStatus
+    # Enum constants for AnalysisStatus
     module AnalysisStatus
-      # No documentation available.
       RUNNING = "running"
 
-      # No documentation available.
       SUCCEEDED = "succeeded"
 
-      # No documentation available.
       FAILED = "failed"
     end
 
-    # Includes enum constants for ApplianceModeSupportValue
+    # Enum constants for ApplianceModeSupportValue
     module ApplianceModeSupportValue
-      # No documentation available.
       ENABLE = "enable"
 
-      # No documentation available.
       DISABLE = "disable"
     end
 
@@ -1746,39 +1691,29 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for ArchitectureType
+    # Enum constants for ArchitectureType
     module ArchitectureType
-      # No documentation available.
       I386 = "i386"
 
-      # No documentation available.
       X86_64 = "x86_64"
 
-      # No documentation available.
       ARM64 = "arm64"
 
-      # No documentation available.
       X86_64_MAC = "x86_64_mac"
 
-      # No documentation available.
       ARM64_MAC = "arm64_mac"
     end
 
-    # Includes enum constants for ArchitectureValues
+    # Enum constants for ArchitectureValues
     module ArchitectureValues
-      # No documentation available.
       I386 = "i386"
 
-      # No documentation available.
       X86_64 = "x86_64"
 
-      # No documentation available.
       ARM64 = "arm64"
 
-      # No documentation available.
       X86_64_MAC = "x86_64_mac"
 
-      # No documentation available.
       ARM64_MAC = "arm64_mac"
     end
 
@@ -1812,24 +1747,18 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for AsnAssociationState
+    # Enum constants for AsnAssociationState
     module AsnAssociationState
-      # No documentation available.
       DISASSOCIATED = "disassociated"
 
-      # No documentation available.
       FAILED_DISASSOCIATION = "failed-disassociation"
 
-      # No documentation available.
       FAILED_ASSOCIATION = "failed-association"
 
-      # No documentation available.
       PENDING_DISASSOCIATION = "pending-disassociation"
 
-      # No documentation available.
       PENDING_ASSOCIATION = "pending-association"
 
-      # No documentation available.
       ASSOCIATED = "associated"
     end
 
@@ -1853,24 +1782,18 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for AsnState
+    # Enum constants for AsnState
     module AsnState
-      # No documentation available.
       DEPROVISIONED = "deprovisioned"
 
-      # No documentation available.
       FAILED_DEPROVISION = "failed-deprovision"
 
-      # No documentation available.
       FAILED_PROVISION = "failed-provision"
 
-      # No documentation available.
       PENDING_DEPROVISION = "pending-deprovision"
 
-      # No documentation available.
       PENDING_PROVISION = "pending-provision"
 
-      # No documentation available.
       PROVISIONED = "provisioned"
     end
 
@@ -2817,9 +2740,8 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for AssociatedNetworkType
+    # Enum constants for AssociatedNetworkType
     module AssociatedNetworkType
-      # No documentation available.
       VPC = "vpc"
     end
 
@@ -2894,21 +2816,16 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for AssociationStatusCode
+    # Enum constants for AssociationStatusCode
     module AssociationStatusCode
-      # No documentation available.
       ASSOCIATING = "associating"
 
-      # No documentation available.
       ASSOCIATED = "associated"
 
-      # No documentation available.
       ASSOCIATION_FAILED = "association-failed"
 
-      # No documentation available.
       DISASSOCIATING = "disassociating"
 
-      # No documentation available.
       DISASSOCIATED = "disassociated"
     end
 
@@ -3305,18 +3222,14 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for AttachmentStatus
+    # Enum constants for AttachmentStatus
     module AttachmentStatus
-      # No documentation available.
       ATTACHING = "attaching"
 
-      # No documentation available.
       ATTACHED = "attached"
 
-      # No documentation available.
       DETACHING = "detaching"
 
-      # No documentation available.
       DETACHED = "detached"
     end
 
@@ -3635,30 +3548,24 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for AutoAcceptSharedAssociationsValue
+    # Enum constants for AutoAcceptSharedAssociationsValue
     module AutoAcceptSharedAssociationsValue
-      # No documentation available.
       ENABLE = "enable"
 
-      # No documentation available.
       DISABLE = "disable"
     end
 
-    # Includes enum constants for AutoAcceptSharedAttachmentsValue
+    # Enum constants for AutoAcceptSharedAttachmentsValue
     module AutoAcceptSharedAttachmentsValue
-      # No documentation available.
       ENABLE = "enable"
 
-      # No documentation available.
       DISABLE = "disable"
     end
 
-    # Includes enum constants for AutoPlacement
+    # Enum constants for AutoPlacement
     module AutoPlacement
-      # No documentation available.
       ON = "on"
 
-      # No documentation available.
       OFF = "off"
     end
 
@@ -3753,33 +3660,25 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for AvailabilityZoneOptInStatus
+    # Enum constants for AvailabilityZoneOptInStatus
     module AvailabilityZoneOptInStatus
-      # No documentation available.
       OPT_IN_NOT_REQUIRED = "opt-in-not-required"
 
-      # No documentation available.
       OPTED_IN = "opted-in"
 
-      # No documentation available.
       NOT_OPTED_IN = "not-opted-in"
     end
 
-    # Includes enum constants for AvailabilityZoneState
+    # Enum constants for AvailabilityZoneState
     module AvailabilityZoneState
-      # No documentation available.
       AVAILABLE = "available"
 
-      # No documentation available.
       INFORMATION = "information"
 
-      # No documentation available.
       IMPAIRED = "impaired"
 
-      # No documentation available.
       UNAVAILABLE = "unavailable"
 
-      # No documentation available.
       CONSTRAINED = "constrained"
     end
 
@@ -3806,15 +3705,12 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for BareMetal
+    # Enum constants for BareMetal
     module BareMetal
-      # No documentation available.
       INCLUDED = "included"
 
-      # No documentation available.
       REQUIRED = "required"
 
-      # No documentation available.
       EXCLUDED = "excluded"
     end
 
@@ -3864,36 +3760,27 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for BatchState
+    # Enum constants for BatchState
     module BatchState
-      # No documentation available.
       SUBMITTED = "submitted"
 
-      # No documentation available.
       ACTIVE = "active"
 
-      # No documentation available.
       CANCELLED = "cancelled"
 
-      # No documentation available.
       FAILED = "failed"
 
-      # No documentation available.
       CANCELLED_RUNNING = "cancelled_running"
 
-      # No documentation available.
       CANCELLED_TERMINATING_INSTANCES = "cancelled_terminating"
 
-      # No documentation available.
       MODIFYING = "modifying"
     end
 
-    # Includes enum constants for BgpStatus
+    # Enum constants for BgpStatus
     module BgpStatus
-      # No documentation available.
       UP = "up"
 
-      # No documentation available.
       DOWN = "down"
     end
 
@@ -3951,24 +3838,19 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for BootModeType
+    # Enum constants for BootModeType
     module BootModeType
-      # No documentation available.
       LEGACY_BIOS = "legacy-bios"
 
-      # No documentation available.
       UEFI = "uefi"
     end
 
-    # Includes enum constants for BootModeValues
+    # Enum constants for BootModeValues
     module BootModeValues
-      # No documentation available.
       LEGACY_BIOS = "legacy-bios"
 
-      # No documentation available.
       UEFI = "uefi"
 
-      # No documentation available.
       UEFI_PREFERRED = "uefi-preferred"
     end
 
@@ -4084,39 +3966,29 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for BundleTaskState
+    # Enum constants for BundleTaskState
     module BundleTaskState
-      # No documentation available.
       PENDING = "pending"
 
-      # No documentation available.
       WAITING_FOR_SHUTDOWN = "waiting-for-shutdown"
 
-      # No documentation available.
       BUNDLING = "bundling"
 
-      # No documentation available.
       STORING = "storing"
 
-      # No documentation available.
       CANCELLING = "cancelling"
 
-      # No documentation available.
       COMPLETE = "complete"
 
-      # No documentation available.
       FAILED = "failed"
     end
 
-    # Includes enum constants for BurstablePerformance
+    # Enum constants for BurstablePerformance
     module BurstablePerformance
-      # No documentation available.
       INCLUDED = "included"
 
-      # No documentation available.
       REQUIRED = "required"
 
-      # No documentation available.
       EXCLUDED = "excluded"
     end
 
@@ -4206,45 +4078,33 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for ByoipCidrState
+    # Enum constants for ByoipCidrState
     module ByoipCidrState
-      # No documentation available.
       ADVERTISED = "advertised"
 
-      # No documentation available.
       DEPROVISIONED = "deprovisioned"
 
-      # No documentation available.
       FAILED_DEPROVISION = "failed-deprovision"
 
-      # No documentation available.
       FAILED_PROVISION = "failed-provision"
 
-      # No documentation available.
       PENDING_DEPROVISION = "pending-deprovision"
 
-      # No documentation available.
       PENDING_PROVISION = "pending-provision"
 
-      # No documentation available.
       PROVISIONED = "provisioned"
 
-      # No documentation available.
       PROVISIONED_NOT_PUBLICLY_ADVERTISABLE = "provisioned-not-publicly-advertisable"
     end
 
-    # Includes enum constants for CancelBatchErrorCode
+    # Enum constants for CancelBatchErrorCode
     module CancelBatchErrorCode
-      # No documentation available.
       FLEET_REQUEST_ID_DOES_NOT_EXIST = "fleetRequestIdDoesNotExist"
 
-      # No documentation available.
       FLEET_REQUEST_ID_MALFORMED = "fleetRequestIdMalformed"
 
-      # No documentation available.
       FLEET_REQUEST_NOT_IN_CANCELLABLE_STATE = "fleetRequestNotInCancellableState"
 
-      # No documentation available.
       UNEXPECTED_ERROR = "unexpectedError"
     end
 
@@ -4648,21 +4508,16 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for CancelSpotInstanceRequestState
+    # Enum constants for CancelSpotInstanceRequestState
     module CancelSpotInstanceRequestState
-      # No documentation available.
       ACTIVE = "active"
 
-      # No documentation available.
       OPEN = "open"
 
-      # No documentation available.
       CLOSED = "closed"
 
-      # No documentation available.
       CANCELLED = "cancelled"
 
-      # No documentation available.
       COMPLETED = "completed"
     end
 
@@ -5188,33 +5043,24 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for CapacityReservationFleetState
+    # Enum constants for CapacityReservationFleetState
     module CapacityReservationFleetState
-      # No documentation available.
       SUBMITTED = "submitted"
 
-      # No documentation available.
       MODIFYING = "modifying"
 
-      # No documentation available.
       ACTIVE = "active"
 
-      # No documentation available.
       PARTIALLY_FULFILLED = "partially_fulfilled"
 
-      # No documentation available.
       EXPIRING = "expiring"
 
-      # No documentation available.
       EXPIRED = "expired"
 
-      # No documentation available.
       CANCELLING = "cancelling"
 
-      # No documentation available.
       CANCELLED = "cancelled"
 
-      # No documentation available.
       FAILED = "failed"
     end
 
@@ -5237,60 +5083,42 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for CapacityReservationInstancePlatform
+    # Enum constants for CapacityReservationInstancePlatform
     module CapacityReservationInstancePlatform
-      # No documentation available.
       LINUX_UNIX = "Linux/UNIX"
 
-      # No documentation available.
       RED_HAT_ENTERPRISE_LINUX = "Red Hat Enterprise Linux"
 
-      # No documentation available.
       SUSE_LINUX = "SUSE Linux"
 
-      # No documentation available.
       WINDOWS = "Windows"
 
-      # No documentation available.
       WINDOWS_WITH_SQL_SERVER = "Windows with SQL Server"
 
-      # No documentation available.
       WINDOWS_WITH_SQL_SERVER_ENTERPRISE = "Windows with SQL Server Enterprise"
 
-      # No documentation available.
       WINDOWS_WITH_SQL_SERVER_STANDARD = "Windows with SQL Server Standard"
 
-      # No documentation available.
       WINDOWS_WITH_SQL_SERVER_WEB = "Windows with SQL Server Web"
 
-      # No documentation available.
       LINUX_WITH_SQL_SERVER_STANDARD = "Linux with SQL Server Standard"
 
-      # No documentation available.
       LINUX_WITH_SQL_SERVER_WEB = "Linux with SQL Server Web"
 
-      # No documentation available.
       LINUX_WITH_SQL_SERVER_ENTERPRISE = "Linux with SQL Server Enterprise"
 
-      # No documentation available.
       RHEL_WITH_SQL_SERVER_STANDARD = "RHEL with SQL Server Standard"
 
-      # No documentation available.
       RHEL_WITH_SQL_SERVER_ENTERPRISE = "RHEL with SQL Server Enterprise"
 
-      # No documentation available.
       RHEL_WITH_SQL_SERVER_WEB = "RHEL with SQL Server Web"
 
-      # No documentation available.
       RHEL_WITH_HA = "RHEL with HA"
 
-      # No documentation available.
       RHEL_WITH_HA_AND_SQL_SERVER_STANDARD = "RHEL with HA and SQL Server Standard"
 
-      # No documentation available.
       RHEL_WITH_HA_AND_SQL_SERVER_ENTERPRISE = "RHEL with HA and SQL Server Enterprise"
 
-      # No documentation available.
       UBUNTU_PRO_LINUX = "Ubuntu Pro"
     end
 
@@ -5359,12 +5187,10 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for CapacityReservationPreference
+    # Enum constants for CapacityReservationPreference
     module CapacityReservationPreference
-      # No documentation available.
       OPEN = "open"
 
-      # No documentation available.
       NONE = "none"
     end
 
@@ -5444,30 +5270,22 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for CapacityReservationState
+    # Enum constants for CapacityReservationState
     module CapacityReservationState
-      # No documentation available.
       ACTIVE = "active"
 
-      # No documentation available.
       EXPIRED = "expired"
 
-      # No documentation available.
       CANCELLED = "cancelled"
 
-      # No documentation available.
       PENDING = "pending"
 
-      # No documentation available.
       FAILED = "failed"
 
-      # No documentation available.
       SCHEDULED = "scheduled"
 
-      # No documentation available.
       PAYMENT_PENDING = "payment-pending"
 
-      # No documentation available.
       PAYMENT_FAILED = "payment-failed"
     end
 
@@ -5509,21 +5327,17 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for CapacityReservationTenancy
+    # Enum constants for CapacityReservationTenancy
     module CapacityReservationTenancy
-      # No documentation available.
       DEFAULT = "default"
 
-      # No documentation available.
       DEDICATED = "dedicated"
     end
 
-    # Includes enum constants for CapacityReservationType
+    # Enum constants for CapacityReservationType
     module CapacityReservationType
-      # No documentation available.
       DEFAULT = "default"
 
-      # No documentation available.
       CAPACITY_BLOCK = "capacity-block"
     end
 
@@ -5562,18 +5376,14 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for CarrierGatewayState
+    # Enum constants for CarrierGatewayState
     module CarrierGatewayState
-      # No documentation available.
       PENDING = "pending"
 
-      # No documentation available.
       AVAILABLE = "available"
 
-      # No documentation available.
       DELETING = "deleting"
 
-      # No documentation available.
       DELETED = "deleted"
     end
 
@@ -5743,12 +5553,10 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for ClientCertificateRevocationListStatusCode
+    # Enum constants for ClientCertificateRevocationListStatusCode
     module ClientCertificateRevocationListStatusCode
-      # No documentation available.
       PENDING = "pending"
 
-      # No documentation available.
       ACTIVE = "active"
     end
 
@@ -5937,15 +5745,12 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for ClientVpnAuthenticationType
+    # Enum constants for ClientVpnAuthenticationType
     module ClientVpnAuthenticationType
-      # No documentation available.
       CERTIFICATE_AUTHENTICATION = "certificate-authentication"
 
-      # No documentation available.
       DIRECTORY_SERVICE_AUTHENTICATION = "directory-service-authentication"
 
-      # No documentation available.
       FEDERATED_AUTHENTICATION = "federated-authentication"
     end
 
@@ -5969,18 +5774,14 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for ClientVpnAuthorizationRuleStatusCode
+    # Enum constants for ClientVpnAuthorizationRuleStatusCode
     module ClientVpnAuthorizationRuleStatusCode
-      # No documentation available.
       AUTHORIZING = "authorizing"
 
-      # No documentation available.
       ACTIVE = "active"
 
-      # No documentation available.
       FAILED = "failed"
 
-      # No documentation available.
       REVOKING = "revoking"
     end
 
@@ -6085,18 +5886,14 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for ClientVpnConnectionStatusCode
+    # Enum constants for ClientVpnConnectionStatusCode
     module ClientVpnConnectionStatusCode
-      # No documentation available.
       ACTIVE = "active"
 
-      # No documentation available.
       FAILED_TO_TERMINATE = "failed-to-terminate"
 
-      # No documentation available.
       TERMINATING = "terminating"
 
-      # No documentation available.
       TERMINATED = "terminated"
     end
 
@@ -6255,12 +6052,10 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for ClientVpnEndpointAttributeStatusCode
+    # Enum constants for ClientVpnEndpointAttributeStatusCode
     module ClientVpnEndpointAttributeStatusCode
-      # No documentation available.
       APPLYING = "applying"
 
-      # No documentation available.
       APPLIED = "applied"
     end
 
@@ -6306,18 +6101,14 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for ClientVpnEndpointStatusCode
+    # Enum constants for ClientVpnEndpointStatusCode
     module ClientVpnEndpointStatusCode
-      # No documentation available.
       PENDING_ASSOCIATE = "pending-associate"
 
-      # No documentation available.
       AVAILABLE = "available"
 
-      # No documentation available.
       DELETING = "deleting"
 
-      # No documentation available.
       DELETED = "deleted"
     end
 
@@ -6388,18 +6179,14 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for ClientVpnRouteStatusCode
+    # Enum constants for ClientVpnRouteStatusCode
     module ClientVpnRouteStatusCode
-      # No documentation available.
       CREATING = "creating"
 
-      # No documentation available.
       ACTIVE = "active"
 
-      # No documentation available.
       FAILED = "failed"
 
-      # No documentation available.
       DELETING = "deleting"
     end
 
@@ -6695,18 +6482,15 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for ConnectionNotificationState
+    # Enum constants for ConnectionNotificationState
     module ConnectionNotificationState
-      # No documentation available.
       ENABLED = "Enabled"
 
-      # No documentation available.
       DISABLED = "Disabled"
     end
 
-    # Includes enum constants for ConnectionNotificationType
+    # Enum constants for ConnectionNotificationType
     module ConnectionNotificationType
-      # No documentation available.
       TOPIC = "Topic"
     end
 
@@ -6834,18 +6618,15 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for ConnectivityType
+    # Enum constants for ConnectivityType
     module ConnectivityType
-      # No documentation available.
       PRIVATE = "private"
 
-      # No documentation available.
       PUBLIC = "public"
     end
 
-    # Includes enum constants for ContainerFormat
+    # Enum constants for ContainerFormat
     module ContainerFormat
-      # No documentation available.
       OVA = "ova"
     end
 
@@ -6895,18 +6676,14 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for ConversionTaskState
+    # Enum constants for ConversionTaskState
     module ConversionTaskState
-      # No documentation available.
       ACTIVE = "active"
 
-      # No documentation available.
       CANCELLING = "cancelling"
 
-      # No documentation available.
       CANCELLED = "cancelled"
 
-      # No documentation available.
       COMPLETED = "completed"
     end
 
@@ -7223,21 +7000,17 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for CopyTagsFromSource
+    # Enum constants for CopyTagsFromSource
     module CopyTagsFromSource
-      # No documentation available.
       VOLUME = "volume"
     end
 
-    # Includes enum constants for CpuManufacturer
+    # Enum constants for CpuManufacturer
     module CpuManufacturer
-      # No documentation available.
       INTEL = "intel"
 
-      # No documentation available.
       AMD = "amd"
 
-      # No documentation available.
       AMAZON_WEB_SERVICES = "amazon-web-services"
     end
 
@@ -13605,9 +13378,8 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for CurrencyCodeValues
+    # Enum constants for CurrencyCodeValues
     module CurrencyCodeValues
-      # No documentation available.
       USD = "USD"
     end
 
@@ -13752,42 +13524,33 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for DatafeedSubscriptionState
+    # Enum constants for DatafeedSubscriptionState
     module DatafeedSubscriptionState
-      # No documentation available.
       ACTIVE = "Active"
 
-      # No documentation available.
       INACTIVE = "Inactive"
     end
 
-    # Includes enum constants for DefaultRouteTableAssociationValue
+    # Enum constants for DefaultRouteTableAssociationValue
     module DefaultRouteTableAssociationValue
-      # No documentation available.
       ENABLE = "enable"
 
-      # No documentation available.
       DISABLE = "disable"
     end
 
-    # Includes enum constants for DefaultRouteTablePropagationValue
+    # Enum constants for DefaultRouteTablePropagationValue
     module DefaultRouteTablePropagationValue
-      # No documentation available.
       ENABLE = "enable"
 
-      # No documentation available.
       DISABLE = "disable"
     end
 
-    # Includes enum constants for DefaultTargetCapacityType
+    # Enum constants for DefaultTargetCapacityType
     module DefaultTargetCapacityType
-      # No documentation available.
       SPOT = "spot"
 
-      # No documentation available.
       ON_DEMAND = "on-demand"
 
-      # No documentation available.
       CAPACITY_BLOCK = "capacity-block"
     end
 
@@ -14084,18 +13847,14 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for DeleteFleetErrorCode
+    # Enum constants for DeleteFleetErrorCode
     module DeleteFleetErrorCode
-      # No documentation available.
       FLEET_ID_DOES_NOT_EXIST = "fleetIdDoesNotExist"
 
-      # No documentation available.
       FLEET_ID_MALFORMED = "fleetIdMalformed"
 
-      # No documentation available.
       FLEET_NOT_IN_DELETABLE_STATE = "fleetNotInDeletableState"
 
-      # No documentation available.
       UNEXPECTED_ERROR = "unexpectedError"
     end
 
@@ -15289,15 +15048,12 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for DeleteQueuedReservedInstancesErrorCode
+    # Enum constants for DeleteQueuedReservedInstancesErrorCode
     module DeleteQueuedReservedInstancesErrorCode
-      # No documentation available.
       RESERVED_INSTANCES_ID_INVALID = "reserved-instances-id-invalid"
 
-      # No documentation available.
       RESERVED_INSTANCES_NOT_IN_QUEUED_STATE = "reserved-instances-not-in-queued-state"
 
-      # No documentation available.
       UNEXPECTED_ERROR = "unexpected-error"
     end
 
@@ -30071,12 +29827,10 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for DestinationFileFormat
+    # Enum constants for DestinationFileFormat
     module DestinationFileFormat
-      # No documentation available.
       PLAIN_TEXT = "plain-text"
 
-      # No documentation available.
       PARQUET = "parquet"
     end
 
@@ -30460,24 +30214,19 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for DeviceTrustProviderType
+    # Enum constants for DeviceTrustProviderType
     module DeviceTrustProviderType
-      # No documentation available.
       JAMF = "jamf"
 
-      # No documentation available.
       CROWDSTRIKE = "crowdstrike"
 
-      # No documentation available.
       JUMPCLOUD = "jumpcloud"
     end
 
-    # Includes enum constants for DeviceType
+    # Enum constants for DeviceType
     module DeviceType
-      # No documentation available.
       EBS = "ebs"
 
-      # No documentation available.
       INSTANCE_STORE = "instance-store"
     end
 
@@ -31910,15 +31659,12 @@ module AWS::SDK::EC2
       end
     end
 
-    # Includes enum constants for DiskImageFormat
+    # Enum constants for DiskImageFormat
     module DiskImageFormat
-      # No documentation available.
       VMDK = "VMDK"
 
-      # No documentation available.
       RAW = "RAW"
 
-      # No documentation available.
       VHD = "VHD"
     end
 
@@ -31966,12 +31712,10 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for DiskType
+    # Enum constants for DiskType
     module DiskType
-      # No documentation available.
       HDD = "hdd"
 
-      # No documentation available.
       SSD = "ssd"
     end
 
@@ -31994,15 +31738,12 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for DnsNameState
+    # Enum constants for DnsNameState
     module DnsNameState
-      # No documentation available.
       PENDING_VERIFICATION = "pendingVerification"
 
-      # No documentation available.
       VERIFIED = "verified"
 
-      # No documentation available.
       FAILED = "failed"
     end
 
@@ -32049,18 +31790,14 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for DnsRecordIpType
+    # Enum constants for DnsRecordIpType
     module DnsRecordIpType
-      # No documentation available.
       IPV4 = "ipv4"
 
-      # No documentation available.
       DUALSTACK = "dualstack"
 
-      # No documentation available.
       IPV6 = "ipv6"
 
-      # No documentation available.
       SERVICE_DEFINED = "service-defined"
     end
 
@@ -32086,30 +31823,24 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for DnsSupportValue
+    # Enum constants for DnsSupportValue
     module DnsSupportValue
-      # No documentation available.
       ENABLE = "enable"
 
-      # No documentation available.
       DISABLE = "disable"
     end
 
-    # Includes enum constants for DomainType
+    # Enum constants for DomainType
     module DomainType
-      # No documentation available.
       VPC = "vpc"
 
-      # No documentation available.
       STANDARD = "standard"
     end
 
-    # Includes enum constants for DynamicRoutingValue
+    # Enum constants for DynamicRoutingValue
     module DynamicRoutingValue
-      # No documentation available.
       ENABLE = "enable"
 
-      # No documentation available.
       DISABLE = "disable"
     end
 
@@ -32262,12 +31993,10 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for EbsEncryptionSupport
+    # Enum constants for EbsEncryptionSupport
     module EbsEncryptionSupport
-      # No documentation available.
       UNSUPPORTED = "unsupported"
 
-      # No documentation available.
       SUPPORTED = "supported"
     end
 
@@ -32367,15 +32096,12 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for EbsNvmeSupport
+    # Enum constants for EbsNvmeSupport
     module EbsNvmeSupport
-      # No documentation available.
       UNSUPPORTED = "unsupported"
 
-      # No documentation available.
       SUPPORTED = "supported"
 
-      # No documentation available.
       REQUIRED = "required"
     end
 
@@ -32418,15 +32144,12 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for EbsOptimizedSupport
+    # Enum constants for EbsOptimizedSupport
     module EbsOptimizedSupport
-      # No documentation available.
       UNSUPPORTED = "unsupported"
 
-      # No documentation available.
       SUPPORTED = "supported"
 
-      # No documentation available.
       DEFAULT = "default"
     end
 
@@ -32528,24 +32251,18 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for Ec2InstanceConnectEndpointState
+    # Enum constants for Ec2InstanceConnectEndpointState
     module Ec2InstanceConnectEndpointState
-      # No documentation available.
       CREATE_IN_PROGRESS = "create-in-progress"
 
-      # No documentation available.
       CREATE_COMPLETE = "create-complete"
 
-      # No documentation available.
       CREATE_FAILED = "create-failed"
 
-      # No documentation available.
       DELETE_IN_PROGRESS = "delete-in-progress"
 
-      # No documentation available.
       DELETE_COMPLETE = "delete-complete"
 
-      # No documentation available.
       DELETE_FAILED = "delete-failed"
     end
 
@@ -32687,18 +32404,15 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for ElasticGpuState
+    # Enum constants for ElasticGpuState
     module ElasticGpuState
-      # No documentation available.
       ATTACHED = "ATTACHED"
     end
 
-    # Includes enum constants for ElasticGpuStatus
+    # Enum constants for ElasticGpuStatus
     module ElasticGpuStatus
-      # No documentation available.
       OK = "OK"
 
-      # No documentation available.
       IMPAIRED = "IMPAIRED"
     end
 
@@ -32900,15 +32614,12 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for EnaSupport
+    # Enum constants for EnaSupport
     module EnaSupport
-      # No documentation available.
       UNSUPPORTED = "unsupported"
 
-      # No documentation available.
       SUPPORTED = "supported"
 
-      # No documentation available.
       REQUIRED = "required"
     end
 
@@ -33781,42 +33492,32 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for EndDateType
+    # Enum constants for EndDateType
     module EndDateType
-      # No documentation available.
       UNLIMITED = "unlimited"
 
-      # No documentation available.
       LIMITED = "limited"
     end
 
-    # Includes enum constants for EphemeralNvmeSupport
+    # Enum constants for EphemeralNvmeSupport
     module EphemeralNvmeSupport
-      # No documentation available.
       UNSUPPORTED = "unsupported"
 
-      # No documentation available.
       SUPPORTED = "supported"
 
-      # No documentation available.
       REQUIRED = "required"
     end
 
-    # Includes enum constants for EventCode
+    # Enum constants for EventCode
     module EventCode
-      # No documentation available.
       INSTANCE_REBOOT = "instance-reboot"
 
-      # No documentation available.
       SYSTEM_REBOOT = "system-reboot"
 
-      # No documentation available.
       SYSTEM_MAINTENANCE = "system-maintenance"
 
-      # No documentation available.
       INSTANCE_RETIREMENT = "instance-retirement"
 
-      # No documentation available.
       INSTANCE_STOP = "instance-stop"
     end
 
@@ -33971,27 +33672,21 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for EventType
+    # Enum constants for EventType
     module EventType
-      # No documentation available.
       INSTANCE_CHANGE = "instanceChange"
 
-      # No documentation available.
       BATCH_CHANGE = "fleetRequestChange"
 
-      # No documentation available.
       ERROR = "error"
 
-      # No documentation available.
       INFORMATION = "information"
     end
 
-    # Includes enum constants for ExcessCapacityTerminationPolicy
+    # Enum constants for ExcessCapacityTerminationPolicy
     module ExcessCapacityTerminationPolicy
-      # No documentation available.
       NO_TERMINATION = "noTermination"
 
-      # No documentation available.
       DEFAULT = "default"
     end
 
@@ -34344,15 +34039,12 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for ExportEnvironment
+    # Enum constants for ExportEnvironment
     module ExportEnvironment
-      # No documentation available.
       CITRIX = "citrix"
 
-      # No documentation available.
       VMWARE = "vmware"
 
-      # No documentation available.
       MICROSOFT = "microsoft"
     end
 
@@ -34602,18 +34294,14 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for ExportTaskState
+    # Enum constants for ExportTaskState
     module ExportTaskState
-      # No documentation available.
       ACTIVE = "active"
 
-      # No documentation available.
       CANCELLING = "cancelling"
 
-      # No documentation available.
       CANCELLED = "cancelled"
 
-      # No documentation available.
       COMPLETED = "completed"
     end
 
@@ -34859,9 +34547,8 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for FastLaunchResourceType
+    # Enum constants for FastLaunchResourceType
     module FastLaunchResourceType
-      # No documentation available.
       SNAPSHOT = "snapshot"
     end
 
@@ -34897,42 +34584,31 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for FastLaunchStateCode
+    # Enum constants for FastLaunchStateCode
     module FastLaunchStateCode
-      # No documentation available.
       ENABLING = "enabling"
 
-      # No documentation available.
       ENABLING_FAILED = "enabling-failed"
 
-      # No documentation available.
       ENABLED = "enabled"
 
-      # No documentation available.
       ENABLED_FAILED = "enabled-failed"
 
-      # No documentation available.
       DISABLING = "disabling"
 
-      # No documentation available.
       DISABLING_FAILED = "disabling-failed"
     end
 
-    # Includes enum constants for FastSnapshotRestoreStateCode
+    # Enum constants for FastSnapshotRestoreStateCode
     module FastSnapshotRestoreStateCode
-      # No documentation available.
       ENABLING = "enabling"
 
-      # No documentation available.
       OPTIMIZING = "optimizing"
 
-      # No documentation available.
       ENABLED = "enabled"
 
-      # No documentation available.
       DISABLING = "disabling"
 
-      # No documentation available.
       DISABLED = "disabled"
     end
 
@@ -35017,15 +34693,12 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for FindingsFound
+    # Enum constants for FindingsFound
     module FindingsFound
-      # No documentation available.
       TRUE = "true"
 
-      # No documentation available.
       FALSE = "false"
 
-      # No documentation available.
       UNKNOWN = "unknown"
     end
 
@@ -35129,18 +34802,14 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for FleetActivityStatus
+    # Enum constants for FleetActivityStatus
     module FleetActivityStatus
-      # No documentation available.
       ERROR = "error"
 
-      # No documentation available.
       PENDING_FULFILLMENT = "pending_fulfillment"
 
-      # No documentation available.
       PENDING_TERMINATION = "pending_termination"
 
-      # No documentation available.
       FULFILLED = "fulfilled"
     end
 
@@ -35216,15 +34885,13 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for FleetCapacityReservationTenancy
+    # Enum constants for FleetCapacityReservationTenancy
     module FleetCapacityReservationTenancy
-      # No documentation available.
       DEFAULT = "default"
     end
 
-    # Includes enum constants for FleetCapacityReservationUsageStrategy
+    # Enum constants for FleetCapacityReservationUsageStrategy
     module FleetCapacityReservationUsageStrategy
-      # No documentation available.
       USE_CAPACITY_RESERVATIONS_FIRST = "use-capacity-reservations-first"
     end
 
@@ -35375,30 +35042,24 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for FleetEventType
+    # Enum constants for FleetEventType
     module FleetEventType
-      # No documentation available.
       INSTANCE_CHANGE = "instance-change"
 
-      # No documentation available.
       FLEET_CHANGE = "fleet-change"
 
-      # No documentation available.
       SERVICE_ERROR = "service-error"
     end
 
-    # Includes enum constants for FleetExcessCapacityTerminationPolicy
+    # Enum constants for FleetExcessCapacityTerminationPolicy
     module FleetExcessCapacityTerminationPolicy
-      # No documentation available.
       NO_TERMINATION = "no-termination"
 
-      # No documentation available.
       TERMINATION = "termination"
     end
 
-    # Includes enum constants for FleetInstanceMatchCriteria
+    # Enum constants for FleetInstanceMatchCriteria
     module FleetInstanceMatchCriteria
-      # No documentation available.
       OPEN = "open"
     end
 
@@ -35678,21 +35339,17 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for FleetOnDemandAllocationStrategy
+    # Enum constants for FleetOnDemandAllocationStrategy
     module FleetOnDemandAllocationStrategy
-      # No documentation available.
       LOWEST_PRICE = "lowest-price"
 
-      # No documentation available.
       PRIORITIZED = "prioritized"
     end
 
-    # Includes enum constants for FleetReplacementStrategy
+    # Enum constants for FleetReplacementStrategy
     module FleetReplacementStrategy
-      # No documentation available.
       LAUNCH = "launch"
 
-      # No documentation available.
       LAUNCH_BEFORE_TERMINATE = "launch-before-terminate"
     end
 
@@ -35802,39 +35459,29 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for FleetStateCode
+    # Enum constants for FleetStateCode
     module FleetStateCode
-      # No documentation available.
       SUBMITTED = "submitted"
 
-      # No documentation available.
       ACTIVE = "active"
 
-      # No documentation available.
       DELETED = "deleted"
 
-      # No documentation available.
       FAILED = "failed"
 
-      # No documentation available.
       DELETED_RUNNING = "deleted_running"
 
-      # No documentation available.
       DELETED_TERMINATING_INSTANCES = "deleted_terminating"
 
-      # No documentation available.
       MODIFYING = "modifying"
     end
 
-    # Includes enum constants for FleetType
+    # Enum constants for FleetType
     module FleetType
-      # No documentation available.
       REQUEST = "request"
 
-      # No documentation available.
       MAINTAIN = "maintain"
 
-      # No documentation available.
       INSTANT = "instant"
     end
 
@@ -35939,21 +35586,16 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for FlowLogsResourceType
+    # Enum constants for FlowLogsResourceType
     module FlowLogsResourceType
-      # No documentation available.
       VPC = "VPC"
 
-      # No documentation available.
       SUBNET = "Subnet"
 
-      # No documentation available.
       NETWORK_INTERFACE = "NetworkInterface"
 
-      # No documentation available.
       TRANSIT_GATEWAY = "TransitGateway"
 
-      # No documentation available.
       TRANSIT_GATEWAY_ATTACHMENT = "TransitGatewayAttachment"
     end
 
@@ -36123,18 +35765,14 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for FpgaImageAttributeName
+    # Enum constants for FpgaImageAttributeName
     module FpgaImageAttributeName
-      # No documentation available.
       DESCRIPTION = "description"
 
-      # No documentation available.
       NAME = "name"
 
-      # No documentation available.
       LOAD_PERMISSION = "loadPermission"
 
-      # No documentation available.
       PRODUCT_CODES = "productCodes"
     end
 
@@ -36176,18 +35814,14 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for FpgaImageStateCode
+    # Enum constants for FpgaImageStateCode
     module FpgaImageStateCode
-      # No documentation available.
       PENDING = "pending"
 
-      # No documentation available.
       FAILED = "failed"
 
-      # No documentation available.
       AVAILABLE = "available"
 
-      # No documentation available.
       UNAVAILABLE = "unavailable"
     end
 
@@ -36210,24 +35844,19 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for GatewayAssociationState
+    # Enum constants for GatewayAssociationState
     module GatewayAssociationState
-      # No documentation available.
       ASSOCIATED = "associated"
 
-      # No documentation available.
       NOT_ASSOCIATED = "not-associated"
 
-      # No documentation available.
       ASSOCIATING = "associating"
 
-      # No documentation available.
       DISASSOCIATING = "disassociating"
     end
 
-    # Includes enum constants for GatewayType
+    # Enum constants for GatewayType
     module GatewayType
-      # No documentation available.
       IPSEC_1 = "ipsec.1"
     end
 
@@ -39228,12 +38857,10 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for HostMaintenance
+    # Enum constants for HostMaintenance
     module HostMaintenance
-      # No documentation available.
       ON = "on"
 
-      # No documentation available.
       OFF = "off"
     end
 
@@ -39319,12 +38946,10 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for HostRecovery
+    # Enum constants for HostRecovery
     module HostRecovery
-      # No documentation available.
       ON = "on"
 
-      # No documentation available.
       OFF = "off"
     end
 
@@ -39415,39 +39040,31 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for HostTenancy
+    # Enum constants for HostTenancy
     module HostTenancy
-      # No documentation available.
       DEDICATED = "dedicated"
 
-      # No documentation available.
       HOST = "host"
     end
 
-    # Includes enum constants for HostnameType
+    # Enum constants for HostnameType
     module HostnameType
-      # No documentation available.
       IP_NAME = "ip-name"
 
-      # No documentation available.
       RESOURCE_NAME = "resource-name"
     end
 
-    # Includes enum constants for HttpTokensState
+    # Enum constants for HttpTokensState
     module HttpTokensState
-      # No documentation available.
       OPTIONAL = "optional"
 
-      # No documentation available.
       REQUIRED = "required"
     end
 
-    # Includes enum constants for HypervisorType
+    # Enum constants for HypervisorType
     module HypervisorType
-      # No documentation available.
       OVM = "ovm"
 
-      # No documentation available.
       XEN = "xen"
     end
 
@@ -39533,18 +39150,14 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for IamInstanceProfileAssociationState
+    # Enum constants for IamInstanceProfileAssociationState
     module IamInstanceProfileAssociationState
-      # No documentation available.
       ASSOCIATING = "associating"
 
-      # No documentation available.
       ASSOCIATED = "associated"
 
-      # No documentation available.
       DISASSOCIATING = "disassociating"
 
-      # No documentation available.
       DISASSOCIATED = "disassociated"
     end
 
@@ -39610,12 +39223,10 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for Igmpv2SupportValue
+    # Enum constants for Igmpv2SupportValue
     module Igmpv2SupportValue
-      # No documentation available.
       ENABLE = "enable"
 
-      # No documentation available.
       DISABLE = "disable"
     end
 
@@ -39817,54 +39428,40 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for ImageAttributeName
+    # Enum constants for ImageAttributeName
     module ImageAttributeName
-      # No documentation available.
       DESCRIPTION = "description"
 
-      # No documentation available.
       KERNEL = "kernel"
 
-      # No documentation available.
       RAMDISK = "ramdisk"
 
-      # No documentation available.
       LAUNCH_PERMISSION = "launchPermission"
 
-      # No documentation available.
       PRODUCT_CODES = "productCodes"
 
-      # No documentation available.
       BLOCK_DEVICE_MAPPING = "blockDeviceMapping"
 
-      # No documentation available.
       SRIOV_NET_SUPPORT = "sriovNetSupport"
 
-      # No documentation available.
       BOOT_MODE = "bootMode"
 
-      # No documentation available.
       TPM_SUPPORT = "tpmSupport"
 
-      # No documentation available.
       UEFI_DATA = "uefiData"
 
-      # No documentation available.
       LAST_LAUNCHED_TIME = "lastLaunchedTime"
 
-      # No documentation available.
       IMDS_SUPPORT = "imdsSupport"
     end
 
-    # Includes enum constants for ImageBlockPublicAccessDisabledState
+    # Enum constants for ImageBlockPublicAccessDisabledState
     module ImageBlockPublicAccessDisabledState
-      # No documentation available.
       UNBLOCKED = "unblocked"
     end
 
-    # Includes enum constants for ImageBlockPublicAccessEnabledState
+    # Enum constants for ImageBlockPublicAccessEnabledState
     module ImageBlockPublicAccessEnabledState
-      # No documentation available.
       BLOCK_NEW_SHARING = "block-new-sharing"
     end
 
@@ -39954,48 +39551,36 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for ImageState
+    # Enum constants for ImageState
     module ImageState
-      # No documentation available.
       PENDING = "pending"
 
-      # No documentation available.
       AVAILABLE = "available"
 
-      # No documentation available.
       INVALID = "invalid"
 
-      # No documentation available.
       DEREGISTERED = "deregistered"
 
-      # No documentation available.
       TRANSIENT = "transient"
 
-      # No documentation available.
       FAILED = "failed"
 
-      # No documentation available.
       ERROR = "error"
 
-      # No documentation available.
       DISABLED = "disabled"
     end
 
-    # Includes enum constants for ImageTypeValues
+    # Enum constants for ImageTypeValues
     module ImageTypeValues
-      # No documentation available.
       MACHINE = "machine"
 
-      # No documentation available.
       KERNEL = "kernel"
 
-      # No documentation available.
       RAMDISK = "ramdisk"
     end
 
-    # Includes enum constants for ImdsSupportValues
+    # Enum constants for ImdsSupportValues
     module ImdsSupportValues
-      # No documentation available.
       V2_0 = "v2.0"
     end
 
@@ -41329,63 +40914,45 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for InstanceAttributeName
+    # Enum constants for InstanceAttributeName
     module InstanceAttributeName
-      # No documentation available.
       INSTANCE_TYPE = "instanceType"
 
-      # No documentation available.
       KERNEL = "kernel"
 
-      # No documentation available.
       RAMDISK = "ramdisk"
 
-      # No documentation available.
       USER_DATA = "userData"
 
-      # No documentation available.
       DISABLE_API_TERMINATION = "disableApiTermination"
 
-      # No documentation available.
       INSTANCE_INITIATED_SHUTDOWN_BEHAVIOR = "instanceInitiatedShutdownBehavior"
 
-      # No documentation available.
       ROOT_DEVICE_NAME = "rootDeviceName"
 
-      # No documentation available.
       BLOCK_DEVICE_MAPPING = "blockDeviceMapping"
 
-      # No documentation available.
       PRODUCT_CODES = "productCodes"
 
-      # No documentation available.
       SOURCE_DEST_CHECK = "sourceDestCheck"
 
-      # No documentation available.
       GROUP_SET = "groupSet"
 
-      # No documentation available.
       EBS_OPTIMIZED = "ebsOptimized"
 
-      # No documentation available.
       SRIOV_NET_SUPPORT = "sriovNetSupport"
 
-      # No documentation available.
       ENA_SUPPORT = "enaSupport"
 
-      # No documentation available.
       ENCLAVE_OPTIONS = "enclaveOptions"
 
-      # No documentation available.
       DISABLE_API_STOP = "disableApiStop"
     end
 
-    # Includes enum constants for InstanceAutoRecoveryState
+    # Enum constants for InstanceAutoRecoveryState
     module InstanceAutoRecoveryState
-      # No documentation available.
       DISABLED = "disabled"
 
-      # No documentation available.
       DEFAULT = "default"
     end
 
@@ -41439,12 +41006,10 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for InstanceBootModeValues
+    # Enum constants for InstanceBootModeValues
     module InstanceBootModeValues
-      # No documentation available.
       LEGACY_BIOS = "legacy-bios"
 
-      # No documentation available.
       UEFI = "uefi"
     end
 
@@ -41663,18 +41228,14 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for InstanceEventWindowState
+    # Enum constants for InstanceEventWindowState
     module InstanceEventWindowState
-      # No documentation available.
       CREATING = "creating"
 
-      # No documentation available.
       DELETING = "deleting"
 
-      # No documentation available.
       ACTIVE = "active"
 
-      # No documentation available.
       DELETED = "deleted"
     end
 
@@ -41802,33 +41363,26 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for InstanceGeneration
+    # Enum constants for InstanceGeneration
     module InstanceGeneration
-      # No documentation available.
       CURRENT = "current"
 
-      # No documentation available.
       PREVIOUS = "previous"
     end
 
-    # Includes enum constants for InstanceHealthStatus
+    # Enum constants for InstanceHealthStatus
     module InstanceHealthStatus
-      # No documentation available.
       HEALTHY_STATUS = "healthy"
 
-      # No documentation available.
       UNHEALTHY_STATUS = "unhealthy"
     end
 
-    # Includes enum constants for InstanceInterruptionBehavior
+    # Enum constants for InstanceInterruptionBehavior
     module InstanceInterruptionBehavior
-      # No documentation available.
       HIBERNATE = "hibernate"
 
-      # No documentation available.
       STOP = "stop"
 
-      # No documentation available.
       TERMINATE = "terminate"
     end
 
@@ -41894,24 +41448,19 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for InstanceLifecycle
+    # Enum constants for InstanceLifecycle
     module InstanceLifecycle
-      # No documentation available.
       SPOT = "spot"
 
-      # No documentation available.
       ON_DEMAND = "on-demand"
     end
 
-    # Includes enum constants for InstanceLifecycleType
+    # Enum constants for InstanceLifecycleType
     module InstanceLifecycleType
-      # No documentation available.
       SPOT = "spot"
 
-      # No documentation available.
       SCHEDULED = "scheduled"
 
-      # No documentation available.
       CAPACITY_BLOCK = "capacity-block"
     end
 
@@ -41967,21 +41516,17 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for InstanceMatchCriteria
+    # Enum constants for InstanceMatchCriteria
     module InstanceMatchCriteria
-      # No documentation available.
       OPEN = "open"
 
-      # No documentation available.
       TARGETED = "targeted"
     end
 
-    # Includes enum constants for InstanceMetadataEndpointState
+    # Enum constants for InstanceMetadataEndpointState
     module InstanceMetadataEndpointState
-      # No documentation available.
       DISABLED = "disabled"
 
-      # No documentation available.
       ENABLED = "enabled"
     end
 
@@ -42130,30 +41675,24 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for InstanceMetadataOptionsState
+    # Enum constants for InstanceMetadataOptionsState
     module InstanceMetadataOptionsState
-      # No documentation available.
       PENDING = "pending"
 
-      # No documentation available.
       APPLIED = "applied"
     end
 
-    # Includes enum constants for InstanceMetadataProtocolState
+    # Enum constants for InstanceMetadataProtocolState
     module InstanceMetadataProtocolState
-      # No documentation available.
       DISABLED = "disabled"
 
-      # No documentation available.
       ENABLED = "enabled"
     end
 
-    # Includes enum constants for InstanceMetadataTagsState
+    # Enum constants for InstanceMetadataTagsState
     module InstanceMetadataTagsState
-      # No documentation available.
       DISABLED = "disabled"
 
-      # No documentation available.
       ENABLED = "enabled"
     end
 
@@ -43505,24 +43044,18 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for InstanceStateName
+    # Enum constants for InstanceStateName
     module InstanceStateName
-      # No documentation available.
       PENDING = "pending"
 
-      # No documentation available.
       RUNNING = "running"
 
-      # No documentation available.
       SHUTTING_DOWN = "shutting-down"
 
-      # No documentation available.
       TERMINATED = "terminated"
 
-      # No documentation available.
       STOPPING = "stopping"
 
-      # No documentation available.
       STOPPED = "stopped"
     end
 
@@ -43663,12 +43196,10 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for InstanceStorageEncryptionSupport
+    # Enum constants for InstanceStorageEncryptionSupport
     module InstanceStorageEncryptionSupport
-      # No documentation available.
       UNSUPPORTED = "unsupported"
 
-      # No documentation available.
       REQUIRED = "required"
     end
 
@@ -43764,2364 +43295,1579 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for InstanceType
+    # Enum constants for InstanceType
     module InstanceType
-      # No documentation available.
       A1_MEDIUM = "a1.medium"
 
-      # No documentation available.
       A1_LARGE = "a1.large"
 
-      # No documentation available.
       A1_XLARGE = "a1.xlarge"
 
-      # No documentation available.
       A1_2XLARGE = "a1.2xlarge"
 
-      # No documentation available.
       A1_4XLARGE = "a1.4xlarge"
 
-      # No documentation available.
       A1_METAL = "a1.metal"
 
-      # No documentation available.
       C1_MEDIUM = "c1.medium"
 
-      # No documentation available.
       C1_XLARGE = "c1.xlarge"
 
-      # No documentation available.
       C3_LARGE = "c3.large"
 
-      # No documentation available.
       C3_XLARGE = "c3.xlarge"
 
-      # No documentation available.
       C3_2XLARGE = "c3.2xlarge"
 
-      # No documentation available.
       C3_4XLARGE = "c3.4xlarge"
 
-      # No documentation available.
       C3_8XLARGE = "c3.8xlarge"
 
-      # No documentation available.
       C4_LARGE = "c4.large"
 
-      # No documentation available.
       C4_XLARGE = "c4.xlarge"
 
-      # No documentation available.
       C4_2XLARGE = "c4.2xlarge"
 
-      # No documentation available.
       C4_4XLARGE = "c4.4xlarge"
 
-      # No documentation available.
       C4_8XLARGE = "c4.8xlarge"
 
-      # No documentation available.
       C5_LARGE = "c5.large"
 
-      # No documentation available.
       C5_XLARGE = "c5.xlarge"
 
-      # No documentation available.
       C5_2XLARGE = "c5.2xlarge"
 
-      # No documentation available.
       C5_4XLARGE = "c5.4xlarge"
 
-      # No documentation available.
       C5_9XLARGE = "c5.9xlarge"
 
-      # No documentation available.
       C5_12XLARGE = "c5.12xlarge"
 
-      # No documentation available.
       C5_18XLARGE = "c5.18xlarge"
 
-      # No documentation available.
       C5_24XLARGE = "c5.24xlarge"
 
-      # No documentation available.
       C5_METAL = "c5.metal"
 
-      # No documentation available.
       C5A_LARGE = "c5a.large"
 
-      # No documentation available.
       C5A_XLARGE = "c5a.xlarge"
 
-      # No documentation available.
       C5A_2XLARGE = "c5a.2xlarge"
 
-      # No documentation available.
       C5A_4XLARGE = "c5a.4xlarge"
 
-      # No documentation available.
       C5A_8XLARGE = "c5a.8xlarge"
 
-      # No documentation available.
       C5A_12XLARGE = "c5a.12xlarge"
 
-      # No documentation available.
       C5A_16XLARGE = "c5a.16xlarge"
 
-      # No documentation available.
       C5A_24XLARGE = "c5a.24xlarge"
 
-      # No documentation available.
       C5AD_LARGE = "c5ad.large"
 
-      # No documentation available.
       C5AD_XLARGE = "c5ad.xlarge"
 
-      # No documentation available.
       C5AD_2XLARGE = "c5ad.2xlarge"
 
-      # No documentation available.
       C5AD_4XLARGE = "c5ad.4xlarge"
 
-      # No documentation available.
       C5AD_8XLARGE = "c5ad.8xlarge"
 
-      # No documentation available.
       C5AD_12XLARGE = "c5ad.12xlarge"
 
-      # No documentation available.
       C5AD_16XLARGE = "c5ad.16xlarge"
 
-      # No documentation available.
       C5AD_24XLARGE = "c5ad.24xlarge"
 
-      # No documentation available.
       C5D_LARGE = "c5d.large"
 
-      # No documentation available.
       C5D_XLARGE = "c5d.xlarge"
 
-      # No documentation available.
       C5D_2XLARGE = "c5d.2xlarge"
 
-      # No documentation available.
       C5D_4XLARGE = "c5d.4xlarge"
 
-      # No documentation available.
       C5D_9XLARGE = "c5d.9xlarge"
 
-      # No documentation available.
       C5D_12XLARGE = "c5d.12xlarge"
 
-      # No documentation available.
       C5D_18XLARGE = "c5d.18xlarge"
 
-      # No documentation available.
       C5D_24XLARGE = "c5d.24xlarge"
 
-      # No documentation available.
       C5D_METAL = "c5d.metal"
 
-      # No documentation available.
       C5N_LARGE = "c5n.large"
 
-      # No documentation available.
       C5N_XLARGE = "c5n.xlarge"
 
-      # No documentation available.
       C5N_2XLARGE = "c5n.2xlarge"
 
-      # No documentation available.
       C5N_4XLARGE = "c5n.4xlarge"
 
-      # No documentation available.
       C5N_9XLARGE = "c5n.9xlarge"
 
-      # No documentation available.
       C5N_18XLARGE = "c5n.18xlarge"
 
-      # No documentation available.
       C5N_METAL = "c5n.metal"
 
-      # No documentation available.
       C6G_MEDIUM = "c6g.medium"
 
-      # No documentation available.
       C6G_LARGE = "c6g.large"
 
-      # No documentation available.
       C6G_XLARGE = "c6g.xlarge"
 
-      # No documentation available.
       C6G_2XLARGE = "c6g.2xlarge"
 
-      # No documentation available.
       C6G_4XLARGE = "c6g.4xlarge"
 
-      # No documentation available.
       C6G_8XLARGE = "c6g.8xlarge"
 
-      # No documentation available.
       C6G_12XLARGE = "c6g.12xlarge"
 
-      # No documentation available.
       C6G_16XLARGE = "c6g.16xlarge"
 
-      # No documentation available.
       C6G_METAL = "c6g.metal"
 
-      # No documentation available.
       C6GD_MEDIUM = "c6gd.medium"
 
-      # No documentation available.
       C6GD_LARGE = "c6gd.large"
 
-      # No documentation available.
       C6GD_XLARGE = "c6gd.xlarge"
 
-      # No documentation available.
       C6GD_2XLARGE = "c6gd.2xlarge"
 
-      # No documentation available.
       C6GD_4XLARGE = "c6gd.4xlarge"
 
-      # No documentation available.
       C6GD_8XLARGE = "c6gd.8xlarge"
 
-      # No documentation available.
       C6GD_12XLARGE = "c6gd.12xlarge"
 
-      # No documentation available.
       C6GD_16XLARGE = "c6gd.16xlarge"
 
-      # No documentation available.
       C6GD_METAL = "c6gd.metal"
 
-      # No documentation available.
       C6GN_MEDIUM = "c6gn.medium"
 
-      # No documentation available.
       C6GN_LARGE = "c6gn.large"
 
-      # No documentation available.
       C6GN_XLARGE = "c6gn.xlarge"
 
-      # No documentation available.
       C6GN_2XLARGE = "c6gn.2xlarge"
 
-      # No documentation available.
       C6GN_4XLARGE = "c6gn.4xlarge"
 
-      # No documentation available.
       C6GN_8XLARGE = "c6gn.8xlarge"
 
-      # No documentation available.
       C6GN_12XLARGE = "c6gn.12xlarge"
 
-      # No documentation available.
       C6GN_16XLARGE = "c6gn.16xlarge"
 
-      # No documentation available.
       C6I_LARGE = "c6i.large"
 
-      # No documentation available.
       C6I_XLARGE = "c6i.xlarge"
 
-      # No documentation available.
       C6I_2XLARGE = "c6i.2xlarge"
 
-      # No documentation available.
       C6I_4XLARGE = "c6i.4xlarge"
 
-      # No documentation available.
       C6I_8XLARGE = "c6i.8xlarge"
 
-      # No documentation available.
       C6I_12XLARGE = "c6i.12xlarge"
 
-      # No documentation available.
       C6I_16XLARGE = "c6i.16xlarge"
 
-      # No documentation available.
       C6I_24XLARGE = "c6i.24xlarge"
 
-      # No documentation available.
       C6I_32XLARGE = "c6i.32xlarge"
 
-      # No documentation available.
       C6I_METAL = "c6i.metal"
 
-      # No documentation available.
       CC1_4XLARGE = "cc1.4xlarge"
 
-      # No documentation available.
       CC2_8XLARGE = "cc2.8xlarge"
 
-      # No documentation available.
       CG1_4XLARGE = "cg1.4xlarge"
 
-      # No documentation available.
       CR1_8XLARGE = "cr1.8xlarge"
 
-      # No documentation available.
       D2_XLARGE = "d2.xlarge"
 
-      # No documentation available.
       D2_2XLARGE = "d2.2xlarge"
 
-      # No documentation available.
       D2_4XLARGE = "d2.4xlarge"
 
-      # No documentation available.
       D2_8XLARGE = "d2.8xlarge"
 
-      # No documentation available.
       D3_XLARGE = "d3.xlarge"
 
-      # No documentation available.
       D3_2XLARGE = "d3.2xlarge"
 
-      # No documentation available.
       D3_4XLARGE = "d3.4xlarge"
 
-      # No documentation available.
       D3_8XLARGE = "d3.8xlarge"
 
-      # No documentation available.
       D3EN_XLARGE = "d3en.xlarge"
 
-      # No documentation available.
       D3EN_2XLARGE = "d3en.2xlarge"
 
-      # No documentation available.
       D3EN_4XLARGE = "d3en.4xlarge"
 
-      # No documentation available.
       D3EN_6XLARGE = "d3en.6xlarge"
 
-      # No documentation available.
       D3EN_8XLARGE = "d3en.8xlarge"
 
-      # No documentation available.
       D3EN_12XLARGE = "d3en.12xlarge"
 
-      # No documentation available.
       DL1_24XLARGE = "dl1.24xlarge"
 
-      # No documentation available.
       F1_2XLARGE = "f1.2xlarge"
 
-      # No documentation available.
       F1_4XLARGE = "f1.4xlarge"
 
-      # No documentation available.
       F1_16XLARGE = "f1.16xlarge"
 
-      # No documentation available.
       G2_2XLARGE = "g2.2xlarge"
 
-      # No documentation available.
       G2_8XLARGE = "g2.8xlarge"
 
-      # No documentation available.
       G3_4XLARGE = "g3.4xlarge"
 
-      # No documentation available.
       G3_8XLARGE = "g3.8xlarge"
 
-      # No documentation available.
       G3_16XLARGE = "g3.16xlarge"
 
-      # No documentation available.
       G3S_XLARGE = "g3s.xlarge"
 
-      # No documentation available.
       G4AD_XLARGE = "g4ad.xlarge"
 
-      # No documentation available.
       G4AD_2XLARGE = "g4ad.2xlarge"
 
-      # No documentation available.
       G4AD_4XLARGE = "g4ad.4xlarge"
 
-      # No documentation available.
       G4AD_8XLARGE = "g4ad.8xlarge"
 
-      # No documentation available.
       G4AD_16XLARGE = "g4ad.16xlarge"
 
-      # No documentation available.
       G4DN_XLARGE = "g4dn.xlarge"
 
-      # No documentation available.
       G4DN_2XLARGE = "g4dn.2xlarge"
 
-      # No documentation available.
       G4DN_4XLARGE = "g4dn.4xlarge"
 
-      # No documentation available.
       G4DN_8XLARGE = "g4dn.8xlarge"
 
-      # No documentation available.
       G4DN_12XLARGE = "g4dn.12xlarge"
 
-      # No documentation available.
       G4DN_16XLARGE = "g4dn.16xlarge"
 
-      # No documentation available.
       G4DN_METAL = "g4dn.metal"
 
-      # No documentation available.
       G5_XLARGE = "g5.xlarge"
 
-      # No documentation available.
       G5_2XLARGE = "g5.2xlarge"
 
-      # No documentation available.
       G5_4XLARGE = "g5.4xlarge"
 
-      # No documentation available.
       G5_8XLARGE = "g5.8xlarge"
 
-      # No documentation available.
       G5_12XLARGE = "g5.12xlarge"
 
-      # No documentation available.
       G5_16XLARGE = "g5.16xlarge"
 
-      # No documentation available.
       G5_24XLARGE = "g5.24xlarge"
 
-      # No documentation available.
       G5_48XLARGE = "g5.48xlarge"
 
-      # No documentation available.
       G5G_XLARGE = "g5g.xlarge"
 
-      # No documentation available.
       G5G_2XLARGE = "g5g.2xlarge"
 
-      # No documentation available.
       G5G_4XLARGE = "g5g.4xlarge"
 
-      # No documentation available.
       G5G_8XLARGE = "g5g.8xlarge"
 
-      # No documentation available.
       G5G_16XLARGE = "g5g.16xlarge"
 
-      # No documentation available.
       G5G_METAL = "g5g.metal"
 
-      # No documentation available.
       HI1_4XLARGE = "hi1.4xlarge"
 
-      # No documentation available.
       HPC6A_48XLARGE = "hpc6a.48xlarge"
 
-      # No documentation available.
       HS1_8XLARGE = "hs1.8xlarge"
 
-      # No documentation available.
       H1_2XLARGE = "h1.2xlarge"
 
-      # No documentation available.
       H1_4XLARGE = "h1.4xlarge"
 
-      # No documentation available.
       H1_8XLARGE = "h1.8xlarge"
 
-      # No documentation available.
       H1_16XLARGE = "h1.16xlarge"
 
-      # No documentation available.
       I2_XLARGE = "i2.xlarge"
 
-      # No documentation available.
       I2_2XLARGE = "i2.2xlarge"
 
-      # No documentation available.
       I2_4XLARGE = "i2.4xlarge"
 
-      # No documentation available.
       I2_8XLARGE = "i2.8xlarge"
 
-      # No documentation available.
       I3_LARGE = "i3.large"
 
-      # No documentation available.
       I3_XLARGE = "i3.xlarge"
 
-      # No documentation available.
       I3_2XLARGE = "i3.2xlarge"
 
-      # No documentation available.
       I3_4XLARGE = "i3.4xlarge"
 
-      # No documentation available.
       I3_8XLARGE = "i3.8xlarge"
 
-      # No documentation available.
       I3_16XLARGE = "i3.16xlarge"
 
-      # No documentation available.
       I3_METAL = "i3.metal"
 
-      # No documentation available.
       I3EN_LARGE = "i3en.large"
 
-      # No documentation available.
       I3EN_XLARGE = "i3en.xlarge"
 
-      # No documentation available.
       I3EN_2XLARGE = "i3en.2xlarge"
 
-      # No documentation available.
       I3EN_3XLARGE = "i3en.3xlarge"
 
-      # No documentation available.
       I3EN_6XLARGE = "i3en.6xlarge"
 
-      # No documentation available.
       I3EN_12XLARGE = "i3en.12xlarge"
 
-      # No documentation available.
       I3EN_24XLARGE = "i3en.24xlarge"
 
-      # No documentation available.
       I3EN_METAL = "i3en.metal"
 
-      # No documentation available.
       IM4GN_LARGE = "im4gn.large"
 
-      # No documentation available.
       IM4GN_XLARGE = "im4gn.xlarge"
 
-      # No documentation available.
       IM4GN_2XLARGE = "im4gn.2xlarge"
 
-      # No documentation available.
       IM4GN_4XLARGE = "im4gn.4xlarge"
 
-      # No documentation available.
       IM4GN_8XLARGE = "im4gn.8xlarge"
 
-      # No documentation available.
       IM4GN_16XLARGE = "im4gn.16xlarge"
 
-      # No documentation available.
       INF1_XLARGE = "inf1.xlarge"
 
-      # No documentation available.
       INF1_2XLARGE = "inf1.2xlarge"
 
-      # No documentation available.
       INF1_6XLARGE = "inf1.6xlarge"
 
-      # No documentation available.
       INF1_24XLARGE = "inf1.24xlarge"
 
-      # No documentation available.
       IS4GEN_MEDIUM = "is4gen.medium"
 
-      # No documentation available.
       IS4GEN_LARGE = "is4gen.large"
 
-      # No documentation available.
       IS4GEN_XLARGE = "is4gen.xlarge"
 
-      # No documentation available.
       IS4GEN_2XLARGE = "is4gen.2xlarge"
 
-      # No documentation available.
       IS4GEN_4XLARGE = "is4gen.4xlarge"
 
-      # No documentation available.
       IS4GEN_8XLARGE = "is4gen.8xlarge"
 
-      # No documentation available.
       M1_SMALL = "m1.small"
 
-      # No documentation available.
       M1_MEDIUM = "m1.medium"
 
-      # No documentation available.
       M1_LARGE = "m1.large"
 
-      # No documentation available.
       M1_XLARGE = "m1.xlarge"
 
-      # No documentation available.
       M2_XLARGE = "m2.xlarge"
 
-      # No documentation available.
       M2_2XLARGE = "m2.2xlarge"
 
-      # No documentation available.
       M2_4XLARGE = "m2.4xlarge"
 
-      # No documentation available.
       M3_MEDIUM = "m3.medium"
 
-      # No documentation available.
       M3_LARGE = "m3.large"
 
-      # No documentation available.
       M3_XLARGE = "m3.xlarge"
 
-      # No documentation available.
       M3_2XLARGE = "m3.2xlarge"
 
-      # No documentation available.
       M4_LARGE = "m4.large"
 
-      # No documentation available.
       M4_XLARGE = "m4.xlarge"
 
-      # No documentation available.
       M4_2XLARGE = "m4.2xlarge"
 
-      # No documentation available.
       M4_4XLARGE = "m4.4xlarge"
 
-      # No documentation available.
       M4_10XLARGE = "m4.10xlarge"
 
-      # No documentation available.
       M4_16XLARGE = "m4.16xlarge"
 
-      # No documentation available.
       M5_LARGE = "m5.large"
 
-      # No documentation available.
       M5_XLARGE = "m5.xlarge"
 
-      # No documentation available.
       M5_2XLARGE = "m5.2xlarge"
 
-      # No documentation available.
       M5_4XLARGE = "m5.4xlarge"
 
-      # No documentation available.
       M5_8XLARGE = "m5.8xlarge"
 
-      # No documentation available.
       M5_12XLARGE = "m5.12xlarge"
 
-      # No documentation available.
       M5_16XLARGE = "m5.16xlarge"
 
-      # No documentation available.
       M5_24XLARGE = "m5.24xlarge"
 
-      # No documentation available.
       M5_METAL = "m5.metal"
 
-      # No documentation available.
       M5A_LARGE = "m5a.large"
 
-      # No documentation available.
       M5A_XLARGE = "m5a.xlarge"
 
-      # No documentation available.
       M5A_2XLARGE = "m5a.2xlarge"
 
-      # No documentation available.
       M5A_4XLARGE = "m5a.4xlarge"
 
-      # No documentation available.
       M5A_8XLARGE = "m5a.8xlarge"
 
-      # No documentation available.
       M5A_12XLARGE = "m5a.12xlarge"
 
-      # No documentation available.
       M5A_16XLARGE = "m5a.16xlarge"
 
-      # No documentation available.
       M5A_24XLARGE = "m5a.24xlarge"
 
-      # No documentation available.
       M5AD_LARGE = "m5ad.large"
 
-      # No documentation available.
       M5AD_XLARGE = "m5ad.xlarge"
 
-      # No documentation available.
       M5AD_2XLARGE = "m5ad.2xlarge"
 
-      # No documentation available.
       M5AD_4XLARGE = "m5ad.4xlarge"
 
-      # No documentation available.
       M5AD_8XLARGE = "m5ad.8xlarge"
 
-      # No documentation available.
       M5AD_12XLARGE = "m5ad.12xlarge"
 
-      # No documentation available.
       M5AD_16XLARGE = "m5ad.16xlarge"
 
-      # No documentation available.
       M5AD_24XLARGE = "m5ad.24xlarge"
 
-      # No documentation available.
       M5D_LARGE = "m5d.large"
 
-      # No documentation available.
       M5D_XLARGE = "m5d.xlarge"
 
-      # No documentation available.
       M5D_2XLARGE = "m5d.2xlarge"
 
-      # No documentation available.
       M5D_4XLARGE = "m5d.4xlarge"
 
-      # No documentation available.
       M5D_8XLARGE = "m5d.8xlarge"
 
-      # No documentation available.
       M5D_12XLARGE = "m5d.12xlarge"
 
-      # No documentation available.
       M5D_16XLARGE = "m5d.16xlarge"
 
-      # No documentation available.
       M5D_24XLARGE = "m5d.24xlarge"
 
-      # No documentation available.
       M5D_METAL = "m5d.metal"
 
-      # No documentation available.
       M5DN_LARGE = "m5dn.large"
 
-      # No documentation available.
       M5DN_XLARGE = "m5dn.xlarge"
 
-      # No documentation available.
       M5DN_2XLARGE = "m5dn.2xlarge"
 
-      # No documentation available.
       M5DN_4XLARGE = "m5dn.4xlarge"
 
-      # No documentation available.
       M5DN_8XLARGE = "m5dn.8xlarge"
 
-      # No documentation available.
       M5DN_12XLARGE = "m5dn.12xlarge"
 
-      # No documentation available.
       M5DN_16XLARGE = "m5dn.16xlarge"
 
-      # No documentation available.
       M5DN_24XLARGE = "m5dn.24xlarge"
 
-      # No documentation available.
       M5DN_METAL = "m5dn.metal"
 
-      # No documentation available.
       M5N_LARGE = "m5n.large"
 
-      # No documentation available.
       M5N_XLARGE = "m5n.xlarge"
 
-      # No documentation available.
       M5N_2XLARGE = "m5n.2xlarge"
 
-      # No documentation available.
       M5N_4XLARGE = "m5n.4xlarge"
 
-      # No documentation available.
       M5N_8XLARGE = "m5n.8xlarge"
 
-      # No documentation available.
       M5N_12XLARGE = "m5n.12xlarge"
 
-      # No documentation available.
       M5N_16XLARGE = "m5n.16xlarge"
 
-      # No documentation available.
       M5N_24XLARGE = "m5n.24xlarge"
 
-      # No documentation available.
       M5N_METAL = "m5n.metal"
 
-      # No documentation available.
       M5ZN_LARGE = "m5zn.large"
 
-      # No documentation available.
       M5ZN_XLARGE = "m5zn.xlarge"
 
-      # No documentation available.
       M5ZN_2XLARGE = "m5zn.2xlarge"
 
-      # No documentation available.
       M5ZN_3XLARGE = "m5zn.3xlarge"
 
-      # No documentation available.
       M5ZN_6XLARGE = "m5zn.6xlarge"
 
-      # No documentation available.
       M5ZN_12XLARGE = "m5zn.12xlarge"
 
-      # No documentation available.
       M5ZN_METAL = "m5zn.metal"
 
-      # No documentation available.
       M6A_LARGE = "m6a.large"
 
-      # No documentation available.
       M6A_XLARGE = "m6a.xlarge"
 
-      # No documentation available.
       M6A_2XLARGE = "m6a.2xlarge"
 
-      # No documentation available.
       M6A_4XLARGE = "m6a.4xlarge"
 
-      # No documentation available.
       M6A_8XLARGE = "m6a.8xlarge"
 
-      # No documentation available.
       M6A_12XLARGE = "m6a.12xlarge"
 
-      # No documentation available.
       M6A_16XLARGE = "m6a.16xlarge"
 
-      # No documentation available.
       M6A_24XLARGE = "m6a.24xlarge"
 
-      # No documentation available.
       M6A_32XLARGE = "m6a.32xlarge"
 
-      # No documentation available.
       M6A_48XLARGE = "m6a.48xlarge"
 
-      # No documentation available.
       M6G_METAL = "m6g.metal"
 
-      # No documentation available.
       M6G_MEDIUM = "m6g.medium"
 
-      # No documentation available.
       M6G_LARGE = "m6g.large"
 
-      # No documentation available.
       M6G_XLARGE = "m6g.xlarge"
 
-      # No documentation available.
       M6G_2XLARGE = "m6g.2xlarge"
 
-      # No documentation available.
       M6G_4XLARGE = "m6g.4xlarge"
 
-      # No documentation available.
       M6G_8XLARGE = "m6g.8xlarge"
 
-      # No documentation available.
       M6G_12XLARGE = "m6g.12xlarge"
 
-      # No documentation available.
       M6G_16XLARGE = "m6g.16xlarge"
 
-      # No documentation available.
       M6GD_METAL = "m6gd.metal"
 
-      # No documentation available.
       M6GD_MEDIUM = "m6gd.medium"
 
-      # No documentation available.
       M6GD_LARGE = "m6gd.large"
 
-      # No documentation available.
       M6GD_XLARGE = "m6gd.xlarge"
 
-      # No documentation available.
       M6GD_2XLARGE = "m6gd.2xlarge"
 
-      # No documentation available.
       M6GD_4XLARGE = "m6gd.4xlarge"
 
-      # No documentation available.
       M6GD_8XLARGE = "m6gd.8xlarge"
 
-      # No documentation available.
       M6GD_12XLARGE = "m6gd.12xlarge"
 
-      # No documentation available.
       M6GD_16XLARGE = "m6gd.16xlarge"
 
-      # No documentation available.
       M6I_LARGE = "m6i.large"
 
-      # No documentation available.
       M6I_XLARGE = "m6i.xlarge"
 
-      # No documentation available.
       M6I_2XLARGE = "m6i.2xlarge"
 
-      # No documentation available.
       M6I_4XLARGE = "m6i.4xlarge"
 
-      # No documentation available.
       M6I_8XLARGE = "m6i.8xlarge"
 
-      # No documentation available.
       M6I_12XLARGE = "m6i.12xlarge"
 
-      # No documentation available.
       M6I_16XLARGE = "m6i.16xlarge"
 
-      # No documentation available.
       M6I_24XLARGE = "m6i.24xlarge"
 
-      # No documentation available.
       M6I_32XLARGE = "m6i.32xlarge"
 
-      # No documentation available.
       M6I_METAL = "m6i.metal"
 
-      # No documentation available.
       MAC1_METAL = "mac1.metal"
 
-      # No documentation available.
       P2_XLARGE = "p2.xlarge"
 
-      # No documentation available.
       P2_8XLARGE = "p2.8xlarge"
 
-      # No documentation available.
       P2_16XLARGE = "p2.16xlarge"
 
-      # No documentation available.
       P3_2XLARGE = "p3.2xlarge"
 
-      # No documentation available.
       P3_8XLARGE = "p3.8xlarge"
 
-      # No documentation available.
       P3_16XLARGE = "p3.16xlarge"
 
-      # No documentation available.
       P3DN_24XLARGE = "p3dn.24xlarge"
 
-      # No documentation available.
       P4D_24XLARGE = "p4d.24xlarge"
 
-      # No documentation available.
       R3_LARGE = "r3.large"
 
-      # No documentation available.
       R3_XLARGE = "r3.xlarge"
 
-      # No documentation available.
       R3_2XLARGE = "r3.2xlarge"
 
-      # No documentation available.
       R3_4XLARGE = "r3.4xlarge"
 
-      # No documentation available.
       R3_8XLARGE = "r3.8xlarge"
 
-      # No documentation available.
       R4_LARGE = "r4.large"
 
-      # No documentation available.
       R4_XLARGE = "r4.xlarge"
 
-      # No documentation available.
       R4_2XLARGE = "r4.2xlarge"
 
-      # No documentation available.
       R4_4XLARGE = "r4.4xlarge"
 
-      # No documentation available.
       R4_8XLARGE = "r4.8xlarge"
 
-      # No documentation available.
       R4_16XLARGE = "r4.16xlarge"
 
-      # No documentation available.
       R5_LARGE = "r5.large"
 
-      # No documentation available.
       R5_XLARGE = "r5.xlarge"
 
-      # No documentation available.
       R5_2XLARGE = "r5.2xlarge"
 
-      # No documentation available.
       R5_4XLARGE = "r5.4xlarge"
 
-      # No documentation available.
       R5_8XLARGE = "r5.8xlarge"
 
-      # No documentation available.
       R5_12XLARGE = "r5.12xlarge"
 
-      # No documentation available.
       R5_16XLARGE = "r5.16xlarge"
 
-      # No documentation available.
       R5_24XLARGE = "r5.24xlarge"
 
-      # No documentation available.
       R5_METAL = "r5.metal"
 
-      # No documentation available.
       R5A_LARGE = "r5a.large"
 
-      # No documentation available.
       R5A_XLARGE = "r5a.xlarge"
 
-      # No documentation available.
       R5A_2XLARGE = "r5a.2xlarge"
 
-      # No documentation available.
       R5A_4XLARGE = "r5a.4xlarge"
 
-      # No documentation available.
       R5A_8XLARGE = "r5a.8xlarge"
 
-      # No documentation available.
       R5A_12XLARGE = "r5a.12xlarge"
 
-      # No documentation available.
       R5A_16XLARGE = "r5a.16xlarge"
 
-      # No documentation available.
       R5A_24XLARGE = "r5a.24xlarge"
 
-      # No documentation available.
       R5AD_LARGE = "r5ad.large"
 
-      # No documentation available.
       R5AD_XLARGE = "r5ad.xlarge"
 
-      # No documentation available.
       R5AD_2XLARGE = "r5ad.2xlarge"
 
-      # No documentation available.
       R5AD_4XLARGE = "r5ad.4xlarge"
 
-      # No documentation available.
       R5AD_8XLARGE = "r5ad.8xlarge"
 
-      # No documentation available.
       R5AD_12XLARGE = "r5ad.12xlarge"
 
-      # No documentation available.
       R5AD_16XLARGE = "r5ad.16xlarge"
 
-      # No documentation available.
       R5AD_24XLARGE = "r5ad.24xlarge"
 
-      # No documentation available.
       R5B_LARGE = "r5b.large"
 
-      # No documentation available.
       R5B_XLARGE = "r5b.xlarge"
 
-      # No documentation available.
       R5B_2XLARGE = "r5b.2xlarge"
 
-      # No documentation available.
       R5B_4XLARGE = "r5b.4xlarge"
 
-      # No documentation available.
       R5B_8XLARGE = "r5b.8xlarge"
 
-      # No documentation available.
       R5B_12XLARGE = "r5b.12xlarge"
 
-      # No documentation available.
       R5B_16XLARGE = "r5b.16xlarge"
 
-      # No documentation available.
       R5B_24XLARGE = "r5b.24xlarge"
 
-      # No documentation available.
       R5B_METAL = "r5b.metal"
 
-      # No documentation available.
       R5D_LARGE = "r5d.large"
 
-      # No documentation available.
       R5D_XLARGE = "r5d.xlarge"
 
-      # No documentation available.
       R5D_2XLARGE = "r5d.2xlarge"
 
-      # No documentation available.
       R5D_4XLARGE = "r5d.4xlarge"
 
-      # No documentation available.
       R5D_8XLARGE = "r5d.8xlarge"
 
-      # No documentation available.
       R5D_12XLARGE = "r5d.12xlarge"
 
-      # No documentation available.
       R5D_16XLARGE = "r5d.16xlarge"
 
-      # No documentation available.
       R5D_24XLARGE = "r5d.24xlarge"
 
-      # No documentation available.
       R5D_METAL = "r5d.metal"
 
-      # No documentation available.
       R5DN_LARGE = "r5dn.large"
 
-      # No documentation available.
       R5DN_XLARGE = "r5dn.xlarge"
 
-      # No documentation available.
       R5DN_2XLARGE = "r5dn.2xlarge"
 
-      # No documentation available.
       R5DN_4XLARGE = "r5dn.4xlarge"
 
-      # No documentation available.
       R5DN_8XLARGE = "r5dn.8xlarge"
 
-      # No documentation available.
       R5DN_12XLARGE = "r5dn.12xlarge"
 
-      # No documentation available.
       R5DN_16XLARGE = "r5dn.16xlarge"
 
-      # No documentation available.
       R5DN_24XLARGE = "r5dn.24xlarge"
 
-      # No documentation available.
       R5DN_METAL = "r5dn.metal"
 
-      # No documentation available.
       R5N_LARGE = "r5n.large"
 
-      # No documentation available.
       R5N_XLARGE = "r5n.xlarge"
 
-      # No documentation available.
       R5N_2XLARGE = "r5n.2xlarge"
 
-      # No documentation available.
       R5N_4XLARGE = "r5n.4xlarge"
 
-      # No documentation available.
       R5N_8XLARGE = "r5n.8xlarge"
 
-      # No documentation available.
       R5N_12XLARGE = "r5n.12xlarge"
 
-      # No documentation available.
       R5N_16XLARGE = "r5n.16xlarge"
 
-      # No documentation available.
       R5N_24XLARGE = "r5n.24xlarge"
 
-      # No documentation available.
       R5N_METAL = "r5n.metal"
 
-      # No documentation available.
       R6G_MEDIUM = "r6g.medium"
 
-      # No documentation available.
       R6G_LARGE = "r6g.large"
 
-      # No documentation available.
       R6G_XLARGE = "r6g.xlarge"
 
-      # No documentation available.
       R6G_2XLARGE = "r6g.2xlarge"
 
-      # No documentation available.
       R6G_4XLARGE = "r6g.4xlarge"
 
-      # No documentation available.
       R6G_8XLARGE = "r6g.8xlarge"
 
-      # No documentation available.
       R6G_12XLARGE = "r6g.12xlarge"
 
-      # No documentation available.
       R6G_16XLARGE = "r6g.16xlarge"
 
-      # No documentation available.
       R6G_METAL = "r6g.metal"
 
-      # No documentation available.
       R6GD_MEDIUM = "r6gd.medium"
 
-      # No documentation available.
       R6GD_LARGE = "r6gd.large"
 
-      # No documentation available.
       R6GD_XLARGE = "r6gd.xlarge"
 
-      # No documentation available.
       R6GD_2XLARGE = "r6gd.2xlarge"
 
-      # No documentation available.
       R6GD_4XLARGE = "r6gd.4xlarge"
 
-      # No documentation available.
       R6GD_8XLARGE = "r6gd.8xlarge"
 
-      # No documentation available.
       R6GD_12XLARGE = "r6gd.12xlarge"
 
-      # No documentation available.
       R6GD_16XLARGE = "r6gd.16xlarge"
 
-      # No documentation available.
       R6GD_METAL = "r6gd.metal"
 
-      # No documentation available.
       R6I_LARGE = "r6i.large"
 
-      # No documentation available.
       R6I_XLARGE = "r6i.xlarge"
 
-      # No documentation available.
       R6I_2XLARGE = "r6i.2xlarge"
 
-      # No documentation available.
       R6I_4XLARGE = "r6i.4xlarge"
 
-      # No documentation available.
       R6I_8XLARGE = "r6i.8xlarge"
 
-      # No documentation available.
       R6I_12XLARGE = "r6i.12xlarge"
 
-      # No documentation available.
       R6I_16XLARGE = "r6i.16xlarge"
 
-      # No documentation available.
       R6I_24XLARGE = "r6i.24xlarge"
 
-      # No documentation available.
       R6I_32XLARGE = "r6i.32xlarge"
 
-      # No documentation available.
       R6I_METAL = "r6i.metal"
 
-      # No documentation available.
       T1_MICRO = "t1.micro"
 
-      # No documentation available.
       T2_NANO = "t2.nano"
 
-      # No documentation available.
       T2_MICRO = "t2.micro"
 
-      # No documentation available.
       T2_SMALL = "t2.small"
 
-      # No documentation available.
       T2_MEDIUM = "t2.medium"
 
-      # No documentation available.
       T2_LARGE = "t2.large"
 
-      # No documentation available.
       T2_XLARGE = "t2.xlarge"
 
-      # No documentation available.
       T2_2XLARGE = "t2.2xlarge"
 
-      # No documentation available.
       T3_NANO = "t3.nano"
 
-      # No documentation available.
       T3_MICRO = "t3.micro"
 
-      # No documentation available.
       T3_SMALL = "t3.small"
 
-      # No documentation available.
       T3_MEDIUM = "t3.medium"
 
-      # No documentation available.
       T3_LARGE = "t3.large"
 
-      # No documentation available.
       T3_XLARGE = "t3.xlarge"
 
-      # No documentation available.
       T3_2XLARGE = "t3.2xlarge"
 
-      # No documentation available.
       T3A_NANO = "t3a.nano"
 
-      # No documentation available.
       T3A_MICRO = "t3a.micro"
 
-      # No documentation available.
       T3A_SMALL = "t3a.small"
 
-      # No documentation available.
       T3A_MEDIUM = "t3a.medium"
 
-      # No documentation available.
       T3A_LARGE = "t3a.large"
 
-      # No documentation available.
       T3A_XLARGE = "t3a.xlarge"
 
-      # No documentation available.
       T3A_2XLARGE = "t3a.2xlarge"
 
-      # No documentation available.
       T4G_NANO = "t4g.nano"
 
-      # No documentation available.
       T4G_MICRO = "t4g.micro"
 
-      # No documentation available.
       T4G_SMALL = "t4g.small"
 
-      # No documentation available.
       T4G_MEDIUM = "t4g.medium"
 
-      # No documentation available.
       T4G_LARGE = "t4g.large"
 
-      # No documentation available.
       T4G_XLARGE = "t4g.xlarge"
 
-      # No documentation available.
       T4G_2XLARGE = "t4g.2xlarge"
 
-      # No documentation available.
       U_6TB1_56XLARGE = "u-6tb1.56xlarge"
 
-      # No documentation available.
       U_6TB1_112XLARGE = "u-6tb1.112xlarge"
 
-      # No documentation available.
       U_9TB1_112XLARGE = "u-9tb1.112xlarge"
 
-      # No documentation available.
       U_12TB1_112XLARGE = "u-12tb1.112xlarge"
 
-      # No documentation available.
       U_6TB1_METAL = "u-6tb1.metal"
 
-      # No documentation available.
       U_9TB1_METAL = "u-9tb1.metal"
 
-      # No documentation available.
       U_12TB1_METAL = "u-12tb1.metal"
 
-      # No documentation available.
       U_18TB1_METAL = "u-18tb1.metal"
 
-      # No documentation available.
       U_24TB1_METAL = "u-24tb1.metal"
 
-      # No documentation available.
       VT1_3XLARGE = "vt1.3xlarge"
 
-      # No documentation available.
       VT1_6XLARGE = "vt1.6xlarge"
 
-      # No documentation available.
       VT1_24XLARGE = "vt1.24xlarge"
 
-      # No documentation available.
       X1_16XLARGE = "x1.16xlarge"
 
-      # No documentation available.
       X1_32XLARGE = "x1.32xlarge"
 
-      # No documentation available.
       X1E_XLARGE = "x1e.xlarge"
 
-      # No documentation available.
       X1E_2XLARGE = "x1e.2xlarge"
 
-      # No documentation available.
       X1E_4XLARGE = "x1e.4xlarge"
 
-      # No documentation available.
       X1E_8XLARGE = "x1e.8xlarge"
 
-      # No documentation available.
       X1E_16XLARGE = "x1e.16xlarge"
 
-      # No documentation available.
       X1E_32XLARGE = "x1e.32xlarge"
 
-      # No documentation available.
       X2IEZN_2XLARGE = "x2iezn.2xlarge"
 
-      # No documentation available.
       X2IEZN_4XLARGE = "x2iezn.4xlarge"
 
-      # No documentation available.
       X2IEZN_6XLARGE = "x2iezn.6xlarge"
 
-      # No documentation available.
       X2IEZN_8XLARGE = "x2iezn.8xlarge"
 
-      # No documentation available.
       X2IEZN_12XLARGE = "x2iezn.12xlarge"
 
-      # No documentation available.
       X2IEZN_METAL = "x2iezn.metal"
 
-      # No documentation available.
       X2GD_MEDIUM = "x2gd.medium"
 
-      # No documentation available.
       X2GD_LARGE = "x2gd.large"
 
-      # No documentation available.
       X2GD_XLARGE = "x2gd.xlarge"
 
-      # No documentation available.
       X2GD_2XLARGE = "x2gd.2xlarge"
 
-      # No documentation available.
       X2GD_4XLARGE = "x2gd.4xlarge"
 
-      # No documentation available.
       X2GD_8XLARGE = "x2gd.8xlarge"
 
-      # No documentation available.
       X2GD_12XLARGE = "x2gd.12xlarge"
 
-      # No documentation available.
       X2GD_16XLARGE = "x2gd.16xlarge"
 
-      # No documentation available.
       X2GD_METAL = "x2gd.metal"
 
-      # No documentation available.
       Z1D_LARGE = "z1d.large"
 
-      # No documentation available.
       Z1D_XLARGE = "z1d.xlarge"
 
-      # No documentation available.
       Z1D_2XLARGE = "z1d.2xlarge"
 
-      # No documentation available.
       Z1D_3XLARGE = "z1d.3xlarge"
 
-      # No documentation available.
       Z1D_6XLARGE = "z1d.6xlarge"
 
-      # No documentation available.
       Z1D_12XLARGE = "z1d.12xlarge"
 
-      # No documentation available.
       Z1D_METAL = "z1d.metal"
 
-      # No documentation available.
       X2IDN_16XLARGE = "x2idn.16xlarge"
 
-      # No documentation available.
       X2IDN_24XLARGE = "x2idn.24xlarge"
 
-      # No documentation available.
       X2IDN_32XLARGE = "x2idn.32xlarge"
 
-      # No documentation available.
       X2IEDN_XLARGE = "x2iedn.xlarge"
 
-      # No documentation available.
       X2IEDN_2XLARGE = "x2iedn.2xlarge"
 
-      # No documentation available.
       X2IEDN_4XLARGE = "x2iedn.4xlarge"
 
-      # No documentation available.
       X2IEDN_8XLARGE = "x2iedn.8xlarge"
 
-      # No documentation available.
       X2IEDN_16XLARGE = "x2iedn.16xlarge"
 
-      # No documentation available.
       X2IEDN_24XLARGE = "x2iedn.24xlarge"
 
-      # No documentation available.
       X2IEDN_32XLARGE = "x2iedn.32xlarge"
 
-      # No documentation available.
       C6A_LARGE = "c6a.large"
 
-      # No documentation available.
       C6A_XLARGE = "c6a.xlarge"
 
-      # No documentation available.
       C6A_2XLARGE = "c6a.2xlarge"
 
-      # No documentation available.
       C6A_4XLARGE = "c6a.4xlarge"
 
-      # No documentation available.
       C6A_8XLARGE = "c6a.8xlarge"
 
-      # No documentation available.
       C6A_12XLARGE = "c6a.12xlarge"
 
-      # No documentation available.
       C6A_16XLARGE = "c6a.16xlarge"
 
-      # No documentation available.
       C6A_24XLARGE = "c6a.24xlarge"
 
-      # No documentation available.
       C6A_32XLARGE = "c6a.32xlarge"
 
-      # No documentation available.
       C6A_48XLARGE = "c6a.48xlarge"
 
-      # No documentation available.
       C6A_METAL = "c6a.metal"
 
-      # No documentation available.
       M6A_METAL = "m6a.metal"
 
-      # No documentation available.
       I4I_LARGE = "i4i.large"
 
-      # No documentation available.
       I4I_XLARGE = "i4i.xlarge"
 
-      # No documentation available.
       I4I_2XLARGE = "i4i.2xlarge"
 
-      # No documentation available.
       I4I_4XLARGE = "i4i.4xlarge"
 
-      # No documentation available.
       I4I_8XLARGE = "i4i.8xlarge"
 
-      # No documentation available.
       I4I_16XLARGE = "i4i.16xlarge"
 
-      # No documentation available.
       I4I_32XLARGE = "i4i.32xlarge"
 
-      # No documentation available.
       I4I_METAL = "i4i.metal"
 
-      # No documentation available.
       X2IDN_METAL = "x2idn.metal"
 
-      # No documentation available.
       X2IEDN_METAL = "x2iedn.metal"
 
-      # No documentation available.
       C7G_MEDIUM = "c7g.medium"
 
-      # No documentation available.
       C7G_LARGE = "c7g.large"
 
-      # No documentation available.
       C7G_XLARGE = "c7g.xlarge"
 
-      # No documentation available.
       C7G_2XLARGE = "c7g.2xlarge"
 
-      # No documentation available.
       C7G_4XLARGE = "c7g.4xlarge"
 
-      # No documentation available.
       C7G_8XLARGE = "c7g.8xlarge"
 
-      # No documentation available.
       C7G_12XLARGE = "c7g.12xlarge"
 
-      # No documentation available.
       C7G_16XLARGE = "c7g.16xlarge"
 
-      # No documentation available.
       MAC2_METAL = "mac2.metal"
 
-      # No documentation available.
       C6ID_LARGE = "c6id.large"
 
-      # No documentation available.
       C6ID_XLARGE = "c6id.xlarge"
 
-      # No documentation available.
       C6ID_2XLARGE = "c6id.2xlarge"
 
-      # No documentation available.
       C6ID_4XLARGE = "c6id.4xlarge"
 
-      # No documentation available.
       C6ID_8XLARGE = "c6id.8xlarge"
 
-      # No documentation available.
       C6ID_12XLARGE = "c6id.12xlarge"
 
-      # No documentation available.
       C6ID_16XLARGE = "c6id.16xlarge"
 
-      # No documentation available.
       C6ID_24XLARGE = "c6id.24xlarge"
 
-      # No documentation available.
       C6ID_32XLARGE = "c6id.32xlarge"
 
-      # No documentation available.
       C6ID_METAL = "c6id.metal"
 
-      # No documentation available.
       M6ID_LARGE = "m6id.large"
 
-      # No documentation available.
       M6ID_XLARGE = "m6id.xlarge"
 
-      # No documentation available.
       M6ID_2XLARGE = "m6id.2xlarge"
 
-      # No documentation available.
       M6ID_4XLARGE = "m6id.4xlarge"
 
-      # No documentation available.
       M6ID_8XLARGE = "m6id.8xlarge"
 
-      # No documentation available.
       M6ID_12XLARGE = "m6id.12xlarge"
 
-      # No documentation available.
       M6ID_16XLARGE = "m6id.16xlarge"
 
-      # No documentation available.
       M6ID_24XLARGE = "m6id.24xlarge"
 
-      # No documentation available.
       M6ID_32XLARGE = "m6id.32xlarge"
 
-      # No documentation available.
       M6ID_METAL = "m6id.metal"
 
-      # No documentation available.
       R6ID_LARGE = "r6id.large"
 
-      # No documentation available.
       R6ID_XLARGE = "r6id.xlarge"
 
-      # No documentation available.
       R6ID_2XLARGE = "r6id.2xlarge"
 
-      # No documentation available.
       R6ID_4XLARGE = "r6id.4xlarge"
 
-      # No documentation available.
       R6ID_8XLARGE = "r6id.8xlarge"
 
-      # No documentation available.
       R6ID_12XLARGE = "r6id.12xlarge"
 
-      # No documentation available.
       R6ID_16XLARGE = "r6id.16xlarge"
 
-      # No documentation available.
       R6ID_24XLARGE = "r6id.24xlarge"
 
-      # No documentation available.
       R6ID_32XLARGE = "r6id.32xlarge"
 
-      # No documentation available.
       R6ID_METAL = "r6id.metal"
 
-      # No documentation available.
       R6A_LARGE = "r6a.large"
 
-      # No documentation available.
       R6A_XLARGE = "r6a.xlarge"
 
-      # No documentation available.
       R6A_2XLARGE = "r6a.2xlarge"
 
-      # No documentation available.
       R6A_4XLARGE = "r6a.4xlarge"
 
-      # No documentation available.
       R6A_8XLARGE = "r6a.8xlarge"
 
-      # No documentation available.
       R6A_12XLARGE = "r6a.12xlarge"
 
-      # No documentation available.
       R6A_16XLARGE = "r6a.16xlarge"
 
-      # No documentation available.
       R6A_24XLARGE = "r6a.24xlarge"
 
-      # No documentation available.
       R6A_32XLARGE = "r6a.32xlarge"
 
-      # No documentation available.
       R6A_48XLARGE = "r6a.48xlarge"
 
-      # No documentation available.
       R6A_METAL = "r6a.metal"
 
-      # No documentation available.
       P4DE_24XLARGE = "p4de.24xlarge"
 
-      # No documentation available.
       U_3TB1_56XLARGE = "u-3tb1.56xlarge"
 
-      # No documentation available.
       U_18TB1_112XLARGE = "u-18tb1.112xlarge"
 
-      # No documentation available.
       U_24TB1_112XLARGE = "u-24tb1.112xlarge"
 
-      # No documentation available.
       TRN1_2XLARGE = "trn1.2xlarge"
 
-      # No documentation available.
       TRN1_32XLARGE = "trn1.32xlarge"
 
-      # No documentation available.
       HPC6ID_32XLARGE = "hpc6id.32xlarge"
 
-      # No documentation available.
       C6IN_LARGE = "c6in.large"
 
-      # No documentation available.
       C6IN_XLARGE = "c6in.xlarge"
 
-      # No documentation available.
       C6IN_2XLARGE = "c6in.2xlarge"
 
-      # No documentation available.
       C6IN_4XLARGE = "c6in.4xlarge"
 
-      # No documentation available.
       C6IN_8XLARGE = "c6in.8xlarge"
 
-      # No documentation available.
       C6IN_12XLARGE = "c6in.12xlarge"
 
-      # No documentation available.
       C6IN_16XLARGE = "c6in.16xlarge"
 
-      # No documentation available.
       C6IN_24XLARGE = "c6in.24xlarge"
 
-      # No documentation available.
       C6IN_32XLARGE = "c6in.32xlarge"
 
-      # No documentation available.
       M6IN_LARGE = "m6in.large"
 
-      # No documentation available.
       M6IN_XLARGE = "m6in.xlarge"
 
-      # No documentation available.
       M6IN_2XLARGE = "m6in.2xlarge"
 
-      # No documentation available.
       M6IN_4XLARGE = "m6in.4xlarge"
 
-      # No documentation available.
       M6IN_8XLARGE = "m6in.8xlarge"
 
-      # No documentation available.
       M6IN_12XLARGE = "m6in.12xlarge"
 
-      # No documentation available.
       M6IN_16XLARGE = "m6in.16xlarge"
 
-      # No documentation available.
       M6IN_24XLARGE = "m6in.24xlarge"
 
-      # No documentation available.
       M6IN_32XLARGE = "m6in.32xlarge"
 
-      # No documentation available.
       M6IDN_LARGE = "m6idn.large"
 
-      # No documentation available.
       M6IDN_XLARGE = "m6idn.xlarge"
 
-      # No documentation available.
       M6IDN_2XLARGE = "m6idn.2xlarge"
 
-      # No documentation available.
       M6IDN_4XLARGE = "m6idn.4xlarge"
 
-      # No documentation available.
       M6IDN_8XLARGE = "m6idn.8xlarge"
 
-      # No documentation available.
       M6IDN_12XLARGE = "m6idn.12xlarge"
 
-      # No documentation available.
       M6IDN_16XLARGE = "m6idn.16xlarge"
 
-      # No documentation available.
       M6IDN_24XLARGE = "m6idn.24xlarge"
 
-      # No documentation available.
       M6IDN_32XLARGE = "m6idn.32xlarge"
 
-      # No documentation available.
       R6IN_LARGE = "r6in.large"
 
-      # No documentation available.
       R6IN_XLARGE = "r6in.xlarge"
 
-      # No documentation available.
       R6IN_2XLARGE = "r6in.2xlarge"
 
-      # No documentation available.
       R6IN_4XLARGE = "r6in.4xlarge"
 
-      # No documentation available.
       R6IN_8XLARGE = "r6in.8xlarge"
 
-      # No documentation available.
       R6IN_12XLARGE = "r6in.12xlarge"
 
-      # No documentation available.
       R6IN_16XLARGE = "r6in.16xlarge"
 
-      # No documentation available.
       R6IN_24XLARGE = "r6in.24xlarge"
 
-      # No documentation available.
       R6IN_32XLARGE = "r6in.32xlarge"
 
-      # No documentation available.
       R6IDN_LARGE = "r6idn.large"
 
-      # No documentation available.
       R6IDN_XLARGE = "r6idn.xlarge"
 
-      # No documentation available.
       R6IDN_2XLARGE = "r6idn.2xlarge"
 
-      # No documentation available.
       R6IDN_4XLARGE = "r6idn.4xlarge"
 
-      # No documentation available.
       R6IDN_8XLARGE = "r6idn.8xlarge"
 
-      # No documentation available.
       R6IDN_12XLARGE = "r6idn.12xlarge"
 
-      # No documentation available.
       R6IDN_16XLARGE = "r6idn.16xlarge"
 
-      # No documentation available.
       R6IDN_24XLARGE = "r6idn.24xlarge"
 
-      # No documentation available.
       R6IDN_32XLARGE = "r6idn.32xlarge"
 
-      # No documentation available.
       C7G_METAL = "c7g.metal"
 
-      # No documentation available.
       M7G_MEDIUM = "m7g.medium"
 
-      # No documentation available.
       M7G_LARGE = "m7g.large"
 
-      # No documentation available.
       M7G_XLARGE = "m7g.xlarge"
 
-      # No documentation available.
       M7G_2XLARGE = "m7g.2xlarge"
 
-      # No documentation available.
       M7G_4XLARGE = "m7g.4xlarge"
 
-      # No documentation available.
       M7G_8XLARGE = "m7g.8xlarge"
 
-      # No documentation available.
       M7G_12XLARGE = "m7g.12xlarge"
 
-      # No documentation available.
       M7G_16XLARGE = "m7g.16xlarge"
 
-      # No documentation available.
       M7G_METAL = "m7g.metal"
 
-      # No documentation available.
       R7G_MEDIUM = "r7g.medium"
 
-      # No documentation available.
       R7G_LARGE = "r7g.large"
 
-      # No documentation available.
       R7G_XLARGE = "r7g.xlarge"
 
-      # No documentation available.
       R7G_2XLARGE = "r7g.2xlarge"
 
-      # No documentation available.
       R7G_4XLARGE = "r7g.4xlarge"
 
-      # No documentation available.
       R7G_8XLARGE = "r7g.8xlarge"
 
-      # No documentation available.
       R7G_12XLARGE = "r7g.12xlarge"
 
-      # No documentation available.
       R7G_16XLARGE = "r7g.16xlarge"
 
-      # No documentation available.
       R7G_METAL = "r7g.metal"
 
-      # No documentation available.
       C6IN_METAL = "c6in.metal"
 
-      # No documentation available.
       M6IN_METAL = "m6in.metal"
 
-      # No documentation available.
       M6IDN_METAL = "m6idn.metal"
 
-      # No documentation available.
       R6IN_METAL = "r6in.metal"
 
-      # No documentation available.
       R6IDN_METAL = "r6idn.metal"
 
-      # No documentation available.
       INF2_XLARGE = "inf2.xlarge"
 
-      # No documentation available.
       INF2_8XLARGE = "inf2.8xlarge"
 
-      # No documentation available.
       INF2_24XLARGE = "inf2.24xlarge"
 
-      # No documentation available.
       INF2_48XLARGE = "inf2.48xlarge"
 
-      # No documentation available.
       TRN1N_32XLARGE = "trn1n.32xlarge"
 
-      # No documentation available.
       I4G_LARGE = "i4g.large"
 
-      # No documentation available.
       I4G_XLARGE = "i4g.xlarge"
 
-      # No documentation available.
       I4G_2XLARGE = "i4g.2xlarge"
 
-      # No documentation available.
       I4G_4XLARGE = "i4g.4xlarge"
 
-      # No documentation available.
       I4G_8XLARGE = "i4g.8xlarge"
 
-      # No documentation available.
       I4G_16XLARGE = "i4g.16xlarge"
 
-      # No documentation available.
       HPC7G_4XLARGE = "hpc7g.4xlarge"
 
-      # No documentation available.
       HPC7G_8XLARGE = "hpc7g.8xlarge"
 
-      # No documentation available.
       HPC7G_16XLARGE = "hpc7g.16xlarge"
 
-      # No documentation available.
       C7GN_MEDIUM = "c7gn.medium"
 
-      # No documentation available.
       C7GN_LARGE = "c7gn.large"
 
-      # No documentation available.
       C7GN_XLARGE = "c7gn.xlarge"
 
-      # No documentation available.
       C7GN_2XLARGE = "c7gn.2xlarge"
 
-      # No documentation available.
       C7GN_4XLARGE = "c7gn.4xlarge"
 
-      # No documentation available.
       C7GN_8XLARGE = "c7gn.8xlarge"
 
-      # No documentation available.
       C7GN_12XLARGE = "c7gn.12xlarge"
 
-      # No documentation available.
       C7GN_16XLARGE = "c7gn.16xlarge"
 
-      # No documentation available.
       P5_48XLARGE = "p5.48xlarge"
 
-      # No documentation available.
       M7I_LARGE = "m7i.large"
 
-      # No documentation available.
       M7I_XLARGE = "m7i.xlarge"
 
-      # No documentation available.
       M7I_2XLARGE = "m7i.2xlarge"
 
-      # No documentation available.
       M7I_4XLARGE = "m7i.4xlarge"
 
-      # No documentation available.
       M7I_8XLARGE = "m7i.8xlarge"
 
-      # No documentation available.
       M7I_12XLARGE = "m7i.12xlarge"
 
-      # No documentation available.
       M7I_16XLARGE = "m7i.16xlarge"
 
-      # No documentation available.
       M7I_24XLARGE = "m7i.24xlarge"
 
-      # No documentation available.
       M7I_48XLARGE = "m7i.48xlarge"
 
-      # No documentation available.
       M7I_FLEX_LARGE = "m7i-flex.large"
 
-      # No documentation available.
       M7I_FLEX_XLARGE = "m7i-flex.xlarge"
 
-      # No documentation available.
       M7I_FLEX_2XLARGE = "m7i-flex.2xlarge"
 
-      # No documentation available.
       M7I_FLEX_4XLARGE = "m7i-flex.4xlarge"
 
-      # No documentation available.
       M7I_FLEX_8XLARGE = "m7i-flex.8xlarge"
 
-      # No documentation available.
       M7A_MEDIUM = "m7a.medium"
 
-      # No documentation available.
       M7A_LARGE = "m7a.large"
 
-      # No documentation available.
       M7A_XLARGE = "m7a.xlarge"
 
-      # No documentation available.
       M7A_2XLARGE = "m7a.2xlarge"
 
-      # No documentation available.
       M7A_4XLARGE = "m7a.4xlarge"
 
-      # No documentation available.
       M7A_8XLARGE = "m7a.8xlarge"
 
-      # No documentation available.
       M7A_12XLARGE = "m7a.12xlarge"
 
-      # No documentation available.
       M7A_16XLARGE = "m7a.16xlarge"
 
-      # No documentation available.
       M7A_24XLARGE = "m7a.24xlarge"
 
-      # No documentation available.
       M7A_32XLARGE = "m7a.32xlarge"
 
-      # No documentation available.
       M7A_48XLARGE = "m7a.48xlarge"
 
-      # No documentation available.
       M7A_METAL_48XL = "m7a.metal-48xl"
 
-      # No documentation available.
       HPC7A_12XLARGE = "hpc7a.12xlarge"
 
-      # No documentation available.
       HPC7A_24XLARGE = "hpc7a.24xlarge"
 
-      # No documentation available.
       HPC7A_48XLARGE = "hpc7a.48xlarge"
 
-      # No documentation available.
       HPC7A_96XLARGE = "hpc7a.96xlarge"
 
-      # No documentation available.
       C7GD_MEDIUM = "c7gd.medium"
 
-      # No documentation available.
       C7GD_LARGE = "c7gd.large"
 
-      # No documentation available.
       C7GD_XLARGE = "c7gd.xlarge"
 
-      # No documentation available.
       C7GD_2XLARGE = "c7gd.2xlarge"
 
-      # No documentation available.
       C7GD_4XLARGE = "c7gd.4xlarge"
 
-      # No documentation available.
       C7GD_8XLARGE = "c7gd.8xlarge"
 
-      # No documentation available.
       C7GD_12XLARGE = "c7gd.12xlarge"
 
-      # No documentation available.
       C7GD_16XLARGE = "c7gd.16xlarge"
 
-      # No documentation available.
       M7GD_MEDIUM = "m7gd.medium"
 
-      # No documentation available.
       M7GD_LARGE = "m7gd.large"
 
-      # No documentation available.
       M7GD_XLARGE = "m7gd.xlarge"
 
-      # No documentation available.
       M7GD_2XLARGE = "m7gd.2xlarge"
 
-      # No documentation available.
       M7GD_4XLARGE = "m7gd.4xlarge"
 
-      # No documentation available.
       M7GD_8XLARGE = "m7gd.8xlarge"
 
-      # No documentation available.
       M7GD_12XLARGE = "m7gd.12xlarge"
 
-      # No documentation available.
       M7GD_16XLARGE = "m7gd.16xlarge"
 
-      # No documentation available.
       R7GD_MEDIUM = "r7gd.medium"
 
-      # No documentation available.
       R7GD_LARGE = "r7gd.large"
 
-      # No documentation available.
       R7GD_XLARGE = "r7gd.xlarge"
 
-      # No documentation available.
       R7GD_2XLARGE = "r7gd.2xlarge"
 
-      # No documentation available.
       R7GD_4XLARGE = "r7gd.4xlarge"
 
-      # No documentation available.
       R7GD_8XLARGE = "r7gd.8xlarge"
 
-      # No documentation available.
       R7GD_12XLARGE = "r7gd.12xlarge"
 
-      # No documentation available.
       R7GD_16XLARGE = "r7gd.16xlarge"
 
-      # No documentation available.
       R7A_MEDIUM = "r7a.medium"
 
-      # No documentation available.
       R7A_LARGE = "r7a.large"
 
-      # No documentation available.
       R7A_XLARGE = "r7a.xlarge"
 
-      # No documentation available.
       R7A_2XLARGE = "r7a.2xlarge"
 
-      # No documentation available.
       R7A_4XLARGE = "r7a.4xlarge"
 
-      # No documentation available.
       R7A_8XLARGE = "r7a.8xlarge"
 
-      # No documentation available.
       R7A_12XLARGE = "r7a.12xlarge"
 
-      # No documentation available.
       R7A_16XLARGE = "r7a.16xlarge"
 
-      # No documentation available.
       R7A_24XLARGE = "r7a.24xlarge"
 
-      # No documentation available.
       R7A_32XLARGE = "r7a.32xlarge"
 
-      # No documentation available.
       R7A_48XLARGE = "r7a.48xlarge"
 
-      # No documentation available.
       C7I_LARGE = "c7i.large"
 
-      # No documentation available.
       C7I_XLARGE = "c7i.xlarge"
 
-      # No documentation available.
       C7I_2XLARGE = "c7i.2xlarge"
 
-      # No documentation available.
       C7I_4XLARGE = "c7i.4xlarge"
 
-      # No documentation available.
       C7I_8XLARGE = "c7i.8xlarge"
 
-      # No documentation available.
       C7I_12XLARGE = "c7i.12xlarge"
 
-      # No documentation available.
       C7I_16XLARGE = "c7i.16xlarge"
 
-      # No documentation available.
       C7I_24XLARGE = "c7i.24xlarge"
 
-      # No documentation available.
       C7I_48XLARGE = "c7i.48xlarge"
 
-      # No documentation available.
       MAC2_M2PRO_METAL = "mac2-m2pro.metal"
 
-      # No documentation available.
       R7IZ_LARGE = "r7iz.large"
 
-      # No documentation available.
       R7IZ_XLARGE = "r7iz.xlarge"
 
-      # No documentation available.
       R7IZ_2XLARGE = "r7iz.2xlarge"
 
-      # No documentation available.
       R7IZ_4XLARGE = "r7iz.4xlarge"
 
-      # No documentation available.
       R7IZ_8XLARGE = "r7iz.8xlarge"
 
-      # No documentation available.
       R7IZ_12XLARGE = "r7iz.12xlarge"
 
-      # No documentation available.
       R7IZ_16XLARGE = "r7iz.16xlarge"
 
-      # No documentation available.
       R7IZ_32XLARGE = "r7iz.32xlarge"
 
-      # No documentation available.
       C7A_MEDIUM = "c7a.medium"
 
-      # No documentation available.
       C7A_LARGE = "c7a.large"
 
-      # No documentation available.
       C7A_XLARGE = "c7a.xlarge"
 
-      # No documentation available.
       C7A_2XLARGE = "c7a.2xlarge"
 
-      # No documentation available.
       C7A_4XLARGE = "c7a.4xlarge"
 
-      # No documentation available.
       C7A_8XLARGE = "c7a.8xlarge"
 
-      # No documentation available.
       C7A_12XLARGE = "c7a.12xlarge"
 
-      # No documentation available.
       C7A_16XLARGE = "c7a.16xlarge"
 
-      # No documentation available.
       C7A_24XLARGE = "c7a.24xlarge"
 
-      # No documentation available.
       C7A_32XLARGE = "c7a.32xlarge"
 
-      # No documentation available.
       C7A_48XLARGE = "c7a.48xlarge"
 
-      # No documentation available.
       C7A_METAL_48XL = "c7a.metal-48xl"
 
-      # No documentation available.
       R7A_METAL_48XL = "r7a.metal-48xl"
 
-      # No documentation available.
       R7I_LARGE = "r7i.large"
 
-      # No documentation available.
       R7I_XLARGE = "r7i.xlarge"
 
-      # No documentation available.
       R7I_2XLARGE = "r7i.2xlarge"
 
-      # No documentation available.
       R7I_4XLARGE = "r7i.4xlarge"
 
-      # No documentation available.
       R7I_8XLARGE = "r7i.8xlarge"
 
-      # No documentation available.
       R7I_12XLARGE = "r7i.12xlarge"
 
-      # No documentation available.
       R7I_16XLARGE = "r7i.16xlarge"
 
-      # No documentation available.
       R7I_24XLARGE = "r7i.24xlarge"
 
-      # No documentation available.
       R7I_48XLARGE = "r7i.48xlarge"
 
-      # No documentation available.
       DL2Q_24XLARGE = "dl2q.24xlarge"
 
-      # No documentation available.
       MAC2_M2_METAL = "mac2-m2.metal"
 
-      # No documentation available.
       I4I_12XLARGE = "i4i.12xlarge"
 
-      # No documentation available.
       I4I_24XLARGE = "i4i.24xlarge"
 
-      # No documentation available.
       C7I_METAL_24XL = "c7i.metal-24xl"
 
-      # No documentation available.
       C7I_METAL_48XL = "c7i.metal-48xl"
 
-      # No documentation available.
       M7I_METAL_24XL = "m7i.metal-24xl"
 
-      # No documentation available.
       M7I_METAL_48XL = "m7i.metal-48xl"
 
-      # No documentation available.
       R7I_METAL_24XL = "r7i.metal-24xl"
 
-      # No documentation available.
       R7I_METAL_48XL = "r7i.metal-48xl"
 
-      # No documentation available.
       R7IZ_METAL_16XL = "r7iz.metal-16xl"
 
-      # No documentation available.
       R7IZ_METAL_32XL = "r7iz.metal-32xl"
     end
 
-    # Includes enum constants for InstanceTypeHypervisor
+    # Enum constants for InstanceTypeHypervisor
     module InstanceTypeHypervisor
-      # No documentation available.
       NITRO = "nitro"
 
-      # No documentation available.
       XEN = "xen"
     end
 
@@ -46350,21 +45096,17 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for InterfacePermissionType
+    # Enum constants for InterfacePermissionType
     module InterfacePermissionType
-      # No documentation available.
       INSTANCE_ATTACH = "INSTANCE-ATTACH"
 
-      # No documentation available.
       EIP_ASSOCIATE = "EIP-ASSOCIATE"
     end
 
-    # Includes enum constants for InterfaceProtocolType
+    # Enum constants for InterfaceProtocolType
     module InterfaceProtocolType
-      # No documentation available.
       VLAN = "VLAN"
 
-      # No documentation available.
       GRE = "GRE"
     end
 
@@ -46419,15 +45161,12 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for IpAddressType
+    # Enum constants for IpAddressType
     module IpAddressType
-      # No documentation available.
       IPV4 = "ipv4"
 
-      # No documentation available.
       DUALSTACK = "dualstack"
 
-      # No documentation available.
       IPV6 = "ipv6"
     end
 
@@ -46670,30 +45409,23 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for IpamAddressHistoryResourceType
+    # Enum constants for IpamAddressHistoryResourceType
     module IpamAddressHistoryResourceType
-      # No documentation available.
       EIP = "eip"
 
-      # No documentation available.
       VPC = "vpc"
 
-      # No documentation available.
       SUBNET = "subnet"
 
-      # No documentation available.
       NETWORK_INTERFACE = "network-interface"
 
-      # No documentation available.
       INSTANCE = "instance"
     end
 
-    # Includes enum constants for IpamAssociatedResourceDiscoveryStatus
+    # Enum constants for IpamAssociatedResourceDiscoveryStatus
     module IpamAssociatedResourceDiscoveryStatus
-      # No documentation available.
       ACTIVE = "active"
 
-      # No documentation available.
       NOT_FOUND = "not-found"
     end
 
@@ -46716,18 +45448,14 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for IpamComplianceStatus
+    # Enum constants for IpamComplianceStatus
     module IpamComplianceStatus
-      # No documentation available.
       COMPLIANT = "compliant"
 
-      # No documentation available.
       NONCOMPLIANT = "noncompliant"
 
-      # No documentation available.
       UNMANAGED = "unmanaged"
 
-      # No documentation available.
       IGNORED = "ignored"
     end
 
@@ -46947,15 +45675,12 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for IpamDiscoveryFailureCode
+    # Enum constants for IpamDiscoveryFailureCode
     module IpamDiscoveryFailureCode
-      # No documentation available.
       ASSUME_ROLE_FAILURE = "assume-role-failure"
 
-      # No documentation available.
       THROTTLING_FAILURE = "throttling-failure"
 
-      # No documentation available.
       UNAUTHORIZED_FAILURE = "unauthorized-failure"
     end
 
@@ -47004,15 +45729,12 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for IpamManagementState
+    # Enum constants for IpamManagementState
     module IpamManagementState
-      # No documentation available.
       MANAGED = "managed"
 
-      # No documentation available.
       UNMANAGED = "unmanaged"
 
-      # No documentation available.
       IGNORED = "ignored"
     end
 
@@ -47031,15 +45753,12 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for IpamOverlapStatus
+    # Enum constants for IpamOverlapStatus
     module IpamOverlapStatus
-      # No documentation available.
       OVERLAPPING = "overlapping"
 
-      # No documentation available.
       NONOVERLAPPING = "nonoverlapping"
 
-      # No documentation available.
       IGNORED = "ignored"
     end
 
@@ -47234,27 +45953,21 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for IpamPoolAllocationResourceType
+    # Enum constants for IpamPoolAllocationResourceType
     module IpamPoolAllocationResourceType
-      # No documentation available.
       IPAM_POOL = "ipam-pool"
 
-      # No documentation available.
       VPC = "vpc"
 
-      # No documentation available.
       EC2_PUBLIC_IPV4_POOL = "ec2-public-ipv4-pool"
 
-      # No documentation available.
       CUSTOM = "custom"
 
-      # No documentation available.
       SUBNET = "subnet"
     end
 
-    # Includes enum constants for IpamPoolAwsService
+    # Enum constants for IpamPoolAwsService
     module IpamPoolAwsService
-      # No documentation available.
       EC2 = "ec2"
     end
 
@@ -47294,12 +46007,10 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for IpamPoolCidrFailureCode
+    # Enum constants for IpamPoolCidrFailureCode
     module IpamPoolCidrFailureCode
-      # No documentation available.
       CIDR_NOT_AVAILABLE = "cidr-not-available"
 
-      # No documentation available.
       LIMIT_EXCEEDED = "limit-exceeded"
     end
 
@@ -47323,39 +46034,29 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for IpamPoolCidrState
+    # Enum constants for IpamPoolCidrState
     module IpamPoolCidrState
-      # No documentation available.
       PENDING_PROVISION = "pending-provision"
 
-      # No documentation available.
       PROVISIONED = "provisioned"
 
-      # No documentation available.
       FAILED_PROVISION = "failed-provision"
 
-      # No documentation available.
       PENDING_DEPROVISION = "pending-deprovision"
 
-      # No documentation available.
       DEPROVISIONED = "deprovisioned"
 
-      # No documentation available.
       FAILED_DEPROVISION = "failed-deprovision"
 
-      # No documentation available.
       PENDING_IMPORT = "pending-import"
 
-      # No documentation available.
       FAILED_IMPORT = "failed-import"
     end
 
-    # Includes enum constants for IpamPoolPublicIpSource
+    # Enum constants for IpamPoolPublicIpSource
     module IpamPoolPublicIpSource
-      # No documentation available.
       AMAZON = "amazon"
 
-      # No documentation available.
       BYOIP = "byoip"
     end
 
@@ -47419,87 +46120,63 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for IpamPoolSourceResourceType
+    # Enum constants for IpamPoolSourceResourceType
     module IpamPoolSourceResourceType
-      # No documentation available.
       VPC = "vpc"
     end
 
-    # Includes enum constants for IpamPoolState
+    # Enum constants for IpamPoolState
     module IpamPoolState
-      # No documentation available.
       CREATE_IN_PROGRESS = "create-in-progress"
 
-      # No documentation available.
       CREATE_COMPLETE = "create-complete"
 
-      # No documentation available.
       CREATE_FAILED = "create-failed"
 
-      # No documentation available.
       MODIFY_IN_PROGRESS = "modify-in-progress"
 
-      # No documentation available.
       MODIFY_COMPLETE = "modify-complete"
 
-      # No documentation available.
       MODIFY_FAILED = "modify-failed"
 
-      # No documentation available.
       DELETE_IN_PROGRESS = "delete-in-progress"
 
-      # No documentation available.
       DELETE_COMPLETE = "delete-complete"
 
-      # No documentation available.
       DELETE_FAILED = "delete-failed"
 
-      # No documentation available.
       ISOLATE_IN_PROGRESS = "isolate-in-progress"
 
-      # No documentation available.
       ISOLATE_COMPLETE = "isolate-complete"
 
-      # No documentation available.
       RESTORE_IN_PROGRESS = "restore-in-progress"
     end
 
-    # Includes enum constants for IpamPublicAddressAssociationStatus
+    # Enum constants for IpamPublicAddressAssociationStatus
     module IpamPublicAddressAssociationStatus
-      # No documentation available.
       ASSOCIATED = "associated"
 
-      # No documentation available.
       DISASSOCIATED = "disassociated"
     end
 
-    # Includes enum constants for IpamPublicAddressAwsService
+    # Enum constants for IpamPublicAddressAwsService
     module IpamPublicAddressAwsService
-      # No documentation available.
       NAT_GATEWAY = "nat-gateway"
 
-      # No documentation available.
       DMS = "database-migration-service"
 
-      # No documentation available.
       REDSHIFT = "redshift"
 
-      # No documentation available.
       ECS = "elastic-container-service"
 
-      # No documentation available.
       RDS = "relational-database-service"
 
-      # No documentation available.
       S2_S_VPN = "site-to-site-vpn"
 
-      # No documentation available.
       EC2_LB = "load-balancer"
 
-      # No documentation available.
       AGA = "global-accelerator"
 
-      # No documentation available.
       OTHER = "other"
     end
 
@@ -47555,21 +46232,16 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for IpamPublicAddressType
+    # Enum constants for IpamPublicAddressType
     module IpamPublicAddressType
-      # No documentation available.
       SERVICE_MANAGED_IP = "service-managed-ip"
 
-      # No documentation available.
       SERVICE_MANAGED_BYOIP = "service-managed-byoip"
 
-      # No documentation available.
       AMAZON_OWNED_EIP = "amazon-owned-eip"
 
-      # No documentation available.
       BYOIP = "byoip"
 
-      # No documentation available.
       EC2_PUBLIC_IP = "ec2-public-ip"
     end
 
@@ -47896,72 +46568,51 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for IpamResourceDiscoveryAssociationState
+    # Enum constants for IpamResourceDiscoveryAssociationState
     module IpamResourceDiscoveryAssociationState
-      # No documentation available.
       ASSOCIATE_IN_PROGRESS = "associate-in-progress"
 
-      # No documentation available.
       ASSOCIATE_COMPLETE = "associate-complete"
 
-      # No documentation available.
       ASSOCIATE_FAILED = "associate-failed"
 
-      # No documentation available.
       DISASSOCIATE_IN_PROGRESS = "disassociate-in-progress"
 
-      # No documentation available.
       DISASSOCIATE_COMPLETE = "disassociate-complete"
 
-      # No documentation available.
       DISASSOCIATE_FAILED = "disassociate-failed"
 
-      # No documentation available.
       ISOLATE_IN_PROGRESS = "isolate-in-progress"
 
-      # No documentation available.
       ISOLATE_COMPLETE = "isolate-complete"
 
-      # No documentation available.
       RESTORE_IN_PROGRESS = "restore-in-progress"
     end
 
-    # Includes enum constants for IpamResourceDiscoveryState
+    # Enum constants for IpamResourceDiscoveryState
     module IpamResourceDiscoveryState
-      # No documentation available.
       CREATE_IN_PROGRESS = "create-in-progress"
 
-      # No documentation available.
       CREATE_COMPLETE = "create-complete"
 
-      # No documentation available.
       CREATE_FAILED = "create-failed"
 
-      # No documentation available.
       MODIFY_IN_PROGRESS = "modify-in-progress"
 
-      # No documentation available.
       MODIFY_COMPLETE = "modify-complete"
 
-      # No documentation available.
       MODIFY_FAILED = "modify-failed"
 
-      # No documentation available.
       DELETE_IN_PROGRESS = "delete-in-progress"
 
-      # No documentation available.
       DELETE_COMPLETE = "delete-complete"
 
-      # No documentation available.
       DELETE_FAILED = "delete-failed"
 
-      # No documentation available.
       ISOLATE_IN_PROGRESS = "isolate-in-progress"
 
-      # No documentation available.
       ISOLATE_COMPLETE = "isolate-complete"
 
-      # No documentation available.
       RESTORE_IN_PROGRESS = "restore-in-progress"
     end
 
@@ -47985,24 +46636,18 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for IpamResourceType
+    # Enum constants for IpamResourceType
     module IpamResourceType
-      # No documentation available.
       VPC = "vpc"
 
-      # No documentation available.
       SUBNET = "subnet"
 
-      # No documentation available.
       EIP = "eip"
 
-      # No documentation available.
       PUBLIC_IPV4_POOL = "public-ipv4-pool"
 
-      # No documentation available.
       IPV6_POOL = "ipv6-pool"
 
-      # No documentation available.
       ENI = "eni"
     end
 
@@ -48074,99 +46719,71 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for IpamScopeState
+    # Enum constants for IpamScopeState
     module IpamScopeState
-      # No documentation available.
       CREATE_IN_PROGRESS = "create-in-progress"
 
-      # No documentation available.
       CREATE_COMPLETE = "create-complete"
 
-      # No documentation available.
       CREATE_FAILED = "create-failed"
 
-      # No documentation available.
       MODIFY_IN_PROGRESS = "modify-in-progress"
 
-      # No documentation available.
       MODIFY_COMPLETE = "modify-complete"
 
-      # No documentation available.
       MODIFY_FAILED = "modify-failed"
 
-      # No documentation available.
       DELETE_IN_PROGRESS = "delete-in-progress"
 
-      # No documentation available.
       DELETE_COMPLETE = "delete-complete"
 
-      # No documentation available.
       DELETE_FAILED = "delete-failed"
 
-      # No documentation available.
       ISOLATE_IN_PROGRESS = "isolate-in-progress"
 
-      # No documentation available.
       ISOLATE_COMPLETE = "isolate-complete"
 
-      # No documentation available.
       RESTORE_IN_PROGRESS = "restore-in-progress"
     end
 
-    # Includes enum constants for IpamScopeType
+    # Enum constants for IpamScopeType
     module IpamScopeType
-      # No documentation available.
       PUBLIC = "public"
 
-      # No documentation available.
       PRIVATE = "private"
     end
 
-    # Includes enum constants for IpamState
+    # Enum constants for IpamState
     module IpamState
-      # No documentation available.
       CREATE_IN_PROGRESS = "create-in-progress"
 
-      # No documentation available.
       CREATE_COMPLETE = "create-complete"
 
-      # No documentation available.
       CREATE_FAILED = "create-failed"
 
-      # No documentation available.
       MODIFY_IN_PROGRESS = "modify-in-progress"
 
-      # No documentation available.
       MODIFY_COMPLETE = "modify-complete"
 
-      # No documentation available.
       MODIFY_FAILED = "modify-failed"
 
-      # No documentation available.
       DELETE_IN_PROGRESS = "delete-in-progress"
 
-      # No documentation available.
       DELETE_COMPLETE = "delete-complete"
 
-      # No documentation available.
       DELETE_FAILED = "delete-failed"
 
-      # No documentation available.
       ISOLATE_IN_PROGRESS = "isolate-in-progress"
 
-      # No documentation available.
       ISOLATE_COMPLETE = "isolate-complete"
 
-      # No documentation available.
       RESTORE_IN_PROGRESS = "restore-in-progress"
     end
 
-    # Includes enum constants for IpamTier
+    # Enum constants for IpamTier
     module IpamTier
-      # No documentation available.
       FREE = "free"
 
-      # No documentation available.
       ADVANCED = "advanced"
     end
 
@@ -48344,21 +46961,17 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for Ipv6SupportValue
+    # Enum constants for Ipv6SupportValue
     module Ipv6SupportValue
-      # No documentation available.
       ENABLE = "enable"
 
-      # No documentation available.
       DISABLE = "disable"
     end
 
-    # Includes enum constants for KeyFormat
+    # Enum constants for KeyFormat
     module KeyFormat
-      # No documentation available.
       PEM = "pem"
 
-      # No documentation available.
       PPK = "ppk"
     end
 
@@ -48431,12 +47044,10 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for KeyType
+    # Enum constants for KeyType
     module KeyType
-      # No documentation available.
       RSA = "rsa"
 
-      # No documentation available.
       ED25519 = "ed25519"
     end
 
@@ -48680,12 +47291,10 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for LaunchTemplateAutoRecoveryState
+    # Enum constants for LaunchTemplateAutoRecoveryState
     module LaunchTemplateAutoRecoveryState
-      # No documentation available.
       DEFAULT = "default"
 
-      # No documentation available.
       DISABLED = "disabled"
     end
 
@@ -49174,24 +47783,18 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for LaunchTemplateErrorCode
+    # Enum constants for LaunchTemplateErrorCode
     module LaunchTemplateErrorCode
-      # No documentation available.
       LAUNCH_TEMPLATE_ID_DOES_NOT_EXIST = "launchTemplateIdDoesNotExist"
 
-      # No documentation available.
       LAUNCH_TEMPLATE_ID_MALFORMED = "launchTemplateIdMalformed"
 
-      # No documentation available.
       LAUNCH_TEMPLATE_NAME_DOES_NOT_EXIST = "launchTemplateNameDoesNotExist"
 
-      # No documentation available.
       LAUNCH_TEMPLATE_NAME_MALFORMED = "launchTemplateNameMalformed"
 
-      # No documentation available.
       LAUNCH_TEMPLATE_VERSION_DOES_NOT_EXIST = "launchTemplateVersionDoesNotExist"
 
-      # No documentation available.
       UNEXPECTED_ERROR = "unexpectedError"
     end
 
@@ -49229,12 +47832,10 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for LaunchTemplateHttpTokensState
+    # Enum constants for LaunchTemplateHttpTokensState
     module LaunchTemplateHttpTokensState
-      # No documentation available.
       OPTIONAL = "optional"
 
-      # No documentation available.
       REQUIRED = "required"
     end
 
@@ -49348,12 +47949,10 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for LaunchTemplateInstanceMetadataEndpointState
+    # Enum constants for LaunchTemplateInstanceMetadataEndpointState
     module LaunchTemplateInstanceMetadataEndpointState
-      # No documentation available.
       DISABLED = "disabled"
 
-      # No documentation available.
       ENABLED = "enabled"
     end
 
@@ -49514,30 +48113,24 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for LaunchTemplateInstanceMetadataOptionsState
+    # Enum constants for LaunchTemplateInstanceMetadataOptionsState
     module LaunchTemplateInstanceMetadataOptionsState
-      # No documentation available.
       PENDING = "pending"
 
-      # No documentation available.
       APPLIED = "applied"
     end
 
-    # Includes enum constants for LaunchTemplateInstanceMetadataProtocolIpv6
+    # Enum constants for LaunchTemplateInstanceMetadataProtocolIpv6
     module LaunchTemplateInstanceMetadataProtocolIpv6
-      # No documentation available.
       DISABLED = "disabled"
 
-      # No documentation available.
       ENABLED = "enabled"
     end
 
-    # Includes enum constants for LaunchTemplateInstanceMetadataTagsState
+    # Enum constants for LaunchTemplateInstanceMetadataTagsState
     module LaunchTemplateInstanceMetadataTagsState
-      # No documentation available.
       DISABLED = "disabled"
 
-      # No documentation available.
       ENABLED = "enabled"
     end
 
@@ -50481,33 +49074,25 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for ListingState
+    # Enum constants for ListingState
     module ListingState
-      # No documentation available.
       AVAILABLE = "available"
 
-      # No documentation available.
       SOLD = "sold"
 
-      # No documentation available.
       CANCELLED = "cancelled"
 
-      # No documentation available.
       PENDING = "pending"
     end
 
-    # Includes enum constants for ListingStatus
+    # Enum constants for ListingStatus
     module ListingStatus
-      # No documentation available.
       ACTIVE = "active"
 
-      # No documentation available.
       PENDING = "pending"
 
-      # No documentation available.
       CANCELLED = "cancelled"
 
-      # No documentation available.
       CLOSED = "closed"
     end
 
@@ -50692,21 +49277,16 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for LocalGatewayRouteState
+    # Enum constants for LocalGatewayRouteState
     module LocalGatewayRouteState
-      # No documentation available.
       PENDING = "pending"
 
-      # No documentation available.
       ACTIVE = "active"
 
-      # No documentation available.
       BLACKHOLE = "blackhole"
 
-      # No documentation available.
       DELETING = "deleting"
 
-      # No documentation available.
       DELETED = "deleted"
     end
 
@@ -50765,12 +49345,10 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for LocalGatewayRouteTableMode
+    # Enum constants for LocalGatewayRouteTableMode
     module LocalGatewayRouteTableMode
-      # No documentation available.
       DIRECT_VPC_ROUTING = "direct-vpc-routing"
 
-      # No documentation available.
       COIP = "coip"
     end
 
@@ -50872,12 +49450,10 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for LocalGatewayRouteType
+    # Enum constants for LocalGatewayRouteType
     module LocalGatewayRouteType
-      # No documentation available.
       STATIC = "static"
 
-      # No documentation available.
       PROPAGATED = "propagated"
     end
 
@@ -50969,48 +49545,37 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for LocalStorage
+    # Enum constants for LocalStorage
     module LocalStorage
-      # No documentation available.
       INCLUDED = "included"
 
-      # No documentation available.
       REQUIRED = "required"
 
-      # No documentation available.
       EXCLUDED = "excluded"
     end
 
-    # Includes enum constants for LocalStorageType
+    # Enum constants for LocalStorageType
     module LocalStorageType
-      # No documentation available.
       HDD = "hdd"
 
-      # No documentation available.
       SSD = "ssd"
     end
 
-    # Includes enum constants for LocationType
+    # Enum constants for LocationType
     module LocationType
-      # No documentation available.
       REGION = "region"
 
-      # No documentation available.
       AVAILABILITY_ZONE = "availability-zone"
 
-      # No documentation available.
       AVAILABILITY_ZONE_ID = "availability-zone-id"
 
-      # No documentation available.
       OUTPOST = "outpost"
     end
 
-    # Includes enum constants for LockMode
+    # Enum constants for LockMode
     module LockMode
-      # No documentation available.
       COMPLIANCE = "compliance"
 
-      # No documentation available.
       GOVERNANCE = "governance"
     end
 
@@ -51180,18 +49745,14 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for LockState
+    # Enum constants for LockState
     module LockState
-      # No documentation available.
       COMPLIANCE = "compliance"
 
-      # No documentation available.
       GOVERNANCE = "governance"
 
-      # No documentation available.
       COMPLIANCE_COOLOFF = "compliance-cooloff"
 
-      # No documentation available.
       EXPIRED = "expired"
     end
 
@@ -51279,15 +49840,12 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for LogDestinationType
+    # Enum constants for LogDestinationType
     module LogDestinationType
-      # No documentation available.
       CLOUD_WATCH_LOGS = "cloud-watch-logs"
 
-      # No documentation available.
       S3 = "s3"
 
-      # No documentation available.
       KINESIS_DATA_FIREHOSE = "kinesis-data-firehose"
     end
 
@@ -51375,21 +49933,17 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for MarketType
+    # Enum constants for MarketType
     module MarketType
-      # No documentation available.
       SPOT = "spot"
 
-      # No documentation available.
       CAPACITY_BLOCK = "capacity-block"
     end
 
-    # Includes enum constants for MembershipType
+    # Enum constants for MembershipType
     module MembershipType
-      # No documentation available.
       STATIC = "static"
 
-      # No documentation available.
       IGMP = "igmp"
     end
 
@@ -51521,9 +50075,8 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for MetricType
+    # Enum constants for MetricType
     module MetricType
-      # No documentation available.
       AGGREGATE_LATENCY = "aggregate-latency"
     end
 
@@ -51606,12 +50159,10 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for ModifyAvailabilityZoneOptInStatus
+    # Enum constants for ModifyAvailabilityZoneOptInStatus
     module ModifyAvailabilityZoneOptInStatus
-      # No documentation available.
       OPTED_IN = "opted-in"
 
-      # No documentation available.
       NOT_OPTED_IN = "not-opted-in"
     end
 
@@ -55896,18 +54447,14 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for MonitoringState
+    # Enum constants for MonitoringState
     module MonitoringState
-      # No documentation available.
       DISABLED = "disabled"
 
-      # No documentation available.
       DISABLING = "disabling"
 
-      # No documentation available.
       ENABLED = "enabled"
 
-      # No documentation available.
       PENDING = "pending"
     end
 
@@ -55993,12 +54540,10 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for MoveStatus
+    # Enum constants for MoveStatus
     module MoveStatus
-      # No documentation available.
       MOVING_TO_VPC = "movingToVpc"
 
-      # No documentation available.
       RESTORING_TO_CLASSIC = "restoringToClassic"
     end
 
@@ -56025,12 +54570,10 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for MulticastSupportValue
+    # Enum constants for MulticastSupportValue
     module MulticastSupportValue
-      # No documentation available.
       ENABLE = "enable"
 
-      # No documentation available.
       DISABLE = "disable"
     end
 
@@ -56206,42 +54749,31 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for NatGatewayAddressStatus
+    # Enum constants for NatGatewayAddressStatus
     module NatGatewayAddressStatus
-      # No documentation available.
       ASSIGNING = "assigning"
 
-      # No documentation available.
       UNASSIGNING = "unassigning"
 
-      # No documentation available.
       ASSOCIATING = "associating"
 
-      # No documentation available.
       DISASSOCIATING = "disassociating"
 
-      # No documentation available.
       SUCCEEDED = "succeeded"
 
-      # No documentation available.
       FAILED = "failed"
     end
 
-    # Includes enum constants for NatGatewayState
+    # Enum constants for NatGatewayState
     module NatGatewayState
-      # No documentation available.
       PENDING = "pending"
 
-      # No documentation available.
       FAILED = "failed"
 
-      # No documentation available.
       AVAILABLE = "available"
 
-      # No documentation available.
       DELETING = "deleting"
 
-      # No documentation available.
       DELETED = "deleted"
     end
 
@@ -57096,18 +55628,14 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for NetworkInterfaceAttribute
+    # Enum constants for NetworkInterfaceAttribute
     module NetworkInterfaceAttribute
-      # No documentation available.
       DESCRIPTION = "description"
 
-      # No documentation available.
       GROUP_SET = "groupSet"
 
-      # No documentation available.
       SOURCE_DEST_CHECK = "sourceDestCheck"
 
-      # No documentation available.
       ATTACHMENT = "attachment"
     end
 
@@ -57153,15 +55681,12 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for NetworkInterfaceCreationType
+    # Enum constants for NetworkInterfaceCreationType
     module NetworkInterfaceCreationType
-      # No documentation available.
       EFA = "efa"
 
-      # No documentation available.
       BRANCH = "branch"
 
-      # No documentation available.
       TRUNK = "trunk"
     end
 
@@ -57244,18 +55769,14 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for NetworkInterfacePermissionStateCode
+    # Enum constants for NetworkInterfacePermissionStateCode
     module NetworkInterfacePermissionStateCode
-      # No documentation available.
       PENDING = "pending"
 
-      # No documentation available.
       GRANTED = "granted"
 
-      # No documentation available.
       REVOKING = "revoking"
 
-      # No documentation available.
       REVOKED = "revoked"
     end
 
@@ -57288,75 +55809,53 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for NetworkInterfaceStatus
+    # Enum constants for NetworkInterfaceStatus
     module NetworkInterfaceStatus
-      # No documentation available.
       AVAILABLE = "available"
 
-      # No documentation available.
       ASSOCIATED = "associated"
 
-      # No documentation available.
       ATTACHING = "attaching"
 
-      # No documentation available.
       IN_USE = "in-use"
 
-      # No documentation available.
       DETACHING = "detaching"
     end
 
-    # Includes enum constants for NetworkInterfaceType
+    # Enum constants for NetworkInterfaceType
     module NetworkInterfaceType
-      # No documentation available.
       INTERFACE = "interface"
 
-      # No documentation available.
       NAT_GATEWAY = "natGateway"
 
-      # No documentation available.
       EFA = "efa"
 
-      # No documentation available.
       TRUNK = "trunk"
 
-      # No documentation available.
       LOAD_BALANCER = "load_balancer"
 
-      # No documentation available.
       NETWORK_LOAD_BALANCER = "network_load_balancer"
 
-      # No documentation available.
       VPC_ENDPOINT = "vpc_endpoint"
 
-      # No documentation available.
       BRANCH = "branch"
 
-      # No documentation available.
       TRANSIT_GATEWAY = "transit_gateway"
 
-      # No documentation available.
       LAMBDA = "lambda"
 
-      # No documentation available.
       QUICKSIGHT = "quicksight"
 
-      # No documentation available.
       GLOBAL_ACCELERATOR_MANAGED = "global_accelerator_managed"
 
-      # No documentation available.
       API_GATEWAY_MANAGED = "api_gateway_managed"
 
-      # No documentation available.
       GATEWAY_LOAD_BALANCER = "gateway_load_balancer"
 
-      # No documentation available.
       GATEWAY_LOAD_BALANCER_ENDPOINT = "gateway_load_balancer_endpoint"
 
-      # No documentation available.
       IOT_RULES_MANAGED = "iot_rules_managed"
 
-      # No documentation available.
       AWS_CODESTAR_CONNECTIONS_MANAGED = "aws_codestar_connections_managed"
     end
 
@@ -57379,12 +55878,10 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for NitroEnclavesSupport
+    # Enum constants for NitroEnclavesSupport
     module NitroEnclavesSupport
-      # No documentation available.
       UNSUPPORTED = "unsupported"
 
-      # No documentation available.
       SUPPORTED = "supported"
     end
 
@@ -57402,42 +55899,32 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for NitroTpmSupport
+    # Enum constants for NitroTpmSupport
     module NitroTpmSupport
-      # No documentation available.
       UNSUPPORTED = "unsupported"
 
-      # No documentation available.
       SUPPORTED = "supported"
     end
 
-    # Includes enum constants for OfferingClassType
+    # Enum constants for OfferingClassType
     module OfferingClassType
-      # No documentation available.
       STANDARD = "standard"
 
-      # No documentation available.
       CONVERTIBLE = "convertible"
     end
 
-    # Includes enum constants for OfferingTypeValues
+    # Enum constants for OfferingTypeValues
     module OfferingTypeValues
-      # No documentation available.
       HEAVY_UTILIZATION = "Heavy Utilization"
 
-      # No documentation available.
       MEDIUM_UTILIZATION = "Medium Utilization"
 
-      # No documentation available.
       LIGHT_UTILIZATION = "Light Utilization"
 
-      # No documentation available.
       NO_UPFRONT = "No Upfront"
 
-      # No documentation available.
       PARTIAL_UPFRONT = "Partial Upfront"
 
-      # No documentation available.
       ALL_UPFRONT = "All Upfront"
     end
 
@@ -57497,12 +55984,10 @@ module AWS::SDK::EC2
       end
     end
 
-    # Includes enum constants for OnDemandAllocationStrategy
+    # Enum constants for OnDemandAllocationStrategy
     module OnDemandAllocationStrategy
-      # No documentation available.
       LOWEST_PRICE = "lowestPrice"
 
-      # No documentation available.
       PRIORITIZED = "prioritized"
     end
 
@@ -57640,12 +56125,10 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for OperationType
+    # Enum constants for OperationType
     module OperationType
-      # No documentation available.
       ADD = "add"
 
-      # No documentation available.
       REMOVE = "remove"
     end
 
@@ -57737,18 +56220,14 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for PartitionLoadFrequency
+    # Enum constants for PartitionLoadFrequency
     module PartitionLoadFrequency
-      # No documentation available.
       NONE = "none"
 
-      # No documentation available.
       DAILY = "daily"
 
-      # No documentation available.
       WEEKLY = "weekly"
 
-      # No documentation available.
       MONTHLY = "monthly"
     end
 
@@ -57959,21 +56438,17 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for PayerResponsibility
+    # Enum constants for PayerResponsibility
     module PayerResponsibility
-      # No documentation available.
       SERVICE_OWNER = "ServiceOwner"
     end
 
-    # Includes enum constants for PaymentOption
+    # Enum constants for PaymentOption
     module PaymentOption
-      # No documentation available.
       ALL_UPFRONT = "AllUpfront"
 
-      # No documentation available.
       PARTIAL_UPFRONT = "PartialUpfront"
 
-      # No documentation available.
       NO_UPFRONT = "NoUpfront"
     end
 
@@ -58104,30 +56579,23 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for PeriodType
+    # Enum constants for PeriodType
     module PeriodType
-      # No documentation available.
       FIVE_MINUTES = "five-minutes"
 
-      # No documentation available.
       FIFTEEN_MINUTES = "fifteen-minutes"
 
-      # No documentation available.
       ONE_HOUR = "one-hour"
 
-      # No documentation available.
       THREE_HOURS = "three-hours"
 
-      # No documentation available.
       ONE_DAY = "one-day"
 
-      # No documentation available.
       ONE_WEEK = "one-week"
     end
 
-    # Includes enum constants for PermissionGroup
+    # Enum constants for PermissionGroup
     module PermissionGroup
-      # No documentation available.
       ALL = "all"
     end
 
@@ -58444,30 +56912,23 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for PlacementGroupState
+    # Enum constants for PlacementGroupState
     module PlacementGroupState
-      # No documentation available.
       PENDING = "pending"
 
-      # No documentation available.
       AVAILABLE = "available"
 
-      # No documentation available.
       DELETING = "deleting"
 
-      # No documentation available.
       DELETED = "deleted"
     end
 
-    # Includes enum constants for PlacementGroupStrategy
+    # Enum constants for PlacementGroupStrategy
     module PlacementGroupStrategy
-      # No documentation available.
       CLUSTER = "cluster"
 
-      # No documentation available.
       PARTITION = "partition"
 
-      # No documentation available.
       SPREAD = "spread"
     end
 
@@ -58485,21 +56946,17 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for PlacementStrategy
+    # Enum constants for PlacementStrategy
     module PlacementStrategy
-      # No documentation available.
       CLUSTER = "cluster"
 
-      # No documentation available.
       SPREAD = "spread"
 
-      # No documentation available.
       PARTITION = "partition"
     end
 
-    # Includes enum constants for PlatformValues
+    # Enum constants for PlatformValues
     module PlatformValues
-      # No documentation available.
       WINDOWS = "Windows"
     end
 
@@ -58619,42 +57076,30 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for PrefixListState
+    # Enum constants for PrefixListState
     module PrefixListState
-      # No documentation available.
       CREATE_IN_PROGRESS = "create-in-progress"
 
-      # No documentation available.
       CREATE_COMPLETE = "create-complete"
 
-      # No documentation available.
       CREATE_FAILED = "create-failed"
 
-      # No documentation available.
       MODIFY_IN_PROGRESS = "modify-in-progress"
 
-      # No documentation available.
       MODIFY_COMPLETE = "modify-complete"
 
-      # No documentation available.
       MODIFY_FAILED = "modify-failed"
 
-      # No documentation available.
       RESTORE_IN_PROGRESS = "restore-in-progress"
 
-      # No documentation available.
       RESTORE_COMPLETE = "restore-complete"
 
-      # No documentation available.
       RESTORE_FAILED = "restore-failed"
 
-      # No documentation available.
       DELETE_IN_PROGRESS = "delete-in-progress"
 
-      # No documentation available.
       DELETE_COMPLETE = "delete-complete"
 
-      # No documentation available.
       DELETE_FAILED = "delete-failed"
     end
 
@@ -58754,24 +57199,18 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for PrincipalType
+    # Enum constants for PrincipalType
     module PrincipalType
-      # No documentation available.
       ALL = "All"
 
-      # No documentation available.
       SERVICE = "Service"
 
-      # No documentation available.
       ORGANIZATION_UNIT = "OrganizationUnit"
 
-      # No documentation available.
       ACCOUNT = "Account"
 
-      # No documentation available.
       USER = "User"
 
-      # No documentation available.
       ROLE = "Role"
     end
 
@@ -58981,12 +57420,10 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for ProductCodeValues
+    # Enum constants for ProductCodeValues
     module ProductCodeValues
-      # No documentation available.
       DEVPAY = "devpay"
 
-      # No documentation available.
       MARKETPLACE = "marketplace"
     end
 
@@ -59004,18 +57441,15 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for Protocol
+    # Enum constants for Protocol
     module Protocol
-      # No documentation available.
       TCP = "tcp"
 
-      # No documentation available.
       UDP = "udp"
     end
 
-    # Includes enum constants for ProtocolValue
+    # Enum constants for ProtocolValue
     module ProtocolValue
-      # No documentation available.
       GRE = "gre"
     end
 
@@ -59669,18 +58103,14 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for RIProductDescription
+    # Enum constants for RIProductDescription
     module RIProductDescription
-      # No documentation available.
       LINUX_UNIX = "Linux/UNIX"
 
-      # No documentation available.
       LINUX_UNIX_AMAZON_VPC_ = "Linux/UNIX (Amazon VPC)"
 
-      # No documentation available.
       WINDOWS = "Windows"
 
-      # No documentation available.
       WINDOWS_AMAZON_VPC_ = "Windows (Amazon VPC)"
     end
 
@@ -59733,9 +58163,8 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for RecurringChargeFrequency
+    # Enum constants for RecurringChargeFrequency
     module RecurringChargeFrequency
-      # No documentation available.
       HOURLY = "Hourly"
     end
 
@@ -60658,24 +59087,18 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for ReplaceRootVolumeTaskState
+    # Enum constants for ReplaceRootVolumeTaskState
     module ReplaceRootVolumeTaskState
-      # No documentation available.
       PENDING = "pending"
 
-      # No documentation available.
       IN_PROGRESS = "in-progress"
 
-      # No documentation available.
       FAILING = "failing"
 
-      # No documentation available.
       SUCCEEDED = "succeeded"
 
-      # No documentation available.
       FAILED = "failed"
 
-      # No documentation available.
       FAILED_DETACHED = "failed-detached"
     end
 
@@ -60917,42 +59340,31 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for ReplacementStrategy
+    # Enum constants for ReplacementStrategy
     module ReplacementStrategy
-      # No documentation available.
       LAUNCH = "launch"
 
-      # No documentation available.
       LAUNCH_BEFORE_TERMINATE = "launch-before-terminate"
     end
 
-    # Includes enum constants for ReportInstanceReasonCodes
+    # Enum constants for ReportInstanceReasonCodes
     module ReportInstanceReasonCodes
-      # No documentation available.
       INSTANCE_STUCK_IN_STATE = "instance-stuck-in-state"
 
-      # No documentation available.
       UNRESPONSIVE = "unresponsive"
 
-      # No documentation available.
       NOT_ACCEPTING_CREDENTIALS = "not-accepting-credentials"
 
-      # No documentation available.
       PASSWORD_NOT_AVAILABLE = "password-not-available"
 
-      # No documentation available.
       PERFORMANCE_NETWORK = "performance-network"
 
-      # No documentation available.
       PERFORMANCE_INSTANCE_STORE = "performance-instance-store"
 
-      # No documentation available.
       PERFORMANCE_EBS_VOLUME = "performance-ebs-volume"
 
-      # No documentation available.
       PERFORMANCE_OTHER = "performance-other"
 
-      # No documentation available.
       OTHER = "other"
     end
 
@@ -61055,12 +59467,10 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for ReportStatusType
+    # Enum constants for ReportStatusType
     module ReportStatusType
-      # No documentation available.
       OK = "ok"
 
-      # No documentation available.
       IMPAIRED = "impaired"
     end
 
@@ -61828,18 +60238,14 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for ReservationState
+    # Enum constants for ReservationState
     module ReservationState
-      # No documentation available.
       PAYMENT_PENDING = "payment-pending"
 
-      # No documentation available.
       PAYMENT_FAILED = "payment-failed"
 
-      # No documentation available.
       ACTIVE = "active"
 
-      # No documentation available.
       RETIRED = "retired"
     end
 
@@ -61907,24 +60313,18 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for ReservedInstanceState
+    # Enum constants for ReservedInstanceState
     module ReservedInstanceState
-      # No documentation available.
       PAYMENT_PENDING = "payment-pending"
 
-      # No documentation available.
       ACTIVE = "active"
 
-      # No documentation available.
       PAYMENT_FAILED = "payment-failed"
 
-      # No documentation available.
       RETIRED = "retired"
 
-      # No documentation available.
       QUEUED = "queued"
 
-      # No documentation available.
       QUEUED_DELETED = "queued-deleted"
     end
 
@@ -62415,9 +60815,8 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for ResetFpgaImageAttributeName
+    # Enum constants for ResetFpgaImageAttributeName
     module ResetFpgaImageAttributeName
-      # No documentation available.
       LOAD_PERMISSION = "loadPermission"
     end
 
@@ -62461,9 +60860,8 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for ResetImageAttributeName
+    # Enum constants for ResetImageAttributeName
     module ResetImageAttributeName
-      # No documentation available.
       LAUNCH_PERMISSION = "launchPermission"
     end
 
@@ -62624,264 +61022,178 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for ResourceType
+    # Enum constants for ResourceType
     module ResourceType
-      # No documentation available.
       CAPACITY_RESERVATION = "capacity-reservation"
 
-      # No documentation available.
       CLIENT_VPN_ENDPOINT = "client-vpn-endpoint"
 
-      # No documentation available.
       CUSTOMER_GATEWAY = "customer-gateway"
 
-      # No documentation available.
       CARRIER_GATEWAY = "carrier-gateway"
 
-      # No documentation available.
       COIP_POOL = "coip-pool"
 
-      # No documentation available.
       DEDICATED_HOST = "dedicated-host"
 
-      # No documentation available.
       DHCP_OPTIONS = "dhcp-options"
 
-      # No documentation available.
       EGRESS_ONLY_INTERNET_GATEWAY = "egress-only-internet-gateway"
 
-      # No documentation available.
       ELASTIC_IP = "elastic-ip"
 
-      # No documentation available.
       ELASTIC_GPU = "elastic-gpu"
 
-      # No documentation available.
       EXPORT_IMAGE_TASK = "export-image-task"
 
-      # No documentation available.
       EXPORT_INSTANCE_TASK = "export-instance-task"
 
-      # No documentation available.
       FLEET = "fleet"
 
-      # No documentation available.
       FPGA_IMAGE = "fpga-image"
 
-      # No documentation available.
       HOST_RESERVATION = "host-reservation"
 
-      # No documentation available.
       IMAGE = "image"
 
-      # No documentation available.
       IMPORT_IMAGE_TASK = "import-image-task"
 
-      # No documentation available.
       IMPORT_SNAPSHOT_TASK = "import-snapshot-task"
 
-      # No documentation available.
       INSTANCE = "instance"
 
-      # No documentation available.
       INSTANCE_EVENT_WINDOW = "instance-event-window"
 
-      # No documentation available.
       INTERNET_GATEWAY = "internet-gateway"
 
-      # No documentation available.
       IPAM = "ipam"
 
-      # No documentation available.
       IPAM_POOL = "ipam-pool"
 
-      # No documentation available.
       IPAM_SCOPE = "ipam-scope"
 
-      # No documentation available.
       IPV4POOL_EC2 = "ipv4pool-ec2"
 
-      # No documentation available.
       IPV6POOL_EC2 = "ipv6pool-ec2"
 
-      # No documentation available.
       KEY_PAIR = "key-pair"
 
-      # No documentation available.
       LAUNCH_TEMPLATE = "launch-template"
 
-      # No documentation available.
       LOCAL_GATEWAY = "local-gateway"
 
-      # No documentation available.
       LOCAL_GATEWAY_ROUTE_TABLE = "local-gateway-route-table"
 
-      # No documentation available.
       LOCAL_GATEWAY_VIRTUAL_INTERFACE = "local-gateway-virtual-interface"
 
-      # No documentation available.
       LOCAL_GATEWAY_VIRTUAL_INTERFACE_GROUP = "local-gateway-virtual-interface-group"
 
-      # No documentation available.
       LOCAL_GATEWAY_ROUTE_TABLE_VPC_ASSOCIATION = "local-gateway-route-table-vpc-association"
 
-      # No documentation available.
       LOCAL_GATEWAY_ROUTE_TABLE_VIRTUAL_INTERFACE_GROUP_ASSOCIATION = "local-gateway-route-table-virtual-interface-group-association"
 
-      # No documentation available.
       NATGATEWAY = "natgateway"
 
-      # No documentation available.
       NETWORK_ACL = "network-acl"
 
-      # No documentation available.
       NETWORK_INTERFACE = "network-interface"
 
-      # No documentation available.
       NETWORK_INSIGHTS_ANALYSIS = "network-insights-analysis"
 
-      # No documentation available.
       NETWORK_INSIGHTS_PATH = "network-insights-path"
 
-      # No documentation available.
       NETWORK_INSIGHTS_ACCESS_SCOPE = "network-insights-access-scope"
 
-      # No documentation available.
       NETWORK_INSIGHTS_ACCESS_SCOPE_ANALYSIS = "network-insights-access-scope-analysis"
 
-      # No documentation available.
       PLACEMENT_GROUP = "placement-group"
 
-      # No documentation available.
       PREFIX_LIST = "prefix-list"
 
-      # No documentation available.
       REPLACE_ROOT_VOLUME_TASK = "replace-root-volume-task"
 
-      # No documentation available.
       RESERVED_INSTANCES = "reserved-instances"
 
-      # No documentation available.
       ROUTE_TABLE = "route-table"
 
-      # No documentation available.
       SECURITY_GROUP = "security-group"
 
-      # No documentation available.
       SECURITY_GROUP_RULE = "security-group-rule"
 
-      # No documentation available.
       SNAPSHOT = "snapshot"
 
-      # No documentation available.
       SPOT_FLEET_REQUEST = "spot-fleet-request"
 
-      # No documentation available.
       SPOT_INSTANCES_REQUEST = "spot-instances-request"
 
-      # No documentation available.
       SUBNET = "subnet"
 
-      # No documentation available.
       SUBNET_CIDR_RESERVATION = "subnet-cidr-reservation"
 
-      # No documentation available.
       TRAFFIC_MIRROR_FILTER = "traffic-mirror-filter"
 
-      # No documentation available.
       TRAFFIC_MIRROR_SESSION = "traffic-mirror-session"
 
-      # No documentation available.
       TRAFFIC_MIRROR_TARGET = "traffic-mirror-target"
 
-      # No documentation available.
       TRANSIT_GATEWAY = "transit-gateway"
 
-      # No documentation available.
       TRANSIT_GATEWAY_ATTACHMENT = "transit-gateway-attachment"
 
-      # No documentation available.
       TRANSIT_GATEWAY_CONNECT_PEER = "transit-gateway-connect-peer"
 
-      # No documentation available.
       TRANSIT_GATEWAY_MULTICAST_DOMAIN = "transit-gateway-multicast-domain"
 
-      # No documentation available.
       TRANSIT_GATEWAY_POLICY_TABLE = "transit-gateway-policy-table"
 
-      # No documentation available.
       TRANSIT_GATEWAY_ROUTE_TABLE = "transit-gateway-route-table"
 
-      # No documentation available.
       TRANSIT_GATEWAY_ROUTE_TABLE_ANNOUNCEMENT = "transit-gateway-route-table-announcement"
 
-      # No documentation available.
       VOLUME = "volume"
 
-      # No documentation available.
       VPC = "vpc"
 
-      # No documentation available.
       VPC_ENDPOINT = "vpc-endpoint"
 
-      # No documentation available.
       VPC_ENDPOINT_CONNECTION = "vpc-endpoint-connection"
 
-      # No documentation available.
       VPC_ENDPOINT_SERVICE = "vpc-endpoint-service"
 
-      # No documentation available.
       VPC_ENDPOINT_SERVICE_PERMISSION = "vpc-endpoint-service-permission"
 
-      # No documentation available.
       VPC_PEERING_CONNECTION = "vpc-peering-connection"
 
-      # No documentation available.
       VPN_CONNECTION = "vpn-connection"
 
-      # No documentation available.
       VPN_GATEWAY = "vpn-gateway"
 
-      # No documentation available.
       VPC_FLOW_LOG = "vpc-flow-log"
 
-      # No documentation available.
       CAPACITY_RESERVATION_FLEET = "capacity-reservation-fleet"
 
-      # No documentation available.
       TRAFFIC_MIRROR_FILTER_RULE = "traffic-mirror-filter-rule"
 
-      # No documentation available.
       VPC_ENDPOINT_CONNECTION_DEVICE_TYPE = "vpc-endpoint-connection-device-type"
 
-      # No documentation available.
       VERIFIED_ACCESS_INSTANCE = "verified-access-instance"
 
-      # No documentation available.
       VERIFIED_ACCESS_GROUP = "verified-access-group"
 
-      # No documentation available.
       VERIFIED_ACCESS_ENDPOINT = "verified-access-endpoint"
 
-      # No documentation available.
       VERIFIED_ACCESS_POLICY = "verified-access-policy"
 
-      # No documentation available.
       VERIFIED_ACCESS_TRUST_PROVIDER = "verified-access-trust-provider"
 
-      # No documentation available.
       VPN_CONNECTION_DEVICE_TYPE = "vpn-connection-device-type"
 
-      # No documentation available.
       VPC_BLOCK_PUBLIC_ACCESS_EXCLUSION = "vpc-block-public-access-exclusion"
 
-      # No documentation available.
       IPAM_RESOURCE_DISCOVERY = "ipam-resource-discovery"
 
-      # No documentation available.
       IPAM_RESOURCE_DISCOVERY_ASSOCIATION = "ipam-resource-discovery-association"
 
-      # No documentation available.
       INSTANCE_CONNECT_ENDPOINT = "instance-connect-endpoint"
     end
 
@@ -63645,12 +61957,10 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for RootDeviceType
+    # Enum constants for RootDeviceType
     module RootDeviceType
-      # No documentation available.
       EBS = "ebs"
 
-      # No documentation available.
       INSTANCE_STORE = "instance-store"
     end
 
@@ -63761,24 +62071,19 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for RouteOrigin
+    # Enum constants for RouteOrigin
     module RouteOrigin
-      # No documentation available.
       CREATE_ROUTE_TABLE = "CreateRouteTable"
 
-      # No documentation available.
       CREATE_ROUTE = "CreateRoute"
 
-      # No documentation available.
       ENABLE_VGW_ROUTE_PROPAGATION = "EnableVgwRoutePropagation"
     end
 
-    # Includes enum constants for RouteState
+    # Enum constants for RouteState
     module RouteState
-      # No documentation available.
       ACTIVE = "active"
 
-      # No documentation available.
       BLACKHOLE = "blackhole"
     end
 
@@ -63885,30 +62190,23 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for RouteTableAssociationStateCode
+    # Enum constants for RouteTableAssociationStateCode
     module RouteTableAssociationStateCode
-      # No documentation available.
       ASSOCIATING = "associating"
 
-      # No documentation available.
       ASSOCIATED = "associated"
 
-      # No documentation available.
       DISASSOCIATING = "disassociating"
 
-      # No documentation available.
       DISASSOCIATED = "disassociated"
 
-      # No documentation available.
       FAILED = "failed"
     end
 
-    # Includes enum constants for RuleAction
+    # Enum constants for RuleAction
     module RuleAction
-      # No documentation available.
       ALLOW = "allow"
 
-      # No documentation available.
       DENY = "deny"
     end
 
@@ -64577,15 +62875,12 @@ module AWS::SDK::EC2
       end
     end
 
-    # Includes enum constants for SSEType
+    # Enum constants for SSEType
     module SSEType
-      # No documentation available.
       SSE_EBS = "sse-ebs"
 
-      # No documentation available.
       SSE_KMS = "sse-kms"
 
-      # No documentation available.
       NONE = "none"
     end
 
@@ -65557,12 +63852,10 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for SecurityGroupReferencingSupportValue
+    # Enum constants for SecurityGroupReferencingSupportValue
     module SecurityGroupReferencingSupportValue
-      # No documentation available.
       ENABLE = "enable"
 
-      # No documentation available.
       DISABLE = "disable"
     end
 
@@ -65758,12 +64051,10 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for SelfServicePortal
+    # Enum constants for SelfServicePortal
     module SelfServicePortal
-      # No documentation available.
       ENABLED = "enabled"
 
-      # No documentation available.
       DISABLED = "disabled"
     end
 
@@ -65883,12 +64174,10 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for ServiceConnectivityType
+    # Enum constants for ServiceConnectivityType
     module ServiceConnectivityType
-      # No documentation available.
       IPV4 = "ipv4"
 
-      # No documentation available.
       IPV6 = "ipv6"
     end
 
@@ -65980,33 +64269,25 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for ServiceState
+    # Enum constants for ServiceState
     module ServiceState
-      # No documentation available.
       PENDING = "Pending"
 
-      # No documentation available.
       AVAILABLE = "Available"
 
-      # No documentation available.
       DELETING = "Deleting"
 
-      # No documentation available.
       DELETED = "Deleted"
 
-      # No documentation available.
       FAILED = "Failed"
     end
 
-    # Includes enum constants for ServiceType
+    # Enum constants for ServiceType
     module ServiceType
-      # No documentation available.
       INTERFACE = "Interface"
 
-      # No documentation available.
       GATEWAY = "Gateway"
 
-      # No documentation available.
       GATEWAY_LOAD_BALANCER = "GatewayLoadBalancer"
     end
 
@@ -66025,12 +64306,10 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for ShutdownBehavior
+    # Enum constants for ShutdownBehavior
     module ShutdownBehavior
-      # No documentation available.
       STOP = "stop"
 
-      # No documentation available.
       TERMINATE = "terminate"
     end
 
@@ -66190,24 +64469,19 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for SnapshotAttributeName
+    # Enum constants for SnapshotAttributeName
     module SnapshotAttributeName
-      # No documentation available.
       PRODUCT_CODES = "productCodes"
 
-      # No documentation available.
       CREATE_VOLUME_PERMISSION = "createVolumePermission"
     end
 
-    # Includes enum constants for SnapshotBlockPublicAccessState
+    # Enum constants for SnapshotBlockPublicAccessState
     module SnapshotBlockPublicAccessState
-      # No documentation available.
       BLOCK_ALL_SHARING = "block-all-sharing"
 
-      # No documentation available.
       BLOCK_NEW_SHARING = "block-new-sharing"
 
-      # No documentation available.
       UNBLOCKED = "unblocked"
     end
 
@@ -66432,21 +64706,16 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for SnapshotState
+    # Enum constants for SnapshotState
     module SnapshotState
-      # No documentation available.
       PENDING = "pending"
 
-      # No documentation available.
       COMPLETED = "completed"
 
-      # No documentation available.
       ERROR = "error"
 
-      # No documentation available.
       RECOVERABLE = "recoverable"
 
-      # No documentation available.
       RECOVERING = "recovering"
     end
 
@@ -66605,21 +64874,16 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for SpotAllocationStrategy
+    # Enum constants for SpotAllocationStrategy
     module SpotAllocationStrategy
-      # No documentation available.
       LOWEST_PRICE = "lowest-price"
 
-      # No documentation available.
       DIVERSIFIED = "diversified"
 
-      # No documentation available.
       CAPACITY_OPTIMIZED = "capacity-optimized"
 
-      # No documentation available.
       CAPACITY_OPTIMIZED_PRIORITIZED = "capacity-optimized-prioritized"
 
-      # No documentation available.
       PRICE_CAPACITY_OPTIMIZED = "price-capacity-optimized"
     end
 
@@ -67227,15 +65491,12 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for SpotInstanceInterruptionBehavior
+    # Enum constants for SpotInstanceInterruptionBehavior
     module SpotInstanceInterruptionBehavior
-      # No documentation available.
       HIBERNATE = "hibernate"
 
-      # No documentation available.
       STOP = "stop"
 
-      # No documentation available.
       TERMINATE = "terminate"
     end
 
@@ -67368,24 +65629,18 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for SpotInstanceState
+    # Enum constants for SpotInstanceState
     module SpotInstanceState
-      # No documentation available.
       OPEN = "open"
 
-      # No documentation available.
       ACTIVE = "active"
 
-      # No documentation available.
       CLOSED = "closed"
 
-      # No documentation available.
       CANCELLED = "cancelled"
 
-      # No documentation available.
       FAILED = "failed"
 
-      # No documentation available.
       DISABLED = "disabled"
     end
 
@@ -67433,12 +65688,10 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for SpotInstanceType
+    # Enum constants for SpotInstanceType
     module SpotInstanceType
-      # No documentation available.
       ONE_TIME = "one-time"
 
-      # No documentation available.
       PERSISTENT = "persistent"
     end
 
@@ -67891,12 +66144,10 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for SpreadLevel
+    # Enum constants for SpreadLevel
     module SpreadLevel
-      # No documentation available.
       HOST = "host"
 
-      # No documentation available.
       RACK = "rack"
     end
 
@@ -68149,30 +66400,22 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for State
+    # Enum constants for State
     module State
-      # No documentation available.
       PENDING_ACCEPTANCE = "PendingAcceptance"
 
-      # No documentation available.
       PENDING = "Pending"
 
-      # No documentation available.
       AVAILABLE = "Available"
 
-      # No documentation available.
       DELETING = "Deleting"
 
-      # No documentation available.
       DELETED = "Deleted"
 
-      # No documentation available.
       REJECTED = "Rejected"
 
-      # No documentation available.
       FAILED = "Failed"
 
-      # No documentation available.
       EXPIRED = "Expired"
     end
 
@@ -68262,51 +66505,40 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for StaticSourcesSupportValue
+    # Enum constants for StaticSourcesSupportValue
     module StaticSourcesSupportValue
-      # No documentation available.
       ENABLE = "enable"
 
-      # No documentation available.
       DISABLE = "disable"
     end
 
-    # Includes enum constants for StatisticType
+    # Enum constants for StatisticType
     module StatisticType
-      # No documentation available.
       P50 = "p50"
     end
 
-    # Includes enum constants for Status
+    # Enum constants for Status
     module Status
-      # No documentation available.
       MOVE_IN_PROGRESS = "MoveInProgress"
 
-      # No documentation available.
       IN_VPC = "InVpc"
 
-      # No documentation available.
       IN_CLASSIC = "InClassic"
     end
 
-    # Includes enum constants for StatusName
+    # Enum constants for StatusName
     module StatusName
-      # No documentation available.
       REACHABILITY = "reachability"
     end
 
-    # Includes enum constants for StatusType
+    # Enum constants for StatusType
     module StatusType
-      # No documentation available.
       PASSED = "passed"
 
-      # No documentation available.
       FAILED = "failed"
 
-      # No documentation available.
       INSUFFICIENT_DATA = "insufficient-data"
 
-      # No documentation available.
       INITIALIZING = "initializing"
     end
 
@@ -68396,12 +66628,10 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for StorageTier
+    # Enum constants for StorageTier
     module StorageTier
-      # No documentation available.
       ARCHIVE = "archive"
 
-      # No documentation available.
       STANDARD = "standard"
     end
 
@@ -68617,24 +66847,18 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for SubnetCidrBlockStateCode
+    # Enum constants for SubnetCidrBlockStateCode
     module SubnetCidrBlockStateCode
-      # No documentation available.
       ASSOCIATING = "associating"
 
-      # No documentation available.
       ASSOCIATED = "associated"
 
-      # No documentation available.
       DISASSOCIATING = "disassociating"
 
-      # No documentation available.
       DISASSOCIATED = "disassociated"
 
-      # No documentation available.
       FAILING = "failing"
 
-      # No documentation available.
       FAILED = "failed"
     end
 
@@ -68683,12 +66907,10 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for SubnetCidrReservationType
+    # Enum constants for SubnetCidrReservationType
     module SubnetCidrReservationType
-      # No documentation available.
       PREFIX = "prefix"
 
-      # No documentation available.
       EXPLICIT = "explicit"
     end
 
@@ -68748,15 +66970,12 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for SubnetState
+    # Enum constants for SubnetState
     module SubnetState
-      # No documentation available.
       PENDING = "pending"
 
-      # No documentation available.
       AVAILABLE = "available"
 
-      # No documentation available.
       UNAVAILABLE = "unavailable"
     end
 
@@ -68826,27 +67045,21 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for SummaryStatus
+    # Enum constants for SummaryStatus
     module SummaryStatus
-      # No documentation available.
       OK = "ok"
 
-      # No documentation available.
       IMPAIRED = "impaired"
 
-      # No documentation available.
       INSUFFICIENT_DATA = "insufficient-data"
 
-      # No documentation available.
       NOT_APPLICABLE = "not-applicable"
 
-      # No documentation available.
       INITIALIZING = "initializing"
     end
 
-    # Includes enum constants for SupportedAdditionalProcessorFeature
+    # Enum constants for SupportedAdditionalProcessorFeature
     module SupportedAdditionalProcessorFeature
-      # No documentation available.
       AMD_SEV_SNP = "amd-sev-snp"
     end
 
@@ -69025,15 +67238,12 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for TargetCapacityUnitType
+    # Enum constants for TargetCapacityUnitType
     module TargetCapacityUnitType
-      # No documentation available.
       VCPU = "vcpu"
 
-      # No documentation available.
       MEMORY_MIB = "memory-mib"
 
-      # No documentation available.
       UNITS = "units"
     end
 
@@ -69165,30 +67375,24 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for TargetStorageTier
+    # Enum constants for TargetStorageTier
     module TargetStorageTier
-      # No documentation available.
       ARCHIVE = "archive"
     end
 
-    # Includes enum constants for TelemetryStatus
+    # Enum constants for TelemetryStatus
     module TelemetryStatus
-      # No documentation available.
       UP = "UP"
 
-      # No documentation available.
       DOWN = "DOWN"
     end
 
-    # Includes enum constants for Tenancy
+    # Enum constants for Tenancy
     module Tenancy
-      # No documentation available.
       DEFAULT = "default"
 
-      # No documentation available.
       DEDICATED = "dedicated"
 
-      # No documentation available.
       HOST = "host"
     end
 
@@ -69331,33 +67535,24 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for TieringOperationStatus
+    # Enum constants for TieringOperationStatus
     module TieringOperationStatus
-      # No documentation available.
       ARCHIVAL_IN_PROGRESS = "archival-in-progress"
 
-      # No documentation available.
       ARCHIVAL_COMPLETED = "archival-completed"
 
-      # No documentation available.
       ARCHIVAL_FAILED = "archival-failed"
 
-      # No documentation available.
       TEMPORARY_RESTORE_IN_PROGRESS = "temporary-restore-in-progress"
 
-      # No documentation available.
       TEMPORARY_RESTORE_COMPLETED = "temporary-restore-completed"
 
-      # No documentation available.
       TEMPORARY_RESTORE_FAILED = "temporary-restore-failed"
 
-      # No documentation available.
       PERMANENT_RESTORE_IN_PROGRESS = "permanent-restore-in-progress"
 
-      # No documentation available.
       PERMANENT_RESTORE_COMPLETED = "permanent-restore-completed"
 
-      # No documentation available.
       PERMANENT_RESTORE_FAILED = "permanent-restore-failed"
     end
 
@@ -69403,18 +67598,15 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for TpmSupportValues
+    # Enum constants for TpmSupportValues
     module TpmSupportValues
-      # No documentation available.
       V2_0 = "v2.0"
     end
 
-    # Includes enum constants for TrafficDirection
+    # Enum constants for TrafficDirection
     module TrafficDirection
-      # No documentation available.
       INGRESS = "ingress"
 
-      # No documentation available.
       EGRESS = "egress"
     end
 
@@ -69523,24 +67715,19 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for TrafficMirrorFilterRuleField
+    # Enum constants for TrafficMirrorFilterRuleField
     module TrafficMirrorFilterRuleField
-      # No documentation available.
       DESTINATION_PORT_RANGE = "destination-port-range"
 
-      # No documentation available.
       SOURCE_PORT_RANGE = "source-port-range"
 
-      # No documentation available.
       PROTOCOL = "protocol"
 
-      # No documentation available.
       DESCRIPTION = "description"
     end
 
-    # Includes enum constants for TrafficMirrorNetworkService
+    # Enum constants for TrafficMirrorNetworkService
     module TrafficMirrorNetworkService
-      # No documentation available.
       AMAZON_DNS = "amazon-dns"
     end
 
@@ -69582,12 +67769,10 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for TrafficMirrorRuleAction
+    # Enum constants for TrafficMirrorRuleAction
     module TrafficMirrorRuleAction
-      # No documentation available.
       ACCEPT = "accept"
 
-      # No documentation available.
       REJECT = "reject"
     end
 
@@ -69651,15 +67836,12 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for TrafficMirrorSessionField
+    # Enum constants for TrafficMirrorSessionField
     module TrafficMirrorSessionField
-      # No documentation available.
       PACKET_LENGTH = "packet-length"
 
-      # No documentation available.
       DESCRIPTION = "description"
 
-      # No documentation available.
       VIRTUAL_NETWORK_ID = "virtual-network-id"
     end
 
@@ -69713,27 +67895,21 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for TrafficMirrorTargetType
+    # Enum constants for TrafficMirrorTargetType
     module TrafficMirrorTargetType
-      # No documentation available.
       NETWORK_INTERFACE = "network-interface"
 
-      # No documentation available.
       NETWORK_LOAD_BALANCER = "network-load-balancer"
 
-      # No documentation available.
       GATEWAY_LOAD_BALANCER_ENDPOINT = "gateway-load-balancer-endpoint"
     end
 
-    # Includes enum constants for TrafficType
+    # Enum constants for TrafficType
     module TrafficType
-      # No documentation available.
       ACCEPT = "ACCEPT"
 
-      # No documentation available.
       REJECT = "REJECT"
 
-      # No documentation available.
       ALL = "ALL"
     end
 
@@ -69823,18 +67999,14 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for TransitGatewayAssociationState
+    # Enum constants for TransitGatewayAssociationState
     module TransitGatewayAssociationState
-      # No documentation available.
       ASSOCIATING = "associating"
 
-      # No documentation available.
       ASSOCIATED = "associated"
 
-      # No documentation available.
       DISASSOCIATING = "disassociating"
 
-      # No documentation available.
       DISASSOCIATED = "disassociated"
     end
 
@@ -69974,66 +68146,47 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for TransitGatewayAttachmentResourceType
+    # Enum constants for TransitGatewayAttachmentResourceType
     module TransitGatewayAttachmentResourceType
-      # No documentation available.
       VPC = "vpc"
 
-      # No documentation available.
       VPN = "vpn"
 
-      # No documentation available.
       DIRECT_CONNECT_GATEWAY = "direct-connect-gateway"
 
-      # No documentation available.
       CONNECT = "connect"
 
-      # No documentation available.
       PEERING = "peering"
 
-      # No documentation available.
       TGW_PEERING = "tgw-peering"
     end
 
-    # Includes enum constants for TransitGatewayAttachmentState
+    # Enum constants for TransitGatewayAttachmentState
     module TransitGatewayAttachmentState
-      # No documentation available.
       INITIATING = "initiating"
 
-      # No documentation available.
       INITIATING_REQUEST = "initiatingRequest"
 
-      # No documentation available.
       PENDING_ACCEPTANCE = "pendingAcceptance"
 
-      # No documentation available.
       ROLLING_BACK = "rollingBack"
 
-      # No documentation available.
       PENDING = "pending"
 
-      # No documentation available.
       AVAILABLE = "available"
 
-      # No documentation available.
       MODIFYING = "modifying"
 
-      # No documentation available.
       DELETING = "deleting"
 
-      # No documentation available.
       DELETED = "deleted"
 
-      # No documentation available.
       FAILED = "failed"
 
-      # No documentation available.
       REJECTED = "rejected"
 
-      # No documentation available.
       REJECTING = "rejecting"
 
-      # No documentation available.
       FAILING = "failing"
     end
 
@@ -70172,18 +68325,14 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for TransitGatewayConnectPeerState
+    # Enum constants for TransitGatewayConnectPeerState
     module TransitGatewayConnectPeerState
-      # No documentation available.
       PENDING = "pending"
 
-      # No documentation available.
       AVAILABLE = "available"
 
-      # No documentation available.
       DELETING = "deleting"
 
-      # No documentation available.
       DELETED = "deleted"
     end
 
@@ -70201,27 +68350,20 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for TransitGatewayMulitcastDomainAssociationState
+    # Enum constants for TransitGatewayMulitcastDomainAssociationState
     module TransitGatewayMulitcastDomainAssociationState
-      # No documentation available.
       PENDING_ACCEPTANCE = "pendingAcceptance"
 
-      # No documentation available.
       ASSOCIATING = "associating"
 
-      # No documentation available.
       ASSOCIATED = "associated"
 
-      # No documentation available.
       DISASSOCIATING = "disassociating"
 
-      # No documentation available.
       DISASSOCIATED = "disassociated"
 
-      # No documentation available.
       REJECTED = "rejected"
 
-      # No documentation available.
       FAILED = "failed"
     end
 
@@ -70425,18 +68567,14 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for TransitGatewayMulticastDomainState
+    # Enum constants for TransitGatewayMulticastDomainState
     module TransitGatewayMulticastDomainState
-      # No documentation available.
       PENDING = "pending"
 
-      # No documentation available.
       AVAILABLE = "available"
 
-      # No documentation available.
       DELETING = "deleting"
 
-      # No documentation available.
       DELETED = "deleted"
     end
 
@@ -70851,18 +68989,14 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for TransitGatewayPolicyTableState
+    # Enum constants for TransitGatewayPolicyTableState
     module TransitGatewayPolicyTableState
-      # No documentation available.
       PENDING = "pending"
 
-      # No documentation available.
       AVAILABLE = "available"
 
-      # No documentation available.
       DELETING = "deleting"
 
-      # No documentation available.
       DELETED = "deleted"
     end
 
@@ -70931,18 +69065,14 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for TransitGatewayPrefixListReferenceState
+    # Enum constants for TransitGatewayPrefixListReferenceState
     module TransitGatewayPrefixListReferenceState
-      # No documentation available.
       PENDING = "pending"
 
-      # No documentation available.
       AVAILABLE = "available"
 
-      # No documentation available.
       MODIFYING = "modifying"
 
-      # No documentation available.
       DELETING = "deleting"
     end
 
@@ -70987,18 +69117,14 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for TransitGatewayPropagationState
+    # Enum constants for TransitGatewayPropagationState
     module TransitGatewayPropagationState
-      # No documentation available.
       ENABLING = "enabling"
 
-      # No documentation available.
       ENABLED = "enabled"
 
-      # No documentation available.
       DISABLING = "disabling"
 
-      # No documentation available.
       DISABLED = "disabled"
     end
 
@@ -71131,21 +69257,16 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for TransitGatewayRouteState
+    # Enum constants for TransitGatewayRouteState
     module TransitGatewayRouteState
-      # No documentation available.
       PENDING = "pending"
 
-      # No documentation available.
       ACTIVE = "active"
 
-      # No documentation available.
       BLACKHOLE = "blackhole"
 
-      # No documentation available.
       DELETING = "deleting"
 
-      # No documentation available.
       DELETED = "deleted"
     end
 
@@ -71260,33 +69381,25 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for TransitGatewayRouteTableAnnouncementDirection
+    # Enum constants for TransitGatewayRouteTableAnnouncementDirection
     module TransitGatewayRouteTableAnnouncementDirection
-      # No documentation available.
       OUTGOING = "outgoing"
 
-      # No documentation available.
       INCOMING = "incoming"
     end
 
-    # Includes enum constants for TransitGatewayRouteTableAnnouncementState
+    # Enum constants for TransitGatewayRouteTableAnnouncementState
     module TransitGatewayRouteTableAnnouncementState
-      # No documentation available.
       AVAILABLE = "available"
 
-      # No documentation available.
       PENDING = "pending"
 
-      # No documentation available.
       FAILING = "failing"
 
-      # No documentation available.
       FAILED = "failed"
 
-      # No documentation available.
       DELETING = "deleting"
 
-      # No documentation available.
       DELETED = "deleted"
     end
 
@@ -71409,45 +69522,34 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for TransitGatewayRouteTableState
+    # Enum constants for TransitGatewayRouteTableState
     module TransitGatewayRouteTableState
-      # No documentation available.
       PENDING = "pending"
 
-      # No documentation available.
       AVAILABLE = "available"
 
-      # No documentation available.
       DELETING = "deleting"
 
-      # No documentation available.
       DELETED = "deleted"
     end
 
-    # Includes enum constants for TransitGatewayRouteType
+    # Enum constants for TransitGatewayRouteType
     module TransitGatewayRouteType
-      # No documentation available.
       STATIC = "static"
 
-      # No documentation available.
       PROPAGATED = "propagated"
     end
 
-    # Includes enum constants for TransitGatewayState
+    # Enum constants for TransitGatewayState
     module TransitGatewayState
-      # No documentation available.
       PENDING = "pending"
 
-      # No documentation available.
       AVAILABLE = "available"
 
-      # No documentation available.
       MODIFYING = "modifying"
 
-      # No documentation available.
       DELETING = "deleting"
 
-      # No documentation available.
       DELETED = "deleted"
     end
 
@@ -71539,12 +69641,10 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for TransportProtocol
+    # Enum constants for TransportProtocol
     module TransportProtocol
-      # No documentation available.
       TCP = "tcp"
 
-      # No documentation available.
       UDP = "udp"
     end
 
@@ -71593,21 +69693,17 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for TrustProviderType
+    # Enum constants for TrustProviderType
     module TrustProviderType
-      # No documentation available.
       USER = "user"
 
-      # No documentation available.
       DEVICE = "device"
     end
 
-    # Includes enum constants for TunnelInsideIpVersion
+    # Enum constants for TunnelInsideIpVersion
     module TunnelInsideIpVersion
-      # No documentation available.
       IPV4 = "ipv4"
 
-      # No documentation available.
       IPV6 = "ipv6"
     end
 
@@ -71887,18 +69983,14 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for UnlimitedSupportedInstanceFamily
+    # Enum constants for UnlimitedSupportedInstanceFamily
     module UnlimitedSupportedInstanceFamily
-      # No documentation available.
       T2 = "t2"
 
-      # No documentation available.
       T3 = "t3"
 
-      # No documentation available.
       T3A = "t3a"
 
-      # No documentation available.
       T4G = "t4g"
     end
 
@@ -71968,18 +70060,14 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for UnsuccessfulInstanceCreditSpecificationErrorCode
+    # Enum constants for UnsuccessfulInstanceCreditSpecificationErrorCode
     module UnsuccessfulInstanceCreditSpecificationErrorCode
-      # No documentation available.
       INVALID_INSTANCE_ID = "InvalidInstanceID.Malformed"
 
-      # No documentation available.
       INSTANCE_NOT_FOUND = "InvalidInstanceID.NotFound"
 
-      # No documentation available.
       INCORRECT_INSTANCE_STATE = "IncorrectInstanceState"
 
-      # No documentation available.
       INSTANCE_CREDIT_SPECIFICATION_NOT_SUPPORTED = "InstanceCreditSpecification.NotSupported"
     end
 
@@ -72170,15 +70258,12 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for UsageClassType
+    # Enum constants for UsageClassType
     module UsageClassType
-      # No documentation available.
       SPOT = "spot"
 
-      # No documentation available.
       ON_DEMAND = "on-demand"
 
-      # No documentation available.
       CAPACITY_BLOCK = "capacity-block"
     end
 
@@ -72294,12 +70379,10 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for UserTrustProviderType
+    # Enum constants for UserTrustProviderType
     module UserTrustProviderType
-      # No documentation available.
       IAM_IDENTITY_CENTER = "iam-identity-center"
 
-      # No documentation available.
       OIDC = "oidc"
     end
 
@@ -72528,9 +70611,8 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for VerifiedAccessEndpointAttachmentType
+    # Enum constants for VerifiedAccessEndpointAttachmentType
     module VerifiedAccessEndpointAttachmentType
-      # No documentation available.
       VPC = "vpc"
     end
 
@@ -72590,12 +70672,10 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for VerifiedAccessEndpointProtocol
+    # Enum constants for VerifiedAccessEndpointProtocol
     module VerifiedAccessEndpointProtocol
-      # No documentation available.
       HTTP = "http"
 
-      # No documentation available.
       HTTPS = "https"
     end
 
@@ -72619,30 +70699,23 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for VerifiedAccessEndpointStatusCode
+    # Enum constants for VerifiedAccessEndpointStatusCode
     module VerifiedAccessEndpointStatusCode
-      # No documentation available.
       PENDING = "pending"
 
-      # No documentation available.
       ACTIVE = "active"
 
-      # No documentation available.
       UPDATING = "updating"
 
-      # No documentation available.
       DELETING = "deleting"
 
-      # No documentation available.
       DELETED = "deleted"
     end
 
-    # Includes enum constants for VerifiedAccessEndpointType
+    # Enum constants for VerifiedAccessEndpointType
     module VerifiedAccessEndpointType
-      # No documentation available.
       LOAD_BALANCER = "load-balancer"
 
-      # No documentation available.
       NETWORK_INTERFACE = "network-interface"
     end
 
@@ -72831,12 +70904,10 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for VerifiedAccessLogDeliveryStatusCode
+    # Enum constants for VerifiedAccessLogDeliveryStatusCode
     module VerifiedAccessLogDeliveryStatusCode
-      # No documentation available.
       SUCCESS = "success"
 
-      # No documentation available.
       FAILED = "failed"
     end
 
@@ -73214,12 +71285,10 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for VirtualizationType
+    # Enum constants for VirtualizationType
     module VirtualizationType
-      # No documentation available.
       HVM = "hvm"
 
-      # No documentation available.
       PARAVIRTUAL = "paravirtual"
     end
 
@@ -73381,30 +71450,23 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for VolumeAttachmentState
+    # Enum constants for VolumeAttachmentState
     module VolumeAttachmentState
-      # No documentation available.
       ATTACHING = "attaching"
 
-      # No documentation available.
       ATTACHED = "attached"
 
-      # No documentation available.
       DETACHING = "detaching"
 
-      # No documentation available.
       DETACHED = "detached"
 
-      # No documentation available.
       BUSY = "busy"
     end
 
-    # Includes enum constants for VolumeAttributeName
+    # Enum constants for VolumeAttributeName
     module VolumeAttributeName
-      # No documentation available.
       AUTO_ENABLE_IO = "autoEnableIO"
 
-      # No documentation available.
       PRODUCT_CODES = "productCodes"
     end
 
@@ -73516,39 +71578,29 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for VolumeModificationState
+    # Enum constants for VolumeModificationState
     module VolumeModificationState
-      # No documentation available.
       MODIFYING = "modifying"
 
-      # No documentation available.
       OPTIMIZING = "optimizing"
 
-      # No documentation available.
       COMPLETED = "completed"
 
-      # No documentation available.
       FAILED = "failed"
     end
 
-    # Includes enum constants for VolumeState
+    # Enum constants for VolumeState
     module VolumeState
-      # No documentation available.
       CREATING = "creating"
 
-      # No documentation available.
       AVAILABLE = "available"
 
-      # No documentation available.
       IN_USE = "in-use"
 
-      # No documentation available.
       DELETING = "deleting"
 
-      # No documentation available.
       DELETED = "deleted"
 
-      # No documentation available.
       ERROR = "error"
     end
 
@@ -73679,15 +71731,12 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for VolumeStatusInfoStatus
+    # Enum constants for VolumeStatusInfoStatus
     module VolumeStatusInfoStatus
-      # No documentation available.
       OK = "ok"
 
-      # No documentation available.
       IMPAIRED = "impaired"
 
-      # No documentation available.
       INSUFFICIENT_DATA = "insufficient-data"
     end
 
@@ -73735,36 +71784,27 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for VolumeStatusName
+    # Enum constants for VolumeStatusName
     module VolumeStatusName
-      # No documentation available.
       IO_ENABLED = "io-enabled"
 
-      # No documentation available.
       IO_PERFORMANCE = "io-performance"
     end
 
-    # Includes enum constants for VolumeType
+    # Enum constants for VolumeType
     module VolumeType
-      # No documentation available.
       STANDARD = "standard"
 
-      # No documentation available.
       IO1 = "io1"
 
-      # No documentation available.
       IO2 = "io2"
 
-      # No documentation available.
       GP2 = "gp2"
 
-      # No documentation available.
       SC1 = "sc1"
 
-      # No documentation available.
       ST1 = "st1"
 
-      # No documentation available.
       GP3 = "gp3"
     end
 
@@ -73849,15 +71889,12 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for VpcAttributeName
+    # Enum constants for VpcAttributeName
     module VpcAttributeName
-      # No documentation available.
       ENABLE_DNS_SUPPORT = "enableDnsSupport"
 
-      # No documentation available.
       ENABLE_DNS_HOSTNAMES = "enableDnsHostnames"
 
-      # No documentation available.
       ENABLE_NETWORK_ADDRESS_USAGE_METRICS = "enableNetworkAddressUsageMetrics"
     end
 
@@ -73905,24 +71942,18 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for VpcCidrBlockStateCode
+    # Enum constants for VpcCidrBlockStateCode
     module VpcCidrBlockStateCode
-      # No documentation available.
       ASSOCIATING = "associating"
 
-      # No documentation available.
       ASSOCIATED = "associated"
 
-      # No documentation available.
       DISASSOCIATING = "disassociating"
 
-      # No documentation available.
       DISASSOCIATED = "disassociated"
 
-      # No documentation available.
       FAILING = "failing"
 
-      # No documentation available.
       FAILED = "failed"
     end
 
@@ -74127,15 +72158,12 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for VpcEndpointType
+    # Enum constants for VpcEndpointType
     module VpcEndpointType
-      # No documentation available.
       INTERFACE = "Interface"
 
-      # No documentation available.
       GATEWAY = "Gateway"
 
-      # No documentation available.
       GATEWAY_LOAD_BALANCER = "GatewayLoadBalancer"
     end
 
@@ -74258,33 +72286,24 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for VpcPeeringConnectionStateReasonCode
+    # Enum constants for VpcPeeringConnectionStateReasonCode
     module VpcPeeringConnectionStateReasonCode
-      # No documentation available.
       INITIATING_REQUEST = "initiating-request"
 
-      # No documentation available.
       PENDING_ACCEPTANCE = "pending-acceptance"
 
-      # No documentation available.
       ACTIVE = "active"
 
-      # No documentation available.
       DELETED = "deleted"
 
-      # No documentation available.
       REJECTED = "rejected"
 
-      # No documentation available.
       FAILED = "failed"
 
-      # No documentation available.
       EXPIRED = "expired"
 
-      # No documentation available.
       PROVISIONING = "provisioning"
 
-      # No documentation available.
       DELETING = "deleting"
     end
 
@@ -74332,18 +72351,15 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for VpcState
+    # Enum constants for VpcState
     module VpcState
-      # No documentation available.
       PENDING = "pending"
 
-      # No documentation available.
       AVAILABLE = "available"
     end
 
-    # Includes enum constants for VpcTenancy
+    # Enum constants for VpcTenancy
     module VpcTenancy
-      # No documentation available.
       DEFAULT = "default"
     end
 
@@ -74636,12 +72652,10 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for VpnEcmpSupportValue
+    # Enum constants for VpnEcmpSupportValue
     module VpnEcmpSupportValue
-      # No documentation available.
       ENABLE = "enable"
 
-      # No documentation available.
       DISABLE = "disable"
     end
 
@@ -74693,24 +72707,19 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for VpnProtocol
+    # Enum constants for VpnProtocol
     module VpnProtocol
-      # No documentation available.
       OPENVPN = "openvpn"
     end
 
-    # Includes enum constants for VpnState
+    # Enum constants for VpnState
     module VpnState
-      # No documentation available.
       PENDING = "pending"
 
-      # No documentation available.
       AVAILABLE = "available"
 
-      # No documentation available.
       DELETING = "deleting"
 
-      # No documentation available.
       DELETED = "deleted"
     end
 
@@ -74740,9 +72749,8 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for VpnStaticRouteSource
+    # Enum constants for VpnStaticRouteSource
     module VpnStaticRouteSource
-      # No documentation available.
       STATIC = "Static"
     end
 
@@ -75017,27 +73025,20 @@ module AWS::SDK::EC2
       end
     end
 
-    # Includes enum constants for WeekDay
+    # Enum constants for WeekDay
     module WeekDay
-      # No documentation available.
       SUNDAY = "sunday"
 
-      # No documentation available.
       MONDAY = "monday"
 
-      # No documentation available.
       TUESDAY = "tuesday"
 
-      # No documentation available.
       WEDNESDAY = "wednesday"
 
-      # No documentation available.
       THURSDAY = "thursday"
 
-      # No documentation available.
       FRIDAY = "friday"
 
-      # No documentation available.
       SATURDAY = "saturday"
     end
 
@@ -75074,12 +73075,10 @@ module AWS::SDK::EC2
       include Hearth::Structure
     end
 
-    # Includes enum constants for Scope
+    # Enum constants for Scope
     module Scope
-      # No documentation available.
       AVAILABILITY_ZONE = "Availability Zone"
 
-      # No documentation available.
       REGIONAL = "Region"
     end
 

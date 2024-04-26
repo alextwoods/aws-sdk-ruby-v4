@@ -10,21 +10,16 @@
 module AWS::SDK::KMS
   module Types
 
-    # Includes enum constants for AlgorithmSpec
+    # Enum constants for AlgorithmSpec
     module AlgorithmSpec
-      # No documentation available.
       RSAES_PKCS1_V1_5 = "RSAES_PKCS1_V1_5"
 
-      # No documentation available.
       RSAES_OAEP_SHA_1 = "RSAES_OAEP_SHA_1"
 
-      # No documentation available.
       RSAES_OAEP_SHA_256 = "RSAES_OAEP_SHA_256"
 
-      # No documentation available.
       RSA_AES_KEY_WRAP_SHA_1 = "RSA_AES_KEY_WRAP_SHA_1"
 
-      # No documentation available.
       RSA_AES_KEY_WRAP_SHA_256 = "RSA_AES_KEY_WRAP_SHA_256"
     end
 
@@ -252,78 +247,55 @@ module AWS::SDK::KMS
       include Hearth::Structure
     end
 
-    # Includes enum constants for ConnectionErrorCodeType
+    # Enum constants for ConnectionErrorCodeType
     module ConnectionErrorCodeType
-      # No documentation available.
       INVALID_CREDENTIALS = "INVALID_CREDENTIALS"
 
-      # No documentation available.
       CLUSTER_NOT_FOUND = "CLUSTER_NOT_FOUND"
 
-      # No documentation available.
       NETWORK_ERRORS = "NETWORK_ERRORS"
 
-      # No documentation available.
       INTERNAL_ERROR = "INTERNAL_ERROR"
 
-      # No documentation available.
       INSUFFICIENT_CLOUDHSM_HSMS = "INSUFFICIENT_CLOUDHSM_HSMS"
 
-      # No documentation available.
       USER_LOCKED_OUT = "USER_LOCKED_OUT"
 
-      # No documentation available.
       USER_NOT_FOUND = "USER_NOT_FOUND"
 
-      # No documentation available.
       USER_LOGGED_IN = "USER_LOGGED_IN"
 
-      # No documentation available.
       SUBNET_NOT_FOUND = "SUBNET_NOT_FOUND"
 
-      # No documentation available.
       INSUFFICIENT_FREE_ADDRESSES_IN_SUBNET = "INSUFFICIENT_FREE_ADDRESSES_IN_SUBNET"
 
-      # No documentation available.
       XKS_PROXY_ACCESS_DENIED = "XKS_PROXY_ACCESS_DENIED"
 
-      # No documentation available.
       XKS_PROXY_NOT_REACHABLE = "XKS_PROXY_NOT_REACHABLE"
 
-      # No documentation available.
       XKS_VPC_ENDPOINT_SERVICE_NOT_FOUND = "XKS_VPC_ENDPOINT_SERVICE_NOT_FOUND"
 
-      # No documentation available.
       XKS_PROXY_INVALID_RESPONSE = "XKS_PROXY_INVALID_RESPONSE"
 
-      # No documentation available.
       XKS_PROXY_INVALID_CONFIGURATION = "XKS_PROXY_INVALID_CONFIGURATION"
 
-      # No documentation available.
       XKS_VPC_ENDPOINT_SERVICE_INVALID_CONFIGURATION = "XKS_VPC_ENDPOINT_SERVICE_INVALID_CONFIGURATION"
 
-      # No documentation available.
       XKS_PROXY_TIMED_OUT = "XKS_PROXY_TIMED_OUT"
 
-      # No documentation available.
       XKS_PROXY_INVALID_TLS_CONFIGURATION = "XKS_PROXY_INVALID_TLS_CONFIGURATION"
     end
 
-    # Includes enum constants for ConnectionStateType
+    # Enum constants for ConnectionStateType
     module ConnectionStateType
-      # No documentation available.
       CONNECTED = "CONNECTED"
 
-      # No documentation available.
       CONNECTING = "CONNECTING"
 
-      # No documentation available.
       FAILED = "FAILED"
 
-      # No documentation available.
       DISCONNECTED = "DISCONNECTED"
 
-      # No documentation available.
       DISCONNECTING = "DISCONNECTING"
     end
 
@@ -1163,12 +1135,10 @@ module AWS::SDK::KMS
       include Hearth::Structure
     end
 
-    # Includes enum constants for CustomKeyStoreType
+    # Enum constants for CustomKeyStoreType
     module CustomKeyStoreType
-      # No documentation available.
       AWS_CLOUDHSM = "AWS_CLOUDHSM"
 
-      # No documentation available.
       EXTERNAL_KEY_STORE = "EXTERNAL_KEY_STORE"
     end
 
@@ -1442,81 +1412,60 @@ module AWS::SDK::KMS
       include Hearth::Structure
     end
 
-    # Includes enum constants for CustomerMasterKeySpec
+    # Enum constants for CustomerMasterKeySpec
+    # @deprecated
+    #   This enum has been deprecated. Instead, use the KeySpec enum.
     module CustomerMasterKeySpec
-      # No documentation available.
       RSA_2048 = "RSA_2048"
 
-      # No documentation available.
       RSA_3072 = "RSA_3072"
 
-      # No documentation available.
       RSA_4096 = "RSA_4096"
 
-      # No documentation available.
       ECC_NIST_P256 = "ECC_NIST_P256"
 
-      # No documentation available.
       ECC_NIST_P384 = "ECC_NIST_P384"
 
-      # No documentation available.
       ECC_NIST_P521 = "ECC_NIST_P521"
 
-      # No documentation available.
       ECC_SECG_P256_K1 = "ECC_SECG_P256K1"
 
-      # No documentation available.
       SYMMETRIC_DEFAULT = "SYMMETRIC_DEFAULT"
 
-      # No documentation available.
       HMAC_224 = "HMAC_224"
 
-      # No documentation available.
       HMAC_256 = "HMAC_256"
 
-      # No documentation available.
       HMAC_384 = "HMAC_384"
 
-      # No documentation available.
       HMAC_512 = "HMAC_512"
 
-      # No documentation available.
       SM2 = "SM2"
     end
 
-    # Includes enum constants for DataKeyPairSpec
+    # Enum constants for DataKeyPairSpec
     module DataKeyPairSpec
-      # No documentation available.
       RSA_2048 = "RSA_2048"
 
-      # No documentation available.
       RSA_3072 = "RSA_3072"
 
-      # No documentation available.
       RSA_4096 = "RSA_4096"
 
-      # No documentation available.
       ECC_NIST_P256 = "ECC_NIST_P256"
 
-      # No documentation available.
       ECC_NIST_P384 = "ECC_NIST_P384"
 
-      # No documentation available.
       ECC_NIST_P521 = "ECC_NIST_P521"
 
-      # No documentation available.
       ECC_SECG_P256_K1 = "ECC_SECG_P256K1"
 
-      # No documentation available.
       SM2 = "SM2"
     end
 
-    # Includes enum constants for DataKeySpec
+    # Enum constants for DataKeySpec
     module DataKeySpec
-      # No documentation available.
       AES_256 = "AES_256"
 
-      # No documentation available.
       AES_128 = "AES_128"
     end
 
@@ -2187,27 +2136,21 @@ module AWS::SDK::KMS
       include Hearth::Structure
     end
 
-    # Includes enum constants for EncryptionAlgorithmSpec
+    # Enum constants for EncryptionAlgorithmSpec
     module EncryptionAlgorithmSpec
-      # No documentation available.
       SYMMETRIC_DEFAULT = "SYMMETRIC_DEFAULT"
 
-      # No documentation available.
       RSAES_OAEP_SHA_1 = "RSAES_OAEP_SHA_1"
 
-      # No documentation available.
       RSAES_OAEP_SHA_256 = "RSAES_OAEP_SHA_256"
 
-      # No documentation available.
       SM2_PKE = "SM2PKE"
     end
 
-    # Includes enum constants for ExpirationModelType
+    # Enum constants for ExpirationModelType
     module ExpirationModelType
-      # No documentation available.
       KEY_MATERIAL_EXPIRES = "KEY_MATERIAL_EXPIRES"
 
-      # No documentation available.
       KEY_MATERIAL_DOES_NOT_EXPIRE = "KEY_MATERIAL_DOES_NOT_EXPIRE"
     end
 
@@ -3269,54 +3212,38 @@ module AWS::SDK::KMS
       include Hearth::Structure
     end
 
-    # Includes enum constants for GrantOperation
+    # Enum constants for GrantOperation
     module GrantOperation
-      # No documentation available.
       DECRYPT = "Decrypt"
 
-      # No documentation available.
       ENCRYPT = "Encrypt"
 
-      # No documentation available.
       GENERATE_DATA_KEY = "GenerateDataKey"
 
-      # No documentation available.
       GENERATE_DATA_KEY_WITHOUT_PLAINTEXT = "GenerateDataKeyWithoutPlaintext"
 
-      # No documentation available.
       RE_ENCRYPT_FROM = "ReEncryptFrom"
 
-      # No documentation available.
       RE_ENCRYPT_TO = "ReEncryptTo"
 
-      # No documentation available.
       SIGN = "Sign"
 
-      # No documentation available.
       VERIFY = "Verify"
 
-      # No documentation available.
       GET_PUBLIC_KEY = "GetPublicKey"
 
-      # No documentation available.
       CREATE_GRANT = "CreateGrant"
 
-      # No documentation available.
       RETIRE_GRANT = "RetireGrant"
 
-      # No documentation available.
       DESCRIBE_KEY = "DescribeKey"
 
-      # No documentation available.
       GENERATE_DATA_KEY_PAIR = "GenerateDataKeyPair"
 
-      # No documentation available.
       GENERATE_DATA_KEY_PAIR_WITHOUT_PLAINTEXT = "GenerateDataKeyPairWithoutPlaintext"
 
-      # No documentation available.
       GENERATE_MAC = "GenerateMac"
 
-      # No documentation available.
       VERIFY_MAC = "VerifyMac"
     end
 
@@ -3654,9 +3581,8 @@ module AWS::SDK::KMS
       include Hearth::Structure
     end
 
-    # Includes enum constants for KeyEncryptionMechanism
+    # Enum constants for KeyEncryptionMechanism
     module KeyEncryptionMechanism
-      # No documentation available.
       RSAES_OAEP_SHA_256 = "RSAES_OAEP_SHA_256"
     end
 
@@ -3679,12 +3605,10 @@ module AWS::SDK::KMS
       include Hearth::Structure
     end
 
-    # Includes enum constants for KeyManagerType
+    # Enum constants for KeyManagerType
     module KeyManagerType
-      # No documentation available.
       AWS = "AWS"
 
-      # No documentation available.
       CUSTOMER = "CUSTOMER"
     end
 
@@ -3902,72 +3826,51 @@ module AWS::SDK::KMS
       end
     end
 
-    # Includes enum constants for KeySpec
+    # Enum constants for KeySpec
     module KeySpec
-      # No documentation available.
       RSA_2048 = "RSA_2048"
 
-      # No documentation available.
       RSA_3072 = "RSA_3072"
 
-      # No documentation available.
       RSA_4096 = "RSA_4096"
 
-      # No documentation available.
       ECC_NIST_P256 = "ECC_NIST_P256"
 
-      # No documentation available.
       ECC_NIST_P384 = "ECC_NIST_P384"
 
-      # No documentation available.
       ECC_NIST_P521 = "ECC_NIST_P521"
 
-      # No documentation available.
       ECC_SECG_P256_K1 = "ECC_SECG_P256K1"
 
-      # No documentation available.
       SYMMETRIC_DEFAULT = "SYMMETRIC_DEFAULT"
 
-      # No documentation available.
       HMAC_224 = "HMAC_224"
 
-      # No documentation available.
       HMAC_256 = "HMAC_256"
 
-      # No documentation available.
       HMAC_384 = "HMAC_384"
 
-      # No documentation available.
       HMAC_512 = "HMAC_512"
 
-      # No documentation available.
       SM2 = "SM2"
     end
 
-    # Includes enum constants for KeyState
+    # Enum constants for KeyState
     module KeyState
-      # No documentation available.
       CREATING = "Creating"
 
-      # No documentation available.
       ENABLED = "Enabled"
 
-      # No documentation available.
       DISABLED = "Disabled"
 
-      # No documentation available.
       PENDING_DELETION = "PendingDeletion"
 
-      # No documentation available.
       PENDING_IMPORT = "PendingImport"
 
-      # No documentation available.
       PENDING_REPLICA_DELETION = "PendingReplicaDeletion"
 
-      # No documentation available.
       UNAVAILABLE = "Unavailable"
 
-      # No documentation available.
       UPDATING = "Updating"
     end
 
@@ -3985,15 +3888,12 @@ module AWS::SDK::KMS
       include Hearth::Structure
     end
 
-    # Includes enum constants for KeyUsageType
+    # Enum constants for KeyUsageType
     module KeyUsageType
-      # No documentation available.
       SIGN_VERIFY = "SIGN_VERIFY"
 
-      # No documentation available.
       ENCRYPT_DECRYPT = "ENCRYPT_DECRYPT"
 
-      # No documentation available.
       GENERATE_VERIFY_MAC = "GENERATE_VERIFY_MAC"
     end
 
@@ -4454,18 +4354,14 @@ module AWS::SDK::KMS
       end
     end
 
-    # Includes enum constants for MacAlgorithmSpec
+    # Enum constants for MacAlgorithmSpec
     module MacAlgorithmSpec
-      # No documentation available.
       HMAC_SHA_224 = "HMAC_SHA_224"
 
-      # No documentation available.
       HMAC_SHA_256 = "HMAC_SHA_256"
 
-      # No documentation available.
       HMAC_SHA_384 = "HMAC_SHA_384"
 
-      # No documentation available.
       HMAC_SHA_512 = "HMAC_SHA_512"
     end
 
@@ -4483,12 +4379,10 @@ module AWS::SDK::KMS
       include Hearth::Structure
     end
 
-    # Includes enum constants for MessageType
+    # Enum constants for MessageType
     module MessageType
-      # No documentation available.
       RAW = "RAW"
 
-      # No documentation available.
       DIGEST = "DIGEST"
     end
 
@@ -4542,12 +4436,10 @@ module AWS::SDK::KMS
       include Hearth::Structure
     end
 
-    # Includes enum constants for MultiRegionKeyType
+    # Enum constants for MultiRegionKeyType
     module MultiRegionKeyType
-      # No documentation available.
       PRIMARY = "PRIMARY"
 
-      # No documentation available.
       REPLICA = "REPLICA"
     end
 
@@ -4565,18 +4457,14 @@ module AWS::SDK::KMS
       include Hearth::Structure
     end
 
-    # Includes enum constants for OriginType
+    # Enum constants for OriginType
     module OriginType
-      # No documentation available.
       AWS_KMS = "AWS_KMS"
 
-      # No documentation available.
       EXTERNAL = "EXTERNAL"
 
-      # No documentation available.
       AWS_CLOUDHSM = "AWS_CLOUDHSM"
 
-      # No documentation available.
       EXTERNAL_KEY_STORE = "EXTERNAL_KEY_STORE"
     end
 
@@ -5381,36 +5269,26 @@ module AWS::SDK::KMS
       include Hearth::Structure
     end
 
-    # Includes enum constants for SigningAlgorithmSpec
+    # Enum constants for SigningAlgorithmSpec
     module SigningAlgorithmSpec
-      # No documentation available.
       RSASSA_PSS_SHA_256 = "RSASSA_PSS_SHA_256"
 
-      # No documentation available.
       RSASSA_PSS_SHA_384 = "RSASSA_PSS_SHA_384"
 
-      # No documentation available.
       RSASSA_PSS_SHA_512 = "RSASSA_PSS_SHA_512"
 
-      # No documentation available.
       RSASSA_PKCS1_V1_5_SHA_256 = "RSASSA_PKCS1_V1_5_SHA_256"
 
-      # No documentation available.
       RSASSA_PKCS1_V1_5_SHA_384 = "RSASSA_PKCS1_V1_5_SHA_384"
 
-      # No documentation available.
       RSASSA_PKCS1_V1_5_SHA_512 = "RSASSA_PKCS1_V1_5_SHA_512"
 
-      # No documentation available.
       ECDSA_SHA_256 = "ECDSA_SHA_256"
 
-      # No documentation available.
       ECDSA_SHA_384 = "ECDSA_SHA_384"
 
-      # No documentation available.
       ECDSA_SHA_512 = "ECDSA_SHA_512"
 
-      # No documentation available.
       SM2_DSA = "SM2DSA"
     end
 
@@ -6084,15 +5962,12 @@ module AWS::SDK::KMS
       end
     end
 
-    # Includes enum constants for WrappingKeySpec
+    # Enum constants for WrappingKeySpec
     module WrappingKeySpec
-      # No documentation available.
       RSA_2048 = "RSA_2048"
 
-      # No documentation available.
       RSA_3072 = "RSA_3072"
 
-      # No documentation available.
       RSA_4096 = "RSA_4096"
     end
 
@@ -6252,12 +6127,10 @@ module AWS::SDK::KMS
       end
     end
 
-    # Includes enum constants for XksProxyConnectivityType
+    # Enum constants for XksProxyConnectivityType
     module XksProxyConnectivityType
-      # No documentation available.
       PUBLIC_ENDPOINT = "PUBLIC_ENDPOINT"
 
-      # No documentation available.
       VPC_ENDPOINT_SERVICE = "VPC_ENDPOINT_SERVICE"
     end
 

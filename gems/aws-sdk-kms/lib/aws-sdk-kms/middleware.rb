@@ -14,7 +14,7 @@ module AWS::SDK::KMS
   module Middleware
 
     class CancelKeyDeletion
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -58,14 +58,14 @@ module AWS::SDK::KMS
           client: config.http_client,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
           stub_data_class: Stubs::CancelKeyDeletion,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ConnectCustomKeyStore
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -109,14 +109,14 @@ module AWS::SDK::KMS
           client: config.http_client,
           stub_error_classes: [Stubs::CloudHsmClusterInvalidConfigurationException, Stubs::CloudHsmClusterNotActiveException, Stubs::CustomKeyStoreInvalidStateException, Stubs::CustomKeyStoreNotFoundException, Stubs::KMSInternalException],
           stub_data_class: Stubs::ConnectCustomKeyStore,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateAlias
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -160,14 +160,14 @@ module AWS::SDK::KMS
           client: config.http_client,
           stub_error_classes: [Stubs::AlreadyExistsException, Stubs::DependencyTimeoutException, Stubs::InvalidAliasNameException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::LimitExceededException, Stubs::NotFoundException],
           stub_data_class: Stubs::CreateAlias,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateCustomKeyStore
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -211,14 +211,14 @@ module AWS::SDK::KMS
           client: config.http_client,
           stub_error_classes: [Stubs::CloudHsmClusterInUseException, Stubs::CloudHsmClusterInvalidConfigurationException, Stubs::CloudHsmClusterNotActiveException, Stubs::CloudHsmClusterNotFoundException, Stubs::CustomKeyStoreNameInUseException, Stubs::IncorrectTrustAnchorException, Stubs::KMSInternalException, Stubs::LimitExceededException, Stubs::XksProxyIncorrectAuthenticationCredentialException, Stubs::XksProxyInvalidConfigurationException, Stubs::XksProxyInvalidResponseException, Stubs::XksProxyUriEndpointInUseException, Stubs::XksProxyUriInUseException, Stubs::XksProxyUriUnreachableException, Stubs::XksProxyVpcEndpointServiceInUseException, Stubs::XksProxyVpcEndpointServiceInvalidConfigurationException, Stubs::XksProxyVpcEndpointServiceNotFoundException],
           stub_data_class: Stubs::CreateCustomKeyStore,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateGrant
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -262,14 +262,14 @@ module AWS::SDK::KMS
           client: config.http_client,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::InvalidArnException, Stubs::InvalidGrantTokenException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::LimitExceededException, Stubs::NotFoundException],
           stub_data_class: Stubs::CreateGrant,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateKey
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -313,14 +313,14 @@ module AWS::SDK::KMS
           client: config.http_client,
           stub_error_classes: [Stubs::CloudHsmClusterInvalidConfigurationException, Stubs::CustomKeyStoreInvalidStateException, Stubs::CustomKeyStoreNotFoundException, Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::LimitExceededException, Stubs::MalformedPolicyDocumentException, Stubs::TagException, Stubs::UnsupportedOperationException, Stubs::XksKeyAlreadyInUseException, Stubs::XksKeyInvalidConfigurationException, Stubs::XksKeyNotFoundException],
           stub_data_class: Stubs::CreateKey,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class Decrypt
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -364,14 +364,14 @@ module AWS::SDK::KMS
           client: config.http_client,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::IncorrectKeyException, Stubs::InvalidCiphertextException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
           stub_data_class: Stubs::Decrypt,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteAlias
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -415,14 +415,14 @@ module AWS::SDK::KMS
           client: config.http_client,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
           stub_data_class: Stubs::DeleteAlias,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteCustomKeyStore
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -466,14 +466,14 @@ module AWS::SDK::KMS
           client: config.http_client,
           stub_error_classes: [Stubs::CustomKeyStoreHasCMKsException, Stubs::CustomKeyStoreInvalidStateException, Stubs::CustomKeyStoreNotFoundException, Stubs::KMSInternalException],
           stub_data_class: Stubs::DeleteCustomKeyStore,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteImportedKeyMaterial
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -517,14 +517,14 @@ module AWS::SDK::KMS
           client: config.http_client,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
           stub_data_class: Stubs::DeleteImportedKeyMaterial,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeCustomKeyStores
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -568,14 +568,14 @@ module AWS::SDK::KMS
           client: config.http_client,
           stub_error_classes: [Stubs::CustomKeyStoreNotFoundException, Stubs::InvalidMarkerException, Stubs::KMSInternalException],
           stub_data_class: Stubs::DescribeCustomKeyStores,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeKey
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -619,14 +619,14 @@ module AWS::SDK::KMS
           client: config.http_client,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::NotFoundException],
           stub_data_class: Stubs::DescribeKey,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DisableKey
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -670,14 +670,14 @@ module AWS::SDK::KMS
           client: config.http_client,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
           stub_data_class: Stubs::DisableKey,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DisableKeyRotation
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -721,14 +721,14 @@ module AWS::SDK::KMS
           client: config.http_client,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
           stub_data_class: Stubs::DisableKeyRotation,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DisconnectCustomKeyStore
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -772,14 +772,14 @@ module AWS::SDK::KMS
           client: config.http_client,
           stub_error_classes: [Stubs::CustomKeyStoreInvalidStateException, Stubs::CustomKeyStoreNotFoundException, Stubs::KMSInternalException],
           stub_data_class: Stubs::DisconnectCustomKeyStore,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class EnableKey
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -823,14 +823,14 @@ module AWS::SDK::KMS
           client: config.http_client,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::LimitExceededException, Stubs::NotFoundException],
           stub_data_class: Stubs::EnableKey,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class EnableKeyRotation
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -874,14 +874,14 @@ module AWS::SDK::KMS
           client: config.http_client,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
           stub_data_class: Stubs::EnableKeyRotation,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class Encrypt
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -925,14 +925,14 @@ module AWS::SDK::KMS
           client: config.http_client,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
           stub_data_class: Stubs::Encrypt,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GenerateDataKey
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -976,14 +976,14 @@ module AWS::SDK::KMS
           client: config.http_client,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
           stub_data_class: Stubs::GenerateDataKey,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GenerateDataKeyPair
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1027,14 +1027,14 @@ module AWS::SDK::KMS
           client: config.http_client,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
           stub_data_class: Stubs::GenerateDataKeyPair,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GenerateDataKeyPairWithoutPlaintext
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1078,14 +1078,14 @@ module AWS::SDK::KMS
           client: config.http_client,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
           stub_data_class: Stubs::GenerateDataKeyPairWithoutPlaintext,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GenerateDataKeyWithoutPlaintext
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1129,14 +1129,14 @@ module AWS::SDK::KMS
           client: config.http_client,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
           stub_data_class: Stubs::GenerateDataKeyWithoutPlaintext,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GenerateMac
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1180,14 +1180,14 @@ module AWS::SDK::KMS
           client: config.http_client,
           stub_error_classes: [Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
           stub_data_class: Stubs::GenerateMac,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GenerateRandom
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1231,14 +1231,14 @@ module AWS::SDK::KMS
           client: config.http_client,
           stub_error_classes: [Stubs::CustomKeyStoreInvalidStateException, Stubs::CustomKeyStoreNotFoundException, Stubs::DependencyTimeoutException, Stubs::KMSInternalException, Stubs::UnsupportedOperationException],
           stub_data_class: Stubs::GenerateRandom,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetKeyPolicy
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1282,14 +1282,14 @@ module AWS::SDK::KMS
           client: config.http_client,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
           stub_data_class: Stubs::GetKeyPolicy,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetKeyRotationStatus
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1333,14 +1333,14 @@ module AWS::SDK::KMS
           client: config.http_client,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
           stub_data_class: Stubs::GetKeyRotationStatus,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetParametersForImport
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1384,14 +1384,14 @@ module AWS::SDK::KMS
           client: config.http_client,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
           stub_data_class: Stubs::GetParametersForImport,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetPublicKey
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1435,14 +1435,14 @@ module AWS::SDK::KMS
           client: config.http_client,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::InvalidArnException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
           stub_data_class: Stubs::GetPublicKey,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ImportKeyMaterial
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1486,14 +1486,14 @@ module AWS::SDK::KMS
           client: config.http_client,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::ExpiredImportTokenException, Stubs::IncorrectKeyMaterialException, Stubs::InvalidArnException, Stubs::InvalidCiphertextException, Stubs::InvalidImportTokenException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
           stub_data_class: Stubs::ImportKeyMaterial,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ListAliases
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1537,14 +1537,14 @@ module AWS::SDK::KMS
           client: config.http_client,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::InvalidMarkerException, Stubs::KMSInternalException, Stubs::NotFoundException],
           stub_data_class: Stubs::ListAliases,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ListGrants
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1588,14 +1588,14 @@ module AWS::SDK::KMS
           client: config.http_client,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::InvalidGrantIdException, Stubs::InvalidMarkerException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
           stub_data_class: Stubs::ListGrants,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ListKeyPolicies
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1639,14 +1639,14 @@ module AWS::SDK::KMS
           client: config.http_client,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
           stub_data_class: Stubs::ListKeyPolicies,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ListKeys
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1690,14 +1690,14 @@ module AWS::SDK::KMS
           client: config.http_client,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidMarkerException, Stubs::KMSInternalException],
           stub_data_class: Stubs::ListKeys,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ListResourceTags
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1741,14 +1741,14 @@ module AWS::SDK::KMS
           client: config.http_client,
           stub_error_classes: [Stubs::InvalidArnException, Stubs::InvalidMarkerException, Stubs::KMSInternalException, Stubs::NotFoundException],
           stub_data_class: Stubs::ListResourceTags,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ListRetirableGrants
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1792,14 +1792,14 @@ module AWS::SDK::KMS
           client: config.http_client,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::InvalidMarkerException, Stubs::KMSInternalException, Stubs::NotFoundException],
           stub_data_class: Stubs::ListRetirableGrants,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class PutKeyPolicy
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1843,14 +1843,14 @@ module AWS::SDK::KMS
           client: config.http_client,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::LimitExceededException, Stubs::MalformedPolicyDocumentException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
           stub_data_class: Stubs::PutKeyPolicy,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ReEncrypt
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1894,14 +1894,14 @@ module AWS::SDK::KMS
           client: config.http_client,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::IncorrectKeyException, Stubs::InvalidCiphertextException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
           stub_data_class: Stubs::ReEncrypt,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ReplicateKey
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1945,14 +1945,14 @@ module AWS::SDK::KMS
           client: config.http_client,
           stub_error_classes: [Stubs::AlreadyExistsException, Stubs::DisabledException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::LimitExceededException, Stubs::MalformedPolicyDocumentException, Stubs::NotFoundException, Stubs::TagException, Stubs::UnsupportedOperationException],
           stub_data_class: Stubs::ReplicateKey,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class RetireGrant
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1996,14 +1996,14 @@ module AWS::SDK::KMS
           client: config.http_client,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DryRunOperationException, Stubs::InvalidArnException, Stubs::InvalidGrantIdException, Stubs::InvalidGrantTokenException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
           stub_data_class: Stubs::RetireGrant,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class RevokeGrant
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2047,14 +2047,14 @@ module AWS::SDK::KMS
           client: config.http_client,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DryRunOperationException, Stubs::InvalidArnException, Stubs::InvalidGrantIdException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
           stub_data_class: Stubs::RevokeGrant,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ScheduleKeyDeletion
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2098,14 +2098,14 @@ module AWS::SDK::KMS
           client: config.http_client,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
           stub_data_class: Stubs::ScheduleKeyDeletion,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class Sign
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2149,14 +2149,14 @@ module AWS::SDK::KMS
           client: config.http_client,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
           stub_data_class: Stubs::Sign,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class TagResource
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2200,14 +2200,14 @@ module AWS::SDK::KMS
           client: config.http_client,
           stub_error_classes: [Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::LimitExceededException, Stubs::NotFoundException, Stubs::TagException],
           stub_data_class: Stubs::TagResource,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class UntagResource
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2251,14 +2251,14 @@ module AWS::SDK::KMS
           client: config.http_client,
           stub_error_classes: [Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::TagException],
           stub_data_class: Stubs::UntagResource,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class UpdateAlias
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2302,14 +2302,14 @@ module AWS::SDK::KMS
           client: config.http_client,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::LimitExceededException, Stubs::NotFoundException],
           stub_data_class: Stubs::UpdateAlias,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class UpdateCustomKeyStore
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2353,14 +2353,14 @@ module AWS::SDK::KMS
           client: config.http_client,
           stub_error_classes: [Stubs::CloudHsmClusterInvalidConfigurationException, Stubs::CloudHsmClusterNotActiveException, Stubs::CloudHsmClusterNotFoundException, Stubs::CloudHsmClusterNotRelatedException, Stubs::CustomKeyStoreInvalidStateException, Stubs::CustomKeyStoreNameInUseException, Stubs::CustomKeyStoreNotFoundException, Stubs::KMSInternalException, Stubs::XksProxyIncorrectAuthenticationCredentialException, Stubs::XksProxyInvalidConfigurationException, Stubs::XksProxyInvalidResponseException, Stubs::XksProxyUriEndpointInUseException, Stubs::XksProxyUriInUseException, Stubs::XksProxyUriUnreachableException, Stubs::XksProxyVpcEndpointServiceInUseException, Stubs::XksProxyVpcEndpointServiceInvalidConfigurationException, Stubs::XksProxyVpcEndpointServiceNotFoundException],
           stub_data_class: Stubs::UpdateCustomKeyStore,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class UpdateKeyDescription
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2404,14 +2404,14 @@ module AWS::SDK::KMS
           client: config.http_client,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
           stub_data_class: Stubs::UpdateKeyDescription,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class UpdatePrimaryRegion
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2455,14 +2455,14 @@ module AWS::SDK::KMS
           client: config.http_client,
           stub_error_classes: [Stubs::DisabledException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
           stub_data_class: Stubs::UpdatePrimaryRegion,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class Verify
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2506,14 +2506,14 @@ module AWS::SDK::KMS
           client: config.http_client,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidSignatureException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
           stub_data_class: Stubs::Verify,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class VerifyMac
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2557,7 +2557,7 @@ module AWS::SDK::KMS
           client: config.http_client,
           stub_error_classes: [Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidMacException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
           stub_data_class: Stubs::VerifyMac,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end

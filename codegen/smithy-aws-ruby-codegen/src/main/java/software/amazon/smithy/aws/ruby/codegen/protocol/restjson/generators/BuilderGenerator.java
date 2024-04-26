@@ -328,7 +328,13 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
 
         @Override
         public Void unionShape(UnionShape shape) {
-            defaultComplexSerializer(shape);
+            writer
+                    .write("http_req.headers['Content-Type'] = 'application/json'")
+                    .openBlock("unless $L.nil?", inputGetter)
+                    .write("data = data = $1L.build($2L)", symbolProvider.toSymbol(shape).getName(),
+                            inputGetter)
+                    .write("http_req.body = $T.new($T.dump(data))", RubyImportContainer.STRING_IO, Hearth.JSON)
+                    .closeBlock("end");
             return null;
         }
 
