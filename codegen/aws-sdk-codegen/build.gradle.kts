@@ -87,7 +87,7 @@ plugins {
 
 dependencies {
     implementation(project(":smithy-aws-ruby-codegen"))
-    implementation(project(":sdk-gem-utils"))
+    implementation(project(":aws-sdk-gem-utils"))
 }
 
 // This project doesn't produce a JAR.
@@ -154,7 +154,7 @@ tasks.register<Delete>("cleanGems") {
 }
 tasks.register<Copy>("copyGeneratedGems") {
     forEachService { service ->
-        from("$buildDir/smithyprojections/sdk-codegen/${service.projectionName}/ruby-codegen")
+        from("$buildDir/smithyprojections/aws-sdk-codegen/${service.projectionName}/ruby-codegen")
     }
     into("$buildDir/../../../gems/")
 }
