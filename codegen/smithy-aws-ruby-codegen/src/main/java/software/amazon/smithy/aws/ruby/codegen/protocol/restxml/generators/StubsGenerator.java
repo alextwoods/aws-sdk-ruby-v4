@@ -185,6 +185,32 @@ public class StubsGenerator extends RestStubsGeneratorBase {
 
     }
 
+    @Override
+    protected void renderErrorStubMethod(Shape errorShape) {
+        writer
+                .openBlock("def self.stub(http_resp, stub:)")
+                .write("data = {}")
+                .call(() -> renderStatusCodeStubber(errorShape))
+                .call(() -> renderHeaderStubbers(errorShape))
+                .call(() -> renderPrefixHeadersStubbers(errorShape))
+                .write("xml = $T.new('Error')", Hearth.XML_NODE )
+                .write("xml << $T.new('Type', '$L')", Hearth.XML_NODE, errorType(errorShape))
+                .write("xml << $T.new('Code', '$L')", Hearth.XML_NODE, errorCode(errorShape))
+                .call(() -> renderMemberStubbers(errorShape))
+                .write("http_resp.body = ::StringIO.new($T.new('ErrorResponse', xml).to_str) if xml",
+                        Hearth.XML_NODE)
+                .closeBlock("end");
+    }
+
+    private String errorType(Shape errorShape) {
+        ErrorTrait errorTrait = errorShape.getTrait(ErrorTrait.class).get();
+        return errorTrait.isClientError() ? "Sender" : "Receiver";
+    }
+
+    private String errorCode(Shape errorShape) {
+        return errorShape.getId().getName();
+    }
+
     private void renderUnionMemberStubber(UnionShape shape, MemberShape member) {
         Shape target = model.expectShape(member.getTarget());
         String nodeName = "'" + member.getMemberName() + "'";
@@ -531,7 +557,7 @@ public class StubsGenerator extends RestStubsGeneratorBase {
             }
             writer
                     .write("http_resp.headers['Content-Type'] = 'application/xml'")
-                    .write("xml = Builders::$1L.build($2L, $3L) unless $3L.nil?", symbolProvider.toSymbol(shape).getName(),
+                    .write("xml = $1L.stub($2L, $3L) unless $3L.nil?", symbolProvider.toSymbol(shape).getName(),
                             nodeName, inputGetter)
                     .call(() -> {
                         if (shape.hasTrait(XmlNamespaceTrait.class)) {
