@@ -1410,7 +1410,9 @@ module AWS::SDK::S3
         http_req.headers['x-amz-server-side-encryption-customer-key-MD5'] = input[:sse_customer_key_md5] unless input[:sse_customer_key_md5].nil? || input[:sse_customer_key_md5].empty?
         http_req.headers['x-amz-request-payer'] = input[:request_payer] unless input[:request_payer].nil? || input[:request_payer].empty?
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
-        http_req.headers['x-amz-object-attributes'] = input[:object_attributes] unless input[:object_attributes].nil? || input[:object_attributes].empty?
+        unless input[:object_attributes].nil? || input[:object_attributes].empty?
+          http_req.headers['x-amz-object-attributes'] = Hearth::HTTP::HeaderListBuilder.build_string_list(input[:object_attributes])
+        end
       end
     end
 
@@ -2025,7 +2027,9 @@ module AWS::SDK::S3
         http_req.append_query_param_list(params)
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
         http_req.headers['x-amz-request-payer'] = input[:request_payer] unless input[:request_payer].nil? || input[:request_payer].empty?
-        http_req.headers['x-amz-optional-object-attributes'] = input[:optional_object_attributes] unless input[:optional_object_attributes].nil? || input[:optional_object_attributes].empty?
+        unless input[:optional_object_attributes].nil? || input[:optional_object_attributes].empty?
+          http_req.headers['x-amz-optional-object-attributes'] = Hearth::HTTP::HeaderListBuilder.build_string_list(input[:optional_object_attributes])
+        end
       end
     end
 
@@ -2049,7 +2053,9 @@ module AWS::SDK::S3
         http_req.append_query_param_list(params)
         http_req.headers['x-amz-request-payer'] = input[:request_payer] unless input[:request_payer].nil? || input[:request_payer].empty?
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
-        http_req.headers['x-amz-optional-object-attributes'] = input[:optional_object_attributes] unless input[:optional_object_attributes].nil? || input[:optional_object_attributes].empty?
+        unless input[:optional_object_attributes].nil? || input[:optional_object_attributes].empty?
+          http_req.headers['x-amz-optional-object-attributes'] = Hearth::HTTP::HeaderListBuilder.build_string_list(input[:optional_object_attributes])
+        end
       end
     end
 
@@ -2078,7 +2084,9 @@ module AWS::SDK::S3
         http_req.append_query_param_list(params)
         http_req.headers['x-amz-request-payer'] = input[:request_payer] unless input[:request_payer].nil? || input[:request_payer].empty?
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
-        http_req.headers['x-amz-optional-object-attributes'] = input[:optional_object_attributes] unless input[:optional_object_attributes].nil? || input[:optional_object_attributes].empty?
+        unless input[:optional_object_attributes].nil? || input[:optional_object_attributes].empty?
+          http_req.headers['x-amz-optional-object-attributes'] = Hearth::HTTP::HeaderListBuilder.build_string_list(input[:optional_object_attributes])
+        end
       end
     end
 

@@ -27,6 +27,7 @@ module AWS::SDK::CloudWatch
 
     # @api private
     @plugins = Hearth::PluginList.new
+
     # @param [Hash] options
     #   Options used to construct an instance of {Config}
     def initialize(options = {})

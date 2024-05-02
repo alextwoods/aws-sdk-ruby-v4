@@ -73,6 +73,13 @@ module AWS::SDK::KMS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 409
+        data = {}
+        data['__type'] = 'AlreadyExistsException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class CancelKeyDeletion
@@ -113,6 +120,13 @@ module AWS::SDK::KMS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'CloudHsmClusterInUseException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class CloudHsmClusterInvalidConfigurationException
@@ -130,6 +144,13 @@ module AWS::SDK::KMS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'CloudHsmClusterInvalidConfigurationException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class CloudHsmClusterNotActiveException
@@ -147,6 +168,13 @@ module AWS::SDK::KMS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'CloudHsmClusterNotActiveException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class CloudHsmClusterNotFoundException
@@ -164,6 +192,13 @@ module AWS::SDK::KMS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'CloudHsmClusterNotFoundException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class CloudHsmClusterNotRelatedException
@@ -181,6 +216,13 @@ module AWS::SDK::KMS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'CloudHsmClusterNotRelatedException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class ConnectCustomKeyStore
@@ -311,6 +353,13 @@ module AWS::SDK::KMS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'CustomKeyStoreHasCMKsException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class CustomKeyStoreInvalidStateException
@@ -328,6 +377,13 @@ module AWS::SDK::KMS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'CustomKeyStoreInvalidStateException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class CustomKeyStoreNameInUseException
@@ -345,6 +401,13 @@ module AWS::SDK::KMS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'CustomKeyStoreNameInUseException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class CustomKeyStoreNotFoundException
@@ -362,6 +425,13 @@ module AWS::SDK::KMS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'CustomKeyStoreNotFoundException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class CustomKeyStoresList
@@ -523,6 +593,13 @@ module AWS::SDK::KMS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 503
+        data = {}
+        data['__type'] = 'DependencyTimeoutException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class DescribeCustomKeyStores
@@ -632,6 +709,13 @@ module AWS::SDK::KMS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 409
+        data = {}
+        data['__type'] = 'DisabledException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class DisconnectCustomKeyStore
@@ -670,6 +754,13 @@ module AWS::SDK::KMS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 412
+        data = {}
+        data['__type'] = 'DryRunOperationException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class EnableKey
@@ -794,6 +885,13 @@ module AWS::SDK::KMS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'ExpiredImportTokenException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class GenerateDataKey
@@ -1200,6 +1298,13 @@ module AWS::SDK::KMS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'IncorrectKeyException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class IncorrectKeyMaterialException
@@ -1217,6 +1322,13 @@ module AWS::SDK::KMS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'IncorrectKeyMaterialException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class IncorrectTrustAnchorException
@@ -1234,6 +1346,13 @@ module AWS::SDK::KMS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'IncorrectTrustAnchorException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class InvalidAliasNameException
@@ -1251,6 +1370,13 @@ module AWS::SDK::KMS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'InvalidAliasNameException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class InvalidArnException
@@ -1268,6 +1394,13 @@ module AWS::SDK::KMS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'InvalidArnException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class InvalidCiphertextException
@@ -1285,6 +1418,13 @@ module AWS::SDK::KMS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'InvalidCiphertextException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class InvalidGrantIdException
@@ -1302,6 +1442,13 @@ module AWS::SDK::KMS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'InvalidGrantIdException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class InvalidGrantTokenException
@@ -1319,6 +1466,13 @@ module AWS::SDK::KMS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'InvalidGrantTokenException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class InvalidImportTokenException
@@ -1336,6 +1490,13 @@ module AWS::SDK::KMS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'InvalidImportTokenException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class InvalidKeyUsageException
@@ -1353,6 +1514,13 @@ module AWS::SDK::KMS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'InvalidKeyUsageException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class InvalidMarkerException
@@ -1370,6 +1538,13 @@ module AWS::SDK::KMS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'InvalidMarkerException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class KMSInternalException
@@ -1387,6 +1562,13 @@ module AWS::SDK::KMS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 500
+        data = {}
+        data['__type'] = 'KMSInternalException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class KMSInvalidMacException
@@ -1404,6 +1586,13 @@ module AWS::SDK::KMS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'KMSInvalidMacException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class KMSInvalidSignatureException
@@ -1421,6 +1610,13 @@ module AWS::SDK::KMS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'KMSInvalidSignatureException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class KMSInvalidStateException
@@ -1438,6 +1634,13 @@ module AWS::SDK::KMS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 409
+        data = {}
+        data['__type'] = 'KMSInvalidStateException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class KeyList
@@ -1556,6 +1759,13 @@ module AWS::SDK::KMS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 500
+        data = {}
+        data['__type'] = 'KeyUnavailableException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class LimitExceededException
@@ -1573,6 +1783,13 @@ module AWS::SDK::KMS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'LimitExceededException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class ListAliases
@@ -1771,6 +1988,13 @@ module AWS::SDK::KMS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'MalformedPolicyDocumentException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class MultiRegionConfiguration
@@ -1847,6 +2071,13 @@ module AWS::SDK::KMS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 404
+        data = {}
+        data['__type'] = 'NotFoundException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class PolicyNameList
@@ -2098,6 +2329,13 @@ module AWS::SDK::KMS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'TagException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class TagList
@@ -2155,6 +2393,13 @@ module AWS::SDK::KMS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'UnsupportedOperationException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class UntagResource
@@ -2331,6 +2576,13 @@ module AWS::SDK::KMS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'XksKeyAlreadyInUseException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class XksKeyConfigurationType
@@ -2365,6 +2617,13 @@ module AWS::SDK::KMS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'XksKeyInvalidConfigurationException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class XksKeyNotFoundException
@@ -2382,6 +2641,13 @@ module AWS::SDK::KMS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'XksKeyNotFoundException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class XksProxyConfigurationType
@@ -2424,6 +2690,13 @@ module AWS::SDK::KMS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'XksProxyIncorrectAuthenticationCredentialException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class XksProxyInvalidConfigurationException
@@ -2441,6 +2714,13 @@ module AWS::SDK::KMS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'XksProxyInvalidConfigurationException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class XksProxyInvalidResponseException
@@ -2458,6 +2738,13 @@ module AWS::SDK::KMS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'XksProxyInvalidResponseException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class XksProxyUriEndpointInUseException
@@ -2475,6 +2762,13 @@ module AWS::SDK::KMS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'XksProxyUriEndpointInUseException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class XksProxyUriInUseException
@@ -2492,6 +2786,13 @@ module AWS::SDK::KMS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'XksProxyUriInUseException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class XksProxyUriUnreachableException
@@ -2509,6 +2810,13 @@ module AWS::SDK::KMS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'XksProxyUriUnreachableException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class XksProxyVpcEndpointServiceInUseException
@@ -2526,6 +2834,13 @@ module AWS::SDK::KMS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'XksProxyVpcEndpointServiceInUseException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class XksProxyVpcEndpointServiceInvalidConfigurationException
@@ -2543,6 +2858,13 @@ module AWS::SDK::KMS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'XksProxyVpcEndpointServiceInvalidConfigurationException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class XksProxyVpcEndpointServiceNotFoundException
@@ -2560,6 +2882,13 @@ module AWS::SDK::KMS
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'XksProxyVpcEndpointServiceNotFoundException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
   end
 end

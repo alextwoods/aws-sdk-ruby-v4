@@ -303,6 +303,13 @@ module AWS::SDK::DynamoDB
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'com.amazonaws.dynamodb#BackupInUseException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class BackupNotFoundException
@@ -320,6 +327,13 @@ module AWS::SDK::DynamoDB
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'com.amazonaws.dynamodb#BackupNotFoundException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class BackupSummaries
@@ -669,6 +683,14 @@ module AWS::SDK::DynamoDB
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'com.amazonaws.dynamodb#ConditionalCheckFailedException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        data['Item'] = AttributeMap.stub(stub[:item]) unless stub[:item].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class ConsumedCapacity
@@ -753,6 +775,13 @@ module AWS::SDK::DynamoDB
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'com.amazonaws.dynamodb#ContinuousBackupsUnavailableException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class ContributorInsightsRuleList
@@ -1374,6 +1403,13 @@ module AWS::SDK::DynamoDB
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'com.amazonaws.dynamodb#DuplicateItemException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class EnableKinesisStreamingConfiguration
@@ -1529,6 +1565,13 @@ module AWS::SDK::DynamoDB
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'com.amazonaws.dynamodb#ExportConflictException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class ExportDescription
@@ -1603,6 +1646,13 @@ module AWS::SDK::DynamoDB
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'com.amazonaws.dynamodb#ExportNotFoundException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class ExportSummaries
@@ -1901,6 +1951,13 @@ module AWS::SDK::DynamoDB
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'com.amazonaws.dynamodb#GlobalTableAlreadyExistsException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class GlobalTableDescription
@@ -1962,6 +2019,13 @@ module AWS::SDK::DynamoDB
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'com.amazonaws.dynamodb#GlobalTableNotFoundException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class IdempotentParameterMismatchException
@@ -1979,6 +2043,13 @@ module AWS::SDK::DynamoDB
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'com.amazonaws.dynamodb#IdempotentParameterMismatchException'
+        data['Message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class ImportConflictException
@@ -1996,6 +2067,13 @@ module AWS::SDK::DynamoDB
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'com.amazonaws.dynamodb#ImportConflictException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class ImportNotFoundException
@@ -2013,6 +2091,13 @@ module AWS::SDK::DynamoDB
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'com.amazonaws.dynamodb#ImportNotFoundException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class ImportSummary
@@ -2177,6 +2262,13 @@ module AWS::SDK::DynamoDB
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'com.amazonaws.dynamodb#IndexNotFoundException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class InputFormatOptions
@@ -2211,6 +2303,13 @@ module AWS::SDK::DynamoDB
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 500
+        data = {}
+        data['__type'] = 'com.amazonaws.dynamodb#InternalServerError'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class InvalidEndpointException
@@ -2228,6 +2327,13 @@ module AWS::SDK::DynamoDB
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 421
+        data = {}
+        data['__type'] = 'com.amazonaws.dynamodb#InvalidEndpointException'
+        data['Message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class InvalidExportTimeException
@@ -2245,6 +2351,13 @@ module AWS::SDK::DynamoDB
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'com.amazonaws.dynamodb#InvalidExportTimeException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class InvalidRestoreTimeException
@@ -2262,6 +2375,13 @@ module AWS::SDK::DynamoDB
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'com.amazonaws.dynamodb#InvalidRestoreTimeException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class ItemCollectionKeyAttributeMap
@@ -2374,6 +2494,13 @@ module AWS::SDK::DynamoDB
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'com.amazonaws.dynamodb#ItemCollectionSizeLimitExceededException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class ItemList
@@ -2589,6 +2716,13 @@ module AWS::SDK::DynamoDB
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'com.amazonaws.dynamodb#LimitExceededException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class ListAttributeValue
@@ -2983,6 +3117,13 @@ module AWS::SDK::DynamoDB
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'com.amazonaws.dynamodb#PointInTimeRecoveryUnavailableException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class Projection
@@ -3063,6 +3204,13 @@ module AWS::SDK::DynamoDB
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'com.amazonaws.dynamodb#ProvisionedThroughputExceededException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class ProvisionedThroughputOverride
@@ -3208,6 +3356,13 @@ module AWS::SDK::DynamoDB
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'com.amazonaws.dynamodb#ReplicaAlreadyExistsException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class ReplicaAutoScalingDescription
@@ -3466,6 +3621,13 @@ module AWS::SDK::DynamoDB
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'com.amazonaws.dynamodb#ReplicaNotFoundException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class ReplicaSettingsDescription
@@ -3535,6 +3697,13 @@ module AWS::SDK::DynamoDB
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'com.amazonaws.dynamodb#RequestLimitExceeded'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class ResourceInUseException
@@ -3552,6 +3721,13 @@ module AWS::SDK::DynamoDB
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'com.amazonaws.dynamodb#ResourceInUseException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class ResourceNotFoundException
@@ -3569,6 +3745,13 @@ module AWS::SDK::DynamoDB
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'com.amazonaws.dynamodb#ResourceNotFoundException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class RestoreSummary
@@ -3866,6 +4049,13 @@ module AWS::SDK::DynamoDB
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'com.amazonaws.dynamodb#TableAlreadyExistsException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class TableAutoScalingDescription
@@ -4013,6 +4203,13 @@ module AWS::SDK::DynamoDB
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'com.amazonaws.dynamodb#TableInUseException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class TableNameList
@@ -4049,6 +4246,13 @@ module AWS::SDK::DynamoDB
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'com.amazonaws.dynamodb#TableNotFoundException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class Tag
@@ -4214,6 +4418,14 @@ module AWS::SDK::DynamoDB
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'com.amazonaws.dynamodb#TransactionCanceledException'
+        data['Message'] = stub[:message] unless stub[:message].nil?
+        data['CancellationReasons'] = CancellationReasonList.stub(stub[:cancellation_reasons]) unless stub[:cancellation_reasons].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class TransactionConflictException
@@ -4231,6 +4443,13 @@ module AWS::SDK::DynamoDB
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'com.amazonaws.dynamodb#TransactionConflictException'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class TransactionInProgressException
@@ -4248,6 +4467,13 @@ module AWS::SDK::DynamoDB
         }
       end
 
+      def self.stub(http_resp, stub:)
+        http_resp.status = 400
+        data = {}
+        data['__type'] = 'com.amazonaws.dynamodb#TransactionInProgressException'
+        data['Message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
     end
 
     class UntagResource

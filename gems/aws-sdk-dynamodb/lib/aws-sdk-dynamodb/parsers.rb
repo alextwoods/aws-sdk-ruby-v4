@@ -60,7 +60,10 @@ module AWS::SDK::DynamoDB
 
     class AttributeValue
       def self.parse(map)
-        key, value = map.flatten
+        return nil if map.nil?
+
+        map.delete('__type')
+        key, value = map.compact.flatten
         case key
         when 'S'
           value = value
