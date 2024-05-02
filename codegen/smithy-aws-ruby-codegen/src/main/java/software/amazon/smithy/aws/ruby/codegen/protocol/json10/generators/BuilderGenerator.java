@@ -19,7 +19,6 @@ import java.util.Optional;
 import java.util.stream.Stream;
 import software.amazon.smithy.codegen.core.Symbol;
 import software.amazon.smithy.model.shapes.*;
-import software.amazon.smithy.model.traits.ClientOptionalTrait;
 import software.amazon.smithy.model.traits.SparseTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
@@ -27,7 +26,6 @@ import software.amazon.smithy.ruby.codegen.Hearth;
 import software.amazon.smithy.ruby.codegen.RubyImportContainer;
 import software.amazon.smithy.ruby.codegen.generators.BuilderGeneratorBase;
 import software.amazon.smithy.ruby.codegen.traits.NoSerializeTrait;
-import software.amazon.smithy.ruby.codegen.util.DefaultValueRetriever;
 import software.amazon.smithy.ruby.codegen.util.TimestampFormat;
 
 public class BuilderGenerator extends BuilderGeneratorBase {
@@ -36,7 +34,7 @@ public class BuilderGenerator extends BuilderGeneratorBase {
         super(context);
     }
 
-    private void renderMemberBuilders(Shape s, boolean allowDefaults) {
+    private void renderMemberBuilders(Shape s) {
         //remove members marked NoSerialize
         Stream<MemberShape> serializeMembers = s.members().stream()
                 .filter(NoSerializeTrait.excludeNoSerializeMembers());
@@ -49,7 +47,7 @@ public class BuilderGenerator extends BuilderGeneratorBase {
 
             String dataSetter = "data[" + dataName + "] = ";
             String inputGetter = "input[" + symbolName + "]";
-            target.accept(new MemberSerializer(member, dataSetter, inputGetter, true, allowDefaults));
+            target.accept(new MemberSerializer(member, dataSetter, inputGetter, true));
         });
     }
 
@@ -63,7 +61,7 @@ public class BuilderGenerator extends BuilderGeneratorBase {
                 .write("http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'")
                 .write("http_req.headers['X-Amz-Target'] = '$L'", target)
                 .write("data = {}")
-                .call(() -> renderMemberBuilders(inputShape, false))
+                .call(() -> renderMemberBuilders(inputShape))
                 .write("http_req.body = $T.new($T.dump(data))", RubyImportContainer.STRING_IO, Hearth.JSON)
                 .closeBlock("end");
     }
@@ -73,7 +71,7 @@ public class BuilderGenerator extends BuilderGeneratorBase {
         writer
                 .openBlock("def self.build(input)")
                 .write("data = {}")
-                .call(() -> renderMemberBuilders(shape, true))
+                .call(() -> renderMemberBuilders(shape))
                 .write("data")
                 .closeBlock("end");
     }
@@ -87,7 +85,7 @@ public class BuilderGenerator extends BuilderGeneratorBase {
                 .call(() -> {
                     Shape memberTarget = model.expectShape(shape.getMember().getTarget());
                     memberTarget.accept(new MemberSerializer(shape.getMember(), "data << ", "element",
-                            !shape.hasTrait(SparseTrait.class), false));
+                            !shape.hasTrait(SparseTrait.class)));
                 })
                 .closeBlock("end")
                 .write("data")
@@ -123,7 +121,7 @@ public class BuilderGenerator extends BuilderGeneratorBase {
         if (target.isUnionShape()) {
             writer.write("input = input.__getobj__"); // need to avoid infinite recursion
         }
-        target.accept(new MemberSerializer(member, dataSetter, "input", false, false));
+        target.accept(new MemberSerializer(member, dataSetter, "input", false));
     }
 
     @Override
@@ -135,7 +133,7 @@ public class BuilderGenerator extends BuilderGeneratorBase {
                 .call(() -> {
                     Shape valueTarget = model.expectShape(shape.getValue().getTarget());
                     valueTarget.accept(new MemberSerializer(shape.getValue(), "data[key] = ", "value",
-                            !shape.hasTrait(SparseTrait.class), false));
+                            !shape.hasTrait(SparseTrait.class)));
                 })
                 .closeBlock("end")
                 .write("data")
@@ -148,17 +146,13 @@ public class BuilderGenerator extends BuilderGeneratorBase {
         private final String dataSetter;
         private final MemberShape memberShape;
         private final boolean checkRequired;
-        private final boolean hasDefault;
 
         MemberSerializer(MemberShape memberShape,
-                         String dataSetter, String inputGetter, boolean checkRequired, boolean allowDefault) {
+                         String dataSetter, String inputGetter, boolean checkRequired) {
             this.inputGetter = inputGetter;
             this.dataSetter = dataSetter;
             this.memberShape = memberShape;
             this.checkRequired = checkRequired;
-            this.hasDefault = allowDefault
-                    && memberShape.hasNonNullDefault()
-                    && !memberShape.hasTrait(ClientOptionalTrait.class);
         }
 
         private String checkRequired() {
@@ -171,72 +165,41 @@ public class BuilderGenerator extends BuilderGeneratorBase {
 
         @Override
         protected Void getDefault(Shape shape) {
-            if (hasDefault) {
-                writer.write("$L$L || $L", dataSetter, inputGetter,
-                        shape.accept(new DefaultValueRetriever(memberShape)));
-            } else {
-                writer.write("$L$L$L", dataSetter, inputGetter, checkRequired());
-            }
+            writer.write("$L$L$L", dataSetter, inputGetter, checkRequired());
             return null;
         }
 
-        private void rubyFloat(Shape shape) {
-            if (hasDefault) {
-                writer.write("$1L$2L.nil? ? $3L : $4T.serialize($2L)",
-                        dataSetter,
-                        inputGetter,
-                        shape.accept(new DefaultValueRetriever(memberShape)),
-                        Hearth.NUMBER_HELPER);
-            } else {
-                writer.write("$1L$4T.serialize($2L)$3L",
-                        dataSetter, inputGetter, checkRequired(), Hearth.NUMBER_HELPER);            }
-
+        private void rubyFloat() {
+            writer.write("$1L$4T.serialize($2L)$3L",
+                    dataSetter, inputGetter, checkRequired(), Hearth.NUMBER_HELPER);
         }
 
         @Override
         public Void doubleShape(DoubleShape shape) {
-            rubyFloat(shape);
+            rubyFloat();
             return null;
         }
 
         @Override
         public Void floatShape(FloatShape shape) {
-            rubyFloat(shape);
+            rubyFloat();
             return null;
         }
 
         @Override
         public Void blobShape(BlobShape shape) {
-            if (hasDefault) {
-                writer.write("$L$T::encode64($L || $L).strip",
-                        dataSetter,
-                        RubyImportContainer.BASE64,
-                        inputGetter,
-                        shape.accept(new DefaultValueRetriever(memberShape)));
-            } else {
-                writer.write("$L$T::encode64($L).strip$L",
-                        dataSetter, RubyImportContainer.BASE64, inputGetter, checkRequired());            }
-
+            writer.write("$L$T::encode64($L).strip$L",
+                    dataSetter, RubyImportContainer.BASE64, inputGetter, checkRequired());
             return null;
         }
 
         @Override
         public Void timestampShape(TimestampShape shape) {
-            if (hasDefault) {
-                writer.write("$L$L.nil? ? $L : $L",
-                        dataSetter,
-                        inputGetter,
-                        shape.accept(new DefaultValueRetriever(memberShape)),
-                        TimestampFormat.serializeTimestamp(
-                                shape, memberShape, inputGetter,
-                                TimestampFormatTrait.Format.EPOCH_SECONDS, false));
-            } else {
-                writer.write("$L$L$L",
-                        dataSetter,
-                        TimestampFormat.serializeTimestamp(
-                                shape, memberShape, inputGetter, TimestampFormatTrait.Format.EPOCH_SECONDS, false),
-                        checkRequired());
-            }
+            writer.write("$L$L$L",
+                    dataSetter,
+                    TimestampFormat.serializeTimestamp(
+                            shape, memberShape, inputGetter, TimestampFormatTrait.Format.EPOCH_SECONDS, false),
+                    checkRequired());
             return null;
         }
 
