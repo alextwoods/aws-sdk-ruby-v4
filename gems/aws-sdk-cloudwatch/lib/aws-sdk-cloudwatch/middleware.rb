@@ -14,7 +14,7 @@ module AWS::SDK::CloudWatch
   module Middleware
 
     class DeleteAlarms
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -58,14 +58,14 @@ module AWS::SDK::CloudWatch
           client: config.http_client,
           stub_error_classes: [Stubs::ResourceNotFound],
           stub_data_class: Stubs::DeleteAlarms,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteAnomalyDetector
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -109,14 +109,14 @@ module AWS::SDK::CloudWatch
           client: config.http_client,
           stub_error_classes: [Stubs::ResourceNotFoundException, Stubs::InvalidParameterCombinationException, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault, Stubs::MissingRequiredParameterException],
           stub_data_class: Stubs::DeleteAnomalyDetector,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteDashboards
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -160,14 +160,14 @@ module AWS::SDK::CloudWatch
           client: config.http_client,
           stub_error_classes: [Stubs::DashboardNotFoundError, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault],
           stub_data_class: Stubs::DeleteDashboards,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteInsightRules
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -211,14 +211,14 @@ module AWS::SDK::CloudWatch
           client: config.http_client,
           stub_error_classes: [Stubs::InvalidParameterValueException, Stubs::MissingRequiredParameterException],
           stub_data_class: Stubs::DeleteInsightRules,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteMetricStream
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -262,14 +262,14 @@ module AWS::SDK::CloudWatch
           client: config.http_client,
           stub_error_classes: [Stubs::InvalidParameterValueException, Stubs::InternalServiceFault, Stubs::MissingRequiredParameterException],
           stub_data_class: Stubs::DeleteMetricStream,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeAlarmHistory
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -313,14 +313,14 @@ module AWS::SDK::CloudWatch
           client: config.http_client,
           stub_error_classes: [Stubs::InvalidNextToken],
           stub_data_class: Stubs::DescribeAlarmHistory,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeAlarms
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -364,14 +364,14 @@ module AWS::SDK::CloudWatch
           client: config.http_client,
           stub_error_classes: [Stubs::InvalidNextToken],
           stub_data_class: Stubs::DescribeAlarms,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeAlarmsForMetric
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -415,14 +415,14 @@ module AWS::SDK::CloudWatch
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeAlarmsForMetric,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeAnomalyDetectors
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -466,14 +466,14 @@ module AWS::SDK::CloudWatch
           client: config.http_client,
           stub_error_classes: [Stubs::InvalidNextToken, Stubs::InvalidParameterCombinationException, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault],
           stub_data_class: Stubs::DescribeAnomalyDetectors,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeInsightRules
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -517,14 +517,14 @@ module AWS::SDK::CloudWatch
           client: config.http_client,
           stub_error_classes: [Stubs::InvalidNextToken],
           stub_data_class: Stubs::DescribeInsightRules,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DisableAlarmActions
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -568,14 +568,14 @@ module AWS::SDK::CloudWatch
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DisableAlarmActions,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DisableInsightRules
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -619,14 +619,14 @@ module AWS::SDK::CloudWatch
           client: config.http_client,
           stub_error_classes: [Stubs::InvalidParameterValueException, Stubs::MissingRequiredParameterException],
           stub_data_class: Stubs::DisableInsightRules,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class EnableAlarmActions
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -670,14 +670,14 @@ module AWS::SDK::CloudWatch
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::EnableAlarmActions,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class EnableInsightRules
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -721,14 +721,14 @@ module AWS::SDK::CloudWatch
           client: config.http_client,
           stub_error_classes: [Stubs::LimitExceededException, Stubs::InvalidParameterValueException, Stubs::MissingRequiredParameterException],
           stub_data_class: Stubs::EnableInsightRules,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetDashboard
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -772,14 +772,14 @@ module AWS::SDK::CloudWatch
           client: config.http_client,
           stub_error_classes: [Stubs::DashboardNotFoundError, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault],
           stub_data_class: Stubs::GetDashboard,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetInsightRuleReport
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -823,14 +823,14 @@ module AWS::SDK::CloudWatch
           client: config.http_client,
           stub_error_classes: [Stubs::ResourceNotFoundException, Stubs::InvalidParameterValueException, Stubs::MissingRequiredParameterException],
           stub_data_class: Stubs::GetInsightRuleReport,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetMetricData
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -874,14 +874,14 @@ module AWS::SDK::CloudWatch
           client: config.http_client,
           stub_error_classes: [Stubs::InvalidNextToken],
           stub_data_class: Stubs::GetMetricData,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetMetricStatistics
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -925,14 +925,14 @@ module AWS::SDK::CloudWatch
           client: config.http_client,
           stub_error_classes: [Stubs::InvalidParameterCombinationException, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault, Stubs::MissingRequiredParameterException],
           stub_data_class: Stubs::GetMetricStatistics,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetMetricStream
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -976,14 +976,14 @@ module AWS::SDK::CloudWatch
           client: config.http_client,
           stub_error_classes: [Stubs::ResourceNotFoundException, Stubs::InvalidParameterCombinationException, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault, Stubs::MissingRequiredParameterException],
           stub_data_class: Stubs::GetMetricStream,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetMetricWidgetImage
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1027,14 +1027,14 @@ module AWS::SDK::CloudWatch
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetMetricWidgetImage,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ListDashboards
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1078,14 +1078,14 @@ module AWS::SDK::CloudWatch
           client: config.http_client,
           stub_error_classes: [Stubs::InvalidParameterValueException, Stubs::InternalServiceFault],
           stub_data_class: Stubs::ListDashboards,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ListManagedInsightRules
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1129,14 +1129,14 @@ module AWS::SDK::CloudWatch
           client: config.http_client,
           stub_error_classes: [Stubs::InvalidNextToken, Stubs::InvalidParameterValueException, Stubs::MissingRequiredParameterException],
           stub_data_class: Stubs::ListManagedInsightRules,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ListMetricStreams
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1180,14 +1180,14 @@ module AWS::SDK::CloudWatch
           client: config.http_client,
           stub_error_classes: [Stubs::InvalidNextToken, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault, Stubs::MissingRequiredParameterException],
           stub_data_class: Stubs::ListMetricStreams,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ListMetrics
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1231,14 +1231,14 @@ module AWS::SDK::CloudWatch
           client: config.http_client,
           stub_error_classes: [Stubs::InvalidParameterValueException, Stubs::InternalServiceFault],
           stub_data_class: Stubs::ListMetrics,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ListTagsForResource
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1282,14 +1282,14 @@ module AWS::SDK::CloudWatch
           client: config.http_client,
           stub_error_classes: [Stubs::ResourceNotFoundException, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault],
           stub_data_class: Stubs::ListTagsForResource,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class PutAnomalyDetector
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1333,14 +1333,14 @@ module AWS::SDK::CloudWatch
           client: config.http_client,
           stub_error_classes: [Stubs::LimitExceededException, Stubs::InvalidParameterCombinationException, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault, Stubs::MissingRequiredParameterException],
           stub_data_class: Stubs::PutAnomalyDetector,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class PutCompositeAlarm
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1384,14 +1384,14 @@ module AWS::SDK::CloudWatch
           client: config.http_client,
           stub_error_classes: [Stubs::LimitExceededFault],
           stub_data_class: Stubs::PutCompositeAlarm,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class PutDashboard
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1435,14 +1435,14 @@ module AWS::SDK::CloudWatch
           client: config.http_client,
           stub_error_classes: [Stubs::DashboardInvalidInputError, Stubs::InternalServiceFault],
           stub_data_class: Stubs::PutDashboard,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class PutInsightRule
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1486,14 +1486,14 @@ module AWS::SDK::CloudWatch
           client: config.http_client,
           stub_error_classes: [Stubs::LimitExceededException, Stubs::InvalidParameterValueException, Stubs::MissingRequiredParameterException],
           stub_data_class: Stubs::PutInsightRule,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class PutManagedInsightRules
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1537,14 +1537,14 @@ module AWS::SDK::CloudWatch
           client: config.http_client,
           stub_error_classes: [Stubs::InvalidParameterValueException, Stubs::MissingRequiredParameterException],
           stub_data_class: Stubs::PutManagedInsightRules,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class PutMetricAlarm
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1588,14 +1588,14 @@ module AWS::SDK::CloudWatch
           client: config.http_client,
           stub_error_classes: [Stubs::LimitExceededFault],
           stub_data_class: Stubs::PutMetricAlarm,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class PutMetricData
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1645,14 +1645,14 @@ module AWS::SDK::CloudWatch
           client: config.http_client,
           stub_error_classes: [Stubs::InternalServiceFault, Stubs::InvalidParameterCombinationException, Stubs::InvalidParameterValueException, Stubs::MissingRequiredParameterException],
           stub_data_class: Stubs::PutMetricData,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class PutMetricStream
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1696,14 +1696,14 @@ module AWS::SDK::CloudWatch
           client: config.http_client,
           stub_error_classes: [Stubs::InvalidParameterCombinationException, Stubs::ConcurrentModificationException, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault, Stubs::MissingRequiredParameterException],
           stub_data_class: Stubs::PutMetricStream,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class SetAlarmState
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1747,14 +1747,14 @@ module AWS::SDK::CloudWatch
           client: config.http_client,
           stub_error_classes: [Stubs::InvalidFormatFault, Stubs::ResourceNotFound],
           stub_data_class: Stubs::SetAlarmState,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class StartMetricStreams
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1798,14 +1798,14 @@ module AWS::SDK::CloudWatch
           client: config.http_client,
           stub_error_classes: [Stubs::InvalidParameterValueException, Stubs::InternalServiceFault, Stubs::MissingRequiredParameterException],
           stub_data_class: Stubs::StartMetricStreams,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class StopMetricStreams
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1849,14 +1849,14 @@ module AWS::SDK::CloudWatch
           client: config.http_client,
           stub_error_classes: [Stubs::InvalidParameterValueException, Stubs::InternalServiceFault, Stubs::MissingRequiredParameterException],
           stub_data_class: Stubs::StopMetricStreams,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class TagResource
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1900,14 +1900,14 @@ module AWS::SDK::CloudWatch
           client: config.http_client,
           stub_error_classes: [Stubs::ResourceNotFoundException, Stubs::ConcurrentModificationException, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault],
           stub_data_class: Stubs::TagResource,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class UntagResource
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1951,7 +1951,7 @@ module AWS::SDK::CloudWatch
           client: config.http_client,
           stub_error_classes: [Stubs::ResourceNotFoundException, Stubs::ConcurrentModificationException, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault],
           stub_data_class: Stubs::UntagResource,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end

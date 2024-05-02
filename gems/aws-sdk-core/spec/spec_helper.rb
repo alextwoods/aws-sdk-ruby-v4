@@ -31,8 +31,9 @@ RSpec.configure do |config|
   end
 end
 
+# rubocop:disable Lint/MissingSuper
 module AWS::SDK::STS
-  class Client
+  class Client < Hearth::Client
     def initialize(_config = Config.new, _options = {})
       nil
     end
@@ -43,13 +44,14 @@ module AWS::SDK::STS
 end
 
 module AWS::SDK::SSO
-  class Client
+  class Client < Hearth::Client
     def initialize(_config = Config.new, _options = {})
       nil
     end
   end
   Config = Struct.new(:region, keyword_init: true)
 end
+# rubocop:enable Lint/MissingSuper
 
 module Aws
   module Crt

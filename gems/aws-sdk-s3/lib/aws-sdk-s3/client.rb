@@ -11,22 +11,15 @@ require 'stringio'
 
 module AWS::SDK::S3
   # <p></p>
-  class Client
-    include Hearth::ClientStubs
+  class Client < Hearth::Client
 
     # @api private
     @plugins = Hearth::PluginList.new
 
-    # @return [Hearth::PluginList]
-    def self.plugins
-      @plugins
-    end
-
     # @param [Hash] options
     #   Options used to construct an instance of {Config}
     def initialize(options = {})
-      @config = initialize_config(options)
-      @stubs = Hearth::Stubs.new
+      super(options, Config)
     end
 
     # @return [Config] config
@@ -137,7 +130,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::AbortMultipartUploadInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::AbortMultipartUpload.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::AbortMultipartUpload.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -364,7 +357,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CompleteMultipartUploadInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::CompleteMultipartUpload.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::CompleteMultipartUpload.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -631,7 +624,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CopyObjectInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::CopyObject.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::CopyObject.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -833,7 +826,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateBucketInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::CreateBucket.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::CreateBucket.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1142,7 +1135,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateMultipartUploadInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::CreateMultipartUpload.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::CreateMultipartUpload.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1247,7 +1240,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateSessionInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::CreateSession.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::CreateSession.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1341,7 +1334,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteBucketInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::DeleteBucket.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::DeleteBucket.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1409,7 +1402,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteBucketAnalyticsConfigurationInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::DeleteBucketAnalyticsConfiguration.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::DeleteBucketAnalyticsConfiguration.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1477,7 +1470,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteBucketCorsInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::DeleteBucketCors.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::DeleteBucketCors.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1539,7 +1532,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteBucketEncryptionInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::DeleteBucketEncryption.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::DeleteBucketEncryption.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1600,7 +1593,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteBucketIntelligentTieringConfigurationInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::DeleteBucketIntelligentTieringConfiguration.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::DeleteBucketIntelligentTieringConfiguration.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1666,7 +1659,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteBucketInventoryConfigurationInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::DeleteBucketInventoryConfiguration.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::DeleteBucketInventoryConfiguration.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1736,7 +1729,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteBucketLifecycleInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::DeleteBucketLifecycle.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::DeleteBucketLifecycle.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1810,7 +1803,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteBucketMetricsConfigurationInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::DeleteBucketMetricsConfiguration.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::DeleteBucketMetricsConfiguration.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1868,7 +1861,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteBucketOwnershipControlsInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::DeleteBucketOwnershipControls.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::DeleteBucketOwnershipControls.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1974,7 +1967,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteBucketPolicyInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::DeleteBucketPolicy.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::DeleteBucketPolicy.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2046,7 +2039,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteBucketReplicationInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::DeleteBucketReplication.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::DeleteBucketReplication.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2110,7 +2103,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteBucketTaggingInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::DeleteBucketTagging.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::DeleteBucketTagging.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2181,7 +2174,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteBucketWebsiteInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::DeleteBucketWebsite.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::DeleteBucketWebsite.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2343,7 +2336,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteObjectInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::DeleteObject.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::DeleteObject.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2428,7 +2421,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteObjectTaggingInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::DeleteObjectTagging.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::DeleteObjectTagging.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2648,7 +2641,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteObjectsInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::DeleteObjects.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::DeleteObjects.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2715,7 +2708,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeletePublicAccessBlockInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::DeletePublicAccessBlock.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::DeletePublicAccessBlock.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2783,7 +2776,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetBucketAccelerateConfigurationInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetBucketAccelerateConfiguration.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::GetBucketAccelerateConfiguration.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2860,7 +2853,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetBucketAclInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetBucketAcl.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::GetBucketAcl.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2948,7 +2941,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetBucketAnalyticsConfigurationInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetBucketAnalyticsConfiguration.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::GetBucketAnalyticsConfiguration.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3047,7 +3040,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetBucketCorsInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetBucketCors.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::GetBucketCors.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3115,7 +3108,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetBucketEncryptionInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetBucketEncryption.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::GetBucketEncryption.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3191,7 +3184,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetBucketIntelligentTieringConfigurationInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetBucketIntelligentTieringConfiguration.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::GetBucketIntelligentTieringConfiguration.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3278,7 +3271,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetBucketInventoryConfigurationInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetBucketInventoryConfiguration.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::GetBucketInventoryConfiguration.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3429,7 +3422,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetBucketLifecycleConfigurationInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetBucketLifecycleConfiguration.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::GetBucketLifecycleConfiguration.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3505,7 +3498,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetBucketLocationInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetBucketLocation.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::GetBucketLocation.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3575,7 +3568,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetBucketLoggingInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetBucketLogging.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::GetBucketLogging.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3660,7 +3653,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetBucketMetricsConfigurationInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetBucketMetricsConfiguration.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::GetBucketMetricsConfiguration.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3747,7 +3740,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetBucketNotificationConfigurationInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetBucketNotificationConfiguration.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::GetBucketNotificationConfiguration.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3809,7 +3802,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetBucketOwnershipControlsInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetBucketOwnershipControls.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::GetBucketOwnershipControls.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3918,7 +3911,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetBucketPolicyInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetBucketPolicy.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::GetBucketPolicy.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3988,7 +3981,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetBucketPolicyStatusInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetBucketPolicyStatus.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::GetBucketPolicyStatus.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4119,7 +4112,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetBucketReplicationInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetBucketReplication.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::GetBucketReplication.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4180,7 +4173,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetBucketRequestPaymentInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetBucketRequestPayment.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::GetBucketRequestPayment.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4272,7 +4265,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetBucketTaggingInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetBucketTagging.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::GetBucketTagging.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4347,7 +4340,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetBucketVersioningInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetBucketVersioning.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::GetBucketVersioning.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4439,7 +4432,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetBucketWebsiteInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetBucketWebsite.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::GetBucketWebsite.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4681,7 +4674,7 @@ module AWS::SDK::S3
       response_body = output_stream(options, &block)
       config = operation_config(options)
       input = Params::GetObjectInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetObject.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::GetObject.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4823,7 +4816,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetObjectAclInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetObjectAcl.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::GetObjectAcl.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5083,7 +5076,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetObjectAttributesInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetObjectAttributes.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::GetObjectAttributes.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5138,7 +5131,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetObjectLegalHoldInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetObjectLegalHold.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::GetObjectLegalHold.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5195,7 +5188,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetObjectLockConfigurationInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetObjectLockConfiguration.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::GetObjectLockConfiguration.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5251,7 +5244,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetObjectRetentionInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetObjectRetention.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::GetObjectRetention.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5366,7 +5359,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetObjectTaggingInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetObjectTagging.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::GetObjectTagging.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5437,7 +5430,7 @@ module AWS::SDK::S3
       response_body = output_stream(options, &block)
       config = operation_config(options)
       input = Params::GetObjectTorrentInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetObjectTorrent.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::GetObjectTorrent.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5518,7 +5511,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetPublicAccessBlockInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetPublicAccessBlock.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::GetPublicAccessBlock.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5616,7 +5609,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::HeadBucketInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::HeadBucket.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::HeadBucket.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5835,7 +5828,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::HeadObjectInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::HeadObject.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::HeadObject.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5934,7 +5927,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ListBucketAnalyticsConfigurationsInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::ListBucketAnalyticsConfigurations.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::ListBucketAnalyticsConfigurations.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -6014,7 +6007,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ListBucketIntelligentTieringConfigurationsInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::ListBucketIntelligentTieringConfigurations.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::ListBucketIntelligentTieringConfigurations.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -6113,7 +6106,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ListBucketInventoryConfigurationsInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::ListBucketInventoryConfigurations.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::ListBucketInventoryConfigurations.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -6205,7 +6198,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ListBucketMetricsConfigurationsInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::ListBucketMetricsConfigurations.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::ListBucketMetricsConfigurations.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -6276,7 +6269,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ListBucketsInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::ListBuckets.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::ListBuckets.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -6336,7 +6329,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ListDirectoryBucketsInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::ListDirectoryBuckets.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::ListDirectoryBuckets.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -6559,7 +6552,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ListMultipartUploadsInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::ListMultipartUploads.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::ListMultipartUploads.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -6720,7 +6713,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ListObjectVersionsInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::ListObjectVersions.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::ListObjectVersions.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -6831,7 +6824,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ListObjectsInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::ListObjects.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::ListObjects.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -6986,7 +6979,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ListObjectsV2Input.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::ListObjectsV2.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::ListObjectsV2.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -7140,7 +7133,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ListPartsInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::ListParts.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::ListParts.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -7222,7 +7215,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::PutBucketAccelerateConfigurationInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::PutBucketAccelerateConfiguration.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::PutBucketAccelerateConfiguration.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -7495,7 +7488,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::PutBucketAclInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::PutBucketAcl.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::PutBucketAcl.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -7665,7 +7658,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::PutBucketAnalyticsConfigurationInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::PutBucketAnalyticsConfiguration.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::PutBucketAnalyticsConfiguration.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -7822,7 +7815,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::PutBucketCorsInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::PutBucketCors.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::PutBucketCors.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -7905,7 +7898,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::PutBucketEncryptionInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::PutBucketEncryption.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::PutBucketEncryption.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -8019,7 +8012,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::PutBucketIntelligentTieringConfigurationInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::PutBucketIntelligentTieringConfiguration.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::PutBucketIntelligentTieringConfiguration.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -8171,7 +8164,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::PutBucketInventoryConfigurationInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::PutBucketInventoryConfiguration.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::PutBucketInventoryConfiguration.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -8383,7 +8376,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::PutBucketLifecycleConfigurationInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::PutBucketLifecycleConfiguration.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::PutBucketLifecycleConfiguration.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -8556,7 +8549,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::PutBucketLoggingInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::PutBucketLogging.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::PutBucketLogging.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -8659,7 +8652,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::PutBucketMetricsConfigurationInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::PutBucketMetricsConfiguration.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::PutBucketMetricsConfiguration.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -8803,7 +8796,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::PutBucketNotificationConfigurationInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::PutBucketNotificationConfiguration.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::PutBucketNotificationConfiguration.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -8869,7 +8862,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::PutBucketOwnershipControlsInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::PutBucketOwnershipControls.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::PutBucketOwnershipControls.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -8985,7 +8978,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::PutBucketPolicyInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::PutBucketPolicy.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::PutBucketPolicy.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -9175,7 +9168,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::PutBucketReplicationInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::PutBucketReplication.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::PutBucketReplication.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -9248,7 +9241,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::PutBucketRequestPaymentInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::PutBucketRequestPayment.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::PutBucketRequestPayment.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -9375,7 +9368,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::PutBucketTaggingInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::PutBucketTagging.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::PutBucketTagging.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -9474,7 +9467,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::PutBucketVersioningInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::PutBucketVersioning.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::PutBucketVersioning.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -9682,7 +9675,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::PutBucketWebsiteInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::PutBucketWebsite.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::PutBucketWebsite.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -10000,7 +9993,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::PutObjectInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::PutObject.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::PutObject.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -10271,7 +10264,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::PutObjectAclInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::PutObjectAcl.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::PutObjectAcl.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -10323,7 +10316,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::PutObjectLegalHoldInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::PutObjectLegalHold.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::PutObjectLegalHold.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -10398,7 +10391,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::PutObjectLockConfigurationInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::PutObjectLockConfiguration.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::PutObjectLockConfiguration.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -10453,7 +10446,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::PutObjectRetentionInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::PutObjectRetention.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::PutObjectRetention.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -10582,7 +10575,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::PutObjectTaggingInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::PutObjectTagging.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::PutObjectTagging.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -10666,7 +10659,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::PutPublicAccessBlockInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::PutPublicAccessBlock.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::PutPublicAccessBlock.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -11070,7 +11063,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::RestoreObjectInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::RestoreObject.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::RestoreObject.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -11295,7 +11288,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::UploadPartInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::UploadPart.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::UploadPart.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -11540,7 +11533,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::UploadPartCopyInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::UploadPartCopy.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::UploadPartCopy.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -11653,7 +11646,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::WriteGetObjectResponseInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::WriteGetObjectResponse.build(config, @stubs)
+      stack = AWS::SDK::S3::Middleware::WriteGetObjectResponse.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -11669,37 +11662,6 @@ module AWS::SDK::S3
       end
       context.logger.info("[#{context.invocation_id}] [#{self.class}#write_get_object_response] #{output.data}")
       output
-    end
-
-    private
-
-    def initialize_config(options)
-      client_interceptors = options.delete(:interceptors)
-      config = Config.new(**options)
-      Client.plugins.each { |p| p.call(config) }
-      config.plugins.each { |p| p.call(config) }
-      config.interceptors.concat(Hearth::InterceptorList.new(client_interceptors)) if client_interceptors
-      config.validate!
-      config.freeze
-    end
-
-    def operation_config(options)
-      return @config if options.empty?
-
-      operation_plugins = options.delete(:plugins)
-      operation_interceptors = options.delete(:interceptors)
-      config = @config.merge(options)
-      Hearth::PluginList.new(operation_plugins).each { |p| p.call(config) } if operation_plugins
-      config.interceptors.concat(Hearth::InterceptorList.new(operation_interceptors)) if operation_interceptors
-      config.validate!
-      config.freeze
-    end
-
-    def output_stream(options = {}, &block)
-      return options.delete(:output_stream) if options[:output_stream]
-      return Hearth::BlockIO.new(block) if block
-
-      ::StringIO.new
     end
   end
 end

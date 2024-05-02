@@ -64,7 +64,9 @@ public class ParserGenerator extends ParserGeneratorBase {
     protected void renderUnionParseMethod(UnionShape s) {
         writer
                 .openBlock("def self.parse(map)")
-                .write("key, value = map.flatten")
+                .write("return nil if map.nil?\n")
+                .write("map.delete('__type')")
+                .write("key, value = map.compact.flatten")
                 .write("case key")
                 .call(() -> {
                     s.members().forEach((member) -> {

@@ -14,7 +14,7 @@ module AWS::SDK::STS
   module Middleware
 
     class AssumeRole
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -58,14 +58,14 @@ module AWS::SDK::STS
           client: config.http_client,
           stub_error_classes: [Stubs::ExpiredTokenException, Stubs::MalformedPolicyDocumentException, Stubs::PackedPolicyTooLargeException, Stubs::RegionDisabledException],
           stub_data_class: Stubs::AssumeRole,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class AssumeRoleWithSAML
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -109,14 +109,14 @@ module AWS::SDK::STS
           client: config.http_client,
           stub_error_classes: [Stubs::ExpiredTokenException, Stubs::IDPRejectedClaimException, Stubs::InvalidIdentityTokenException, Stubs::MalformedPolicyDocumentException, Stubs::PackedPolicyTooLargeException, Stubs::RegionDisabledException],
           stub_data_class: Stubs::AssumeRoleWithSAML,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class AssumeRoleWithWebIdentity
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -160,14 +160,14 @@ module AWS::SDK::STS
           client: config.http_client,
           stub_error_classes: [Stubs::ExpiredTokenException, Stubs::IDPCommunicationErrorException, Stubs::IDPRejectedClaimException, Stubs::InvalidIdentityTokenException, Stubs::MalformedPolicyDocumentException, Stubs::PackedPolicyTooLargeException, Stubs::RegionDisabledException],
           stub_data_class: Stubs::AssumeRoleWithWebIdentity,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DecodeAuthorizationMessage
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -211,14 +211,14 @@ module AWS::SDK::STS
           client: config.http_client,
           stub_error_classes: [Stubs::InvalidAuthorizationMessageException],
           stub_data_class: Stubs::DecodeAuthorizationMessage,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetAccessKeyInfo
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -262,14 +262,14 @@ module AWS::SDK::STS
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetAccessKeyInfo,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetCallerIdentity
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -313,14 +313,14 @@ module AWS::SDK::STS
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetCallerIdentity,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetFederationToken
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -364,14 +364,14 @@ module AWS::SDK::STS
           client: config.http_client,
           stub_error_classes: [Stubs::MalformedPolicyDocumentException, Stubs::PackedPolicyTooLargeException, Stubs::RegionDisabledException],
           stub_data_class: Stubs::GetFederationToken,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetSessionToken
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -415,7 +415,7 @@ module AWS::SDK::STS
           client: config.http_client,
           stub_error_classes: [Stubs::RegionDisabledException],
           stub_data_class: Stubs::GetSessionToken,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end

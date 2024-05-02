@@ -289,6 +289,10 @@ module AWS::SDK::S3
       def self.stub(http_resp, stub:)
         data = {}
         http_resp.status = 409
+        xml = Hearth::XML::Node.new('Error')
+        xml << Hearth::XML::Node.new('Type', 'Sender')
+        xml << Hearth::XML::Node.new('Code', 'BucketAlreadyExists')
+        http_resp.body = ::StringIO.new(Hearth::XML::Node.new('ErrorResponse', xml).to_str) if xml
       end
     end
 
@@ -309,6 +313,10 @@ module AWS::SDK::S3
       def self.stub(http_resp, stub:)
         data = {}
         http_resp.status = 409
+        xml = Hearth::XML::Node.new('Error')
+        xml << Hearth::XML::Node.new('Type', 'Sender')
+        xml << Hearth::XML::Node.new('Code', 'BucketAlreadyOwnedByYou')
+        http_resp.body = ::StringIO.new(Hearth::XML::Node.new('ErrorResponse', xml).to_str) if xml
       end
     end
 
@@ -581,7 +589,7 @@ module AWS::SDK::S3
         http_resp.headers['x-amz-server-side-encryption-bucket-key-enabled'] = stub[:bucket_key_enabled].to_s unless stub[:bucket_key_enabled].nil?
         http_resp.headers['x-amz-request-charged'] = stub[:request_charged] unless stub[:request_charged].nil? || stub[:request_charged].empty?
         http_resp.headers['Content-Type'] = 'application/xml'
-        xml = Builders::CopyObjectResult.build('CopyObjectResult', stub[:copy_object_result]) unless stub[:copy_object_result].nil?
+        xml = CopyObjectResult.stub('CopyObjectResult', stub[:copy_object_result]) unless stub[:copy_object_result].nil?
         http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
@@ -1528,7 +1536,7 @@ module AWS::SDK::S3
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/xml'
-        xml = Builders::AnalyticsConfiguration.build('AnalyticsConfiguration', stub[:analytics_configuration]) unless stub[:analytics_configuration].nil?
+        xml = AnalyticsConfiguration.stub('AnalyticsConfiguration', stub[:analytics_configuration]) unless stub[:analytics_configuration].nil?
         http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
@@ -1579,7 +1587,7 @@ module AWS::SDK::S3
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/xml'
-        xml = Builders::ServerSideEncryptionConfiguration.build('ServerSideEncryptionConfiguration', stub[:server_side_encryption_configuration]) unless stub[:server_side_encryption_configuration].nil?
+        xml = ServerSideEncryptionConfiguration.stub('ServerSideEncryptionConfiguration', stub[:server_side_encryption_configuration]) unless stub[:server_side_encryption_configuration].nil?
         http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
@@ -1603,7 +1611,7 @@ module AWS::SDK::S3
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/xml'
-        xml = Builders::IntelligentTieringConfiguration.build('IntelligentTieringConfiguration', stub[:intelligent_tiering_configuration]) unless stub[:intelligent_tiering_configuration].nil?
+        xml = IntelligentTieringConfiguration.stub('IntelligentTieringConfiguration', stub[:intelligent_tiering_configuration]) unless stub[:intelligent_tiering_configuration].nil?
         http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
@@ -1627,7 +1635,7 @@ module AWS::SDK::S3
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/xml'
-        xml = Builders::InventoryConfiguration.build('InventoryConfiguration', stub[:inventory_configuration]) unless stub[:inventory_configuration].nil?
+        xml = InventoryConfiguration.stub('InventoryConfiguration', stub[:inventory_configuration]) unless stub[:inventory_configuration].nil?
         http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
@@ -1732,7 +1740,7 @@ module AWS::SDK::S3
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/xml'
-        xml = Builders::MetricsConfiguration.build('MetricsConfiguration', stub[:metrics_configuration]) unless stub[:metrics_configuration].nil?
+        xml = MetricsConfiguration.stub('MetricsConfiguration', stub[:metrics_configuration]) unless stub[:metrics_configuration].nil?
         http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
@@ -1789,7 +1797,7 @@ module AWS::SDK::S3
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/xml'
-        xml = Builders::OwnershipControls.build('OwnershipControls', stub[:ownership_controls]) unless stub[:ownership_controls].nil?
+        xml = OwnershipControls.stub('OwnershipControls', stub[:ownership_controls]) unless stub[:ownership_controls].nil?
         http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
@@ -1836,7 +1844,7 @@ module AWS::SDK::S3
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/xml'
-        xml = Builders::PolicyStatus.build('PolicyStatus', stub[:policy_status]) unless stub[:policy_status].nil?
+        xml = PolicyStatus.stub('PolicyStatus', stub[:policy_status]) unless stub[:policy_status].nil?
         http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
@@ -1860,7 +1868,7 @@ module AWS::SDK::S3
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/xml'
-        xml = Builders::ReplicationConfiguration.build('ReplicationConfiguration', stub[:replication_configuration]) unless stub[:replication_configuration].nil?
+        xml = ReplicationConfiguration.stub('ReplicationConfiguration', stub[:replication_configuration]) unless stub[:replication_configuration].nil?
         http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
@@ -2195,7 +2203,7 @@ module AWS::SDK::S3
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/xml'
-        xml = Builders::ObjectLockLegalHold.build('ObjectLockLegalHold', stub[:legal_hold]) unless stub[:legal_hold].nil?
+        xml = ObjectLockLegalHold.stub('ObjectLockLegalHold', stub[:legal_hold]) unless stub[:legal_hold].nil?
         http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
@@ -2219,7 +2227,7 @@ module AWS::SDK::S3
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/xml'
-        xml = Builders::ObjectLockConfiguration.build('ObjectLockConfiguration', stub[:object_lock_configuration]) unless stub[:object_lock_configuration].nil?
+        xml = ObjectLockConfiguration.stub('ObjectLockConfiguration', stub[:object_lock_configuration]) unless stub[:object_lock_configuration].nil?
         http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
@@ -2243,7 +2251,7 @@ module AWS::SDK::S3
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/xml'
-        xml = Builders::ObjectLockRetention.build('ObjectLockRetention', stub[:retention]) unless stub[:retention].nil?
+        xml = ObjectLockRetention.stub('ObjectLockRetention', stub[:retention]) unless stub[:retention].nil?
         http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
@@ -2320,7 +2328,7 @@ module AWS::SDK::S3
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/xml'
-        xml = Builders::PublicAccessBlockConfiguration.build('PublicAccessBlockConfiguration', stub[:public_access_block_configuration]) unless stub[:public_access_block_configuration].nil?
+        xml = PublicAccessBlockConfiguration.stub('PublicAccessBlockConfiguration', stub[:public_access_block_configuration]) unless stub[:public_access_block_configuration].nil?
         http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end
@@ -2647,13 +2655,12 @@ module AWS::SDK::S3
       def self.stub(http_resp, stub:)
         data = {}
         http_resp.status = 403
-
-        http_resp.headers['Content-Type'] = 'application/xml'
-        xml = Hearth::XML::Node.new('InvalidObjectState')
-        xml.attributes['xmlns'] = 'http://s3.amazonaws.com/doc/2006-03-01/'
+        xml = Hearth::XML::Node.new('Error')
+        xml << Hearth::XML::Node.new('Type', 'Sender')
+        xml << Hearth::XML::Node.new('Code', 'InvalidObjectState')
         xml << Hearth::XML::Node.new('StorageClass', stub[:storage_class].to_s) unless stub[:storage_class].nil?
         xml << Hearth::XML::Node.new('AccessTier', stub[:access_tier].to_s) unless stub[:access_tier].nil?
-        http_resp.body = ::StringIO.new(xml.to_str) if xml
+        http_resp.body = ::StringIO.new(Hearth::XML::Node.new('ErrorResponse', xml).to_str) if xml
       end
     end
 
@@ -3652,6 +3659,10 @@ module AWS::SDK::S3
       def self.stub(http_resp, stub:)
         data = {}
         http_resp.status = 404
+        xml = Hearth::XML::Node.new('Error')
+        xml << Hearth::XML::Node.new('Type', 'Sender')
+        xml << Hearth::XML::Node.new('Code', 'NoSuchBucket')
+        http_resp.body = ::StringIO.new(Hearth::XML::Node.new('ErrorResponse', xml).to_str) if xml
       end
     end
 
@@ -3672,6 +3683,10 @@ module AWS::SDK::S3
       def self.stub(http_resp, stub:)
         data = {}
         http_resp.status = 404
+        xml = Hearth::XML::Node.new('Error')
+        xml << Hearth::XML::Node.new('Type', 'Sender')
+        xml << Hearth::XML::Node.new('Code', 'NoSuchKey')
+        http_resp.body = ::StringIO.new(Hearth::XML::Node.new('ErrorResponse', xml).to_str) if xml
       end
     end
 
@@ -3692,6 +3707,10 @@ module AWS::SDK::S3
       def self.stub(http_resp, stub:)
         data = {}
         http_resp.status = 404
+        xml = Hearth::XML::Node.new('Error')
+        xml << Hearth::XML::Node.new('Type', 'Sender')
+        xml << Hearth::XML::Node.new('Code', 'NoSuchUpload')
+        http_resp.body = ::StringIO.new(Hearth::XML::Node.new('ErrorResponse', xml).to_str) if xml
       end
     end
 
@@ -3771,6 +3790,10 @@ module AWS::SDK::S3
       def self.stub(http_resp, stub:)
         data = {}
         http_resp.status = 400
+        xml = Hearth::XML::Node.new('Error')
+        xml << Hearth::XML::Node.new('Type', 'Sender')
+        xml << Hearth::XML::Node.new('Code', 'NotFound')
+        http_resp.body = ::StringIO.new(Hearth::XML::Node.new('ErrorResponse', xml).to_str) if xml
       end
     end
 
@@ -3839,6 +3862,10 @@ module AWS::SDK::S3
       def self.stub(http_resp, stub:)
         data = {}
         http_resp.status = 403
+        xml = Hearth::XML::Node.new('Error')
+        xml << Hearth::XML::Node.new('Type', 'Sender')
+        xml << Hearth::XML::Node.new('Code', 'ObjectAlreadyInActiveTierError')
+        http_resp.body = ::StringIO.new(Hearth::XML::Node.new('ErrorResponse', xml).to_str) if xml
       end
     end
 
@@ -3950,6 +3977,10 @@ module AWS::SDK::S3
       def self.stub(http_resp, stub:)
         data = {}
         http_resp.status = 403
+        xml = Hearth::XML::Node.new('Error')
+        xml << Hearth::XML::Node.new('Type', 'Sender')
+        xml << Hearth::XML::Node.new('Code', 'ObjectNotInActiveTierError')
+        http_resp.body = ::StringIO.new(Hearth::XML::Node.new('ErrorResponse', xml).to_str) if xml
       end
     end
 
@@ -5780,7 +5811,7 @@ module AWS::SDK::S3
         http_resp.headers['x-amz-server-side-encryption-bucket-key-enabled'] = stub[:bucket_key_enabled].to_s unless stub[:bucket_key_enabled].nil?
         http_resp.headers['x-amz-request-charged'] = stub[:request_charged] unless stub[:request_charged].nil? || stub[:request_charged].empty?
         http_resp.headers['Content-Type'] = 'application/xml'
-        xml = Builders::CopyPartResult.build('CopyPartResult', stub[:copy_part_result]) unless stub[:copy_part_result].nil?
+        xml = CopyPartResult.stub('CopyPartResult', stub[:copy_part_result]) unless stub[:copy_part_result].nil?
         http_resp.body = ::StringIO.new(xml.to_str) if xml
       end
     end

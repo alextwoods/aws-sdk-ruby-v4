@@ -14,7 +14,7 @@ module AWS::SDK::EC2
   module Middleware
 
     class AcceptAddressTransfer
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -58,14 +58,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::AcceptAddressTransfer,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class AcceptReservedInstancesExchangeQuote
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -109,14 +109,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::AcceptReservedInstancesExchangeQuote,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class AcceptTransitGatewayMulticastDomainAssociations
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -160,14 +160,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::AcceptTransitGatewayMulticastDomainAssociations,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class AcceptTransitGatewayPeeringAttachment
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -211,14 +211,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::AcceptTransitGatewayPeeringAttachment,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class AcceptTransitGatewayVpcAttachment
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -262,14 +262,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::AcceptTransitGatewayVpcAttachment,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class AcceptVpcEndpointConnections
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -313,14 +313,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::AcceptVpcEndpointConnections,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class AcceptVpcPeeringConnection
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -364,14 +364,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::AcceptVpcPeeringConnection,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class AdvertiseByoipCidr
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -415,14 +415,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::AdvertiseByoipCidr,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class AllocateAddress
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -466,14 +466,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::AllocateAddress,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class AllocateHosts
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -517,14 +517,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::AllocateHosts,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class AllocateIpamPoolCidr
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -568,14 +568,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::AllocateIpamPoolCidr,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ApplySecurityGroupsToClientVpnTargetNetwork
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -619,14 +619,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ApplySecurityGroupsToClientVpnTargetNetwork,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class AssignIpv6Addresses
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -670,14 +670,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::AssignIpv6Addresses,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class AssignPrivateIpAddresses
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -721,14 +721,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::AssignPrivateIpAddresses,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class AssignPrivateNatGatewayAddress
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -772,14 +772,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::AssignPrivateNatGatewayAddress,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class AssociateAddress
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -823,14 +823,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::AssociateAddress,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class AssociateClientVpnTargetNetwork
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -874,14 +874,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::AssociateClientVpnTargetNetwork,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class AssociateDhcpOptions
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -925,14 +925,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::AssociateDhcpOptions,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class AssociateEnclaveCertificateIamRole
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -976,14 +976,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::AssociateEnclaveCertificateIamRole,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class AssociateIamInstanceProfile
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1027,14 +1027,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::AssociateIamInstanceProfile,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class AssociateInstanceEventWindow
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1078,14 +1078,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::AssociateInstanceEventWindow,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class AssociateIpamByoasn
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1129,14 +1129,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::AssociateIpamByoasn,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class AssociateIpamResourceDiscovery
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1180,14 +1180,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::AssociateIpamResourceDiscovery,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class AssociateNatGatewayAddress
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1231,14 +1231,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::AssociateNatGatewayAddress,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class AssociateRouteTable
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1282,14 +1282,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::AssociateRouteTable,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class AssociateSubnetCidrBlock
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1333,14 +1333,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::AssociateSubnetCidrBlock,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class AssociateTransitGatewayMulticastDomain
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1384,14 +1384,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::AssociateTransitGatewayMulticastDomain,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class AssociateTransitGatewayPolicyTable
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1435,14 +1435,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::AssociateTransitGatewayPolicyTable,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class AssociateTransitGatewayRouteTable
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1486,14 +1486,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::AssociateTransitGatewayRouteTable,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class AssociateTrunkInterface
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1537,14 +1537,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::AssociateTrunkInterface,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class AssociateVpcCidrBlock
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1588,14 +1588,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::AssociateVpcCidrBlock,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class AttachClassicLinkVpc
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1639,14 +1639,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::AttachClassicLinkVpc,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class AttachInternetGateway
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1690,14 +1690,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::AttachInternetGateway,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class AttachNetworkInterface
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1741,14 +1741,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::AttachNetworkInterface,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class AttachVerifiedAccessTrustProvider
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1792,14 +1792,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::AttachVerifiedAccessTrustProvider,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class AttachVolume
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1843,14 +1843,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::AttachVolume,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class AttachVpnGateway
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1894,14 +1894,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::AttachVpnGateway,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class AuthorizeClientVpnIngress
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1945,14 +1945,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::AuthorizeClientVpnIngress,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class AuthorizeSecurityGroupEgress
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1996,14 +1996,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::AuthorizeSecurityGroupEgress,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class AuthorizeSecurityGroupIngress
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2047,14 +2047,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::AuthorizeSecurityGroupIngress,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class BundleInstance
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2098,14 +2098,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::BundleInstance,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CancelBundleTask
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2149,14 +2149,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CancelBundleTask,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CancelCapacityReservation
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2200,14 +2200,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CancelCapacityReservation,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CancelCapacityReservationFleets
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2251,14 +2251,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CancelCapacityReservationFleets,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CancelConversionTask
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2302,14 +2302,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CancelConversionTask,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CancelExportTask
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2353,14 +2353,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CancelExportTask,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CancelImageLaunchPermission
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2404,14 +2404,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CancelImageLaunchPermission,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CancelImportTask
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2455,14 +2455,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CancelImportTask,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CancelReservedInstancesListing
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2506,14 +2506,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CancelReservedInstancesListing,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CancelSpotFleetRequests
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2557,14 +2557,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CancelSpotFleetRequests,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CancelSpotInstanceRequests
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2608,14 +2608,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CancelSpotInstanceRequests,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ConfirmProductInstance
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2659,14 +2659,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ConfirmProductInstance,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CopyFpgaImage
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2710,14 +2710,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CopyFpgaImage,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CopyImage
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2761,14 +2761,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CopyImage,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CopySnapshot
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2812,14 +2812,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CopySnapshot,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateCapacityReservation
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2863,14 +2863,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateCapacityReservation,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateCapacityReservationFleet
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2914,14 +2914,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateCapacityReservationFleet,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateCarrierGateway
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2965,14 +2965,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateCarrierGateway,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateClientVpnEndpoint
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3016,14 +3016,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateClientVpnEndpoint,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateClientVpnRoute
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3067,14 +3067,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateClientVpnRoute,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateCoipCidr
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3118,14 +3118,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateCoipCidr,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateCoipPool
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3169,14 +3169,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateCoipPool,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateCustomerGateway
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3220,14 +3220,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateCustomerGateway,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateDefaultSubnet
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3271,14 +3271,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateDefaultSubnet,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateDefaultVpc
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3322,14 +3322,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateDefaultVpc,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateDhcpOptions
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3373,14 +3373,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateDhcpOptions,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateEgressOnlyInternetGateway
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3424,14 +3424,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateEgressOnlyInternetGateway,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateFleet
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3475,14 +3475,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateFleet,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateFlowLogs
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3526,14 +3526,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateFlowLogs,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateFpgaImage
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3577,14 +3577,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateFpgaImage,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateImage
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3628,14 +3628,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateImage,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateInstanceConnectEndpoint
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3679,14 +3679,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateInstanceConnectEndpoint,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateInstanceEventWindow
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3730,14 +3730,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateInstanceEventWindow,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateInstanceExportTask
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3781,14 +3781,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateInstanceExportTask,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateInternetGateway
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3832,14 +3832,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateInternetGateway,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateIpam
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3883,14 +3883,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateIpam,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateIpamPool
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3934,14 +3934,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateIpamPool,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateIpamResourceDiscovery
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3985,14 +3985,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateIpamResourceDiscovery,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateIpamScope
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4036,14 +4036,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateIpamScope,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateKeyPair
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4087,14 +4087,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateKeyPair,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateLaunchTemplate
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4138,14 +4138,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateLaunchTemplate,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateLaunchTemplateVersion
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4189,14 +4189,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateLaunchTemplateVersion,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateLocalGatewayRoute
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4240,14 +4240,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateLocalGatewayRoute,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateLocalGatewayRouteTable
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4291,14 +4291,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateLocalGatewayRouteTable,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4342,14 +4342,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateLocalGatewayRouteTableVpcAssociation
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4393,14 +4393,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateLocalGatewayRouteTableVpcAssociation,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateManagedPrefixList
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4444,14 +4444,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateManagedPrefixList,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateNatGateway
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4495,14 +4495,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateNatGateway,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateNetworkAcl
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4546,14 +4546,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateNetworkAcl,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateNetworkAclEntry
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4597,14 +4597,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateNetworkAclEntry,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateNetworkInsightsAccessScope
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4648,14 +4648,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateNetworkInsightsAccessScope,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateNetworkInsightsPath
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4699,14 +4699,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateNetworkInsightsPath,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateNetworkInterface
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4750,14 +4750,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateNetworkInterface,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateNetworkInterfacePermission
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4801,14 +4801,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateNetworkInterfacePermission,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreatePlacementGroup
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4852,14 +4852,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreatePlacementGroup,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreatePublicIpv4Pool
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4903,14 +4903,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreatePublicIpv4Pool,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateReplaceRootVolumeTask
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4954,14 +4954,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateReplaceRootVolumeTask,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateReservedInstancesListing
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5005,14 +5005,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateReservedInstancesListing,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateRestoreImageTask
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5056,14 +5056,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateRestoreImageTask,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateRoute
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5107,14 +5107,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateRoute,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateRouteTable
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5158,14 +5158,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateRouteTable,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateSecurityGroup
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5209,14 +5209,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateSecurityGroup,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateSnapshot
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5260,14 +5260,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateSnapshot,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateSnapshots
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5311,14 +5311,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateSnapshots,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateSpotDatafeedSubscription
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5362,14 +5362,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateSpotDatafeedSubscription,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateStoreImageTask
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5413,14 +5413,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateStoreImageTask,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateSubnet
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5464,14 +5464,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateSubnet,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateSubnetCidrReservation
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5515,14 +5515,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateSubnetCidrReservation,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateTags
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5566,14 +5566,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateTags,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateTrafficMirrorFilter
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5617,14 +5617,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateTrafficMirrorFilter,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateTrafficMirrorFilterRule
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5668,14 +5668,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateTrafficMirrorFilterRule,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateTrafficMirrorSession
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5719,14 +5719,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateTrafficMirrorSession,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateTrafficMirrorTarget
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5770,14 +5770,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateTrafficMirrorTarget,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateTransitGateway
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5821,14 +5821,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateTransitGateway,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateTransitGatewayConnect
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5872,14 +5872,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateTransitGatewayConnect,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateTransitGatewayConnectPeer
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5923,14 +5923,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateTransitGatewayConnectPeer,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateTransitGatewayMulticastDomain
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5974,14 +5974,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateTransitGatewayMulticastDomain,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateTransitGatewayPeeringAttachment
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6025,14 +6025,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateTransitGatewayPeeringAttachment,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateTransitGatewayPolicyTable
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6076,14 +6076,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateTransitGatewayPolicyTable,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateTransitGatewayPrefixListReference
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6127,14 +6127,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateTransitGatewayPrefixListReference,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateTransitGatewayRoute
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6178,14 +6178,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateTransitGatewayRoute,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateTransitGatewayRouteTable
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6229,14 +6229,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateTransitGatewayRouteTable,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateTransitGatewayRouteTableAnnouncement
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6280,14 +6280,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateTransitGatewayRouteTableAnnouncement,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateTransitGatewayVpcAttachment
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6331,14 +6331,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateTransitGatewayVpcAttachment,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateVerifiedAccessEndpoint
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6382,14 +6382,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateVerifiedAccessEndpoint,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateVerifiedAccessGroup
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6433,14 +6433,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateVerifiedAccessGroup,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateVerifiedAccessInstance
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6484,14 +6484,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateVerifiedAccessInstance,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateVerifiedAccessTrustProvider
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6535,14 +6535,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateVerifiedAccessTrustProvider,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateVolume
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6586,14 +6586,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateVolume,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateVpc
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6637,14 +6637,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateVpc,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateVpcEndpoint
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6688,14 +6688,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateVpcEndpoint,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateVpcEndpointConnectionNotification
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6739,14 +6739,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateVpcEndpointConnectionNotification,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateVpcEndpointServiceConfiguration
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6790,14 +6790,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateVpcEndpointServiceConfiguration,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateVpcPeeringConnection
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6841,14 +6841,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateVpcPeeringConnection,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateVpnConnection
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6892,14 +6892,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateVpnConnection,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateVpnConnectionRoute
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6943,14 +6943,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateVpnConnectionRoute,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class CreateVpnGateway
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6994,14 +6994,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::CreateVpnGateway,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteCarrierGateway
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7045,14 +7045,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteCarrierGateway,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteClientVpnEndpoint
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7096,14 +7096,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteClientVpnEndpoint,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteClientVpnRoute
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7147,14 +7147,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteClientVpnRoute,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteCoipCidr
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7198,14 +7198,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteCoipCidr,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteCoipPool
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7249,14 +7249,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteCoipPool,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteCustomerGateway
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7300,14 +7300,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteCustomerGateway,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteDhcpOptions
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7351,14 +7351,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteDhcpOptions,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteEgressOnlyInternetGateway
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7402,14 +7402,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteEgressOnlyInternetGateway,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteFleets
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7453,14 +7453,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteFleets,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteFlowLogs
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7504,14 +7504,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteFlowLogs,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteFpgaImage
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7555,14 +7555,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteFpgaImage,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteInstanceConnectEndpoint
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7606,14 +7606,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteInstanceConnectEndpoint,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteInstanceEventWindow
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7657,14 +7657,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteInstanceEventWindow,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteInternetGateway
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7708,14 +7708,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteInternetGateway,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteIpam
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7759,14 +7759,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteIpam,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteIpamPool
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7810,14 +7810,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteIpamPool,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteIpamResourceDiscovery
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7861,14 +7861,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteIpamResourceDiscovery,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteIpamScope
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7912,14 +7912,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteIpamScope,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteKeyPair
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7963,14 +7963,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteKeyPair,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteLaunchTemplate
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8014,14 +8014,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteLaunchTemplate,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteLaunchTemplateVersions
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8065,14 +8065,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteLaunchTemplateVersions,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteLocalGatewayRoute
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8116,14 +8116,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteLocalGatewayRoute,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteLocalGatewayRouteTable
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8167,14 +8167,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteLocalGatewayRouteTable,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8218,14 +8218,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteLocalGatewayRouteTableVpcAssociation
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8269,14 +8269,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteLocalGatewayRouteTableVpcAssociation,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteManagedPrefixList
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8320,14 +8320,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteManagedPrefixList,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteNatGateway
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8371,14 +8371,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteNatGateway,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteNetworkAcl
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8422,14 +8422,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteNetworkAcl,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteNetworkAclEntry
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8473,14 +8473,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteNetworkAclEntry,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteNetworkInsightsAccessScope
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8524,14 +8524,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteNetworkInsightsAccessScope,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteNetworkInsightsAccessScopeAnalysis
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8575,14 +8575,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteNetworkInsightsAccessScopeAnalysis,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteNetworkInsightsAnalysis
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8626,14 +8626,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteNetworkInsightsAnalysis,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteNetworkInsightsPath
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8677,14 +8677,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteNetworkInsightsPath,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteNetworkInterface
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8728,14 +8728,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteNetworkInterface,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteNetworkInterfacePermission
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8779,14 +8779,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteNetworkInterfacePermission,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeletePlacementGroup
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8830,14 +8830,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeletePlacementGroup,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeletePublicIpv4Pool
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8881,14 +8881,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeletePublicIpv4Pool,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteQueuedReservedInstances
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8932,14 +8932,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteQueuedReservedInstances,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteRoute
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8983,14 +8983,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteRoute,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteRouteTable
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9034,14 +9034,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteRouteTable,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteSecurityGroup
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9085,14 +9085,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteSecurityGroup,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteSnapshot
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9136,14 +9136,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteSnapshot,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteSpotDatafeedSubscription
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9187,14 +9187,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteSpotDatafeedSubscription,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteSubnet
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9238,14 +9238,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteSubnet,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteSubnetCidrReservation
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9289,14 +9289,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteSubnetCidrReservation,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteTags
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9340,14 +9340,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteTags,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteTrafficMirrorFilter
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9391,14 +9391,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteTrafficMirrorFilter,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteTrafficMirrorFilterRule
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9442,14 +9442,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteTrafficMirrorFilterRule,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteTrafficMirrorSession
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9493,14 +9493,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteTrafficMirrorSession,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteTrafficMirrorTarget
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9544,14 +9544,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteTrafficMirrorTarget,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteTransitGateway
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9595,14 +9595,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteTransitGateway,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteTransitGatewayConnect
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9646,14 +9646,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteTransitGatewayConnect,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteTransitGatewayConnectPeer
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9697,14 +9697,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteTransitGatewayConnectPeer,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteTransitGatewayMulticastDomain
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9748,14 +9748,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteTransitGatewayMulticastDomain,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteTransitGatewayPeeringAttachment
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9799,14 +9799,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteTransitGatewayPeeringAttachment,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteTransitGatewayPolicyTable
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9850,14 +9850,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteTransitGatewayPolicyTable,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteTransitGatewayPrefixListReference
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9901,14 +9901,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteTransitGatewayPrefixListReference,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteTransitGatewayRoute
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9952,14 +9952,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteTransitGatewayRoute,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteTransitGatewayRouteTable
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10003,14 +10003,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteTransitGatewayRouteTable,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteTransitGatewayRouteTableAnnouncement
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10054,14 +10054,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteTransitGatewayRouteTableAnnouncement,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteTransitGatewayVpcAttachment
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10105,14 +10105,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteTransitGatewayVpcAttachment,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteVerifiedAccessEndpoint
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10156,14 +10156,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteVerifiedAccessEndpoint,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteVerifiedAccessGroup
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10207,14 +10207,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteVerifiedAccessGroup,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteVerifiedAccessInstance
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10258,14 +10258,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteVerifiedAccessInstance,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteVerifiedAccessTrustProvider
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10309,14 +10309,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteVerifiedAccessTrustProvider,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteVolume
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10360,14 +10360,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteVolume,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteVpc
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10411,14 +10411,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteVpc,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteVpcEndpointConnectionNotifications
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10462,14 +10462,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteVpcEndpointConnectionNotifications,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteVpcEndpointServiceConfigurations
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10513,14 +10513,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteVpcEndpointServiceConfigurations,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteVpcEndpoints
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10564,14 +10564,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteVpcEndpoints,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteVpcPeeringConnection
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10615,14 +10615,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteVpcPeeringConnection,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteVpnConnection
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10666,14 +10666,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteVpnConnection,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteVpnConnectionRoute
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10717,14 +10717,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteVpnConnectionRoute,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeleteVpnGateway
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10768,14 +10768,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeleteVpnGateway,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeprovisionByoipCidr
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10819,14 +10819,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeprovisionByoipCidr,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeprovisionIpamByoasn
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10870,14 +10870,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeprovisionIpamByoasn,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeprovisionIpamPoolCidr
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10921,14 +10921,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeprovisionIpamPoolCidr,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeprovisionPublicIpv4PoolCidr
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10972,14 +10972,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeprovisionPublicIpv4PoolCidr,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeregisterImage
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11023,14 +11023,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeregisterImage,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeregisterInstanceEventNotificationAttributes
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11074,14 +11074,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeregisterInstanceEventNotificationAttributes,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeregisterTransitGatewayMulticastGroupMembers
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11125,14 +11125,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeregisterTransitGatewayMulticastGroupMembers,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DeregisterTransitGatewayMulticastGroupSources
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11176,14 +11176,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DeregisterTransitGatewayMulticastGroupSources,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeAccountAttributes
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11227,14 +11227,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeAccountAttributes,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeAddressTransfers
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11278,14 +11278,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeAddressTransfers,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeAddresses
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11329,14 +11329,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeAddresses,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeAddressesAttribute
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11380,14 +11380,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeAddressesAttribute,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeAggregateIdFormat
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11431,14 +11431,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeAggregateIdFormat,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeAvailabilityZones
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11482,14 +11482,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeAvailabilityZones,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeAwsNetworkPerformanceMetricSubscriptions
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11533,14 +11533,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeAwsNetworkPerformanceMetricSubscriptions,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeBundleTasks
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11584,14 +11584,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeBundleTasks,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeByoipCidrs
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11635,14 +11635,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeByoipCidrs,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeCapacityBlockOfferings
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11686,14 +11686,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeCapacityBlockOfferings,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeCapacityReservationFleets
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11737,14 +11737,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeCapacityReservationFleets,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeCapacityReservations
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11788,14 +11788,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeCapacityReservations,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeCarrierGateways
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11839,14 +11839,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeCarrierGateways,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeClassicLinkInstances
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11890,14 +11890,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeClassicLinkInstances,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeClientVpnAuthorizationRules
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11941,14 +11941,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeClientVpnAuthorizationRules,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeClientVpnConnections
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11992,14 +11992,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeClientVpnConnections,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeClientVpnEndpoints
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12043,14 +12043,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeClientVpnEndpoints,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeClientVpnRoutes
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12094,14 +12094,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeClientVpnRoutes,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeClientVpnTargetNetworks
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12145,14 +12145,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeClientVpnTargetNetworks,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeCoipPools
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12196,14 +12196,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeCoipPools,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeConversionTasks
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12247,14 +12247,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeConversionTasks,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeCustomerGateways
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12298,14 +12298,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeCustomerGateways,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeDhcpOptions
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12349,14 +12349,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeDhcpOptions,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeEgressOnlyInternetGateways
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12400,14 +12400,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeEgressOnlyInternetGateways,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeElasticGpus
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12451,14 +12451,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeElasticGpus,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeExportImageTasks
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12502,14 +12502,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeExportImageTasks,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeExportTasks
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12553,14 +12553,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeExportTasks,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeFastLaunchImages
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12604,14 +12604,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeFastLaunchImages,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeFastSnapshotRestores
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12655,14 +12655,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeFastSnapshotRestores,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeFleetHistory
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12706,14 +12706,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeFleetHistory,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeFleetInstances
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12757,14 +12757,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeFleetInstances,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeFleets
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12808,14 +12808,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeFleets,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeFlowLogs
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12859,14 +12859,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeFlowLogs,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeFpgaImageAttribute
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12910,14 +12910,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeFpgaImageAttribute,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeFpgaImages
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12961,14 +12961,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeFpgaImages,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeHostReservationOfferings
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13012,14 +13012,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeHostReservationOfferings,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeHostReservations
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13063,14 +13063,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeHostReservations,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeHosts
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13114,14 +13114,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeHosts,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeIamInstanceProfileAssociations
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13165,14 +13165,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeIamInstanceProfileAssociations,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeIdFormat
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13216,14 +13216,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeIdFormat,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeIdentityIdFormat
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13267,14 +13267,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeIdentityIdFormat,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeImageAttribute
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13318,14 +13318,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeImageAttribute,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeImages
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13369,14 +13369,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeImages,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeImportImageTasks
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13420,14 +13420,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeImportImageTasks,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeImportSnapshotTasks
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13471,14 +13471,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeImportSnapshotTasks,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeInstanceAttribute
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13522,14 +13522,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeInstanceAttribute,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeInstanceConnectEndpoints
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13573,14 +13573,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeInstanceConnectEndpoints,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeInstanceCreditSpecifications
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13624,14 +13624,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeInstanceCreditSpecifications,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeInstanceEventNotificationAttributes
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13675,14 +13675,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeInstanceEventNotificationAttributes,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeInstanceEventWindows
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13726,14 +13726,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeInstanceEventWindows,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeInstanceStatus
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13777,14 +13777,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeInstanceStatus,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeInstanceTopology
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13828,14 +13828,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeInstanceTopology,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeInstanceTypeOfferings
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13879,14 +13879,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeInstanceTypeOfferings,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeInstanceTypes
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13930,14 +13930,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeInstanceTypes,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeInstances
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13981,14 +13981,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeInstances,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeInternetGateways
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14032,14 +14032,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeInternetGateways,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeIpamByoasn
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14083,14 +14083,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeIpamByoasn,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeIpamPools
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14134,14 +14134,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeIpamPools,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeIpamResourceDiscoveries
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14185,14 +14185,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeIpamResourceDiscoveries,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeIpamResourceDiscoveryAssociations
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14236,14 +14236,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeIpamResourceDiscoveryAssociations,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeIpamScopes
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14287,14 +14287,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeIpamScopes,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeIpams
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14338,14 +14338,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeIpams,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeIpv6Pools
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14389,14 +14389,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeIpv6Pools,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeKeyPairs
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14440,14 +14440,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeKeyPairs,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeLaunchTemplateVersions
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14491,14 +14491,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeLaunchTemplateVersions,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeLaunchTemplates
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14542,14 +14542,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeLaunchTemplates,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14593,14 +14593,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeLocalGatewayRouteTableVpcAssociations
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14644,14 +14644,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeLocalGatewayRouteTableVpcAssociations,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeLocalGatewayRouteTables
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14695,14 +14695,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeLocalGatewayRouteTables,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeLocalGatewayVirtualInterfaceGroups
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14746,14 +14746,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeLocalGatewayVirtualInterfaceGroups,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeLocalGatewayVirtualInterfaces
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14797,14 +14797,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeLocalGatewayVirtualInterfaces,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeLocalGateways
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14848,14 +14848,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeLocalGateways,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeLockedSnapshots
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14899,14 +14899,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeLockedSnapshots,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeManagedPrefixLists
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14950,14 +14950,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeManagedPrefixLists,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeMovingAddresses
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15001,14 +15001,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeMovingAddresses,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeNatGateways
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15052,14 +15052,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeNatGateways,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeNetworkAcls
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15103,14 +15103,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeNetworkAcls,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeNetworkInsightsAccessScopeAnalyses
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15154,14 +15154,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeNetworkInsightsAccessScopeAnalyses,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeNetworkInsightsAccessScopes
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15205,14 +15205,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeNetworkInsightsAccessScopes,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeNetworkInsightsAnalyses
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15256,14 +15256,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeNetworkInsightsAnalyses,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeNetworkInsightsPaths
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15307,14 +15307,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeNetworkInsightsPaths,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeNetworkInterfaceAttribute
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15358,14 +15358,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeNetworkInterfaceAttribute,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeNetworkInterfacePermissions
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15409,14 +15409,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeNetworkInterfacePermissions,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeNetworkInterfaces
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15460,14 +15460,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeNetworkInterfaces,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribePlacementGroups
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15511,14 +15511,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribePlacementGroups,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribePrefixLists
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15562,14 +15562,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribePrefixLists,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribePrincipalIdFormat
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15613,14 +15613,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribePrincipalIdFormat,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribePublicIpv4Pools
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15664,14 +15664,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribePublicIpv4Pools,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeRegions
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15715,14 +15715,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeRegions,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeReplaceRootVolumeTasks
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15766,14 +15766,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeReplaceRootVolumeTasks,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeReservedInstances
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15817,14 +15817,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeReservedInstances,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeReservedInstancesListings
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15868,14 +15868,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeReservedInstancesListings,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeReservedInstancesModifications
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15919,14 +15919,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeReservedInstancesModifications,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeReservedInstancesOfferings
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15970,14 +15970,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeReservedInstancesOfferings,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeRouteTables
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16021,14 +16021,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeRouteTables,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeScheduledInstanceAvailability
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16072,14 +16072,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeScheduledInstanceAvailability,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeScheduledInstances
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16123,14 +16123,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeScheduledInstances,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeSecurityGroupReferences
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16174,14 +16174,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeSecurityGroupReferences,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeSecurityGroupRules
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16225,14 +16225,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeSecurityGroupRules,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeSecurityGroups
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16276,14 +16276,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeSecurityGroups,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeSnapshotAttribute
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16327,14 +16327,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeSnapshotAttribute,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeSnapshotTierStatus
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16378,14 +16378,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeSnapshotTierStatus,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeSnapshots
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16429,14 +16429,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeSnapshots,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeSpotDatafeedSubscription
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16480,14 +16480,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeSpotDatafeedSubscription,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeSpotFleetInstances
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16531,14 +16531,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeSpotFleetInstances,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeSpotFleetRequestHistory
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16582,14 +16582,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeSpotFleetRequestHistory,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeSpotFleetRequests
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16633,14 +16633,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeSpotFleetRequests,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeSpotInstanceRequests
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16684,14 +16684,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeSpotInstanceRequests,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeSpotPriceHistory
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16735,14 +16735,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeSpotPriceHistory,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeStaleSecurityGroups
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16786,14 +16786,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeStaleSecurityGroups,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeStoreImageTasks
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16837,14 +16837,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeStoreImageTasks,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeSubnets
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16888,14 +16888,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeSubnets,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeTags
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16939,14 +16939,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeTags,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeTrafficMirrorFilters
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16990,14 +16990,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeTrafficMirrorFilters,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeTrafficMirrorSessions
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17041,14 +17041,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeTrafficMirrorSessions,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeTrafficMirrorTargets
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17092,14 +17092,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeTrafficMirrorTargets,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeTransitGatewayAttachments
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17143,14 +17143,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeTransitGatewayAttachments,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeTransitGatewayConnectPeers
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17194,14 +17194,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeTransitGatewayConnectPeers,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeTransitGatewayConnects
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17245,14 +17245,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeTransitGatewayConnects,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeTransitGatewayMulticastDomains
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17296,14 +17296,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeTransitGatewayMulticastDomains,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeTransitGatewayPeeringAttachments
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17347,14 +17347,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeTransitGatewayPeeringAttachments,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeTransitGatewayPolicyTables
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17398,14 +17398,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeTransitGatewayPolicyTables,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeTransitGatewayRouteTableAnnouncements
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17449,14 +17449,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeTransitGatewayRouteTableAnnouncements,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeTransitGatewayRouteTables
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17500,14 +17500,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeTransitGatewayRouteTables,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeTransitGatewayVpcAttachments
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17551,14 +17551,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeTransitGatewayVpcAttachments,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeTransitGateways
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17602,14 +17602,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeTransitGateways,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeTrunkInterfaceAssociations
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17653,14 +17653,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeTrunkInterfaceAssociations,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeVerifiedAccessEndpoints
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17704,14 +17704,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeVerifiedAccessEndpoints,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeVerifiedAccessGroups
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17755,14 +17755,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeVerifiedAccessGroups,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeVerifiedAccessInstanceLoggingConfigurations
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17806,14 +17806,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeVerifiedAccessInstanceLoggingConfigurations,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeVerifiedAccessInstances
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17857,14 +17857,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeVerifiedAccessInstances,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeVerifiedAccessTrustProviders
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17908,14 +17908,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeVerifiedAccessTrustProviders,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeVolumeAttribute
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17959,14 +17959,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeVolumeAttribute,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeVolumeStatus
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18010,14 +18010,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeVolumeStatus,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeVolumes
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18061,14 +18061,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeVolumes,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeVolumesModifications
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18112,14 +18112,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeVolumesModifications,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeVpcAttribute
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18163,14 +18163,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeVpcAttribute,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeVpcClassicLink
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18214,14 +18214,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeVpcClassicLink,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeVpcClassicLinkDnsSupport
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18265,14 +18265,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeVpcClassicLinkDnsSupport,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeVpcEndpointConnectionNotifications
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18316,14 +18316,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeVpcEndpointConnectionNotifications,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeVpcEndpointConnections
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18367,14 +18367,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeVpcEndpointConnections,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeVpcEndpointServiceConfigurations
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18418,14 +18418,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeVpcEndpointServiceConfigurations,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeVpcEndpointServicePermissions
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18469,14 +18469,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeVpcEndpointServicePermissions,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeVpcEndpointServices
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18520,14 +18520,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeVpcEndpointServices,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeVpcEndpoints
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18571,14 +18571,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeVpcEndpoints,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeVpcPeeringConnections
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18622,14 +18622,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeVpcPeeringConnections,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeVpcs
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18673,14 +18673,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeVpcs,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeVpnConnections
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18724,14 +18724,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeVpnConnections,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DescribeVpnGateways
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18775,14 +18775,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DescribeVpnGateways,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DetachClassicLinkVpc
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18826,14 +18826,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DetachClassicLinkVpc,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DetachInternetGateway
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18877,14 +18877,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DetachInternetGateway,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DetachNetworkInterface
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18928,14 +18928,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DetachNetworkInterface,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DetachVerifiedAccessTrustProvider
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18979,14 +18979,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DetachVerifiedAccessTrustProvider,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DetachVolume
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19030,14 +19030,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DetachVolume,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DetachVpnGateway
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19081,14 +19081,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DetachVpnGateway,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DisableAddressTransfer
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19132,14 +19132,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DisableAddressTransfer,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DisableAwsNetworkPerformanceMetricSubscription
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19183,14 +19183,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DisableAwsNetworkPerformanceMetricSubscription,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DisableEbsEncryptionByDefault
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19234,14 +19234,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DisableEbsEncryptionByDefault,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DisableFastLaunch
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19285,14 +19285,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DisableFastLaunch,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DisableFastSnapshotRestores
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19336,14 +19336,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DisableFastSnapshotRestores,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DisableImage
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19387,14 +19387,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DisableImage,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DisableImageBlockPublicAccess
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19438,14 +19438,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DisableImageBlockPublicAccess,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DisableImageDeprecation
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19489,14 +19489,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DisableImageDeprecation,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DisableIpamOrganizationAdminAccount
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19540,14 +19540,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DisableIpamOrganizationAdminAccount,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DisableSerialConsoleAccess
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19591,14 +19591,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DisableSerialConsoleAccess,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DisableSnapshotBlockPublicAccess
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19642,14 +19642,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DisableSnapshotBlockPublicAccess,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DisableTransitGatewayRouteTablePropagation
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19693,14 +19693,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DisableTransitGatewayRouteTablePropagation,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DisableVgwRoutePropagation
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19744,14 +19744,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DisableVgwRoutePropagation,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DisableVpcClassicLink
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19795,14 +19795,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DisableVpcClassicLink,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DisableVpcClassicLinkDnsSupport
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19846,14 +19846,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DisableVpcClassicLinkDnsSupport,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DisassociateAddress
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19897,14 +19897,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DisassociateAddress,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DisassociateClientVpnTargetNetwork
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19948,14 +19948,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DisassociateClientVpnTargetNetwork,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DisassociateEnclaveCertificateIamRole
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19999,14 +19999,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DisassociateEnclaveCertificateIamRole,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DisassociateIamInstanceProfile
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20050,14 +20050,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DisassociateIamInstanceProfile,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DisassociateInstanceEventWindow
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20101,14 +20101,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DisassociateInstanceEventWindow,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DisassociateIpamByoasn
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20152,14 +20152,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DisassociateIpamByoasn,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DisassociateIpamResourceDiscovery
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20203,14 +20203,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DisassociateIpamResourceDiscovery,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DisassociateNatGatewayAddress
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20254,14 +20254,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DisassociateNatGatewayAddress,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DisassociateRouteTable
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20305,14 +20305,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DisassociateRouteTable,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DisassociateSubnetCidrBlock
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20356,14 +20356,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DisassociateSubnetCidrBlock,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DisassociateTransitGatewayMulticastDomain
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20407,14 +20407,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DisassociateTransitGatewayMulticastDomain,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DisassociateTransitGatewayPolicyTable
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20458,14 +20458,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DisassociateTransitGatewayPolicyTable,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DisassociateTransitGatewayRouteTable
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20509,14 +20509,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DisassociateTransitGatewayRouteTable,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DisassociateTrunkInterface
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20560,14 +20560,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DisassociateTrunkInterface,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class DisassociateVpcCidrBlock
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20611,14 +20611,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::DisassociateVpcCidrBlock,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class EnableAddressTransfer
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20662,14 +20662,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::EnableAddressTransfer,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class EnableAwsNetworkPerformanceMetricSubscription
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20713,14 +20713,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::EnableAwsNetworkPerformanceMetricSubscription,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class EnableEbsEncryptionByDefault
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20764,14 +20764,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::EnableEbsEncryptionByDefault,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class EnableFastLaunch
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20815,14 +20815,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::EnableFastLaunch,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class EnableFastSnapshotRestores
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20866,14 +20866,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::EnableFastSnapshotRestores,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class EnableImage
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20917,14 +20917,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::EnableImage,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class EnableImageBlockPublicAccess
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20968,14 +20968,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::EnableImageBlockPublicAccess,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class EnableImageDeprecation
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21019,14 +21019,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::EnableImageDeprecation,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class EnableIpamOrganizationAdminAccount
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21070,14 +21070,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::EnableIpamOrganizationAdminAccount,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class EnableReachabilityAnalyzerOrganizationSharing
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21121,14 +21121,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::EnableReachabilityAnalyzerOrganizationSharing,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class EnableSerialConsoleAccess
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21172,14 +21172,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::EnableSerialConsoleAccess,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class EnableSnapshotBlockPublicAccess
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21223,14 +21223,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::EnableSnapshotBlockPublicAccess,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class EnableTransitGatewayRouteTablePropagation
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21274,14 +21274,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::EnableTransitGatewayRouteTablePropagation,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class EnableVgwRoutePropagation
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21325,14 +21325,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::EnableVgwRoutePropagation,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class EnableVolumeIO
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21376,14 +21376,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::EnableVolumeIO,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class EnableVpcClassicLink
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21427,14 +21427,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::EnableVpcClassicLink,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class EnableVpcClassicLinkDnsSupport
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21478,14 +21478,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::EnableVpcClassicLinkDnsSupport,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ExportClientVpnClientCertificateRevocationList
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21529,14 +21529,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ExportClientVpnClientCertificateRevocationList,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ExportClientVpnClientConfiguration
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21580,14 +21580,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ExportClientVpnClientConfiguration,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ExportImage
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21631,14 +21631,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ExportImage,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ExportTransitGatewayRoutes
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21682,14 +21682,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ExportTransitGatewayRoutes,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetAssociatedEnclaveCertificateIamRoles
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21733,14 +21733,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetAssociatedEnclaveCertificateIamRoles,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetAssociatedIpv6PoolCidrs
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21784,14 +21784,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetAssociatedIpv6PoolCidrs,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetAwsNetworkPerformanceData
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21835,14 +21835,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetAwsNetworkPerformanceData,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetCapacityReservationUsage
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21886,14 +21886,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetCapacityReservationUsage,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetCoipPoolUsage
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21937,14 +21937,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetCoipPoolUsage,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetConsoleOutput
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21988,14 +21988,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetConsoleOutput,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetConsoleScreenshot
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22039,14 +22039,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetConsoleScreenshot,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetDefaultCreditSpecification
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22090,14 +22090,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetDefaultCreditSpecification,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetEbsDefaultKmsKeyId
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22141,14 +22141,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetEbsDefaultKmsKeyId,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetEbsEncryptionByDefault
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22192,14 +22192,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetEbsEncryptionByDefault,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetFlowLogsIntegrationTemplate
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22243,14 +22243,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetFlowLogsIntegrationTemplate,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetGroupsForCapacityReservation
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22294,14 +22294,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetGroupsForCapacityReservation,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetHostReservationPurchasePreview
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22345,14 +22345,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetHostReservationPurchasePreview,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetImageBlockPublicAccessState
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22396,14 +22396,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetImageBlockPublicAccessState,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetInstanceTypesFromInstanceRequirements
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22447,14 +22447,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetInstanceTypesFromInstanceRequirements,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetInstanceUefiData
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22498,14 +22498,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetInstanceUefiData,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetIpamAddressHistory
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22549,14 +22549,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetIpamAddressHistory,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetIpamDiscoveredAccounts
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22600,14 +22600,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetIpamDiscoveredAccounts,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetIpamDiscoveredPublicAddresses
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22651,14 +22651,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetIpamDiscoveredPublicAddresses,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetIpamDiscoveredResourceCidrs
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22702,14 +22702,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetIpamDiscoveredResourceCidrs,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetIpamPoolAllocations
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22753,14 +22753,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetIpamPoolAllocations,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetIpamPoolCidrs
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22804,14 +22804,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetIpamPoolCidrs,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetIpamResourceCidrs
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22855,14 +22855,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetIpamResourceCidrs,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetLaunchTemplateData
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22906,14 +22906,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetLaunchTemplateData,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetManagedPrefixListAssociations
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22957,14 +22957,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetManagedPrefixListAssociations,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetManagedPrefixListEntries
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23008,14 +23008,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetManagedPrefixListEntries,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetNetworkInsightsAccessScopeAnalysisFindings
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23059,14 +23059,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetNetworkInsightsAccessScopeAnalysisFindings,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetNetworkInsightsAccessScopeContent
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23110,14 +23110,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetNetworkInsightsAccessScopeContent,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetPasswordData
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23161,14 +23161,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetPasswordData,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetReservedInstancesExchangeQuote
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23212,14 +23212,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetReservedInstancesExchangeQuote,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetSecurityGroupsForVpc
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23263,14 +23263,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetSecurityGroupsForVpc,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetSerialConsoleAccessStatus
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23314,14 +23314,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetSerialConsoleAccessStatus,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetSnapshotBlockPublicAccessState
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23365,14 +23365,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetSnapshotBlockPublicAccessState,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetSpotPlacementScores
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23416,14 +23416,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetSpotPlacementScores,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetSubnetCidrReservations
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23467,14 +23467,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetSubnetCidrReservations,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetTransitGatewayAttachmentPropagations
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23518,14 +23518,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetTransitGatewayAttachmentPropagations,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetTransitGatewayMulticastDomainAssociations
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23569,14 +23569,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetTransitGatewayMulticastDomainAssociations,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetTransitGatewayPolicyTableAssociations
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23620,14 +23620,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetTransitGatewayPolicyTableAssociations,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetTransitGatewayPolicyTableEntries
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23671,14 +23671,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetTransitGatewayPolicyTableEntries,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetTransitGatewayPrefixListReferences
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23722,14 +23722,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetTransitGatewayPrefixListReferences,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetTransitGatewayRouteTableAssociations
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23773,14 +23773,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetTransitGatewayRouteTableAssociations,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetTransitGatewayRouteTablePropagations
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23824,14 +23824,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetTransitGatewayRouteTablePropagations,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetVerifiedAccessEndpointPolicy
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23875,14 +23875,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetVerifiedAccessEndpointPolicy,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetVerifiedAccessGroupPolicy
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23926,14 +23926,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetVerifiedAccessGroupPolicy,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetVpnConnectionDeviceSampleConfiguration
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23977,14 +23977,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetVpnConnectionDeviceSampleConfiguration,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetVpnConnectionDeviceTypes
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24028,14 +24028,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetVpnConnectionDeviceTypes,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class GetVpnTunnelReplacementStatus
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24079,14 +24079,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::GetVpnTunnelReplacementStatus,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ImportClientVpnClientCertificateRevocationList
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24130,14 +24130,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ImportClientVpnClientCertificateRevocationList,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ImportImage
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24181,14 +24181,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ImportImage,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ImportInstance
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24232,14 +24232,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ImportInstance,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ImportKeyPair
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24283,14 +24283,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ImportKeyPair,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ImportSnapshot
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24334,14 +24334,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ImportSnapshot,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ImportVolume
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24385,14 +24385,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ImportVolume,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ListImagesInRecycleBin
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24436,14 +24436,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ListImagesInRecycleBin,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ListSnapshotsInRecycleBin
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24487,14 +24487,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ListSnapshotsInRecycleBin,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class LockSnapshot
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24538,14 +24538,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::LockSnapshot,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyAddressAttribute
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24589,14 +24589,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyAddressAttribute,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyAvailabilityZoneGroup
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24640,14 +24640,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyAvailabilityZoneGroup,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyCapacityReservation
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24691,14 +24691,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyCapacityReservation,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyCapacityReservationFleet
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24742,14 +24742,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyCapacityReservationFleet,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyClientVpnEndpoint
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24793,14 +24793,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyClientVpnEndpoint,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyDefaultCreditSpecification
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24844,14 +24844,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyDefaultCreditSpecification,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyEbsDefaultKmsKeyId
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24895,14 +24895,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyEbsDefaultKmsKeyId,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyFleet
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24946,14 +24946,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyFleet,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyFpgaImageAttribute
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24997,14 +24997,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyFpgaImageAttribute,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyHosts
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25048,14 +25048,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyHosts,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyIdFormat
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25099,14 +25099,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyIdFormat,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyIdentityIdFormat
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25150,14 +25150,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyIdentityIdFormat,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyImageAttribute
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25201,14 +25201,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyImageAttribute,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyInstanceAttribute
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25252,14 +25252,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyInstanceAttribute,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyInstanceCapacityReservationAttributes
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25303,14 +25303,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyInstanceCapacityReservationAttributes,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyInstanceCreditSpecification
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25354,14 +25354,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyInstanceCreditSpecification,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyInstanceEventStartTime
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25405,14 +25405,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyInstanceEventStartTime,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyInstanceEventWindow
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25456,14 +25456,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyInstanceEventWindow,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyInstanceMaintenanceOptions
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25507,14 +25507,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyInstanceMaintenanceOptions,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyInstanceMetadataOptions
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25558,14 +25558,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyInstanceMetadataOptions,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyInstancePlacement
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25609,14 +25609,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyInstancePlacement,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyIpam
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25660,14 +25660,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyIpam,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyIpamPool
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25711,14 +25711,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyIpamPool,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyIpamResourceCidr
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25762,14 +25762,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyIpamResourceCidr,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyIpamResourceDiscovery
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25813,14 +25813,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyIpamResourceDiscovery,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyIpamScope
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25864,14 +25864,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyIpamScope,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyLaunchTemplate
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25915,14 +25915,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyLaunchTemplate,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyLocalGatewayRoute
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25966,14 +25966,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyLocalGatewayRoute,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyManagedPrefixList
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26017,14 +26017,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyManagedPrefixList,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyNetworkInterfaceAttribute
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26068,14 +26068,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyNetworkInterfaceAttribute,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyPrivateDnsNameOptions
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26119,14 +26119,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyPrivateDnsNameOptions,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyReservedInstances
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26170,14 +26170,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyReservedInstances,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifySecurityGroupRules
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26221,14 +26221,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifySecurityGroupRules,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifySnapshotAttribute
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26272,14 +26272,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifySnapshotAttribute,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifySnapshotTier
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26323,14 +26323,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifySnapshotTier,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifySpotFleetRequest
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26374,14 +26374,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifySpotFleetRequest,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifySubnetAttribute
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26425,14 +26425,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifySubnetAttribute,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyTrafficMirrorFilterNetworkServices
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26476,14 +26476,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyTrafficMirrorFilterNetworkServices,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyTrafficMirrorFilterRule
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26527,14 +26527,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyTrafficMirrorFilterRule,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyTrafficMirrorSession
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26578,14 +26578,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyTrafficMirrorSession,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyTransitGateway
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26629,14 +26629,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyTransitGateway,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyTransitGatewayPrefixListReference
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26680,14 +26680,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyTransitGatewayPrefixListReference,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyTransitGatewayVpcAttachment
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26731,14 +26731,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyTransitGatewayVpcAttachment,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyVerifiedAccessEndpoint
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26782,14 +26782,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyVerifiedAccessEndpoint,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyVerifiedAccessEndpointPolicy
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26833,14 +26833,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyVerifiedAccessEndpointPolicy,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyVerifiedAccessGroup
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26884,14 +26884,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyVerifiedAccessGroup,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyVerifiedAccessGroupPolicy
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26935,14 +26935,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyVerifiedAccessGroupPolicy,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyVerifiedAccessInstance
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26986,14 +26986,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyVerifiedAccessInstance,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyVerifiedAccessInstanceLoggingConfiguration
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27037,14 +27037,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyVerifiedAccessInstanceLoggingConfiguration,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyVerifiedAccessTrustProvider
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27088,14 +27088,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyVerifiedAccessTrustProvider,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyVolume
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27139,14 +27139,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyVolume,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyVolumeAttribute
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27190,14 +27190,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyVolumeAttribute,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyVpcAttribute
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27241,14 +27241,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyVpcAttribute,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyVpcEndpoint
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27292,14 +27292,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyVpcEndpoint,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyVpcEndpointConnectionNotification
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27343,14 +27343,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyVpcEndpointConnectionNotification,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyVpcEndpointServiceConfiguration
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27394,14 +27394,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyVpcEndpointServiceConfiguration,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyVpcEndpointServicePayerResponsibility
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27445,14 +27445,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyVpcEndpointServicePayerResponsibility,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyVpcEndpointServicePermissions
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27496,14 +27496,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyVpcEndpointServicePermissions,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyVpcPeeringConnectionOptions
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27547,14 +27547,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyVpcPeeringConnectionOptions,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyVpcTenancy
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27598,14 +27598,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyVpcTenancy,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyVpnConnection
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27649,14 +27649,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyVpnConnection,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyVpnConnectionOptions
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27700,14 +27700,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyVpnConnectionOptions,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyVpnTunnelCertificate
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27751,14 +27751,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyVpnTunnelCertificate,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ModifyVpnTunnelOptions
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27802,14 +27802,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ModifyVpnTunnelOptions,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class MonitorInstances
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27853,14 +27853,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::MonitorInstances,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class MoveAddressToVpc
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27904,14 +27904,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::MoveAddressToVpc,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class MoveByoipCidrToIpam
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27955,14 +27955,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::MoveByoipCidrToIpam,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ProvisionByoipCidr
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28006,14 +28006,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ProvisionByoipCidr,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ProvisionIpamByoasn
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28057,14 +28057,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ProvisionIpamByoasn,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ProvisionIpamPoolCidr
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28108,14 +28108,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ProvisionIpamPoolCidr,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ProvisionPublicIpv4PoolCidr
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28159,14 +28159,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ProvisionPublicIpv4PoolCidr,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class PurchaseCapacityBlock
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28210,14 +28210,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::PurchaseCapacityBlock,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class PurchaseHostReservation
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28261,14 +28261,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::PurchaseHostReservation,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class PurchaseReservedInstancesOffering
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28312,14 +28312,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::PurchaseReservedInstancesOffering,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class PurchaseScheduledInstances
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28363,14 +28363,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::PurchaseScheduledInstances,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class RebootInstances
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28414,14 +28414,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::RebootInstances,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class RegisterImage
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28465,14 +28465,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::RegisterImage,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class RegisterInstanceEventNotificationAttributes
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28516,14 +28516,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::RegisterInstanceEventNotificationAttributes,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class RegisterTransitGatewayMulticastGroupMembers
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28567,14 +28567,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::RegisterTransitGatewayMulticastGroupMembers,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class RegisterTransitGatewayMulticastGroupSources
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28618,14 +28618,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::RegisterTransitGatewayMulticastGroupSources,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class RejectTransitGatewayMulticastDomainAssociations
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28669,14 +28669,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::RejectTransitGatewayMulticastDomainAssociations,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class RejectTransitGatewayPeeringAttachment
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28720,14 +28720,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::RejectTransitGatewayPeeringAttachment,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class RejectTransitGatewayVpcAttachment
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28771,14 +28771,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::RejectTransitGatewayVpcAttachment,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class RejectVpcEndpointConnections
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28822,14 +28822,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::RejectVpcEndpointConnections,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class RejectVpcPeeringConnection
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28873,14 +28873,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::RejectVpcPeeringConnection,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ReleaseAddress
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28924,14 +28924,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ReleaseAddress,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ReleaseHosts
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28975,14 +28975,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ReleaseHosts,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ReleaseIpamPoolAllocation
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29026,14 +29026,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ReleaseIpamPoolAllocation,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ReplaceIamInstanceProfileAssociation
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29077,14 +29077,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ReplaceIamInstanceProfileAssociation,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ReplaceNetworkAclAssociation
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29128,14 +29128,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ReplaceNetworkAclAssociation,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ReplaceNetworkAclEntry
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29179,14 +29179,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ReplaceNetworkAclEntry,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ReplaceRoute
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29230,14 +29230,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ReplaceRoute,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ReplaceRouteTableAssociation
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29281,14 +29281,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ReplaceRouteTableAssociation,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ReplaceTransitGatewayRoute
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29332,14 +29332,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ReplaceTransitGatewayRoute,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ReplaceVpnTunnel
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29383,14 +29383,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ReplaceVpnTunnel,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ReportInstanceStatus
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29434,14 +29434,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ReportInstanceStatus,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class RequestSpotFleet
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29485,14 +29485,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::RequestSpotFleet,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class RequestSpotInstances
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29536,14 +29536,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::RequestSpotInstances,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ResetAddressAttribute
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29587,14 +29587,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ResetAddressAttribute,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ResetEbsDefaultKmsKeyId
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29638,14 +29638,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ResetEbsDefaultKmsKeyId,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ResetFpgaImageAttribute
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29689,14 +29689,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ResetFpgaImageAttribute,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ResetImageAttribute
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29740,14 +29740,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ResetImageAttribute,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ResetInstanceAttribute
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29791,14 +29791,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ResetInstanceAttribute,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ResetNetworkInterfaceAttribute
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29842,14 +29842,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ResetNetworkInterfaceAttribute,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class ResetSnapshotAttribute
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29893,14 +29893,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::ResetSnapshotAttribute,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class RestoreAddressToClassic
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29944,14 +29944,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::RestoreAddressToClassic,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class RestoreImageFromRecycleBin
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29995,14 +29995,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::RestoreImageFromRecycleBin,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class RestoreManagedPrefixListVersion
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30046,14 +30046,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::RestoreManagedPrefixListVersion,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class RestoreSnapshotFromRecycleBin
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30097,14 +30097,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::RestoreSnapshotFromRecycleBin,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class RestoreSnapshotTier
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30148,14 +30148,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::RestoreSnapshotTier,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class RevokeClientVpnIngress
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30199,14 +30199,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::RevokeClientVpnIngress,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class RevokeSecurityGroupEgress
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30250,14 +30250,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::RevokeSecurityGroupEgress,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class RevokeSecurityGroupIngress
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30301,14 +30301,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::RevokeSecurityGroupIngress,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class RunInstances
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30352,14 +30352,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::RunInstances,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class RunScheduledInstances
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30403,14 +30403,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::RunScheduledInstances,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class SearchLocalGatewayRoutes
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30454,14 +30454,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::SearchLocalGatewayRoutes,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class SearchTransitGatewayMulticastGroups
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30505,14 +30505,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::SearchTransitGatewayMulticastGroups,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class SearchTransitGatewayRoutes
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30556,14 +30556,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::SearchTransitGatewayRoutes,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class SendDiagnosticInterrupt
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30607,14 +30607,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::SendDiagnosticInterrupt,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class StartInstances
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30658,14 +30658,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::StartInstances,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class StartNetworkInsightsAccessScopeAnalysis
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30709,14 +30709,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::StartNetworkInsightsAccessScopeAnalysis,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class StartNetworkInsightsAnalysis
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30760,14 +30760,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::StartNetworkInsightsAnalysis,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class StartVpcEndpointServicePrivateDnsVerification
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30811,14 +30811,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::StartVpcEndpointServicePrivateDnsVerification,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class StopInstances
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30862,14 +30862,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::StopInstances,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class TerminateClientVpnConnections
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30913,14 +30913,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::TerminateClientVpnConnections,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class TerminateInstances
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30964,14 +30964,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::TerminateInstances,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class UnassignIpv6Addresses
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -31015,14 +31015,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::UnassignIpv6Addresses,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class UnassignPrivateIpAddresses
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -31066,14 +31066,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::UnassignPrivateIpAddresses,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class UnassignPrivateNatGatewayAddress
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -31117,14 +31117,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::UnassignPrivateNatGatewayAddress,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class UnlockSnapshot
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -31168,14 +31168,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::UnlockSnapshot,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class UnmonitorInstances
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -31219,14 +31219,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::UnmonitorInstances,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class UpdateSecurityGroupRuleDescriptionsEgress
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -31270,14 +31270,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::UpdateSecurityGroupRuleDescriptionsEgress,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class UpdateSecurityGroupRuleDescriptionsIngress
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -31321,14 +31321,14 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::UpdateSecurityGroupRuleDescriptionsIngress,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end
     end
 
     class WithdrawByoipCidr
-      def self.build(config, stubs)
+      def self.build(config)
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -31372,7 +31372,7 @@ module AWS::SDK::EC2
           client: config.http_client,
           stub_error_classes: [],
           stub_data_class: Stubs::WithdrawByoipCidr,
-          stubs: stubs
+          stubs: config.stubs
         )
         stack
       end

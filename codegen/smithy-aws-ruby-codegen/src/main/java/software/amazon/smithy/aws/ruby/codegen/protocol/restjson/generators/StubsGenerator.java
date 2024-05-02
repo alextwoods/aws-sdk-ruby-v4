@@ -170,6 +170,20 @@ public class StubsGenerator extends RestStubsGeneratorBase {
         }
     }
 
+    @Override
+    protected void renderErrorStubMethod(Shape errorShape) {
+        writer
+                .openBlock("def self.stub(http_resp, stub:)")
+                .write("data = {}")
+                .call(() -> renderStatusCodeStubber(errorShape))
+                .call(() -> renderHeaderStubbers(errorShape))
+                .write("http_resp.headers['X-Amzn-Errortype'] = '$L'", errorShape.toShapeId().getName())
+                .call(() -> renderPrefixHeadersStubbers(errorShape))
+                .call(() -> renderResponseCodeStubber(errorShape))
+                .call(() -> renderBodyStubber(errorShape))
+                .closeBlock("end");
+    }
+
     private class MemberSerializer extends ShapeVisitor.Default<Void> {
 
         private final MemberShape memberShape;
@@ -338,7 +352,14 @@ public class StubsGenerator extends RestStubsGeneratorBase {
 
         @Override
         public Void unionShape(UnionShape shape) {
-            defaultComplexSerializer(shape);
+            writer
+                    .write("http_resp.headers['Content-Type'] = 'application/json'")
+                    .openBlock("unless $L.nil?", inputGetter)
+                    .write("data = $1L.stub($2L)", symbolProvider.toSymbol(shape).getName(),
+                            inputGetter)
+                    .write("http_resp.body = $T.new($T.dump(data))",
+                            RubyImportContainer.STRING_IO, Hearth.JSON)
+                    .closeBlock("end");
             return null;
         }
 

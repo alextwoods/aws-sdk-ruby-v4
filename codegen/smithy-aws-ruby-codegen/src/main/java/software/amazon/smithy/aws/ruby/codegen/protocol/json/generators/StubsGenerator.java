@@ -15,8 +15,6 @@
 
 package software.amazon.smithy.aws.ruby.codegen.protocol.json.generators;
 
-import java.util.stream.Stream;
-import software.amazon.smithy.codegen.core.Symbol;
 import software.amazon.smithy.model.shapes.BlobShape;
 import software.amazon.smithy.model.shapes.DoubleShape;
 import software.amazon.smithy.model.shapes.FloatShape;
@@ -29,7 +27,8 @@ import software.amazon.smithy.model.shapes.ShapeVisitor;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.shapes.TimestampShape;
 import software.amazon.smithy.model.shapes.UnionShape;
-import software.amazon.smithy.model.traits.JsonNameTrait;
+import software.amazon.smithy.model.traits.ErrorTrait;
+import software.amazon.smithy.model.traits.HttpErrorTrait;
 import software.amazon.smithy.model.traits.SparseTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
@@ -38,6 +37,9 @@ import software.amazon.smithy.ruby.codegen.RubyImportContainer;
 import software.amazon.smithy.ruby.codegen.generators.StubsGeneratorBase;
 import software.amazon.smithy.ruby.codegen.traits.NoSerializeTrait;
 import software.amazon.smithy.ruby.codegen.util.TimestampFormat;
+
+import java.util.Optional;
+import java.util.stream.Stream;
 
 public class StubsGenerator extends StubsGeneratorBase {
 
@@ -86,7 +88,7 @@ public class StubsGenerator extends StubsGeneratorBase {
                     Shape memberTarget =
                             model.expectShape(shape.getMember().getTarget());
                     memberTarget
-                            .accept(new MemberSerializer(shape.getMember(),"data << ", "element", !shape.hasTrait(SparseTrait.class)));
+                            .accept(new MemberSerializer(shape.getMember(), "data << ", "element", !shape.hasTrait(SparseTrait.class)));
                 })
                 .closeBlock("end")
                 .write("data")
@@ -134,8 +136,32 @@ public class StubsGenerator extends StubsGeneratorBase {
     }
 
     @Override
-    protected void renderErrorStubMethod(Shape shape) {
-        // todo
+    protected void renderErrorStubMethod(Shape errorShape) {
+        writer
+                .openBlock("def self.stub(http_resp, stub:)")
+                .call(() -> renderStatusCodeStubber(errorShape))
+                .write("data = {}")
+                .write("data['__type'] = '$L'", errorShape.toShapeId().getName())
+                .call(() -> renderMemberStubbers(errorShape))
+                .write("http_resp.body = $T.new($T.dump(data))", RubyImportContainer.STRING_IO, Hearth.JSON)
+                .closeBlock("end");
+    }
+
+    protected void renderStatusCodeStubber(Shape errorShape) {
+        String statusCode = "";
+        Optional<HttpErrorTrait> optionalHttpErrorTrait = errorShape.getTrait(HttpErrorTrait.class);
+        if (optionalHttpErrorTrait.isPresent()) {
+            statusCode = Integer.toString(optionalHttpErrorTrait.get().getCode());
+        } else {
+            ErrorTrait errorTrait = errorShape.getTrait(ErrorTrait.class).get();
+            if (errorTrait.isClientError()) {
+                statusCode = "400";
+            } else if (errorTrait.isServerError()) {
+                statusCode = "500";
+            }
+        }
+
+        this.writer.write("http_resp.status = $1L", statusCode);
     }
 
     private void renderMemberStubbers(Shape s) {
@@ -148,9 +174,6 @@ public class StubsGenerator extends StubsGeneratorBase {
 
             String symbolName = ":" + symbolProvider.toMemberName(member);
             String dataName = "'" + member.getMemberName() + "'";
-            if (member.hasTrait(JsonNameTrait.class)) {
-                dataName = "'" + member.expectTrait(JsonNameTrait.class).getValue() + "'";
-            }
             String dataSetter = "data[" + dataName + "] = ";
             String inputGetter = "stub[" + symbolName + "]";
             target.accept(new MemberSerializer(member, dataSetter, inputGetter, true));

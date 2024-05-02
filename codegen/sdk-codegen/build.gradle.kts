@@ -71,6 +71,7 @@ fun forEachService(task: (service: ServiceDefinition) -> Unit) {
 
 buildscript {
     val smithyVersion: String by project
+    val smithyRubyVersion: String by project
     repositories {
         mavenCentral()
     }

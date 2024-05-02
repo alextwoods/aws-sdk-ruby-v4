@@ -307,18 +307,15 @@ module AWS::SDK::S3
       include Hearth::Structure
     end
 
-    # Includes enum constants for AnalyticsS3ExportFileFormat
+    # Enum constants for AnalyticsS3ExportFileFormat
     module AnalyticsS3ExportFileFormat
-      # No documentation available.
       CSV = "CSV"
     end
 
-    # Includes enum constants for ArchiveStatus
+    # Enum constants for ArchiveStatus
     module ArchiveStatus
-      # No documentation available.
       ARCHIVE_ACCESS = "ARCHIVE_ACCESS"
 
-      # No documentation available.
       DEEP_ARCHIVE_ACCESS = "DEEP_ARCHIVE_ACCESS"
     end
 
@@ -342,12 +339,10 @@ module AWS::SDK::S3
       include Hearth::Structure
     end
 
-    # Includes enum constants for BucketAccelerateStatus
+    # Enum constants for BucketAccelerateStatus
     module BucketAccelerateStatus
-      # No documentation available.
       ENABLED = "Enabled"
 
-      # No documentation available.
       SUSPENDED = "Suspended"
     end
 
@@ -375,18 +370,14 @@ module AWS::SDK::S3
       include Hearth::Structure
     end
 
-    # Includes enum constants for BucketCannedACL
+    # Enum constants for BucketCannedACL
     module BucketCannedACL
-      # No documentation available.
       PRIVATE = "private"
 
-      # No documentation available.
       PUBLIC_READ = "public-read"
 
-      # No documentation available.
       PUBLIC_READ_WRITE = "public-read-write"
 
-      # No documentation available.
       AUTHENTICATED_READ = "authenticated-read"
     end
 
@@ -431,90 +422,62 @@ module AWS::SDK::S3
       include Hearth::Structure
     end
 
-    # Includes enum constants for BucketLocationConstraint
+    # Enum constants for BucketLocationConstraint
     module BucketLocationConstraint
-      # No documentation available.
       AF_SOUTH_1 = "af-south-1"
 
-      # No documentation available.
       AP_EAST_1 = "ap-east-1"
 
-      # No documentation available.
       AP_NORTHEAST_1 = "ap-northeast-1"
 
-      # No documentation available.
       AP_NORTHEAST_2 = "ap-northeast-2"
 
-      # No documentation available.
       AP_NORTHEAST_3 = "ap-northeast-3"
 
-      # No documentation available.
       AP_SOUTH_1 = "ap-south-1"
 
-      # No documentation available.
       AP_SOUTH_2 = "ap-south-2"
 
-      # No documentation available.
       AP_SOUTHEAST_1 = "ap-southeast-1"
 
-      # No documentation available.
       AP_SOUTHEAST_2 = "ap-southeast-2"
 
-      # No documentation available.
       AP_SOUTHEAST_3 = "ap-southeast-3"
 
-      # No documentation available.
       CA_CENTRAL_1 = "ca-central-1"
 
-      # No documentation available.
       CN_NORTH_1 = "cn-north-1"
 
-      # No documentation available.
       CN_NORTHWEST_1 = "cn-northwest-1"
 
-      # No documentation available.
       EU = "EU"
 
-      # No documentation available.
       EU_CENTRAL_1 = "eu-central-1"
 
-      # No documentation available.
       EU_NORTH_1 = "eu-north-1"
 
-      # No documentation available.
       EU_SOUTH_1 = "eu-south-1"
 
-      # No documentation available.
       EU_SOUTH_2 = "eu-south-2"
 
-      # No documentation available.
       EU_WEST_1 = "eu-west-1"
 
-      # No documentation available.
       EU_WEST_2 = "eu-west-2"
 
-      # No documentation available.
       EU_WEST_3 = "eu-west-3"
 
-      # No documentation available.
       ME_SOUTH_1 = "me-south-1"
 
-      # No documentation available.
       SA_EAST_1 = "sa-east-1"
 
-      # No documentation available.
       US_EAST_2 = "us-east-2"
 
-      # No documentation available.
       US_GOV_EAST_1 = "us-gov-east-1"
 
-      # No documentation available.
       US_GOV_WEST_1 = "us-gov-west-1"
 
-      # No documentation available.
       US_WEST_1 = "us-west-1"
 
-      # No documentation available.
       US_WEST_2 = "us-west-2"
     end
 
@@ -534,30 +497,24 @@ module AWS::SDK::S3
       include Hearth::Structure
     end
 
-    # Includes enum constants for BucketLogsPermission
+    # Enum constants for BucketLogsPermission
     module BucketLogsPermission
-      # No documentation available.
       FULL_CONTROL = "FULL_CONTROL"
 
-      # No documentation available.
       READ = "READ"
 
-      # No documentation available.
       WRITE = "WRITE"
     end
 
-    # Includes enum constants for BucketType
+    # Enum constants for BucketType
     module BucketType
-      # No documentation available.
       DIRECTORY = "Directory"
     end
 
-    # Includes enum constants for BucketVersioningStatus
+    # Enum constants for BucketVersioningStatus
     module BucketVersioningStatus
-      # No documentation available.
       ENABLED = "Enabled"
 
-      # No documentation available.
       SUSPENDED = "Suspended"
     end
 
@@ -796,24 +753,19 @@ module AWS::SDK::S3
       include Hearth::Structure
     end
 
-    # Includes enum constants for ChecksumAlgorithm
+    # Enum constants for ChecksumAlgorithm
     module ChecksumAlgorithm
-      # No documentation available.
       CRC32 = "CRC32"
 
-      # No documentation available.
       CRC32_C = "CRC32C"
 
-      # No documentation available.
       SHA1 = "SHA1"
 
-      # No documentation available.
       SHA256 = "SHA256"
     end
 
-    # Includes enum constants for ChecksumMode
+    # Enum constants for ChecksumMode
     module ChecksumMode
-      # No documentation available.
       ENABLED = "ENABLED"
     end
 
@@ -1206,15 +1158,12 @@ module AWS::SDK::S3
       include Hearth::Structure
     end
 
-    # Includes enum constants for CompressionType
+    # Enum constants for CompressionType
     module CompressionType
-      # No documentation available.
       NONE = "NONE"
 
-      # No documentation available.
       GZIP = "GZIP"
 
-      # No documentation available.
       BZIP2 = "BZIP2"
     end
 
@@ -3141,9 +3090,8 @@ module AWS::SDK::S3
       include Hearth::Structure
     end
 
-    # Includes enum constants for DataRedundancy
+    # Enum constants for DataRedundancy
     module DataRedundancy
-      # No documentation available.
       SINGLE_AVAILABILITY_ZONE = "SingleAvailabilityZone"
     end
 
@@ -3667,12 +3615,10 @@ module AWS::SDK::S3
       include Hearth::Structure
     end
 
-    # Includes enum constants for DeleteMarkerReplicationStatus
+    # Enum constants for DeleteMarkerReplicationStatus
     module DeleteMarkerReplicationStatus
-      # No documentation available.
       ENABLED = "Enabled"
 
-      # No documentation available.
       DISABLED = "Disabled"
     end
 
@@ -4117,9 +4063,13 @@ module AWS::SDK::S3
       include Hearth::Structure
     end
 
-    # Includes enum constants for EncodingType
+    # Enum constants for EncodingType
+    # <p>Requests Amazon S3 to encode the object keys in the response and specifies the encoding
+    #          method to use. An object key can contain any Unicode character; however, the XML 1.0 parser
+    #          cannot parse some characters, such as characters with an ASCII value from 0 to 10. For
+    #          characters that are not supported in XML 1.0, you can add this parameter to request that
+    #          Amazon S3 encode the keys in the response.</p>
     module EncodingType
-      # No documentation available.
       URL = "url"
     end
 
@@ -6110,87 +6060,61 @@ module AWS::SDK::S3
       include Hearth::Structure
     end
 
-    # Includes enum constants for Event
+    # Enum constants for Event
+    # <p>The bucket event for which to send notifications.</p>
     module Event
-      # No documentation available.
       S3_REDUCED_REDUNDANCY_LOST_OBJECT = "s3:ReducedRedundancyLostObject"
 
-      # No documentation available.
       S3_OBJECT_CREATED_ = "s3:ObjectCreated:*"
 
-      # No documentation available.
       S3_OBJECT_CREATED_PUT = "s3:ObjectCreated:Put"
 
-      # No documentation available.
       S3_OBJECT_CREATED_POST = "s3:ObjectCreated:Post"
 
-      # No documentation available.
       S3_OBJECT_CREATED_COPY = "s3:ObjectCreated:Copy"
 
-      # No documentation available.
       S3_OBJECT_CREATED_COMPLETE_MULTIPART_UPLOAD = "s3:ObjectCreated:CompleteMultipartUpload"
 
-      # No documentation available.
       S3_OBJECT_REMOVED_ = "s3:ObjectRemoved:*"
 
-      # No documentation available.
       S3_OBJECT_REMOVED_DELETE = "s3:ObjectRemoved:Delete"
 
-      # No documentation available.
       S3_OBJECT_REMOVED_DELETE_MARKER_CREATED = "s3:ObjectRemoved:DeleteMarkerCreated"
 
-      # No documentation available.
       S3_OBJECT_RESTORE_ = "s3:ObjectRestore:*"
 
-      # No documentation available.
       S3_OBJECT_RESTORE_POST = "s3:ObjectRestore:Post"
 
-      # No documentation available.
       S3_OBJECT_RESTORE_COMPLETED = "s3:ObjectRestore:Completed"
 
-      # No documentation available.
       S3_REPLICATION_ = "s3:Replication:*"
 
-      # No documentation available.
       S3_REPLICATION_OPERATION_FAILED_REPLICATION = "s3:Replication:OperationFailedReplication"
 
-      # No documentation available.
       S3_REPLICATION_OPERATION_NOT_TRACKED = "s3:Replication:OperationNotTracked"
 
-      # No documentation available.
       S3_REPLICATION_OPERATION_MISSED_THRESHOLD = "s3:Replication:OperationMissedThreshold"
 
-      # No documentation available.
       S3_REPLICATION_OPERATION_REPLICATED_AFTER_THRESHOLD = "s3:Replication:OperationReplicatedAfterThreshold"
 
-      # No documentation available.
       S3_OBJECT_RESTORE_DELETE = "s3:ObjectRestore:Delete"
 
-      # No documentation available.
       S3_LIFECYCLE_TRANSITION = "s3:LifecycleTransition"
 
-      # No documentation available.
       S3_INTELLIGENT_TIERING = "s3:IntelligentTiering"
 
-      # No documentation available.
       S3_OBJECT_ACL_PUT = "s3:ObjectAcl:Put"
 
-      # No documentation available.
       S3_LIFECYCLE_EXPIRATION_ = "s3:LifecycleExpiration:*"
 
-      # No documentation available.
       S3_LIFECYCLE_EXPIRATION_DELETE = "s3:LifecycleExpiration:Delete"
 
-      # No documentation available.
       S3_LIFECYCLE_EXPIRATION_DELETE_MARKER_CREATED = "s3:LifecycleExpiration:DeleteMarkerCreated"
 
-      # No documentation available.
       S3_OBJECT_TAGGING_ = "s3:ObjectTagging:*"
 
-      # No documentation available.
       S3_OBJECT_TAGGING_PUT = "s3:ObjectTagging:Put"
 
-      # No documentation available.
       S3_OBJECT_TAGGING_DELETE = "s3:ObjectTagging:Delete"
     end
 
@@ -6221,39 +6145,31 @@ module AWS::SDK::S3
       include Hearth::Structure
     end
 
-    # Includes enum constants for ExistingObjectReplicationStatus
+    # Enum constants for ExistingObjectReplicationStatus
     module ExistingObjectReplicationStatus
-      # No documentation available.
       ENABLED = "Enabled"
 
-      # No documentation available.
       DISABLED = "Disabled"
     end
 
-    # Includes enum constants for ExpirationStatus
+    # Enum constants for ExpirationStatus
     module ExpirationStatus
-      # No documentation available.
       ENABLED = "Enabled"
 
-      # No documentation available.
       DISABLED = "Disabled"
     end
 
-    # Includes enum constants for ExpressionType
+    # Enum constants for ExpressionType
     module ExpressionType
-      # No documentation available.
       SQL = "SQL"
     end
 
-    # Includes enum constants for FileHeaderInfo
+    # Enum constants for FileHeaderInfo
     module FileHeaderInfo
-      # No documentation available.
       USE = "USE"
 
-      # No documentation available.
       IGNORE = "IGNORE"
 
-      # No documentation available.
       NONE = "NONE"
     end
 
@@ -6281,12 +6197,10 @@ module AWS::SDK::S3
       include Hearth::Structure
     end
 
-    # Includes enum constants for FilterRuleName
+    # Enum constants for FilterRuleName
     module FilterRuleName
-      # No documentation available.
       PREFIX = "prefix"
 
-      # No documentation available.
       SUFFIX = "suffix"
     end
 
@@ -9164,12 +9078,10 @@ module AWS::SDK::S3
       include Hearth::Structure
     end
 
-    # Includes enum constants for IntelligentTieringAccessTier
+    # Enum constants for IntelligentTieringAccessTier
     module IntelligentTieringAccessTier
-      # No documentation available.
       ARCHIVE_ACCESS = "ARCHIVE_ACCESS"
 
-      # No documentation available.
       DEEP_ARCHIVE_ACCESS = "DEEP_ARCHIVE_ACCESS"
     end
 
@@ -9262,12 +9174,10 @@ module AWS::SDK::S3
       include Hearth::Structure
     end
 
-    # Includes enum constants for IntelligentTieringStatus
+    # Enum constants for IntelligentTieringStatus
     module IntelligentTieringStatus
-      # No documentation available.
       ENABLED = "Enabled"
 
-      # No documentation available.
       DISABLED = "Disabled"
     end
 
@@ -9400,81 +9310,59 @@ module AWS::SDK::S3
       include Hearth::Structure
     end
 
-    # Includes enum constants for InventoryFormat
+    # Enum constants for InventoryFormat
     module InventoryFormat
-      # No documentation available.
       CSV = "CSV"
 
-      # No documentation available.
       ORC = "ORC"
 
-      # No documentation available.
       PARQUET = "Parquet"
     end
 
-    # Includes enum constants for InventoryFrequency
+    # Enum constants for InventoryFrequency
     module InventoryFrequency
-      # No documentation available.
       DAILY = "Daily"
 
-      # No documentation available.
       WEEKLY = "Weekly"
     end
 
-    # Includes enum constants for InventoryIncludedObjectVersions
+    # Enum constants for InventoryIncludedObjectVersions
     module InventoryIncludedObjectVersions
-      # No documentation available.
       ALL = "All"
 
-      # No documentation available.
       CURRENT = "Current"
     end
 
-    # Includes enum constants for InventoryOptionalField
+    # Enum constants for InventoryOptionalField
     module InventoryOptionalField
-      # No documentation available.
       SIZE = "Size"
 
-      # No documentation available.
       LAST_MODIFIED_DATE = "LastModifiedDate"
 
-      # No documentation available.
       STORAGE_CLASS = "StorageClass"
 
-      # No documentation available.
       E_TAG = "ETag"
 
-      # No documentation available.
       IS_MULTIPART_UPLOADED = "IsMultipartUploaded"
 
-      # No documentation available.
       REPLICATION_STATUS = "ReplicationStatus"
 
-      # No documentation available.
       ENCRYPTION_STATUS = "EncryptionStatus"
 
-      # No documentation available.
       OBJECT_LOCK_RETAIN_UNTIL_DATE = "ObjectLockRetainUntilDate"
 
-      # No documentation available.
       OBJECT_LOCK_MODE = "ObjectLockMode"
 
-      # No documentation available.
       OBJECT_LOCK_LEGAL_HOLD_STATUS = "ObjectLockLegalHoldStatus"
 
-      # No documentation available.
       INTELLIGENT_TIERING_ACCESS_TIER = "IntelligentTieringAccessTier"
 
-      # No documentation available.
       BUCKET_KEY_STATUS = "BucketKeyStatus"
 
-      # No documentation available.
       CHECKSUM_ALGORITHM = "ChecksumAlgorithm"
 
-      # No documentation available.
       OBJECT_ACCESS_CONTROL_LIST = "ObjectAccessControlList"
 
-      # No documentation available.
       OBJECT_OWNER = "ObjectOwner"
     end
 
@@ -9566,12 +9454,10 @@ module AWS::SDK::S3
       include Hearth::Structure
     end
 
-    # Includes enum constants for JSONType
+    # Enum constants for JSONType
     module JSONType
-      # No documentation available.
       DOCUMENT = "DOCUMENT"
 
-      # No documentation available.
       LINES = "LINES"
     end
 
@@ -11274,9 +11160,8 @@ module AWS::SDK::S3
       include Hearth::Structure
     end
 
-    # Includes enum constants for LocationType
+    # Enum constants for LocationType
     module LocationType
-      # No documentation available.
       AVAILABILITY_ZONE = "AvailabilityZone"
     end
 
@@ -11320,30 +11205,24 @@ module AWS::SDK::S3
       include Hearth::Structure
     end
 
-    # Includes enum constants for MFADelete
+    # Enum constants for MFADelete
     module MFADelete
-      # No documentation available.
       ENABLED = "Enabled"
 
-      # No documentation available.
       DISABLED = "Disabled"
     end
 
-    # Includes enum constants for MFADeleteStatus
+    # Enum constants for MFADeleteStatus
     module MFADeleteStatus
-      # No documentation available.
       ENABLED = "Enabled"
 
-      # No documentation available.
       DISABLED = "Disabled"
     end
 
-    # Includes enum constants for MetadataDirective
+    # Enum constants for MetadataDirective
     module MetadataDirective
-      # No documentation available.
       COPY = "COPY"
 
-      # No documentation available.
       REPLACE = "REPLACE"
     end
 
@@ -11505,12 +11384,10 @@ module AWS::SDK::S3
       end
     end
 
-    # Includes enum constants for MetricsStatus
+    # Enum constants for MetricsStatus
     module MetricsStatus
-      # No documentation available.
       ENABLED = "Enabled"
 
-      # No documentation available.
       DISABLED = "Disabled"
     end
 
@@ -11827,45 +11704,33 @@ module AWS::SDK::S3
       include Hearth::Structure
     end
 
-    # Includes enum constants for ObjectAttributes
+    # Enum constants for ObjectAttributes
     module ObjectAttributes
-      # No documentation available.
       ETAG = "ETag"
 
-      # No documentation available.
       CHECKSUM = "Checksum"
 
-      # No documentation available.
       OBJECT_PARTS = "ObjectParts"
 
-      # No documentation available.
       STORAGE_CLASS = "StorageClass"
 
-      # No documentation available.
       OBJECT_SIZE = "ObjectSize"
     end
 
-    # Includes enum constants for ObjectCannedACL
+    # Enum constants for ObjectCannedACL
     module ObjectCannedACL
-      # No documentation available.
       PRIVATE = "private"
 
-      # No documentation available.
       PUBLIC_READ = "public-read"
 
-      # No documentation available.
       PUBLIC_READ_WRITE = "public-read-write"
 
-      # No documentation available.
       AUTHENTICATED_READ = "authenticated-read"
 
-      # No documentation available.
       AWS_EXEC_READ = "aws-exec-read"
 
-      # No documentation available.
       BUCKET_OWNER_READ = "bucket-owner-read"
 
-      # No documentation available.
       BUCKET_OWNER_FULL_CONTROL = "bucket-owner-full-control"
     end
 
@@ -11922,9 +11787,8 @@ module AWS::SDK::S3
       include Hearth::Structure
     end
 
-    # Includes enum constants for ObjectLockEnabled
+    # Enum constants for ObjectLockEnabled
     module ObjectLockEnabled
-      # No documentation available.
       ENABLED = "Enabled"
     end
 
@@ -11943,21 +11807,17 @@ module AWS::SDK::S3
       include Hearth::Structure
     end
 
-    # Includes enum constants for ObjectLockLegalHoldStatus
+    # Enum constants for ObjectLockLegalHoldStatus
     module ObjectLockLegalHoldStatus
-      # No documentation available.
       ON = "ON"
 
-      # No documentation available.
       OFF = "OFF"
     end
 
-    # Includes enum constants for ObjectLockMode
+    # Enum constants for ObjectLockMode
     module ObjectLockMode
-      # No documentation available.
       GOVERNANCE = "GOVERNANCE"
 
-      # No documentation available.
       COMPLIANCE = "COMPLIANCE"
     end
 
@@ -11981,12 +11841,10 @@ module AWS::SDK::S3
       include Hearth::Structure
     end
 
-    # Includes enum constants for ObjectLockRetentionMode
+    # Enum constants for ObjectLockRetentionMode
     module ObjectLockRetentionMode
-      # No documentation available.
       GOVERNANCE = "GOVERNANCE"
 
-      # No documentation available.
       COMPLIANCE = "COMPLIANCE"
     end
 
@@ -12018,15 +11876,33 @@ module AWS::SDK::S3
       include Hearth::Structure
     end
 
-    # Includes enum constants for ObjectOwnership
+    # Enum constants for ObjectOwnership
+    # <p>The container element for object ownership for a bucket's ownership controls.</p>
+    #          <p>
+    #             <code>BucketOwnerPreferred</code> - Objects uploaded to the bucket change ownership to the bucket
+    #          owner if the objects are uploaded with the <code>bucket-owner-full-control</code> canned
+    #          ACL.</p>
+    #          <p>
+    #             <code>ObjectWriter</code> - The uploading account will own the object if the object is uploaded with
+    #          the <code>bucket-owner-full-control</code> canned ACL.</p>
+    #          <p>
+    #             <code>BucketOwnerEnforced</code> - Access control lists (ACLs) are disabled and no longer affect
+    #          permissions. The bucket owner automatically owns and has full control over every object in
+    #          the bucket. The bucket only accepts PUT requests that don't specify an ACL or specify bucket owner
+    #          full control ACLs (such as the predefined <code>bucket-owner-full-control</code> canned ACL or a custom ACL
+    #          in XML format that grants the same permissions).</p>
+    #          <p>By default, <code>ObjectOwnership</code> is set to <code>BucketOwnerEnforced</code> and ACLs are disabled. We recommend
+    #       keeping ACLs disabled, except in uncommon use cases where you must control access for each object individually. For more information about S3 Object Ownership, see
+    #       <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Controlling ownership of objects and disabling ACLs for your bucket</a> in the <i>Amazon S3 User Guide</i>.
+    #       </p>
+    #          <note>
+    #             <p>This functionality is not supported for directory buckets. Directory buckets use the bucket owner enforced setting for S3 Object Ownership.</p>
+    #          </note>
     module ObjectOwnership
-      # No documentation available.
       BUCKET_OWNER_PREFERRED = "BucketOwnerPreferred"
 
-      # No documentation available.
       OBJECT_WRITER = "ObjectWriter"
 
-      # No documentation available.
       BUCKET_OWNER_ENFORCED = "BucketOwnerEnforced"
     end
 
@@ -12082,39 +11958,28 @@ module AWS::SDK::S3
       include Hearth::Structure
     end
 
-    # Includes enum constants for ObjectStorageClass
+    # Enum constants for ObjectStorageClass
     module ObjectStorageClass
-      # No documentation available.
       STANDARD = "STANDARD"
 
-      # No documentation available.
       REDUCED_REDUNDANCY = "REDUCED_REDUNDANCY"
 
-      # No documentation available.
       GLACIER = "GLACIER"
 
-      # No documentation available.
       STANDARD_IA = "STANDARD_IA"
 
-      # No documentation available.
       ONEZONE_IA = "ONEZONE_IA"
 
-      # No documentation available.
       INTELLIGENT_TIERING = "INTELLIGENT_TIERING"
 
-      # No documentation available.
       DEEP_ARCHIVE = "DEEP_ARCHIVE"
 
-      # No documentation available.
       OUTPOSTS = "OUTPOSTS"
 
-      # No documentation available.
       GLACIER_IR = "GLACIER_IR"
 
-      # No documentation available.
       SNOW = "SNOW"
 
-      # No documentation available.
       EXPRESS_ONEZONE = "EXPRESS_ONEZONE"
     end
 
@@ -12182,15 +12047,13 @@ module AWS::SDK::S3
       include Hearth::Structure
     end
 
-    # Includes enum constants for ObjectVersionStorageClass
+    # Enum constants for ObjectVersionStorageClass
     module ObjectVersionStorageClass
-      # No documentation available.
       STANDARD = "STANDARD"
     end
 
-    # Includes enum constants for OptionalObjectAttributes
+    # Enum constants for OptionalObjectAttributes
     module OptionalObjectAttributes
-      # No documentation available.
       RESTORE_STATUS = "RestoreStatus"
     end
 
@@ -12276,9 +12139,8 @@ module AWS::SDK::S3
       include Hearth::Structure
     end
 
-    # Includes enum constants for OwnerOverride
+    # Enum constants for OwnerOverride
     module OwnerOverride
-      # No documentation available.
       DESTINATION = "Destination"
     end
 
@@ -12403,12 +12265,10 @@ module AWS::SDK::S3
       include Hearth::Structure
     end
 
-    # Includes enum constants for PartitionDateSource
+    # Enum constants for PartitionDateSource
     module PartitionDateSource
-      # No documentation available.
       EVENT_TIME = "EventTime"
 
-      # No documentation available.
       DELIVERY_TIME = "DeliveryTime"
     end
 
@@ -12431,30 +12291,23 @@ module AWS::SDK::S3
       include Hearth::Structure
     end
 
-    # Includes enum constants for Payer
+    # Enum constants for Payer
     module Payer
-      # No documentation available.
       REQUESTER = "Requester"
 
-      # No documentation available.
       BUCKET_OWNER = "BucketOwner"
     end
 
-    # Includes enum constants for Permission
+    # Enum constants for Permission
     module Permission
-      # No documentation available.
       FULL_CONTROL = "FULL_CONTROL"
 
-      # No documentation available.
       WRITE = "WRITE"
 
-      # No documentation available.
       WRITE_ACP = "WRITE_ACP"
 
-      # No documentation available.
       READ = "READ"
 
-      # No documentation available.
       READ_ACP = "READ_ACP"
     end
 
@@ -12511,12 +12364,10 @@ module AWS::SDK::S3
       include Hearth::Structure
     end
 
-    # Includes enum constants for Protocol
+    # Enum constants for Protocol
     module Protocol
-      # No documentation available.
       HTTP = "http"
 
-      # No documentation available.
       HTTPS = "https"
     end
 
@@ -14733,12 +14584,10 @@ module AWS::SDK::S3
       include Hearth::Structure
     end
 
-    # Includes enum constants for QuoteFields
+    # Enum constants for QuoteFields
     module QuoteFields
-      # No documentation available.
       ALWAYS = "ALWAYS"
 
-      # No documentation available.
       ASNEEDED = "ASNEEDED"
     end
 
@@ -14856,12 +14705,10 @@ module AWS::SDK::S3
       include Hearth::Structure
     end
 
-    # Includes enum constants for ReplicaModificationsStatus
+    # Enum constants for ReplicaModificationsStatus
     module ReplicaModificationsStatus
-      # No documentation available.
       ENABLED = "Enabled"
 
-      # No documentation available.
       DISABLED = "Disabled"
     end
 
@@ -15080,30 +14927,23 @@ module AWS::SDK::S3
       end
     end
 
-    # Includes enum constants for ReplicationRuleStatus
+    # Enum constants for ReplicationRuleStatus
     module ReplicationRuleStatus
-      # No documentation available.
       ENABLED = "Enabled"
 
-      # No documentation available.
       DISABLED = "Disabled"
     end
 
-    # Includes enum constants for ReplicationStatus
+    # Enum constants for ReplicationStatus
     module ReplicationStatus
-      # No documentation available.
       COMPLETE = "COMPLETE"
 
-      # No documentation available.
       PENDING = "PENDING"
 
-      # No documentation available.
       FAILED = "FAILED"
 
-      # No documentation available.
       REPLICA = "REPLICA"
 
-      # No documentation available.
       COMPLETED = "COMPLETED"
     end
 
@@ -15130,12 +14970,10 @@ module AWS::SDK::S3
       include Hearth::Structure
     end
 
-    # Includes enum constants for ReplicationTimeStatus
+    # Enum constants for ReplicationTimeStatus
     module ReplicationTimeStatus
-      # No documentation available.
       ENABLED = "Enabled"
 
-      # No documentation available.
       DISABLED = "Disabled"
     end
 
@@ -15155,15 +14993,27 @@ module AWS::SDK::S3
       include Hearth::Structure
     end
 
-    # Includes enum constants for RequestCharged
+    # Enum constants for RequestCharged
+    # <p>If present, indicates that the requester was successfully charged for the
+    #          request.</p>
+    #          <note>
+    #             <p>This functionality is not supported for directory buckets.</p>
+    #          </note>
     module RequestCharged
-      # No documentation available.
       REQUESTER = "requester"
     end
 
-    # Includes enum constants for RequestPayer
+    # Enum constants for RequestPayer
+    # <p>Confirms that the requester knows that they will be charged for the request. Bucket
+    #          owners need not specify this parameter in their requests. If either the source or
+    #          destination S3 bucket has Requester Pays enabled, the requester will pay for
+    #          corresponding charges to copy the object. For information about downloading objects from
+    #          Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
+    #             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
+    #          <note>
+    #             <p>This functionality is not supported for directory buckets.</p>
+    #          </note>
     module RequestPayer
-      # No documentation available.
       REQUESTER = "requester"
     end
 
@@ -15336,9 +15186,8 @@ module AWS::SDK::S3
       include Hearth::Structure
     end
 
-    # Includes enum constants for RestoreRequestType
+    # Enum constants for RestoreRequestType
     module RestoreRequestType
-      # No documentation available.
       SELECT = "SELECT"
     end
 
@@ -15774,15 +15623,12 @@ module AWS::SDK::S3
       include Hearth::Structure
     end
 
-    # Includes enum constants for ServerSideEncryption
+    # Enum constants for ServerSideEncryption
     module ServerSideEncryption
-      # No documentation available.
       AES256 = "AES256"
 
-      # No documentation available.
       AWS_KMS = "aws:kms"
 
-      # No documentation available.
       AWS_KMS_DSSE = "aws:kms:dsse"
     end
 
@@ -15929,12 +15775,10 @@ module AWS::SDK::S3
       end
     end
 
-    # Includes enum constants for SessionMode
+    # Enum constants for SessionMode
     module SessionMode
-      # No documentation available.
       READ_ONLY = "ReadOnly"
 
-      # No documentation available.
       READ_WRITE = "ReadWrite"
     end
 
@@ -16001,12 +15845,10 @@ module AWS::SDK::S3
       include Hearth::Structure
     end
 
-    # Includes enum constants for SseKmsEncryptedObjectsStatus
+    # Enum constants for SseKmsEncryptedObjectsStatus
     module SseKmsEncryptedObjectsStatus
-      # No documentation available.
       ENABLED = "Enabled"
 
-      # No documentation available.
       DISABLED = "Disabled"
     end
 
@@ -16048,39 +15890,28 @@ module AWS::SDK::S3
       include Hearth::Structure
     end
 
-    # Includes enum constants for StorageClass
+    # Enum constants for StorageClass
     module StorageClass
-      # No documentation available.
       STANDARD = "STANDARD"
 
-      # No documentation available.
       REDUCED_REDUNDANCY = "REDUCED_REDUNDANCY"
 
-      # No documentation available.
       STANDARD_IA = "STANDARD_IA"
 
-      # No documentation available.
       ONEZONE_IA = "ONEZONE_IA"
 
-      # No documentation available.
       INTELLIGENT_TIERING = "INTELLIGENT_TIERING"
 
-      # No documentation available.
       GLACIER = "GLACIER"
 
-      # No documentation available.
       DEEP_ARCHIVE = "DEEP_ARCHIVE"
 
-      # No documentation available.
       OUTPOSTS = "OUTPOSTS"
 
-      # No documentation available.
       GLACIER_IR = "GLACIER_IR"
 
-      # No documentation available.
       SNOW = "SNOW"
 
-      # No documentation available.
       EXPRESS_ONEZONE = "EXPRESS_ONEZONE"
     end
 
@@ -16122,9 +15953,8 @@ module AWS::SDK::S3
       include Hearth::Structure
     end
 
-    # Includes enum constants for StorageClassAnalysisSchemaVersion
+    # Enum constants for StorageClassAnalysisSchemaVersion
     module StorageClassAnalysisSchemaVersion
-      # No documentation available.
       V_1 = "V_1"
     end
 
@@ -16161,12 +15991,10 @@ module AWS::SDK::S3
       include Hearth::Structure
     end
 
-    # Includes enum constants for TaggingDirective
+    # Enum constants for TaggingDirective
     module TaggingDirective
-      # No documentation available.
       COPY = "COPY"
 
-      # No documentation available.
       REPLACE = "REPLACE"
     end
 
@@ -16212,15 +16040,12 @@ module AWS::SDK::S3
       include Hearth::Structure
     end
 
-    # Includes enum constants for Tier
+    # Enum constants for Tier
     module Tier
-      # No documentation available.
       STANDARD = "Standard"
 
-      # No documentation available.
       BULK = "Bulk"
 
-      # No documentation available.
       EXPEDITED = "Expedited"
     end
 
@@ -16317,36 +16142,27 @@ module AWS::SDK::S3
       include Hearth::Structure
     end
 
-    # Includes enum constants for TransitionStorageClass
+    # Enum constants for TransitionStorageClass
     module TransitionStorageClass
-      # No documentation available.
       GLACIER = "GLACIER"
 
-      # No documentation available.
       STANDARD_IA = "STANDARD_IA"
 
-      # No documentation available.
       ONEZONE_IA = "ONEZONE_IA"
 
-      # No documentation available.
       INTELLIGENT_TIERING = "INTELLIGENT_TIERING"
 
-      # No documentation available.
       DEEP_ARCHIVE = "DEEP_ARCHIVE"
 
-      # No documentation available.
       GLACIER_IR = "GLACIER_IR"
     end
 
-    # Includes enum constants for Type
+    # Enum constants for Type
     module Type
-      # No documentation available.
       CANONICAL_USER = "CanonicalUser"
 
-      # No documentation available.
       AMAZON_CUSTOMER_BY_EMAIL = "AmazonCustomerByEmail"
 
-      # No documentation available.
       GROUP = "Group"
     end
 

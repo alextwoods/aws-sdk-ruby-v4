@@ -15,6 +15,8 @@
 
 tasks["jar"].enabled = true
 
+val smithyRubyVersion: String by project
+
 sourceSets {
     main {
         resources {
@@ -52,5 +54,5 @@ buildscript {
 dependencies {
     implementation(project(":smithy-aws-ruby-codegen"))
 
-    api("software.amazon.smithy.ruby:smithy-ruby-codegen:0.2.0")
+    api("software.amazon.smithy.ruby:smithy-ruby-codegen:$smithyRubyVersion")
 }

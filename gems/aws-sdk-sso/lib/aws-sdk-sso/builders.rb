@@ -52,8 +52,6 @@ module AWS::SDK::SSO
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path('/logout')
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
         http_req.headers['x-amz-sso_bearer_token'] = input[:access_token] unless input[:access_token].nil? || input[:access_token].empty?
       end
     end

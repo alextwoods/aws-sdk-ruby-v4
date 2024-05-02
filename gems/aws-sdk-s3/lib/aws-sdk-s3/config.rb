@@ -111,6 +111,8 @@ module AWS::SDK::S3
   #       mode that may change behavior in the future.
   #   @option args [Boolean] :stub_responses (false)
   #     Enable response stubbing for testing. See {Hearth::ClientStubs#stub_responses}.
+  #   @option args [Hearth::Stubs] :stubs (Hearth::Stubs.new)
+  #     Enable response stubbing for testing. See {Hearth::ClientStubs#stub_responses}.
   #   @option args [Boolean] :use_accelerate_endpoint (false)
   #     When set to `true`, accelerated bucket endpoints will be used
   #     for all object operations. You must first enable accelerate for
@@ -166,6 +168,8 @@ module AWS::SDK::S3
   #   @return [#acquire_initial_retry_token(token_scope),#refresh_retry_token(retry_token, error_info),#record_success(retry_token)]
   # @!attribute stub_responses
   #   @return [Boolean]
+  # @!attribute stubs
+  #   @return [Hearth::Stubs]
   # @!attribute use_accelerate_endpoint
   #   @return [Boolean]
   # @!attribute use_arn_region
@@ -196,6 +200,7 @@ module AWS::SDK::S3
     :region,
     :retry_strategy,
     :stub_responses,
+    :stubs,
     :use_accelerate_endpoint,
     :use_arn_region,
     :use_dualstack_endpoint,
@@ -226,6 +231,7 @@ module AWS::SDK::S3
       Hearth::Validator.validate_types!(region, String, context: 'config[:region]')
       Hearth::Validator.validate_responds_to!(retry_strategy, :acquire_initial_retry_token, :refresh_retry_token, :record_success, context: 'config[:retry_strategy]')
       Hearth::Validator.validate_types!(stub_responses, TrueClass, FalseClass, context: 'config[:stub_responses]')
+      Hearth::Validator.validate_types!(stubs, Hearth::Stubs, context: 'config[:stubs]')
       Hearth::Validator.validate_types!(use_accelerate_endpoint, TrueClass, FalseClass, context: 'config[:use_accelerate_endpoint]')
       Hearth::Validator.validate_types!(use_arn_region, TrueClass, FalseClass, context: 'config[:use_arn_region]')
       Hearth::Validator.validate_types!(use_dualstack_endpoint, TrueClass, FalseClass, context: 'config[:use_dualstack_endpoint]')
@@ -256,6 +262,7 @@ module AWS::SDK::S3
         region: [proc { |cfg| cfg[:stub_responses] ?  'us-stubbed-1' : nil },Hearth::Config::EnvProvider.new('AWS_REGION', type: 'String'),AWS::SDK::Core::SharedConfigProvider.new('region', type: 'String')],
         retry_strategy: [Hearth::Retry::Standard.new],
         stub_responses: [false],
+        stubs: [Hearth::Stubs.new],
         use_accelerate_endpoint: [false],
         use_arn_region: [Hearth::Config::EnvProvider.new('AWS_S3_USE_ARN_REGION', type: 'Boolean'),AWS::SDK::Core::SharedConfigProvider.new('s3_use_arn_region', type: 'Boolean'),true],
         use_dualstack_endpoint: [Hearth::Config::EnvProvider.new('AWS_USE_DUALSTACK_ENDPOINT', type: 'Boolean'),AWS::SDK::Core::SharedConfigProvider.new('use_dualstack_endpoint', type: 'Boolean')],

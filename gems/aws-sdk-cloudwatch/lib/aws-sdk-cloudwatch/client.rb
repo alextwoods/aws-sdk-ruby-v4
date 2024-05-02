@@ -23,22 +23,15 @@ module AWS::SDK::CloudWatch
   #          <p>In addition to monitoring the built-in metrics that come with Amazon Web Services, you can monitor
   # 			your own custom metrics. With CloudWatch, you gain system-wide visibility into resource
   # 			utilization, application performance, and operational health.</p>
-  class Client
-    include Hearth::ClientStubs
+  class Client < Hearth::Client
 
     # @api private
     @plugins = Hearth::PluginList.new
 
-    # @return [Hearth::PluginList]
-    def self.plugins
-      @plugins
-    end
-
     # @param [Hash] options
     #   Options used to construct an instance of {Config}
     def initialize(options = {})
-      @config = initialize_config(options)
-      @stubs = Hearth::Stubs.new
+      super(options, Config)
     end
 
     # @return [Config] config
@@ -81,7 +74,7 @@ module AWS::SDK::CloudWatch
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteAlarmsInput.build(params, context: 'params')
-      stack = AWS::SDK::CloudWatch::Middleware::DeleteAlarms.build(config, @stubs)
+      stack = AWS::SDK::CloudWatch::Middleware::DeleteAlarms.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -159,7 +152,7 @@ module AWS::SDK::CloudWatch
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteAnomalyDetectorInput.build(params, context: 'params')
-      stack = AWS::SDK::CloudWatch::Middleware::DeleteAnomalyDetector.build(config, @stubs)
+      stack = AWS::SDK::CloudWatch::Middleware::DeleteAnomalyDetector.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -199,7 +192,7 @@ module AWS::SDK::CloudWatch
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteDashboardsInput.build(params, context: 'params')
-      stack = AWS::SDK::CloudWatch::Middleware::DeleteDashboards.build(config, @stubs)
+      stack = AWS::SDK::CloudWatch::Middleware::DeleteDashboards.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -246,7 +239,7 @@ module AWS::SDK::CloudWatch
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteInsightRulesInput.build(params, context: 'params')
-      stack = AWS::SDK::CloudWatch::Middleware::DeleteInsightRules.build(config, @stubs)
+      stack = AWS::SDK::CloudWatch::Middleware::DeleteInsightRules.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -282,7 +275,7 @@ module AWS::SDK::CloudWatch
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteMetricStreamInput.build(params, context: 'params')
-      stack = AWS::SDK::CloudWatch::Middleware::DeleteMetricStream.build(config, @stubs)
+      stack = AWS::SDK::CloudWatch::Middleware::DeleteMetricStream.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -341,7 +334,7 @@ module AWS::SDK::CloudWatch
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeAlarmHistoryInput.build(params, context: 'params')
-      stack = AWS::SDK::CloudWatch::Middleware::DescribeAlarmHistory.build(config, @stubs)
+      stack = AWS::SDK::CloudWatch::Middleware::DescribeAlarmHistory.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -465,7 +458,7 @@ module AWS::SDK::CloudWatch
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeAlarmsInput.build(params, context: 'params')
-      stack = AWS::SDK::CloudWatch::Middleware::DescribeAlarms.build(config, @stubs)
+      stack = AWS::SDK::CloudWatch::Middleware::DescribeAlarms.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -566,7 +559,7 @@ module AWS::SDK::CloudWatch
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeAlarmsForMetricInput.build(params, context: 'params')
-      stack = AWS::SDK::CloudWatch::Middleware::DescribeAlarmsForMetric.build(config, @stubs)
+      stack = AWS::SDK::CloudWatch::Middleware::DescribeAlarmsForMetric.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -659,7 +652,7 @@ module AWS::SDK::CloudWatch
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeAnomalyDetectorsInput.build(params, context: 'params')
-      stack = AWS::SDK::CloudWatch::Middleware::DescribeAnomalyDetectors.build(config, @stubs)
+      stack = AWS::SDK::CloudWatch::Middleware::DescribeAnomalyDetectors.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -706,7 +699,7 @@ module AWS::SDK::CloudWatch
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeInsightRulesInput.build(params, context: 'params')
-      stack = AWS::SDK::CloudWatch::Middleware::DescribeInsightRules.build(config, @stubs)
+      stack = AWS::SDK::CloudWatch::Middleware::DescribeInsightRules.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -745,7 +738,7 @@ module AWS::SDK::CloudWatch
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DisableAlarmActionsInput.build(params, context: 'params')
-      stack = AWS::SDK::CloudWatch::Middleware::DisableAlarmActions.build(config, @stubs)
+      stack = AWS::SDK::CloudWatch::Middleware::DisableAlarmActions.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -790,7 +783,7 @@ module AWS::SDK::CloudWatch
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DisableInsightRulesInput.build(params, context: 'params')
-      stack = AWS::SDK::CloudWatch::Middleware::DisableInsightRules.build(config, @stubs)
+      stack = AWS::SDK::CloudWatch::Middleware::DisableInsightRules.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -828,7 +821,7 @@ module AWS::SDK::CloudWatch
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::EnableAlarmActionsInput.build(params, context: 'params')
-      stack = AWS::SDK::CloudWatch::Middleware::EnableAlarmActions.build(config, @stubs)
+      stack = AWS::SDK::CloudWatch::Middleware::EnableAlarmActions.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -872,7 +865,7 @@ module AWS::SDK::CloudWatch
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::EnableInsightRulesInput.build(params, context: 'params')
-      stack = AWS::SDK::CloudWatch::Middleware::EnableInsightRules.build(config, @stubs)
+      stack = AWS::SDK::CloudWatch::Middleware::EnableInsightRules.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -914,7 +907,7 @@ module AWS::SDK::CloudWatch
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetDashboardInput.build(params, context: 'params')
-      stack = AWS::SDK::CloudWatch::Middleware::GetDashboard.build(config, @stubs)
+      stack = AWS::SDK::CloudWatch::Middleware::GetDashboard.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1018,7 +1011,7 @@ module AWS::SDK::CloudWatch
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetInsightRuleReportInput.build(params, context: 'params')
-      stack = AWS::SDK::CloudWatch::Middleware::GetInsightRuleReport.build(config, @stubs)
+      stack = AWS::SDK::CloudWatch::Middleware::GetInsightRuleReport.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1148,7 +1141,7 @@ module AWS::SDK::CloudWatch
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetMetricDataInput.build(params, context: 'params')
-      stack = AWS::SDK::CloudWatch::Middleware::GetMetricData.build(config, @stubs)
+      stack = AWS::SDK::CloudWatch::Middleware::GetMetricData.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1259,7 +1252,7 @@ module AWS::SDK::CloudWatch
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetMetricStatisticsInput.build(params, context: 'params')
-      stack = AWS::SDK::CloudWatch::Middleware::GetMetricStatistics.build(config, @stubs)
+      stack = AWS::SDK::CloudWatch::Middleware::GetMetricStatistics.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1318,7 +1311,7 @@ module AWS::SDK::CloudWatch
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetMetricStreamInput.build(params, context: 'params')
-      stack = AWS::SDK::CloudWatch::Middleware::GetMetricStream.build(config, @stubs)
+      stack = AWS::SDK::CloudWatch::Middleware::GetMetricStream.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1371,7 +1364,7 @@ module AWS::SDK::CloudWatch
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetMetricWidgetImageInput.build(params, context: 'params')
-      stack = AWS::SDK::CloudWatch::Middleware::GetMetricWidgetImage.build(config, @stubs)
+      stack = AWS::SDK::CloudWatch::Middleware::GetMetricWidgetImage.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1423,7 +1416,7 @@ module AWS::SDK::CloudWatch
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ListDashboardsInput.build(params, context: 'params')
-      stack = AWS::SDK::CloudWatch::Middleware::ListDashboards.build(config, @stubs)
+      stack = AWS::SDK::CloudWatch::Middleware::ListDashboards.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1475,7 +1468,7 @@ module AWS::SDK::CloudWatch
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ListManagedInsightRulesInput.build(params, context: 'params')
-      stack = AWS::SDK::CloudWatch::Middleware::ListManagedInsightRules.build(config, @stubs)
+      stack = AWS::SDK::CloudWatch::Middleware::ListManagedInsightRules.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1522,7 +1515,7 @@ module AWS::SDK::CloudWatch
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ListMetricStreamsInput.build(params, context: 'params')
-      stack = AWS::SDK::CloudWatch::Middleware::ListMetricStreams.build(config, @stubs)
+      stack = AWS::SDK::CloudWatch::Middleware::ListMetricStreams.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1592,7 +1585,7 @@ module AWS::SDK::CloudWatch
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ListMetricsInput.build(params, context: 'params')
-      stack = AWS::SDK::CloudWatch::Middleware::ListMetrics.build(config, @stubs)
+      stack = AWS::SDK::CloudWatch::Middleware::ListMetrics.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1633,7 +1626,7 @@ module AWS::SDK::CloudWatch
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ListTagsForResourceInput.build(params, context: 'params')
-      stack = AWS::SDK::CloudWatch::Middleware::ListTagsForResource.build(config, @stubs)
+      stack = AWS::SDK::CloudWatch::Middleware::ListTagsForResource.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1714,7 +1707,7 @@ module AWS::SDK::CloudWatch
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::PutAnomalyDetectorInput.build(params, context: 'params')
-      stack = AWS::SDK::CloudWatch::Middleware::PutAnomalyDetector.build(config, @stubs)
+      stack = AWS::SDK::CloudWatch::Middleware::PutAnomalyDetector.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1803,7 +1796,7 @@ module AWS::SDK::CloudWatch
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::PutCompositeAlarmInput.build(params, context: 'params')
-      stack = AWS::SDK::CloudWatch::Middleware::PutCompositeAlarm.build(config, @stubs)
+      stack = AWS::SDK::CloudWatch::Middleware::PutCompositeAlarm.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1857,7 +1850,7 @@ module AWS::SDK::CloudWatch
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::PutDashboardInput.build(params, context: 'params')
-      stack = AWS::SDK::CloudWatch::Middleware::PutDashboard.build(config, @stubs)
+      stack = AWS::SDK::CloudWatch::Middleware::PutDashboard.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1905,7 +1898,7 @@ module AWS::SDK::CloudWatch
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::PutInsightRuleInput.build(params, context: 'params')
-      stack = AWS::SDK::CloudWatch::Middleware::PutInsightRule.build(config, @stubs)
+      stack = AWS::SDK::CloudWatch::Middleware::PutInsightRule.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1974,7 +1967,7 @@ module AWS::SDK::CloudWatch
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::PutManagedInsightRulesInput.build(params, context: 'params')
-      stack = AWS::SDK::CloudWatch::Middleware::PutManagedInsightRules.build(config, @stubs)
+      stack = AWS::SDK::CloudWatch::Middleware::PutManagedInsightRules.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2111,7 +2104,7 @@ module AWS::SDK::CloudWatch
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::PutMetricAlarmInput.build(params, context: 'params')
-      stack = AWS::SDK::CloudWatch::Middleware::PutMetricAlarm.build(config, @stubs)
+      stack = AWS::SDK::CloudWatch::Middleware::PutMetricAlarm.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2216,7 +2209,7 @@ module AWS::SDK::CloudWatch
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::PutMetricDataInput.build(params, context: 'params')
-      stack = AWS::SDK::CloudWatch::Middleware::PutMetricData.build(config, @stubs)
+      stack = AWS::SDK::CloudWatch::Middleware::PutMetricData.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2317,7 +2310,7 @@ module AWS::SDK::CloudWatch
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::PutMetricStreamInput.build(params, context: 'params')
-      stack = AWS::SDK::CloudWatch::Middleware::PutMetricStream.build(config, @stubs)
+      stack = AWS::SDK::CloudWatch::Middleware::PutMetricStream.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2371,7 +2364,7 @@ module AWS::SDK::CloudWatch
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::SetAlarmStateInput.build(params, context: 'params')
-      stack = AWS::SDK::CloudWatch::Middleware::SetAlarmState.build(config, @stubs)
+      stack = AWS::SDK::CloudWatch::Middleware::SetAlarmState.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2409,7 +2402,7 @@ module AWS::SDK::CloudWatch
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::StartMetricStreamsInput.build(params, context: 'params')
-      stack = AWS::SDK::CloudWatch::Middleware::StartMetricStreams.build(config, @stubs)
+      stack = AWS::SDK::CloudWatch::Middleware::StartMetricStreams.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2447,7 +2440,7 @@ module AWS::SDK::CloudWatch
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::StopMetricStreamsInput.build(params, context: 'params')
-      stack = AWS::SDK::CloudWatch::Middleware::StopMetricStreams.build(config, @stubs)
+      stack = AWS::SDK::CloudWatch::Middleware::StopMetricStreams.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2499,7 +2492,7 @@ module AWS::SDK::CloudWatch
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::TagResourceInput.build(params, context: 'params')
-      stack = AWS::SDK::CloudWatch::Middleware::TagResource.build(config, @stubs)
+      stack = AWS::SDK::CloudWatch::Middleware::TagResource.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2538,7 +2531,7 @@ module AWS::SDK::CloudWatch
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::UntagResourceInput.build(params, context: 'params')
-      stack = AWS::SDK::CloudWatch::Middleware::UntagResource.build(config, @stubs)
+      stack = AWS::SDK::CloudWatch::Middleware::UntagResource.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2554,30 +2547,6 @@ module AWS::SDK::CloudWatch
       end
       context.logger.info("[#{context.invocation_id}] [#{self.class}#untag_resource] #{output.data}")
       output
-    end
-
-    private
-
-    def initialize_config(options)
-      client_interceptors = options.delete(:interceptors)
-      config = Config.new(**options)
-      Client.plugins.each { |p| p.call(config) }
-      config.plugins.each { |p| p.call(config) }
-      config.interceptors.concat(Hearth::InterceptorList.new(client_interceptors)) if client_interceptors
-      config.validate!
-      config.freeze
-    end
-
-    def operation_config(options)
-      return @config if options.empty?
-
-      operation_plugins = options.delete(:plugins)
-      operation_interceptors = options.delete(:interceptors)
-      config = @config.merge(options)
-      Hearth::PluginList.new(operation_plugins).each { |p| p.call(config) } if operation_plugins
-      config.interceptors.concat(Hearth::InterceptorList.new(operation_interceptors)) if operation_interceptors
-      config.validate!
-      config.freeze
     end
   end
 end

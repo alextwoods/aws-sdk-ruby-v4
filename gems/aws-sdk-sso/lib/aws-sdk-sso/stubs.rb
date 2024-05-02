@@ -95,6 +95,7 @@ module AWS::SDK::SSO
       def self.stub(http_resp, stub:)
         data = {}
         http_resp.status = 400
+        http_resp.headers['X-Amzn-Errortype'] = 'InvalidRequestException'
         http_resp.headers['Content-Type'] = 'application/json'
         data['message'] = stub[:message] unless stub[:message].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
@@ -191,6 +192,7 @@ module AWS::SDK::SSO
       def self.stub(http_resp, stub:)
         data = {}
         http_resp.status = 404
+        http_resp.headers['X-Amzn-Errortype'] = 'ResourceNotFoundException'
         http_resp.headers['Content-Type'] = 'application/json'
         data['message'] = stub[:message] unless stub[:message].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
@@ -276,6 +278,7 @@ module AWS::SDK::SSO
       def self.stub(http_resp, stub:)
         data = {}
         http_resp.status = 429
+        http_resp.headers['X-Amzn-Errortype'] = 'TooManyRequestsException'
         http_resp.headers['Content-Type'] = 'application/json'
         data['message'] = stub[:message] unless stub[:message].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
@@ -300,6 +303,7 @@ module AWS::SDK::SSO
       def self.stub(http_resp, stub:)
         data = {}
         http_resp.status = 401
+        http_resp.headers['X-Amzn-Errortype'] = 'UnauthorizedException'
         http_resp.headers['Content-Type'] = 'application/json'
         data['message'] = stub[:message] unless stub[:message].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))

@@ -36,22 +36,15 @@ module AWS::SDK::EC2
   #                </p>
   #             </li>
   #          </ul>
-  class Client
-    include Hearth::ClientStubs
+  class Client < Hearth::Client
 
     # @api private
     @plugins = Hearth::PluginList.new
 
-    # @return [Hearth::PluginList]
-    def self.plugins
-      @plugins
-    end
-
     # @param [Hash] options
     #   Options used to construct an instance of {Config}
     def initialize(options = {})
-      @config = initialize_config(options)
-      @stubs = Hearth::Stubs.new
+      super(options, Config)
     end
 
     # @return [Config] config
@@ -94,7 +87,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::AcceptAddressTransferInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AcceptAddressTransfer.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::AcceptAddressTransfer.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -140,7 +133,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::AcceptReservedInstancesExchangeQuoteInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AcceptReservedInstancesExchangeQuote.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::AcceptReservedInstancesExchangeQuote.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -191,7 +184,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::AcceptTransitGatewayMulticastDomainAssociationsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AcceptTransitGatewayMulticastDomainAssociations.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::AcceptTransitGatewayMulticastDomainAssociations.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -249,7 +242,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::AcceptTransitGatewayPeeringAttachmentInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AcceptTransitGatewayPeeringAttachment.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::AcceptTransitGatewayPeeringAttachment.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -307,7 +300,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::AcceptTransitGatewayVpcAttachmentInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AcceptTransitGatewayVpcAttachment.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::AcceptTransitGatewayVpcAttachment.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -353,7 +346,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::AcceptVpcEndpointConnectionsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AcceptVpcEndpointConnections.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::AcceptVpcEndpointConnections.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -421,7 +414,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::AcceptVpcPeeringConnectionInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AcceptVpcPeeringConnection.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::AcceptVpcPeeringConnection.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -482,7 +475,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::AdvertiseByoipCidrInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AdvertiseByoipCidr.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::AdvertiseByoipCidr.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -564,7 +557,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::AllocateAddressInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AllocateAddress.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::AllocateAddress.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -626,7 +619,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::AllocateHostsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AllocateHosts.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::AllocateHosts.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -686,7 +679,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::AllocateIpamPoolCidrInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AllocateIpamPoolCidr.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::AllocateIpamPoolCidr.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -730,7 +723,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ApplySecurityGroupsToClientVpnTargetNetworkInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ApplySecurityGroupsToClientVpnTargetNetwork.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ApplySecurityGroupsToClientVpnTargetNetwork.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -789,7 +782,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::AssignIpv6AddressesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AssignIpv6Addresses.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::AssignIpv6Addresses.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -876,7 +869,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::AssignPrivateIpAddressesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AssignPrivateIpAddresses.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::AssignPrivateIpAddresses.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -929,7 +922,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::AssignPrivateNatGatewayAddressInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AssignPrivateNatGatewayAddress.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::AssignPrivateNatGatewayAddress.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1011,7 +1004,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::AssociateAddressInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AssociateAddress.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::AssociateAddress.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1055,7 +1048,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::AssociateClientVpnTargetNetworkInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AssociateClientVpnTargetNetwork.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::AssociateClientVpnTargetNetwork.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1114,7 +1107,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::AssociateDhcpOptionsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AssociateDhcpOptions.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::AssociateDhcpOptions.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1167,7 +1160,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::AssociateEnclaveCertificateIamRoleInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AssociateEnclaveCertificateIamRole.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::AssociateEnclaveCertificateIamRole.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1237,7 +1230,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::AssociateIamInstanceProfileInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AssociateIamInstanceProfile.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::AssociateIamInstanceProfile.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1312,7 +1305,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::AssociateInstanceEventWindowInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AssociateInstanceEventWindow.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::AssociateInstanceEventWindow.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1358,7 +1351,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::AssociateIpamByoasnInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AssociateIpamByoasn.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::AssociateIpamByoasn.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1423,7 +1416,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::AssociateIpamResourceDiscoveryInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AssociateIpamResourceDiscovery.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::AssociateIpamResourceDiscovery.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1483,7 +1476,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::AssociateNatGatewayAddressInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AssociateNatGatewayAddress.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::AssociateNatGatewayAddress.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1543,7 +1536,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::AssociateRouteTableInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AssociateRouteTable.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::AssociateRouteTable.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1590,7 +1583,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::AssociateSubnetCidrBlockInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AssociateSubnetCidrBlock.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::AssociateSubnetCidrBlock.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1643,7 +1636,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::AssociateTransitGatewayMulticastDomainInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AssociateTransitGatewayMulticastDomain.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::AssociateTransitGatewayMulticastDomain.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1687,7 +1680,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::AssociateTransitGatewayPolicyTableInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AssociateTransitGatewayPolicyTable.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::AssociateTransitGatewayPolicyTable.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1732,7 +1725,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::AssociateTransitGatewayRouteTableInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AssociateTransitGatewayRouteTable.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::AssociateTransitGatewayRouteTable.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1787,7 +1780,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::AssociateTrunkInterfaceInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AssociateTrunkInterface.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::AssociateTrunkInterface.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1852,7 +1845,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::AssociateVpcCidrBlockInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AssociateVpcCidrBlock.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::AssociateVpcCidrBlock.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1903,7 +1896,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::AttachClassicLinkVpcInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AttachClassicLinkVpc.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::AttachClassicLinkVpc.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1952,7 +1945,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::AttachInternetGatewayInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AttachInternetGateway.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::AttachInternetGateway.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2012,7 +2005,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::AttachNetworkInterfaceInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AttachNetworkInterface.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::AttachNetworkInterface.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2092,7 +2085,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::AttachVerifiedAccessTrustProviderInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AttachVerifiedAccessTrustProvider.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::AttachVerifiedAccessTrustProvider.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2179,7 +2172,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::AttachVolumeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AttachVolume.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::AttachVolume.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2223,7 +2216,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::AttachVpnGatewayInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AttachVpnGateway.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::AttachVpnGateway.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2270,7 +2263,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::AuthorizeClientVpnIngressInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AuthorizeClientVpnIngress.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::AuthorizeClientVpnIngress.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2444,7 +2437,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::AuthorizeSecurityGroupEgressInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AuthorizeSecurityGroupEgress.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::AuthorizeSecurityGroupEgress.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2639,7 +2632,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::AuthorizeSecurityGroupIngressInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AuthorizeSecurityGroupIngress.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::AuthorizeSecurityGroupIngress.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2706,7 +2699,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::BundleInstanceInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::BundleInstance.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::BundleInstance.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2760,7 +2753,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CancelBundleTaskInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CancelBundleTask.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CancelBundleTask.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2803,7 +2796,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CancelCapacityReservationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CancelCapacityReservation.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CancelCapacityReservation.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2867,7 +2860,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CancelCapacityReservationFleetsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CancelCapacityReservationFleets.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CancelCapacityReservationFleets.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2909,7 +2902,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CancelConversionTaskInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CancelConversionTask.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CancelConversionTask.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2947,7 +2940,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CancelExportTaskInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CancelExportTask.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CancelExportTask.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2988,7 +2981,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CancelImageLaunchPermissionInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CancelImageLaunchPermission.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CancelImageLaunchPermission.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3029,7 +3022,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CancelImportTaskInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CancelImportTask.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CancelImportTask.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3091,7 +3084,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CancelReservedInstancesListingInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CancelReservedInstancesListing.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CancelReservedInstancesListing.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3186,7 +3179,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CancelSpotFleetRequestsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CancelSpotFleetRequests.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CancelSpotFleetRequests.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3250,7 +3243,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CancelSpotInstanceRequestsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CancelSpotInstanceRequests.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CancelSpotInstanceRequests.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3303,7 +3296,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ConfirmProductInstanceInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ConfirmProductInstance.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ConfirmProductInstance.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3345,7 +3338,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CopyFpgaImageInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CopyFpgaImage.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CopyFpgaImage.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3422,7 +3415,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CopyImageInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CopyImage.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CopyImage.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3514,7 +3507,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CopySnapshotInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CopySnapshot.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CopySnapshot.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3620,7 +3613,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateCapacityReservationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateCapacityReservation.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateCapacityReservation.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3711,7 +3704,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateCapacityReservationFleetInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateCapacityReservationFleet.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateCapacityReservationFleet.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3769,7 +3762,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateCarrierGatewayInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateCarrierGateway.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateCarrierGateway.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3867,7 +3860,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateClientVpnEndpointInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateClientVpnEndpoint.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateClientVpnEndpoint.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3912,7 +3905,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateClientVpnRouteInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateClientVpnRoute.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateClientVpnRoute.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3956,7 +3949,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateCoipCidrInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateCoipCidr.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateCoipCidr.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4014,7 +4007,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateCoipPoolInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateCoipPool.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateCoipPool.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4110,7 +4103,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateCustomerGatewayInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateCustomerGateway.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateCustomerGateway.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4185,7 +4178,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateDefaultSubnetInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateDefaultSubnet.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateDefaultSubnet.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4253,7 +4246,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateDefaultVpcInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateDefaultVpc.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateDefaultVpc.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4405,7 +4398,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateDhcpOptionsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateDhcpOptions.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateDhcpOptions.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4468,7 +4461,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateEgressOnlyInternetGatewayInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateEgressOnlyInternetGateway.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateEgressOnlyInternetGateway.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4739,7 +4732,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateFleetInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateFleet.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateFleet.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4823,7 +4816,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateFlowLogsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateFlowLogs.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateFlowLogs.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4884,7 +4877,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateFpgaImageInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateFpgaImage.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateFpgaImage.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4960,7 +4953,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateImageInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateImage.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateImage.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5039,7 +5032,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateInstanceConnectEndpointInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateInstanceConnectEndpoint.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateInstanceConnectEndpoint.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5139,7 +5132,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateInstanceEventWindowInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateInstanceEventWindow.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateInstanceEventWindow.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5214,7 +5207,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateInstanceExportTaskInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateInstanceExportTask.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateInstanceExportTask.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5290,7 +5283,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateInternetGatewayInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateInternetGateway.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateInternetGateway.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5372,7 +5365,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateIpamInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateIpam.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateIpam.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5481,7 +5474,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateIpamPoolInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateIpamPool.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateIpamPool.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5550,7 +5543,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateIpamResourceDiscoveryInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateIpamResourceDiscovery.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateIpamResourceDiscovery.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5616,7 +5609,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateIpamScopeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateIpamScope.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateIpamScope.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5692,7 +5685,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateKeyPairInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateKeyPair.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateKeyPair.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -6048,7 +6041,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateLaunchTemplateInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateLaunchTemplate.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateLaunchTemplate.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -6584,7 +6577,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateLaunchTemplateVersionInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateLaunchTemplateVersion.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateLaunchTemplateVersion.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -6650,7 +6643,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateLocalGatewayRouteInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateLocalGatewayRoute.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateLocalGatewayRoute.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -6716,7 +6709,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateLocalGatewayRouteTableInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateLocalGatewayRouteTable.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateLocalGatewayRouteTable.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -6779,7 +6772,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -6840,7 +6833,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateLocalGatewayRouteTableVpcAssociationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateLocalGatewayRouteTableVpcAssociation.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateLocalGatewayRouteTableVpcAssociation.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -6912,7 +6905,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateManagedPrefixListInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateManagedPrefixList.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateManagedPrefixList.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -7037,7 +7030,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateNatGatewayInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateNatGateway.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateNatGateway.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -7153,7 +7146,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateNetworkAclInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateNetworkAcl.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateNetworkAcl.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -7229,7 +7222,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateNetworkAclEntryInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateNetworkAclEntry.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateNetworkAclEntry.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -7332,7 +7325,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateNetworkInsightsAccessScopeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateNetworkInsightsAccessScope.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateNetworkInsightsAccessScope.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -7421,7 +7414,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateNetworkInsightsPathInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateNetworkInsightsPath.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateNetworkInsightsPath.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -7582,7 +7575,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateNetworkInterfaceInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateNetworkInterface.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateNetworkInterface.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -7633,7 +7626,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateNetworkInterfacePermissionInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateNetworkInterfacePermission.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateNetworkInterfacePermission.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -7716,7 +7709,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreatePlacementGroupInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreatePlacementGroup.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreatePlacementGroup.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -7764,7 +7757,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreatePublicIpv4PoolInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreatePublicIpv4Pool.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreatePublicIpv4Pool.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -7833,7 +7826,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateReplaceRootVolumeTaskInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateReplaceRootVolumeTask.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateReplaceRootVolumeTask.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -7916,7 +7909,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateReservedInstancesListingInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateReservedInstancesListing.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateReservedInstancesListing.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -7972,7 +7965,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateRestoreImageTaskInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateRestoreImageTask.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateRestoreImageTask.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -8054,7 +8047,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateRouteInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateRoute.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateRoute.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -8174,7 +8167,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateRouteTableInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateRouteTable.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateRouteTable.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -8259,7 +8252,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateSecurityGroupInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateSecurityGroup.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateSecurityGroup.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -8374,7 +8367,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateSnapshotInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateSnapshot.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateSnapshot.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -8457,7 +8450,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateSnapshotsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateSnapshots.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateSnapshots.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -8522,7 +8515,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateSpotDatafeedSubscriptionInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateSpotDatafeedSubscription.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateSpotDatafeedSubscription.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -8571,7 +8564,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateStoreImageTaskInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateStoreImageTask.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateStoreImageTask.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -8697,7 +8690,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateSubnetInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateSubnet.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateSubnet.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -8761,7 +8754,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateSubnetCidrReservationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateSubnetCidrReservation.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateSubnetCidrReservation.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -8830,7 +8823,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateTagsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateTags.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateTags.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -8908,7 +8901,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateTrafficMirrorFilterInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateTrafficMirrorFilter.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateTrafficMirrorFilter.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -8974,7 +8967,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateTrafficMirrorFilterRuleInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateTrafficMirrorFilterRule.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateTrafficMirrorFilterRule.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -9050,7 +9043,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateTrafficMirrorSessionInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateTrafficMirrorSession.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateTrafficMirrorSession.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -9120,7 +9113,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateTrafficMirrorTargetInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateTrafficMirrorTarget.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateTrafficMirrorTarget.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -9217,7 +9210,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateTransitGatewayInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateTransitGateway.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateTransitGateway.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -9281,7 +9274,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateTransitGatewayConnectInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateTransitGatewayConnect.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateTransitGatewayConnect.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -9362,7 +9355,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateTransitGatewayConnectPeerInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateTransitGatewayConnectPeer.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateTransitGatewayConnectPeer.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -9431,7 +9424,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateTransitGatewayMulticastDomainInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateTransitGatewayMulticastDomain.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateTransitGatewayMulticastDomain.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -9509,7 +9502,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateTransitGatewayPeeringAttachmentInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateTransitGatewayPeeringAttachment.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateTransitGatewayPeeringAttachment.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -9566,7 +9559,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateTransitGatewayPolicyTableInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateTransitGatewayPolicyTable.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateTransitGatewayPolicyTable.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -9616,7 +9609,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateTransitGatewayPrefixListReferenceInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateTransitGatewayPrefixListReference.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateTransitGatewayPrefixListReference.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -9667,7 +9660,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateTransitGatewayRouteInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateTransitGatewayRoute.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateTransitGatewayRoute.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -9726,7 +9719,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateTransitGatewayRouteTableInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateTransitGatewayRouteTable.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateTransitGatewayRouteTable.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -9790,7 +9783,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateTransitGatewayRouteTableAnnouncementInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateTransitGatewayRouteTableAnnouncement.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateTransitGatewayRouteTableAnnouncement.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -9869,7 +9862,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateTransitGatewayVpcAttachmentInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateTransitGatewayVpcAttachment.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateTransitGatewayVpcAttachment.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -9981,7 +9974,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateVerifiedAccessEndpointInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateVerifiedAccessEndpoint.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateVerifiedAccessEndpoint.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -10055,7 +10048,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateVerifiedAccessGroupInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateVerifiedAccessGroup.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateVerifiedAccessGroup.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -10123,7 +10116,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateVerifiedAccessInstanceInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateVerifiedAccessInstance.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateVerifiedAccessInstance.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -10223,7 +10216,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateVerifiedAccessTrustProviderInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateVerifiedAccessTrustProvider.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateVerifiedAccessTrustProvider.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -10366,7 +10359,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateVolumeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateVolume.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateVolume.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -10476,7 +10469,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateVpcInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateVpc.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateVpc.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -10588,7 +10581,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateVpcEndpointInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateVpcEndpoint.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateVpcEndpoint.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -10645,7 +10638,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateVpcEndpointConnectionNotificationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateVpcEndpointConnectionNotification.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateVpcEndpointConnectionNotification.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -10742,7 +10735,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateVpcEndpointServiceConfigurationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateVpcEndpointServiceConfiguration.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateVpcEndpointServiceConfiguration.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -10831,7 +10824,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateVpcPeeringConnectionInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateVpcPeeringConnection.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateVpcPeeringConnection.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -11047,7 +11040,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateVpnConnectionInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateVpnConnection.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateVpnConnection.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -11088,7 +11081,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateVpnConnectionRouteInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateVpnConnectionRoute.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateVpnConnectionRoute.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -11156,7 +11149,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::CreateVpnGatewayInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateVpnGateway.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::CreateVpnGateway.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -11207,7 +11200,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteCarrierGatewayInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteCarrierGateway.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteCarrierGateway.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -11248,7 +11241,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteClientVpnEndpointInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteClientVpnEndpoint.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteClientVpnEndpoint.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -11293,7 +11286,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteClientVpnRouteInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteClientVpnRoute.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteClientVpnRoute.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -11337,7 +11330,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteCoipCidrInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteCoipCidr.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteCoipCidr.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -11384,7 +11377,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteCoipPoolInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteCoipPool.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteCoipPool.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -11430,7 +11423,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteCustomerGatewayInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteCustomerGateway.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteCustomerGateway.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -11475,7 +11468,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteDhcpOptionsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteDhcpOptions.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteDhcpOptions.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -11513,7 +11506,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteEgressOnlyInternetGatewayInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteEgressOnlyInternetGateway.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteEgressOnlyInternetGateway.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -11589,7 +11582,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteFleetsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteFleets.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteFleets.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -11634,7 +11627,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteFlowLogsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteFlowLogs.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteFlowLogs.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -11672,7 +11665,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteFpgaImageInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteFpgaImage.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteFpgaImage.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -11730,7 +11723,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteInstanceConnectEndpointInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteInstanceConnectEndpoint.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteInstanceConnectEndpoint.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -11773,7 +11766,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteInstanceEventWindowInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteInstanceEventWindow.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteInstanceEventWindow.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -11819,7 +11812,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteInternetGatewayInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteInternetGateway.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteInternetGateway.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -11881,7 +11874,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteIpamInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteIpam.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteIpam.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -11961,7 +11954,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteIpamPoolInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteIpamPool.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteIpamPool.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -12013,7 +12006,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteIpamResourceDiscoveryInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteIpamResourceDiscovery.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteIpamResourceDiscovery.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -12067,7 +12060,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteIpamScopeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteIpamScope.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteIpamScope.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -12115,7 +12108,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteKeyPairInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteKeyPair.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteKeyPair.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -12182,7 +12175,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteLaunchTemplateInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteLaunchTemplate.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteLaunchTemplate.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -12266,7 +12259,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteLaunchTemplateVersionsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteLaunchTemplateVersions.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteLaunchTemplateVersions.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -12317,7 +12310,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteLocalGatewayRouteInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteLocalGatewayRoute.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteLocalGatewayRoute.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -12371,7 +12364,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteLocalGatewayRouteTableInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteLocalGatewayRouteTable.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteLocalGatewayRouteTable.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -12422,7 +12415,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -12471,7 +12464,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteLocalGatewayRouteTableVpcAssociationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteLocalGatewayRouteTableVpcAssociation.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteLocalGatewayRouteTableVpcAssociation.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -12522,7 +12515,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteManagedPrefixListInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteManagedPrefixList.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteManagedPrefixList.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -12572,7 +12565,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteNatGatewayInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteNatGateway.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteNatGateway.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -12617,7 +12610,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteNetworkAclInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteNetworkAcl.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteNetworkAcl.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -12666,7 +12659,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteNetworkAclEntryInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteNetworkAclEntry.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteNetworkAclEntry.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -12704,7 +12697,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteNetworkInsightsAccessScopeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteNetworkInsightsAccessScope.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteNetworkInsightsAccessScope.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -12742,7 +12735,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteNetworkInsightsAccessScopeAnalysisInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteNetworkInsightsAccessScopeAnalysis.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteNetworkInsightsAccessScopeAnalysis.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -12780,7 +12773,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteNetworkInsightsAnalysisInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteNetworkInsightsAnalysis.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteNetworkInsightsAnalysis.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -12818,7 +12811,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteNetworkInsightsPathInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteNetworkInsightsPath.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteNetworkInsightsPath.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -12863,7 +12856,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteNetworkInterfaceInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteNetworkInterface.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteNetworkInterface.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -12905,7 +12898,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteNetworkInterfacePermissionInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteNetworkInterfacePermission.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteNetworkInterfacePermission.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -12955,7 +12948,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeletePlacementGroupInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeletePlacementGroup.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeletePlacementGroup.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -12993,7 +12986,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeletePublicIpv4PoolInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeletePublicIpv4Pool.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeletePublicIpv4Pool.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -13041,7 +13034,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteQueuedReservedInstancesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteQueuedReservedInstances.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteQueuedReservedInstances.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -13090,7 +13083,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteRouteInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteRoute.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteRoute.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -13135,7 +13128,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteRouteTableInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteRouteTable.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteRouteTable.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -13186,7 +13179,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteSecurityGroupInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteSecurityGroup.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteSecurityGroup.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -13242,7 +13235,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteSnapshotInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteSnapshot.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteSnapshot.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -13283,7 +13276,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteSpotDatafeedSubscriptionInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteSpotDatafeedSubscription.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteSpotDatafeedSubscription.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -13328,7 +13321,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteSubnetInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteSubnet.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteSubnet.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -13376,7 +13369,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteSubnetCidrReservationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteSubnetCidrReservation.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteSubnetCidrReservation.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -13441,7 +13434,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteTagsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteTags.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteTags.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -13480,7 +13473,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteTrafficMirrorFilterInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteTrafficMirrorFilter.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteTrafficMirrorFilter.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -13518,7 +13511,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteTrafficMirrorFilterRuleInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteTrafficMirrorFilterRule.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteTrafficMirrorFilterRule.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -13556,7 +13549,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteTrafficMirrorSessionInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteTrafficMirrorSession.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteTrafficMirrorSession.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -13595,7 +13588,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteTrafficMirrorTargetInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteTrafficMirrorTarget.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteTrafficMirrorTarget.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -13656,7 +13649,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteTransitGatewayInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteTransitGateway.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteTransitGateway.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -13706,7 +13699,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteTransitGatewayConnectInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteTransitGatewayConnect.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteTransitGatewayConnect.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -13765,7 +13758,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteTransitGatewayConnectPeerInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteTransitGatewayConnectPeer.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteTransitGatewayConnectPeer.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -13817,7 +13810,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteTransitGatewayMulticastDomainInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteTransitGatewayMulticastDomain.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteTransitGatewayMulticastDomain.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -13874,7 +13867,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteTransitGatewayPeeringAttachmentInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteTransitGatewayPeeringAttachment.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteTransitGatewayPeeringAttachment.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -13920,7 +13913,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteTransitGatewayPolicyTableInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteTransitGatewayPolicyTable.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteTransitGatewayPolicyTable.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -13968,7 +13961,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteTransitGatewayPrefixListReferenceInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteTransitGatewayPrefixListReference.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteTransitGatewayPrefixListReference.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -14017,7 +14010,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteTransitGatewayRouteInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteTransitGatewayRoute.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteTransitGatewayRoute.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -14066,7 +14059,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteTransitGatewayRouteTableInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteTransitGatewayRouteTable.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteTransitGatewayRouteTable.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -14118,7 +14111,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteTransitGatewayRouteTableAnnouncementInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteTransitGatewayRouteTableAnnouncement.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteTransitGatewayRouteTableAnnouncement.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -14173,7 +14166,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteTransitGatewayVpcAttachmentInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteTransitGatewayVpcAttachment.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteTransitGatewayVpcAttachment.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -14247,7 +14240,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteVerifiedAccessEndpointInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteVerifiedAccessEndpoint.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteVerifiedAccessEndpoint.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -14301,7 +14294,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteVerifiedAccessGroupInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteVerifiedAccessGroup.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteVerifiedAccessGroup.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -14356,7 +14349,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteVerifiedAccessInstanceInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteVerifiedAccessInstance.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteVerifiedAccessInstance.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -14421,7 +14414,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteVerifiedAccessTrustProviderInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteVerifiedAccessTrustProvider.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteVerifiedAccessTrustProvider.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -14472,7 +14465,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteVolumeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteVolume.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteVolume.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -14517,7 +14510,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteVpcInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteVpc.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteVpc.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -14562,7 +14555,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteVpcEndpointConnectionNotificationsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteVpcEndpointConnectionNotifications.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteVpcEndpointConnectionNotifications.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -14610,7 +14603,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteVpcEndpointServiceConfigurationsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteVpcEndpointServiceConfigurations.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteVpcEndpointServiceConfigurations.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -14659,7 +14652,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteVpcEndpointsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteVpcEndpoints.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteVpcEndpoints.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -14701,7 +14694,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteVpcPeeringConnectionInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteVpcPeeringConnection.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteVpcPeeringConnection.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -14748,7 +14741,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteVpnConnectionInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteVpnConnection.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteVpnConnection.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -14788,7 +14781,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteVpnConnectionRouteInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteVpnConnectionRoute.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteVpnConnectionRoute.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -14828,7 +14821,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeleteVpnGatewayInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteVpnGateway.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeleteVpnGateway.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -14880,7 +14873,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeprovisionByoipCidrInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeprovisionByoipCidr.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeprovisionByoipCidr.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -14924,7 +14917,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeprovisionIpamByoasnInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeprovisionIpamByoasn.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeprovisionIpamByoasn.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -14970,7 +14963,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeprovisionIpamPoolCidrInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeprovisionIpamPoolCidr.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeprovisionIpamPoolCidr.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -15011,7 +15004,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeprovisionPublicIpv4PoolCidrInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeprovisionPublicIpv4PoolCidr.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeprovisionPublicIpv4PoolCidr.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -15059,7 +15052,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeregisterImageInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeregisterImage.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeregisterImage.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -15106,7 +15099,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeregisterInstanceEventNotificationAttributesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeregisterInstanceEventNotificationAttributes.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeregisterInstanceEventNotificationAttributes.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -15152,7 +15145,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeregisterTransitGatewayMulticastGroupMembersInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeregisterTransitGatewayMulticastGroupMembers.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeregisterTransitGatewayMulticastGroupMembers.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -15198,7 +15191,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DeregisterTransitGatewayMulticastGroupSourcesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeregisterTransitGatewayMulticastGroupSources.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DeregisterTransitGatewayMulticastGroupSources.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -15356,7 +15349,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeAccountAttributesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeAccountAttributes.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeAccountAttributes.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -15415,7 +15408,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeAddressTransfersInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeAddressTransfers.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeAddressTransfers.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -15507,7 +15500,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeAddressesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeAddresses.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeAddresses.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -15559,7 +15552,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeAddressesAttributeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeAddressesAttribute.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeAddressesAttribute.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -15617,7 +15610,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeAggregateIdFormatInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeAggregateIdFormat.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeAggregateIdFormat.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -15728,7 +15721,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeAvailabilityZonesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeAvailabilityZones.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeAvailabilityZones.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -15782,7 +15775,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeAwsNetworkPerformanceMetricSubscriptionsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeAwsNetworkPerformanceMetricSubscriptions.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeAwsNetworkPerformanceMetricSubscriptions.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -15850,7 +15843,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeBundleTasksInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeBundleTasks.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeBundleTasks.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -15904,7 +15897,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeByoipCidrsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeByoipCidrs.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeByoipCidrs.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -15960,7 +15953,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeCapacityBlockOfferingsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeCapacityBlockOfferings.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeCapacityBlockOfferings.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -16039,7 +16032,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeCapacityReservationFleetsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeCapacityReservationFleets.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeCapacityReservationFleets.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -16122,7 +16115,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeCapacityReservationsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeCapacityReservations.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeCapacityReservations.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -16182,7 +16175,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeCarrierGatewaysInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeCarrierGateways.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeCarrierGateways.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -16249,7 +16242,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeClassicLinkInstancesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeClassicLinkInstances.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeClassicLinkInstances.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -16307,7 +16300,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeClientVpnAuthorizationRulesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeClientVpnAuthorizationRules.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeClientVpnAuthorizationRules.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -16375,7 +16368,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeClientVpnConnectionsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeClientVpnConnections.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeClientVpnConnections.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -16479,7 +16472,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeClientVpnEndpointsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeClientVpnEndpoints.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeClientVpnEndpoints.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -16538,7 +16531,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeClientVpnRoutesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeClientVpnRoutes.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeClientVpnRoutes.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -16597,7 +16590,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeClientVpnTargetNetworksInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeClientVpnTargetNetworks.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeClientVpnTargetNetworks.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -16658,7 +16651,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeCoipPoolsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeCoipPools.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeCoipPools.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -16734,7 +16727,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeConversionTasksInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeConversionTasks.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeConversionTasks.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -16816,7 +16809,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeCustomerGatewaysInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeCustomerGateways.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeCustomerGateways.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -16911,7 +16904,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeDhcpOptionsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeDhcpOptions.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeDhcpOptions.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -16972,7 +16965,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeEgressOnlyInternetGatewaysInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeEgressOnlyInternetGateways.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeEgressOnlyInternetGateways.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -17042,7 +17035,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeElasticGpusInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeElasticGpus.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeElasticGpus.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -17107,7 +17100,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeExportImageTasksInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeExportImageTasks.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeExportImageTasks.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -17171,7 +17164,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeExportTasksInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeExportTasks.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeExportTasks.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -17236,7 +17229,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeFastLaunchImagesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeFastLaunchImages.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeFastLaunchImages.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -17296,7 +17289,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeFastSnapshotRestoresInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeFastSnapshotRestores.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeFastSnapshotRestores.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -17354,7 +17347,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeFleetHistoryInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeFleetHistory.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeFleetHistory.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -17410,7 +17403,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeFleetInstancesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeFleetInstances.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeFleetInstances.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -17591,7 +17584,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeFleetsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeFleets.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeFleets.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -17667,7 +17660,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeFlowLogsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeFlowLogs.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeFlowLogs.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -17717,7 +17710,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeFpgaImageAttributeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeFpgaImageAttribute.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeFpgaImageAttribute.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -17803,7 +17796,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeFpgaImagesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeFpgaImages.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeFpgaImages.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -17867,7 +17860,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeHostReservationOfferingsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeHostReservationOfferings.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeHostReservationOfferings.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -17937,7 +17930,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeHostReservationsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeHostReservations.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeHostReservations.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -18029,7 +18022,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeHostsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeHosts.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeHosts.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -18109,7 +18102,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeIamInstanceProfileAssociationsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeIamInstanceProfileAssociations.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeIamInstanceProfileAssociations.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -18169,7 +18162,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeIdFormatInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeIdFormat.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeIdFormat.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -18229,7 +18222,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeIdentityIdFormatInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeIdentityIdFormat.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeIdentityIdFormat.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -18319,7 +18312,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeImageAttributeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeImageAttribute.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeImageAttribute.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -18478,7 +18471,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeImagesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeImages.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeImages.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -18565,7 +18558,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeImportImageTasksInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeImportImageTasks.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeImportImageTasks.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -18637,7 +18630,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeImportSnapshotTasksInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeImportSnapshotTasks.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeImportSnapshotTasks.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -18764,7 +18757,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeInstanceAttributeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeInstanceAttribute.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeInstanceAttribute.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -18833,7 +18826,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeInstanceConnectEndpointsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeInstanceConnectEndpoints.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeInstanceConnectEndpoints.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -18906,7 +18899,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeInstanceCreditSpecificationsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeInstanceCreditSpecifications.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeInstanceCreditSpecifications.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -18947,7 +18940,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeInstanceEventNotificationAttributesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeInstanceEventNotificationAttributes.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeInstanceEventNotificationAttributes.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -19027,7 +19020,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeInstanceEventWindowsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeInstanceEventWindows.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeInstanceEventWindows.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -19169,7 +19162,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeInstanceStatusInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeInstanceStatus.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeInstanceStatus.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -19278,7 +19271,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeInstanceTopologyInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeInstanceTopology.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeInstanceTopology.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -19332,7 +19325,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeInstanceTypeOfferingsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeInstanceTypeOfferings.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeInstanceTypeOfferings.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -19496,7 +19489,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeInstanceTypesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeInstanceTypes.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeInstanceTypes.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -19787,7 +19780,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeInstancesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeInstances.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeInstances.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -19879,7 +19872,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeInternetGatewaysInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeInternetGateways.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeInternetGateways.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -19924,7 +19917,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeIpamByoasnInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeIpamByoasn.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeIpamByoasn.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -20007,7 +20000,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeIpamPoolsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeIpamPools.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeIpamPools.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -20070,7 +20063,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeIpamResourceDiscoveriesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeIpamResourceDiscoveries.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeIpamResourceDiscoveries.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -20133,7 +20126,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeIpamResourceDiscoveryAssociationsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeIpamResourceDiscoveryAssociations.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeIpamResourceDiscoveryAssociations.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -20196,7 +20189,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeIpamScopesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeIpamScopes.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeIpamScopes.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -20268,7 +20261,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeIpamsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeIpams.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeIpams.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -20329,7 +20322,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeIpv6PoolsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeIpv6Pools.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeIpv6Pools.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -20411,7 +20404,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeKeyPairsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeKeyPairs.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeKeyPairs.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -20724,7 +20717,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeLaunchTemplateVersionsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeLaunchTemplateVersions.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeLaunchTemplateVersions.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -20810,7 +20803,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeLaunchTemplatesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeLaunchTemplates.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeLaunchTemplates.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -20873,7 +20866,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -20936,7 +20929,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeLocalGatewayRouteTableVpcAssociationsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeLocalGatewayRouteTableVpcAssociations.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeLocalGatewayRouteTableVpcAssociations.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -21003,7 +20996,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeLocalGatewayRouteTablesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeLocalGatewayRouteTables.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeLocalGatewayRouteTables.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -21064,7 +21057,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeLocalGatewayVirtualInterfaceGroupsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeLocalGatewayVirtualInterfaceGroups.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeLocalGatewayVirtualInterfaceGroups.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -21128,7 +21121,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeLocalGatewayVirtualInterfacesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeLocalGatewayVirtualInterfaces.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeLocalGatewayVirtualInterfaces.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -21189,7 +21182,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeLocalGatewaysInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeLocalGateways.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeLocalGateways.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -21250,7 +21243,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeLockedSnapshotsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeLockedSnapshots.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeLockedSnapshots.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -21313,7 +21306,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeManagedPrefixListsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeManagedPrefixLists.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeManagedPrefixLists.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -21380,7 +21373,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeMovingAddressesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeMovingAddresses.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeMovingAddresses.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -21494,7 +21487,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeNatGatewaysInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeNatGateways.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeNatGateways.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -21619,7 +21612,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeNetworkAclsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeNetworkAcls.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeNetworkAcls.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -21688,7 +21681,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeNetworkInsightsAccessScopeAnalysesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeNetworkInsightsAccessScopeAnalyses.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeNetworkInsightsAccessScopeAnalyses.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -21748,7 +21741,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeNetworkInsightsAccessScopesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeNetworkInsightsAccessScopes.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeNetworkInsightsAccessScopes.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -21988,7 +21981,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeNetworkInsightsAnalysesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeNetworkInsightsAnalyses.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeNetworkInsightsAnalyses.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -22063,7 +22056,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeNetworkInsightsPathsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeNetworkInsightsPaths.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeNetworkInsightsPaths.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -22188,7 +22181,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeNetworkInterfaceAttributeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeNetworkInterfaceAttribute.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeNetworkInterfaceAttribute.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -22247,7 +22240,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeNetworkInterfacePermissionsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeNetworkInterfacePermissions.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeNetworkInterfacePermissions.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -22434,7 +22427,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeNetworkInterfacesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeNetworkInterfaces.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeNetworkInterfaces.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -22499,7 +22492,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribePlacementGroupsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribePlacementGroups.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribePlacementGroups.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -22557,7 +22550,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribePrefixListsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribePrefixLists.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribePrefixLists.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -22624,7 +22617,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribePrincipalIdFormatInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribePrincipalIdFormat.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribePrincipalIdFormat.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -22690,7 +22683,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribePublicIpv4PoolsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribePublicIpv4Pools.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribePublicIpv4Pools.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -22798,7 +22791,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeRegionsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeRegions.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeRegions.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -22863,7 +22856,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeReplaceRootVolumeTasksInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeReplaceRootVolumeTasks.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeReplaceRootVolumeTasks.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -22940,7 +22933,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeReservedInstancesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeReservedInstances.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeReservedInstances.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -23013,7 +23006,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeReservedInstancesListingsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeReservedInstancesListings.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeReservedInstancesListings.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -23083,7 +23076,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeReservedInstancesModificationsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeReservedInstancesModifications.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeReservedInstancesModifications.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -23169,7 +23162,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeReservedInstancesOfferingsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeReservedInstancesOfferings.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeReservedInstancesOfferings.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -23299,7 +23292,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeRouteTablesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeRouteTables.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeRouteTables.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -23385,7 +23378,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeScheduledInstanceAvailabilityInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeScheduledInstanceAvailability.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeScheduledInstanceAvailability.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -23462,7 +23455,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeScheduledInstancesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeScheduledInstances.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeScheduledInstances.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -23525,7 +23518,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeSecurityGroupReferencesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeSecurityGroupReferences.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeSecurityGroupReferences.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -23598,7 +23591,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeSecurityGroupRulesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeSecurityGroupRules.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeSecurityGroupRules.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -23718,7 +23711,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeSecurityGroupsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeSecurityGroups.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeSecurityGroups.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -23781,7 +23774,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeSnapshotAttributeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeSnapshotAttribute.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeSnapshotAttribute.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -23845,7 +23838,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeSnapshotTierStatusInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeSnapshotTierStatus.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeSnapshotTierStatus.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -24022,7 +24015,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeSnapshotsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeSnapshots.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeSnapshots.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -24079,7 +24072,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeSpotDatafeedSubscriptionInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeSpotDatafeedSubscription.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeSpotDatafeedSubscription.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -24143,7 +24136,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeSpotFleetInstancesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeSpotFleetInstances.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeSpotFleetInstances.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -24247,7 +24240,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeSpotFleetRequestHistoryInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeSpotFleetRequestHistory.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeSpotFleetRequestHistory.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -24544,7 +24537,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeSpotFleetRequestsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeSpotFleetRequests.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeSpotFleetRequests.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -24766,7 +24759,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeSpotInstanceRequestsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeSpotInstanceRequests.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeSpotInstanceRequests.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -24865,7 +24858,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeSpotPriceHistoryInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeSpotPriceHistory.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeSpotPriceHistory.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -24932,7 +24925,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeStaleSecurityGroupsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeStaleSecurityGroups.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeStaleSecurityGroups.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -25002,7 +24995,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeStoreImageTasksInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeStoreImageTasks.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeStoreImageTasks.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -25117,7 +25110,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeSubnetsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeSubnets.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeSubnets.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -25202,7 +25195,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeTagsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeTags.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeTags.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -25278,7 +25271,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeTrafficMirrorFiltersInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeTrafficMirrorFilters.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeTrafficMirrorFilters.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -25343,7 +25336,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeTrafficMirrorSessionsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeTrafficMirrorSessions.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeTrafficMirrorSessions.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -25406,7 +25399,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeTrafficMirrorTargetsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeTrafficMirrorTargets.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeTrafficMirrorTargets.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -25474,7 +25467,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeTransitGatewayAttachmentsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeTransitGatewayAttachments.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeTransitGatewayAttachments.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -25547,7 +25540,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeTransitGatewayConnectPeersInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeTransitGatewayConnectPeers.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeTransitGatewayConnectPeers.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -25610,7 +25603,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeTransitGatewayConnectsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeTransitGatewayConnects.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeTransitGatewayConnects.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -25676,7 +25669,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeTransitGatewayMulticastDomainsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeTransitGatewayMulticastDomains.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeTransitGatewayMulticastDomains.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -25747,7 +25740,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeTransitGatewayPeeringAttachmentsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeTransitGatewayPeeringAttachments.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeTransitGatewayPeeringAttachments.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -25807,7 +25800,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeTransitGatewayPolicyTablesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeTransitGatewayPolicyTables.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeTransitGatewayPolicyTables.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -25873,7 +25866,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeTransitGatewayRouteTableAnnouncementsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeTransitGatewayRouteTableAnnouncements.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeTransitGatewayRouteTableAnnouncements.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -25936,7 +25929,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeTransitGatewayRouteTablesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeTransitGatewayRouteTables.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeTransitGatewayRouteTables.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -26006,7 +25999,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeTransitGatewayVpcAttachmentsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeTransitGatewayVpcAttachments.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeTransitGatewayVpcAttachments.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -26082,7 +26075,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeTransitGatewaysInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeTransitGateways.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeTransitGateways.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -26144,7 +26137,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeTrunkInterfaceAssociationsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeTrunkInterfaceAssociations.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeTrunkInterfaceAssociations.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -26233,7 +26226,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeVerifiedAccessEndpointsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeVerifiedAccessEndpoints.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeVerifiedAccessEndpoints.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -26301,7 +26294,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeVerifiedAccessGroupsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeVerifiedAccessGroups.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeVerifiedAccessGroups.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -26373,7 +26366,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeVerifiedAccessInstanceLoggingConfigurationsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeVerifiedAccessInstanceLoggingConfigurations.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeVerifiedAccessInstanceLoggingConfigurations.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -26441,7 +26434,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeVerifiedAccessInstancesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeVerifiedAccessInstances.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeVerifiedAccessInstances.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -26519,7 +26512,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeVerifiedAccessTrustProvidersInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeVerifiedAccessTrustProviders.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeVerifiedAccessTrustProviders.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -26580,7 +26573,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeVolumeAttributeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeVolumeAttribute.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeVolumeAttribute.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -26747,7 +26740,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeVolumeStatusInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeVolumeStatus.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeVolumeStatus.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -26902,7 +26895,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeVolumesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeVolumes.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeVolumes.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -26976,7 +26969,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeVolumesModificationsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeVolumesModifications.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeVolumesModifications.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -27047,7 +27040,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeVpcAttributeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeVpcAttribute.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeVpcAttribute.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -27105,7 +27098,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeVpcClassicLinkInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeVpcClassicLink.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeVpcClassicLink.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -27157,7 +27150,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeVpcClassicLinkDnsSupportInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeVpcClassicLinkDnsSupport.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeVpcClassicLinkDnsSupport.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -27216,7 +27209,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeVpcEndpointConnectionNotificationsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeVpcEndpointConnectionNotifications.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeVpcEndpointConnectionNotifications.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -27284,7 +27277,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeVpcEndpointConnectionsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeVpcEndpointConnections.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeVpcEndpointConnections.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -27362,7 +27355,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeVpcEndpointServiceConfigurationsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeVpcEndpointServiceConfigurations.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeVpcEndpointServiceConfigurations.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -27421,7 +27414,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeVpcEndpointServicePermissionsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeVpcEndpointServicePermissions.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeVpcEndpointServicePermissions.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -27502,7 +27495,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeVpcEndpointServicesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeVpcEndpointServices.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeVpcEndpointServices.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -27587,7 +27580,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeVpcEndpointsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeVpcEndpoints.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeVpcEndpoints.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -27664,7 +27657,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeVpcPeeringConnectionsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeVpcPeeringConnections.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeVpcPeeringConnections.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -27768,7 +27761,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeVpcsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeVpcs.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeVpcs.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -27898,7 +27891,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeVpnConnectionsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeVpnConnections.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeVpnConnections.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -27962,7 +27955,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DescribeVpnGatewaysInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeVpnGateways.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DescribeVpnGateways.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -28006,7 +27999,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DetachClassicLinkVpcInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DetachClassicLinkVpc.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DetachClassicLinkVpc.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -28055,7 +28048,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DetachInternetGatewayInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DetachInternetGateway.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DetachInternetGateway.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -28101,7 +28094,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DetachNetworkInterfaceInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DetachNetworkInterface.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DetachNetworkInterface.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -28181,7 +28174,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DetachVerifiedAccessTrustProviderInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DetachVerifiedAccessTrustProvider.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DetachVerifiedAccessTrustProvider.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -28256,7 +28249,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DetachVolumeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DetachVolume.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DetachVolume.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -28299,7 +28292,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DetachVpnGatewayInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DetachVpnGateway.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DetachVpnGateway.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -28343,7 +28336,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DisableAddressTransferInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisableAddressTransfer.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DisableAddressTransfer.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -28384,7 +28377,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DisableAwsNetworkPerformanceMetricSubscriptionInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisableAwsNetworkPerformanceMetricSubscription.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DisableAwsNetworkPerformanceMetricSubscription.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -28427,7 +28420,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DisableEbsEncryptionByDefaultInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisableEbsEncryptionByDefault.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DisableEbsEncryptionByDefault.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -28483,7 +28476,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DisableFastLaunchInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisableFastLaunch.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DisableFastLaunch.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -28547,7 +28540,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DisableFastSnapshotRestoresInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisableFastSnapshotRestores.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DisableFastSnapshotRestores.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -28595,7 +28588,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DisableImageInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisableImage.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DisableImage.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -28641,7 +28634,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DisableImageBlockPublicAccessInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisableImageBlockPublicAccess.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DisableImageBlockPublicAccess.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -28681,7 +28674,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DisableImageDeprecationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisableImageDeprecation.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DisableImageDeprecation.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -28720,7 +28713,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DisableIpamOrganizationAdminAccountInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisableIpamOrganizationAdminAccount.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DisableIpamOrganizationAdminAccount.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -28760,7 +28753,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DisableSerialConsoleAccessInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisableSerialConsoleAccess.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DisableSerialConsoleAccess.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -28805,7 +28798,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DisableSnapshotBlockPublicAccessInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisableSnapshotBlockPublicAccess.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DisableSnapshotBlockPublicAccess.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -28852,7 +28845,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DisableTransitGatewayRouteTablePropagationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisableTransitGatewayRouteTablePropagation.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DisableTransitGatewayRouteTablePropagation.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -28900,7 +28893,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DisableVgwRoutePropagationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisableVgwRoutePropagation.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DisableVgwRoutePropagation.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -28942,7 +28935,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DisableVpcClassicLinkInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisableVpcClassicLink.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DisableVpcClassicLink.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -28985,7 +28978,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DisableVpcClassicLinkDnsSupportInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisableVpcClassicLinkDnsSupport.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DisableVpcClassicLinkDnsSupport.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -29032,7 +29025,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DisassociateAddressInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisassociateAddress.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DisassociateAddress.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -29090,7 +29083,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DisassociateClientVpnTargetNetworkInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisassociateClientVpnTargetNetwork.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DisassociateClientVpnTargetNetwork.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -29133,7 +29126,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DisassociateEnclaveCertificateIamRoleInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisassociateEnclaveCertificateIamRole.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DisassociateEnclaveCertificateIamRole.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -29197,7 +29190,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DisassociateIamInstanceProfileInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisassociateIamInstanceProfile.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DisassociateIamInstanceProfile.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -29271,7 +29264,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DisassociateInstanceEventWindowInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisassociateInstanceEventWindow.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DisassociateInstanceEventWindow.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -29315,7 +29308,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DisassociateIpamByoasnInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisassociateIpamByoasn.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DisassociateIpamByoasn.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -29367,7 +29360,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DisassociateIpamResourceDiscoveryInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisassociateIpamResourceDiscovery.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DisassociateIpamResourceDiscovery.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -29426,7 +29419,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DisassociateNatGatewayAddressInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisassociateNatGatewayAddress.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DisassociateNatGatewayAddress.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -29475,7 +29468,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DisassociateRouteTableInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisassociateRouteTable.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DisassociateRouteTable.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -29518,7 +29511,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DisassociateSubnetCidrBlockInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisassociateSubnetCidrBlock.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DisassociateSubnetCidrBlock.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -29569,7 +29562,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DisassociateTransitGatewayMulticastDomainInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisassociateTransitGatewayMulticastDomain.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DisassociateTransitGatewayMulticastDomain.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -29613,7 +29606,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DisassociateTransitGatewayPolicyTableInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisassociateTransitGatewayPolicyTable.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DisassociateTransitGatewayPolicyTable.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -29657,7 +29650,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DisassociateTransitGatewayRouteTableInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisassociateTransitGatewayRouteTable.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DisassociateTransitGatewayRouteTable.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -29697,7 +29690,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DisassociateTrunkInterfaceInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisassociateTrunkInterface.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DisassociateTrunkInterface.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -29751,7 +29744,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::DisassociateVpcCidrBlockInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisassociateVpcCidrBlock.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::DisassociateVpcCidrBlock.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -29796,7 +29789,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::EnableAddressTransferInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::EnableAddressTransfer.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::EnableAddressTransfer.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -29837,7 +29830,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::EnableAwsNetworkPerformanceMetricSubscriptionInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::EnableAwsNetworkPerformanceMetricSubscription.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::EnableAwsNetworkPerformanceMetricSubscription.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -29885,7 +29878,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::EnableEbsEncryptionByDefaultInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::EnableEbsEncryptionByDefault.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::EnableEbsEncryptionByDefault.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -29953,7 +29946,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::EnableFastLaunchInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::EnableFastLaunch.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::EnableFastLaunch.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -30022,7 +30015,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::EnableFastSnapshotRestoresInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::EnableFastSnapshotRestores.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::EnableFastSnapshotRestores.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -30067,7 +30060,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::EnableImageInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::EnableImage.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::EnableImage.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -30113,7 +30106,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::EnableImageBlockPublicAccessInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::EnableImageBlockPublicAccess.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::EnableImageBlockPublicAccess.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -30153,7 +30146,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::EnableImageDeprecationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::EnableImageDeprecation.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::EnableImageDeprecation.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -30192,7 +30185,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::EnableIpamOrganizationAdminAccountInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::EnableIpamOrganizationAdminAccount.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::EnableIpamOrganizationAdminAccount.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -30233,7 +30226,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::EnableReachabilityAnalyzerOrganizationSharingInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::EnableReachabilityAnalyzerOrganizationSharing.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::EnableReachabilityAnalyzerOrganizationSharing.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -30272,7 +30265,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::EnableSerialConsoleAccessInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::EnableSerialConsoleAccess.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::EnableSerialConsoleAccess.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -30321,7 +30314,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::EnableSnapshotBlockPublicAccessInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::EnableSnapshotBlockPublicAccess.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::EnableSnapshotBlockPublicAccess.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -30368,7 +30361,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::EnableTransitGatewayRouteTablePropagationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::EnableTransitGatewayRouteTablePropagation.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::EnableTransitGatewayRouteTablePropagation.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -30416,7 +30409,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::EnableVgwRoutePropagationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::EnableVgwRoutePropagation.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::EnableVgwRoutePropagation.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -30462,7 +30455,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::EnableVolumeIOInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::EnableVolumeIO.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::EnableVolumeIO.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -30508,7 +30501,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::EnableVpcClassicLinkInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::EnableVpcClassicLink.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::EnableVpcClassicLink.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -30553,7 +30546,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::EnableVpcClassicLinkDnsSupportInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::EnableVpcClassicLinkDnsSupport.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::EnableVpcClassicLinkDnsSupport.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -30594,7 +30587,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ExportClientVpnClientCertificateRevocationListInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ExportClientVpnClientCertificateRevocationList.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ExportClientVpnClientCertificateRevocationList.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -30634,7 +30627,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ExportClientVpnClientConfigurationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ExportClientVpnClientConfiguration.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ExportClientVpnClientConfiguration.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -30707,7 +30700,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ExportImageInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ExportImage.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ExportImage.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -30758,7 +30751,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ExportTransitGatewayRoutesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ExportTransitGatewayRoutes.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ExportTransitGatewayRoutes.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -30804,7 +30797,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetAssociatedEnclaveCertificateIamRolesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetAssociatedEnclaveCertificateIamRoles.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::GetAssociatedEnclaveCertificateIamRoles.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -30848,7 +30841,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetAssociatedIpv6PoolCidrsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetAssociatedIpv6PoolCidrs.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::GetAssociatedIpv6PoolCidrs.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -30913,7 +30906,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetAwsNetworkPerformanceDataInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetAwsNetworkPerformanceData.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::GetAwsNetworkPerformanceData.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -30964,7 +30957,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetCapacityReservationUsageInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetCapacityReservationUsage.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::GetCapacityReservationUsage.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -31020,7 +31013,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetCoipPoolUsageInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetCoipPoolUsage.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::GetCoipPoolUsage.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -31085,7 +31078,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetConsoleOutputInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetConsoleOutput.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::GetConsoleOutput.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -31127,7 +31120,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetConsoleScreenshotInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetConsoleScreenshot.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::GetConsoleScreenshot.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -31170,7 +31163,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetDefaultCreditSpecificationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetDefaultCreditSpecification.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::GetDefaultCreditSpecification.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -31211,7 +31204,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetEbsDefaultKmsKeyIdInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetEbsDefaultKmsKeyId.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::GetEbsDefaultKmsKeyId.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -31252,7 +31245,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetEbsEncryptionByDefaultInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetEbsEncryptionByDefault.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::GetEbsEncryptionByDefault.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -31323,7 +31316,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetFlowLogsIntegrationTemplateInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetFlowLogsIntegrationTemplate.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::GetFlowLogsIntegrationTemplate.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -31367,7 +31360,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetGroupsForCapacityReservationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetGroupsForCapacityReservation.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::GetGroupsForCapacityReservation.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -31424,7 +31417,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetHostReservationPurchasePreviewInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetHostReservationPurchasePreview.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::GetHostReservationPurchasePreview.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -31464,7 +31457,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetImageBlockPublicAccessStateInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetImageBlockPublicAccessState.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::GetImageBlockPublicAccessState.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -31590,7 +31583,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetInstanceTypesFromInstanceRequirementsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetInstanceTypesFromInstanceRequirements.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::GetInstanceTypesFromInstanceRequirements.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -31639,7 +31632,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetInstanceUefiDataInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetInstanceUefiData.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::GetInstanceUefiData.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -31696,7 +31689,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetIpamAddressHistoryInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetIpamAddressHistory.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::GetIpamAddressHistory.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -31754,7 +31747,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetIpamDiscoveredAccountsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetIpamDiscoveredAccounts.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::GetIpamDiscoveredAccounts.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -31832,7 +31825,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetIpamDiscoveredPublicAddressesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetIpamDiscoveredPublicAddresses.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::GetIpamDiscoveredPublicAddresses.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -31896,7 +31889,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetIpamDiscoveredResourceCidrsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetIpamDiscoveredResourceCidrs.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::GetIpamDiscoveredResourceCidrs.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -31957,7 +31950,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetIpamPoolAllocationsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetIpamPoolAllocations.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::GetIpamPoolAllocations.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -32014,7 +32007,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetIpamPoolCidrsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetIpamPoolCidrs.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::GetIpamPoolCidrs.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -32090,7 +32083,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetIpamResourceCidrsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetIpamResourceCidrs.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::GetIpamResourceCidrs.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -32380,7 +32373,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetLaunchTemplateDataInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetLaunchTemplateData.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::GetLaunchTemplateData.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -32424,7 +32417,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetManagedPrefixListAssociationsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetManagedPrefixListAssociations.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::GetManagedPrefixListAssociations.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -32469,7 +32462,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetManagedPrefixListEntriesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetManagedPrefixListEntries.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::GetManagedPrefixListEntries.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -32679,7 +32672,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetNetworkInsightsAccessScopeAnalysisFindingsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetNetworkInsightsAccessScopeAnalysisFindings.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::GetNetworkInsightsAccessScopeAnalysisFindings.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -32739,7 +32732,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetNetworkInsightsAccessScopeContentInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetNetworkInsightsAccessScopeContent.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::GetNetworkInsightsAccessScopeContent.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -32791,7 +32784,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetPasswordDataInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetPasswordData.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::GetPasswordData.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -32858,7 +32851,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetReservedInstancesExchangeQuoteInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetReservedInstancesExchangeQuote.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::GetReservedInstancesExchangeQuote.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -32917,7 +32910,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetSecurityGroupsForVpcInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetSecurityGroupsForVpc.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::GetSecurityGroupsForVpc.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -32957,7 +32950,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetSerialConsoleAccessStatusInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetSerialConsoleAccessStatus.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::GetSerialConsoleAccessStatus.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -32997,7 +32990,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetSnapshotBlockPublicAccessStateInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetSnapshotBlockPublicAccessState.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::GetSnapshotBlockPublicAccessState.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -33134,7 +33127,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetSpotPlacementScoresInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetSpotPlacementScores.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::GetSpotPlacementScores.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -33195,7 +33188,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetSubnetCidrReservationsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetSubnetCidrReservations.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::GetSubnetCidrReservations.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -33247,7 +33240,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetTransitGatewayAttachmentPropagationsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetTransitGatewayAttachmentPropagations.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::GetTransitGatewayAttachmentPropagations.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -33304,7 +33297,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetTransitGatewayMulticastDomainAssociationsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetTransitGatewayMulticastDomainAssociations.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::GetTransitGatewayMulticastDomainAssociations.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -33359,7 +33352,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetTransitGatewayPolicyTableAssociationsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetTransitGatewayPolicyTableAssociations.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::GetTransitGatewayPolicyTableAssociations.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -33419,7 +33412,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetTransitGatewayPolicyTableEntriesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetTransitGatewayPolicyTableEntries.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::GetTransitGatewayPolicyTableEntries.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -33478,7 +33471,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetTransitGatewayPrefixListReferencesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetTransitGatewayPrefixListReferences.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::GetTransitGatewayPrefixListReferences.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -33532,7 +33525,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetTransitGatewayRouteTableAssociationsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetTransitGatewayRouteTableAssociations.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::GetTransitGatewayRouteTableAssociations.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -33587,7 +33580,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetTransitGatewayRouteTablePropagationsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetTransitGatewayRouteTablePropagations.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::GetTransitGatewayRouteTablePropagations.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -33626,7 +33619,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetVerifiedAccessEndpointPolicyInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetVerifiedAccessEndpointPolicy.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::GetVerifiedAccessEndpointPolicy.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -33665,7 +33658,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetVerifiedAccessGroupPolicyInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetVerifiedAccessGroupPolicy.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::GetVerifiedAccessGroupPolicy.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -33706,7 +33699,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetVpnConnectionDeviceSampleConfigurationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetVpnConnectionDeviceSampleConfiguration.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::GetVpnConnectionDeviceSampleConfiguration.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -33754,7 +33747,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetVpnConnectionDeviceTypesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetVpnConnectionDeviceTypes.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::GetVpnConnectionDeviceTypes.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -33801,7 +33794,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::GetVpnTunnelReplacementStatusInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetVpnTunnelReplacementStatus.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::GetVpnTunnelReplacementStatus.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -33841,7 +33834,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ImportClientVpnClientCertificateRevocationListInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ImportClientVpnClientCertificateRevocationList.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ImportClientVpnClientCertificateRevocationList.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -33972,7 +33965,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ImportImageInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ImportImage.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ImportImage.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -34099,7 +34092,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ImportInstanceInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ImportInstance.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ImportInstance.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -34160,7 +34153,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ImportKeyPairInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ImportKeyPair.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ImportKeyPair.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -34249,7 +34242,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ImportSnapshotInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ImportSnapshot.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ImportSnapshot.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -34335,7 +34328,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ImportVolumeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ImportVolume.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ImportVolume.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -34386,7 +34379,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ListImagesInRecycleBinInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ListImagesInRecycleBin.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ListImagesInRecycleBin.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -34435,7 +34428,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ListSnapshotsInRecycleBinInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ListSnapshotsInRecycleBin.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ListSnapshotsInRecycleBin.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -34502,7 +34495,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::LockSnapshotInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::LockSnapshot.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::LockSnapshot.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -34548,7 +34541,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyAddressAttributeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyAddressAttribute.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyAddressAttribute.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -34590,7 +34583,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyAvailabilityZoneGroupInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyAvailabilityZoneGroup.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyAvailabilityZoneGroup.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -34637,7 +34630,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyCapacityReservationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyCapacityReservation.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyCapacityReservation.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -34682,7 +34675,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyCapacityReservationFleetInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyCapacityReservationFleet.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyCapacityReservationFleet.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -34749,7 +34742,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyClientVpnEndpointInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyClientVpnEndpoint.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyClientVpnEndpoint.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -34803,7 +34796,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyDefaultCreditSpecificationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyDefaultCreditSpecification.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyDefaultCreditSpecification.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -34848,7 +34841,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyEbsDefaultKmsKeyIdInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyEbsDefaultKmsKeyId.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyEbsDefaultKmsKeyId.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -35016,7 +35009,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyFleetInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyFleet.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyFleet.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -35086,7 +35079,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyFpgaImageAttributeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyFpgaImageAttribute.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyFpgaImageAttribute.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -35145,7 +35138,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyHostsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyHosts.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyHosts.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -35205,7 +35198,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyIdFormatInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyIdFormat.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyIdFormat.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -35264,7 +35257,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyIdentityIdFormatInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyIdentityIdFormat.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyIdentityIdFormat.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -35371,7 +35364,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyImageAttributeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyImageAttribute.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyImageAttribute.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -35469,7 +35462,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyInstanceAttributeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyInstanceAttribute.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyInstanceAttribute.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -35516,7 +35509,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyInstanceCapacityReservationAttributesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyInstanceCapacityReservationAttributes.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyInstanceCapacityReservationAttributes.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -35572,7 +35565,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyInstanceCreditSpecificationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyInstanceCreditSpecification.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyInstanceCreditSpecification.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -35618,7 +35611,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyInstanceEventStartTimeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyInstanceEventStartTime.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyInstanceEventStartTime.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -35693,7 +35686,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyInstanceEventWindowInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyInstanceEventWindow.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyInstanceEventWindow.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -35736,7 +35729,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyInstanceMaintenanceOptionsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyInstanceMaintenanceOptions.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyInstanceMaintenanceOptions.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -35792,7 +35785,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyInstanceMetadataOptionsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyInstanceMetadataOptions.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyInstanceMetadataOptions.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -35861,7 +35854,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyInstancePlacementInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyInstancePlacement.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyInstancePlacement.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -35933,7 +35926,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyIpamInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyIpam.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyIpam.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -36019,7 +36012,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyIpamPoolInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyIpamPool.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyIpamPool.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -36081,7 +36074,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyIpamResourceCidrInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyIpamResourceCidr.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyIpamResourceCidr.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -36144,7 +36137,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyIpamResourceDiscoveryInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyIpamResourceDiscovery.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyIpamResourceDiscovery.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -36197,7 +36190,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyIpamScopeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyIpamScope.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyIpamScope.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -36268,7 +36261,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyLaunchTemplateInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyLaunchTemplate.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyLaunchTemplate.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -36321,7 +36314,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyLocalGatewayRouteInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyLocalGatewayRoute.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyLocalGatewayRoute.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -36390,7 +36383,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyManagedPrefixListInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyManagedPrefixList.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyManagedPrefixList.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -36500,7 +36493,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyNetworkInterfaceAttributeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyNetworkInterfaceAttribute.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyNetworkInterfaceAttribute.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -36541,7 +36534,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyPrivateDnsNameOptionsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyPrivateDnsNameOptions.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyPrivateDnsNameOptions.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -36594,7 +36587,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyReservedInstancesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyReservedInstances.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyReservedInstances.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -36647,7 +36640,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifySecurityGroupRulesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifySecurityGroupRules.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifySecurityGroupRules.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -36737,7 +36730,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifySnapshotAttributeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifySnapshotAttribute.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifySnapshotAttribute.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -36781,7 +36774,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifySnapshotTierInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifySnapshotTier.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifySnapshotTier.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -36945,7 +36938,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifySpotFleetRequestInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifySpotFleetRequest.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifySpotFleetRequest.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -37025,7 +37018,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifySubnetAttributeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifySubnetAttribute.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifySubnetAttribute.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -37093,7 +37086,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyTrafficMirrorFilterNetworkServicesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyTrafficMirrorFilterNetworkServices.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyTrafficMirrorFilterNetworkServices.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -37161,7 +37154,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyTrafficMirrorFilterRuleInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyTrafficMirrorFilterRule.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyTrafficMirrorFilterRule.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -37221,7 +37214,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyTrafficMirrorSessionInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyTrafficMirrorSession.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyTrafficMirrorSession.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -37297,7 +37290,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyTransitGatewayInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyTransitGateway.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyTransitGateway.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -37347,7 +37340,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyTransitGatewayPrefixListReferenceInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyTransitGatewayPrefixListReference.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyTransitGatewayPrefixListReference.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -37411,7 +37404,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyTransitGatewayVpcAttachmentInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyTransitGatewayVpcAttachment.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyTransitGatewayVpcAttachment.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -37498,7 +37491,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyVerifiedAccessEndpointInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyVerifiedAccessEndpoint.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyVerifiedAccessEndpoint.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -37547,7 +37540,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyVerifiedAccessEndpointPolicyInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyVerifiedAccessEndpointPolicy.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyVerifiedAccessEndpointPolicy.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -37603,7 +37596,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyVerifiedAccessGroupInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyVerifiedAccessGroup.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyVerifiedAccessGroup.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -37652,7 +37645,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyVerifiedAccessGroupPolicyInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyVerifiedAccessGroupPolicy.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyVerifiedAccessGroupPolicy.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -37708,7 +37701,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyVerifiedAccessInstanceInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyVerifiedAccessInstance.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyVerifiedAccessInstance.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -37785,7 +37778,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyVerifiedAccessInstanceLoggingConfigurationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyVerifiedAccessInstanceLoggingConfiguration.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyVerifiedAccessInstanceLoggingConfiguration.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -37867,7 +37860,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyVerifiedAccessTrustProviderInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyVerifiedAccessTrustProvider.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyVerifiedAccessTrustProvider.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -37942,7 +37935,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyVolumeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyVolume.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyVolume.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -38002,7 +37995,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyVolumeAttributeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyVolumeAttribute.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyVolumeAttribute.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -38063,7 +38056,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyVpcAttributeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyVpcAttribute.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyVpcAttribute.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -38128,7 +38121,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyVpcEndpointInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyVpcEndpoint.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyVpcEndpoint.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -38171,7 +38164,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyVpcEndpointConnectionNotificationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyVpcEndpointConnectionNotification.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyVpcEndpointConnectionNotification.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -38220,7 +38213,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyVpcEndpointServiceConfigurationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyVpcEndpointServiceConfiguration.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyVpcEndpointServiceConfiguration.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -38259,7 +38252,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyVpcEndpointServicePayerResponsibilityInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyVpcEndpointServicePayerResponsibility.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyVpcEndpointServicePayerResponsibility.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -38311,7 +38304,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyVpcEndpointServicePermissionsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyVpcEndpointServicePermissions.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyVpcEndpointServicePermissions.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -38368,7 +38361,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyVpcPeeringConnectionOptionsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyVpcPeeringConnectionOptions.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyVpcPeeringConnectionOptions.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -38414,7 +38407,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyVpcTenancyInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyVpcTenancy.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyVpcTenancy.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -38569,7 +38562,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyVpnConnectionInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyVpnConnection.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyVpnConnection.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -38694,7 +38687,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyVpnConnectionOptionsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyVpnConnectionOptions.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyVpnConnectionOptions.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -38812,7 +38805,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyVpnTunnelCertificateInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyVpnTunnelCertificate.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyVpnTunnelCertificate.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -38990,7 +38983,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ModifyVpnTunnelOptionsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyVpnTunnelOptions.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ModifyVpnTunnelOptions.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -39037,7 +39030,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::MonitorInstancesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::MonitorInstances.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::MonitorInstances.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -39094,7 +39087,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::MoveAddressToVpcInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::MoveAddressToVpc.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::MoveAddressToVpc.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -39146,7 +39139,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::MoveByoipCidrToIpamInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::MoveByoipCidrToIpam.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::MoveByoipCidrToIpam.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -39225,7 +39218,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ProvisionByoipCidrInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ProvisionByoipCidr.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ProvisionByoipCidr.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -39272,7 +39265,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ProvisionIpamByoasnInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ProvisionIpamByoasn.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ProvisionIpamByoasn.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -39326,7 +39319,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ProvisionIpamPoolCidrInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ProvisionIpamPoolCidr.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ProvisionIpamPoolCidr.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -39372,7 +39365,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ProvisionPublicIpv4PoolCidrInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ProvisionPublicIpv4PoolCidr.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ProvisionPublicIpv4PoolCidr.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -39453,7 +39446,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::PurchaseCapacityBlockInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::PurchaseCapacityBlock.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::PurchaseCapacityBlock.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -39524,7 +39517,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::PurchaseHostReservationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::PurchaseHostReservation.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::PurchaseHostReservation.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -39577,7 +39570,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::PurchaseReservedInstancesOfferingInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::PurchaseReservedInstancesOffering.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::PurchaseReservedInstancesOffering.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -39651,7 +39644,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::PurchaseScheduledInstancesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::PurchaseScheduledInstances.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::PurchaseScheduledInstances.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -39709,7 +39702,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::RebootInstancesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::RebootInstances.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::RebootInstances.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -39829,7 +39822,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::RegisterImageInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::RegisterImage.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::RegisterImage.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -39877,7 +39870,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::RegisterInstanceEventNotificationAttributesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::RegisterInstanceEventNotificationAttributes.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::RegisterInstanceEventNotificationAttributes.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -39928,7 +39921,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::RegisterTransitGatewayMulticastGroupMembersInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::RegisterTransitGatewayMulticastGroupMembers.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::RegisterTransitGatewayMulticastGroupMembers.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -39979,7 +39972,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::RegisterTransitGatewayMulticastGroupSourcesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::RegisterTransitGatewayMulticastGroupSources.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::RegisterTransitGatewayMulticastGroupSources.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -40030,7 +40023,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::RejectTransitGatewayMulticastDomainAssociationsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::RejectTransitGatewayMulticastDomainAssociations.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::RejectTransitGatewayMulticastDomainAssociations.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -40087,7 +40080,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::RejectTransitGatewayPeeringAttachmentInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::RejectTransitGatewayPeeringAttachment.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::RejectTransitGatewayPeeringAttachment.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -40145,7 +40138,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::RejectTransitGatewayVpcAttachmentInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::RejectTransitGatewayVpcAttachment.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::RejectTransitGatewayVpcAttachment.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -40191,7 +40184,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::RejectVpcEndpointConnectionsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::RejectVpcEndpointConnections.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::RejectVpcEndpointConnections.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -40232,7 +40225,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::RejectVpcPeeringConnectionInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::RejectVpcPeeringConnection.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::RejectVpcPeeringConnection.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -40290,7 +40283,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ReleaseAddressInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ReleaseAddress.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ReleaseAddress.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -40344,7 +40337,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ReleaseHostsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ReleaseHosts.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ReleaseHosts.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -40388,7 +40381,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ReleaseIpamPoolAllocationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ReleaseIpamPoolAllocation.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ReleaseIpamPoolAllocation.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -40440,7 +40433,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ReplaceIamInstanceProfileAssociationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ReplaceIamInstanceProfileAssociation.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ReplaceIamInstanceProfileAssociation.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -40493,7 +40486,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ReplaceNetworkAclAssociationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ReplaceNetworkAclAssociation.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ReplaceNetworkAclAssociation.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -40562,7 +40555,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ReplaceNetworkAclEntryInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ReplaceNetworkAclEntry.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ReplaceNetworkAclEntry.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -40629,7 +40622,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ReplaceRouteInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ReplaceRoute.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ReplaceRoute.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -40686,7 +40679,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ReplaceRouteTableAssociationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ReplaceRouteTableAssociation.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ReplaceRouteTableAssociation.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -40737,7 +40730,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ReplaceTransitGatewayRouteInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ReplaceTransitGatewayRoute.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ReplaceTransitGatewayRoute.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -40777,7 +40770,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ReplaceVpnTunnelInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ReplaceVpnTunnel.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ReplaceVpnTunnel.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -40827,7 +40820,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ReportInstanceStatusInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ReportInstanceStatus.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ReportInstanceStatus.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -41273,7 +41266,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::RequestSpotFleetInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::RequestSpotFleet.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::RequestSpotFleet.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -41593,7 +41586,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::RequestSpotInstancesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::RequestSpotInstances.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::RequestSpotInstances.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -41639,7 +41632,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ResetAddressAttributeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ResetAddressAttribute.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ResetAddressAttribute.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -41681,7 +41674,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ResetEbsDefaultKmsKeyIdInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ResetEbsDefaultKmsKeyId.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ResetEbsDefaultKmsKeyId.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -41721,7 +41714,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ResetFpgaImageAttributeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ResetFpgaImageAttribute.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ResetFpgaImageAttribute.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -41770,7 +41763,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ResetImageAttributeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ResetImageAttribute.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ResetImageAttribute.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -41827,7 +41820,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ResetInstanceAttributeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ResetInstanceAttribute.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ResetInstanceAttribute.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -41865,7 +41858,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ResetNetworkInterfaceAttributeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ResetNetworkInterfaceAttribute.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ResetNetworkInterfaceAttribute.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -41916,7 +41909,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::ResetSnapshotAttributeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ResetSnapshotAttribute.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::ResetSnapshotAttribute.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -41958,7 +41951,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::RestoreAddressToClassicInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::RestoreAddressToClassic.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::RestoreAddressToClassic.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -41996,7 +41989,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::RestoreImageFromRecycleBinInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::RestoreImageFromRecycleBin.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::RestoreImageFromRecycleBin.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -42049,7 +42042,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::RestoreManagedPrefixListVersionInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::RestoreManagedPrefixListVersion.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::RestoreManagedPrefixListVersion.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -42098,7 +42091,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::RestoreSnapshotFromRecycleBinInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::RestoreSnapshotFromRecycleBin.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::RestoreSnapshotFromRecycleBin.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -42145,7 +42138,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::RestoreSnapshotTierInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::RestoreSnapshotTier.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::RestoreSnapshotTier.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -42188,7 +42181,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::RevokeClientVpnIngressInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::RevokeClientVpnIngress.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::RevokeClientVpnIngress.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -42309,7 +42302,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::RevokeSecurityGroupEgressInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::RevokeSecurityGroupEgress.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::RevokeSecurityGroupEgress.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -42435,7 +42428,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::RevokeSecurityGroupIngressInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::RevokeSecurityGroupIngress.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::RevokeSecurityGroupIngress.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -42923,7 +42916,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::RunInstancesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::RunInstances.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::RunInstances.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -43032,7 +43025,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::RunScheduledInstancesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::RunScheduledInstances.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::RunScheduledInstances.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -43093,7 +43086,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::SearchLocalGatewayRoutesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::SearchLocalGatewayRoutes.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::SearchLocalGatewayRoutes.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -43154,7 +43147,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::SearchTransitGatewayMulticastGroupsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::SearchTransitGatewayMulticastGroups.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::SearchTransitGatewayMulticastGroups.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -43213,7 +43206,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::SearchTransitGatewayRoutesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::SearchTransitGatewayRoutes.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::SearchTransitGatewayRoutes.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -43264,7 +43257,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::SendDiagnosticInterruptInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::SendDiagnosticInterrupt.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::SendDiagnosticInterrupt.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -43353,7 +43346,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::StartInstancesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::StartInstances.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::StartInstances.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -43417,7 +43410,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::StartNetworkInsightsAccessScopeAnalysisInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::StartNetworkInsightsAccessScopeAnalysis.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::StartNetworkInsightsAccessScopeAnalysis.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -43659,7 +43652,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::StartNetworkInsightsAnalysisInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::StartNetworkInsightsAnalysis.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::StartNetworkInsightsAnalysis.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -43700,7 +43693,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::StartVpcEndpointServicePrivateDnsVerificationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::StartVpcEndpointServicePrivateDnsVerification.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::StartVpcEndpointServicePrivateDnsVerification.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -43802,7 +43795,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::StopInstancesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::StopInstances.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::StopInstances.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -43850,7 +43843,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::TerminateClientVpnConnectionsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::TerminateClientVpnConnections.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::TerminateClientVpnConnections.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -43979,7 +43972,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::TerminateInstancesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::TerminateInstances.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::TerminateInstances.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -44026,7 +44019,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::UnassignIpv6AddressesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::UnassignIpv6Addresses.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::UnassignIpv6Addresses.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -44080,7 +44073,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::UnassignPrivateIpAddressesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::UnassignPrivateIpAddresses.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::UnassignPrivateIpAddresses.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -44140,7 +44133,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::UnassignPrivateNatGatewayAddressInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::UnassignPrivateNatGatewayAddress.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::UnassignPrivateNatGatewayAddress.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -44180,7 +44173,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::UnlockSnapshotInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::UnlockSnapshot.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::UnlockSnapshot.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -44226,7 +44219,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::UnmonitorInstancesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::UnmonitorInstances.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::UnmonitorInstances.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -44333,7 +44326,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::UpdateSecurityGroupRuleDescriptionsEgressInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::UpdateSecurityGroupRuleDescriptionsEgress.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::UpdateSecurityGroupRuleDescriptionsEgress.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -44440,7 +44433,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::UpdateSecurityGroupRuleDescriptionsIngressInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::UpdateSecurityGroupRuleDescriptionsIngress.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::UpdateSecurityGroupRuleDescriptionsIngress.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -44493,7 +44486,7 @@ module AWS::SDK::EC2
       response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::WithdrawByoipCidrInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::WithdrawByoipCidr.build(config, @stubs)
+      stack = AWS::SDK::EC2::Middleware::WithdrawByoipCidr.build(config)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -44509,30 +44502,6 @@ module AWS::SDK::EC2
       end
       context.logger.info("[#{context.invocation_id}] [#{self.class}#withdraw_byoip_cidr] #{output.data}")
       output
-    end
-
-    private
-
-    def initialize_config(options)
-      client_interceptors = options.delete(:interceptors)
-      config = Config.new(**options)
-      Client.plugins.each { |p| p.call(config) }
-      config.plugins.each { |p| p.call(config) }
-      config.interceptors.concat(Hearth::InterceptorList.new(client_interceptors)) if client_interceptors
-      config.validate!
-      config.freeze
-    end
-
-    def operation_config(options)
-      return @config if options.empty?
-
-      operation_plugins = options.delete(:plugins)
-      operation_interceptors = options.delete(:interceptors)
-      config = @config.merge(options)
-      Hearth::PluginList.new(operation_plugins).each { |p| p.call(config) } if operation_plugins
-      config.interceptors.concat(Hearth::InterceptorList.new(operation_interceptors)) if operation_interceptors
-      config.validate!
-      config.freeze
     end
   end
 end
