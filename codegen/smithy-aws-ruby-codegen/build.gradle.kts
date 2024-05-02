@@ -31,9 +31,10 @@ tasks.withType<Test> {
 }
 
 val smithyVersion: String by project
+val smithyRubyVersion: String by project
 
 dependencies {
-    api("software.amazon.smithy.ruby:smithy-ruby-codegen:0.3.0")
+    api("software.amazon.smithy.ruby:smithy-ruby-codegen:$smithyRubyVersion")
     api("software.amazon.smithy:smithy-aws-cloudformation-traits:$smithyVersion")
     api("software.amazon.smithy:smithy-aws-traits:$smithyVersion")
     api("software.amazon.smithy:smithy-aws-endpoints:$smithyVersion")
