@@ -32,7 +32,7 @@ RSpec.configure do |config|
 end
 
 module AWS::SDK::STS
-  class Client
+  class Client < Hearth::Client
     def initialize(_config = Config.new, _options = {})
       nil
     end
@@ -43,7 +43,7 @@ module AWS::SDK::STS
 end
 
 module AWS::SDK::SSO
-  class Client
+  class Client < Hearth::Client
     def initialize(_config = Config.new, _options = {})
       nil
     end
