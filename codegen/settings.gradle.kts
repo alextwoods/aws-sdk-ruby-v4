@@ -14,8 +14,8 @@
  */
 
 rootProject.name = "aws-sdk-ruby"
-include(":sdk-codegen")
-include(":sdk-gem-utils")
+include(":aws-sdk-codegen")
+include(":aws-sdk-gem-utils")
 include(":smithy-aws-ruby-codegen")
 include(":protocol-test-codegen")
 
