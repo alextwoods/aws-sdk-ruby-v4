@@ -1,0 +1,3 @@
+
+namespace :rbs do
+end
