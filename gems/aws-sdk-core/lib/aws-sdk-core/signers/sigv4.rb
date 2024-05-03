@@ -20,13 +20,15 @@ module AWS::SDK::Core
         apply_signature(request, signature)
       end
 
-      def reset(request:, _properties:)
+      # rubocop:disable Lint/UnusedMethodArgument
+      def reset(request:, properties:)
         request.headers.delete('Authorization')
         request.headers.delete('X-Amz-Date')
         request.headers.delete('x-Amz-Region-Set')
         request.headers.delete('X-Amz-Security-Token')
         request.headers.delete('X-Amz-Content-Sha256')
       end
+      # rubocop:enable Lint/UnusedMethodArgument
 
       private
 
