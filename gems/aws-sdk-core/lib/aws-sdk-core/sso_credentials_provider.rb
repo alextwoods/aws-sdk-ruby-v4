@@ -48,7 +48,8 @@ module AWS::SDK::Core
       next unless AWS::SDK::Core.sso_loaded?
 
       profile_config = AWS::SDK::Core.shared_config[cfg[:profile]]
-      if profile_config['sso_start_url'] &&
+      if profile_config &&
+         profile_config['sso_start_url'] &&
          profile_config['sso_region'] &&
          profile_config['sso_account_id'] &&
          profile_config['sso_role_name']
