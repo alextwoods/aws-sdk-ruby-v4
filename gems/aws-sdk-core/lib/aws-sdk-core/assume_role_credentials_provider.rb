@@ -51,7 +51,7 @@ module AWS::SDK::Core
 
       profile_config = AWS::SDK::Core.shared_config[cfg[:profile]]
 
-      next unless profile_config['role_arn']
+      next unless profile_config && profile_config['role_arn']
 
       source_profile = profile_config['source_profile']
       credential_source = profile_config['credential_source']
