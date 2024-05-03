@@ -42,9 +42,10 @@ jobs:
           role-session-name: benchmark-report
           aws-region: us-west-2
 
-      - name: Archive benchmark report
-        run: |
-          GH_REPO=${{github.repository}} GH_REF=${{github.head_ref}} GH_EVENT=${{github.event_name}} bundle exec rake benchmark:archive
+      # S3 PutObject does not work. Streaming is broken
+      # - name: Archive benchmark report
+      #   run: |
+      #     GH_REPO=${{github.repository}} GH_REF=${{github.head_ref}} GH_EVENT=${{github.event_name}} bundle exec rake benchmark:archive
 
       - name: Upload benchmark metrics
         run: |
