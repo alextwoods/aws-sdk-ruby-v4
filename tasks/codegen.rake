@@ -1,6 +1,7 @@
+# frozen_string_literal: true
 
 desc 'Cleans and Builds all codegen projects and SDKs'
-task :codegen => ['codegen:clean', 'codegen:build']
+task codegen: %w[codegen:clean codegen:build]
 
 namespace :codegen do
   desc 'Verify java version is 17 - required for running codegen with gradle'
@@ -34,7 +35,7 @@ namespace :codegen do
   end
 
   desc 'Cleans and builds all codegen projects'
-  task 'clean-build' => [:clean, :build]
+  task 'clean-build' => %i[clean build]
 
   desc 'Run build on a single codegen project'
   rule(/codegen:build:.+/ => 'codegen:verify-java') do |task|

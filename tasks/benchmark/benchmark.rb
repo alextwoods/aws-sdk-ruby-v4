@@ -13,7 +13,7 @@ module Benchmark
   end
 
   # benchmark a block, returning an array of times (to allow statistic computation)
-  def self.measure_time(n=300, &block)
+  def self.measure_time(n = 300, &block)
     values = Array.new(n)
     n.times do |i|
       t1 = monotonic_milliseconds
@@ -46,7 +46,7 @@ module Benchmark
     wr.close
     h = JSON.parse(rd.read, symbolize_names: true)
     rd.close
-    return h
+    h
   end
 
   def self.host_os
@@ -63,10 +63,10 @@ module Benchmark
   end
 
   def self.initialize_report_data
-    report_data = {'version' => '1.0'}
+    report_data = { 'version' => '1.0' }
     begin
       report_data['commit_id'] = `git rev-parse HEAD`.strip
-    rescue
+    rescue StandardError
       # unable to get a commit, maybe run outside of a git repo.  Skip
     end
     report_data['ruby_engine'] = RUBY_ENGINE
@@ -75,18 +75,17 @@ module Benchmark
 
     report_data['cpu'] = RbConfig::CONFIG['host_cpu']
     report_data['os'] = host_os
-    report_data['execution_env'] =  ENV['EXECUTION_ENV'] || 'unknown'
+    report_data['execution_env'] = ENV['EXECUTION_ENV'] || 'unknown'
 
     report_data['timestamp'] = Time.now.to_i
 
-    report_data["benchmark"] = {}
+    report_data['benchmark'] = {}
     report_data
   end
 
   # abstract base class for benchmarking an SDK Gem
   # implementors must define the gem_name, client_klass, and operation_benchmarks methods
   class Gem
-
     # the name of the gem
     def gem_name; end
 
@@ -119,11 +118,12 @@ module Benchmark
     # build the gem from its gemspec, then get the file size on disc
     # done within a temp directory to prevent accumulation of .gem artifacts
     def benchmark_gem_size(report_data)
-      Dir.mktmpdir("ruby-sdk-benchmark") do |tmpdir|
+      Dir.mktmpdir('ruby-sdk-benchmark') do |tmpdir|
         Dir.chdir(gem_dir) do
           `gem build #{gem_name}.gemspec -o #{tmpdir}/#{gem_name}.gem`
-          report_data['gem_size_kb'] = File.size("#{tmpdir}/#{gem_name}.gem") / 1024.0
-          report_data['gem_version'] = File.read("VERSION").strip
+          report_data['gem_size_kb'] =
+            File.size("#{tmpdir}/#{gem_name}.gem") / 1024.0
+          report_data['gem_version'] = File.read('VERSION').strip
         end
       end
     end
@@ -158,7 +158,7 @@ module Benchmark
 
       report_data.merge!(Benchmark.fork_run do |out|
         require gem_name
-        client_klass =  Kernel.const_get(client_module_name).const_get(:Client)
+        client_klass = Kernel.const_get(client_module_name).const_get(:Client)
         unless defined?(JRUBY_VERSION)
           r = ::MemoryProfiler.report do
             client_klass.new(**client_options)
@@ -183,12 +183,12 @@ module Benchmark
       end
 
       values = report_data[:client_init_ms]
-      puts "\t\t#{gem_name} client init avg: #{'%.2f' % (values.sum(0.0) / values.size)} ms"
+      ms = format('%.2f', (values.sum(0.0) / values.size))
+      puts "\t\t#{gem_name} client init avg: #{ms} ms"
 
       operation_benchmarks.each do |test_name, test_def|
         client = client_klass.new(**client_options)
         req = test_def[:setup].call(client)
-
 
         # warmup (run a few iterations without measurement)
         2.times { test_def[:test].call(client, req) }
@@ -196,7 +196,8 @@ module Benchmark
         mem_allocated = 0
         unless defined?(JRUBY_VERSION)
           r = ::MemoryProfiler.report { test_def[:test].call(client, req) }
-          mem_allocated = report_data["#{test_name}_allocated_kb"] = r.total_allocated_memsize / 1024.0
+          mem_allocated = report_data["#{test_name}_allocated_kb"] =
+            r.total_allocated_memsize / 1024.0
         end
 
         n = test_def[:n] || 300
@@ -204,7 +205,9 @@ module Benchmark
           test_def[:test].call(client, req)
         end
         report_data["#{test_name}_ms"] = values
-        puts "\t\t#{test_name} avg: #{ '%.2f' % (values.sum(0.0) / values.size)} ms\tmem_allocated: #{'%.2f' % mem_allocated} kb"
+        ms = format('%.2f', (values.sum(0.0) / values.size))
+        puts "\t\t#{test_name} avg: #{ms} ms\t" \
+             "mem_allocated: #{'%.2f' % mem_allocated} kb"
       end
     end
 
@@ -212,6 +215,7 @@ module Benchmark
       descendants = []
       ObjectSpace.each_object(singleton_class) do |k|
         next if k.singleton_class?
+
         descendants.unshift k unless k == self
       end
       descendants

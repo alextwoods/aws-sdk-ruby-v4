@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 namespace :benchmark do
   desc 'Runs a performance benchmark on the SDK'
@@ -9,15 +10,15 @@ namespace :benchmark do
     require_relative 'benchmark/benchmark'
 
     # Modify load path to include all sdk gems
-    Dir.glob("gems/*/lib") do |gem_path|
+    Dir.glob('gems/*/lib') do |gem_path|
       $LOAD_PATH.unshift(File.expand_path(gem_path))
     end
 
     report_data = Benchmark.initialize_report_data
-    benchmark_data = report_data["benchmark"]
+    benchmark_data = report_data['benchmark']
 
-    puts "Benchmarking gem size/requires/client initialization"
-    Dir.mktmpdir("ruby-sdk-benchmark") do |tmpdir|
+    puts 'Benchmarking gem size/requires/client initialization'
+    Dir.mktmpdir('ruby-sdk-benchmark') do |_tmpdir|
       Benchmark::Gem.descendants.each do |benchmark_gem_klass|
         benchmark_gem = benchmark_gem_klass.new
         puts "\tBenchmarking #{benchmark_gem.gem_name}"
@@ -38,26 +39,28 @@ namespace :benchmark do
       benchmark_gem.benchmark_operations(benchmark_data[benchmark_gem.gem_name])
     end
 
-    puts "Benchmarking complete, writing out report to: benchmark_report.json"
-    File.write("benchmark_report.json", JSON.pretty_generate(report_data))
+    puts 'Benchmarking complete, writing out report to: benchmark_report.json'
+    File.write('benchmark_report.json', JSON.pretty_generate(report_data))
   end
 
   desc 'Upload/archive the benchmark report'
   task 'archive' do
-
     # Modify load path to include all sdk gems
-    Dir.glob("gems/*/lib") do |gem_path|
+    Dir.glob('gems/*/lib') do |gem_path|
       $LOAD_PATH.unshift(File.expand_path(gem_path))
     end
 
     require 'aws-sdk-s3'
     require 'securerandom'
 
-    puts 'Archiving benchmark report from GH with '\
-        "repo: #{ENV['GH_REPO']}, ref: #{ENV['GH_REF']}, event: #{ENV['GH_EVENT']}"
+    repo = ENV.fetch('GH_REPO', nil)
+    ref = ENV.fetch('GH_REF', nil)
+    event = ENV.fetch('GH_EVENT', nil)
+    puts 'Archiving benchmark report from GH with ' \
+         "repo: #{repo}, ref: #{ref}, event: #{event}"
     folder =
       if ENV['GH_EVENT'] == 'pull_request'
-        "pr/#{ENV['GH_REF']}"
+        "pr/#{ENV.fetch('GH_REF', nil)}"
       else
         'release'
       end
@@ -75,9 +78,8 @@ namespace :benchmark do
 
   desc 'Upload benchmarking data to cloudwatch'
   task 'put-metrics' do
-
     # Modify load path to include all sdk gems
-    Dir.glob("gems/*/lib") do |gem_path|
+    Dir.glob('gems/*/lib') do |gem_path|
       $LOAD_PATH.unshift(File.expand_path(gem_path))
     end
 
@@ -91,7 +93,7 @@ namespace :benchmark do
         'release'
       end
     report = JSON.parse(File.read('benchmark_report.json'))
-    target = report['ruby_engine'] + "-" + report['ruby_version'].split('.').first(2).join('.')
+    target = "#{report['ruby_engine']}-#{report['ruby_version'].split('.').first(2).join('.')}"
 
     # common dimensions
     report_dims = {
@@ -113,9 +115,10 @@ namespace :benchmark do
           dims: dims,
           timestamp: Time.at(report.fetch('timestamp', Time.now.to_i)),
           metric_name: k,
-          value: v)
+          value: v
+        )
       end
     end
-    puts "Benchmarking metrics uploaded"
+    puts 'Benchmarking metrics uploaded'
   end
 end

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 desc 'Run rspec for all gems'
 task 'test' do
@@ -13,7 +14,7 @@ namespace :test do
 
   task 'codegen-gems' do
     spec_file_list = Dir.glob('gems/**/spec')
-      .reject { |d| d.include?('aws-sdk-core') || d.include?('aws-sigv4') }
+                        .reject { |d| d.include?('aws-sdk-core') || d.include?('aws-sigv4') }
     sh("bundle exec rspec #{spec_file_list.join(' ')}")
   end
 

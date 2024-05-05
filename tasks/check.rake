@@ -1,7 +1,8 @@
+# frozen_string_literal: true
 
 namespace :check do
   desc 'Run all verification checks on hearth - run tests, rubocop and verify types'
-  task :core => %w[
+  task core: %w[
     test:core
     rubocop:core
   ]
@@ -10,7 +11,7 @@ namespace :check do
   # rbs:core
 
   desc 'Run all code generation checks/verifications - build codegen, run all tests, rubocop and verify types'
-  task :codegen => %w[
+  task codegen: %w[
     codegen:clean
     codegen:build
     test:protocol-tests

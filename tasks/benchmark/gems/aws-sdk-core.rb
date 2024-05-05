@@ -3,7 +3,6 @@
 module Benchmark
   module Gems
     class Core < Benchmark::Gem
-
       def gem_name
         'aws-sdk-core'
       end
