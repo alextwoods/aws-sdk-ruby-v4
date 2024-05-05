@@ -1,4 +1,4 @@
-$version: "1.0"
+$version: "2.0"
 namespace aws.protocoltests.restxml
 
 use aws.protocols#restXml
@@ -34,8 +34,10 @@ structure CreateFooRequest {
 
 structure CreateFooInput {}
 
-//@enum([{"value": "enumvalue", "name": "V"}])
-//string StringEnum
+enum StringEnum {
+    @enumValue("enumvalue")
+    V
+}
 
 integer PrimitiveInt
 

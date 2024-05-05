@@ -1,4 +1,4 @@
-$version: "1.0"
+$version: "2.0"
 
 namespace aws.protocoltests.restjson
 
@@ -218,12 +218,14 @@ operation MapWithEnumKeyOp {
     output: MapWithEnumKeyInputOutput,
 }
 
+enum EnumWithEscapedChars {
+    // this needs#tobe escaped
+    @enumValue("has\"quotes")
+    HAS_QUOTES
 
-@enum([
-    { value: "has\"quotes", name: "HAS_QUOTES", documentation: "this needs#tobe escaped" },
-    { value: "normal", name: "NORMAL" },
-])
-string EnumWithEscapedChars
+    @enumValue("normal")
+    NORMAL
+}
 
 structure EscapedStringValuesInputOutput {
     enum: EnumWithEscapedChars,
