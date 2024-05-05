@@ -15,7 +15,10 @@ module Benchmark
         {
           get_object_small: {
             setup: proc do |client|
-              client.stub_responses(:get_object, data: { body: '.' * 128 })
+              client.stub_responses(
+                :get_object,
+                data: { body: '.' * 128 }
+              )
               { bucket: 'bucket', key: 'key' }
             end,
             test: proc do |client, req|
@@ -25,7 +28,10 @@ module Benchmark
           get_object_large: {
             n: 150,
             setup: proc do |client|
-              client.stub_responses(:get_object, data: { body: '.' * 1024 * 1024 * 10 }) # 10 MB
+              client.stub_responses(
+                :get_object,
+                data: { body: '.' * 1024 * 1024 * 10 }
+              ) # 10 MB
               { bucket: 'bucket', key: 'key' }
             end,
             test: proc do |client, req|

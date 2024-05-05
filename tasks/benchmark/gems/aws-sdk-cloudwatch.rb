@@ -15,9 +15,17 @@ module Benchmark
         {
           put_metric_data_small: {
             setup: proc do |_client|
-              { namespace: 'namespace',
-                metric_data: [{ metric_name: 'metric', timestamp: Time.now, value: 1.0,
-                                unit: 'Seconds' }] }
+              {
+                namespace: 'namespace',
+                metric_data: [
+                  {
+                    metric_name: 'metric',
+                    timestamp: Time.now,
+                    value: 1.0,
+                    unit: 'Seconds'
+                  }
+                ]
+              }
             end,
             test: proc do |client, req|
               client.put_metric_data(req)
@@ -25,10 +33,12 @@ module Benchmark
           },
           put_metric_data_large: {
             setup: proc do |_client|
-              { namespace: 'namespace', metric_data:
-                (0...10).map do
+              {
+                namespace: 'namespace',
+                metric_data: (0...10).map do
                   { metric_name: 'metric', timestamp: Time.now, values: (0...150).to_a, unit: 'Seconds' }
-                end }
+                end
+              }
             end,
             test: proc do |client, req|
               client.put_metric_data(req)
