@@ -17,7 +17,7 @@ rootProject.name = "aws-sdk-ruby"
 include(":aws-sdk-codegen")
 include(":aws-sdk-gem-utils")
 include(":smithy-aws-ruby-codegen")
-include(":protocol-test-codegen")
+include(":aws-protocol-test-codegen")
 
 pluginManagement {
     repositories {

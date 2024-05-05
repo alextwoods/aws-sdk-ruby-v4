@@ -35,8 +35,9 @@ repositories {
 }
 
 dependencies {
-    implementation(project(":smithy-aws-ruby-codegen"))
+    implementation("software.amazon.smithy:smithy-protocol-test-traits:${rootProject.extra["smithyVersion"]}")
     implementation("software.amazon.smithy:smithy-aws-protocol-tests:${rootProject.extra["smithyVersion"]}")
+    implementation(project(":smithy-aws-ruby-codegen"))
 }
 
 java.sourceSets["main"].java {

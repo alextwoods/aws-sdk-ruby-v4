@@ -53,6 +53,5 @@ buildscript {
 
 dependencies {
     implementation(project(":smithy-aws-ruby-codegen"))
-
     api("software.amazon.smithy.ruby:smithy-ruby-codegen:$smithyRubyVersion")
 }
