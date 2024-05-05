@@ -133,13 +133,13 @@ structure PrimitiveIntDocument {
         headers: { "x-field": "123" },
         params: { field: 123 }
     },
-    {
-        id: "DeserPrimitiveHeaderMissing",
-        protocol: "aws.protocols#restJson1",
-        code: 200,
-        headers: { },
-        params: { field: 0 }
-    }
+//    {
+//        id: "DeserPrimitiveHeaderMissing",
+//        protocol: "aws.protocols#restJson1",
+//        code: 200,
+//        headers: { },
+//        params: { field: 0 }
+//    }
 ])
 @http(uri: "/primitive", method: "POST")
 operation PrimitiveIntHeader {

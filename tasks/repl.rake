@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+desc 'Start an interactive REPL session with the SDK loaded'
 task :repl do
   # Modify load path to include all sdk gems
   Dir.glob('gems/*/lib') do |gem_path|

@@ -1,9 +1,6 @@
 # frozen_string_literal: true
 
-require 'fileutils'
-
-ROOT = File.dirname(__FILE__)
-GEMS_DIR = "#{ROOT}/gems"
+$aws_protocol_test_codegen_dir = 'codegen/aws-protocol-test-codegen/build/smithyprojections/aws-protocol-test-codegen'
 
 Dir.glob("tasks/**/*.rake").each do |task_file|
   load(task_file)
