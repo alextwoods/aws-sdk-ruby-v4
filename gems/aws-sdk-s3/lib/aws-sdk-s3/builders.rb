@@ -2851,7 +2851,6 @@ module AWS::SDK::S3
           )
         )
         http_req.body = input[:body]
-        http_req.headers['Transfer-Encoding'] = 'chunked'
         http_req.headers['Content-Type'] = 'application/octet-stream'
         http_req.headers['x-amz-acl'] = input[:acl] unless input[:acl].nil? || input[:acl].empty?
         http_req.headers['Cache-Control'] = input[:cache_control] unless input[:cache_control].nil? || input[:cache_control].empty?
@@ -3540,7 +3539,6 @@ module AWS::SDK::S3
         params['uploadId'] = input[:upload_id].to_s unless input[:upload_id].nil?
         http_req.append_query_param_list(params)
         http_req.body = input[:body]
-        http_req.headers['Transfer-Encoding'] = 'chunked'
         http_req.headers['Content-Type'] = 'application/octet-stream'
         http_req.headers['Content-Length'] = input[:content_length].to_s unless input[:content_length].nil?
         http_req.headers['Content-MD5'] = input[:content_md5] unless input[:content_md5].nil? || input[:content_md5].empty?
@@ -3635,7 +3633,6 @@ module AWS::SDK::S3
         end
         http_req.append_path('/WriteGetObjectResponse')
         http_req.body = input[:body]
-        http_req.headers['Transfer-Encoding'] = 'chunked'
         http_req.headers['Content-Type'] = 'application/octet-stream'
         http_req.headers['x-amz-request-route'] = input[:request_route] unless input[:request_route].nil? || input[:request_route].empty?
         http_req.headers['x-amz-request-token'] = input[:request_token] unless input[:request_token].nil? || input[:request_token].empty?
