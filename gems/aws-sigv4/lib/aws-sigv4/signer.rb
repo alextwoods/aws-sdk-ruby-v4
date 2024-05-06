@@ -484,7 +484,10 @@ module AWS
           creds, date, options[:region], options[:service]
         )
         params['X-Amz-Date'] = datetime
-        params['X-Amz-Expires'] = options[:expires_in].to_s
+        params['X-Amz-Expires'] = presigned_url_expiration(
+          options, creds.expiration,
+          Time.strptime(datetime, '%Y%m%dT%H%M%S%Z')
+        ).to_s
         if creds.session_token && !options[:omit_session_token]
           if options[:signing_algorithm] == :'sigv4-s3express'
             params['X-Amz-S3session-Token'] = creds.session_token
@@ -849,20 +852,36 @@ module AWS
         end
       end
 
+      def presigned_url_expiration(options, expiration, datetime)
+        expires_in = extract_expires_in(options)
+        return expires_in unless expiration
+
+        expiration_seconds = (expiration - datetime).to_i
+        # In the static stability case, credentials may expire in the past
+        # but still be valid.  For those cases, use the user configured
+        # expires_in and ignore expiration.
+        if expiration_seconds <= 0
+          expires_in
+        else
+          [expires_in, expiration_seconds].min
+        end
+      end
+
       ### CRT Code
 
       # the credentials used by CRT must be a
       # CRT StaticCredentialsProvider object
-      def crt_fetch_credentials(options)
+      def crt_credentials(creds)
         Aws::Crt::Auth::StaticCredentialsProvider.new(
-          options[:credentials].access_key_id,
-          options[:credentials].secret_access_key,
-          options[:credentials].session_token
+          creds.access_key_id,
+          creds.secret_access_key,
+          creds.session_token
         )
       end
 
       def crt_sign_request(request, options)
-        creds = crt_fetch_credentials(options)
+        creds = fetch_credentials(options)
+        crt_creds = crt_credentials(creds)
 
         http_method = extract_http_method(request)
         url = extract_url(request)
@@ -906,7 +925,7 @@ module AWS
           date: datetime,
           signed_body_value: content_sha256,
           signed_body_header_type: sbht,
-          credentials: creds,
+          credentials: crt_creds,
           unsigned_headers: options[:unsigned_headers],
           use_double_uri_encode: options[:uri_escape_path],
           should_normalize_uri_path: options[:normalize_path],
@@ -933,7 +952,8 @@ module AWS
       end
 
       def crt_presign_url(request, options)
-        creds = crt_fetch_credentials(options)
+        creds = fetch_credentials(options)
+        crt_creds = crt_credentials(creds)
 
         http_method = extract_http_method(request)
         url = extract_url(request)
@@ -942,7 +962,7 @@ module AWS
 
         datetime =
           if headers.include?('x-amz-date')
-            Time.parse(headers.delete('x-amz-date'))
+            Time.strptime(headers.delete('x-amz-date'), '%Y%m%dT%H%M%S%Z')
           end
         datetime ||= options[:time]
 
@@ -958,12 +978,14 @@ module AWS
           date: datetime,
           signed_body_value: content_sha256,
           signed_body_header_type: :sbht_none, # url does not use checksum
-          credentials: creds,
+          credentials: crt_creds,
           unsigned_headers: options[:unsigned_headers],
           use_double_uri_encode: options[:uri_escape_path],
           should_normalize_uri_path: options[:normalize_path],
           omit_session_token: options[:omit_session_token],
-          expiration_in_seconds: options[:expires_in]
+          expiration_in_seconds: presigned_url_expiration(
+            options, creds.expiration, datetime
+          )
         )
         http_request = Aws::Crt::Http::Message.new(
           http_method, url.to_s, headers

@@ -784,6 +784,25 @@ module AWS::SigV4
             expect { subject.presign_url(request: request, expires_in: 'foo') }
               .to raise_error(ArgumentError, /number of seconds/)
           end
+
+          context 'credentials expiration' do
+            let(:credentials) do
+              Credentials.new(
+                access_key_id: 'akid',
+                secret_access_key: 'secret',
+                session_token: 'token',
+                expiration: time + 180
+              )
+            end
+
+            it 'picks the min from expires_in and credential expiration' do
+              presigned_url = subject.presign_url(
+                request: request,
+                expires_in: 3600
+              )
+              expect(presigned_url.url.to_s).to include('X-Amz-Expires=180')
+            end
+          end
         end
 
         # :time is tested in suite spec
