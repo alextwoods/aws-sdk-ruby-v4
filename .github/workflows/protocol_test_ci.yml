@@ -56,7 +56,7 @@ jobs:
           bundle install
           
       - name: Build test sdks
-        run: bundle exec rake codegen:build:protocol-test-codegen
+        run: bundle exec rake codegen:build:aws-protocol-test-codegen
 
       - name: Run Protocol Tests
-        run: bundle exec rake test:protocol:${{ matrix.protocol }}
+        run: bundle exec rake protocol-test:${{ matrix.protocol }}
