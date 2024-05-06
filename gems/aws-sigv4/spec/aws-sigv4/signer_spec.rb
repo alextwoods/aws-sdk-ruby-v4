@@ -11,7 +11,9 @@ module AWS::SigV4
       @credentials = credentials
     end
 
-    attr_reader :credentials
+    def identity
+      @credentials
+    end
   end
 
   describe Signer do
@@ -109,7 +111,7 @@ module AWS::SigV4
             credentials.access_key_id,
             credentials.secret_access_key,
             credentials.session_token
-          ).and_return(credential_provider)
+          ).and_return(crt_credential_provider)
 
         allow(::Aws::Crt::Http::Message).to receive(:new)
           .and_return(message)
@@ -117,7 +119,7 @@ module AWS::SigV4
           .and_return(signable)
       end
 
-      let(:credential_provider) do
+      let(:crt_credential_provider) do
         double('StaticCredentialsProvider', credentials: credentials)
       end
       let(:signing_config) { double('SigningConfig') }
@@ -141,7 +143,7 @@ module AWS::SigV4
               date: time,
               signed_body_value: digest,
               signed_body_header_type: :sbht_none,
-              credentials: credential_provider,
+              credentials: crt_credential_provider,
               unsigned_headers: unsigned_headers,
               use_double_uri_encode: uri_escape_path,
               should_normalize_uri_path: normalize_path,
@@ -245,7 +247,7 @@ module AWS::SigV4
               date: time,
               signed_body_value: digest,
               signed_body_header_type: :sbht_none,
-              credentials: credential_provider,
+              credentials: crt_credential_provider,
               unsigned_headers: unsigned_headers,
               use_double_uri_encode: uri_escape_path,
               should_normalize_uri_path: normalize_path,

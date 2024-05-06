@@ -42,7 +42,7 @@ module AWS
     # You can configure the signer with a static {Credentials} object via the
     # `:credentials` option, or you can provide refreshing credentials via the
     # `:credential_provider` option. A credential provider is any object that
-    # responds to `#credentials` and returns a {Credentials} object. If both
+    # responds to `#identity` and returns a {Credentials} object. If both
     # options are provided, the `:credential_provider` takes precedence.
     #
     # If you are using the AWS SDK for Ruby, you can use any of the credential
@@ -74,7 +74,7 @@ module AWS
     #   signer = AWS::SigV4::Signer.new(
     #     service: 's3',
     #     region: 'us-east-1',
-    #     # refreshing credential provider, responds to #credentials
+    #     # refreshing credential provider, responds to #identity
     #     credential_provider: AWS::SDK::Core::EC2CredentialProvider.new
     #   )
     #
@@ -98,8 +98,8 @@ module AWS
       #     * `#session_token` => String, nil
       #     * `#expiration` => Time, nil
       #
-      # @option options [#credentials] :credential_provider An object that
-      #   responds to `#credentials`, returning a {Credentials} object or any
+      # @option options [#identity] :credential_provider An object that
+      #   responds to `#identity`, returning a {Credentials} object or any
       #   an object that responds to the following methods:
       #
       #     * `#access_key_id` => String
@@ -161,7 +161,7 @@ module AWS
       # @return [Credentials, nil]
       attr_reader :credentials
 
-      # @return [#credentials, nil]
+      # @return [#identity, nil]
       attr_reader :credential_provider
 
       # @return [Set<String>]
@@ -790,7 +790,7 @@ module AWS
                 'missing required option :credentials or :credentials_provider.'
         end
 
-        credentials = provider.credentials if provider
+        credentials = provider.identity if provider
         unless credentials.set?
           raise ArgumentError,
                 'Unable to sign the request without credentials set.'
