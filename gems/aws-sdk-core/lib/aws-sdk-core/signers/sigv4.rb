@@ -4,12 +4,19 @@ module AWS::SDK::Core
   module Signers
     # A signer that signs requests using the SigV4 Auth scheme.
     class SigV4 < Hearth::Signers::Base
+
+      # @param signer
+      def initialize(signer: AWS::SigV4::Signer.new)
+        @signer = signer
+        super()
+      end
+
+      attr_reader :signer
       def sign(request:, identity:, properties:)
-        signer = AWS::SigV4::Signer.new
 
         apply_unsigned_body(request, properties)
 
-        signature = signer.sign_request(request: request,
+        signature = @signer.sign_request(request: request,
                                         credentials: identity,
                                         **properties)
         apply_signature(request, signature)
