@@ -4,21 +4,34 @@ module AWS::SDK::Core
   module Signers
     # A signer that signs requests using the SigV4 Auth scheme.
     class SigV4 < Hearth::Signers::Base
-
-      # @param signer
+      # @param signer [AWS::SigV4::Signer] An initialized signer, allowing
+      #   override of default signing parameters. To override default signing
+      #   behavior, configure an auth_scheme on the client:
+      #
+      #     client = Aws::S3::Client.new(
+      #       auth_schemes: [
+      #         AWS::SDK::Core::AuthSchemes::SigV4.new(
+      #           signer: AWS::SDK::Core::Signers::SigV4.new(
+      #            signer: AWS::SigV4::Signer.new(**my_signing_properties)))
+      #       ])
+      #
+      #    Note: If you need to override resolved signing properties, you must
+      #    wrap the auth_resolver and modify the returned properties
+      #    rather than initializing a signer with those properties - providing
+      #    an initialized signer here is only for overriding signing defaults.
       def initialize(signer: AWS::SigV4::Signer.new)
         @signer = signer
         super()
       end
 
       attr_reader :signer
-      def sign(request:, identity:, properties:)
 
+      def sign(request:, identity:, properties:)
         apply_unsigned_body(request, properties)
 
         signature = @signer.sign_request(request: request,
-                                        credentials: identity,
-                                        **properties)
+                                         credentials: identity,
+                                         **properties)
         apply_signature(request, signature)
       end
 

@@ -14,3 +14,13 @@ module AWS::SDK::Core
     end
   end
 end
+
+Aws::S3::Client.new(
+  auth_schemes: [
+    AWS::SDK::Core::AuthSchemes::SigV4.new(
+      signer: AWS::SDK::Core::Signers::SigV4.new(
+        signer: AWS::SigV4::Signer.new(**my_signing_properties)
+      )
+    )
+  ]
+)
