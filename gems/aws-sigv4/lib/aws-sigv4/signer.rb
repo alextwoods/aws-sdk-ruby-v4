@@ -24,7 +24,7 @@ module AWS
     #   the prior signature used for the next event signing.
     #
     # To use the signer, you need to specify the service, region, and
-    # credentials, either on {#initialize} or passed to `sign_request`.
+    # credentials.
     #
     # The service name is normally the endpoint prefix to an AWS
     # service. For example:
@@ -39,45 +39,11 @@ module AWS
     # It is important to have the correct service and region name, or the
     # signature will be invalid.
     #
-    # You can configure the signer with a static {Credentials} object via the
-    # `:credentials` option, or you can provide refreshing credentials via the
-    # `:credential_provider` option. A credential provider is any object that
-    # responds to `#identity` and returns a {Credentials} object. If both
-    # options are provided, the `:credential_provider` takes precedence.
-    #
-    # If you are using the AWS SDK for Ruby, you can use any of the credential
-    # provider classes:
-    #
-    # * AWS::SDK::Core::AssumeRoleCredentialProvider
-    # * AWS::SDK::Core::AssumeRoleWebIdentityCredentialProvider
-    # * AWS::SDK::Core::EC2CredentialProvider
-    # * AWS::SDK::Core::ECSCredentialProvider
-    # * AWS::SDK::Core::ProcessCredentialProvider
-    # * AWS::SDK::Core::SSOCredentialProvider
-    # * AWS::SDK::Core::StaticCredentialProvider
-    # * AWS::SDK::CognitoIdentity::CredentialProvider
-    #
-    # @example Configuring with static credentials:
-    #
-    #   signer = AWS::SigV4::Signer.new(
-    #     service: 's3',
-    #     region: 'us-east-1',
-    #     # static credentials
-    #     credentials: AWS::SigV4::Credentials.new(
-    #       access_key_id: 'akid',
-    #       secret_access_key: 'secret'
-    #     )
-    #   )
-    #
-    # @example Configuring with a credential provider:
-    #
-    #   signer = AWS::SigV4::Signer.new(
-    #     service: 's3',
-    #     region: 'us-east-1',
-    #     # refreshing credential provider, responds to #identity
-    #     credential_provider: AWS::SDK::Core::EC2CredentialProvider.new
-    #   )
-    #
+    # When calling {#sign_request}, {#presign_url} or {#sign_event} you must
+    # provide AWS {Credentials}. If you are using the AWS SDK for Ruby and are
+    # using any of the Credentials Providers then you must call the #identity
+    # method each time you are signing a request to ensure that you are using
+    # the latest, refreshed credentials.
     class Signer
       @use_crt =
         begin
@@ -89,23 +55,6 @@ module AWS
       # @option options [String] :service The service signing name, e.g. 's3'.
       #
       # @option options [String] :region The region name, e.g. 'us-east-1'.
-      #
-      # @option options [Credentials] :credentials A {Credentials} object, or
-      #   any object that responds to the following methods:
-      #
-      #     * `#access_key_id` => String
-      #     * `#secret_access_key` => String
-      #     * `#session_token` => String, nil
-      #     * `#expiration` => Time, nil
-      #
-      # @option options [#identity] :credential_provider An object that
-      #   responds to `#identity`, returning a {Credentials} object or any
-      #   an object that responds to the following methods:
-      #
-      #     * `#access_key_id` => String
-      #     * `#secret_access_key` => String
-      #     * `#session_token` => String, nil
-      #     * `#expiration` => Time, nil
       #
       # @option options [Array<String>] :unsigned_headers ([]) A list of
       #   headers that should not be signed. This is useful when a proxy
@@ -157,12 +106,6 @@ module AWS
 
       # @return [String, nil]
       attr_reader :region
-
-      # @return [Credentials, nil]
-      attr_reader :credentials
-
-      # @return [#identity, nil]
-      attr_reader :credential_provider
 
       # @return [Set<String>]
       attr_reader :unsigned_headers
@@ -231,20 +174,30 @@ module AWS
       #   A sha256 checksum is computed of the body unless the
       #   'X-Amz-Content-Sha256' header is set.
       #
+      # @param credentials [required, Credentials] A {Credentials} object, or
+      #   any object that responds to the following methods:
+      #
+      #     * `#access_key_id` => String
+      #     * `#secret_access_key` => String
+      #     * `#session_token` => String, nil
+      #     * `#expiration` => Time, nil
+      #
       # @option kwargs [Time] :time (Time.now) Time of the signature.
-      #   This value can be used as the starting time for the signed request.
+      #   This value will be used as the starting time for the signed request.
       #
       # @param kwargs Accepts additional options provided to {#initialize}.
       #
       # @return [Signature] Return an instance of {Signature} that has
       #   a `#headers` method. The headers must be applied to your request.
       #
-      def sign_request(request:, **kwargs)
+      def sign_request(request:, credentials:, **kwargs)
+        validate_credentials(credentials)
         options = extract_options(kwargs)
 
-        return crt_sign_request(request, options) if Signer.use_crt?
-
-        creds = options[:credentials]
+        if Signer.use_crt?
+          return crt_sign_request(request, credentials,
+                                  options)
+        end
 
         http_method = extract_http_method(request)
         url = extract_url(request)
@@ -261,11 +214,11 @@ module AWS
         sigv4_headers = {}
         sigv4_headers['host'] = headers['host'] || host(url)
         sigv4_headers['x-amz-date'] = datetime
-        if creds.session_token && !options[:omit_session_token]
+        if credentials.session_token && !options[:omit_session_token]
           if options[:signing_algorithm] == :'sigv4-s3express'
-            sigv4_headers['x-amz-s3session-token'] = creds.session_token
+            sigv4_headers['x-amz-s3session-token'] = credentials.session_token
           else
-            sigv4_headers['x-amz-security-token'] = creds.session_token
+            sigv4_headers['x-amz-security-token'] = credentials.session_token
           end
         end
         if options[:apply_checksum_header]
@@ -285,11 +238,11 @@ module AWS
           datetime, options[:region], options[:service], creq
         )
         sig = signature(
-          creds.secret_access_key, date,
+          credentials.secret_access_key, date,
           options[:region], options[:service], sts
         )
         credential = credential(
-          creds, date, options[:region], options[:service]
+          credentials, date, options[:region], options[:service]
         )
         signed_headers = signed_headers(headers, options[:unsigned_headers])
 
@@ -300,8 +253,8 @@ module AWS
           "Signature=#{sig}"
         ].join(', ')
 
-        if creds.session_token && options[:omit_session_token]
-          sigv4_headers['x-amz-security-token'] = creds.session_token
+        if credentials.session_token && options[:omit_session_token]
+          sigv4_headers['x-amz-security-token'] = credentials.session_token
         end
 
         # Returning the signature components.
@@ -387,7 +340,8 @@ module AWS
       #       request: {
       #         http_method: 'GET',
       #         url: 'https://my-bucket.s3-us-east-1.amazonaws.com/key',
-      #       }
+      #       },
+      #       credentials: credentials
       #     )
       #
       # By default, signatures are valid for 15 minutes. You can specify
@@ -398,6 +352,7 @@ module AWS
       #         http_method: 'GET',
       #         url: 'https://my-bucket.s3-us-east-1.amazonaws.com/key',
       #       },
+      #       credentials: credentials,
       #       expires_in: 3600 # one hour
       #     )
       #
@@ -413,7 +368,8 @@ module AWS
       #         headers: {
       #           'X-Amz-Meta-Custom' => 'metadata'
       #         }
-      #       }
+      #       },
+      #       credentials: credentials
       #     )
       #
       # @param [required, Hash] request A hash of request parts for signing.
@@ -438,6 +394,14 @@ module AWS
       #   A sha256 checksum is computed of the body unless the
       #   'X-Amz-Content-Sha256' header is set.
       #
+      # @param credentials [required, Credentials] A {Credentials} object, or
+      #   any object that responds to the following methods:
+      #
+      #     * `#access_key_id` => String
+      #     * `#secret_access_key` => String
+      #     * `#session_token` => String, nil
+      #     * `#expiration` => Time, nil
+      #
       # @option kwargs [Integer] :expires_in (900) The number of seconds that
       #   the pre-signed URL should be valid for. Defaults to 15 minutes.
       #
@@ -456,12 +420,11 @@ module AWS
       # @return [PresignedUrl]
       #
       # @see http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html
-      def presign_url(request:, **kwargs)
+      def presign_url(request:, credentials:, **kwargs)
+        validate_credentials(credentials)
         options = extract_options(kwargs)
 
-        return crt_presign_url(request, options) if Signer.use_crt?
-
-        creds = options[:credentials]
+        return crt_presign_url(request, credentials, options) if Signer.use_crt?
 
         http_method = extract_http_method(request)
         url = extract_url(request)
@@ -481,18 +444,18 @@ module AWS
         params = {}
         params['X-Amz-Algorithm'] = 'AWS4-HMAC-SHA256'
         params['X-Amz-Credential'] = credential(
-          creds, date, options[:region], options[:service]
+          credentials, date, options[:region], options[:service]
         )
         params['X-Amz-Date'] = datetime
         params['X-Amz-Expires'] = presigned_url_expiration(
-          options, creds.expiration,
+          options, credentials.expiration,
           Time.strptime(datetime, '%Y%m%dT%H%M%S%Z')
         ).to_s
-        if creds.session_token && !options[:omit_session_token]
+        if credentials.session_token && !options[:omit_session_token]
           if options[:signing_algorithm] == :'sigv4-s3express'
-            params['X-Amz-S3session-Token'] = creds.session_token
+            params['X-Amz-S3session-Token'] = credentials.session_token
           else
-            params['X-Amz-Security-Token'] = creds.session_token
+            params['X-Amz-Security-Token'] = credentials.session_token
           end
         end
         params['X-Amz-SignedHeaders'] = signed_headers(
@@ -520,12 +483,12 @@ module AWS
           datetime, options[:region], options[:service], creq
         )
         sig = signature(
-          creds.secret_access_key, date, options[:region],
+          credentials.secret_access_key, date, options[:region],
           options[:service], sts
         )
         url.query += "&X-Amz-Signature=#{sig}"
-        if creds.session_token && options[:omit_session_token]
-          escaped_token = CGI.escape(creds.session_token)
+        if credentials.session_token && options[:omit_session_token]
+          escaped_token = CGI.escape(credentials.session_token)
           url.query += "&X-Amz-Security-Token=#{escaped_token}"
         end
 
@@ -743,7 +706,6 @@ module AWS
           # request options
           service: extract_service(kwargs),
           region: extract_region(kwargs),
-          credentials: fetch_credentials(kwargs),
           unsigned_headers: kwargs.fetch(:unsigned_headers, @unsigned_headers)
                                   .map(&:downcase),
           uri_escape_path: kwargs.fetch(:uri_escape_path, @uri_escape_path),
@@ -784,22 +746,11 @@ module AWS
         end
       end
 
-      def fetch_credentials(kwargs)
-        credentials = kwargs.fetch(:credentials, @credentials)
-        provider = kwargs.fetch(:credential_provider, @credential_provider)
+      def validate_credentials(credentials)
+        return if credentials&.set?
 
-        if !credentials && !provider
-          raise ArgumentError,
-                'missing required option :credentials or :credentials_provider.'
-        end
-
-        credentials = provider.identity if provider
-        unless credentials.set?
-          raise ArgumentError,
-                'Unable to sign the request without credentials set.'
-        end
-
-        credentials
+        raise ArgumentError,
+              'Unable to sign the request without credentials set.'
       end
 
       def extract_signing_algorithm(kwargs)
@@ -879,9 +830,8 @@ module AWS
         )
       end
 
-      def crt_sign_request(request, options)
-        creds = fetch_credentials(options)
-        crt_creds = crt_credentials(creds)
+      def crt_sign_request(request, credentials, options)
+        crt_creds = crt_credentials(credentials)
 
         http_method = extract_http_method(request)
         url = extract_url(request)
@@ -951,9 +901,8 @@ module AWS
         )
       end
 
-      def crt_presign_url(request, options)
-        creds = fetch_credentials(options)
-        crt_creds = crt_credentials(creds)
+      def crt_presign_url(request, credentials, options)
+        crt_creds = crt_credentials(credentials)
 
         http_method = extract_http_method(request)
         url = extract_url(request)
@@ -984,7 +933,7 @@ module AWS
           should_normalize_uri_path: options[:normalize_path],
           omit_session_token: options[:omit_session_token],
           expiration_in_seconds: presigned_url_expiration(
-            options, creds.expiration, datetime
+            options, credentials.expiration, datetime
           )
         )
         http_request = Aws::Crt::Http::Message.new(
