@@ -60,7 +60,7 @@ module AWS
       #   headers that should not be signed. This is useful when a proxy
       #   modifies headers, such as 'User-Agent', invalidating a signature.
       #
-      # @option options [Boolean] :uri_escape_path (true) When `true`,
+      # @option options [Boolean] :use_double_uri_encode (true) When `true`,
       #   the request URI path is uri-escaped as part of computing the canonical
       #   request string. This is required for every service, except Amazon S3,
       #   as of late 2016.
@@ -79,7 +79,7 @@ module AWS
       #   but is treated as "unsigned" and does not contribute
       #   to the authorization signature.
       #
-      # @option options [Boolean] :normalize_path (true)
+      # @option options [Boolean] :should_normalize_uri_path (true)
       #   When `true`, the uri paths will be normalized
       #   when building the canonical request.
       def initialize(options = {})
@@ -92,10 +92,10 @@ module AWS
         @unsigned_headers << 'user-agent'
         # do not sign authorization
         @unsigned_headers << 'authorization'
-        @uri_escape_path = options.fetch(:uri_escape_path, true)
+        @use_double_uri_encode = options.fetch(:use_double_uri_encode, true)
         @apply_checksum_header = options.fetch(:apply_checksum_header, true)
         @signing_algorithm = options.fetch(:signing_algorithm, :sigv4)
-        @normalize_path = options.fetch(:normalize_path, true)
+        @should_normalize_uri_path = options.fetch(:should_normalize_uri_path, true)
         @omit_session_token = options.fetch(:omit_session_token, false)
       end
 
@@ -109,7 +109,7 @@ module AWS
       attr_reader :unsigned_headers
 
       # @return [Boolean]
-      attr_reader :uri_escape_path
+      attr_reader :use_double_uri_encode
 
       # @return [Boolean]
       attr_reader :apply_checksum_header
@@ -118,7 +118,7 @@ module AWS
       attr_reader :signing_algorithm
 
       # @return [Boolean]
-      attr_reader :normalize_path
+      attr_reader :should_normalize_uri_path
 
       # @return [Boolean]
       attr_reader :omit_session_token
@@ -202,7 +202,7 @@ module AWS
 
         http_method = extract_http_method(request)
         uri = extract_uri(request)
-        Signer.normalize_path(uri) if options[:normalize_path]
+        Signer.normalize_path(uri) if options[:should_normalize_uri_path]
         headers = downcase_headers(request[:headers])
 
         datetime = headers['x-amz-date']
@@ -231,7 +231,7 @@ module AWS
 
         # compute signature parts
         creq = canonical_request(
-          http_method, uri, options[:uri_escape_path],
+          http_method, uri, options[:use_double_uri_encode],
           headers, options[:unsigned_headers], content_sha256
         )
 
@@ -432,7 +432,7 @@ module AWS
 
         http_method = extract_http_method(request)
         uri = extract_uri(request)
-        Signer.normalize_path(uri) if options[:normalize_path]
+        Signer.normalize_path(uri) if options[:should_normalize_uri_path]
 
         headers = downcase_headers(request[:headers])
         headers['host'] ||= host(uri)
@@ -480,7 +480,7 @@ module AWS
         end
 
         creq = canonical_request(
-          http_method, uri, options[:uri_escape_path], headers,
+          http_method, uri, options[:use_double_uri_encode], headers,
           options[:unsigned_headers], content_sha256
         )
         sts = string_to_sign(
@@ -510,11 +510,11 @@ module AWS
 
       private
 
-      def canonical_request(http_method, uri, uri_escape_path, headers,
+      def canonical_request(http_method, uri, use_double_uri_encode, headers,
                             unsigned_headers, content_sha256)
         [
           http_method,
-          path(uri, uri_escape_path),
+          path(uri, use_double_uri_encode),
           normalized_querystring(uri.query || ''),
           "#{canonical_headers(headers, unsigned_headers)}\n",
           signed_headers(headers, unsigned_headers),
@@ -594,10 +594,10 @@ module AWS
       #   hmac(k_credentials, string_to_sign)
       # end
 
-      def path(uri, uri_escape_path)
+      def path(uri, use_double_uri_encode)
         path = uri.path
         path = '/' if path == ''
-        if uri_escape_path
+        if use_double_uri_encode
           Signer.uri_escape_path(path)
         else
           path
@@ -712,12 +712,12 @@ module AWS
           region: extract_region(kwargs),
           unsigned_headers: kwargs.fetch(:unsigned_headers, @unsigned_headers)
                                   .map(&:downcase),
-          uri_escape_path: kwargs.fetch(:uri_escape_path, @uri_escape_path),
+          use_double_uri_encode: kwargs.fetch(:use_double_uri_encode, @use_double_uri_encode),
           apply_checksum_header: kwargs.fetch(
             :apply_checksum_header, @apply_checksum_header
           ),
           signing_algorithm: extract_signing_algorithm(kwargs),
-          normalize_path: kwargs.fetch(:normalize_path, @normalize_path),
+          should_normalize_uri_path: kwargs.fetch(:should_normalize_uri_path, @should_normalize_uri_path),
           omit_session_token: kwargs.fetch(
             :omit_session_token, @omit_session_token
           ),
@@ -893,8 +893,8 @@ module AWS
           signed_body_header_type: sbht,
           credentials: crt_creds,
           unsigned_headers: options[:unsigned_headers],
-          use_double_uri_encode: options[:uri_escape_path],
-          should_normalize_uri_path: options[:normalize_path],
+          use_double_uri_encode: options[:use_double_uri_encode],
+          should_normalize_uri_path: options[:should_normalize_uri_path],
           omit_session_token: options[:omit_session_token]
         )
         http_request = Aws::Crt::Http::Message.new(
@@ -945,8 +945,8 @@ module AWS
           signed_body_header_type: :sbht_none, # uri does not use checksum
           credentials: crt_creds,
           unsigned_headers: options[:unsigned_headers],
-          use_double_uri_encode: options[:uri_escape_path],
-          should_normalize_uri_path: options[:normalize_path],
+          use_double_uri_encode: options[:use_double_uri_encode],
+          should_normalize_uri_path: options[:should_normalize_uri_path],
           omit_session_token: options[:omit_session_token],
           expiration_in_seconds: presigned_url_expiration(
             options, credentials.expiration, datetime

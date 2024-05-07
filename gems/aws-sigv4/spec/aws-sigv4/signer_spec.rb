@@ -22,11 +22,11 @@ module AWS::SigV4
 
     # non defaults
     let(:unsigned_headers) { ['x-foo-unsigned'] }
-    let(:uri_escape_path) { false }
+    let(:use_double_uri_encode) { false }
     let(:apply_checksum_header) { false }
     let(:signing_algorithm) { :sigv4a }
     let(:omit_session_token) { true }
-    let(:normalize_path) { false }
+    let(:should_normalize_uri_path) { false }
     let(:time) { Time.now }
     let(:expires_in) { 10 }
 
@@ -60,28 +60,28 @@ module AWS::SigV4
       it 'sets defaults' do
         signer = Signer.new
         expect(signer.unsigned_headers).to eq(default_unsigned_headers)
-        expect(signer.uri_escape_path).to be true
+        expect(signer.use_double_uri_encode).to be true
         expect(signer.apply_checksum_header).to be true
         expect(signer.signing_algorithm).to eq(:sigv4)
-        expect(signer.normalize_path).to be true
+        expect(signer.should_normalize_uri_path).to be true
         expect(signer.omit_session_token).to be false
       end
 
       it 'can configure all non-default values' do
         signer = Signer.new(
           unsigned_headers: unsigned_headers,
-          uri_escape_path: uri_escape_path,
+          use_double_uri_encode: use_double_uri_encode,
           apply_checksum_header: apply_checksum_header,
           signing_algorithm: signing_algorithm,
           omit_session_token: omit_session_token,
-          normalize_path: normalize_path
+          should_normalize_uri_path: should_normalize_uri_path
         )
         expect(signer.unsigned_headers)
           .to eq(default_unsigned_headers + unsigned_headers)
-        expect(signer.uri_escape_path).to be false
+        expect(signer.use_double_uri_encode).to be false
         expect(signer.apply_checksum_header).to be false
         expect(signer.signing_algorithm).to eq(:sigv4a)
-        expect(signer.normalize_path).to be false
+        expect(signer.should_normalize_uri_path).to be false
         expect(signer.omit_session_token).to be true
       end
     end
@@ -132,8 +132,8 @@ module AWS::SigV4
               signed_body_header_type: :sbht_none,
               credentials: crt_credential_provider,
               unsigned_headers: unsigned_headers,
-              use_double_uri_encode: uri_escape_path,
-              should_normalize_uri_path: normalize_path,
+              use_double_uri_encode: use_double_uri_encode,
+              should_normalize_uri_path: should_normalize_uri_path,
               omit_session_token: omit_session_token
             ).and_return(signing_config)
 
@@ -152,11 +152,11 @@ module AWS::SigV4
             service: service,
             region: region,
             unsigned_headers: unsigned_headers,
-            uri_escape_path: uri_escape_path,
+            use_double_uri_encode: use_double_uri_encode,
             apply_checksum_header: apply_checksum_header,
             signing_algorithm: signing_algorithm,
             omit_session_token: omit_session_token,
-            normalize_path: normalize_path,
+            should_normalize_uri_path: should_normalize_uri_path,
             time: time
           )
         end
@@ -239,8 +239,8 @@ module AWS::SigV4
               signed_body_header_type: :sbht_none,
               credentials: crt_credential_provider,
               unsigned_headers: unsigned_headers,
-              use_double_uri_encode: uri_escape_path,
-              should_normalize_uri_path: normalize_path,
+              use_double_uri_encode: use_double_uri_encode,
+              should_normalize_uri_path: should_normalize_uri_path,
               omit_session_token: omit_session_token,
               expiration_in_seconds: expires_in
             ).and_return(signing_config)
@@ -268,11 +268,11 @@ module AWS::SigV4
             service: service,
             region: region,
             unsigned_headers: unsigned_headers,
-            uri_escape_path: uri_escape_path,
+            use_double_uri_encode: use_double_uri_encode,
             apply_checksum_header: apply_checksum_header,
             signing_algorithm: signing_algorithm,
             omit_session_token: omit_session_token,
-            normalize_path: normalize_path,
+            should_normalize_uri_path: should_normalize_uri_path,
             time: time,
             expires_in: expires_in
           )
@@ -444,7 +444,7 @@ module AWS::SigV4
             signature = subject.sign_request(
               request: request.merge(uri: 'https://domain.com/foo%bar'),
               credentials: credentials,
-              uri_escape_path: uri_escape_path
+              use_double_uri_encode: use_double_uri_encode
             )
             expect(signature.metadata[:canonical_request])
               .to include("/foo%bar\n")
@@ -522,7 +522,7 @@ module AWS::SigV4
             signature = subject.sign_request(
               request: request.merge(uri: "#{request[:uri]}/foo/.."),
               credentials: credentials,
-              normalize_path: normalize_path
+              should_normalize_uri_path: should_normalize_uri_path
             )
             expect(signature.metadata[:canonical_request])
               .to include("/foo/..\n")
@@ -643,7 +643,7 @@ module AWS::SigV4
             presigned_url = subject.presign_url(
               request: request.merge(uri: 'https://domain.com/foo%bar'),
               credentials: credentials,
-              uri_escape_path: uri_escape_path
+              use_double_uri_encode: use_double_uri_encode
             )
             expect(presigned_url.metadata[:canonical_request])
               .to include("/foo%bar\n")
@@ -703,7 +703,7 @@ module AWS::SigV4
             presigned_url = subject.presign_url(
               request: request.merge(uri: "#{request[:uri]}/foo/.."),
               credentials: credentials,
-              normalize_path: normalize_path
+              should_normalize_uri_path: should_normalize_uri_path
             )
             expect(presigned_url.metadata[:canonical_request])
               .to include("/foo/..\n")

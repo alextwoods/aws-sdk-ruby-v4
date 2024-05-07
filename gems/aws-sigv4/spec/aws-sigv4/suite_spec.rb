@@ -20,8 +20,8 @@ module AWS::SigV4
         service: context['service'],
         region: context['region'],
         signing_algorithm: signing_algorithm,
-        uri_escape_path: false,
-        normalize_path: context['normalize'],
+        use_double_uri_encode: false,
+        should_normalize_uri_path: context['normalize'],
         apply_checksum_header: context['sign_body'],
         # most tests don't have this
         omit_session_token: context.fetch('omit_session_token', false)
