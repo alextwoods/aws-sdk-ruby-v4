@@ -95,7 +95,8 @@ module AWS
         @use_double_uri_encode = options.fetch(:use_double_uri_encode, true)
         @apply_checksum_header = options.fetch(:apply_checksum_header, true)
         @signing_algorithm = options.fetch(:signing_algorithm, :sigv4)
-        @should_normalize_uri_path = options.fetch(:should_normalize_uri_path, true)
+        @should_normalize_uri_path = options.fetch(:should_normalize_uri_path,
+                                                   true)
         @omit_session_token = options.fetch(:omit_session_token, false)
       end
 
@@ -712,12 +713,14 @@ module AWS
           region: extract_region(kwargs),
           unsigned_headers: kwargs.fetch(:unsigned_headers, @unsigned_headers)
                                   .map(&:downcase),
-          use_double_uri_encode: kwargs.fetch(:use_double_uri_encode, @use_double_uri_encode),
+          use_double_uri_encode: kwargs.fetch(:use_double_uri_encode,
+                                              @use_double_uri_encode),
           apply_checksum_header: kwargs.fetch(
             :apply_checksum_header, @apply_checksum_header
           ),
           signing_algorithm: extract_signing_algorithm(kwargs),
-          should_normalize_uri_path: kwargs.fetch(:should_normalize_uri_path, @should_normalize_uri_path),
+          should_normalize_uri_path: kwargs.fetch(:should_normalize_uri_path,
+                                                  @should_normalize_uri_path),
           omit_session_token: kwargs.fetch(
             :omit_session_token, @omit_session_token
           ),
