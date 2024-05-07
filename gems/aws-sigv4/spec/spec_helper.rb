@@ -58,7 +58,7 @@ module AWS::SigV4
 
         {
           http_method: http_method,
-          url: "https://#{headers['Host']}#{request_uri}",
+          uri: "https://#{headers['Host']}#{request_uri}",
           headers: headers,
           body: lines.join
         }

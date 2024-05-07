@@ -9,12 +9,7 @@ module AWS::SDK::Core
 
         apply_unsigned_body(request, properties)
 
-        signature = signer.sign_request(request: {
-                                          http_method: request.http_method,
-                                          url: request.uri,
-                                          headers: request.headers.to_h,
-                                          body: request.body
-                                        },
+        signature = signer.sign_request(request: request,
                                         credentials: identity,
                                         **properties)
         apply_signature(request, signature)
