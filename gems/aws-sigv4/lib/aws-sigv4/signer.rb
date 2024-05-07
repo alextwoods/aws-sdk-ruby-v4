@@ -157,7 +157,9 @@ module AWS
       #     signature.metadata[:string_to_sign] #=> "..."
       #     signature.metadata[:content_sha256] #=> "..."
       #
-      # @param [required, Hash] request A hash of request parts for signing.
+      # @param [required, Request, Hash] request A Request object such as
+      #   Hearth::HTTP::Request or similar or a hash of request parts for
+      #   signing.
       #   Parts must include :http_method and :url, and optionally include
       #   :headers and :body.
       #
@@ -194,6 +196,7 @@ module AWS
       def sign_request(request:, credentials:, **kwargs)
         validate_credentials(credentials)
         options = extract_options(kwargs)
+        request = extract_request(request)
 
         if Signer.use_crt?
           return crt_sign_request(request, credentials,
@@ -373,7 +376,9 @@ module AWS
       #       credentials: credentials
       #     )
       #
-      # @param [required, Hash] request A hash of request parts for signing.
+      # @param [required, Request, Hash] request A Request object such as
+      #   Hearth::HTTP::Request or similar or a hash of request parts for
+      #   signing.
       #   Parts must include :http_method and :url, and optionally include
       #   :headers and :body.
       #
@@ -424,6 +429,7 @@ module AWS
       def presign_url(request:, credentials:, **kwargs)
         validate_credentials(credentials)
         options = extract_options(kwargs)
+        request = extract_request(request)
 
         return crt_presign_url(request, credentials, options) if Signer.use_crt?
 
@@ -726,6 +732,22 @@ module AWS
           # presigned url
           expires_in: extract_expires_in(kwargs),
           body_digest: kwargs[:body_digest]
+        }
+      end
+
+      # allows using either a Hash or Request object
+      # Handles either url or uri
+      def extract_request(request)
+        if request.is_a?(Hash)
+          request[:url] ||= request[:uri]
+          return request
+        end
+
+        {
+          http_method: request.http_method,
+          url: request.respond_to?(:url) ? request.url : request.uri,
+          headers: request.headers.to_h,
+          body: request.body
         }
       end
 

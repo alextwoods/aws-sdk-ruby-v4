@@ -6,16 +6,6 @@ require 'tempfile'
 require 'base64'
 
 module AWS::SigV4
-  class TestCredentialProvider
-    def initialize(credentials)
-      @credentials = credentials
-    end
-
-    def identity
-      @credentials
-    end
-  end
-
   describe Signer do
     let(:service) { 'peccy-service' }
     let(:region) { 'us-peccy-1' }
@@ -349,6 +339,27 @@ module AWS::SigV4
       end
 
       describe '#sign_request' do
+        context 'request object' do
+          let(:request) do
+            Struct.new(
+              :http_method, :uri, :headers, :body, keyword_init: true
+            ).new(
+              http_method: 'GET',
+              uri: 'https://domain.com/'
+            )
+          end
+
+          it 'uses a request object' do
+            signature = subject.sign_request(
+              request: request,
+              credentials: credentials
+            )
+            expect(signature.metadata[:canonical_request]).to include('GET')
+            expect(signature.metadata[:canonical_request])
+              .to include('domain.com')
+          end
+        end
+
         context 'service' do
           it 'allows for service override' do
             signature = subject.sign_request(
