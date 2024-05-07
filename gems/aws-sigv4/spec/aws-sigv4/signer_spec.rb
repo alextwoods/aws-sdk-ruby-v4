@@ -6,6 +6,16 @@ require 'tempfile'
 require 'base64'
 
 module AWS::SigV4
+  class TestCredentialProvider
+    def initialize(credentials)
+      @credentials = credentials
+    end
+
+    def identity
+      @credentials
+    end
+  end
+
   describe Signer do
     let(:service) { 'peccy-service' }
     let(:region) { 'us-peccy-1' }
@@ -40,7 +50,7 @@ module AWS::SigV4
     let(:request) do
       {
         http_method: 'GET',
-        uri: 'https://domain.com/'
+        url: 'https://domain.com/'
       }
     end
 
@@ -258,7 +268,7 @@ module AWS::SigV4
               signing_config,
               signable,
               request[:http_method],
-              request[:uri].to_s
+              request[:url].to_s
             )
             .and_return(signing_result)
 
@@ -301,7 +311,7 @@ module AWS::SigV4
                 signing_config,
                 signable,
                 request[:http_method],
-                request[:uri].to_s
+                request[:url].to_s
               )
               .and_return(signing_result)
 
@@ -339,27 +349,6 @@ module AWS::SigV4
       end
 
       describe '#sign_request' do
-        context 'request object' do
-          let(:request) do
-            Struct.new(
-              :http_method, :uri, :headers, :body, keyword_init: true
-            ).new(
-              http_method: 'GET',
-              uri: 'https://domain.com/'
-            )
-          end
-
-          it 'uses a request object' do
-            signature = subject.sign_request(
-              request: request,
-              credentials: credentials
-            )
-            expect(signature.metadata[:canonical_request]).to include('GET')
-            expect(signature.metadata[:canonical_request])
-              .to include('domain.com')
-          end
-        end
-
         context 'service' do
           it 'allows for service override' do
             signature = subject.sign_request(
@@ -433,7 +422,7 @@ module AWS::SigV4
         context 'uri escape path' do
           it 'escapes path for the canonical request by default' do
             signature = subject.sign_request(
-              request: request.merge(uri: 'https://domain.com/foo%bar'),
+              request: request.merge(url: 'https://domain.com/foo%bar'),
               credentials: credentials
             )
             expect(signature.metadata[:canonical_request])
@@ -442,7 +431,7 @@ module AWS::SigV4
 
           it 'allows for uri escape path override' do
             signature = subject.sign_request(
-              request: request.merge(uri: 'https://domain.com/foo%bar'),
+              request: request.merge(url: 'https://domain.com/foo%bar'),
               credentials: credentials,
               use_double_uri_encode: use_double_uri_encode
             )
@@ -511,7 +500,7 @@ module AWS::SigV4
         context 'normalize path' do
           it 'normalizes by default' do
             signature = subject.sign_request(
-              request: request.merge(uri: "#{request[:uri]}/foo/.."),
+              request: request.merge(url: "#{request[:url]}/foo/.."),
               credentials: credentials
             )
             expect(signature.metadata[:canonical_request])
@@ -520,7 +509,7 @@ module AWS::SigV4
 
           it 'allows for normalize path override' do
             signature = subject.sign_request(
-              request: request.merge(uri: "#{request[:uri]}/foo/.."),
+              request: request.merge(url: "#{request[:url]}/foo/.."),
               credentials: credentials,
               should_normalize_uri_path: should_normalize_uri_path
             )
@@ -632,7 +621,7 @@ module AWS::SigV4
         context 'uri escape path' do
           it 'escapes path for the canonical request by default' do
             presigned_url = subject.presign_url(
-              request: request.merge(uri: 'https://domain.com/foo%bar'),
+              request: request.merge(url: 'https://domain.com/foo%bar'),
               credentials: credentials
             )
             expect(presigned_url.metadata[:canonical_request])
@@ -641,7 +630,7 @@ module AWS::SigV4
 
           it 'allows for uri escape path override' do
             presigned_url = subject.presign_url(
-              request: request.merge(uri: 'https://domain.com/foo%bar'),
+              request: request.merge(url: 'https://domain.com/foo%bar'),
               credentials: credentials,
               use_double_uri_encode: use_double_uri_encode
             )
@@ -692,7 +681,7 @@ module AWS::SigV4
         context 'normalize path' do
           it 'normalizes by default' do
             presigned_url = subject.presign_url(
-              request: request.merge(uri: "#{request[:uri]}/foo/.."),
+              request: request.merge(url: "#{request[:url]}/foo/.."),
               credentials: credentials
             )
             expect(presigned_url.metadata[:canonical_request])
@@ -701,7 +690,7 @@ module AWS::SigV4
 
           it 'allows for normalize path override' do
             presigned_url = subject.presign_url(
-              request: request.merge(uri: "#{request[:uri]}/foo/.."),
+              request: request.merge(url: "#{request[:url]}/foo/.."),
               credentials: credentials,
               should_normalize_uri_path: should_normalize_uri_path
             )
@@ -791,7 +780,7 @@ module AWS::SigV4
               request: { http_method: 'GET' },
               credentials: credentials
             )
-          end.to raise_error(ArgumentError, /:uri/)
+          end.to raise_error(ArgumentError, /:url/)
         end
 
         it 'uses a provided X-Amz-Date header' do
@@ -807,7 +796,7 @@ module AWS::SigV4
           signature = subject.sign_request(
             request: {
               http_method: 'GET',
-              uri: 'https://domain.com:443'
+              url: 'https://domain.com:443'
             },
             credentials: credentials
           )
@@ -818,7 +807,7 @@ module AWS::SigV4
           signature = subject.sign_request(
             request: {
               http_method: 'GET',
-              uri: 'https://domain.com:123'
+              url: 'https://domain.com:123'
             },
             credentials: credentials
           )
@@ -829,7 +818,7 @@ module AWS::SigV4
           signature = subject.sign_request(
             request: {
               http_method: 'GET',
-              uri: 'abcd://domain.com'
+              url: 'abcd://domain.com'
             },
             credentials: credentials
           )
@@ -840,7 +829,7 @@ module AWS::SigV4
           signature = subject.sign_request(
             request: {
               http_method: 'GET',
-              uri: 'abcd://domain.com:123'
+              url: 'abcd://domain.com:123'
             },
             credentials: credentials
           )
@@ -854,7 +843,7 @@ module AWS::SigV4
           signature = subject.sign_request(
             request: {
               http_method: 'PUT',
-              uri: 'https://domain.com',
+              url: 'https://domain.com',
               headers: {
                 'X-Amz-Content-Sha256' => 'hexdigest'
               },
@@ -875,7 +864,7 @@ module AWS::SigV4
           signature = subject.sign_request(
             request: {
               http_method: 'POST',
-              uri: 'https://domain.com',
+              url: 'https://domain.com',
               body: body
             },
             credentials: credentials
@@ -888,7 +877,7 @@ module AWS::SigV4
           signature = subject.sign_request(
             request: {
               http_method: 'PUT',
-              uri: 'https://domain.com',
+              url: 'https://domain.com',
               body: StringIO.new('abc')
             },
             credentials: credentials
@@ -911,7 +900,7 @@ module AWS::SigV4
               request: { http_method: 'GET' },
               credentials: credentials
             )
-          end.to raise_error(ArgumentError, /:uri/)
+          end.to raise_error(ArgumentError, /:url/)
         end
 
         it 'uses a provided Host header' do
@@ -936,7 +925,7 @@ module AWS::SigV4
           presigned_url = subject.presign_url(
             request: {
               http_method: 'GET',
-              uri: 'https://domain.com:443'
+              url: 'https://domain.com:443'
             },
             credentials: credentials
           )
@@ -947,7 +936,7 @@ module AWS::SigV4
           presigned_url = subject.presign_url(
             request: {
               http_method: 'GET',
-              uri: 'https://domain.com:123'
+              url: 'https://domain.com:123'
             },
             credentials: credentials
           )
@@ -958,7 +947,7 @@ module AWS::SigV4
           presigned_url = subject.presign_url(
             request: {
               http_method: 'GET',
-              uri: 'abcd://domain.com'
+              url: 'abcd://domain.com'
             },
             credentials: credentials
           )
@@ -969,7 +958,7 @@ module AWS::SigV4
           presigned_url = subject.presign_url(
             request: {
               http_method: 'GET',
-              uri: 'abcd://domain.com:123'
+              url: 'abcd://domain.com:123'
             },
             credentials: credentials
           )
@@ -983,7 +972,7 @@ module AWS::SigV4
           presigned_url = subject.presign_url(
             request: {
               http_method: 'PUT',
-              uri: 'https://domain.com',
+              url: 'https://domain.com',
               headers: {
                 'X-Amz-Content-Sha256' => 'hexdigest'
               },
@@ -1002,7 +991,7 @@ module AWS::SigV4
           presigned_url = subject.presign_url(
             request: {
               http_method: 'PUT',
-              uri: 'https://domain.com',
+              url: 'https://domain.com',
               body: body
             },
             credentials: credentials,
@@ -1021,7 +1010,7 @@ module AWS::SigV4
           presigned_url = subject.presign_url(
             request: {
               http_method: 'POST',
-              uri: 'https://domain.com',
+              url: 'https://domain.com',
               body: body
             },
             credentials: credentials
@@ -1034,7 +1023,7 @@ module AWS::SigV4
           presigned_url = subject.presign_url(
             request: {
               http_method: 'PUT',
-              uri: 'https://domain.com',
+              url: 'https://domain.com',
               body: StringIO.new('abc')
             },
             credentials: credentials
@@ -1050,7 +1039,7 @@ module AWS::SigV4
           signature = subject.sign_request(
             request: {
               http_method: 'PUT',
-              uri: 'https://domain.com?q.options=abc&q=xyz&q=xyz&q=mno',
+              url: 'https://domain.com?q.options=abc&q=xyz&q=xyz&q=mno',
               headers: {
                 'X-Amz-Date' => '20160101T112233Z'
               }

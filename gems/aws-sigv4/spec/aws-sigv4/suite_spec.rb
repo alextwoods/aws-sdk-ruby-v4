@@ -233,7 +233,7 @@ module AWS::SigV4
                 File.join(path, 'query-signed-request.txt'),
                 encoding: 'utf-8'
               )
-              expected_url = SpecHelper.parse_request(expected_request)[:uri]
+              expected_url = SpecHelper.parse_request(expected_request)[:url]
               SpecHelper.debug("EXPECTED URL: |#{expected_url}|")
               expected_query = URI(expected_url).query
               expected = SpecHelper.split_query_to_params(expected_query)
@@ -381,7 +381,7 @@ module AWS::SigV4
                   File.join(path, 'query-signed-request.txt'),
                   encoding: 'utf-8'
                 )
-                expected_url = SpecHelper.parse_request(expected_request)[:uri]
+                expected_url = SpecHelper.parse_request(expected_request)[:url]
                 SpecHelper.debug("EXPECTED URL: |#{expected_url}|")
                 expected_query = URI(expected_url).query
                 expected = SpecHelper.split_query_to_params(expected_query)
