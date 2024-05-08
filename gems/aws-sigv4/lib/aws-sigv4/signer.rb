@@ -97,8 +97,10 @@ module AWS
         @use_double_uri_encode = options.fetch(:use_double_uri_encode, true)
         @apply_checksum_header = options.fetch(:apply_checksum_header, true)
         @signing_algorithm = options.fetch(:signing_algorithm, :sigv4)
-        @should_normalize_uri_path = options.fetch(:should_normalize_uri_path,
-                                                   true)
+        @should_normalize_uri_path = options.fetch(
+          :should_normalize_uri_path,
+          true
+        )
         @omit_session_token = options.fetch(:omit_session_token, false)
       end
 
@@ -157,9 +159,9 @@ module AWS
       #     signature.metadata[:string_to_sign] #=> "..."
       #     signature.metadata[:content_sha256] #=> "..."
       #
-      # @param [required, Request, Hash] request A Request object such as
-      #   Hearth::HTTP::Request or similar or a hash of request parts for
-      #   signing.
+      # @param [required, Hearth::HTTP::Request, Hash] request A Request
+      #   object such as Hearth::HTTP::Request or similar or a
+      #   hash of request parts for signing.
       #   Parts must include :http_method and :url, and optionally include
       #   :headers and :body.
       #
@@ -194,13 +196,14 @@ module AWS
       #   a `#headers` method. The headers must be applied to your request.
       #
       def sign_request(request:, credentials:, **kwargs)
-        validate_credentials(credentials)
+        validate_credentials!(credentials)
         options = extract_options(kwargs)
         request = extract_request(request)
 
         if Signer.use_crt?
-          return crt_sign_request(request, credentials,
-                                  options)
+          return crt_sign_request(
+            request, credentials, options
+          )
         end
 
         http_method = extract_http_method(request)
@@ -376,9 +379,9 @@ module AWS
       #       credentials: credentials
       #     )
       #
-      # @param [required, Request, Hash] request A Request object such as
-      #   Hearth::HTTP::Request or similar or a hash of request parts for
-      #   signing.
+      # @param [required, Hearth::HTTP::Request, Hash] request A Request
+      #   object such as Hearth::HTTP::Request or similar
+      #   or a hash of request parts for signing.
       #   Parts must include :http_method and :url, and optionally include
       #   :headers and :body.
       #
@@ -427,7 +430,7 @@ module AWS
       #
       # @see http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html
       def presign_url(request:, credentials:, **kwargs)
-        validate_credentials(credentials)
+        validate_credentials!(credentials)
         options = extract_options(kwargs)
         request = extract_request(request)
 
@@ -713,16 +716,21 @@ module AWS
           # request options
           service: extract_service(kwargs),
           region: extract_region(kwargs),
-          unsigned_headers: kwargs.fetch(:unsigned_headers, @unsigned_headers)
-                                  .map(&:downcase),
-          use_double_uri_encode: kwargs.fetch(:use_double_uri_encode,
-                                              @use_double_uri_encode),
+          unsigned_headers: kwargs.fetch(
+            :unsigned_headers, @unsigned_headers
+          ).map(&:downcase),
+          use_double_uri_encode: kwargs.fetch(
+            :use_double_uri_encode,
+            @use_double_uri_encode
+          ),
           apply_checksum_header: kwargs.fetch(
             :apply_checksum_header, @apply_checksum_header
           ),
           signing_algorithm: extract_signing_algorithm(kwargs),
-          should_normalize_uri_path: kwargs.fetch(:should_normalize_uri_path,
-                                                  @should_normalize_uri_path),
+          should_normalize_uri_path: kwargs.fetch(
+            :should_normalize_uri_path,
+            @should_normalize_uri_path
+          ),
           omit_session_token: kwargs.fetch(
             :omit_session_token, @omit_session_token
           ),
@@ -745,8 +753,8 @@ module AWS
 
         {
           http_method: request.http_method,
-          url: request.respond_to?(:url) ? request.url : request.uri,
-          headers: request.headers.to_h,
+          url: request.uri,
+          headers: request.headers,
           body: request.body
         }
       end
@@ -771,7 +779,7 @@ module AWS
         end
       end
 
-      def validate_credentials(credentials)
+      def validate_credentials!(credentials)
         return if credentials&.set?
 
         raise ArgumentError,

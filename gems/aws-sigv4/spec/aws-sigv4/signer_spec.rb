@@ -341,11 +341,11 @@ module AWS::SigV4
       describe '#sign_request' do
         context 'request object' do
           let(:request) do
-            Struct.new(
-              :http_method, :uri, :headers, :body, keyword_init: true
-            ).new(
+            double(
               http_method: 'GET',
-              uri: 'https://domain.com/'
+              uri: URI('https://domain.com/'),
+              headers: {},
+              body: nil
             )
           end
 
@@ -559,6 +559,27 @@ module AWS::SigV4
       end
 
       describe '#presign_url' do
+        context 'request object' do
+          let(:request) do
+            double(
+              http_method: 'GET',
+              uri: URI('https://domain.com/'),
+              headers: {},
+              body: nil
+            )
+          end
+
+          it 'uses a request object' do
+            presigned_url = subject.presign_url(
+              request: request,
+              credentials: credentials
+            )
+            expect(presigned_url.metadata[:canonical_request]).to include('GET')
+            expect(presigned_url.metadata[:canonical_request])
+              .to include('domain.com')
+          end
+        end
+
         context 'service' do
           it 'allows for service override' do
             presigned_url = subject.presign_url(
