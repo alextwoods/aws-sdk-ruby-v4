@@ -754,7 +754,7 @@ module AWS
         {
           http_method: request.http_method,
           url: request.uri,
-          headers: request.headers,
+          headers: request.headers.to_h,
           body: request.body
         }
       end
