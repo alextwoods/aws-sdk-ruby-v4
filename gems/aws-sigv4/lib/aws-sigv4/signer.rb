@@ -746,10 +746,7 @@ module AWS
       # allows using either a Hash or Request object
       # Handles either url or uri
       def extract_request(request)
-        if request.is_a?(Hash)
-          request[:url] ||= request[:uri]
-          return request
-        end
+        return request if request.is_a?(Hash)
 
         {
           http_method: request.http_method,
