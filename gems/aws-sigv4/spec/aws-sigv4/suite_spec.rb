@@ -7,18 +7,21 @@ require 'time'
 
 module AWS::SigV4
   describe Signer do
+    let(:credentials) do
+      Credentials.new(
+        access_key_id: context['credentials']['access_key_id'],
+        secret_access_key: context['credentials']['secret_access_key'],
+        session_token: context['credentials']['token']
+      )
+    end
+
     let(:signer) do
       Signer.new(
         service: context['service'],
         region: context['region'],
         signing_algorithm: signing_algorithm,
-        credentials: Credentials.new(
-          access_key_id: context['credentials']['access_key_id'],
-          secret_access_key: context['credentials']['secret_access_key'],
-          session_token: context['credentials']['token']
-        ),
-        uri_escape_path: false,
-        normalize_path: context['normalize'],
+        use_double_uri_encode: false,
+        should_normalize_uri_path: context['normalize'],
         apply_checksum_header: context['sign_body'],
         # most tests don't have this
         omit_session_token: context.fetch('omit_session_token', false)
@@ -70,6 +73,7 @@ module AWS::SigV4
 
                 signature = signer.sign_request(
                   request: request,
+                  credentials: credentials,
                   time: request_time
                 )
 
@@ -92,6 +96,7 @@ module AWS::SigV4
 
                 signature = signer.sign_request(
                   request: request,
+                  credentials: credentials,
                   time: request_time
                 )
 
@@ -112,6 +117,7 @@ module AWS::SigV4
 
               signature = signer.sign_request(
                 request: request,
+                credentials: credentials,
                 time: request_time
               )
 
@@ -142,6 +148,7 @@ module AWS::SigV4
 
                 signature = signer.sign_request(
                   request: request,
+                  credentials: credentials,
                   time: request_time
                 )
 
@@ -166,6 +173,7 @@ module AWS::SigV4
 
                 presigned_url = signer.presign_url(
                   request: request,
+                  credentials: credentials,
                   time: request_time,
                   expires_in: context['expiration_in_seconds']
                 )
@@ -189,6 +197,7 @@ module AWS::SigV4
 
                 presigned_url = signer.presign_url(
                   request: request,
+                  credentials: credentials,
                   time: request_time,
                   expires_in: context['expiration_in_seconds']
                 )
@@ -210,6 +219,7 @@ module AWS::SigV4
 
               presigned_url = signer.presign_url(
                 request: request,
+                credentials: credentials,
                 time: request_time,
                 expires_in: context['expiration_in_seconds']
               )
@@ -238,6 +248,7 @@ module AWS::SigV4
 
                 presigned_url = signer.presign_url(
                   request: request,
+                  credentials: credentials,
                   time: request_time,
                   expires_in: context['expiration_in_seconds']
                 )
@@ -307,6 +318,7 @@ module AWS::SigV4
 
                 signature = signer.sign_request(
                   request: request,
+                  credentials: credentials,
                   time: request_time
                 )
 
@@ -355,6 +367,7 @@ module AWS::SigV4
 
                 presigned_url = signer.presign_url(
                   request: request,
+                  credentials: credentials,
                   time: request_time,
                   expires_in: context['expiration_in_seconds']
                 )
