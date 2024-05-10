@@ -1,0 +1,90 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/smithy-lang/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::SSOOIDC
+  class Client < Hearth::Client
+
+    def self.plugins: () -> Hearth::PluginList[Config]
+
+    def initialize: (?::Hash[::Symbol, untyped] options) -> void |
+      (
+        ?auth_resolver: Hearth::_AuthResolver[Auth::Params],
+        ?auth_schemes: Array[Hearth::AuthSchemes::Base],
+        ?credentials_provider: Hearth::IdentityProvider,
+        ?disable_host_prefix: bool,
+        ?endpoint: String,
+        ?endpoint_resolver: Hearth::_EndpointResolver[Endpoint::Params],
+        ?http_client: Hearth::HTTP::Client,
+        ?interceptors: Hearth::InterceptorList,
+        ?logger: Logger,
+        ?plugins: Hearth::PluginList[Config],
+        ?profile: String,
+        ?region: String,
+        ?retry_strategy: Hearth::_RetryStrategy,
+        ?stub_responses: bool,
+        ?stubs: Hearth::Stubs,
+        ?use_dualstack_endpoint: bool,
+        ?use_fips_endpoint: bool,
+        ?validate_input: bool
+      ) -> void
+
+    attr_reader config: Config
+
+    def create_token: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::CreateTokenOutput] |
+      (?Types::CreateTokenInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::CreateTokenOutput] |
+      (
+        client_id: ::String,
+        client_secret: ::String,
+        grant_type: ::String,
+        ?device_code: ::String,
+        ?code: ::String,
+        ?refresh_token: ::String,
+        ?scope: ::Array[::String],
+        ?redirect_uri: ::String,
+        ?code_verifier: ::String
+      ) -> Hearth::Output[Types::CreateTokenOutput]
+
+    def create_token_with_iam: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::CreateTokenWithIAMOutput] |
+      (?Types::CreateTokenWithIAMInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::CreateTokenWithIAMOutput] |
+      (
+        client_id: ::String,
+        grant_type: ::String,
+        ?code: ::String,
+        ?refresh_token: ::String,
+        ?assertion: ::String,
+        ?scope: ::Array[::String],
+        ?redirect_uri: ::String,
+        ?subject_token: ::String,
+        ?subject_token_type: ::String,
+        ?requested_token_type: ::String,
+        ?code_verifier: ::String
+      ) -> Hearth::Output[Types::CreateTokenWithIAMOutput]
+
+    def register_client: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::RegisterClientOutput] |
+      (?Types::RegisterClientInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::RegisterClientOutput] |
+      (
+        client_name: ::String,
+        client_type: ::String,
+        ?scopes: ::Array[::String],
+        ?redirect_uris: ::Array[::String],
+        ?grant_types: ::Array[::String],
+        ?issuer_url: ::String,
+        ?entitled_application_arn: ::String
+      ) -> Hearth::Output[Types::RegisterClientOutput]
+
+    def start_device_authorization: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::StartDeviceAuthorizationOutput] |
+      (?Types::StartDeviceAuthorizationInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::StartDeviceAuthorizationOutput] |
+      (
+        client_id: ::String,
+        client_secret: ::String,
+        start_url: ::String
+      ) -> Hearth::Output[Types::StartDeviceAuthorizationOutput]
+
+  end
+end
