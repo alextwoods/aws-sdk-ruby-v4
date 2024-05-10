@@ -24,8 +24,17 @@ module AWS::SDK::CodeCatalyst
   #   @option args [#resolve(params)] :endpoint_resolver (Endpoint::Resolver.new)
   #     The endpoint resolver used to resolve endpoints. Any object that responds to
   #     `#resolve(parameters)`
-  #   @option args [Hearth::IdentityProvider] :http_bearer_provider
-  #     A Hearth::IdentityProvider that returns a Hearth::Identities::HTTPBearer for operations modeled with the smithy.api#httpBearerAuth auth scheme.
+  #   @option args [Hearth::IdentityProvider] :http_bearer_provider ( *AWS::SDK::Core::HTTP_BEARER_PROVIDER_CHAIN)
+  #     A credentials provider fetches an HTTP Bearer Token and responds to the `#identity`
+  #     method. This can be an instance of any one of the following classes:
+  #
+  #     * `AWS::SDK::Core::SSOBearerProvider` - Used for fetching a bearer token from
+  #       SSO-OIDC.
+  #
+  #     When `:http_bearer_provider` is not configured directly, the
+  #     AWS::SDK::Core::HTTP_BEARER_PROVIDER_CHAIN is searched.
+  #
+  #     @see AWS::SDK::Core::CREDENTIALS_PROVIDER_CHAIN
   #   @option args [Hearth::HTTP::Client] :http_client (Hearth::HTTP::Client.new)
   #     The HTTP Client to use for request transport.
   #   @option args [Hearth::InterceptorList] :interceptors (Hearth::InterceptorList.new)
@@ -158,7 +167,7 @@ module AWS::SDK::CodeCatalyst
         disable_host_prefix: [false],
         endpoint: [proc { |cfg| cfg[:stub_responses] ? 'http://localhost' : nil }],
         endpoint_resolver: [Endpoint::Resolver.new],
-        http_bearer_provider: [proc { |cfg| cfg[:stub_responses] ? Hearth::IdentityProvider.new(proc { Hearth::Identities::HTTPBearer.new(token: 'stubbed bearer') }) : nil }, *AWS::SDK::Core::HTTP_BEARER_PROVIDER_CHAIN],
+        http_bearer_provider: [proc { |cfg| cfg[:stub_responses] ? Hearth::IdentityProvider.new(proc { Hearth::Identities::HTTPBearer.new(token: 'token') }) : nil }, *AWS::SDK::Core::HTTP_BEARER_PROVIDER_CHAIN],
         http_client: [proc { |cfg| Hearth::HTTP::Client.new(logger: cfg[:logger]) }],
         interceptors: [Hearth::InterceptorList.new],
         logger: [Logger.new(IO::NULL)],
