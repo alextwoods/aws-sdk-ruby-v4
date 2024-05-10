@@ -17,11 +17,32 @@ module AWS::SDK::Core
   class SSOBearerProvider < Hearth::IdentityProvider
     include Hearth::RefreshingIdentityProvider
 
+
     # @api private
     SSO_LOGIN_GUIDANCE = 'The SSO session associated with this profile has ' \
                          'expired or is otherwise invalid. To refresh this ' \
                          'SSO session run aws sso login with the ' \
                          'corresponding profile.'
+
+    # Initializes an instance of SSOBearerProvider using
+    # shared config profile.
+    # @api private
+    PROFILE = proc do |cfg|
+      next unless AWS::SDK::Core.sso_oidc_loaded?
+
+      profile_config = AWS::SDK::Core.shared_config[cfg[:profile]]
+      if profile_config && profile_config['sso_session']
+        sso_session_cfg = AWS::SDK::Core::SharedConfig.sso_session(
+          AWS::SDK::Core.shared_config,
+          cfg[:profile],
+          profile_config['sso_session']
+        )
+        new(
+          sso_region: sso_session_cfg['sso_region'],
+          sso_session: profile_config['sso_session']
+        )
+      end
+    end
 
     # @param[required, String] :sso_region The AWS region where the
     #   SSO directory for the given sso_start_url is hosted.
