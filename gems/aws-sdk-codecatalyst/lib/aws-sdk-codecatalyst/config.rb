@@ -7,7 +7,7 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-module AWS::SDK::SSO
+module AWS::SDK::CodeCatalyst
   # @!method initialize(*options)
   #   @option args [#resolve(params)] :auth_resolver (Auth::Resolver.new)
   #     A class that responds to a `resolve(auth_params)` method where `auth_params` is
@@ -24,6 +24,8 @@ module AWS::SDK::SSO
   #   @option args [#resolve(params)] :endpoint_resolver (Endpoint::Resolver.new)
   #     The endpoint resolver used to resolve endpoints. Any object that responds to
   #     `#resolve(parameters)`
+  #   @option args [Hearth::IdentityProvider] :http_bearer_provider
+  #     A Hearth::IdentityProvider that returns a Hearth::Identities::HTTPBearer for operations modeled with the smithy.api#httpBearerAuth auth scheme.
   #   @option args [Hearth::HTTP::Client] :http_client (Hearth::HTTP::Client.new)
   #     The HTTP Client to use for request transport.
   #   @option args [Hearth::InterceptorList] :interceptors (Hearth::InterceptorList.new)
@@ -64,9 +66,6 @@ module AWS::SDK::SSO
   #     Enable response stubbing for testing. See {Hearth::ClientStubs#stub_responses}.
   #   @option args [Hearth::Stubs] :stubs (Hearth::Stubs.new)
   #     Enable response stubbing for testing. See {Hearth::ClientStubs#stub_responses}.
-  #   @option args [Boolean] :use_dualstack_endpoint
-  #     When set to `true`, dualstack enabled endpoints (with `.aws` TLD)
-  #      will be used if available.
   #   @option args [Boolean] :use_fips_endpoint
   #     When set to `true`, fips compatible endpoints will be used if available.
   #     When a `fips` region is used, the region is normalized and this config
@@ -83,6 +82,8 @@ module AWS::SDK::SSO
   #   @return [String]
   # @!attribute endpoint_resolver
   #   @return [#resolve(params)]
+  # @!attribute http_bearer_provider
+  #   @return [Hearth::IdentityProvider]
   # @!attribute http_client
   #   @return [Hearth::HTTP::Client]
   # @!attribute interceptors
@@ -101,8 +102,6 @@ module AWS::SDK::SSO
   #   @return [Boolean]
   # @!attribute stubs
   #   @return [Hearth::Stubs]
-  # @!attribute use_dualstack_endpoint
-  #   @return [Boolean]
   # @!attribute use_fips_endpoint
   #   @return [Boolean]
   # @!attribute validate_input
@@ -113,6 +112,7 @@ module AWS::SDK::SSO
     :disable_host_prefix,
     :endpoint,
     :endpoint_resolver,
+    :http_bearer_provider,
     :http_client,
     :interceptors,
     :logger,
@@ -122,7 +122,6 @@ module AWS::SDK::SSO
     :retry_strategy,
     :stub_responses,
     :stubs,
-    :use_dualstack_endpoint,
     :use_fips_endpoint,
     :validate_input,
     keyword_init: true
@@ -136,6 +135,7 @@ module AWS::SDK::SSO
       Hearth::Validator.validate_types!(disable_host_prefix, TrueClass, FalseClass, context: 'config[:disable_host_prefix]')
       Hearth::Validator.validate_types!(endpoint, String, context: 'config[:endpoint]')
       Hearth::Validator.validate_responds_to!(endpoint_resolver, :resolve, context: 'config[:endpoint_resolver]')
+      Hearth::Validator.validate_types!(http_bearer_provider, Hearth::IdentityProvider, context: 'config[:http_bearer_provider]')
       Hearth::Validator.validate_types!(http_client, Hearth::HTTP::Client, context: 'config[:http_client]')
       Hearth::Validator.validate_types!(interceptors, Hearth::InterceptorList, context: 'config[:interceptors]')
       Hearth::Validator.validate_types!(logger, Logger, context: 'config[:logger]')
@@ -145,7 +145,6 @@ module AWS::SDK::SSO
       Hearth::Validator.validate_responds_to!(retry_strategy, :acquire_initial_retry_token, :refresh_retry_token, :record_success, context: 'config[:retry_strategy]')
       Hearth::Validator.validate_types!(stub_responses, TrueClass, FalseClass, context: 'config[:stub_responses]')
       Hearth::Validator.validate_types!(stubs, Hearth::Stubs, context: 'config[:stubs]')
-      Hearth::Validator.validate_types!(use_dualstack_endpoint, TrueClass, FalseClass, context: 'config[:use_dualstack_endpoint]')
       Hearth::Validator.validate_types!(use_fips_endpoint, TrueClass, FalseClass, context: 'config[:use_fips_endpoint]')
       Hearth::Validator.validate_types!(validate_input, TrueClass, FalseClass, context: 'config[:validate_input]')
     end
@@ -159,6 +158,7 @@ module AWS::SDK::SSO
         disable_host_prefix: [false],
         endpoint: [proc { |cfg| cfg[:stub_responses] ? 'http://localhost' : nil }],
         endpoint_resolver: [Endpoint::Resolver.new],
+        http_bearer_provider: [proc { |cfg| cfg[:stub_responses] ? Hearth::IdentityProvider.new(proc { Hearth::Identities::HTTPBearer.new(token: 'stubbed bearer') }) : nil }],
         http_client: [proc { |cfg| Hearth::HTTP::Client.new(logger: cfg[:logger]) }],
         interceptors: [Hearth::InterceptorList.new],
         logger: [Logger.new(IO::NULL)],
@@ -168,7 +168,6 @@ module AWS::SDK::SSO
         retry_strategy: [Hearth::Retry::Standard.new],
         stub_responses: [false],
         stubs: [Hearth::Stubs.new],
-        use_dualstack_endpoint: [Hearth::Config::EnvProvider.new('AWS_USE_DUALSTACK_ENDPOINT', type: 'Boolean'),AWS::SDK::Core::SharedConfigProvider.new('use_dualstack_endpoint', type: 'Boolean')],
         use_fips_endpoint: [Hearth::Config::EnvProvider.new('AWS_USE_FIPS_ENDPOINT', type: 'Boolean'),AWS::SDK::Core::SharedConfigProvider.new('use_fips_endpoint', type: 'Boolean')],
         validate_input: [true]
       }.freeze

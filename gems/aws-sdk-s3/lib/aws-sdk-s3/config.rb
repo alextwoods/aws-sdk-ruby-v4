@@ -241,7 +241,7 @@ module AWS::SDK::S3
 
     private
 
-    def defaults
+    def _defaults
       {
         accelerate: [],
         auth_resolver: [Auth::Resolver.new],
