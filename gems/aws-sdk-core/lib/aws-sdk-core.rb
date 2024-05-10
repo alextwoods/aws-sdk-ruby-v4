@@ -38,9 +38,9 @@ module AWS
       end
 
       # @return true if v4 aws-sdk-ssooidc is available
-      def self.sso_loaded?
-        if @use_ssooidc.nil?
-          @use_ssooidc =
+      def self.sso_oidc_loaded?
+        if @use_sso_oidc.nil?
+          @use_sso_oidc =
             begin
               require 'aws-sdk-ssooidc'
               true
@@ -48,7 +48,7 @@ module AWS
               false
             end
         end
-        @use_ssooidc
+        @use_sso_oidc
       end
 
       # @return true if CRT is available
@@ -74,7 +74,6 @@ require_relative 'aws-sdk-core/identities/credentials'
 require_relative 'aws-sdk-core/signers/sigv4'
 
 # Credential Providers
-
 require_relative 'aws-sdk-core/assume_role_credentials_provider'
 require_relative 'aws-sdk-core/assume_role_web_identity_credentials_provider'
 require_relative 'aws-sdk-core/ec2_credentials_provider'
@@ -82,6 +81,9 @@ require_relative 'aws-sdk-core/ecs_credentials_provider'
 require_relative 'aws-sdk-core/process_credentials_provider'
 require_relative 'aws-sdk-core/sso_credentials_provider'
 require_relative 'aws-sdk-core/static_credentials_provider'
+
+# HTTP Bearer token providers
+require_relative 'aws-sdk-core/sso_bearer_provider'
 
 # ARNS
 require_relative 'aws-sdk-core/arn'

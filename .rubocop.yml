@@ -17,6 +17,7 @@ Metrics:
     - '**/spec/**/*.rb'
     # Signer is incredibly complex
     - 'gems/aws-sigv4/lib/aws-sigv4/signer.rb'
+    - 'gems/aws-sdk-core/lib/aws-sdk-core/sso_bearer_provider.rb'
 
 # For some reason, Metrics disable doesn't cover this
 Metrics/BlockLength:

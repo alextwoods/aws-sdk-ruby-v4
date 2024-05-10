@@ -51,6 +51,15 @@ module AWS::SDK::SSO
   end
   Config = Struct.new(:region, keyword_init: true)
 end
+
+module AWS::SDK::SSOOIDC
+  class Client < Hearth::Client
+    def initialize(_config = Config.new, _options = {})
+      nil
+    end
+  end
+  Config = Struct.new(:region, keyword_init: true)
+end
 # rubocop:enable Lint/MissingSuper
 
 module Aws

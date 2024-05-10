@@ -45,7 +45,7 @@ describe AWS::SDK::Core do
   feature_checks = [
     [:sts_loaded?, :@use_sts, 'aws-sdk-sts'],
     [:sso_loaded?, :@use_sso, 'aws-sdk-sso'],
-    [:sso_loaded?, :@use_ssooidc, 'aws-sdk-ssooidc'],
+    [:sso_oidc_loaded?, :@use_sso_oidc, 'aws-sdk-ssooidc'],
     [:crt_loaded?, :@use_crt, 'aws-crt']
   ].freeze
 
