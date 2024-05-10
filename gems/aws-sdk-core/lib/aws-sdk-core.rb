@@ -37,6 +37,20 @@ module AWS
         @use_sso
       end
 
+      # @return true if v4 aws-sdk-ssooidc is available
+      def self.sso_loaded?
+        if @use_ssooidc.nil?
+          @use_ssooidc =
+            begin
+              require 'aws-sdk-ssooidc'
+              true
+            rescue LoadError, NameError
+              false
+            end
+        end
+        @use_ssooidc
+      end
+
       # @return true if CRT is available
       def self.crt_loaded?
         if @use_crt.nil?
