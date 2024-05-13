@@ -16,8 +16,8 @@ module AWS::SDK::Core
     end
 
     let(:now) { Time.now }
-    let(:in_one_hour) { now + 60 * 60 }
-    let(:one_hour_ago) { now - 60 * 60 }
+    let(:in_one_hour) { now + (60 * 60) }
+    let(:one_hour_ago) { now - (60 * 60) }
 
     let(:expiration) { in_one_hour }
 
@@ -25,7 +25,7 @@ module AWS::SDK::Core
 
     let(:cached_token) do
       {
-        'accessToken' =>  access_token,
+        'accessToken' => access_token,
         'expiresAt' => expiration
       }
     end
@@ -36,14 +36,17 @@ module AWS::SDK::Core
     let(:sso_opts) do
       {
         sso_session: sso_session,
-        sso_region: sso_region,
+        sso_region: sso_region
       }
     end
 
     def mock_token_file(sso_session, cached_token)
-      sso_session_sha1 = OpenSSL::Digest::SHA1.hexdigest(sso_session.encode('utf-8'))
+      sso_session_sha1 = OpenSSL::Digest::SHA1.hexdigest(
+        sso_session.encode('utf-8')
+      )
       allow(Dir).to receive(:home).and_return('HOME')
-      path = File.join(Dir.home, '.aws', 'sso', 'cache', "#{sso_session_sha1}.json")
+      path = File.join(Dir.home, '.aws', 'sso', 'cache',
+                       "#{sso_session_sha1}.json")
 
       allow(File).to receive(:read).with(path).and_return(
         JSON.dump(cached_token)
@@ -51,9 +54,12 @@ module AWS::SDK::Core
     end
 
     def expect_token_write_back(sso_session, expected_token)
-      sso_session_sha1 = OpenSSL::Digest::SHA1.hexdigest(sso_session.encode('utf-8'))
+      sso_session_sha1 = OpenSSL::Digest::SHA1.hexdigest(
+        sso_session.encode('utf-8')
+      )
       allow(Dir).to receive(:home).and_return('HOME')
-      path = File.join(Dir.home, '.aws', 'sso', 'cache', "#{sso_session_sha1}.json")
+      path = File.join(Dir.home, '.aws', 'sso', 'cache',
+                       "#{sso_session_sha1}.json")
 
       expect(File).to receive(:write) do |arg1, arg2|
         expect(arg1).to eq(path)
@@ -62,12 +68,11 @@ module AWS::SDK::Core
     end
 
     describe '#initialize' do
-
       it 'constructs an client with passed arguments when not given' do
         expect(AWS::SDK::SSOOIDC::Client).to receive(:new)
-                                     .with({region: sso_region,
-                                       credentials_provider: nil})
-                                     .and_return(client)
+          .with({ region: sso_region,
+                  credentials_provider: nil })
+          .and_return(client)
 
         mock_token_file(sso_session, cached_token)
 
@@ -83,11 +88,14 @@ module AWS::SDK::Core
 
       it 'raises an InvalidSSOToken error when  token file is missing' do
         expect(AWS::SDK::SSOOIDC::Client).to receive(:new)
-                                     .and_return(client)
+          .and_return(client)
 
-        sso_session_sha1 = OpenSSL::Digest::SHA1.hexdigest(sso_session.encode('utf-8'))
+        sso_session_sha1 = OpenSSL::Digest::SHA1.hexdigest(
+          sso_session.encode('utf-8')
+        )
         allow(Dir).to receive(:home).and_return('HOME')
-        path = File.join(Dir.home, '.aws', 'sso', 'cache', "#{sso_session_sha1}.json")
+        path = File.join(Dir.home, '.aws', 'sso', 'cache',
+                         "#{sso_session_sha1}.json")
 
         allow(File).to receive(:read).with(path).and_raise(Errno::ENOENT)
 
@@ -96,14 +104,14 @@ module AWS::SDK::Core
         end.to raise_error(InvalidSSOToken)
       end
 
-      it 'raises an InvalidSSOCredentials error when  token file is missing fields' do
-        mock_token_file(sso_session, {'accessToken' =>  access_token})
+      it 'raises an InvalidSSOCredentials error when ' \
+         'token file is missing fields' do
+        mock_token_file(sso_session, { 'accessToken' => access_token })
 
         expect do
           SSOBearerProvider.new(**sso_opts).identity
         end.to raise_error(InvalidSSOToken)
       end
-
 
       it 'sets the client when passed in and does not create a new one' do
         test_client = client # force construction
@@ -121,16 +129,22 @@ module AWS::SDK::Core
         test_client = client # force construction
         sso_session = 'admin'
         mock_token_file(sso_session, cached_token)
-        provider = SSOBearerProvider.new(**sso_opts.merge(sso_session: sso_session, client: test_client))
-        expect(File.basename(provider.send(:sso_cache_file))).to eq('d033e22ae348aeb5660fc2140aec35850c4da997.json')
+        provider = SSOBearerProvider.new(**sso_opts.merge(
+          sso_session: sso_session, client: test_client
+        ))
+        expect(File.basename(provider.send(:sso_cache_file)))
+          .to eq('d033e22ae348aeb5660fc2140aec35850c4da997.json')
       end
 
       it 'produces the correct file location for a session with a dash' do
         test_client = client # force construction
         sso_session = 'dev-scopes'
         mock_token_file(sso_session, cached_token)
-        provider = SSOBearerProvider.new(**sso_opts.merge(sso_session: sso_session, client: test_client))
-        expect(File.basename(provider.send(:sso_cache_file))).to eq('75e4d41276d8bd17f85986fc6cccef29fd725ce3.json')
+        provider = SSOBearerProvider.new(**sso_opts.merge(
+          sso_session: sso_session, client: test_client
+        ))
+        expect(File.basename(provider.send(:sso_cache_file)))
+          .to eq('75e4d41276d8bd17f85986fc6cccef29fd725ce3.json')
       end
     end
 
@@ -150,7 +164,8 @@ module AWS::SDK::Core
 
       before do
         allow(Time).to receive(:now).and_return(now)
-        sso_opts # force initialization of client to avoid File read of partitions.json
+        sso_opts # force initialization of client to avoid
+        # File read of partitions.json
       end
 
       context 'valid token with all fields' do
@@ -173,7 +188,8 @@ module AWS::SDK::Core
           mock_token_file(sso_session, cached_token)
           provider = SSOBearerProvider.new(**sso_opts)
           expect(provider.identity.token).to eq('cachedtoken')
-          expect(provider.identity.expiration).to eq(Time.parse('2021-12-25T21:30:00Z'))
+          expect(provider.identity.expiration)
+            .to eq(Time.parse('2021-12-25T21:30:00Z'))
         end
       end
 
@@ -191,7 +207,8 @@ module AWS::SDK::Core
           mock_token_file(sso_session, cached_token)
           provider = SSOBearerProvider.new(**sso_opts)
           expect(provider.identity.token).to eq('cachedtoken')
-          expect(provider.identity.expiration).to eq(Time.parse('2021-12-25T21:30:00Z'))
+          expect(provider.identity.expiration)
+            .to eq(Time.parse('2021-12-25T21:30:00Z'))
         end
       end
 
@@ -293,16 +310,19 @@ module AWS::SDK::Core
               'Response',
               data: double(
                 token_type: 'Bearer',
-                access_token: 'newtoken', expires_in: 28800,
+                access_token: 'newtoken', expires_in: 28_800,
                 refresh_token: 'newrefreshtoken'
-              )))
+              )
+            )
+          )
 
           expect_token_write_back(sso_session, execpted_token_write_back)
 
           provider = SSOBearerProvider.new(**sso_opts)
 
           expect(provider.identity.token).to eq('newtoken')
-          expect(provider.identity.expiration).to eq(Time.parse('2021-12-25T21:30:00Z'))
+          expect(provider.identity.expiration)
+            .to eq(Time.parse('2021-12-25T21:30:00Z'))
         end
       end
 
@@ -349,16 +369,19 @@ module AWS::SDK::Core
               data: double(
                 token_type: 'Bearer',
                 access_token: 'newtoken',
-                expires_in: 28800,
+                expires_in: 28_800,
                 refresh_token: nil
-              )))
+              )
+            )
+          )
 
           expect_token_write_back(sso_session, execpted_token_write_back)
 
           provider = SSOBearerProvider.new(**sso_opts)
 
           expect(provider.identity.token).to eq('newtoken')
-          expect(provider.identity.expiration).to eq(Time.parse('2021-12-25T21:30:00Z'))
+          expect(provider.identity.expiration)
+            .to eq(Time.parse('2021-12-25T21:30:00Z'))
         end
       end
 

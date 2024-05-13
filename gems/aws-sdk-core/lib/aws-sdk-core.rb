@@ -125,8 +125,8 @@ module AWS::SDK::Core
   ].freeze
 
   HTTP_BEARER_PROVIDER_CHAIN = [
-    SSOBearerProvider::PROFILE,
-  ]
+    SSOBearerProvider::PROFILE
+  ].freeze
 
   # This chain is the used by the AssumeRoleCredentialsProvider
   # when a source_profile is specified to resolve the credentials

@@ -17,7 +17,6 @@ module AWS::SDK::Core
   class SSOBearerProvider < Hearth::IdentityProvider
     include Hearth::RefreshingIdentityProvider
 
-
     # @api private
     SSO_LOGIN_GUIDANCE = 'The SSO session associated with this profile has ' \
                          'expired or is otherwise invalid. To refresh this ' \
@@ -75,7 +74,7 @@ module AWS::SDK::Core
 
     private
 
-    EXPIRATION_WINDOW = 5*60
+    EXPIRATION_WINDOW = 5 * 60
 
     def refresh(_properties = {})
       # token is valid and not in refresh window - do not refresh it.

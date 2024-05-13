@@ -45,17 +45,21 @@ module AWS::SDK::Core
       # @param profile [String] - the profile this sso session is referenced in.
       # @param sso_session_name [String] - name of the sso_session
       def sso_session(cfg, profile, sso_session_name)
-        # aws sso-configure may add quotes around sso session names with whitespace
-        sso_session = cfg["sso-session #{sso_session_name}"] || cfg["sso-session '#{sso_session_name}'"]
+        # aws sso-configure may add quotes around sso session names
+        # with whitespace
+        sso_session = cfg["sso-session #{sso_session_name}"] ||
+                      cfg["sso-session '#{sso_session_name}'"]
 
         unless sso_session
           raise ArgumentError,
-            "sso-session #{sso_session_name} must be defined in the config file. " \
-              "Referenced by profile #{profile}"
+                "sso-session #{sso_session_name} must be defined in the " \
+                "config file. Referenced by profile #{profile}"
         end
 
         unless sso_session['sso_region']
-          raise ArgumentError, "sso-session #{sso_session_name} missing required parameter: sso_region"
+          raise ArgumentError,
+                "sso-session #{sso_session_name} missing required " \
+                'parameter: sso_region'
         end
 
         sso_session
@@ -91,7 +95,9 @@ module AWS::SDK::Core
       end
 
       def determine_config_path
-        ENV.fetch('AWS_CONFIG_FILE') { default_shared_config_path('config') }
+        ENV.fetch('AWS_CONFIG_FILE') do
+          default_shared_config_path('config')
+        end
       end
 
       def default_shared_config_path(file)
