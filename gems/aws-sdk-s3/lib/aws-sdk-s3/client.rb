@@ -9831,6 +9831,7 @@ module AWS::SDK::S3
     # @example Request syntax with placeholder values
     #   resp = client.put_object(
     #     acl: 'private', # accepts ["private", "public-read", "public-read-write", "authenticated-read", "aws-exec-read", "bucket-owner-read", "bucket-owner-full-control"]
+    #     body: 'Body',
     #     bucket: 'Bucket', # required
     #     cache_control: 'CacheControl',
     #     content_disposition: 'ContentDisposition',
@@ -9867,8 +9868,7 @@ module AWS::SDK::S3
     #     object_lock_mode: 'GOVERNANCE', # accepts ["GOVERNANCE", "COMPLIANCE"]
     #     object_lock_retain_until_date: Time.now,
     #     object_lock_legal_hold_status: 'ON', # accepts ["ON", "OFF"]
-    #     expected_bucket_owner: 'ExpectedBucketOwner',
-    #     body: 'Body'
+    #     expected_bucket_owner: 'ExpectedBucketOwner'
     #   )
     # @example Response structure
     #   resp.data #=> Types::PutObjectOutput
@@ -11253,6 +11253,7 @@ module AWS::SDK::S3
     # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.upload_part(
+    #     body: 'Body',
     #     bucket: 'Bucket', # required
     #     content_length: 1,
     #     content_md5: 'ContentMD5',
@@ -11268,8 +11269,7 @@ module AWS::SDK::S3
     #     sse_customer_key: 'SSECustomerKey',
     #     sse_customer_key_md5: 'SSECustomerKeyMD5',
     #     request_payer: 'requester', # accepts ["requester"]
-    #     expected_bucket_owner: 'ExpectedBucketOwner',
-    #     body: 'Body'
+    #     expected_bucket_owner: 'ExpectedBucketOwner'
     #   )
     # @example Response structure
     #   resp.data #=> Types::UploadPartOutput
@@ -11599,6 +11599,7 @@ module AWS::SDK::S3
     #   resp = client.write_get_object_response(
     #     request_route: 'RequestRoute', # required
     #     request_token: 'RequestToken', # required
+    #     body: 'Body',
     #     status_code: 1,
     #     error_code: 'ErrorCode',
     #     error_message: 'ErrorMessage',
@@ -11637,8 +11638,7 @@ module AWS::SDK::S3
     #     storage_class: 'STANDARD', # accepts ["STANDARD", "REDUCED_REDUNDANCY", "STANDARD_IA", "ONEZONE_IA", "INTELLIGENT_TIERING", "GLACIER", "DEEP_ARCHIVE", "OUTPOSTS", "GLACIER_IR", "SNOW", "EXPRESS_ONEZONE"]
     #     tag_count: 1,
     #     version_id: 'VersionId',
-    #     bucket_key_enabled: false,
-    #     body: 'Body'
+    #     bucket_key_enabled: false
     #   )
     # @example Response structure
     #   resp.data #=> Types::WriteGetObjectResponseOutput

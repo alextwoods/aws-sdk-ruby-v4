@@ -10,7 +10,6 @@ import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.ShapeId;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.traits.RequiresLengthTrait;
-import software.amazon.smithy.model.traits.StreamingTrait;
 import software.amazon.smithy.model.transform.ModelTransformer;
 import software.amazon.smithy.ruby.codegen.RubyIntegration;
 import software.amazon.smithy.ruby.codegen.RubySettings;
@@ -131,16 +130,24 @@ public class S3Customizations implements RubyIntegration {
     }
 
     private static final class AddRequiresLengthToStreamingInput {
+
+        public static final ShapeId STREAMING_BLOB_ID = ShapeId.from("com.amazonaws.s3#StreamingBlob");
+
         Model transform(ModelTransformer transformer, Model model) {
+            // preprocess is called on all services. Transform only when the s3 streaming blob is present
+            if (!model.getShape(STREAMING_BLOB_ID).isPresent()) {
+                return model;
+            }
+
             OperationIndex operationIndex = OperationIndex.of(model);
 
             List<Shape> updates = new ArrayList<>();
             ShapeId streamingInputBlobId = ShapeId.from("smithy.ruby.synthetic#StreamingInputBlob");
-            Shape streamingInputBlob = BlobShape.builder()
+            Shape streamingInputBlob = model.expectShape(STREAMING_BLOB_ID, BlobShape.class).toBuilder()
                     .id(streamingInputBlobId)
-                    .addTrait(new StreamingTrait())
                     .addTrait(new RequiresLengthTrait())
                     .build();
+
             updates.add(streamingInputBlob);
 
             for (OperationShape operation : model.getOperationShapes()) {
@@ -148,9 +155,7 @@ public class S3Customizations implements RubyIntegration {
                 Optional<MemberShape> missingRequiresLength = missingRequiresLength(input);
                 if (missingRequiresLength.isPresent()) {
                     //swap StreamingBlob for StreamingInputBlob
-                    String memberName = missingRequiresLength.get().getMemberName();
                     StructureShape updatedInput = input.toBuilder()
-                            .removeMember(memberName)
                             .addMember(missingRequiresLength.get().toBuilder()
                                     .target(streamingInputBlobId).build())
                             .build();
@@ -162,7 +167,7 @@ public class S3Customizations implements RubyIntegration {
 
         private Optional<MemberShape> missingRequiresLength(StructureShape input) {
             return input.members().stream().filter(memberShape -> {
-                return memberShape.getTarget().equals(ShapeId.from("com.amazonaws.s3#StreamingBlob"));
+                return memberShape.getTarget().equals(STREAMING_BLOB_ID);
             }).findFirst();
         }
     }

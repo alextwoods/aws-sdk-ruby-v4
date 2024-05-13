@@ -13499,6 +13499,7 @@ module AWS::SDK::S3
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [String] :acl
+    #   @option params [String] :body
     #   @option params [String] :bucket
     #   @option params [String] :cache_control
     #   @option params [String] :content_disposition
@@ -13534,7 +13535,6 @@ module AWS::SDK::S3
     #   @option params [Time] :object_lock_retain_until_date
     #   @option params [String] :object_lock_legal_hold_status
     #   @option params [String] :expected_bucket_owner
-    #   @option params [String] :body
     # @!attribute acl
     #   <p>The canned ACL to apply to the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL">Canned
     #            ACL</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -13564,6 +13564,9 @@ module AWS::SDK::S3
     #               </ul>
     #            </note>
     #   Enum, one of: ["private", "public-read", "public-read-write", "authenticated-read", "aws-exec-read", "bucket-owner-read", "bucket-owner-full-control"]
+    #   @return [String]
+    # @!attribute body
+    #   <p>Object data.</p>
     #   @return [String]
     # @!attribute bucket
     #   <p>The bucket name to which the PUT action was initiated. </p>
@@ -13902,11 +13905,9 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    # @!attribute body
-    #   <p>Object data.</p>
-    #   @return [String]
     PutObjectInput = ::Struct.new(
       :acl,
+      :body,
       :bucket,
       :cache_control,
       :content_disposition,
@@ -13942,7 +13943,6 @@ module AWS::SDK::S3
       :object_lock_retain_until_date,
       :object_lock_legal_hold_status,
       :expected_bucket_owner,
-      :body,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -13950,6 +13950,7 @@ module AWS::SDK::S3
       def to_s
         "#<struct AWS::SDK::S3::Types::PutObjectInput "\
           "acl=#{acl || 'nil'}, "\
+          "body=#{body || 'nil'}, "\
           "bucket=#{bucket || 'nil'}, "\
           "cache_control=#{cache_control || 'nil'}, "\
           "content_disposition=#{content_disposition || 'nil'}, "\
@@ -13984,8 +13985,7 @@ module AWS::SDK::S3
           "object_lock_mode=#{object_lock_mode || 'nil'}, "\
           "object_lock_retain_until_date=#{object_lock_retain_until_date || 'nil'}, "\
           "object_lock_legal_hold_status=#{object_lock_legal_hold_status || 'nil'}, "\
-          "expected_bucket_owner=#{expected_bucket_owner || 'nil'}, "\
-          "body=#{body || 'nil'}>"
+          "expected_bucket_owner=#{expected_bucket_owner || 'nil'}>"
       end
     end
 
@@ -16532,6 +16532,7 @@ module AWS::SDK::S3
 
     # @!method initialize(params = {})
     #   @param [Hash] params
+    #   @option params [String] :body
     #   @option params [String] :bucket
     #   @option params [Integer] :content_length
     #   @option params [String] :content_md5
@@ -16548,7 +16549,9 @@ module AWS::SDK::S3
     #   @option params [String] :sse_customer_key_md5
     #   @option params [String] :request_payer
     #   @option params [String] :expected_bucket_owner
-    #   @option params [String] :body
+    # @!attribute body
+    #   <p>Object data.</p>
+    #   @return [String]
     # @!attribute bucket
     #   <p>The name of the bucket to which the multipart upload was initiated.</p>
     #            <p>
@@ -16665,10 +16668,8 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    # @!attribute body
-    #   <p>Object data.</p>
-    #   @return [String]
     UploadPartInput = ::Struct.new(
+      :body,
       :bucket,
       :content_length,
       :content_md5,
@@ -16685,13 +16686,13 @@ module AWS::SDK::S3
       :sse_customer_key_md5,
       :request_payer,
       :expected_bucket_owner,
-      :body,
       keyword_init: true
     ) do
       include Hearth::Structure
 
       def to_s
         "#<struct AWS::SDK::S3::Types::UploadPartInput "\
+          "body=#{body || 'nil'}, "\
           "bucket=#{bucket || 'nil'}, "\
           "content_length=#{content_length || 'nil'}, "\
           "content_md5=#{content_md5 || 'nil'}, "\
@@ -16707,8 +16708,7 @@ module AWS::SDK::S3
           "sse_customer_key=\"[SENSITIVE]\", "\
           "sse_customer_key_md5=#{sse_customer_key_md5 || 'nil'}, "\
           "request_payer=#{request_payer || 'nil'}, "\
-          "expected_bucket_owner=#{expected_bucket_owner || 'nil'}, "\
-          "body=#{body || 'nil'}>"
+          "expected_bucket_owner=#{expected_bucket_owner || 'nil'}>"
       end
     end
 
@@ -16889,6 +16889,7 @@ module AWS::SDK::S3
     #   @param [Hash] params
     #   @option params [String] :request_route
     #   @option params [String] :request_token
+    #   @option params [String] :body
     #   @option params [Integer] :status_code
     #   @option params [String] :error_code
     #   @option params [String] :error_message
@@ -16926,13 +16927,15 @@ module AWS::SDK::S3
     #   @option params [Integer] :tag_count
     #   @option params [String] :version_id
     #   @option params [Boolean] :bucket_key_enabled
-    #   @option params [String] :body
     # @!attribute request_route
     #   <p>Route prefix to the HTTP URL generated.</p>
     #   @return [String]
     # @!attribute request_token
     #   <p>A single use encrypted token that maps <code>WriteGetObjectResponse</code> to the end
     #            user <code>GetObject</code> request.</p>
+    #   @return [String]
+    # @!attribute body
+    #   <p>The object data.</p>
     #   @return [String]
     # @!attribute status_code
     #   <p>The integer status code for an HTTP response of a corresponding <code>GetObject</code>
@@ -17190,12 +17193,10 @@ module AWS::SDK::S3
     #   <p> Indicates whether the object stored in Amazon S3 uses an S3 bucket key for server-side
     #            encryption with Amazon Web Services KMS (SSE-KMS).</p>
     #   @return [Boolean]
-    # @!attribute body
-    #   <p>The object data.</p>
-    #   @return [String]
     WriteGetObjectResponseInput = ::Struct.new(
       :request_route,
       :request_token,
+      :body,
       :status_code,
       :error_code,
       :error_message,
@@ -17233,7 +17234,6 @@ module AWS::SDK::S3
       :tag_count,
       :version_id,
       :bucket_key_enabled,
-      :body,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -17242,6 +17242,7 @@ module AWS::SDK::S3
         "#<struct AWS::SDK::S3::Types::WriteGetObjectResponseInput "\
           "request_route=#{request_route || 'nil'}, "\
           "request_token=#{request_token || 'nil'}, "\
+          "body=#{body || 'nil'}, "\
           "status_code=#{status_code || 'nil'}, "\
           "error_code=#{error_code || 'nil'}, "\
           "error_message=#{error_message || 'nil'}, "\
@@ -17278,8 +17279,7 @@ module AWS::SDK::S3
           "storage_class=#{storage_class || 'nil'}, "\
           "tag_count=#{tag_count || 'nil'}, "\
           "version_id=#{version_id || 'nil'}, "\
-          "bucket_key_enabled=#{bucket_key_enabled || 'nil'}, "\
-          "body=#{body || 'nil'}>"
+          "bucket_key_enabled=#{bucket_key_enabled || 'nil'}>"
       end
     end
 
