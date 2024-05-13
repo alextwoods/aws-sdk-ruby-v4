@@ -25,7 +25,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         CGI.parse('x-id=AbortMultipartUpload').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -245,7 +245,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
         CGI.parse('x-id=CompleteMultipartUpload').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -321,7 +321,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         CGI.parse('x-id=CopyObject').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -418,7 +418,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
         CGI.parse('uploads&x-id=CreateMultipartUpload').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -469,7 +469,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         CGI.parse('session').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -521,7 +521,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         CGI.parse('analytics').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -542,7 +542,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         CGI.parse('cors').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -560,7 +560,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         CGI.parse('encryption').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -578,7 +578,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         CGI.parse('intelligent-tiering').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -598,7 +598,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         CGI.parse('inventory').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -619,7 +619,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         CGI.parse('lifecycle').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -637,7 +637,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         CGI.parse('metrics').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -658,7 +658,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         CGI.parse('ownershipControls').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -676,7 +676,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         CGI.parse('policy').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -694,7 +694,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         CGI.parse('replication').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -712,7 +712,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         CGI.parse('tagging').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -730,7 +730,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         CGI.parse('website').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -756,7 +756,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         CGI.parse('x-id=DeleteObject').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -784,7 +784,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         CGI.parse('tagging').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -809,7 +809,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
         CGI.parse('delete&x-id=DeleteObjects').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -834,7 +834,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         CGI.parse('publicAccessBlock').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -946,7 +946,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         CGI.parse('accelerate').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -965,7 +965,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         CGI.parse('acl').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -983,7 +983,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         CGI.parse('analytics&x-id=GetBucketAnalyticsConfiguration').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -1004,7 +1004,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         CGI.parse('cors').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -1022,7 +1022,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         CGI.parse('encryption').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -1040,7 +1040,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         CGI.parse('intelligent-tiering&x-id=GetBucketIntelligentTieringConfiguration').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -1060,7 +1060,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         CGI.parse('inventory&x-id=GetBucketInventoryConfiguration').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -1081,7 +1081,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         CGI.parse('lifecycle').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -1099,7 +1099,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         CGI.parse('location').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -1117,7 +1117,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         CGI.parse('logging').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -1135,7 +1135,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         CGI.parse('metrics&x-id=GetBucketMetricsConfiguration').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -1156,7 +1156,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         CGI.parse('notification').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -1174,7 +1174,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         CGI.parse('ownershipControls').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -1192,7 +1192,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         CGI.parse('policy').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -1210,7 +1210,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         CGI.parse('policyStatus').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -1228,7 +1228,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         CGI.parse('replication').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -1246,7 +1246,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         CGI.parse('requestPayment').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -1264,7 +1264,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         CGI.parse('tagging').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -1282,7 +1282,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         CGI.parse('versioning').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -1300,7 +1300,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         CGI.parse('website').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -1318,7 +1318,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         CGI.parse('x-id=GetObject').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -1360,7 +1360,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         CGI.parse('acl').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -1386,7 +1386,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         CGI.parse('attributes').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -1420,7 +1420,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         CGI.parse('legal-hold').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -1446,7 +1446,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         CGI.parse('object-lock').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -1464,7 +1464,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         CGI.parse('retention').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -1490,7 +1490,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         CGI.parse('tagging').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -1516,7 +1516,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         CGI.parse('torrent').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -1539,7 +1539,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         CGI.parse('publicAccessBlock').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -1873,7 +1873,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         CGI.parse('analytics&x-id=ListBucketAnalyticsConfigurations').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -1894,7 +1894,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         CGI.parse('intelligent-tiering&x-id=ListBucketIntelligentTieringConfigurations').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -1914,7 +1914,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         CGI.parse('inventory&x-id=ListBucketInventoryConfigurations').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -1935,7 +1935,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         CGI.parse('metrics&x-id=ListBucketMetricsConfigurations').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -1956,7 +1956,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         CGI.parse('x-id=ListBuckets').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         http_req.append_path('/')
       end
@@ -1966,7 +1966,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         CGI.parse('x-id=ListDirectoryBuckets').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         http_req.append_path('/')
         params = Hearth::Query::ParamList.new
@@ -1980,7 +1980,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         CGI.parse('uploads').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -2007,7 +2007,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         CGI.parse('versions').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -2063,7 +2063,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         CGI.parse('list-type=2').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -2094,7 +2094,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         CGI.parse('x-id=ListParts').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -2415,7 +2415,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         CGI.parse('accelerate').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -2437,7 +2437,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         CGI.parse('acl').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -2466,7 +2466,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         CGI.parse('analytics').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -2490,7 +2490,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         CGI.parse('cors').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -2513,7 +2513,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         CGI.parse('encryption').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -2536,7 +2536,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         CGI.parse('intelligent-tiering').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -2559,7 +2559,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         CGI.parse('inventory').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -2583,7 +2583,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         CGI.parse('lifecycle').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -2605,7 +2605,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         CGI.parse('logging').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -2628,7 +2628,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         CGI.parse('metrics').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -2652,7 +2652,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         CGI.parse('notification').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -2674,7 +2674,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         CGI.parse('ownershipControls').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -2696,7 +2696,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         CGI.parse('policy').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -2719,7 +2719,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         CGI.parse('replication').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -2743,7 +2743,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         CGI.parse('requestPayment').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -2766,7 +2766,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         CGI.parse('tagging').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -2789,7 +2789,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         CGI.parse('versioning').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -2813,7 +2813,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         CGI.parse('website').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -2836,7 +2836,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         CGI.parse('x-id=PutObject').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -2851,6 +2851,7 @@ module AWS::SDK::S3
           )
         )
         http_req.body = input[:body]
+        http_req.headers['Transfer-Encoding'] = 'chunked'
         http_req.headers['Content-Type'] = 'application/octet-stream'
         http_req.headers['x-amz-acl'] = input[:acl] unless input[:acl].nil? || input[:acl].empty?
         http_req.headers['Cache-Control'] = input[:cache_control] unless input[:cache_control].nil? || input[:cache_control].empty?
@@ -2895,7 +2896,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         CGI.parse('acl').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -2932,7 +2933,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         CGI.parse('legal-hold').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -2963,7 +2964,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         CGI.parse('object-lock').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -2988,7 +2989,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         CGI.parse('retention').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -3020,7 +3021,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         CGI.parse('tagging').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -3051,7 +3052,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         CGI.parse('publicAccessBlock').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -3212,7 +3213,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
         CGI.parse('restore&x-id=RestoreObject').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -3520,7 +3521,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         CGI.parse('x-id=UploadPart').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -3539,6 +3540,7 @@ module AWS::SDK::S3
         params['uploadId'] = input[:upload_id].to_s unless input[:upload_id].nil?
         http_req.append_query_param_list(params)
         http_req.body = input[:body]
+        http_req.headers['Transfer-Encoding'] = 'chunked'
         http_req.headers['Content-Type'] = 'application/octet-stream'
         http_req.headers['Content-Length'] = input[:content_length].to_s unless input[:content_length].nil?
         http_req.headers['Content-MD5'] = input[:content_md5] unless input[:content_md5].nil? || input[:content_md5].empty?
@@ -3559,7 +3561,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         CGI.parse('x-id=UploadPartCopy').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         if input[:bucket].to_s.empty?
           raise ArgumentError, "HTTP label :bucket cannot be empty."
@@ -3629,10 +3631,11 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
         CGI.parse('x-id=WriteGetObjectResponse').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         http_req.append_path('/WriteGetObjectResponse')
         http_req.body = input[:body]
+        http_req.headers['Transfer-Encoding'] = 'chunked'
         http_req.headers['Content-Type'] = 'application/octet-stream'
         http_req.headers['x-amz-request-route'] = input[:request_route] unless input[:request_route].nil? || input[:request_route].empty?
         http_req.headers['x-amz-request-token'] = input[:request_token] unless input[:request_token].nil? || input[:request_token].empty?
