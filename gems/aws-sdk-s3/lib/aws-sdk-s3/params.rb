@@ -3866,11 +3866,6 @@ module AWS::SDK::S3
         type = Types::PutObjectInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.acl = params[:acl]
-        io = params[:body] || StringIO.new
-        unless io.respond_to?(:read) || io.respond_to?(:readpartial)
-          io = StringIO.new(io)
-        end
-        type.body = io
         type.bucket = params[:bucket]
         type.cache_control = params[:cache_control]
         type.content_disposition = params[:content_disposition]
@@ -3906,6 +3901,11 @@ module AWS::SDK::S3
         type.object_lock_retain_until_date = params[:object_lock_retain_until_date]
         type.object_lock_legal_hold_status = params[:object_lock_legal_hold_status]
         type.expected_bucket_owner = params[:expected_bucket_owner]
+        io = params[:body] || StringIO.new
+        unless io.respond_to?(:read) || io.respond_to?(:readpartial)
+          io = StringIO.new(io)
+        end
+        type.body = io
         type
       end
     end
@@ -4781,11 +4781,6 @@ module AWS::SDK::S3
         Hearth::Validator.validate_types!(params, ::Hash, Types::UploadPartInput, context: context)
         type = Types::UploadPartInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        io = params[:body] || StringIO.new
-        unless io.respond_to?(:read) || io.respond_to?(:readpartial)
-          io = StringIO.new(io)
-        end
-        type.body = io
         type.bucket = params[:bucket]
         type.content_length = params[:content_length]
         type.content_md5 = params[:content_md5]
@@ -4802,6 +4797,11 @@ module AWS::SDK::S3
         type.sse_customer_key_md5 = params[:sse_customer_key_md5]
         type.request_payer = params[:request_payer]
         type.expected_bucket_owner = params[:expected_bucket_owner]
+        io = params[:body] || StringIO.new
+        unless io.respond_to?(:read) || io.respond_to?(:readpartial)
+          io = StringIO.new(io)
+        end
+        type.body = io
         type
       end
     end
@@ -4868,11 +4868,6 @@ module AWS::SDK::S3
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.request_route = params[:request_route]
         type.request_token = params[:request_token]
-        io = params[:body] || StringIO.new
-        unless io.respond_to?(:read) || io.respond_to?(:readpartial)
-          io = StringIO.new(io)
-        end
-        type.body = io
         type.status_code = params[:status_code]
         type.error_code = params[:error_code]
         type.error_message = params[:error_message]
@@ -4910,6 +4905,11 @@ module AWS::SDK::S3
         type.tag_count = params[:tag_count]
         type.version_id = params[:version_id]
         type.bucket_key_enabled = params[:bucket_key_enabled]
+        io = params[:body] || StringIO.new
+        unless io.respond_to?(:read) || io.respond_to?(:readpartial)
+          io = StringIO.new(io)
+        end
+        type.body = io
         type
       end
     end

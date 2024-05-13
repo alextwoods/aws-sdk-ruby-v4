@@ -3196,9 +3196,6 @@ module AWS::SDK::S3
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::PutObjectInput, context: context)
         Hearth::Validator.validate_types!(input[:acl], ::String, context: "#{context}[:acl]")
-        unless input[:body].respond_to?(:read) || input[:body].respond_to?(:readpartial)
-          raise ArgumentError, "Expected #{context} to be an IO like object, got #{input[:body].class}"
-        end
         Hearth::Validator.validate_required!(input[:bucket], context: "#{context}[:bucket]")
         Hearth::Validator.validate_types!(input[:bucket], ::String, context: "#{context}[:bucket]")
         Hearth::Validator.validate_types!(input[:cache_control], ::String, context: "#{context}[:cache_control]")
@@ -3236,6 +3233,13 @@ module AWS::SDK::S3
         Hearth::Validator.validate_types!(input[:object_lock_retain_until_date], ::Time, context: "#{context}[:object_lock_retain_until_date]")
         Hearth::Validator.validate_types!(input[:object_lock_legal_hold_status], ::String, context: "#{context}[:object_lock_legal_hold_status]")
         Hearth::Validator.validate_types!(input[:expected_bucket_owner], ::String, context: "#{context}[:expected_bucket_owner]")
+        unless input[:body].respond_to?(:read) || input[:body].respond_to?(:readpartial)
+          raise ArgumentError, "Expected #{context} to be an IO like object, got #{input[:body].class}"
+        end
+
+        unless input[:body].respond_to?(:size)
+          raise ArgumentError, "Expected #{context} to respond_to(:size)"
+        end
       end
     end
 
@@ -4000,9 +4004,6 @@ module AWS::SDK::S3
     class UploadPartInput
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::UploadPartInput, context: context)
-        unless input[:body].respond_to?(:read) || input[:body].respond_to?(:readpartial)
-          raise ArgumentError, "Expected #{context} to be an IO like object, got #{input[:body].class}"
-        end
         Hearth::Validator.validate_required!(input[:bucket], context: "#{context}[:bucket]")
         Hearth::Validator.validate_types!(input[:bucket], ::String, context: "#{context}[:bucket]")
         Hearth::Validator.validate_types!(input[:content_length], ::Integer, context: "#{context}[:content_length]")
@@ -4023,6 +4024,13 @@ module AWS::SDK::S3
         Hearth::Validator.validate_types!(input[:sse_customer_key_md5], ::String, context: "#{context}[:sse_customer_key_md5]")
         Hearth::Validator.validate_types!(input[:request_payer], ::String, context: "#{context}[:request_payer]")
         Hearth::Validator.validate_types!(input[:expected_bucket_owner], ::String, context: "#{context}[:expected_bucket_owner]")
+        unless input[:body].respond_to?(:read) || input[:body].respond_to?(:readpartial)
+          raise ArgumentError, "Expected #{context} to be an IO like object, got #{input[:body].class}"
+        end
+
+        unless input[:body].respond_to?(:size)
+          raise ArgumentError, "Expected #{context} to respond_to(:size)"
+        end
       end
     end
 
@@ -4077,9 +4085,6 @@ module AWS::SDK::S3
         Hearth::Validator.validate_types!(input[:request_route], ::String, context: "#{context}[:request_route]")
         Hearth::Validator.validate_required!(input[:request_token], context: "#{context}[:request_token]")
         Hearth::Validator.validate_types!(input[:request_token], ::String, context: "#{context}[:request_token]")
-        unless input[:body].respond_to?(:read) || input[:body].respond_to?(:readpartial)
-          raise ArgumentError, "Expected #{context} to be an IO like object, got #{input[:body].class}"
-        end
         Hearth::Validator.validate_types!(input[:status_code], ::Integer, context: "#{context}[:status_code]")
         Hearth::Validator.validate_types!(input[:error_code], ::String, context: "#{context}[:error_code]")
         Hearth::Validator.validate_types!(input[:error_message], ::String, context: "#{context}[:error_message]")
@@ -4117,6 +4122,13 @@ module AWS::SDK::S3
         Hearth::Validator.validate_types!(input[:tag_count], ::Integer, context: "#{context}[:tag_count]")
         Hearth::Validator.validate_types!(input[:version_id], ::String, context: "#{context}[:version_id]")
         Hearth::Validator.validate_types!(input[:bucket_key_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:bucket_key_enabled]")
+        unless input[:body].respond_to?(:read) || input[:body].respond_to?(:readpartial)
+          raise ArgumentError, "Expected #{context} to be an IO like object, got #{input[:body].class}"
+        end
+
+        unless input[:body].respond_to?(:size)
+          raise ArgumentError, "Expected #{context} to respond_to(:size)"
+        end
       end
     end
 

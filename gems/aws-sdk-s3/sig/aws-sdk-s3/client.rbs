@@ -990,7 +990,6 @@ module AWS::SDK::S3
       (?Types::PutObjectInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutObjectOutput] |
       (
         ?acl: ("private" | "public-read" | "public-read-write" | "authenticated-read" | "aws-exec-read" | "bucket-owner-read" | "bucket-owner-full-control"),
-        ?body: ::String,
         bucket: ::String,
         ?cache_control: ::String,
         ?content_disposition: ::String,
@@ -1025,7 +1024,8 @@ module AWS::SDK::S3
         ?object_lock_mode: ("GOVERNANCE" | "COMPLIANCE"),
         ?object_lock_retain_until_date: ::Time,
         ?object_lock_legal_hold_status: ("ON" | "OFF"),
-        ?expected_bucket_owner: ::String
+        ?expected_bucket_owner: ::String,
+        ?body: ::String
       ) -> Hearth::Output[Types::PutObjectOutput]
 
     def put_object_acl: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutObjectAclOutput] |
@@ -1214,7 +1214,6 @@ module AWS::SDK::S3
     def upload_part: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::UploadPartOutput] |
       (?Types::UploadPartInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::UploadPartOutput] |
       (
-        ?body: ::String,
         bucket: ::String,
         ?content_length: ::Integer,
         ?content_md5: ::String,
@@ -1230,7 +1229,8 @@ module AWS::SDK::S3
         ?sse_customer_key: ::String,
         ?sse_customer_key_md5: ::String,
         ?request_payer: ("requester"),
-        ?expected_bucket_owner: ::String
+        ?expected_bucket_owner: ::String,
+        ?body: ::String
       ) -> Hearth::Output[Types::UploadPartOutput]
 
     def upload_part_copy: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::UploadPartCopyOutput] |
@@ -1262,7 +1262,6 @@ module AWS::SDK::S3
       (
         request_route: ::String,
         request_token: ::String,
-        ?body: ::String,
         ?status_code: ::Integer,
         ?error_code: ::String,
         ?error_message: ::String,
@@ -1299,7 +1298,8 @@ module AWS::SDK::S3
         ?storage_class: ("STANDARD" | "REDUCED_REDUNDANCY" | "STANDARD_IA" | "ONEZONE_IA" | "INTELLIGENT_TIERING" | "GLACIER" | "DEEP_ARCHIVE" | "OUTPOSTS" | "GLACIER_IR" | "SNOW" | "EXPRESS_ONEZONE"),
         ?tag_count: ::Integer,
         ?version_id: ::String,
-        ?bucket_key_enabled: bool
+        ?bucket_key_enabled: bool,
+        ?body: ::String
       ) -> Hearth::Output[Types::WriteGetObjectResponseOutput]
 
   end

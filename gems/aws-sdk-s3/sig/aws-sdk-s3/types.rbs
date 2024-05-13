@@ -2574,7 +2574,6 @@ module AWS::SDK::S3
     class PutObjectInput < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor acl (): ::String
-      attr_accessor body (): ::String
       attr_accessor bucket (): ::String
       attr_accessor cache_control (): ::String
       attr_accessor content_disposition (): ::String
@@ -2610,6 +2609,7 @@ module AWS::SDK::S3
       attr_accessor object_lock_retain_until_date (): ::Time
       attr_accessor object_lock_legal_hold_status (): ::String
       attr_accessor expected_bucket_owner (): ::String
+      attr_accessor body (): ::String
     end
 
     class PutObjectLegalHoldInput < ::Struct[untyped]
@@ -3221,7 +3221,6 @@ module AWS::SDK::S3
 
     class UploadPartInput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor body (): ::String
       attr_accessor bucket (): ::String
       attr_accessor content_length (): ::Integer
       attr_accessor content_md5 (): ::String
@@ -3238,6 +3237,7 @@ module AWS::SDK::S3
       attr_accessor sse_customer_key_md5 (): ::String
       attr_accessor request_payer (): ::String
       attr_accessor expected_bucket_owner (): ::String
+      attr_accessor body (): ::String
     end
 
     class UploadPartOutput < ::Struct[untyped]
@@ -3273,7 +3273,6 @@ module AWS::SDK::S3
       include Hearth::Structure
       attr_accessor request_route (): ::String
       attr_accessor request_token (): ::String
-      attr_accessor body (): ::String
       attr_accessor status_code (): ::Integer
       attr_accessor error_code (): ::String
       attr_accessor error_message (): ::String
@@ -3311,6 +3310,7 @@ module AWS::SDK::S3
       attr_accessor tag_count (): ::Integer
       attr_accessor version_id (): ::String
       attr_accessor bucket_key_enabled (): bool
+      attr_accessor body (): ::String
     end
 
     class WriteGetObjectResponseOutput < ::Struct[untyped]
