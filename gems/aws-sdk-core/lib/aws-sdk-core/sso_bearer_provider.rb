@@ -44,7 +44,7 @@ module AWS::SDK::Core
     end
 
     # @param[required, String] :sso_region The AWS region where the
-    #   SSO directory for the given sso_start_url is hosted.
+    #   SSO directory for the given sso_session is hosted.
     #
     # @param [required, String] :sso_session The SSO Session used to
     #   for fetching this token.

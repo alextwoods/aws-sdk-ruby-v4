@@ -6,6 +6,7 @@ module AWS::SDK::Core
   describe SSOCredentialsProvider do
     before do
       allow(AWS::SDK::Core).to receive(:sso_loaded?).and_return(true)
+      allow(AWS::SDK::Core).to receive(:sso_oidc_loaded?).and_return(true)
     end
 
     describe 'SSOCredentialProvider::PROFILE' do
@@ -14,10 +15,10 @@ module AWS::SDK::Core
           .and_return(shared_config)
       end
 
-      context 'profile has sso information' do
+      context 'legacy sso profile' do
         let(:shared_config) do
           IniParser.ini_parse(<<~CONFIG)
-            [profile sso_credentials]
+            [profile legacy_sso_profile]
             sso_account_id = SSO_ACCOUNT_ID
             sso_region = us-east-1
             sso_role_name = SSO_ROLE_NAME
@@ -25,9 +26,32 @@ module AWS::SDK::Core
           CONFIG
         end
 
+        let(:logger) { double }
+
+        it 'returns nil and logs a warning' do
+          cfg = { profile: 'legacy_sso_profile', logger: logger }
+          expect(logger).to receive(:warn)
+          provider = SSOCredentialsProvider::PROFILE.call(cfg)
+          expect(provider).to be_nil
+        end
+      end
+
+      context 'profile has sso information' do
+        let(:shared_config) do
+          IniParser.ini_parse(<<~CONFIG)
+            [profile sso_credentials]
+            sso_account_id = SSO_ACCOUNT_ID
+            sso_role_name = SSO_ROLE_NAME
+            sso_session = sso-session
+
+            [sso-session sso-session]
+            sso_region = us-east-1
+            sso_start_url = START_URL
+          CONFIG
+        end
+
         it 'returns an instance of SSOCredentialProvider' do
           cfg = { profile: 'sso_credentials' }
-          mock_token_file('START_URL', cached_token)
           provider = SSOCredentialsProvider::PROFILE.call(cfg)
           expect(provider).to be_an_instance_of(SSOCredentialsProvider)
         end
@@ -52,37 +76,49 @@ module AWS::SDK::Core
     let(:in_one_hour) { Time.now + (60 * 60) }
     let(:one_hour_ago) { Time.now - (60 * 60) }
     let(:expiration) { in_one_hour }
+    let(:token_expiration) { in_one_hour }
 
     let(:access_token) { 'token' }
-    let(:cached_token) do
-      { 'accessToken' => access_token, 'expiresAt' => expiration }
+    let(:token) do
+      Hearth::Identities::HTTPBearer.new(
+        token: access_token, expiration: token_expiration
+      )
     end
 
     let(:sso_role_name) { 'role' }
-    let(:sso_start_url) { 'd-peccy.awsapps.com/start' }
     let(:sso_region) { 'us-west-2' }
     let(:sso_account_id) { '12345' }
+    let(:sso_session) { 'sso-session' }
 
     let(:provider_options) do
       {
-        sso_start_url: sso_start_url,
+        sso_session: sso_session,
         sso_region: sso_region,
         sso_role_name: sso_role_name,
         sso_account_id: sso_account_id
       }
     end
 
-    subject do
-      SSOCredentialsProvider.new(**provider_options.merge(client: client))
-    end
-
-    let(:config) { double('AWS::SDK::SSO::Config') }
     let(:client) do
       double(
         'AWS::SDK::SSO::Client',
         get_role_credentials: get_role_credentials_resp
       )
     end
+
+    let(:token_provider) do
+      double('AWS::SDK::Core::SSOBearerProvider', identity: token)
+    end
+
+    before do
+      allow(AWS::SDK::Core::SSOBearerProvider)
+        .to receive(:new).and_return(token_provider)
+    end
+
+    subject do
+      SSOCredentialsProvider.new(**provider_options.merge(client: client))
+    end
+
     let(:get_role_credentials_resp) do
       double(
         'Hearth::Output',
@@ -101,69 +137,15 @@ module AWS::SDK::Core
       }
     end
 
-    def mock_token_file(start_url, cached_token)
-      start_url_sha1 = OpenSSL::Digest::SHA1.hexdigest(start_url)
-      allow(Dir).to receive(:home).and_return('HOME')
-      path = File.join(
-        Dir.home, '.aws', 'sso', 'cache', "#{start_url_sha1}.json"
-      )
-
-      allow(File).to receive(:read)
-        .with(path).and_return(JSON.dump(cached_token))
-    end
-
-    before do
-      mock_token_file(sso_start_url, cached_token)
-    end
-
     include_examples 'refreshing_credentials_provider'
 
     describe '#initialize' do
       it 'constructs an client with sso_region if not provided' do
         expect(AWS::SDK::SSO::Client).to receive(:new)
           .with(region: sso_region).and_return(client)
-        mock_token_file(sso_start_url, cached_token)
 
         provider = SSOCredentialsProvider.new(**provider_options)
         expect(provider.client).to be(client)
-      end
-
-      it 'raises an ArgumentError when token file is missing' do
-        start_url_sha1 = OpenSSL::Digest::SHA1.hexdigest(sso_start_url)
-        allow(Dir).to receive(:home).and_return('HOME')
-        path = File.join(
-          Dir.home, '.aws', 'sso', 'cache', "#{start_url_sha1}.json"
-        )
-        allow(File).to receive(:read).with(path).and_raise(Errno::ENOENT)
-
-        expect do
-          SSOCredentialsProvider.new(**provider_options)
-        end.to raise_error(ArgumentError)
-      end
-
-      it 'raises an ArgumentError when token file is missing fields' do
-        mock_token_file(sso_start_url, { 'accessToken' => access_token })
-
-        expect do
-          SSOCredentialsProvider.new(**provider_options)
-        end.to raise_error(ArgumentError)
-
-        mock_token_file(sso_start_url, { 'expiresAt' => expiration })
-
-        expect do
-          SSOCredentialsProvider.new(**provider_options)
-        end.to raise_error(ArgumentError)
-      end
-
-      it 'raises an ArgumentError when token is expired' do
-        mock_token_file(
-          sso_start_url,
-          { 'accessToken' => access_token, 'expiresAt' => one_hour_ago }
-        )
-
-        expect do
-          SSOCredentialsProvider.new(**provider_options)
-        end.to raise_error(ArgumentError)
       end
 
       it 'raises when aws-sdk-sso is not available' do
@@ -175,29 +157,16 @@ module AWS::SDK::Core
 
       it 'uses a provided client' do
         expect(AWS::SDK::SSO::Client).not_to receive(:new)
-        mock_token_file(sso_start_url, cached_token)
 
         provider = SSOCredentialsProvider.new(
           **provider_options.merge(client: client)
         )
         expect(provider.client).to be(client)
       end
-
-      context 'Dir.home is undefined' do
-        before do
-          allow(Dir).to receive(:home).and_raise(ArgumentError)
-        end
-
-        it 'raises a runtime error' do
-          expect { SSOCredentialsProvider.new(**provider_options) }
-            .to raise_error(RuntimeError, /Unable to load sso_cache_file/)
-        end
-      end
     end
 
     describe '#identity' do
       it 'will read valid credentials from get_role_credentials' do
-        mock_token_file(sso_start_url, cached_token)
         creds = subject.identity
         expect(creds.access_key_id).to eq('ACCESS_KEY_1')
         expect(creds.secret_access_key).to eq('SECRET_KEY_1')
