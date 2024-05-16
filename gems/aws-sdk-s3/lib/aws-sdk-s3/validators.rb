@@ -3199,6 +3199,10 @@ module AWS::SDK::S3
         unless input[:body].respond_to?(:read) || input[:body].respond_to?(:readpartial)
           raise ArgumentError, "Expected #{context} to be an IO like object, got #{input[:body].class}"
         end
+
+        unless input[:body].respond_to?(:size)
+          raise ArgumentError, "Expected #{context} to respond_to(:size)"
+        end
         Hearth::Validator.validate_required!(input[:bucket], context: "#{context}[:bucket]")
         Hearth::Validator.validate_types!(input[:bucket], ::String, context: "#{context}[:bucket]")
         Hearth::Validator.validate_types!(input[:cache_control], ::String, context: "#{context}[:cache_control]")
@@ -4003,6 +4007,10 @@ module AWS::SDK::S3
         unless input[:body].respond_to?(:read) || input[:body].respond_to?(:readpartial)
           raise ArgumentError, "Expected #{context} to be an IO like object, got #{input[:body].class}"
         end
+
+        unless input[:body].respond_to?(:size)
+          raise ArgumentError, "Expected #{context} to respond_to(:size)"
+        end
         Hearth::Validator.validate_required!(input[:bucket], context: "#{context}[:bucket]")
         Hearth::Validator.validate_types!(input[:bucket], ::String, context: "#{context}[:bucket]")
         Hearth::Validator.validate_types!(input[:content_length], ::Integer, context: "#{context}[:content_length]")
@@ -4079,6 +4087,10 @@ module AWS::SDK::S3
         Hearth::Validator.validate_types!(input[:request_token], ::String, context: "#{context}[:request_token]")
         unless input[:body].respond_to?(:read) || input[:body].respond_to?(:readpartial)
           raise ArgumentError, "Expected #{context} to be an IO like object, got #{input[:body].class}"
+        end
+
+        unless input[:body].respond_to?(:size)
+          raise ArgumentError, "Expected #{context} to respond_to(:size)"
         end
         Hearth::Validator.validate_types!(input[:status_code], ::Integer, context: "#{context}[:status_code]")
         Hearth::Validator.validate_types!(input[:error_code], ::String, context: "#{context}[:error_code]")
