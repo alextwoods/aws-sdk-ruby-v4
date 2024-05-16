@@ -1242,6 +1242,10 @@ module AWS::SDK::S3
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DeleteObjects
         )
+        stack.use(AWS::SDK::Core::Middleware::Checksum,
+          request_algorithm_member: :checksum_algorithm,
+          request_checksum_required: true
+        )
         stack.use(Hearth::Middleware::Auth,
           auth_params: Auth::Params.new(operation_name: :delete_objects, region: config.region),
           auth_resolver: config.auth_resolver,
@@ -1249,10 +1253,6 @@ module AWS::SDK::S3
           AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
-        stack.use(AWS::SDK::Core::Middleware::Checksum,
-          request_algorithm_member: :checksum_algorithm,
-          request_checksum_required: true
-        )
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
           endpoint_resolver: config.endpoint_resolver,
@@ -2522,6 +2522,11 @@ module AWS::SDK::S3
         stack.use(Hearth::Middleware::Build,
           builder: Builders::GetObject
         )
+        stack.use(AWS::SDK::Core::Middleware::Checksum,
+          response_algorithms: ['CRC32', 'CRC32C', 'SHA256', 'SHA1'],
+          request_validation_mode_member: :checksum_mode,
+          request_checksum_required: false
+        )
         stack.use(Hearth::Middleware::Auth,
           auth_params: Auth::Params.new(operation_name: :get_object, region: config.region),
           auth_resolver: config.auth_resolver,
@@ -2529,11 +2534,6 @@ module AWS::SDK::S3
           AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
-        stack.use(AWS::SDK::Core::Middleware::Checksum,
-          response_algorithms: ['CRC32', 'CRC32C', 'SHA256', 'SHA1'],
-          request_validation_mode_member: :checksum_mode,
-          request_checksum_required: false
-        )
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
           endpoint_resolver: config.endpoint_resolver,
@@ -3803,6 +3803,10 @@ module AWS::SDK::S3
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutBucketAccelerateConfiguration
         )
+        stack.use(AWS::SDK::Core::Middleware::Checksum,
+          request_algorithm_member: :checksum_algorithm,
+          request_checksum_required: false
+        )
         stack.use(Hearth::Middleware::Auth,
           auth_params: Auth::Params.new(operation_name: :put_bucket_accelerate_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
@@ -3810,10 +3814,6 @@ module AWS::SDK::S3
           AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
-        stack.use(AWS::SDK::Core::Middleware::Checksum,
-          request_algorithm_member: :checksum_algorithm,
-          request_checksum_required: false
-        )
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
           endpoint_resolver: config.endpoint_resolver,
@@ -3865,6 +3865,10 @@ module AWS::SDK::S3
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutBucketAcl
         )
+        stack.use(AWS::SDK::Core::Middleware::Checksum,
+          request_algorithm_member: :checksum_algorithm,
+          request_checksum_required: true
+        )
         stack.use(Hearth::Middleware::Auth,
           auth_params: Auth::Params.new(operation_name: :put_bucket_acl, region: config.region),
           auth_resolver: config.auth_resolver,
@@ -3872,10 +3876,6 @@ module AWS::SDK::S3
           AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
-        stack.use(AWS::SDK::Core::Middleware::Checksum,
-          request_algorithm_member: :checksum_algorithm,
-          request_checksum_required: true
-        )
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
           endpoint_resolver: config.endpoint_resolver,
@@ -3985,6 +3985,10 @@ module AWS::SDK::S3
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutBucketCors
         )
+        stack.use(AWS::SDK::Core::Middleware::Checksum,
+          request_algorithm_member: :checksum_algorithm,
+          request_checksum_required: true
+        )
         stack.use(Hearth::Middleware::Auth,
           auth_params: Auth::Params.new(operation_name: :put_bucket_cors, region: config.region),
           auth_resolver: config.auth_resolver,
@@ -3992,10 +3996,6 @@ module AWS::SDK::S3
           AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
-        stack.use(AWS::SDK::Core::Middleware::Checksum,
-          request_algorithm_member: :checksum_algorithm,
-          request_checksum_required: true
-        )
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
           endpoint_resolver: config.endpoint_resolver,
@@ -4047,6 +4047,10 @@ module AWS::SDK::S3
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutBucketEncryption
         )
+        stack.use(AWS::SDK::Core::Middleware::Checksum,
+          request_algorithm_member: :checksum_algorithm,
+          request_checksum_required: true
+        )
         stack.use(Hearth::Middleware::Auth,
           auth_params: Auth::Params.new(operation_name: :put_bucket_encryption, region: config.region),
           auth_resolver: config.auth_resolver,
@@ -4054,10 +4058,6 @@ module AWS::SDK::S3
           AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
-        stack.use(AWS::SDK::Core::Middleware::Checksum,
-          request_algorithm_member: :checksum_algorithm,
-          request_checksum_required: true
-        )
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
           endpoint_resolver: config.endpoint_resolver,
@@ -4225,6 +4225,10 @@ module AWS::SDK::S3
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutBucketLifecycleConfiguration
         )
+        stack.use(AWS::SDK::Core::Middleware::Checksum,
+          request_algorithm_member: :checksum_algorithm,
+          request_checksum_required: true
+        )
         stack.use(Hearth::Middleware::Auth,
           auth_params: Auth::Params.new(operation_name: :put_bucket_lifecycle_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
@@ -4232,10 +4236,6 @@ module AWS::SDK::S3
           AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
-        stack.use(AWS::SDK::Core::Middleware::Checksum,
-          request_algorithm_member: :checksum_algorithm,
-          request_checksum_required: true
-        )
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
           endpoint_resolver: config.endpoint_resolver,
@@ -4287,6 +4287,10 @@ module AWS::SDK::S3
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutBucketLogging
         )
+        stack.use(AWS::SDK::Core::Middleware::Checksum,
+          request_algorithm_member: :checksum_algorithm,
+          request_checksum_required: true
+        )
         stack.use(Hearth::Middleware::Auth,
           auth_params: Auth::Params.new(operation_name: :put_bucket_logging, region: config.region),
           auth_resolver: config.auth_resolver,
@@ -4294,10 +4298,6 @@ module AWS::SDK::S3
           AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
-        stack.use(AWS::SDK::Core::Middleware::Checksum,
-          request_algorithm_member: :checksum_algorithm,
-          request_checksum_required: true
-        )
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
           endpoint_resolver: config.endpoint_resolver,
@@ -4465,6 +4465,9 @@ module AWS::SDK::S3
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutBucketOwnershipControls
         )
+        stack.use(AWS::SDK::Core::Middleware::Checksum,
+          request_checksum_required: true
+        )
         stack.use(Hearth::Middleware::Auth,
           auth_params: Auth::Params.new(operation_name: :put_bucket_ownership_controls, region: config.region),
           auth_resolver: config.auth_resolver,
@@ -4472,9 +4475,6 @@ module AWS::SDK::S3
           AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
-        stack.use(AWS::SDK::Core::Middleware::Checksum,
-          request_checksum_required: true
-        )
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
           endpoint_resolver: config.endpoint_resolver,
@@ -4526,6 +4526,10 @@ module AWS::SDK::S3
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutBucketPolicy
         )
+        stack.use(AWS::SDK::Core::Middleware::Checksum,
+          request_algorithm_member: :checksum_algorithm,
+          request_checksum_required: true
+        )
         stack.use(Hearth::Middleware::Auth,
           auth_params: Auth::Params.new(operation_name: :put_bucket_policy, region: config.region),
           auth_resolver: config.auth_resolver,
@@ -4533,10 +4537,6 @@ module AWS::SDK::S3
           AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
-        stack.use(AWS::SDK::Core::Middleware::Checksum,
-          request_algorithm_member: :checksum_algorithm,
-          request_checksum_required: true
-        )
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
           endpoint_resolver: config.endpoint_resolver,
@@ -4588,6 +4588,10 @@ module AWS::SDK::S3
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutBucketReplication
         )
+        stack.use(AWS::SDK::Core::Middleware::Checksum,
+          request_algorithm_member: :checksum_algorithm,
+          request_checksum_required: true
+        )
         stack.use(Hearth::Middleware::Auth,
           auth_params: Auth::Params.new(operation_name: :put_bucket_replication, region: config.region),
           auth_resolver: config.auth_resolver,
@@ -4595,10 +4599,6 @@ module AWS::SDK::S3
           AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
-        stack.use(AWS::SDK::Core::Middleware::Checksum,
-          request_algorithm_member: :checksum_algorithm,
-          request_checksum_required: true
-        )
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
           endpoint_resolver: config.endpoint_resolver,
@@ -4650,6 +4650,10 @@ module AWS::SDK::S3
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutBucketRequestPayment
         )
+        stack.use(AWS::SDK::Core::Middleware::Checksum,
+          request_algorithm_member: :checksum_algorithm,
+          request_checksum_required: true
+        )
         stack.use(Hearth::Middleware::Auth,
           auth_params: Auth::Params.new(operation_name: :put_bucket_request_payment, region: config.region),
           auth_resolver: config.auth_resolver,
@@ -4657,10 +4661,6 @@ module AWS::SDK::S3
           AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
-        stack.use(AWS::SDK::Core::Middleware::Checksum,
-          request_algorithm_member: :checksum_algorithm,
-          request_checksum_required: true
-        )
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
           endpoint_resolver: config.endpoint_resolver,
@@ -4712,6 +4712,10 @@ module AWS::SDK::S3
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutBucketTagging
         )
+        stack.use(AWS::SDK::Core::Middleware::Checksum,
+          request_algorithm_member: :checksum_algorithm,
+          request_checksum_required: true
+        )
         stack.use(Hearth::Middleware::Auth,
           auth_params: Auth::Params.new(operation_name: :put_bucket_tagging, region: config.region),
           auth_resolver: config.auth_resolver,
@@ -4719,10 +4723,6 @@ module AWS::SDK::S3
           AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
-        stack.use(AWS::SDK::Core::Middleware::Checksum,
-          request_algorithm_member: :checksum_algorithm,
-          request_checksum_required: true
-        )
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
           endpoint_resolver: config.endpoint_resolver,
@@ -4774,6 +4774,10 @@ module AWS::SDK::S3
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutBucketVersioning
         )
+        stack.use(AWS::SDK::Core::Middleware::Checksum,
+          request_algorithm_member: :checksum_algorithm,
+          request_checksum_required: true
+        )
         stack.use(Hearth::Middleware::Auth,
           auth_params: Auth::Params.new(operation_name: :put_bucket_versioning, region: config.region),
           auth_resolver: config.auth_resolver,
@@ -4781,10 +4785,6 @@ module AWS::SDK::S3
           AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
-        stack.use(AWS::SDK::Core::Middleware::Checksum,
-          request_algorithm_member: :checksum_algorithm,
-          request_checksum_required: true
-        )
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
           endpoint_resolver: config.endpoint_resolver,
@@ -4836,6 +4836,10 @@ module AWS::SDK::S3
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutBucketWebsite
         )
+        stack.use(AWS::SDK::Core::Middleware::Checksum,
+          request_algorithm_member: :checksum_algorithm,
+          request_checksum_required: true
+        )
         stack.use(Hearth::Middleware::Auth,
           auth_params: Auth::Params.new(operation_name: :put_bucket_website, region: config.region),
           auth_resolver: config.auth_resolver,
@@ -4843,10 +4847,6 @@ module AWS::SDK::S3
           AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
-        stack.use(AWS::SDK::Core::Middleware::Checksum,
-          request_algorithm_member: :checksum_algorithm,
-          request_checksum_required: true
-        )
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
           endpoint_resolver: config.endpoint_resolver,
@@ -4898,12 +4898,6 @@ module AWS::SDK::S3
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutObject
         )
-        stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :put_object, region: config.region),
-          auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
-        )
         stack.use(AWS::SDK::Core::Middleware::Checksum,
           request_algorithm_member: :checksum_algorithm,
           streaming: true,
@@ -4911,6 +4905,13 @@ module AWS::SDK::S3
           signed_streaming: true,
           require_decoded_content_length: true
         )
+        stack.use(Hearth::Middleware::Auth,
+          auth_params: Auth::Params.new(operation_name: :put_object, region: config.region),
+          auth_resolver: config.auth_resolver,
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
+        )
+        stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
           endpoint_resolver: config.endpoint_resolver,
@@ -4962,6 +4963,10 @@ module AWS::SDK::S3
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutObjectAcl
         )
+        stack.use(AWS::SDK::Core::Middleware::Checksum,
+          request_algorithm_member: :checksum_algorithm,
+          request_checksum_required: true
+        )
         stack.use(Hearth::Middleware::Auth,
           auth_params: Auth::Params.new(operation_name: :put_object_acl, region: config.region),
           auth_resolver: config.auth_resolver,
@@ -4969,10 +4974,6 @@ module AWS::SDK::S3
           AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
-        stack.use(AWS::SDK::Core::Middleware::Checksum,
-          request_algorithm_member: :checksum_algorithm,
-          request_checksum_required: true
-        )
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
           endpoint_resolver: config.endpoint_resolver,
@@ -5024,6 +5025,10 @@ module AWS::SDK::S3
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutObjectLegalHold
         )
+        stack.use(AWS::SDK::Core::Middleware::Checksum,
+          request_algorithm_member: :checksum_algorithm,
+          request_checksum_required: true
+        )
         stack.use(Hearth::Middleware::Auth,
           auth_params: Auth::Params.new(operation_name: :put_object_legal_hold, region: config.region),
           auth_resolver: config.auth_resolver,
@@ -5031,10 +5036,6 @@ module AWS::SDK::S3
           AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
-        stack.use(AWS::SDK::Core::Middleware::Checksum,
-          request_algorithm_member: :checksum_algorithm,
-          request_checksum_required: true
-        )
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
           endpoint_resolver: config.endpoint_resolver,
@@ -5086,6 +5087,10 @@ module AWS::SDK::S3
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutObjectLockConfiguration
         )
+        stack.use(AWS::SDK::Core::Middleware::Checksum,
+          request_algorithm_member: :checksum_algorithm,
+          request_checksum_required: true
+        )
         stack.use(Hearth::Middleware::Auth,
           auth_params: Auth::Params.new(operation_name: :put_object_lock_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
@@ -5093,10 +5098,6 @@ module AWS::SDK::S3
           AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
-        stack.use(AWS::SDK::Core::Middleware::Checksum,
-          request_algorithm_member: :checksum_algorithm,
-          request_checksum_required: true
-        )
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
           endpoint_resolver: config.endpoint_resolver,
@@ -5148,6 +5149,10 @@ module AWS::SDK::S3
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutObjectRetention
         )
+        stack.use(AWS::SDK::Core::Middleware::Checksum,
+          request_algorithm_member: :checksum_algorithm,
+          request_checksum_required: true
+        )
         stack.use(Hearth::Middleware::Auth,
           auth_params: Auth::Params.new(operation_name: :put_object_retention, region: config.region),
           auth_resolver: config.auth_resolver,
@@ -5155,10 +5160,6 @@ module AWS::SDK::S3
           AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
-        stack.use(AWS::SDK::Core::Middleware::Checksum,
-          request_algorithm_member: :checksum_algorithm,
-          request_checksum_required: true
-        )
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
           endpoint_resolver: config.endpoint_resolver,
@@ -5210,6 +5211,10 @@ module AWS::SDK::S3
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutObjectTagging
         )
+        stack.use(AWS::SDK::Core::Middleware::Checksum,
+          request_algorithm_member: :checksum_algorithm,
+          request_checksum_required: true
+        )
         stack.use(Hearth::Middleware::Auth,
           auth_params: Auth::Params.new(operation_name: :put_object_tagging, region: config.region),
           auth_resolver: config.auth_resolver,
@@ -5217,10 +5222,6 @@ module AWS::SDK::S3
           AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
-        stack.use(AWS::SDK::Core::Middleware::Checksum,
-          request_algorithm_member: :checksum_algorithm,
-          request_checksum_required: true
-        )
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
           endpoint_resolver: config.endpoint_resolver,
@@ -5272,6 +5273,10 @@ module AWS::SDK::S3
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutPublicAccessBlock
         )
+        stack.use(AWS::SDK::Core::Middleware::Checksum,
+          request_algorithm_member: :checksum_algorithm,
+          request_checksum_required: true
+        )
         stack.use(Hearth::Middleware::Auth,
           auth_params: Auth::Params.new(operation_name: :put_public_access_block, region: config.region),
           auth_resolver: config.auth_resolver,
@@ -5279,10 +5284,6 @@ module AWS::SDK::S3
           AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
-        stack.use(AWS::SDK::Core::Middleware::Checksum,
-          request_algorithm_member: :checksum_algorithm,
-          request_checksum_required: true
-        )
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
           endpoint_resolver: config.endpoint_resolver,
@@ -5334,6 +5335,10 @@ module AWS::SDK::S3
         stack.use(Hearth::Middleware::Build,
           builder: Builders::RestoreObject
         )
+        stack.use(AWS::SDK::Core::Middleware::Checksum,
+          request_algorithm_member: :checksum_algorithm,
+          request_checksum_required: false
+        )
         stack.use(Hearth::Middleware::Auth,
           auth_params: Auth::Params.new(operation_name: :restore_object, region: config.region),
           auth_resolver: config.auth_resolver,
@@ -5341,10 +5346,6 @@ module AWS::SDK::S3
           AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
-        stack.use(AWS::SDK::Core::Middleware::Checksum,
-          request_algorithm_member: :checksum_algorithm,
-          request_checksum_required: false
-        )
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
           endpoint_resolver: config.endpoint_resolver,
@@ -5396,12 +5397,6 @@ module AWS::SDK::S3
         stack.use(Hearth::Middleware::Build,
           builder: Builders::UploadPart
         )
-        stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :upload_part, region: config.region),
-          auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
-        )
         stack.use(AWS::SDK::Core::Middleware::Checksum,
           request_algorithm_member: :checksum_algorithm,
           streaming: true,
@@ -5409,6 +5404,13 @@ module AWS::SDK::S3
           signed_streaming: true,
           require_decoded_content_length: true
         )
+        stack.use(Hearth::Middleware::Auth,
+          auth_params: Auth::Params.new(operation_name: :upload_part, region: config.region),
+          auth_resolver: config.auth_resolver,
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
+        )
+        stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
           endpoint_resolver: config.endpoint_resolver,
@@ -5524,6 +5526,7 @@ module AWS::SDK::S3
           auth_schemes: config.auth_schemes,
           AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
+        stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
           endpoint_resolver: config.endpoint_resolver,
