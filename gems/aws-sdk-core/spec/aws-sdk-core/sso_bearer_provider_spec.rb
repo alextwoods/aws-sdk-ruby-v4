@@ -86,7 +86,7 @@ module AWS::SDK::Core
         )
       end
 
-      it 'raises an InvalidSSOToken error when  token file is missing' do
+      it 'raises an InvalidSSOToken error when token file is missing' do
         expect(AWS::SDK::SSOOIDC::Client).to receive(:new)
           .and_return(client)
 

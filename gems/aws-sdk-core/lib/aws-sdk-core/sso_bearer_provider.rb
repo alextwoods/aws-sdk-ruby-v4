@@ -8,8 +8,8 @@ module AWS::SDK::Core
   #
   #     # You must first run aws sso login --profile your-sso-profile
   #     provider = AWS::SDK::Core::SSOBearerProvider.new(
-  #       sso_region: "us-east-1",
-  #       sso_session: "your-sso-session"
+  #       sso_region: "'s-east-1',
+  #       sso_session: 'your-sso-session'
   #     )
   #
   #     client = AWS::SDK::CodeCatalyst::Client.new(

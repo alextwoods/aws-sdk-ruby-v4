@@ -37,7 +37,7 @@ module AWS::SDK::SSOOIDC
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
         CGI.parse('aws_iam=t').each do |k,v|
-          v.each { |q_v| http_req.append_query_param(k, q_v) }
+          http_req.append_query_param(k, v)
         end
         http_req.append_path('/token')
 

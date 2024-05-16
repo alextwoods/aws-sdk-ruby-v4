@@ -3,7 +3,7 @@
 require 'openssl'
 
 module AWS::SDK::Core
-  # An auto-refreshing credential provider that assumes a role via
+  # An auto-refreshing credentials provider that assumes a role via
   # {AWS::SDK::SSO::Client#get_role_credentials} using a cached access
   # token. When `sso_session` is specified, token refresh logic from
   # {AWS::SDK::Core::SSOBearerProvider} will be used to refresh the token if
