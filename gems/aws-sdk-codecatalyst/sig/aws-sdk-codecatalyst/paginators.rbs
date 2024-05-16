@@ -1,0 +1,84 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/smithy-lang/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::CodeCatalyst
+  module Paginators
+
+    class ListAccessTokens
+      def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
+
+      def pages: () -> ::Enumerator[Hearth::Output[Types::ListAccessTokensOutput], void]
+      def items: () -> Enumerator[Array[AWS::SDK::CodeCatalyst::Types::AccessTokenSummary], void]
+    end
+
+    class ListDevEnvironments
+      def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
+
+      def pages: () -> ::Enumerator[Hearth::Output[Types::ListDevEnvironmentsOutput], void]
+      def items: () -> Enumerator[Array[AWS::SDK::CodeCatalyst::Types::DevEnvironmentSummary], void]
+    end
+
+    class ListDevEnvironmentSessions
+      def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
+
+      def pages: () -> ::Enumerator[Hearth::Output[Types::ListDevEnvironmentSessionsOutput], void]
+      def items: () -> Enumerator[Array[AWS::SDK::CodeCatalyst::Types::DevEnvironmentSessionSummary], void]
+    end
+
+    class ListEventLogs
+      def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
+
+      def pages: () -> ::Enumerator[Hearth::Output[Types::ListEventLogsOutput], void]
+      def items: () -> Enumerator[Array[AWS::SDK::CodeCatalyst::Types::EventLogEntry], void]
+    end
+
+    class ListProjects
+      def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
+
+      def pages: () -> ::Enumerator[Hearth::Output[Types::ListProjectsOutput], void]
+      def items: () -> Enumerator[Array[AWS::SDK::CodeCatalyst::Types::ProjectSummary], void]
+    end
+
+    class ListSourceRepositories
+      def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
+
+      def pages: () -> ::Enumerator[Hearth::Output[Types::ListSourceRepositoriesOutput], void]
+      def items: () -> Enumerator[Array[AWS::SDK::CodeCatalyst::Types::ListSourceRepositoriesItem], void]
+    end
+
+    class ListSourceRepositoryBranches
+      def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
+
+      def pages: () -> ::Enumerator[Hearth::Output[Types::ListSourceRepositoryBranchesOutput], void]
+      def items: () -> Enumerator[Array[AWS::SDK::CodeCatalyst::Types::ListSourceRepositoryBranchesItem], void]
+    end
+
+    class ListSpaces
+      def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
+
+      def pages: () -> ::Enumerator[Hearth::Output[Types::ListSpacesOutput], void]
+      def items: () -> Enumerator[Array[AWS::SDK::CodeCatalyst::Types::SpaceSummary], void]
+    end
+
+    class ListWorkflowRuns
+      def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
+
+      def pages: () -> ::Enumerator[Hearth::Output[Types::ListWorkflowRunsOutput], void]
+      def items: () -> Enumerator[Array[AWS::SDK::CodeCatalyst::Types::WorkflowRunSummary], void]
+    end
+
+    class ListWorkflows
+      def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
+
+      def pages: () -> ::Enumerator[Hearth::Output[Types::ListWorkflowsOutput], void]
+      def items: () -> Enumerator[Array[AWS::SDK::CodeCatalyst::Types::WorkflowSummary], void]
+    end
+
+  end
+end

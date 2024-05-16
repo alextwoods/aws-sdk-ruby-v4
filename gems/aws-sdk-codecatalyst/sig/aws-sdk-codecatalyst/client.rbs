@@ -1,0 +1,390 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/smithy-lang/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::CodeCatalyst
+  class Client < Hearth::Client
+
+    def self.plugins: () -> Hearth::PluginList[Config]
+
+    def initialize: (?::Hash[::Symbol, untyped] options) -> void |
+      (
+        ?auth_resolver: Hearth::_AuthResolver[Auth::Params],
+        ?auth_schemes: Array[Hearth::AuthSchemes::Base],
+        ?disable_host_prefix: bool,
+        ?endpoint: String,
+        ?endpoint_resolver: Hearth::_EndpointResolver[Endpoint::Params],
+        ?http_bearer_provider: Hearth::IdentityProvider,
+        ?http_client: Hearth::HTTP::Client,
+        ?interceptors: Hearth::InterceptorList,
+        ?logger: Logger,
+        ?plugins: Hearth::PluginList[Config],
+        ?profile: String,
+        ?region: String,
+        ?retry_strategy: Hearth::_RetryStrategy,
+        ?stub_responses: bool,
+        ?stubs: Hearth::Stubs,
+        ?use_fips_endpoint: bool,
+        ?validate_input: bool
+      ) -> void
+
+    attr_reader config: Config
+
+    def create_access_token: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::CreateAccessTokenOutput] |
+      (?Types::CreateAccessTokenInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::CreateAccessTokenOutput] |
+      (
+        name: ::String,
+        ?expires_time: ::Time
+      ) -> Hearth::Output[Types::CreateAccessTokenOutput]
+
+    def create_dev_environment: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::CreateDevEnvironmentOutput] |
+      (?Types::CreateDevEnvironmentInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::CreateDevEnvironmentOutput] |
+      (
+        space_name: ::String,
+        project_name: ::String,
+        ?repositories: ::Array[{
+          repository_name: ::String,
+          branch_name: ::String
+        }],
+        ?client_token: ::String,
+        ?alias: ::String,
+        ?ides: ::Array[{
+          runtime: ::String,
+          name: ::String
+        }],
+        instance_type: ("dev.standard1.small" | "dev.standard1.medium" | "dev.standard1.large" | "dev.standard1.xlarge"),
+        ?inactivity_timeout_minutes: ::Integer,
+        persistent_storage: {
+          size_in_gi_b: ::Integer
+        },
+        ?vpc_connection_name: ::String
+      ) -> Hearth::Output[Types::CreateDevEnvironmentOutput]
+
+    def create_project: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::CreateProjectOutput] |
+      (?Types::CreateProjectInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::CreateProjectOutput] |
+      (
+        space_name: ::String,
+        display_name: ::String,
+        ?description: ::String
+      ) -> Hearth::Output[Types::CreateProjectOutput]
+
+    def create_source_repository: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::CreateSourceRepositoryOutput] |
+      (?Types::CreateSourceRepositoryInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::CreateSourceRepositoryOutput] |
+      (
+        space_name: ::String,
+        project_name: ::String,
+        name: ::String,
+        ?description: ::String
+      ) -> Hearth::Output[Types::CreateSourceRepositoryOutput]
+
+    def create_source_repository_branch: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::CreateSourceRepositoryBranchOutput] |
+      (?Types::CreateSourceRepositoryBranchInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::CreateSourceRepositoryBranchOutput] |
+      (
+        space_name: ::String,
+        project_name: ::String,
+        source_repository_name: ::String,
+        name: ::String,
+        ?head_commit_id: ::String
+      ) -> Hearth::Output[Types::CreateSourceRepositoryBranchOutput]
+
+    def delete_access_token: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteAccessTokenOutput] |
+      (?Types::DeleteAccessTokenInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteAccessTokenOutput] |
+      (
+        id: ::String
+      ) -> Hearth::Output[Types::DeleteAccessTokenOutput]
+
+    def delete_dev_environment: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteDevEnvironmentOutput] |
+      (?Types::DeleteDevEnvironmentInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteDevEnvironmentOutput] |
+      (
+        space_name: ::String,
+        project_name: ::String,
+        id: ::String
+      ) -> Hearth::Output[Types::DeleteDevEnvironmentOutput]
+
+    def delete_project: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteProjectOutput] |
+      (?Types::DeleteProjectInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteProjectOutput] |
+      (
+        space_name: ::String,
+        name: ::String
+      ) -> Hearth::Output[Types::DeleteProjectOutput]
+
+    def delete_source_repository: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteSourceRepositoryOutput] |
+      (?Types::DeleteSourceRepositoryInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteSourceRepositoryOutput] |
+      (
+        space_name: ::String,
+        project_name: ::String,
+        name: ::String
+      ) -> Hearth::Output[Types::DeleteSourceRepositoryOutput]
+
+    def delete_space: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteSpaceOutput] |
+      (?Types::DeleteSpaceInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteSpaceOutput] |
+      (
+        name: ::String
+      ) -> Hearth::Output[Types::DeleteSpaceOutput]
+
+    def get_dev_environment: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetDevEnvironmentOutput] |
+      (?Types::GetDevEnvironmentInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetDevEnvironmentOutput] |
+      (
+        space_name: ::String,
+        project_name: ::String,
+        id: ::String
+      ) -> Hearth::Output[Types::GetDevEnvironmentOutput]
+
+    def get_project: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetProjectOutput] |
+      (?Types::GetProjectInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetProjectOutput] |
+      (
+        space_name: ::String,
+        name: ::String
+      ) -> Hearth::Output[Types::GetProjectOutput]
+
+    def get_source_repository: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetSourceRepositoryOutput] |
+      (?Types::GetSourceRepositoryInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetSourceRepositoryOutput] |
+      (
+        space_name: ::String,
+        project_name: ::String,
+        name: ::String
+      ) -> Hearth::Output[Types::GetSourceRepositoryOutput]
+
+    def get_source_repository_clone_urls: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetSourceRepositoryCloneUrlsOutput] |
+      (?Types::GetSourceRepositoryCloneUrlsInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetSourceRepositoryCloneUrlsOutput] |
+      (
+        space_name: ::String,
+        project_name: ::String,
+        source_repository_name: ::String
+      ) -> Hearth::Output[Types::GetSourceRepositoryCloneUrlsOutput]
+
+    def get_space: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetSpaceOutput] |
+      (?Types::GetSpaceInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetSpaceOutput] |
+      (
+        name: ::String
+      ) -> Hearth::Output[Types::GetSpaceOutput]
+
+    def get_subscription: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetSubscriptionOutput] |
+      (?Types::GetSubscriptionInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetSubscriptionOutput] |
+      (
+        space_name: ::String
+      ) -> Hearth::Output[Types::GetSubscriptionOutput]
+
+    def get_user_details: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetUserDetailsOutput] |
+      (?Types::GetUserDetailsInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetUserDetailsOutput] |
+      (
+        ?id: ::String,
+        ?user_name: ::String
+      ) -> Hearth::Output[Types::GetUserDetailsOutput]
+
+    def get_workflow: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetWorkflowOutput] |
+      (?Types::GetWorkflowInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetWorkflowOutput] |
+      (
+        space_name: ::String,
+        id: ::String,
+        project_name: ::String
+      ) -> Hearth::Output[Types::GetWorkflowOutput]
+
+    def get_workflow_run: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetWorkflowRunOutput] |
+      (?Types::GetWorkflowRunInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetWorkflowRunOutput] |
+      (
+        space_name: ::String,
+        id: ::String,
+        project_name: ::String
+      ) -> Hearth::Output[Types::GetWorkflowRunOutput]
+
+    def list_access_tokens: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListAccessTokensOutput] |
+      (?Types::ListAccessTokensInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListAccessTokensOutput] |
+      (
+        ?max_results: ::Integer,
+        ?next_token: ::String
+      ) -> Hearth::Output[Types::ListAccessTokensOutput]
+
+    def list_dev_environment_sessions: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListDevEnvironmentSessionsOutput] |
+      (?Types::ListDevEnvironmentSessionsInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListDevEnvironmentSessionsOutput] |
+      (
+        space_name: ::String,
+        project_name: ::String,
+        dev_environment_id: ::String,
+        ?next_token: ::String,
+        ?max_results: ::Integer
+      ) -> Hearth::Output[Types::ListDevEnvironmentSessionsOutput]
+
+    def list_dev_environments: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListDevEnvironmentsOutput] |
+      (?Types::ListDevEnvironmentsInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListDevEnvironmentsOutput] |
+      (
+        space_name: ::String,
+        ?project_name: ::String,
+        ?filters: ::Array[{
+          key: ::String,
+          values: ::Array[::String],
+          comparison_operator: ::String
+        }],
+        ?next_token: ::String,
+        ?max_results: ::Integer
+      ) -> Hearth::Output[Types::ListDevEnvironmentsOutput]
+
+    def list_event_logs: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListEventLogsOutput] |
+      (?Types::ListEventLogsInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListEventLogsOutput] |
+      (
+        space_name: ::String,
+        start_time: ::Time,
+        end_time: ::Time,
+        ?event_name: ::String,
+        ?next_token: ::String,
+        ?max_results: ::Integer
+      ) -> Hearth::Output[Types::ListEventLogsOutput]
+
+    def list_projects: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListProjectsOutput] |
+      (?Types::ListProjectsInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListProjectsOutput] |
+      (
+        space_name: ::String,
+        ?next_token: ::String,
+        ?max_results: ::Integer,
+        ?filters: ::Array[{
+          key: ::String,
+          values: ::Array[::String],
+          comparison_operator: ::String
+        }]
+      ) -> Hearth::Output[Types::ListProjectsOutput]
+
+    def list_source_repositories: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListSourceRepositoriesOutput] |
+      (?Types::ListSourceRepositoriesInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListSourceRepositoriesOutput] |
+      (
+        space_name: ::String,
+        project_name: ::String,
+        ?next_token: ::String,
+        ?max_results: ::Integer
+      ) -> Hearth::Output[Types::ListSourceRepositoriesOutput]
+
+    def list_source_repository_branches: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListSourceRepositoryBranchesOutput] |
+      (?Types::ListSourceRepositoryBranchesInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListSourceRepositoryBranchesOutput] |
+      (
+        space_name: ::String,
+        project_name: ::String,
+        source_repository_name: ::String,
+        ?next_token: ::String,
+        ?max_results: ::Integer
+      ) -> Hearth::Output[Types::ListSourceRepositoryBranchesOutput]
+
+    def list_spaces: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListSpacesOutput] |
+      (?Types::ListSpacesInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListSpacesOutput] |
+      (
+        ?next_token: ::String
+      ) -> Hearth::Output[Types::ListSpacesOutput]
+
+    def list_workflow_runs: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListWorkflowRunsOutput] |
+      (?Types::ListWorkflowRunsInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListWorkflowRunsOutput] |
+      (
+        space_name: ::String,
+        ?workflow_id: ::String,
+        project_name: ::String,
+        ?next_token: ::String,
+        ?max_results: ::Integer,
+        ?sort_by: ::Array[{
+
+        }]
+      ) -> Hearth::Output[Types::ListWorkflowRunsOutput]
+
+    def list_workflows: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListWorkflowsOutput] |
+      (?Types::ListWorkflowsInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListWorkflowsOutput] |
+      (
+        space_name: ::String,
+        project_name: ::String,
+        ?next_token: ::String,
+        ?max_results: ::Integer,
+        ?sort_by: ::Array[{
+
+        }]
+      ) -> Hearth::Output[Types::ListWorkflowsOutput]
+
+    def start_dev_environment: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::StartDevEnvironmentOutput] |
+      (?Types::StartDevEnvironmentInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::StartDevEnvironmentOutput] |
+      (
+        space_name: ::String,
+        project_name: ::String,
+        id: ::String,
+        ?ides: ::Array[{
+          runtime: ::String,
+          name: ::String
+        }],
+        ?instance_type: ("dev.standard1.small" | "dev.standard1.medium" | "dev.standard1.large" | "dev.standard1.xlarge"),
+        ?inactivity_timeout_minutes: ::Integer
+      ) -> Hearth::Output[Types::StartDevEnvironmentOutput]
+
+    def start_dev_environment_session: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::StartDevEnvironmentSessionOutput] |
+      (?Types::StartDevEnvironmentSessionInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::StartDevEnvironmentSessionOutput] |
+      (
+        space_name: ::String,
+        project_name: ::String,
+        id: ::String,
+        session_configuration: {
+          session_type: ("SSM" | "SSH"),
+          execute_command_session_configuration: {
+            command: ::String,
+            arguments: ::Array[::String]
+          }
+        }
+      ) -> Hearth::Output[Types::StartDevEnvironmentSessionOutput]
+
+    def start_workflow_run: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::StartWorkflowRunOutput] |
+      (?Types::StartWorkflowRunInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::StartWorkflowRunOutput] |
+      (
+        space_name: ::String,
+        project_name: ::String,
+        workflow_id: ::String,
+        ?client_token: ::String
+      ) -> Hearth::Output[Types::StartWorkflowRunOutput]
+
+    def stop_dev_environment: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::StopDevEnvironmentOutput] |
+      (?Types::StopDevEnvironmentInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::StopDevEnvironmentOutput] |
+      (
+        space_name: ::String,
+        project_name: ::String,
+        id: ::String
+      ) -> Hearth::Output[Types::StopDevEnvironmentOutput]
+
+    def stop_dev_environment_session: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::StopDevEnvironmentSessionOutput] |
+      (?Types::StopDevEnvironmentSessionInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::StopDevEnvironmentSessionOutput] |
+      (
+        space_name: ::String,
+        project_name: ::String,
+        id: ::String,
+        session_id: ::String
+      ) -> Hearth::Output[Types::StopDevEnvironmentSessionOutput]
+
+    def update_dev_environment: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::UpdateDevEnvironmentOutput] |
+      (?Types::UpdateDevEnvironmentInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::UpdateDevEnvironmentOutput] |
+      (
+        space_name: ::String,
+        project_name: ::String,
+        id: ::String,
+        ?alias: ::String,
+        ?ides: ::Array[{
+          runtime: ::String,
+          name: ::String
+        }],
+        ?instance_type: ("dev.standard1.small" | "dev.standard1.medium" | "dev.standard1.large" | "dev.standard1.xlarge"),
+        ?inactivity_timeout_minutes: ::Integer,
+        ?client_token: ::String
+      ) -> Hearth::Output[Types::UpdateDevEnvironmentOutput]
+
+    def update_project: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::UpdateProjectOutput] |
+      (?Types::UpdateProjectInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::UpdateProjectOutput] |
+      (
+        space_name: ::String,
+        name: ::String,
+        ?description: ::String
+      ) -> Hearth::Output[Types::UpdateProjectOutput]
+
+    def update_space: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::UpdateSpaceOutput] |
+      (?Types::UpdateSpaceInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::UpdateSpaceOutput] |
+      (
+        name: ::String,
+        ?description: ::String
+      ) -> Hearth::Output[Types::UpdateSpaceOutput]
+
+    def verify_session: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::VerifySessionOutput] |
+      (?Types::VerifySessionInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::VerifySessionOutput]
+  end
+end

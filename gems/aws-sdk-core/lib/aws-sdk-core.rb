@@ -37,6 +37,20 @@ module AWS
         @use_sso
       end
 
+      # @return true if v4 aws-sdk-ssooidc is available
+      def self.sso_oidc_loaded?
+        if @use_sso_oidc.nil?
+          @use_sso_oidc =
+            begin
+              require 'aws-sdk-ssooidc'
+              true
+            rescue LoadError, NameError
+              false
+            end
+        end
+        @use_sso_oidc
+      end
+
       # @return true if CRT is available
       def self.crt_loaded?
         if @use_crt.nil?
@@ -60,7 +74,6 @@ require_relative 'aws-sdk-core/identities/credentials'
 require_relative 'aws-sdk-core/signers/sigv4'
 
 # Credential Providers
-
 require_relative 'aws-sdk-core/assume_role_credentials_provider'
 require_relative 'aws-sdk-core/assume_role_web_identity_credentials_provider'
 require_relative 'aws-sdk-core/ec2_credentials_provider'
@@ -68,6 +81,9 @@ require_relative 'aws-sdk-core/ecs_credentials_provider'
 require_relative 'aws-sdk-core/process_credentials_provider'
 require_relative 'aws-sdk-core/sso_credentials_provider'
 require_relative 'aws-sdk-core/static_credentials_provider'
+
+# HTTP Bearer token providers
+require_relative 'aws-sdk-core/sso_bearer_provider'
 
 # ARNS
 require_relative 'aws-sdk-core/arn'
@@ -106,6 +122,10 @@ module AWS::SDK::Core
     AssumeRoleWebIdentityCredentialsProvider::ENVIRONMENT,
     ECSCredentialsProvider::ENVIRONMENT,
     EC2CredentialsProvider::ENVIRONMENT
+  ].freeze
+
+  HTTP_BEARER_PROVIDER_CHAIN = [
+    SSOBearerProvider::PROFILE
   ].freeze
 
   # This chain is the used by the AssumeRoleCredentialsProvider
