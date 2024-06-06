@@ -199,11 +199,6 @@ module AWS::SDK::CodeCatalyst
       keyword_init: true
     ) do
       include Hearth::Structure
-
-      def initialize(*)
-        super
-        self.inactivity_timeout_minutes = 0 if self.inactivity_timeout_minutes.nil?
-      end
     end
 
     # @!method initialize(params = {})
@@ -793,9 +788,12 @@ module AWS::SDK::CodeCatalyst
     ) do
       include Hearth::Structure
 
-      def initialize(*)
-        super
-        self.inactivity_timeout_minutes = 0 if self.inactivity_timeout_minutes.nil?
+      private
+
+      def _defaults
+        {
+          inactivity_timeout_minutes: 0
+        }
       end
     end
 
@@ -1074,9 +1072,12 @@ module AWS::SDK::CodeCatalyst
     ) do
       include Hearth::Structure
 
-      def initialize(*)
-        super
-        self.inactivity_timeout_minutes = 0 if self.inactivity_timeout_minutes.nil?
+      private
+
+      def _defaults
+        {
+          inactivity_timeout_minutes: 0
+        }
       end
     end
 
@@ -2343,11 +2344,6 @@ module AWS::SDK::CodeCatalyst
       keyword_init: true
     ) do
       include Hearth::Structure
-
-      def initialize(*)
-        super
-        self.inactivity_timeout_minutes = 0 if self.inactivity_timeout_minutes.nil?
-      end
     end
 
     # @!method initialize(params = {})
@@ -2682,11 +2678,6 @@ module AWS::SDK::CodeCatalyst
       keyword_init: true
     ) do
       include Hearth::Structure
-
-      def initialize(*)
-        super
-        self.inactivity_timeout_minutes = 0 if self.inactivity_timeout_minutes.nil?
-      end
     end
 
     # @!method initialize(params = {})
@@ -2738,9 +2729,12 @@ module AWS::SDK::CodeCatalyst
     ) do
       include Hearth::Structure
 
-      def initialize(*)
-        super
-        self.inactivity_timeout_minutes = 0 if self.inactivity_timeout_minutes.nil?
+      private
+
+      def _defaults
+        {
+          inactivity_timeout_minutes: 0
+        }
       end
     end
 

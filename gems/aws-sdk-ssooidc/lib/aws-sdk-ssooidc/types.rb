@@ -185,11 +185,6 @@ module AWS::SDK::SSOOIDC
     ) do
       include Hearth::Structure
 
-      def initialize(*)
-        super
-        self.expires_in = 0 if self.expires_in.nil?
-      end
-
       def to_s
         "#<struct AWS::SDK::SSOOIDC::Types::CreateTokenOutput "\
           "access_token=\"[SENSITIVE]\", "\
@@ -197,6 +192,14 @@ module AWS::SDK::SSOOIDC
           "expires_in=#{expires_in || 'nil'}, "\
           "refresh_token=\"[SENSITIVE]\", "\
           "id_token=\"[SENSITIVE]\">"
+      end
+
+      private
+
+      def _defaults
+        {
+          expires_in: 0
+        }
       end
     end
 
@@ -372,11 +375,6 @@ module AWS::SDK::SSOOIDC
     ) do
       include Hearth::Structure
 
-      def initialize(*)
-        super
-        self.expires_in = 0 if self.expires_in.nil?
-      end
-
       def to_s
         "#<struct AWS::SDK::SSOOIDC::Types::CreateTokenWithIAMOutput "\
           "access_token=\"[SENSITIVE]\", "\
@@ -386,6 +384,14 @@ module AWS::SDK::SSOOIDC
           "id_token=\"[SENSITIVE]\", "\
           "issued_token_type=#{issued_token_type || 'nil'}, "\
           "scope=#{scope || 'nil'}>"
+      end
+
+      private
+
+      def _defaults
+        {
+          expires_in: 0
+        }
       end
     end
 
@@ -684,12 +690,6 @@ module AWS::SDK::SSOOIDC
     ) do
       include Hearth::Structure
 
-      def initialize(*)
-        super
-        self.client_id_issued_at = 0 if self.client_id_issued_at.nil?
-        self.client_secret_expires_at = 0 if self.client_secret_expires_at.nil?
-      end
-
       def to_s
         "#<struct AWS::SDK::SSOOIDC::Types::RegisterClientOutput "\
           "client_id=#{client_id || 'nil'}, "\
@@ -698,6 +698,15 @@ module AWS::SDK::SSOOIDC
           "client_secret_expires_at=#{client_secret_expires_at || 'nil'}, "\
           "authorization_endpoint=#{authorization_endpoint || 'nil'}, "\
           "token_endpoint=#{token_endpoint || 'nil'}>"
+      end
+
+      private
+
+      def _defaults
+        {
+          client_id_issued_at: 0,
+          client_secret_expires_at: 0
+        }
       end
     end
 
@@ -798,10 +807,13 @@ module AWS::SDK::SSOOIDC
     ) do
       include Hearth::Structure
 
-      def initialize(*)
-        super
-        self.expires_in = 0 if self.expires_in.nil?
-        self.interval = 0 if self.interval.nil?
+      private
+
+      def _defaults
+        {
+          expires_in: 0,
+          interval: 0
+        }
       end
     end
 

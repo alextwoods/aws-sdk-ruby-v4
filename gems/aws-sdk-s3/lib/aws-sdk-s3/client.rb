@@ -134,17 +134,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :abort_multipart_upload,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#abort_multipart_upload] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#abort_multipart_upload] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#abort_multipart_upload] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#abort_multipart_upload] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#abort_multipart_upload] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#abort_multipart_upload] #{output.data}")
       output
     end
 
@@ -361,17 +360,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :complete_multipart_upload,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#complete_multipart_upload] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#complete_multipart_upload] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#complete_multipart_upload] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#complete_multipart_upload] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#complete_multipart_upload] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#complete_multipart_upload] #{output.data}")
       output
     end
 
@@ -628,17 +626,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :copy_object,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#copy_object] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#copy_object] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#copy_object] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#copy_object] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#copy_object] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#copy_object] #{output.data}")
       output
     end
 
@@ -830,17 +827,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :create_bucket,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#create_bucket] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_bucket] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#create_bucket] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#create_bucket] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#create_bucket] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_bucket] #{output.data}")
       output
     end
 
@@ -1139,17 +1135,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :create_multipart_upload,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#create_multipart_upload] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_multipart_upload] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#create_multipart_upload] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#create_multipart_upload] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#create_multipart_upload] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_multipart_upload] #{output.data}")
       output
     end
 
@@ -1244,17 +1239,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :create_session,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#create_session] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_session] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#create_session] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#create_session] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#create_session] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_session] #{output.data}")
       output
     end
 
@@ -1338,17 +1332,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :delete_bucket,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#delete_bucket] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_bucket] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket] #{output.data}")
       output
     end
 
@@ -1406,17 +1399,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :delete_bucket_analytics_configuration,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_analytics_configuration] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_analytics_configuration] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#delete_bucket_analytics_configuration] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_bucket_analytics_configuration] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_analytics_configuration] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_analytics_configuration] #{output.data}")
       output
     end
 
@@ -1474,17 +1466,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :delete_bucket_cors,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_cors] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_cors] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#delete_bucket_cors] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_bucket_cors] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_cors] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_cors] #{output.data}")
       output
     end
 
@@ -1536,17 +1527,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :delete_bucket_encryption,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_encryption] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_encryption] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#delete_bucket_encryption] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_bucket_encryption] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_encryption] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_encryption] #{output.data}")
       output
     end
 
@@ -1597,17 +1587,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :delete_bucket_intelligent_tiering_configuration,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_intelligent_tiering_configuration] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_intelligent_tiering_configuration] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#delete_bucket_intelligent_tiering_configuration] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_bucket_intelligent_tiering_configuration] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_intelligent_tiering_configuration] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_intelligent_tiering_configuration] #{output.data}")
       output
     end
 
@@ -1663,17 +1652,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :delete_bucket_inventory_configuration,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_inventory_configuration] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_inventory_configuration] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#delete_bucket_inventory_configuration] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_bucket_inventory_configuration] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_inventory_configuration] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_inventory_configuration] #{output.data}")
       output
     end
 
@@ -1733,17 +1721,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :delete_bucket_lifecycle,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_lifecycle] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_lifecycle] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#delete_bucket_lifecycle] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_bucket_lifecycle] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_lifecycle] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_lifecycle] #{output.data}")
       output
     end
 
@@ -1807,17 +1794,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :delete_bucket_metrics_configuration,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_metrics_configuration] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_metrics_configuration] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#delete_bucket_metrics_configuration] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_bucket_metrics_configuration] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_metrics_configuration] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_metrics_configuration] #{output.data}")
       output
     end
 
@@ -1865,17 +1851,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :delete_bucket_ownership_controls,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_ownership_controls] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_ownership_controls] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#delete_bucket_ownership_controls] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_bucket_ownership_controls] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_ownership_controls] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_ownership_controls] #{output.data}")
       output
     end
 
@@ -1971,17 +1956,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :delete_bucket_policy,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_policy] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_policy] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#delete_bucket_policy] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_bucket_policy] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_policy] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_policy] #{output.data}")
       output
     end
 
@@ -2043,17 +2027,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :delete_bucket_replication,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_replication] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_replication] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#delete_bucket_replication] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_bucket_replication] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_replication] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_replication] #{output.data}")
       output
     end
 
@@ -2107,17 +2090,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :delete_bucket_tagging,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_tagging] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_tagging] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#delete_bucket_tagging] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_bucket_tagging] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_tagging] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_tagging] #{output.data}")
       output
     end
 
@@ -2178,17 +2160,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :delete_bucket_website,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_website] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_website] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#delete_bucket_website] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_bucket_website] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_website] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_website] #{output.data}")
       output
     end
 
@@ -2340,17 +2321,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :delete_object,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_object] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_object] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#delete_object] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_object] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_object] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_object] #{output.data}")
       output
     end
 
@@ -2425,17 +2405,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :delete_object_tagging,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_object_tagging] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_object_tagging] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#delete_object_tagging] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_object_tagging] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_object_tagging] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_object_tagging] #{output.data}")
       output
     end
 
@@ -2645,17 +2624,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :delete_objects,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_objects] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_objects] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#delete_objects] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_objects] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_objects] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_objects] #{output.data}")
       output
     end
 
@@ -2712,17 +2690,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :delete_public_access_block,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_public_access_block] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_public_access_block] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#delete_public_access_block] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_public_access_block] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_public_access_block] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_public_access_block] #{output.data}")
       output
     end
 
@@ -2780,17 +2757,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :get_bucket_accelerate_configuration,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_accelerate_configuration] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_accelerate_configuration] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_accelerate_configuration] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_accelerate_configuration] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_accelerate_configuration] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_accelerate_configuration] #{output.data}")
       output
     end
 
@@ -2857,17 +2833,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :get_bucket_acl,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_acl] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_acl] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_acl] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_acl] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_acl] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_acl] #{output.data}")
       output
     end
 
@@ -2945,17 +2920,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :get_bucket_analytics_configuration,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_analytics_configuration] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_analytics_configuration] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_analytics_configuration] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_analytics_configuration] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_analytics_configuration] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_analytics_configuration] #{output.data}")
       output
     end
 
@@ -3044,17 +3018,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :get_bucket_cors,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_cors] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_cors] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_cors] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_cors] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_cors] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_cors] #{output.data}")
       output
     end
 
@@ -3112,17 +3085,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :get_bucket_encryption,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_encryption] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_encryption] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_encryption] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_encryption] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_encryption] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_encryption] #{output.data}")
       output
     end
 
@@ -3188,17 +3160,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :get_bucket_intelligent_tiering_configuration,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_intelligent_tiering_configuration] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_intelligent_tiering_configuration] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_intelligent_tiering_configuration] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_intelligent_tiering_configuration] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_intelligent_tiering_configuration] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_intelligent_tiering_configuration] #{output.data}")
       output
     end
 
@@ -3275,17 +3246,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :get_bucket_inventory_configuration,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_inventory_configuration] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_inventory_configuration] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_inventory_configuration] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_inventory_configuration] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_inventory_configuration] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_inventory_configuration] #{output.data}")
       output
     end
 
@@ -3426,17 +3396,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :get_bucket_lifecycle_configuration,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_lifecycle_configuration] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_lifecycle_configuration] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_lifecycle_configuration] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_lifecycle_configuration] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_lifecycle_configuration] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_lifecycle_configuration] #{output.data}")
       output
     end
 
@@ -3502,17 +3471,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :get_bucket_location,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_location] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_location] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_location] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_location] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_location] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_location] #{output.data}")
       output
     end
 
@@ -3572,17 +3540,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :get_bucket_logging,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_logging] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_logging] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_logging] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_logging] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_logging] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_logging] #{output.data}")
       output
     end
 
@@ -3657,17 +3624,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :get_bucket_metrics_configuration,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_metrics_configuration] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_metrics_configuration] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_metrics_configuration] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_metrics_configuration] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_metrics_configuration] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_metrics_configuration] #{output.data}")
       output
     end
 
@@ -3744,17 +3710,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :get_bucket_notification_configuration,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_notification_configuration] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_notification_configuration] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_notification_configuration] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_notification_configuration] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_notification_configuration] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_notification_configuration] #{output.data}")
       output
     end
 
@@ -3806,17 +3771,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :get_bucket_ownership_controls,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_ownership_controls] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_ownership_controls] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_ownership_controls] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_ownership_controls] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_ownership_controls] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_ownership_controls] #{output.data}")
       output
     end
 
@@ -3915,17 +3879,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :get_bucket_policy,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_policy] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_policy] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_policy] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_policy] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_policy] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_policy] #{output.data}")
       output
     end
 
@@ -3985,17 +3948,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :get_bucket_policy_status,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_policy_status] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_policy_status] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_policy_status] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_policy_status] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_policy_status] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_policy_status] #{output.data}")
       output
     end
 
@@ -4116,17 +4078,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :get_bucket_replication,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_replication] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_replication] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_replication] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_replication] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_replication] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_replication] #{output.data}")
       output
     end
 
@@ -4177,17 +4138,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :get_bucket_request_payment,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_request_payment] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_request_payment] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_request_payment] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_request_payment] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_request_payment] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_request_payment] #{output.data}")
       output
     end
 
@@ -4269,17 +4229,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :get_bucket_tagging,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_tagging] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_tagging] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_tagging] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_tagging] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_tagging] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_tagging] #{output.data}")
       output
     end
 
@@ -4344,17 +4303,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :get_bucket_versioning,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_versioning] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_versioning] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_versioning] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_versioning] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_versioning] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_versioning] #{output.data}")
       output
     end
 
@@ -4436,17 +4394,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :get_bucket_website,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_website] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_website] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_website] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_website] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_website] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_website] #{output.data}")
       output
     end
 
@@ -4678,17 +4635,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :get_object,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_object] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#get_object] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_object] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_object] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object] #{output.data}")
       output
     end
 
@@ -4820,17 +4776,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :get_object_acl,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_acl] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_acl] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#get_object_acl] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_object_acl] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_acl] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_acl] #{output.data}")
       output
     end
 
@@ -5080,17 +5035,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :get_object_attributes,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_attributes] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_attributes] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#get_object_attributes] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_object_attributes] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_attributes] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_attributes] #{output.data}")
       output
     end
 
@@ -5135,17 +5089,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :get_object_legal_hold,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_legal_hold] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_legal_hold] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#get_object_legal_hold] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_object_legal_hold] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_legal_hold] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_legal_hold] #{output.data}")
       output
     end
 
@@ -5192,17 +5145,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :get_object_lock_configuration,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_lock_configuration] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_lock_configuration] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#get_object_lock_configuration] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_object_lock_configuration] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_lock_configuration] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_lock_configuration] #{output.data}")
       output
     end
 
@@ -5248,17 +5200,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :get_object_retention,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_retention] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_retention] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#get_object_retention] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_object_retention] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_retention] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_retention] #{output.data}")
       output
     end
 
@@ -5363,17 +5314,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :get_object_tagging,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_tagging] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_tagging] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#get_object_tagging] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_object_tagging] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_tagging] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_tagging] #{output.data}")
       output
     end
 
@@ -5434,17 +5384,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :get_object_torrent,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_torrent] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_torrent] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#get_object_torrent] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_object_torrent] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_torrent] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_torrent] #{output.data}")
       output
     end
 
@@ -5515,17 +5464,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :get_public_access_block,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_public_access_block] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_public_access_block] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#get_public_access_block] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_public_access_block] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_public_access_block] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_public_access_block] #{output.data}")
       output
     end
 
@@ -5613,17 +5561,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :head_bucket,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#head_bucket] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#head_bucket] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#head_bucket] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#head_bucket] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#head_bucket] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#head_bucket] #{output.data}")
       output
     end
 
@@ -5832,17 +5779,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :head_object,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#head_object] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#head_object] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#head_object] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#head_object] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#head_object] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#head_object] #{output.data}")
       output
     end
 
@@ -5931,17 +5877,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :list_bucket_analytics_configurations,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_bucket_analytics_configurations] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_bucket_analytics_configurations] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#list_bucket_analytics_configurations] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_bucket_analytics_configurations] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_bucket_analytics_configurations] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_bucket_analytics_configurations] #{output.data}")
       output
     end
 
@@ -6011,17 +5956,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :list_bucket_intelligent_tiering_configurations,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_bucket_intelligent_tiering_configurations] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_bucket_intelligent_tiering_configurations] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#list_bucket_intelligent_tiering_configurations] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_bucket_intelligent_tiering_configurations] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_bucket_intelligent_tiering_configurations] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_bucket_intelligent_tiering_configurations] #{output.data}")
       output
     end
 
@@ -6110,17 +6054,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :list_bucket_inventory_configurations,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_bucket_inventory_configurations] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_bucket_inventory_configurations] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#list_bucket_inventory_configurations] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_bucket_inventory_configurations] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_bucket_inventory_configurations] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_bucket_inventory_configurations] #{output.data}")
       output
     end
 
@@ -6202,17 +6145,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :list_bucket_metrics_configurations,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_bucket_metrics_configurations] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_bucket_metrics_configurations] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#list_bucket_metrics_configurations] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_bucket_metrics_configurations] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_bucket_metrics_configurations] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_bucket_metrics_configurations] #{output.data}")
       output
     end
 
@@ -6273,17 +6215,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :list_buckets,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_buckets] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_buckets] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#list_buckets] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_buckets] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_buckets] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_buckets] #{output.data}")
       output
     end
 
@@ -6333,17 +6274,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :list_directory_buckets,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_directory_buckets] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_directory_buckets] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#list_directory_buckets] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_directory_buckets] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_directory_buckets] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_directory_buckets] #{output.data}")
       output
     end
 
@@ -6556,17 +6496,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :list_multipart_uploads,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_multipart_uploads] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_multipart_uploads] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#list_multipart_uploads] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_multipart_uploads] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_multipart_uploads] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_multipart_uploads] #{output.data}")
       output
     end
 
@@ -6717,17 +6656,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :list_object_versions,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_object_versions] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_object_versions] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#list_object_versions] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_object_versions] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_object_versions] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_object_versions] #{output.data}")
       output
     end
 
@@ -6828,17 +6766,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :list_objects,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_objects] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_objects] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#list_objects] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_objects] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_objects] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_objects] #{output.data}")
       output
     end
 
@@ -6983,17 +6920,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :list_objects_v2,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_objects_v2] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_objects_v2] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#list_objects_v2] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_objects_v2] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_objects_v2] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_objects_v2] #{output.data}")
       output
     end
 
@@ -7137,17 +7073,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :list_parts,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_parts] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_parts] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#list_parts] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_parts] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_parts] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_parts] #{output.data}")
       output
     end
 
@@ -7219,17 +7154,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :put_bucket_accelerate_configuration,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_accelerate_configuration] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_accelerate_configuration] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_accelerate_configuration] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_accelerate_configuration] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_accelerate_configuration] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_accelerate_configuration] #{output.data}")
       output
     end
 
@@ -7492,17 +7426,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :put_bucket_acl,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_acl] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_acl] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_acl] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_acl] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_acl] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_acl] #{output.data}")
       output
     end
 
@@ -7662,17 +7595,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :put_bucket_analytics_configuration,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_analytics_configuration] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_analytics_configuration] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_analytics_configuration] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_analytics_configuration] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_analytics_configuration] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_analytics_configuration] #{output.data}")
       output
     end
 
@@ -7819,17 +7751,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :put_bucket_cors,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_cors] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_cors] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_cors] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_cors] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_cors] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_cors] #{output.data}")
       output
     end
 
@@ -7902,17 +7833,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :put_bucket_encryption,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_encryption] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_encryption] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_encryption] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_encryption] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_encryption] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_encryption] #{output.data}")
       output
     end
 
@@ -8016,17 +7946,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :put_bucket_intelligent_tiering_configuration,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_intelligent_tiering_configuration] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_intelligent_tiering_configuration] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_intelligent_tiering_configuration] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_intelligent_tiering_configuration] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_intelligent_tiering_configuration] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_intelligent_tiering_configuration] #{output.data}")
       output
     end
 
@@ -8168,17 +8097,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :put_bucket_inventory_configuration,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_inventory_configuration] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_inventory_configuration] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_inventory_configuration] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_inventory_configuration] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_inventory_configuration] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_inventory_configuration] #{output.data}")
       output
     end
 
@@ -8380,17 +8308,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :put_bucket_lifecycle_configuration,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_lifecycle_configuration] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_lifecycle_configuration] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_lifecycle_configuration] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_lifecycle_configuration] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_lifecycle_configuration] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_lifecycle_configuration] #{output.data}")
       output
     end
 
@@ -8553,17 +8480,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :put_bucket_logging,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_logging] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_logging] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_logging] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_logging] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_logging] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_logging] #{output.data}")
       output
     end
 
@@ -8656,17 +8582,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :put_bucket_metrics_configuration,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_metrics_configuration] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_metrics_configuration] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_metrics_configuration] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_metrics_configuration] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_metrics_configuration] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_metrics_configuration] #{output.data}")
       output
     end
 
@@ -8800,17 +8725,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :put_bucket_notification_configuration,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_notification_configuration] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_notification_configuration] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_notification_configuration] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_notification_configuration] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_notification_configuration] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_notification_configuration] #{output.data}")
       output
     end
 
@@ -8866,17 +8790,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :put_bucket_ownership_controls,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_ownership_controls] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_ownership_controls] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_ownership_controls] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_ownership_controls] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_ownership_controls] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_ownership_controls] #{output.data}")
       output
     end
 
@@ -8982,17 +8905,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :put_bucket_policy,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_policy] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_policy] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_policy] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_policy] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_policy] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_policy] #{output.data}")
       output
     end
 
@@ -9172,17 +9094,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :put_bucket_replication,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_replication] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_replication] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_replication] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_replication] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_replication] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_replication] #{output.data}")
       output
     end
 
@@ -9245,17 +9166,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :put_bucket_request_payment,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_request_payment] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_request_payment] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_request_payment] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_request_payment] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_request_payment] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_request_payment] #{output.data}")
       output
     end
 
@@ -9372,17 +9292,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :put_bucket_tagging,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_tagging] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_tagging] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_tagging] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_tagging] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_tagging] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_tagging] #{output.data}")
       output
     end
 
@@ -9471,17 +9390,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :put_bucket_versioning,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_versioning] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_versioning] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_versioning] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_versioning] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_versioning] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_versioning] #{output.data}")
       output
     end
 
@@ -9679,17 +9597,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :put_bucket_website,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_website] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_website] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_website] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_website] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_website] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_website] #{output.data}")
       output
     end
 
@@ -9997,17 +9914,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :put_object,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_object] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_object] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#put_object] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_object] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_object] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_object] #{output.data}")
       output
     end
 
@@ -10268,17 +10184,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :put_object_acl,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_object_acl] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_object_acl] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#put_object_acl] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_object_acl] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_object_acl] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_object_acl] #{output.data}")
       output
     end
 
@@ -10320,17 +10235,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :put_object_legal_hold,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_object_legal_hold] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_object_legal_hold] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#put_object_legal_hold] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_object_legal_hold] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_object_legal_hold] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_object_legal_hold] #{output.data}")
       output
     end
 
@@ -10395,17 +10309,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :put_object_lock_configuration,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_object_lock_configuration] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_object_lock_configuration] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#put_object_lock_configuration] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_object_lock_configuration] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_object_lock_configuration] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_object_lock_configuration] #{output.data}")
       output
     end
 
@@ -10450,17 +10363,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :put_object_retention,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_object_retention] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_object_retention] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#put_object_retention] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_object_retention] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_object_retention] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_object_retention] #{output.data}")
       output
     end
 
@@ -10579,17 +10491,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :put_object_tagging,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_object_tagging] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_object_tagging] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#put_object_tagging] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_object_tagging] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_object_tagging] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_object_tagging] #{output.data}")
       output
     end
 
@@ -10663,17 +10574,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :put_public_access_block,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_public_access_block] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_public_access_block] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#put_public_access_block] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_public_access_block] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_public_access_block] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_public_access_block] #{output.data}")
       output
     end
 
@@ -11067,17 +10977,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :restore_object,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#restore_object] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#restore_object] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#restore_object] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#restore_object] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#restore_object] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#restore_object] #{output.data}")
       output
     end
 
@@ -11292,17 +11201,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :upload_part,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#upload_part] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#upload_part] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#upload_part] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#upload_part] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#upload_part] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#upload_part] #{output.data}")
       output
     end
 
@@ -11537,17 +11445,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :upload_part_copy,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#upload_part_copy] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#upload_part_copy] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#upload_part_copy] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#upload_part_copy] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#upload_part_copy] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#upload_part_copy] #{output.data}")
       output
     end
 
@@ -11650,17 +11557,16 @@ module AWS::SDK::S3
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :write_get_object_response,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#write_get_object_response] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#write_get_object_response] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#write_get_object_response] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#write_get_object_response] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#write_get_object_response] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#write_get_object_response] #{output.data}")
       output
     end
   end

@@ -78,17 +78,16 @@ module AWS::SDK::CloudWatch
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :delete_alarms,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_alarms] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_alarms] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#delete_alarms] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_alarms] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_alarms] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_alarms] #{output.data}")
       output
     end
 
@@ -156,17 +155,16 @@ module AWS::SDK::CloudWatch
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :delete_anomaly_detector,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_anomaly_detector] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_anomaly_detector] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#delete_anomaly_detector] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_anomaly_detector] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_anomaly_detector] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_anomaly_detector] #{output.data}")
       output
     end
 
@@ -196,17 +194,16 @@ module AWS::SDK::CloudWatch
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :delete_dashboards,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_dashboards] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_dashboards] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#delete_dashboards] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_dashboards] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_dashboards] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_dashboards] #{output.data}")
       output
     end
 
@@ -243,17 +240,16 @@ module AWS::SDK::CloudWatch
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :delete_insight_rules,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_insight_rules] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_insight_rules] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#delete_insight_rules] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_insight_rules] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_insight_rules] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_insight_rules] #{output.data}")
       output
     end
 
@@ -279,17 +275,16 @@ module AWS::SDK::CloudWatch
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :delete_metric_stream,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_metric_stream] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_metric_stream] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#delete_metric_stream] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_metric_stream] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_metric_stream] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_metric_stream] #{output.data}")
       output
     end
 
@@ -338,17 +333,16 @@ module AWS::SDK::CloudWatch
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :describe_alarm_history,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#describe_alarm_history] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_alarm_history] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#describe_alarm_history] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#describe_alarm_history] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#describe_alarm_history] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_alarm_history] #{output.data}")
       output
     end
 
@@ -462,17 +456,16 @@ module AWS::SDK::CloudWatch
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :describe_alarms,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#describe_alarms] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_alarms] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#describe_alarms] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#describe_alarms] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#describe_alarms] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_alarms] #{output.data}")
       output
     end
 
@@ -563,17 +556,16 @@ module AWS::SDK::CloudWatch
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :describe_alarms_for_metric,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#describe_alarms_for_metric] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_alarms_for_metric] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#describe_alarms_for_metric] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#describe_alarms_for_metric] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#describe_alarms_for_metric] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_alarms_for_metric] #{output.data}")
       output
     end
 
@@ -656,17 +648,16 @@ module AWS::SDK::CloudWatch
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :describe_anomaly_detectors,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#describe_anomaly_detectors] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_anomaly_detectors] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#describe_anomaly_detectors] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#describe_anomaly_detectors] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#describe_anomaly_detectors] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_anomaly_detectors] #{output.data}")
       output
     end
 
@@ -703,17 +694,16 @@ module AWS::SDK::CloudWatch
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :describe_insight_rules,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#describe_insight_rules] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_insight_rules] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#describe_insight_rules] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#describe_insight_rules] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#describe_insight_rules] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_insight_rules] #{output.data}")
       output
     end
 
@@ -742,17 +732,16 @@ module AWS::SDK::CloudWatch
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :disable_alarm_actions,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#disable_alarm_actions] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_alarm_actions] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#disable_alarm_actions] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#disable_alarm_actions] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#disable_alarm_actions] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_alarm_actions] #{output.data}")
       output
     end
 
@@ -787,17 +776,16 @@ module AWS::SDK::CloudWatch
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :disable_insight_rules,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#disable_insight_rules] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_insight_rules] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#disable_insight_rules] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#disable_insight_rules] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#disable_insight_rules] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_insight_rules] #{output.data}")
       output
     end
 
@@ -825,17 +813,16 @@ module AWS::SDK::CloudWatch
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :enable_alarm_actions,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#enable_alarm_actions] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_alarm_actions] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#enable_alarm_actions] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#enable_alarm_actions] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#enable_alarm_actions] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_alarm_actions] #{output.data}")
       output
     end
 
@@ -869,17 +856,16 @@ module AWS::SDK::CloudWatch
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :enable_insight_rules,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#enable_insight_rules] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_insight_rules] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#enable_insight_rules] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#enable_insight_rules] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#enable_insight_rules] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_insight_rules] #{output.data}")
       output
     end
 
@@ -911,17 +897,16 @@ module AWS::SDK::CloudWatch
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :get_dashboard,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_dashboard] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_dashboard] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#get_dashboard] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_dashboard] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_dashboard] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_dashboard] #{output.data}")
       output
     end
 
@@ -1015,17 +1000,16 @@ module AWS::SDK::CloudWatch
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :get_insight_rule_report,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_insight_rule_report] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_insight_rule_report] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#get_insight_rule_report] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_insight_rule_report] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_insight_rule_report] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_insight_rule_report] #{output.data}")
       output
     end
 
@@ -1145,17 +1129,16 @@ module AWS::SDK::CloudWatch
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :get_metric_data,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_data] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_data] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#get_metric_data] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_metric_data] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_data] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_data] #{output.data}")
       output
     end
 
@@ -1256,17 +1239,16 @@ module AWS::SDK::CloudWatch
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :get_metric_statistics,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_statistics] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_statistics] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#get_metric_statistics] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_metric_statistics] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_statistics] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_statistics] #{output.data}")
       output
     end
 
@@ -1315,17 +1297,16 @@ module AWS::SDK::CloudWatch
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :get_metric_stream,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_stream] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_stream] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#get_metric_stream] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_metric_stream] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_stream] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_stream] #{output.data}")
       output
     end
 
@@ -1368,17 +1349,16 @@ module AWS::SDK::CloudWatch
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :get_metric_widget_image,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_widget_image] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_widget_image] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#get_metric_widget_image] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_metric_widget_image] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_widget_image] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_widget_image] #{output.data}")
       output
     end
 
@@ -1420,17 +1400,16 @@ module AWS::SDK::CloudWatch
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :list_dashboards,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_dashboards] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_dashboards] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#list_dashboards] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_dashboards] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_dashboards] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_dashboards] #{output.data}")
       output
     end
 
@@ -1472,17 +1451,16 @@ module AWS::SDK::CloudWatch
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :list_managed_insight_rules,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_managed_insight_rules] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_managed_insight_rules] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#list_managed_insight_rules] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_managed_insight_rules] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_managed_insight_rules] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_managed_insight_rules] #{output.data}")
       output
     end
 
@@ -1519,17 +1497,16 @@ module AWS::SDK::CloudWatch
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :list_metric_streams,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_metric_streams] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_metric_streams] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#list_metric_streams] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_metric_streams] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_metric_streams] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_metric_streams] #{output.data}")
       output
     end
 
@@ -1589,17 +1566,16 @@ module AWS::SDK::CloudWatch
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :list_metrics,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_metrics] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_metrics] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#list_metrics] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_metrics] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_metrics] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_metrics] #{output.data}")
       output
     end
 
@@ -1630,17 +1606,16 @@ module AWS::SDK::CloudWatch
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :list_tags_for_resource,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_tags_for_resource] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_tags_for_resource] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#list_tags_for_resource] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_tags_for_resource] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_tags_for_resource] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_tags_for_resource] #{output.data}")
       output
     end
 
@@ -1711,17 +1686,16 @@ module AWS::SDK::CloudWatch
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :put_anomaly_detector,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_anomaly_detector] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_anomaly_detector] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#put_anomaly_detector] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_anomaly_detector] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_anomaly_detector] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_anomaly_detector] #{output.data}")
       output
     end
 
@@ -1800,17 +1774,16 @@ module AWS::SDK::CloudWatch
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :put_composite_alarm,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_composite_alarm] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_composite_alarm] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#put_composite_alarm] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_composite_alarm] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_composite_alarm] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_composite_alarm] #{output.data}")
       output
     end
 
@@ -1854,17 +1827,16 @@ module AWS::SDK::CloudWatch
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :put_dashboard,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_dashboard] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_dashboard] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#put_dashboard] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_dashboard] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_dashboard] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_dashboard] #{output.data}")
       output
     end
 
@@ -1902,17 +1874,16 @@ module AWS::SDK::CloudWatch
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :put_insight_rule,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_insight_rule] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_insight_rule] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#put_insight_rule] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_insight_rule] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_insight_rule] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_insight_rule] #{output.data}")
       output
     end
 
@@ -1971,17 +1942,16 @@ module AWS::SDK::CloudWatch
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :put_managed_insight_rules,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_managed_insight_rules] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_managed_insight_rules] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#put_managed_insight_rules] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_managed_insight_rules] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_managed_insight_rules] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_managed_insight_rules] #{output.data}")
       output
     end
 
@@ -2108,17 +2078,16 @@ module AWS::SDK::CloudWatch
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :put_metric_alarm,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_metric_alarm] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_metric_alarm] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#put_metric_alarm] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_metric_alarm] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_metric_alarm] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_metric_alarm] #{output.data}")
       output
     end
 
@@ -2213,17 +2182,16 @@ module AWS::SDK::CloudWatch
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :put_metric_data,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_metric_data] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_metric_data] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#put_metric_data] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_metric_data] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_metric_data] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_metric_data] #{output.data}")
       output
     end
 
@@ -2314,17 +2282,16 @@ module AWS::SDK::CloudWatch
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :put_metric_stream,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_metric_stream] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_metric_stream] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#put_metric_stream] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_metric_stream] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_metric_stream] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_metric_stream] #{output.data}")
       output
     end
 
@@ -2368,17 +2335,16 @@ module AWS::SDK::CloudWatch
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :set_alarm_state,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#set_alarm_state] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#set_alarm_state] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#set_alarm_state] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#set_alarm_state] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#set_alarm_state] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#set_alarm_state] #{output.data}")
       output
     end
 
@@ -2406,17 +2372,16 @@ module AWS::SDK::CloudWatch
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :start_metric_streams,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#start_metric_streams] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_metric_streams] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#start_metric_streams] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#start_metric_streams] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#start_metric_streams] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_metric_streams] #{output.data}")
       output
     end
 
@@ -2444,17 +2409,16 @@ module AWS::SDK::CloudWatch
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :stop_metric_streams,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#stop_metric_streams] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#stop_metric_streams] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#stop_metric_streams] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#stop_metric_streams] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#stop_metric_streams] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#stop_metric_streams] #{output.data}")
       output
     end
 
@@ -2496,17 +2460,16 @@ module AWS::SDK::CloudWatch
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :tag_resource,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#tag_resource] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#tag_resource] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#tag_resource] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#tag_resource] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#tag_resource] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#tag_resource] #{output.data}")
       output
     end
 
@@ -2535,17 +2498,16 @@ module AWS::SDK::CloudWatch
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
-        logger: config.logger,
+        config: config,
         operation_name: :untag_resource,
-        interceptors: config.interceptors
       )
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#untag_resource] params: #{params}, options: #{options}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#untag_resource] params: #{params}, options: #{options}")
       output = stack.run(input, context)
       if output.error
-        context.logger.error("[#{context.invocation_id}] [#{self.class}#untag_resource] #{output.error} (#{output.error.class})")
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#untag_resource] #{output.error} (#{output.error.class})")
         raise output.error
       end
-      context.logger.info("[#{context.invocation_id}] [#{self.class}#untag_resource] #{output.data}")
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#untag_resource] #{output.data}")
       output
     end
   end

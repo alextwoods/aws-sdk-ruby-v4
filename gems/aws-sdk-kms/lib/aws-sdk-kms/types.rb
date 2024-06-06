@@ -1024,11 +1024,6 @@ module AWS::SDK::KMS
       keyword_init: true
     ) do
       include Hearth::Structure
-
-      def initialize(*)
-        super
-        self.bypass_policy_lockout_safety_check = false if self.bypass_policy_lockout_safety_check.nil?
-      end
     end
 
     # @!method initialize(params = {})
@@ -1769,9 +1764,12 @@ module AWS::SDK::KMS
     ) do
       include Hearth::Structure
 
-      def initialize(*)
-        super
-        self.truncated = false if self.truncated.nil?
+      private
+
+      def _defaults
+        {
+          truncated: false
+        }
       end
     end
 
@@ -2876,9 +2874,12 @@ module AWS::SDK::KMS
     ) do
       include Hearth::Structure
 
-      def initialize(*)
-        super
-        self.key_rotation_enabled = false if self.key_rotation_enabled.nil?
+      private
+
+      def _defaults
+        {
+          key_rotation_enabled: false
+        }
       end
     end
 
@@ -3820,9 +3821,12 @@ module AWS::SDK::KMS
     ) do
       include Hearth::Structure
 
-      def initialize(*)
-        super
-        self.enabled = false if self.enabled.nil?
+      private
+
+      def _defaults
+        {
+          enabled: false
+        }
       end
     end
 
@@ -3982,9 +3986,12 @@ module AWS::SDK::KMS
     ) do
       include Hearth::Structure
 
-      def initialize(*)
-        super
-        self.truncated = false if self.truncated.nil?
+      private
+
+      def _defaults
+        {
+          truncated: false
+        }
       end
     end
 
@@ -4069,9 +4076,12 @@ module AWS::SDK::KMS
     ) do
       include Hearth::Structure
 
-      def initialize(*)
-        super
-        self.truncated = false if self.truncated.nil?
+      private
+
+      def _defaults
+        {
+          truncated: false
+        }
       end
     end
 
@@ -4144,9 +4154,12 @@ module AWS::SDK::KMS
     ) do
       include Hearth::Structure
 
-      def initialize(*)
-        super
-        self.truncated = false if self.truncated.nil?
+      private
+
+      def _defaults
+        {
+          truncated: false
+        }
       end
     end
 
@@ -4200,9 +4213,12 @@ module AWS::SDK::KMS
     ) do
       include Hearth::Structure
 
-      def initialize(*)
-        super
-        self.truncated = false if self.truncated.nil?
+      private
+
+      def _defaults
+        {
+          truncated: false
+        }
       end
     end
 
@@ -4280,9 +4296,12 @@ module AWS::SDK::KMS
     ) do
       include Hearth::Structure
 
-      def initialize(*)
-        super
-        self.truncated = false if self.truncated.nil?
+      private
+
+      def _defaults
+        {
+          truncated: false
+        }
       end
     end
 
@@ -4348,9 +4367,12 @@ module AWS::SDK::KMS
     ) do
       include Hearth::Structure
 
-      def initialize(*)
-        super
-        self.truncated = false if self.truncated.nil?
+      private
+
+      def _defaults
+        {
+          truncated: false
+        }
       end
     end
 
@@ -4548,11 +4570,6 @@ module AWS::SDK::KMS
       keyword_init: true
     ) do
       include Hearth::Structure
-
-      def initialize(*)
-        super
-        self.bypass_policy_lockout_safety_check = false if self.bypass_policy_lockout_safety_check.nil?
-      end
     end
 
     # @!method initialize(params = {})
@@ -4903,11 +4920,6 @@ module AWS::SDK::KMS
       keyword_init: true
     ) do
       include Hearth::Structure
-
-      def initialize(*)
-        super
-        self.bypass_policy_lockout_safety_check = false if self.bypass_policy_lockout_safety_check.nil?
-      end
     end
 
     # @!method initialize(params = {})
@@ -5923,9 +5935,12 @@ module AWS::SDK::KMS
     ) do
       include Hearth::Structure
 
-      def initialize(*)
-        super
-        self.mac_valid = false if self.mac_valid.nil?
+      private
+
+      def _defaults
+        {
+          mac_valid: false
+        }
       end
     end
 
@@ -5956,9 +5971,12 @@ module AWS::SDK::KMS
     ) do
       include Hearth::Structure
 
-      def initialize(*)
-        super
-        self.signature_valid = false if self.signature_valid.nil?
+      private
+
+      def _defaults
+        {
+          signature_valid: false
+        }
       end
     end
 

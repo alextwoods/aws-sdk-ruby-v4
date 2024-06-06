@@ -16,17 +16,17 @@ module AWS::SDK::STS
         Hearth::Validator.validate_types!(params, ::Hash, Types::AssumeRoleInput, context: context)
         type = Types::AssumeRoleInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.role_arn = params[:role_arn]
-        type.role_session_name = params[:role_session_name]
+        type.role_arn = params[:role_arn] unless params[:role_arn].nil?
+        type.role_session_name = params[:role_session_name] unless params[:role_session_name].nil?
         type.policy_arns = PolicyDescriptorListType.build(params[:policy_arns], context: "#{context}[:policy_arns]") unless params[:policy_arns].nil?
-        type.policy = params[:policy]
-        type.duration_seconds = params[:duration_seconds]
+        type.policy = params[:policy] unless params[:policy].nil?
+        type.duration_seconds = params[:duration_seconds] unless params[:duration_seconds].nil?
         type.tags = TagListType.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type.transitive_tag_keys = TagKeyListType.build(params[:transitive_tag_keys], context: "#{context}[:transitive_tag_keys]") unless params[:transitive_tag_keys].nil?
-        type.external_id = params[:external_id]
-        type.serial_number = params[:serial_number]
-        type.token_code = params[:token_code]
-        type.source_identity = params[:source_identity]
+        type.external_id = params[:external_id] unless params[:external_id].nil?
+        type.serial_number = params[:serial_number] unless params[:serial_number].nil?
+        type.token_code = params[:token_code] unless params[:token_code].nil?
+        type.source_identity = params[:source_identity] unless params[:source_identity].nil?
         type.provided_contexts = ProvidedContextsListType.build(params[:provided_contexts], context: "#{context}[:provided_contexts]") unless params[:provided_contexts].nil?
         type
       end
@@ -39,8 +39,8 @@ module AWS::SDK::STS
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.credentials = Credentials.build(params[:credentials], context: "#{context}[:credentials]") unless params[:credentials].nil?
         type.assumed_role_user = AssumedRoleUser.build(params[:assumed_role_user], context: "#{context}[:assumed_role_user]") unless params[:assumed_role_user].nil?
-        type.packed_policy_size = params[:packed_policy_size]
-        type.source_identity = params[:source_identity]
+        type.packed_policy_size = params[:packed_policy_size] unless params[:packed_policy_size].nil?
+        type.source_identity = params[:source_identity] unless params[:source_identity].nil?
         type
       end
     end
@@ -50,12 +50,12 @@ module AWS::SDK::STS
         Hearth::Validator.validate_types!(params, ::Hash, Types::AssumeRoleWithSAMLInput, context: context)
         type = Types::AssumeRoleWithSAMLInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.role_arn = params[:role_arn]
-        type.principal_arn = params[:principal_arn]
-        type.saml_assertion = params[:saml_assertion]
+        type.role_arn = params[:role_arn] unless params[:role_arn].nil?
+        type.principal_arn = params[:principal_arn] unless params[:principal_arn].nil?
+        type.saml_assertion = params[:saml_assertion] unless params[:saml_assertion].nil?
         type.policy_arns = PolicyDescriptorListType.build(params[:policy_arns], context: "#{context}[:policy_arns]") unless params[:policy_arns].nil?
-        type.policy = params[:policy]
-        type.duration_seconds = params[:duration_seconds]
+        type.policy = params[:policy] unless params[:policy].nil?
+        type.duration_seconds = params[:duration_seconds] unless params[:duration_seconds].nil?
         type
       end
     end
@@ -67,13 +67,13 @@ module AWS::SDK::STS
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.credentials = Credentials.build(params[:credentials], context: "#{context}[:credentials]") unless params[:credentials].nil?
         type.assumed_role_user = AssumedRoleUser.build(params[:assumed_role_user], context: "#{context}[:assumed_role_user]") unless params[:assumed_role_user].nil?
-        type.packed_policy_size = params[:packed_policy_size]
-        type.subject = params[:subject]
-        type.subject_type = params[:subject_type]
-        type.issuer = params[:issuer]
-        type.audience = params[:audience]
-        type.name_qualifier = params[:name_qualifier]
-        type.source_identity = params[:source_identity]
+        type.packed_policy_size = params[:packed_policy_size] unless params[:packed_policy_size].nil?
+        type.subject = params[:subject] unless params[:subject].nil?
+        type.subject_type = params[:subject_type] unless params[:subject_type].nil?
+        type.issuer = params[:issuer] unless params[:issuer].nil?
+        type.audience = params[:audience] unless params[:audience].nil?
+        type.name_qualifier = params[:name_qualifier] unless params[:name_qualifier].nil?
+        type.source_identity = params[:source_identity] unless params[:source_identity].nil?
         type
       end
     end
@@ -83,13 +83,13 @@ module AWS::SDK::STS
         Hearth::Validator.validate_types!(params, ::Hash, Types::AssumeRoleWithWebIdentityInput, context: context)
         type = Types::AssumeRoleWithWebIdentityInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.role_arn = params[:role_arn]
-        type.role_session_name = params[:role_session_name]
-        type.web_identity_token = params[:web_identity_token]
-        type.provider_id = params[:provider_id]
+        type.role_arn = params[:role_arn] unless params[:role_arn].nil?
+        type.role_session_name = params[:role_session_name] unless params[:role_session_name].nil?
+        type.web_identity_token = params[:web_identity_token] unless params[:web_identity_token].nil?
+        type.provider_id = params[:provider_id] unless params[:provider_id].nil?
         type.policy_arns = PolicyDescriptorListType.build(params[:policy_arns], context: "#{context}[:policy_arns]") unless params[:policy_arns].nil?
-        type.policy = params[:policy]
-        type.duration_seconds = params[:duration_seconds]
+        type.policy = params[:policy] unless params[:policy].nil?
+        type.duration_seconds = params[:duration_seconds] unless params[:duration_seconds].nil?
         type
       end
     end
@@ -100,12 +100,12 @@ module AWS::SDK::STS
         type = Types::AssumeRoleWithWebIdentityOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.credentials = Credentials.build(params[:credentials], context: "#{context}[:credentials]") unless params[:credentials].nil?
-        type.subject_from_web_identity_token = params[:subject_from_web_identity_token]
+        type.subject_from_web_identity_token = params[:subject_from_web_identity_token] unless params[:subject_from_web_identity_token].nil?
         type.assumed_role_user = AssumedRoleUser.build(params[:assumed_role_user], context: "#{context}[:assumed_role_user]") unless params[:assumed_role_user].nil?
-        type.packed_policy_size = params[:packed_policy_size]
-        type.provider = params[:provider]
-        type.audience = params[:audience]
-        type.source_identity = params[:source_identity]
+        type.packed_policy_size = params[:packed_policy_size] unless params[:packed_policy_size].nil?
+        type.provider = params[:provider] unless params[:provider].nil?
+        type.audience = params[:audience] unless params[:audience].nil?
+        type.source_identity = params[:source_identity] unless params[:source_identity].nil?
         type
       end
     end
@@ -115,8 +115,8 @@ module AWS::SDK::STS
         Hearth::Validator.validate_types!(params, ::Hash, Types::AssumedRoleUser, context: context)
         type = Types::AssumedRoleUser.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.assumed_role_id = params[:assumed_role_id]
-        type.arn = params[:arn]
+        type.assumed_role_id = params[:assumed_role_id] unless params[:assumed_role_id].nil?
+        type.arn = params[:arn] unless params[:arn].nil?
         type
       end
     end
@@ -126,10 +126,10 @@ module AWS::SDK::STS
         Hearth::Validator.validate_types!(params, ::Hash, Types::Credentials, context: context)
         type = Types::Credentials.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.access_key_id = params[:access_key_id]
-        type.secret_access_key = params[:secret_access_key]
-        type.session_token = params[:session_token]
-        type.expiration = params[:expiration]
+        type.access_key_id = params[:access_key_id] unless params[:access_key_id].nil?
+        type.secret_access_key = params[:secret_access_key] unless params[:secret_access_key].nil?
+        type.session_token = params[:session_token] unless params[:session_token].nil?
+        type.expiration = params[:expiration] unless params[:expiration].nil?
         type
       end
     end
@@ -139,7 +139,7 @@ module AWS::SDK::STS
         Hearth::Validator.validate_types!(params, ::Hash, Types::DecodeAuthorizationMessageInput, context: context)
         type = Types::DecodeAuthorizationMessageInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.encoded_message = params[:encoded_message]
+        type.encoded_message = params[:encoded_message] unless params[:encoded_message].nil?
         type
       end
     end
@@ -149,7 +149,7 @@ module AWS::SDK::STS
         Hearth::Validator.validate_types!(params, ::Hash, Types::DecodeAuthorizationMessageOutput, context: context)
         type = Types::DecodeAuthorizationMessageOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.decoded_message = params[:decoded_message]
+        type.decoded_message = params[:decoded_message] unless params[:decoded_message].nil?
         type
       end
     end
@@ -159,7 +159,7 @@ module AWS::SDK::STS
         Hearth::Validator.validate_types!(params, ::Hash, Types::ExpiredTokenException, context: context)
         type = Types::ExpiredTokenException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -169,8 +169,8 @@ module AWS::SDK::STS
         Hearth::Validator.validate_types!(params, ::Hash, Types::FederatedUser, context: context)
         type = Types::FederatedUser.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.federated_user_id = params[:federated_user_id]
-        type.arn = params[:arn]
+        type.federated_user_id = params[:federated_user_id] unless params[:federated_user_id].nil?
+        type.arn = params[:arn] unless params[:arn].nil?
         type
       end
     end
@@ -180,7 +180,7 @@ module AWS::SDK::STS
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetAccessKeyInfoInput, context: context)
         type = Types::GetAccessKeyInfoInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.access_key_id = params[:access_key_id]
+        type.access_key_id = params[:access_key_id] unless params[:access_key_id].nil?
         type
       end
     end
@@ -190,7 +190,7 @@ module AWS::SDK::STS
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetAccessKeyInfoOutput, context: context)
         type = Types::GetAccessKeyInfoOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.account = params[:account]
+        type.account = params[:account] unless params[:account].nil?
         type
       end
     end
@@ -209,9 +209,9 @@ module AWS::SDK::STS
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetCallerIdentityOutput, context: context)
         type = Types::GetCallerIdentityOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.user_id = params[:user_id]
-        type.account = params[:account]
-        type.arn = params[:arn]
+        type.user_id = params[:user_id] unless params[:user_id].nil?
+        type.account = params[:account] unless params[:account].nil?
+        type.arn = params[:arn] unless params[:arn].nil?
         type
       end
     end
@@ -221,10 +221,10 @@ module AWS::SDK::STS
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetFederationTokenInput, context: context)
         type = Types::GetFederationTokenInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.name = params[:name]
-        type.policy = params[:policy]
+        type.name = params[:name] unless params[:name].nil?
+        type.policy = params[:policy] unless params[:policy].nil?
         type.policy_arns = PolicyDescriptorListType.build(params[:policy_arns], context: "#{context}[:policy_arns]") unless params[:policy_arns].nil?
-        type.duration_seconds = params[:duration_seconds]
+        type.duration_seconds = params[:duration_seconds] unless params[:duration_seconds].nil?
         type.tags = TagListType.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end
@@ -237,7 +237,7 @@ module AWS::SDK::STS
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.credentials = Credentials.build(params[:credentials], context: "#{context}[:credentials]") unless params[:credentials].nil?
         type.federated_user = FederatedUser.build(params[:federated_user], context: "#{context}[:federated_user]") unless params[:federated_user].nil?
-        type.packed_policy_size = params[:packed_policy_size]
+        type.packed_policy_size = params[:packed_policy_size] unless params[:packed_policy_size].nil?
         type
       end
     end
@@ -247,9 +247,9 @@ module AWS::SDK::STS
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetSessionTokenInput, context: context)
         type = Types::GetSessionTokenInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.duration_seconds = params[:duration_seconds]
-        type.serial_number = params[:serial_number]
-        type.token_code = params[:token_code]
+        type.duration_seconds = params[:duration_seconds] unless params[:duration_seconds].nil?
+        type.serial_number = params[:serial_number] unless params[:serial_number].nil?
+        type.token_code = params[:token_code] unless params[:token_code].nil?
         type
       end
     end
@@ -269,7 +269,7 @@ module AWS::SDK::STS
         Hearth::Validator.validate_types!(params, ::Hash, Types::IDPCommunicationErrorException, context: context)
         type = Types::IDPCommunicationErrorException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -279,7 +279,7 @@ module AWS::SDK::STS
         Hearth::Validator.validate_types!(params, ::Hash, Types::IDPRejectedClaimException, context: context)
         type = Types::IDPRejectedClaimException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -289,7 +289,7 @@ module AWS::SDK::STS
         Hearth::Validator.validate_types!(params, ::Hash, Types::InvalidAuthorizationMessageException, context: context)
         type = Types::InvalidAuthorizationMessageException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -299,7 +299,7 @@ module AWS::SDK::STS
         Hearth::Validator.validate_types!(params, ::Hash, Types::InvalidIdentityTokenException, context: context)
         type = Types::InvalidIdentityTokenException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -309,7 +309,7 @@ module AWS::SDK::STS
         Hearth::Validator.validate_types!(params, ::Hash, Types::MalformedPolicyDocumentException, context: context)
         type = Types::MalformedPolicyDocumentException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -319,7 +319,7 @@ module AWS::SDK::STS
         Hearth::Validator.validate_types!(params, ::Hash, Types::PackedPolicyTooLargeException, context: context)
         type = Types::PackedPolicyTooLargeException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -329,7 +329,7 @@ module AWS::SDK::STS
         Hearth::Validator.validate_types!(params, ::Hash, Types::PolicyDescriptorType, context: context)
         type = Types::PolicyDescriptorType.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.arn = params[:arn]
+        type.arn = params[:arn] unless params[:arn].nil?
         type
       end
     end
@@ -339,8 +339,8 @@ module AWS::SDK::STS
         Hearth::Validator.validate_types!(params, ::Hash, Types::ProvidedContext, context: context)
         type = Types::ProvidedContext.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.provider_arn = params[:provider_arn]
-        type.context_assertion = params[:context_assertion]
+        type.provider_arn = params[:provider_arn] unless params[:provider_arn].nil?
+        type.context_assertion = params[:context_assertion] unless params[:context_assertion].nil?
         type
       end
     end
@@ -361,7 +361,7 @@ module AWS::SDK::STS
         Hearth::Validator.validate_types!(params, ::Hash, Types::RegionDisabledException, context: context)
         type = Types::RegionDisabledException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -371,8 +371,8 @@ module AWS::SDK::STS
         Hearth::Validator.validate_types!(params, ::Hash, Types::Tag, context: context)
         type = Types::Tag.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.key = params[:key]
-        type.value = params[:value]
+        type.key = params[:key] unless params[:key].nil?
+        type.value = params[:value] unless params[:value].nil?
         type
       end
     end
@@ -393,7 +393,7 @@ module AWS::SDK::STS
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
-          data << element
+          data << element unless element.nil?
         end
         data
       end

@@ -3461,9 +3461,12 @@ module AWS::SDK::DynamoDB
     ) do
       include Hearth::Structure
 
-      def initialize(*)
-        super
-        self.cache_period_in_minutes = 0 if self.cache_period_in_minutes.nil?
+      private
+
+      def _defaults
+        {
+          cache_period_in_minutes: 0
+        }
       end
     end
 
@@ -5149,11 +5152,14 @@ module AWS::SDK::DynamoDB
     ) do
       include Hearth::Structure
 
-      def initialize(*)
-        super
-        self.error_count = 0 if self.error_count.nil?
-        self.processed_item_count = 0 if self.processed_item_count.nil?
-        self.imported_item_count = 0 if self.imported_item_count.nil?
+      private
+
+      def _defaults
+        {
+          error_count: 0,
+          processed_item_count: 0,
+          imported_item_count: 0
+        }
       end
     end
 
@@ -5741,11 +5747,6 @@ module AWS::SDK::DynamoDB
       keyword_init: true
     ) do
       include Hearth::Structure
-
-      def initialize(*)
-        super
-        self.max_results = 0 if self.max_results.nil?
-      end
     end
 
     # @!method initialize(params = {})
@@ -7234,10 +7235,13 @@ module AWS::SDK::DynamoDB
     ) do
       include Hearth::Structure
 
-      def initialize(*)
-        super
-        self.count = 0 if self.count.nil?
-        self.scanned_count = 0 if self.scanned_count.nil?
+      private
+
+      def _defaults
+        {
+          count: 0,
+          scanned_count: 0
+        }
       end
     end
 
@@ -8671,10 +8675,13 @@ module AWS::SDK::DynamoDB
     ) do
       include Hearth::Structure
 
-      def initialize(*)
-        super
-        self.count = 0 if self.count.nil?
-        self.scanned_count = 0 if self.scanned_count.nil?
+      private
+
+      def _defaults
+        {
+          count: 0,
+          scanned_count: 0
+        }
       end
     end
 

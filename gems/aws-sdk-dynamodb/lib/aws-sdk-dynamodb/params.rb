@@ -18,9 +18,9 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::ArchivalSummary, context: context)
         type = Types::ArchivalSummary.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.archival_date_time = params[:archival_date_time]
-        type.archival_reason = params[:archival_reason]
-        type.archival_backup_arn = params[:archival_backup_arn]
+        type.archival_date_time = params[:archival_date_time] unless params[:archival_date_time].nil?
+        type.archival_reason = params[:archival_reason] unless params[:archival_reason].nil?
+        type.archival_backup_arn = params[:archival_backup_arn] unless params[:archival_backup_arn].nil?
         type
       end
     end
@@ -30,8 +30,8 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::AttributeDefinition, context: context)
         type = Types::AttributeDefinition.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.attribute_name = params[:attribute_name]
-        type.attribute_type = params[:attribute_type]
+        type.attribute_name = params[:attribute_name] unless params[:attribute_name].nil?
+        type.attribute_type = params[:attribute_type] unless params[:attribute_type].nil?
         type
       end
     end
@@ -63,7 +63,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
-          data << element
+          data << element unless element.nil?
         end
         data
       end
@@ -154,7 +154,7 @@ module AWS::SDK::DynamoDB
         type = Types::AttributeValueUpdate.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.value = AttributeValue.build(params[:value], context: "#{context}[:value]") unless params[:value].nil?
-        type.action = params[:action]
+        type.action = params[:action] unless params[:action].nil?
         type
       end
     end
@@ -164,7 +164,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::AutoScalingPolicyDescription, context: context)
         type = Types::AutoScalingPolicyDescription.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.policy_name = params[:policy_name]
+        type.policy_name = params[:policy_name] unless params[:policy_name].nil?
         type.target_tracking_scaling_policy_configuration = AutoScalingTargetTrackingScalingPolicyConfigurationDescription.build(params[:target_tracking_scaling_policy_configuration], context: "#{context}[:target_tracking_scaling_policy_configuration]") unless params[:target_tracking_scaling_policy_configuration].nil?
         type
       end
@@ -186,7 +186,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::AutoScalingPolicyUpdate, context: context)
         type = Types::AutoScalingPolicyUpdate.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.policy_name = params[:policy_name]
+        type.policy_name = params[:policy_name] unless params[:policy_name].nil?
         type.target_tracking_scaling_policy_configuration = AutoScalingTargetTrackingScalingPolicyConfigurationUpdate.build(params[:target_tracking_scaling_policy_configuration], context: "#{context}[:target_tracking_scaling_policy_configuration]") unless params[:target_tracking_scaling_policy_configuration].nil?
         type
       end
@@ -197,10 +197,10 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::AutoScalingSettingsDescription, context: context)
         type = Types::AutoScalingSettingsDescription.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.minimum_units = params[:minimum_units]
-        type.maximum_units = params[:maximum_units]
-        type.auto_scaling_disabled = params[:auto_scaling_disabled]
-        type.auto_scaling_role_arn = params[:auto_scaling_role_arn]
+        type.minimum_units = params[:minimum_units] unless params[:minimum_units].nil?
+        type.maximum_units = params[:maximum_units] unless params[:maximum_units].nil?
+        type.auto_scaling_disabled = params[:auto_scaling_disabled] unless params[:auto_scaling_disabled].nil?
+        type.auto_scaling_role_arn = params[:auto_scaling_role_arn] unless params[:auto_scaling_role_arn].nil?
         type.scaling_policies = AutoScalingPolicyDescriptionList.build(params[:scaling_policies], context: "#{context}[:scaling_policies]") unless params[:scaling_policies].nil?
         type
       end
@@ -211,10 +211,10 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::AutoScalingSettingsUpdate, context: context)
         type = Types::AutoScalingSettingsUpdate.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.minimum_units = params[:minimum_units]
-        type.maximum_units = params[:maximum_units]
-        type.auto_scaling_disabled = params[:auto_scaling_disabled]
-        type.auto_scaling_role_arn = params[:auto_scaling_role_arn]
+        type.minimum_units = params[:minimum_units] unless params[:minimum_units].nil?
+        type.maximum_units = params[:maximum_units] unless params[:maximum_units].nil?
+        type.auto_scaling_disabled = params[:auto_scaling_disabled] unless params[:auto_scaling_disabled].nil?
+        type.auto_scaling_role_arn = params[:auto_scaling_role_arn] unless params[:auto_scaling_role_arn].nil?
         type.scaling_policy_update = AutoScalingPolicyUpdate.build(params[:scaling_policy_update], context: "#{context}[:scaling_policy_update]") unless params[:scaling_policy_update].nil?
         type
       end
@@ -225,10 +225,10 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::AutoScalingTargetTrackingScalingPolicyConfigurationDescription, context: context)
         type = Types::AutoScalingTargetTrackingScalingPolicyConfigurationDescription.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.disable_scale_in = params[:disable_scale_in]
-        type.scale_in_cooldown = params[:scale_in_cooldown]
-        type.scale_out_cooldown = params[:scale_out_cooldown]
-        type.target_value = params[:target_value]&.to_f
+        type.disable_scale_in = params[:disable_scale_in] unless params[:disable_scale_in].nil?
+        type.scale_in_cooldown = params[:scale_in_cooldown] unless params[:scale_in_cooldown].nil?
+        type.scale_out_cooldown = params[:scale_out_cooldown] unless params[:scale_out_cooldown].nil?
+        type.target_value = params[:target_value]&.to_f unless params[:target_value].nil?
         type
       end
     end
@@ -238,10 +238,10 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::AutoScalingTargetTrackingScalingPolicyConfigurationUpdate, context: context)
         type = Types::AutoScalingTargetTrackingScalingPolicyConfigurationUpdate.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.disable_scale_in = params[:disable_scale_in]
-        type.scale_in_cooldown = params[:scale_in_cooldown]
-        type.scale_out_cooldown = params[:scale_out_cooldown]
-        type.target_value = params[:target_value]&.to_f
+        type.disable_scale_in = params[:disable_scale_in] unless params[:disable_scale_in].nil?
+        type.scale_in_cooldown = params[:scale_in_cooldown] unless params[:scale_in_cooldown].nil?
+        type.scale_out_cooldown = params[:scale_out_cooldown] unless params[:scale_out_cooldown].nil?
+        type.target_value = params[:target_value]&.to_f unless params[:target_value].nil?
         type
       end
     end
@@ -263,13 +263,13 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::BackupDetails, context: context)
         type = Types::BackupDetails.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.backup_arn = params[:backup_arn]
-        type.backup_name = params[:backup_name]
-        type.backup_size_bytes = params[:backup_size_bytes]
-        type.backup_status = params[:backup_status]
-        type.backup_type = params[:backup_type]
-        type.backup_creation_date_time = params[:backup_creation_date_time]
-        type.backup_expiry_date_time = params[:backup_expiry_date_time]
+        type.backup_arn = params[:backup_arn] unless params[:backup_arn].nil?
+        type.backup_name = params[:backup_name] unless params[:backup_name].nil?
+        type.backup_size_bytes = params[:backup_size_bytes] unless params[:backup_size_bytes].nil?
+        type.backup_status = params[:backup_status] unless params[:backup_status].nil?
+        type.backup_type = params[:backup_type] unless params[:backup_type].nil?
+        type.backup_creation_date_time = params[:backup_creation_date_time] unless params[:backup_creation_date_time].nil?
+        type.backup_expiry_date_time = params[:backup_expiry_date_time] unless params[:backup_expiry_date_time].nil?
         type
       end
     end
@@ -279,7 +279,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::BackupInUseException, context: context)
         type = Types::BackupInUseException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -289,7 +289,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::BackupNotFoundException, context: context)
         type = Types::BackupNotFoundException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -310,16 +310,16 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::BackupSummary, context: context)
         type = Types::BackupSummary.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.table_name = params[:table_name]
-        type.table_id = params[:table_id]
-        type.table_arn = params[:table_arn]
-        type.backup_arn = params[:backup_arn]
-        type.backup_name = params[:backup_name]
-        type.backup_creation_date_time = params[:backup_creation_date_time]
-        type.backup_expiry_date_time = params[:backup_expiry_date_time]
-        type.backup_status = params[:backup_status]
-        type.backup_type = params[:backup_type]
-        type.backup_size_bytes = params[:backup_size_bytes]
+        type.table_name = params[:table_name] unless params[:table_name].nil?
+        type.table_id = params[:table_id] unless params[:table_id].nil?
+        type.table_arn = params[:table_arn] unless params[:table_arn].nil?
+        type.backup_arn = params[:backup_arn] unless params[:backup_arn].nil?
+        type.backup_name = params[:backup_name] unless params[:backup_name].nil?
+        type.backup_creation_date_time = params[:backup_creation_date_time] unless params[:backup_creation_date_time].nil?
+        type.backup_expiry_date_time = params[:backup_expiry_date_time] unless params[:backup_expiry_date_time].nil?
+        type.backup_status = params[:backup_status] unless params[:backup_status].nil?
+        type.backup_type = params[:backup_type] unless params[:backup_type].nil?
+        type.backup_size_bytes = params[:backup_size_bytes] unless params[:backup_size_bytes].nil?
         type
       end
     end
@@ -330,7 +330,7 @@ module AWS::SDK::DynamoDB
         type = Types::BatchExecuteStatementInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.statements = PartiQLBatchRequest.build(params[:statements], context: "#{context}[:statements]") unless params[:statements].nil?
-        type.return_consumed_capacity = params[:return_consumed_capacity]
+        type.return_consumed_capacity = params[:return_consumed_capacity] unless params[:return_consumed_capacity].nil?
         type
       end
     end
@@ -352,7 +352,7 @@ module AWS::SDK::DynamoDB
         type = Types::BatchGetItemInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.request_items = BatchGetRequestMap.build(params[:request_items], context: "#{context}[:request_items]") unless params[:request_items].nil?
-        type.return_consumed_capacity = params[:return_consumed_capacity]
+        type.return_consumed_capacity = params[:return_consumed_capacity] unless params[:return_consumed_capacity].nil?
         type
       end
     end
@@ -396,8 +396,8 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::BatchStatementError, context: context)
         type = Types::BatchStatementError.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.code = params[:code]
-        type.message = params[:message]
+        type.code = params[:code] unless params[:code].nil?
+        type.message = params[:message] unless params[:message].nil?
         type.item = AttributeMap.build(params[:item], context: "#{context}[:item]") unless params[:item].nil?
         type
       end
@@ -408,10 +408,10 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::BatchStatementRequest, context: context)
         type = Types::BatchStatementRequest.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.statement = params[:statement]
+        type.statement = params[:statement] unless params[:statement].nil?
         type.parameters = PreparedStatementParameters.build(params[:parameters], context: "#{context}[:parameters]") unless params[:parameters].nil?
-        type.consistent_read = params[:consistent_read]
-        type.return_values_on_condition_check_failure = params[:return_values_on_condition_check_failure]
+        type.consistent_read = params[:consistent_read] unless params[:consistent_read].nil?
+        type.return_values_on_condition_check_failure = params[:return_values_on_condition_check_failure] unless params[:return_values_on_condition_check_failure].nil?
         type
       end
     end
@@ -422,7 +422,7 @@ module AWS::SDK::DynamoDB
         type = Types::BatchStatementResponse.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.error = BatchStatementError.build(params[:error], context: "#{context}[:error]") unless params[:error].nil?
-        type.table_name = params[:table_name]
+        type.table_name = params[:table_name] unless params[:table_name].nil?
         type.item = AttributeMap.build(params[:item], context: "#{context}[:item]") unless params[:item].nil?
         type
       end
@@ -434,8 +434,8 @@ module AWS::SDK::DynamoDB
         type = Types::BatchWriteItemInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.request_items = BatchWriteItemRequestMap.build(params[:request_items], context: "#{context}[:request_items]") unless params[:request_items].nil?
-        type.return_consumed_capacity = params[:return_consumed_capacity]
-        type.return_item_collection_metrics = params[:return_item_collection_metrics]
+        type.return_consumed_capacity = params[:return_consumed_capacity] unless params[:return_consumed_capacity].nil?
+        type.return_item_collection_metrics = params[:return_item_collection_metrics] unless params[:return_item_collection_metrics].nil?
         type
       end
     end
@@ -468,8 +468,8 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::BillingModeSummary, context: context)
         type = Types::BillingModeSummary.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.billing_mode = params[:billing_mode]
-        type.last_update_to_pay_per_request_date_time = params[:last_update_to_pay_per_request_date_time]
+        type.billing_mode = params[:billing_mode] unless params[:billing_mode].nil?
+        type.last_update_to_pay_per_request_date_time = params[:last_update_to_pay_per_request_date_time] unless params[:last_update_to_pay_per_request_date_time].nil?
         type
       end
     end
@@ -479,7 +479,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
-          data << element
+          data << element unless element.nil?
         end
         data
       end
@@ -491,8 +491,8 @@ module AWS::SDK::DynamoDB
         type = Types::CancellationReason.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.item = AttributeMap.build(params[:item], context: "#{context}[:item]") unless params[:item].nil?
-        type.code = params[:code]
-        type.message = params[:message]
+        type.code = params[:code] unless params[:code].nil?
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -513,9 +513,9 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::Capacity, context: context)
         type = Types::Capacity.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.read_capacity_units = params[:read_capacity_units]&.to_f
-        type.write_capacity_units = params[:write_capacity_units]&.to_f
-        type.capacity_units = params[:capacity_units]&.to_f
+        type.read_capacity_units = params[:read_capacity_units]&.to_f unless params[:read_capacity_units].nil?
+        type.write_capacity_units = params[:write_capacity_units]&.to_f unless params[:write_capacity_units].nil?
+        type.capacity_units = params[:capacity_units]&.to_f unless params[:capacity_units].nil?
         type
       end
     end
@@ -526,7 +526,7 @@ module AWS::SDK::DynamoDB
         type = Types::Condition.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.attribute_value_list = AttributeValueList.build(params[:attribute_value_list], context: "#{context}[:attribute_value_list]") unless params[:attribute_value_list].nil?
-        type.comparison_operator = params[:comparison_operator]
+        type.comparison_operator = params[:comparison_operator] unless params[:comparison_operator].nil?
         type
       end
     end
@@ -537,11 +537,11 @@ module AWS::SDK::DynamoDB
         type = Types::ConditionCheck.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.key = Key.build(params[:key], context: "#{context}[:key]") unless params[:key].nil?
-        type.table_name = params[:table_name]
-        type.condition_expression = params[:condition_expression]
+        type.table_name = params[:table_name] unless params[:table_name].nil?
+        type.condition_expression = params[:condition_expression] unless params[:condition_expression].nil?
         type.expression_attribute_names = ExpressionAttributeNameMap.build(params[:expression_attribute_names], context: "#{context}[:expression_attribute_names]") unless params[:expression_attribute_names].nil?
         type.expression_attribute_values = ExpressionAttributeValueMap.build(params[:expression_attribute_values], context: "#{context}[:expression_attribute_values]") unless params[:expression_attribute_values].nil?
-        type.return_values_on_condition_check_failure = params[:return_values_on_condition_check_failure]
+        type.return_values_on_condition_check_failure = params[:return_values_on_condition_check_failure] unless params[:return_values_on_condition_check_failure].nil?
         type
       end
     end
@@ -551,7 +551,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::ConditionalCheckFailedException, context: context)
         type = Types::ConditionalCheckFailedException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type.item = AttributeMap.build(params[:item], context: "#{context}[:item]") unless params[:item].nil?
         type
       end
@@ -562,10 +562,10 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::ConsumedCapacity, context: context)
         type = Types::ConsumedCapacity.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.table_name = params[:table_name]
-        type.capacity_units = params[:capacity_units]&.to_f
-        type.read_capacity_units = params[:read_capacity_units]&.to_f
-        type.write_capacity_units = params[:write_capacity_units]&.to_f
+        type.table_name = params[:table_name] unless params[:table_name].nil?
+        type.capacity_units = params[:capacity_units]&.to_f unless params[:capacity_units].nil?
+        type.read_capacity_units = params[:read_capacity_units]&.to_f unless params[:read_capacity_units].nil?
+        type.write_capacity_units = params[:write_capacity_units]&.to_f unless params[:write_capacity_units].nil?
         type.table = Capacity.build(params[:table], context: "#{context}[:table]") unless params[:table].nil?
         type.local_secondary_indexes = SecondaryIndexesCapacityMap.build(params[:local_secondary_indexes], context: "#{context}[:local_secondary_indexes]") unless params[:local_secondary_indexes].nil?
         type.global_secondary_indexes = SecondaryIndexesCapacityMap.build(params[:global_secondary_indexes], context: "#{context}[:global_secondary_indexes]") unless params[:global_secondary_indexes].nil?
@@ -589,7 +589,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::ContinuousBackupsDescription, context: context)
         type = Types::ContinuousBackupsDescription.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.continuous_backups_status = params[:continuous_backups_status]
+        type.continuous_backups_status = params[:continuous_backups_status] unless params[:continuous_backups_status].nil?
         type.point_in_time_recovery_description = PointInTimeRecoveryDescription.build(params[:point_in_time_recovery_description], context: "#{context}[:point_in_time_recovery_description]") unless params[:point_in_time_recovery_description].nil?
         type
       end
@@ -600,7 +600,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::ContinuousBackupsUnavailableException, context: context)
         type = Types::ContinuousBackupsUnavailableException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -610,7 +610,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
-          data << element
+          data << element unless element.nil?
         end
         data
       end
@@ -632,9 +632,9 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::ContributorInsightsSummary, context: context)
         type = Types::ContributorInsightsSummary.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.table_name = params[:table_name]
-        type.index_name = params[:index_name]
-        type.contributor_insights_status = params[:contributor_insights_status]
+        type.table_name = params[:table_name] unless params[:table_name].nil?
+        type.index_name = params[:index_name] unless params[:index_name].nil?
+        type.contributor_insights_status = params[:contributor_insights_status] unless params[:contributor_insights_status].nil?
         type
       end
     end
@@ -644,8 +644,8 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateBackupInput, context: context)
         type = Types::CreateBackupInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.table_name = params[:table_name]
-        type.backup_name = params[:backup_name]
+        type.table_name = params[:table_name] unless params[:table_name].nil?
+        type.backup_name = params[:backup_name] unless params[:backup_name].nil?
         type
       end
     end
@@ -665,7 +665,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateGlobalSecondaryIndexAction, context: context)
         type = Types::CreateGlobalSecondaryIndexAction.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.index_name = params[:index_name]
+        type.index_name = params[:index_name] unless params[:index_name].nil?
         type.key_schema = KeySchema.build(params[:key_schema], context: "#{context}[:key_schema]") unless params[:key_schema].nil?
         type.projection = Projection.build(params[:projection], context: "#{context}[:projection]") unless params[:projection].nil?
         type.provisioned_throughput = ProvisionedThroughput.build(params[:provisioned_throughput], context: "#{context}[:provisioned_throughput]") unless params[:provisioned_throughput].nil?
@@ -678,7 +678,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateGlobalTableInput, context: context)
         type = Types::CreateGlobalTableInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.global_table_name = params[:global_table_name]
+        type.global_table_name = params[:global_table_name] unless params[:global_table_name].nil?
         type.replication_group = ReplicaList.build(params[:replication_group], context: "#{context}[:replication_group]") unless params[:replication_group].nil?
         type
       end
@@ -699,7 +699,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateReplicaAction, context: context)
         type = Types::CreateReplicaAction.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.region_name = params[:region_name]
+        type.region_name = params[:region_name] unless params[:region_name].nil?
         type
       end
     end
@@ -709,11 +709,11 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateReplicationGroupMemberAction, context: context)
         type = Types::CreateReplicationGroupMemberAction.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.region_name = params[:region_name]
-        type.kms_master_key_id = params[:kms_master_key_id]
+        type.region_name = params[:region_name] unless params[:region_name].nil?
+        type.kms_master_key_id = params[:kms_master_key_id] unless params[:kms_master_key_id].nil?
         type.provisioned_throughput_override = ProvisionedThroughputOverride.build(params[:provisioned_throughput_override], context: "#{context}[:provisioned_throughput_override]") unless params[:provisioned_throughput_override].nil?
         type.global_secondary_indexes = ReplicaGlobalSecondaryIndexList.build(params[:global_secondary_indexes], context: "#{context}[:global_secondary_indexes]") unless params[:global_secondary_indexes].nil?
-        type.table_class_override = params[:table_class_override]
+        type.table_class_override = params[:table_class_override] unless params[:table_class_override].nil?
         type
       end
     end
@@ -724,17 +724,17 @@ module AWS::SDK::DynamoDB
         type = Types::CreateTableInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.attribute_definitions = AttributeDefinitions.build(params[:attribute_definitions], context: "#{context}[:attribute_definitions]") unless params[:attribute_definitions].nil?
-        type.table_name = params[:table_name]
+        type.table_name = params[:table_name] unless params[:table_name].nil?
         type.key_schema = KeySchema.build(params[:key_schema], context: "#{context}[:key_schema]") unless params[:key_schema].nil?
         type.local_secondary_indexes = LocalSecondaryIndexList.build(params[:local_secondary_indexes], context: "#{context}[:local_secondary_indexes]") unless params[:local_secondary_indexes].nil?
         type.global_secondary_indexes = GlobalSecondaryIndexList.build(params[:global_secondary_indexes], context: "#{context}[:global_secondary_indexes]") unless params[:global_secondary_indexes].nil?
-        type.billing_mode = params[:billing_mode]
+        type.billing_mode = params[:billing_mode] unless params[:billing_mode].nil?
         type.provisioned_throughput = ProvisionedThroughput.build(params[:provisioned_throughput], context: "#{context}[:provisioned_throughput]") unless params[:provisioned_throughput].nil?
         type.stream_specification = StreamSpecification.build(params[:stream_specification], context: "#{context}[:stream_specification]") unless params[:stream_specification].nil?
         type.sse_specification = SSESpecification.build(params[:sse_specification], context: "#{context}[:sse_specification]") unless params[:sse_specification].nil?
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.table_class = params[:table_class]
-        type.deletion_protection_enabled = params[:deletion_protection_enabled]
+        type.table_class = params[:table_class] unless params[:table_class].nil?
+        type.deletion_protection_enabled = params[:deletion_protection_enabled] unless params[:deletion_protection_enabled].nil?
         type
       end
     end
@@ -754,7 +754,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
-          data << element
+          data << element unless element.nil?
         end
         data
       end
@@ -765,7 +765,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::CsvOptions, context: context)
         type = Types::CsvOptions.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.delimiter = params[:delimiter]
+        type.delimiter = params[:delimiter] unless params[:delimiter].nil?
         type.header_list = CsvHeaderList.build(params[:header_list], context: "#{context}[:header_list]") unless params[:header_list].nil?
         type
       end
@@ -777,11 +777,11 @@ module AWS::SDK::DynamoDB
         type = Types::Delete.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.key = Key.build(params[:key], context: "#{context}[:key]") unless params[:key].nil?
-        type.table_name = params[:table_name]
-        type.condition_expression = params[:condition_expression]
+        type.table_name = params[:table_name] unless params[:table_name].nil?
+        type.condition_expression = params[:condition_expression] unless params[:condition_expression].nil?
         type.expression_attribute_names = ExpressionAttributeNameMap.build(params[:expression_attribute_names], context: "#{context}[:expression_attribute_names]") unless params[:expression_attribute_names].nil?
         type.expression_attribute_values = ExpressionAttributeValueMap.build(params[:expression_attribute_values], context: "#{context}[:expression_attribute_values]") unless params[:expression_attribute_values].nil?
-        type.return_values_on_condition_check_failure = params[:return_values_on_condition_check_failure]
+        type.return_values_on_condition_check_failure = params[:return_values_on_condition_check_failure] unless params[:return_values_on_condition_check_failure].nil?
         type
       end
     end
@@ -791,7 +791,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteBackupInput, context: context)
         type = Types::DeleteBackupInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.backup_arn = params[:backup_arn]
+        type.backup_arn = params[:backup_arn] unless params[:backup_arn].nil?
         type
       end
     end
@@ -811,7 +811,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteGlobalSecondaryIndexAction, context: context)
         type = Types::DeleteGlobalSecondaryIndexAction.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.index_name = params[:index_name]
+        type.index_name = params[:index_name] unless params[:index_name].nil?
         type
       end
     end
@@ -821,17 +821,17 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteItemInput, context: context)
         type = Types::DeleteItemInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.table_name = params[:table_name]
+        type.table_name = params[:table_name] unless params[:table_name].nil?
         type.key = Key.build(params[:key], context: "#{context}[:key]") unless params[:key].nil?
         type.expected = ExpectedAttributeMap.build(params[:expected], context: "#{context}[:expected]") unless params[:expected].nil?
-        type.conditional_operator = params[:conditional_operator]
-        type.return_values = params[:return_values]
-        type.return_consumed_capacity = params[:return_consumed_capacity]
-        type.return_item_collection_metrics = params[:return_item_collection_metrics]
-        type.condition_expression = params[:condition_expression]
+        type.conditional_operator = params[:conditional_operator] unless params[:conditional_operator].nil?
+        type.return_values = params[:return_values] unless params[:return_values].nil?
+        type.return_consumed_capacity = params[:return_consumed_capacity] unless params[:return_consumed_capacity].nil?
+        type.return_item_collection_metrics = params[:return_item_collection_metrics] unless params[:return_item_collection_metrics].nil?
+        type.condition_expression = params[:condition_expression] unless params[:condition_expression].nil?
         type.expression_attribute_names = ExpressionAttributeNameMap.build(params[:expression_attribute_names], context: "#{context}[:expression_attribute_names]") unless params[:expression_attribute_names].nil?
         type.expression_attribute_values = ExpressionAttributeValueMap.build(params[:expression_attribute_values], context: "#{context}[:expression_attribute_values]") unless params[:expression_attribute_values].nil?
-        type.return_values_on_condition_check_failure = params[:return_values_on_condition_check_failure]
+        type.return_values_on_condition_check_failure = params[:return_values_on_condition_check_failure] unless params[:return_values_on_condition_check_failure].nil?
         type
       end
     end
@@ -853,7 +853,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteReplicaAction, context: context)
         type = Types::DeleteReplicaAction.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.region_name = params[:region_name]
+        type.region_name = params[:region_name] unless params[:region_name].nil?
         type
       end
     end
@@ -863,7 +863,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteReplicationGroupMemberAction, context: context)
         type = Types::DeleteReplicationGroupMemberAction.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.region_name = params[:region_name]
+        type.region_name = params[:region_name] unless params[:region_name].nil?
         type
       end
     end
@@ -883,7 +883,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteTableInput, context: context)
         type = Types::DeleteTableInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.table_name = params[:table_name]
+        type.table_name = params[:table_name] unless params[:table_name].nil?
         type
       end
     end
@@ -903,7 +903,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeBackupInput, context: context)
         type = Types::DescribeBackupInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.backup_arn = params[:backup_arn]
+        type.backup_arn = params[:backup_arn] unless params[:backup_arn].nil?
         type
       end
     end
@@ -923,7 +923,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeContinuousBackupsInput, context: context)
         type = Types::DescribeContinuousBackupsInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.table_name = params[:table_name]
+        type.table_name = params[:table_name] unless params[:table_name].nil?
         type
       end
     end
@@ -943,8 +943,8 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeContributorInsightsInput, context: context)
         type = Types::DescribeContributorInsightsInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.table_name = params[:table_name]
-        type.index_name = params[:index_name]
+        type.table_name = params[:table_name] unless params[:table_name].nil?
+        type.index_name = params[:index_name] unless params[:index_name].nil?
         type
       end
     end
@@ -954,11 +954,11 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeContributorInsightsOutput, context: context)
         type = Types::DescribeContributorInsightsOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.table_name = params[:table_name]
-        type.index_name = params[:index_name]
+        type.table_name = params[:table_name] unless params[:table_name].nil?
+        type.index_name = params[:index_name] unless params[:index_name].nil?
         type.contributor_insights_rule_list = ContributorInsightsRuleList.build(params[:contributor_insights_rule_list], context: "#{context}[:contributor_insights_rule_list]") unless params[:contributor_insights_rule_list].nil?
-        type.contributor_insights_status = params[:contributor_insights_status]
-        type.last_update_date_time = params[:last_update_date_time]
+        type.contributor_insights_status = params[:contributor_insights_status] unless params[:contributor_insights_status].nil?
+        type.last_update_date_time = params[:last_update_date_time] unless params[:last_update_date_time].nil?
         type.failure_exception = FailureException.build(params[:failure_exception], context: "#{context}[:failure_exception]") unless params[:failure_exception].nil?
         type
       end
@@ -988,7 +988,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeExportInput, context: context)
         type = Types::DescribeExportInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.export_arn = params[:export_arn]
+        type.export_arn = params[:export_arn] unless params[:export_arn].nil?
         type
       end
     end
@@ -1008,7 +1008,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeGlobalTableInput, context: context)
         type = Types::DescribeGlobalTableInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.global_table_name = params[:global_table_name]
+        type.global_table_name = params[:global_table_name] unless params[:global_table_name].nil?
         type
       end
     end
@@ -1028,7 +1028,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeGlobalTableSettingsInput, context: context)
         type = Types::DescribeGlobalTableSettingsInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.global_table_name = params[:global_table_name]
+        type.global_table_name = params[:global_table_name] unless params[:global_table_name].nil?
         type
       end
     end
@@ -1038,7 +1038,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeGlobalTableSettingsOutput, context: context)
         type = Types::DescribeGlobalTableSettingsOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.global_table_name = params[:global_table_name]
+        type.global_table_name = params[:global_table_name] unless params[:global_table_name].nil?
         type.replica_settings = ReplicaSettingsDescriptionList.build(params[:replica_settings], context: "#{context}[:replica_settings]") unless params[:replica_settings].nil?
         type
       end
@@ -1049,7 +1049,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeImportInput, context: context)
         type = Types::DescribeImportInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.import_arn = params[:import_arn]
+        type.import_arn = params[:import_arn] unless params[:import_arn].nil?
         type
       end
     end
@@ -1069,7 +1069,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeKinesisStreamingDestinationInput, context: context)
         type = Types::DescribeKinesisStreamingDestinationInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.table_name = params[:table_name]
+        type.table_name = params[:table_name] unless params[:table_name].nil?
         type
       end
     end
@@ -1079,7 +1079,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeKinesisStreamingDestinationOutput, context: context)
         type = Types::DescribeKinesisStreamingDestinationOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.table_name = params[:table_name]
+        type.table_name = params[:table_name] unless params[:table_name].nil?
         type.kinesis_data_stream_destinations = KinesisDataStreamDestinations.build(params[:kinesis_data_stream_destinations], context: "#{context}[:kinesis_data_stream_destinations]") unless params[:kinesis_data_stream_destinations].nil?
         type
       end
@@ -1099,10 +1099,10 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeLimitsOutput, context: context)
         type = Types::DescribeLimitsOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.account_max_read_capacity_units = params[:account_max_read_capacity_units]
-        type.account_max_write_capacity_units = params[:account_max_write_capacity_units]
-        type.table_max_read_capacity_units = params[:table_max_read_capacity_units]
-        type.table_max_write_capacity_units = params[:table_max_write_capacity_units]
+        type.account_max_read_capacity_units = params[:account_max_read_capacity_units] unless params[:account_max_read_capacity_units].nil?
+        type.account_max_write_capacity_units = params[:account_max_write_capacity_units] unless params[:account_max_write_capacity_units].nil?
+        type.table_max_read_capacity_units = params[:table_max_read_capacity_units] unless params[:table_max_read_capacity_units].nil?
+        type.table_max_write_capacity_units = params[:table_max_write_capacity_units] unless params[:table_max_write_capacity_units].nil?
         type
       end
     end
@@ -1112,7 +1112,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeTableInput, context: context)
         type = Types::DescribeTableInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.table_name = params[:table_name]
+        type.table_name = params[:table_name] unless params[:table_name].nil?
         type
       end
     end
@@ -1132,7 +1132,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeTableReplicaAutoScalingInput, context: context)
         type = Types::DescribeTableReplicaAutoScalingInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.table_name = params[:table_name]
+        type.table_name = params[:table_name] unless params[:table_name].nil?
         type
       end
     end
@@ -1152,7 +1152,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeTimeToLiveInput, context: context)
         type = Types::DescribeTimeToLiveInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.table_name = params[:table_name]
+        type.table_name = params[:table_name] unless params[:table_name].nil?
         type
       end
     end
@@ -1172,8 +1172,8 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisableKinesisStreamingDestinationInput, context: context)
         type = Types::DisableKinesisStreamingDestinationInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.table_name = params[:table_name]
-        type.stream_arn = params[:stream_arn]
+        type.table_name = params[:table_name] unless params[:table_name].nil?
+        type.stream_arn = params[:stream_arn] unless params[:stream_arn].nil?
         type.enable_kinesis_streaming_configuration = EnableKinesisStreamingConfiguration.build(params[:enable_kinesis_streaming_configuration], context: "#{context}[:enable_kinesis_streaming_configuration]") unless params[:enable_kinesis_streaming_configuration].nil?
         type
       end
@@ -1184,9 +1184,9 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisableKinesisStreamingDestinationOutput, context: context)
         type = Types::DisableKinesisStreamingDestinationOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.table_name = params[:table_name]
-        type.stream_arn = params[:stream_arn]
-        type.destination_status = params[:destination_status]
+        type.table_name = params[:table_name] unless params[:table_name].nil?
+        type.stream_arn = params[:stream_arn] unless params[:stream_arn].nil?
+        type.destination_status = params[:destination_status] unless params[:destination_status].nil?
         type.enable_kinesis_streaming_configuration = EnableKinesisStreamingConfiguration.build(params[:enable_kinesis_streaming_configuration], context: "#{context}[:enable_kinesis_streaming_configuration]") unless params[:enable_kinesis_streaming_configuration].nil?
         type
       end
@@ -1197,7 +1197,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::DuplicateItemException, context: context)
         type = Types::DuplicateItemException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -1207,7 +1207,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableKinesisStreamingConfiguration, context: context)
         type = Types::EnableKinesisStreamingConfiguration.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.approximate_creation_date_time_precision = params[:approximate_creation_date_time_precision]
+        type.approximate_creation_date_time_precision = params[:approximate_creation_date_time_precision] unless params[:approximate_creation_date_time_precision].nil?
         type
       end
     end
@@ -1217,8 +1217,8 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableKinesisStreamingDestinationInput, context: context)
         type = Types::EnableKinesisStreamingDestinationInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.table_name = params[:table_name]
-        type.stream_arn = params[:stream_arn]
+        type.table_name = params[:table_name] unless params[:table_name].nil?
+        type.stream_arn = params[:stream_arn] unless params[:stream_arn].nil?
         type.enable_kinesis_streaming_configuration = EnableKinesisStreamingConfiguration.build(params[:enable_kinesis_streaming_configuration], context: "#{context}[:enable_kinesis_streaming_configuration]") unless params[:enable_kinesis_streaming_configuration].nil?
         type
       end
@@ -1229,9 +1229,9 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableKinesisStreamingDestinationOutput, context: context)
         type = Types::EnableKinesisStreamingDestinationOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.table_name = params[:table_name]
-        type.stream_arn = params[:stream_arn]
-        type.destination_status = params[:destination_status]
+        type.table_name = params[:table_name] unless params[:table_name].nil?
+        type.stream_arn = params[:stream_arn] unless params[:stream_arn].nil?
+        type.destination_status = params[:destination_status] unless params[:destination_status].nil?
         type.enable_kinesis_streaming_configuration = EnableKinesisStreamingConfiguration.build(params[:enable_kinesis_streaming_configuration], context: "#{context}[:enable_kinesis_streaming_configuration]") unless params[:enable_kinesis_streaming_configuration].nil?
         type
       end
@@ -1242,8 +1242,8 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::Endpoint, context: context)
         type = Types::Endpoint.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.address = params[:address]
-        type.cache_period_in_minutes = params.fetch(:cache_period_in_minutes, 0)
+        type.address = params[:address] unless params[:address].nil?
+        type.cache_period_in_minutes = params[:cache_period_in_minutes] unless params[:cache_period_in_minutes].nil?
         type
       end
     end
@@ -1264,13 +1264,13 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::ExecuteStatementInput, context: context)
         type = Types::ExecuteStatementInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.statement = params[:statement]
+        type.statement = params[:statement] unless params[:statement].nil?
         type.parameters = PreparedStatementParameters.build(params[:parameters], context: "#{context}[:parameters]") unless params[:parameters].nil?
-        type.consistent_read = params[:consistent_read]
-        type.next_token = params[:next_token]
-        type.return_consumed_capacity = params[:return_consumed_capacity]
-        type.limit = params[:limit]
-        type.return_values_on_condition_check_failure = params[:return_values_on_condition_check_failure]
+        type.consistent_read = params[:consistent_read] unless params[:consistent_read].nil?
+        type.next_token = params[:next_token] unless params[:next_token].nil?
+        type.return_consumed_capacity = params[:return_consumed_capacity] unless params[:return_consumed_capacity].nil?
+        type.limit = params[:limit] unless params[:limit].nil?
+        type.return_values_on_condition_check_failure = params[:return_values_on_condition_check_failure] unless params[:return_values_on_condition_check_failure].nil?
         type
       end
     end
@@ -1281,7 +1281,7 @@ module AWS::SDK::DynamoDB
         type = Types::ExecuteStatementOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.items = ItemList.build(params[:items], context: "#{context}[:items]") unless params[:items].nil?
-        type.next_token = params[:next_token]
+        type.next_token = params[:next_token] unless params[:next_token].nil?
         type.consumed_capacity = ConsumedCapacity.build(params[:consumed_capacity], context: "#{context}[:consumed_capacity]") unless params[:consumed_capacity].nil?
         type.last_evaluated_key = Key.build(params[:last_evaluated_key], context: "#{context}[:last_evaluated_key]") unless params[:last_evaluated_key].nil?
         type
@@ -1295,7 +1295,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.transact_statements = ParameterizedStatements.build(params[:transact_statements], context: "#{context}[:transact_statements]") unless params[:transact_statements].nil?
         type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
-        type.return_consumed_capacity = params[:return_consumed_capacity]
+        type.return_consumed_capacity = params[:return_consumed_capacity] unless params[:return_consumed_capacity].nil?
         type
       end
     end
@@ -1328,8 +1328,8 @@ module AWS::SDK::DynamoDB
         type = Types::ExpectedAttributeValue.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.value = AttributeValue.build(params[:value], context: "#{context}[:value]") unless params[:value].nil?
-        type.exists = params[:exists]
-        type.comparison_operator = params[:comparison_operator]
+        type.exists = params[:exists] unless params[:exists].nil?
+        type.comparison_operator = params[:comparison_operator] unless params[:comparison_operator].nil?
         type.attribute_value_list = AttributeValueList.build(params[:attribute_value_list], context: "#{context}[:attribute_value_list]") unless params[:attribute_value_list].nil?
         type
       end
@@ -1340,7 +1340,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::ExportConflictException, context: context)
         type = Types::ExportConflictException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -1350,26 +1350,26 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::ExportDescription, context: context)
         type = Types::ExportDescription.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.export_arn = params[:export_arn]
-        type.export_status = params[:export_status]
-        type.start_time = params[:start_time]
-        type.end_time = params[:end_time]
-        type.export_manifest = params[:export_manifest]
-        type.table_arn = params[:table_arn]
-        type.table_id = params[:table_id]
-        type.export_time = params[:export_time]
-        type.client_token = params[:client_token]
-        type.s3_bucket = params[:s3_bucket]
-        type.s3_bucket_owner = params[:s3_bucket_owner]
-        type.s3_prefix = params[:s3_prefix]
-        type.s3_sse_algorithm = params[:s3_sse_algorithm]
-        type.s3_sse_kms_key_id = params[:s3_sse_kms_key_id]
-        type.failure_code = params[:failure_code]
-        type.failure_message = params[:failure_message]
-        type.export_format = params[:export_format]
-        type.billed_size_bytes = params[:billed_size_bytes]
-        type.item_count = params[:item_count]
-        type.export_type = params[:export_type]
+        type.export_arn = params[:export_arn] unless params[:export_arn].nil?
+        type.export_status = params[:export_status] unless params[:export_status].nil?
+        type.start_time = params[:start_time] unless params[:start_time].nil?
+        type.end_time = params[:end_time] unless params[:end_time].nil?
+        type.export_manifest = params[:export_manifest] unless params[:export_manifest].nil?
+        type.table_arn = params[:table_arn] unless params[:table_arn].nil?
+        type.table_id = params[:table_id] unless params[:table_id].nil?
+        type.export_time = params[:export_time] unless params[:export_time].nil?
+        type.client_token = params[:client_token] unless params[:client_token].nil?
+        type.s3_bucket = params[:s3_bucket] unless params[:s3_bucket].nil?
+        type.s3_bucket_owner = params[:s3_bucket_owner] unless params[:s3_bucket_owner].nil?
+        type.s3_prefix = params[:s3_prefix] unless params[:s3_prefix].nil?
+        type.s3_sse_algorithm = params[:s3_sse_algorithm] unless params[:s3_sse_algorithm].nil?
+        type.s3_sse_kms_key_id = params[:s3_sse_kms_key_id] unless params[:s3_sse_kms_key_id].nil?
+        type.failure_code = params[:failure_code] unless params[:failure_code].nil?
+        type.failure_message = params[:failure_message] unless params[:failure_message].nil?
+        type.export_format = params[:export_format] unless params[:export_format].nil?
+        type.billed_size_bytes = params[:billed_size_bytes] unless params[:billed_size_bytes].nil?
+        type.item_count = params[:item_count] unless params[:item_count].nil?
+        type.export_type = params[:export_type] unless params[:export_type].nil?
         type.incremental_export_specification = IncrementalExportSpecification.build(params[:incremental_export_specification], context: "#{context}[:incremental_export_specification]") unless params[:incremental_export_specification].nil?
         type
       end
@@ -1380,7 +1380,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::ExportNotFoundException, context: context)
         type = Types::ExportNotFoundException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -1401,9 +1401,9 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::ExportSummary, context: context)
         type = Types::ExportSummary.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.export_arn = params[:export_arn]
-        type.export_status = params[:export_status]
-        type.export_type = params[:export_type]
+        type.export_arn = params[:export_arn] unless params[:export_arn].nil?
+        type.export_status = params[:export_status] unless params[:export_status].nil?
+        type.export_type = params[:export_type] unless params[:export_type].nil?
         type
       end
     end
@@ -1413,16 +1413,16 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::ExportTableToPointInTimeInput, context: context)
         type = Types::ExportTableToPointInTimeInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.table_arn = params[:table_arn]
-        type.export_time = params[:export_time]
+        type.table_arn = params[:table_arn] unless params[:table_arn].nil?
+        type.export_time = params[:export_time] unless params[:export_time].nil?
         type.client_token = params[:client_token] || ::SecureRandom.uuid
-        type.s3_bucket = params[:s3_bucket]
-        type.s3_bucket_owner = params[:s3_bucket_owner]
-        type.s3_prefix = params[:s3_prefix]
-        type.s3_sse_algorithm = params[:s3_sse_algorithm]
-        type.s3_sse_kms_key_id = params[:s3_sse_kms_key_id]
-        type.export_format = params[:export_format]
-        type.export_type = params[:export_type]
+        type.s3_bucket = params[:s3_bucket] unless params[:s3_bucket].nil?
+        type.s3_bucket_owner = params[:s3_bucket_owner] unless params[:s3_bucket_owner].nil?
+        type.s3_prefix = params[:s3_prefix] unless params[:s3_prefix].nil?
+        type.s3_sse_algorithm = params[:s3_sse_algorithm] unless params[:s3_sse_algorithm].nil?
+        type.s3_sse_kms_key_id = params[:s3_sse_kms_key_id] unless params[:s3_sse_kms_key_id].nil?
+        type.export_format = params[:export_format] unless params[:export_format].nil?
+        type.export_type = params[:export_type] unless params[:export_type].nil?
         type.incremental_export_specification = IncrementalExportSpecification.build(params[:incremental_export_specification], context: "#{context}[:incremental_export_specification]") unless params[:incremental_export_specification].nil?
         type
       end
@@ -1443,7 +1443,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, context: context)
         data = {}
         params.each do |key, value|
-          data[key] = value
+          data[key] = value unless value.nil?
         end
         data
       end
@@ -1465,8 +1465,8 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::FailureException, context: context)
         type = Types::FailureException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.exception_name = params[:exception_name]
-        type.exception_description = params[:exception_description]
+        type.exception_name = params[:exception_name] unless params[:exception_name].nil?
+        type.exception_description = params[:exception_description] unless params[:exception_description].nil?
         type
       end
     end
@@ -1488,8 +1488,8 @@ module AWS::SDK::DynamoDB
         type = Types::Get.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.key = Key.build(params[:key], context: "#{context}[:key]") unless params[:key].nil?
-        type.table_name = params[:table_name]
-        type.projection_expression = params[:projection_expression]
+        type.table_name = params[:table_name] unless params[:table_name].nil?
+        type.projection_expression = params[:projection_expression] unless params[:projection_expression].nil?
         type.expression_attribute_names = ExpressionAttributeNameMap.build(params[:expression_attribute_names], context: "#{context}[:expression_attribute_names]") unless params[:expression_attribute_names].nil?
         type
       end
@@ -1500,12 +1500,12 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetItemInput, context: context)
         type = Types::GetItemInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.table_name = params[:table_name]
+        type.table_name = params[:table_name] unless params[:table_name].nil?
         type.key = Key.build(params[:key], context: "#{context}[:key]") unless params[:key].nil?
         type.attributes_to_get = AttributeNameList.build(params[:attributes_to_get], context: "#{context}[:attributes_to_get]") unless params[:attributes_to_get].nil?
-        type.consistent_read = params[:consistent_read]
-        type.return_consumed_capacity = params[:return_consumed_capacity]
-        type.projection_expression = params[:projection_expression]
+        type.consistent_read = params[:consistent_read] unless params[:consistent_read].nil?
+        type.return_consumed_capacity = params[:return_consumed_capacity] unless params[:return_consumed_capacity].nil?
+        type.projection_expression = params[:projection_expression] unless params[:projection_expression].nil?
         type.expression_attribute_names = ExpressionAttributeNameMap.build(params[:expression_attribute_names], context: "#{context}[:expression_attribute_names]") unless params[:expression_attribute_names].nil?
         type
       end
@@ -1527,7 +1527,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::GlobalSecondaryIndex, context: context)
         type = Types::GlobalSecondaryIndex.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.index_name = params[:index_name]
+        type.index_name = params[:index_name] unless params[:index_name].nil?
         type.key_schema = KeySchema.build(params[:key_schema], context: "#{context}[:key_schema]") unless params[:key_schema].nil?
         type.projection = Projection.build(params[:projection], context: "#{context}[:projection]") unless params[:projection].nil?
         type.provisioned_throughput = ProvisionedThroughput.build(params[:provisioned_throughput], context: "#{context}[:provisioned_throughput]") unless params[:provisioned_throughput].nil?
@@ -1540,7 +1540,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::GlobalSecondaryIndexAutoScalingUpdate, context: context)
         type = Types::GlobalSecondaryIndexAutoScalingUpdate.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.index_name = params[:index_name]
+        type.index_name = params[:index_name] unless params[:index_name].nil?
         type.provisioned_write_capacity_auto_scaling_update = AutoScalingSettingsUpdate.build(params[:provisioned_write_capacity_auto_scaling_update], context: "#{context}[:provisioned_write_capacity_auto_scaling_update]") unless params[:provisioned_write_capacity_auto_scaling_update].nil?
         type
       end
@@ -1562,15 +1562,15 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::GlobalSecondaryIndexDescription, context: context)
         type = Types::GlobalSecondaryIndexDescription.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.index_name = params[:index_name]
+        type.index_name = params[:index_name] unless params[:index_name].nil?
         type.key_schema = KeySchema.build(params[:key_schema], context: "#{context}[:key_schema]") unless params[:key_schema].nil?
         type.projection = Projection.build(params[:projection], context: "#{context}[:projection]") unless params[:projection].nil?
-        type.index_status = params[:index_status]
-        type.backfilling = params[:backfilling]
+        type.index_status = params[:index_status] unless params[:index_status].nil?
+        type.backfilling = params[:backfilling] unless params[:backfilling].nil?
         type.provisioned_throughput = ProvisionedThroughputDescription.build(params[:provisioned_throughput], context: "#{context}[:provisioned_throughput]") unless params[:provisioned_throughput].nil?
-        type.index_size_bytes = params[:index_size_bytes]
-        type.item_count = params[:item_count]
-        type.index_arn = params[:index_arn]
+        type.index_size_bytes = params[:index_size_bytes] unless params[:index_size_bytes].nil?
+        type.item_count = params[:item_count] unless params[:item_count].nil?
+        type.index_arn = params[:index_arn] unless params[:index_arn].nil?
         type
       end
     end
@@ -1591,7 +1591,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::GlobalSecondaryIndexInfo, context: context)
         type = Types::GlobalSecondaryIndexInfo.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.index_name = params[:index_name]
+        type.index_name = params[:index_name] unless params[:index_name].nil?
         type.key_schema = KeySchema.build(params[:key_schema], context: "#{context}[:key_schema]") unless params[:key_schema].nil?
         type.projection = Projection.build(params[:projection], context: "#{context}[:projection]") unless params[:projection].nil?
         type.provisioned_throughput = ProvisionedThroughput.build(params[:provisioned_throughput], context: "#{context}[:provisioned_throughput]") unless params[:provisioned_throughput].nil?
@@ -1649,7 +1649,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::GlobalTable, context: context)
         type = Types::GlobalTable.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.global_table_name = params[:global_table_name]
+        type.global_table_name = params[:global_table_name] unless params[:global_table_name].nil?
         type.replication_group = ReplicaList.build(params[:replication_group], context: "#{context}[:replication_group]") unless params[:replication_group].nil?
         type
       end
@@ -1660,7 +1660,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::GlobalTableAlreadyExistsException, context: context)
         type = Types::GlobalTableAlreadyExistsException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -1671,10 +1671,10 @@ module AWS::SDK::DynamoDB
         type = Types::GlobalTableDescription.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.replication_group = ReplicaDescriptionList.build(params[:replication_group], context: "#{context}[:replication_group]") unless params[:replication_group].nil?
-        type.global_table_arn = params[:global_table_arn]
-        type.creation_date_time = params[:creation_date_time]
-        type.global_table_status = params[:global_table_status]
-        type.global_table_name = params[:global_table_name]
+        type.global_table_arn = params[:global_table_arn] unless params[:global_table_arn].nil?
+        type.creation_date_time = params[:creation_date_time] unless params[:creation_date_time].nil?
+        type.global_table_status = params[:global_table_status] unless params[:global_table_status].nil?
+        type.global_table_name = params[:global_table_name] unless params[:global_table_name].nil?
         type
       end
     end
@@ -1684,8 +1684,8 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::GlobalTableGlobalSecondaryIndexSettingsUpdate, context: context)
         type = Types::GlobalTableGlobalSecondaryIndexSettingsUpdate.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.index_name = params[:index_name]
-        type.provisioned_write_capacity_units = params[:provisioned_write_capacity_units]
+        type.index_name = params[:index_name] unless params[:index_name].nil?
+        type.provisioned_write_capacity_units = params[:provisioned_write_capacity_units] unless params[:provisioned_write_capacity_units].nil?
         type.provisioned_write_capacity_auto_scaling_settings_update = AutoScalingSettingsUpdate.build(params[:provisioned_write_capacity_auto_scaling_settings_update], context: "#{context}[:provisioned_write_capacity_auto_scaling_settings_update]") unless params[:provisioned_write_capacity_auto_scaling_settings_update].nil?
         type
       end
@@ -1718,7 +1718,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::GlobalTableNotFoundException, context: context)
         type = Types::GlobalTableNotFoundException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -1728,7 +1728,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::IdempotentParameterMismatchException, context: context)
         type = Types::IdempotentParameterMismatchException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -1738,7 +1738,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::ImportConflictException, context: context)
         type = Types::ImportConflictException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -1748,7 +1748,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::ImportNotFoundException, context: context)
         type = Types::ImportNotFoundException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -1758,14 +1758,14 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::ImportSummary, context: context)
         type = Types::ImportSummary.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.import_arn = params[:import_arn]
-        type.import_status = params[:import_status]
-        type.table_arn = params[:table_arn]
+        type.import_arn = params[:import_arn] unless params[:import_arn].nil?
+        type.import_status = params[:import_status] unless params[:import_status].nil?
+        type.table_arn = params[:table_arn] unless params[:table_arn].nil?
         type.s3_bucket_source = S3BucketSource.build(params[:s3_bucket_source], context: "#{context}[:s3_bucket_source]") unless params[:s3_bucket_source].nil?
-        type.cloud_watch_log_group_arn = params[:cloud_watch_log_group_arn]
-        type.input_format = params[:input_format]
-        type.start_time = params[:start_time]
-        type.end_time = params[:end_time]
+        type.cloud_watch_log_group_arn = params[:cloud_watch_log_group_arn] unless params[:cloud_watch_log_group_arn].nil?
+        type.input_format = params[:input_format] unless params[:input_format].nil?
+        type.start_time = params[:start_time] unless params[:start_time].nil?
+        type.end_time = params[:end_time] unless params[:end_time].nil?
         type
       end
     end
@@ -1786,25 +1786,25 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::ImportTableDescription, context: context)
         type = Types::ImportTableDescription.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.import_arn = params[:import_arn]
-        type.import_status = params[:import_status]
-        type.table_arn = params[:table_arn]
-        type.table_id = params[:table_id]
-        type.client_token = params[:client_token]
+        type.import_arn = params[:import_arn] unless params[:import_arn].nil?
+        type.import_status = params[:import_status] unless params[:import_status].nil?
+        type.table_arn = params[:table_arn] unless params[:table_arn].nil?
+        type.table_id = params[:table_id] unless params[:table_id].nil?
+        type.client_token = params[:client_token] unless params[:client_token].nil?
         type.s3_bucket_source = S3BucketSource.build(params[:s3_bucket_source], context: "#{context}[:s3_bucket_source]") unless params[:s3_bucket_source].nil?
-        type.error_count = params[:error_count]
-        type.cloud_watch_log_group_arn = params[:cloud_watch_log_group_arn]
-        type.input_format = params[:input_format]
+        type.error_count = params[:error_count] unless params[:error_count].nil?
+        type.cloud_watch_log_group_arn = params[:cloud_watch_log_group_arn] unless params[:cloud_watch_log_group_arn].nil?
+        type.input_format = params[:input_format] unless params[:input_format].nil?
         type.input_format_options = InputFormatOptions.build(params[:input_format_options], context: "#{context}[:input_format_options]") unless params[:input_format_options].nil?
-        type.input_compression_type = params[:input_compression_type]
+        type.input_compression_type = params[:input_compression_type] unless params[:input_compression_type].nil?
         type.table_creation_parameters = TableCreationParameters.build(params[:table_creation_parameters], context: "#{context}[:table_creation_parameters]") unless params[:table_creation_parameters].nil?
-        type.start_time = params[:start_time]
-        type.end_time = params[:end_time]
-        type.processed_size_bytes = params[:processed_size_bytes]
-        type.processed_item_count = params[:processed_item_count]
-        type.imported_item_count = params[:imported_item_count]
-        type.failure_code = params[:failure_code]
-        type.failure_message = params[:failure_message]
+        type.start_time = params[:start_time] unless params[:start_time].nil?
+        type.end_time = params[:end_time] unless params[:end_time].nil?
+        type.processed_size_bytes = params[:processed_size_bytes] unless params[:processed_size_bytes].nil?
+        type.processed_item_count = params[:processed_item_count] unless params[:processed_item_count].nil?
+        type.imported_item_count = params[:imported_item_count] unless params[:imported_item_count].nil?
+        type.failure_code = params[:failure_code] unless params[:failure_code].nil?
+        type.failure_message = params[:failure_message] unless params[:failure_message].nil?
         type
       end
     end
@@ -1816,9 +1816,9 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.s3_bucket_source = S3BucketSource.build(params[:s3_bucket_source], context: "#{context}[:s3_bucket_source]") unless params[:s3_bucket_source].nil?
-        type.input_format = params[:input_format]
+        type.input_format = params[:input_format] unless params[:input_format].nil?
         type.input_format_options = InputFormatOptions.build(params[:input_format_options], context: "#{context}[:input_format_options]") unless params[:input_format_options].nil?
-        type.input_compression_type = params[:input_compression_type]
+        type.input_compression_type = params[:input_compression_type] unless params[:input_compression_type].nil?
         type.table_creation_parameters = TableCreationParameters.build(params[:table_creation_parameters], context: "#{context}[:table_creation_parameters]") unless params[:table_creation_parameters].nil?
         type
       end
@@ -1839,9 +1839,9 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::IncrementalExportSpecification, context: context)
         type = Types::IncrementalExportSpecification.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.export_from_time = params[:export_from_time]
-        type.export_to_time = params[:export_to_time]
-        type.export_view_type = params[:export_view_type]
+        type.export_from_time = params[:export_from_time] unless params[:export_from_time].nil?
+        type.export_to_time = params[:export_to_time] unless params[:export_to_time].nil?
+        type.export_view_type = params[:export_view_type] unless params[:export_view_type].nil?
         type
       end
     end
@@ -1851,7 +1851,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::IndexNotFoundException, context: context)
         type = Types::IndexNotFoundException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -1871,7 +1871,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::InternalServerError, context: context)
         type = Types::InternalServerError.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -1881,7 +1881,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::InvalidEndpointException, context: context)
         type = Types::InvalidEndpointException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -1891,7 +1891,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::InvalidExportTimeException, context: context)
         type = Types::InvalidExportTimeException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -1901,7 +1901,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::InvalidRestoreTimeException, context: context)
         type = Types::InvalidRestoreTimeException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -1955,7 +1955,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
-          data << element&.to_f
+          data << element&.to_f unless element.nil?
         end
         data
       end
@@ -1966,7 +1966,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::ItemCollectionSizeLimitExceededException, context: context)
         type = Types::ItemCollectionSizeLimitExceededException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -2052,8 +2052,8 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::KeySchemaElement, context: context)
         type = Types::KeySchemaElement.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.attribute_name = params[:attribute_name]
-        type.key_type = params[:key_type]
+        type.attribute_name = params[:attribute_name] unless params[:attribute_name].nil?
+        type.key_type = params[:key_type] unless params[:key_type].nil?
         type
       end
     end
@@ -2065,8 +2065,8 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.keys = KeyList.build(params[:keys], context: "#{context}[:keys]") unless params[:keys].nil?
         type.attributes_to_get = AttributeNameList.build(params[:attributes_to_get], context: "#{context}[:attributes_to_get]") unless params[:attributes_to_get].nil?
-        type.consistent_read = params[:consistent_read]
-        type.projection_expression = params[:projection_expression]
+        type.consistent_read = params[:consistent_read] unless params[:consistent_read].nil?
+        type.projection_expression = params[:projection_expression] unless params[:projection_expression].nil?
         type.expression_attribute_names = ExpressionAttributeNameMap.build(params[:expression_attribute_names], context: "#{context}[:expression_attribute_names]") unless params[:expression_attribute_names].nil?
         type
       end
@@ -2077,10 +2077,10 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::KinesisDataStreamDestination, context: context)
         type = Types::KinesisDataStreamDestination.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.stream_arn = params[:stream_arn]
-        type.destination_status = params[:destination_status]
-        type.destination_status_description = params[:destination_status_description]
-        type.approximate_creation_date_time_precision = params[:approximate_creation_date_time_precision]
+        type.stream_arn = params[:stream_arn] unless params[:stream_arn].nil?
+        type.destination_status = params[:destination_status] unless params[:destination_status].nil?
+        type.destination_status_description = params[:destination_status_description] unless params[:destination_status_description].nil?
+        type.approximate_creation_date_time_precision = params[:approximate_creation_date_time_precision] unless params[:approximate_creation_date_time_precision].nil?
         type
       end
     end
@@ -2101,7 +2101,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::LimitExceededException, context: context)
         type = Types::LimitExceededException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -2122,12 +2122,12 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListBackupsInput, context: context)
         type = Types::ListBackupsInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.table_name = params[:table_name]
-        type.limit = params[:limit]
-        type.time_range_lower_bound = params[:time_range_lower_bound]
-        type.time_range_upper_bound = params[:time_range_upper_bound]
-        type.exclusive_start_backup_arn = params[:exclusive_start_backup_arn]
-        type.backup_type = params[:backup_type]
+        type.table_name = params[:table_name] unless params[:table_name].nil?
+        type.limit = params[:limit] unless params[:limit].nil?
+        type.time_range_lower_bound = params[:time_range_lower_bound] unless params[:time_range_lower_bound].nil?
+        type.time_range_upper_bound = params[:time_range_upper_bound] unless params[:time_range_upper_bound].nil?
+        type.exclusive_start_backup_arn = params[:exclusive_start_backup_arn] unless params[:exclusive_start_backup_arn].nil?
+        type.backup_type = params[:backup_type] unless params[:backup_type].nil?
         type
       end
     end
@@ -2138,7 +2138,7 @@ module AWS::SDK::DynamoDB
         type = Types::ListBackupsOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.backup_summaries = BackupSummaries.build(params[:backup_summaries], context: "#{context}[:backup_summaries]") unless params[:backup_summaries].nil?
-        type.last_evaluated_backup_arn = params[:last_evaluated_backup_arn]
+        type.last_evaluated_backup_arn = params[:last_evaluated_backup_arn] unless params[:last_evaluated_backup_arn].nil?
         type
       end
     end
@@ -2148,9 +2148,9 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListContributorInsightsInput, context: context)
         type = Types::ListContributorInsightsInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.table_name = params[:table_name]
-        type.next_token = params[:next_token]
-        type.max_results = params[:max_results]
+        type.table_name = params[:table_name] unless params[:table_name].nil?
+        type.next_token = params[:next_token] unless params[:next_token].nil?
+        type.max_results = params[:max_results] unless params[:max_results].nil?
         type
       end
     end
@@ -2161,7 +2161,7 @@ module AWS::SDK::DynamoDB
         type = Types::ListContributorInsightsOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.contributor_insights_summaries = ContributorInsightsSummaries.build(params[:contributor_insights_summaries], context: "#{context}[:contributor_insights_summaries]") unless params[:contributor_insights_summaries].nil?
-        type.next_token = params[:next_token]
+        type.next_token = params[:next_token] unless params[:next_token].nil?
         type
       end
     end
@@ -2171,9 +2171,9 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListExportsInput, context: context)
         type = Types::ListExportsInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.table_arn = params[:table_arn]
-        type.max_results = params[:max_results]
-        type.next_token = params[:next_token]
+        type.table_arn = params[:table_arn] unless params[:table_arn].nil?
+        type.max_results = params[:max_results] unless params[:max_results].nil?
+        type.next_token = params[:next_token] unless params[:next_token].nil?
         type
       end
     end
@@ -2184,7 +2184,7 @@ module AWS::SDK::DynamoDB
         type = Types::ListExportsOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.export_summaries = ExportSummaries.build(params[:export_summaries], context: "#{context}[:export_summaries]") unless params[:export_summaries].nil?
-        type.next_token = params[:next_token]
+        type.next_token = params[:next_token] unless params[:next_token].nil?
         type
       end
     end
@@ -2194,9 +2194,9 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListGlobalTablesInput, context: context)
         type = Types::ListGlobalTablesInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.exclusive_start_global_table_name = params[:exclusive_start_global_table_name]
-        type.limit = params[:limit]
-        type.region_name = params[:region_name]
+        type.exclusive_start_global_table_name = params[:exclusive_start_global_table_name] unless params[:exclusive_start_global_table_name].nil?
+        type.limit = params[:limit] unless params[:limit].nil?
+        type.region_name = params[:region_name] unless params[:region_name].nil?
         type
       end
     end
@@ -2207,7 +2207,7 @@ module AWS::SDK::DynamoDB
         type = Types::ListGlobalTablesOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.global_tables = GlobalTableList.build(params[:global_tables], context: "#{context}[:global_tables]") unless params[:global_tables].nil?
-        type.last_evaluated_global_table_name = params[:last_evaluated_global_table_name]
+        type.last_evaluated_global_table_name = params[:last_evaluated_global_table_name] unless params[:last_evaluated_global_table_name].nil?
         type
       end
     end
@@ -2217,9 +2217,9 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListImportsInput, context: context)
         type = Types::ListImportsInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.table_arn = params[:table_arn]
-        type.page_size = params[:page_size]
-        type.next_token = params[:next_token]
+        type.table_arn = params[:table_arn] unless params[:table_arn].nil?
+        type.page_size = params[:page_size] unless params[:page_size].nil?
+        type.next_token = params[:next_token] unless params[:next_token].nil?
         type
       end
     end
@@ -2230,7 +2230,7 @@ module AWS::SDK::DynamoDB
         type = Types::ListImportsOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.import_summary_list = ImportSummaryList.build(params[:import_summary_list], context: "#{context}[:import_summary_list]") unless params[:import_summary_list].nil?
-        type.next_token = params[:next_token]
+        type.next_token = params[:next_token] unless params[:next_token].nil?
         type
       end
     end
@@ -2240,8 +2240,8 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListTablesInput, context: context)
         type = Types::ListTablesInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.exclusive_start_table_name = params[:exclusive_start_table_name]
-        type.limit = params[:limit]
+        type.exclusive_start_table_name = params[:exclusive_start_table_name] unless params[:exclusive_start_table_name].nil?
+        type.limit = params[:limit] unless params[:limit].nil?
         type
       end
     end
@@ -2252,7 +2252,7 @@ module AWS::SDK::DynamoDB
         type = Types::ListTablesOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.table_names = TableNameList.build(params[:table_names], context: "#{context}[:table_names]") unless params[:table_names].nil?
-        type.last_evaluated_table_name = params[:last_evaluated_table_name]
+        type.last_evaluated_table_name = params[:last_evaluated_table_name] unless params[:last_evaluated_table_name].nil?
         type
       end
     end
@@ -2262,8 +2262,8 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListTagsOfResourceInput, context: context)
         type = Types::ListTagsOfResourceInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.resource_arn = params[:resource_arn]
-        type.next_token = params[:next_token]
+        type.resource_arn = params[:resource_arn] unless params[:resource_arn].nil?
+        type.next_token = params[:next_token] unless params[:next_token].nil?
         type
       end
     end
@@ -2274,7 +2274,7 @@ module AWS::SDK::DynamoDB
         type = Types::ListTagsOfResourceOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.next_token = params[:next_token]
+        type.next_token = params[:next_token] unless params[:next_token].nil?
         type
       end
     end
@@ -2284,7 +2284,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::LocalSecondaryIndex, context: context)
         type = Types::LocalSecondaryIndex.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.index_name = params[:index_name]
+        type.index_name = params[:index_name] unless params[:index_name].nil?
         type.key_schema = KeySchema.build(params[:key_schema], context: "#{context}[:key_schema]") unless params[:key_schema].nil?
         type.projection = Projection.build(params[:projection], context: "#{context}[:projection]") unless params[:projection].nil?
         type
@@ -2296,12 +2296,12 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::LocalSecondaryIndexDescription, context: context)
         type = Types::LocalSecondaryIndexDescription.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.index_name = params[:index_name]
+        type.index_name = params[:index_name] unless params[:index_name].nil?
         type.key_schema = KeySchema.build(params[:key_schema], context: "#{context}[:key_schema]") unless params[:key_schema].nil?
         type.projection = Projection.build(params[:projection], context: "#{context}[:projection]") unless params[:projection].nil?
-        type.index_size_bytes = params[:index_size_bytes]
-        type.item_count = params[:item_count]
-        type.index_arn = params[:index_arn]
+        type.index_size_bytes = params[:index_size_bytes] unless params[:index_size_bytes].nil?
+        type.item_count = params[:item_count] unless params[:item_count].nil?
+        type.index_arn = params[:index_arn] unless params[:index_arn].nil?
         type
       end
     end
@@ -2322,7 +2322,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::LocalSecondaryIndexInfo, context: context)
         type = Types::LocalSecondaryIndexInfo.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.index_name = params[:index_name]
+        type.index_name = params[:index_name] unless params[:index_name].nil?
         type.key_schema = KeySchema.build(params[:key_schema], context: "#{context}[:key_schema]") unless params[:key_schema].nil?
         type.projection = Projection.build(params[:projection], context: "#{context}[:projection]") unless params[:projection].nil?
         type
@@ -2367,7 +2367,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
-          data << element
+          data << element unless element.nil?
         end
         data
       end
@@ -2378,7 +2378,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
-          data << element
+          data << element unless element.nil?
         end
         data
       end
@@ -2389,9 +2389,9 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::ParameterizedStatement, context: context)
         type = Types::ParameterizedStatement.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.statement = params[:statement]
+        type.statement = params[:statement] unless params[:statement].nil?
         type.parameters = PreparedStatementParameters.build(params[:parameters], context: "#{context}[:parameters]") unless params[:parameters].nil?
-        type.return_values_on_condition_check_failure = params[:return_values_on_condition_check_failure]
+        type.return_values_on_condition_check_failure = params[:return_values_on_condition_check_failure] unless params[:return_values_on_condition_check_failure].nil?
         type
       end
     end
@@ -2434,9 +2434,9 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::PointInTimeRecoveryDescription, context: context)
         type = Types::PointInTimeRecoveryDescription.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.point_in_time_recovery_status = params[:point_in_time_recovery_status]
-        type.earliest_restorable_date_time = params[:earliest_restorable_date_time]
-        type.latest_restorable_date_time = params[:latest_restorable_date_time]
+        type.point_in_time_recovery_status = params[:point_in_time_recovery_status] unless params[:point_in_time_recovery_status].nil?
+        type.earliest_restorable_date_time = params[:earliest_restorable_date_time] unless params[:earliest_restorable_date_time].nil?
+        type.latest_restorable_date_time = params[:latest_restorable_date_time] unless params[:latest_restorable_date_time].nil?
         type
       end
     end
@@ -2446,7 +2446,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::PointInTimeRecoverySpecification, context: context)
         type = Types::PointInTimeRecoverySpecification.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.point_in_time_recovery_enabled = params[:point_in_time_recovery_enabled]
+        type.point_in_time_recovery_enabled = params[:point_in_time_recovery_enabled] unless params[:point_in_time_recovery_enabled].nil?
         type
       end
     end
@@ -2456,7 +2456,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::PointInTimeRecoveryUnavailableException, context: context)
         type = Types::PointInTimeRecoveryUnavailableException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -2477,7 +2477,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::Projection, context: context)
         type = Types::Projection.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.projection_type = params[:projection_type]
+        type.projection_type = params[:projection_type] unless params[:projection_type].nil?
         type.non_key_attributes = NonKeyAttributeNameList.build(params[:non_key_attributes], context: "#{context}[:non_key_attributes]") unless params[:non_key_attributes].nil?
         type
       end
@@ -2488,8 +2488,8 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::ProvisionedThroughput, context: context)
         type = Types::ProvisionedThroughput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.read_capacity_units = params[:read_capacity_units]
-        type.write_capacity_units = params[:write_capacity_units]
+        type.read_capacity_units = params[:read_capacity_units] unless params[:read_capacity_units].nil?
+        type.write_capacity_units = params[:write_capacity_units] unless params[:write_capacity_units].nil?
         type
       end
     end
@@ -2499,11 +2499,11 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::ProvisionedThroughputDescription, context: context)
         type = Types::ProvisionedThroughputDescription.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.last_increase_date_time = params[:last_increase_date_time]
-        type.last_decrease_date_time = params[:last_decrease_date_time]
-        type.number_of_decreases_today = params[:number_of_decreases_today]
-        type.read_capacity_units = params[:read_capacity_units]
-        type.write_capacity_units = params[:write_capacity_units]
+        type.last_increase_date_time = params[:last_increase_date_time] unless params[:last_increase_date_time].nil?
+        type.last_decrease_date_time = params[:last_decrease_date_time] unless params[:last_decrease_date_time].nil?
+        type.number_of_decreases_today = params[:number_of_decreases_today] unless params[:number_of_decreases_today].nil?
+        type.read_capacity_units = params[:read_capacity_units] unless params[:read_capacity_units].nil?
+        type.write_capacity_units = params[:write_capacity_units] unless params[:write_capacity_units].nil?
         type
       end
     end
@@ -2513,7 +2513,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::ProvisionedThroughputExceededException, context: context)
         type = Types::ProvisionedThroughputExceededException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -2523,7 +2523,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::ProvisionedThroughputOverride, context: context)
         type = Types::ProvisionedThroughputOverride.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.read_capacity_units = params[:read_capacity_units]
+        type.read_capacity_units = params[:read_capacity_units] unless params[:read_capacity_units].nil?
         type
       end
     end
@@ -2534,11 +2534,11 @@ module AWS::SDK::DynamoDB
         type = Types::Put.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.item = PutItemInputAttributeMap.build(params[:item], context: "#{context}[:item]") unless params[:item].nil?
-        type.table_name = params[:table_name]
-        type.condition_expression = params[:condition_expression]
+        type.table_name = params[:table_name] unless params[:table_name].nil?
+        type.condition_expression = params[:condition_expression] unless params[:condition_expression].nil?
         type.expression_attribute_names = ExpressionAttributeNameMap.build(params[:expression_attribute_names], context: "#{context}[:expression_attribute_names]") unless params[:expression_attribute_names].nil?
         type.expression_attribute_values = ExpressionAttributeValueMap.build(params[:expression_attribute_values], context: "#{context}[:expression_attribute_values]") unless params[:expression_attribute_values].nil?
-        type.return_values_on_condition_check_failure = params[:return_values_on_condition_check_failure]
+        type.return_values_on_condition_check_failure = params[:return_values_on_condition_check_failure] unless params[:return_values_on_condition_check_failure].nil?
         type
       end
     end
@@ -2548,17 +2548,17 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutItemInput, context: context)
         type = Types::PutItemInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.table_name = params[:table_name]
+        type.table_name = params[:table_name] unless params[:table_name].nil?
         type.item = PutItemInputAttributeMap.build(params[:item], context: "#{context}[:item]") unless params[:item].nil?
         type.expected = ExpectedAttributeMap.build(params[:expected], context: "#{context}[:expected]") unless params[:expected].nil?
-        type.return_values = params[:return_values]
-        type.return_consumed_capacity = params[:return_consumed_capacity]
-        type.return_item_collection_metrics = params[:return_item_collection_metrics]
-        type.conditional_operator = params[:conditional_operator]
-        type.condition_expression = params[:condition_expression]
+        type.return_values = params[:return_values] unless params[:return_values].nil?
+        type.return_consumed_capacity = params[:return_consumed_capacity] unless params[:return_consumed_capacity].nil?
+        type.return_item_collection_metrics = params[:return_item_collection_metrics] unless params[:return_item_collection_metrics].nil?
+        type.conditional_operator = params[:conditional_operator] unless params[:conditional_operator].nil?
+        type.condition_expression = params[:condition_expression] unless params[:condition_expression].nil?
         type.expression_attribute_names = ExpressionAttributeNameMap.build(params[:expression_attribute_names], context: "#{context}[:expression_attribute_names]") unless params[:expression_attribute_names].nil?
         type.expression_attribute_values = ExpressionAttributeValueMap.build(params[:expression_attribute_values], context: "#{context}[:expression_attribute_values]") unless params[:expression_attribute_values].nil?
-        type.return_values_on_condition_check_failure = params[:return_values_on_condition_check_failure]
+        type.return_values_on_condition_check_failure = params[:return_values_on_condition_check_failure] unless params[:return_values_on_condition_check_failure].nil?
         type
       end
     end
@@ -2601,21 +2601,21 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::QueryInput, context: context)
         type = Types::QueryInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.table_name = params[:table_name]
-        type.index_name = params[:index_name]
-        type.select = params[:select]
+        type.table_name = params[:table_name] unless params[:table_name].nil?
+        type.index_name = params[:index_name] unless params[:index_name].nil?
+        type.select = params[:select] unless params[:select].nil?
         type.attributes_to_get = AttributeNameList.build(params[:attributes_to_get], context: "#{context}[:attributes_to_get]") unless params[:attributes_to_get].nil?
-        type.limit = params[:limit]
-        type.consistent_read = params[:consistent_read]
+        type.limit = params[:limit] unless params[:limit].nil?
+        type.consistent_read = params[:consistent_read] unless params[:consistent_read].nil?
         type.key_conditions = KeyConditions.build(params[:key_conditions], context: "#{context}[:key_conditions]") unless params[:key_conditions].nil?
         type.query_filter = FilterConditionMap.build(params[:query_filter], context: "#{context}[:query_filter]") unless params[:query_filter].nil?
-        type.conditional_operator = params[:conditional_operator]
-        type.scan_index_forward = params[:scan_index_forward]
+        type.conditional_operator = params[:conditional_operator] unless params[:conditional_operator].nil?
+        type.scan_index_forward = params[:scan_index_forward] unless params[:scan_index_forward].nil?
         type.exclusive_start_key = Key.build(params[:exclusive_start_key], context: "#{context}[:exclusive_start_key]") unless params[:exclusive_start_key].nil?
-        type.return_consumed_capacity = params[:return_consumed_capacity]
-        type.projection_expression = params[:projection_expression]
-        type.filter_expression = params[:filter_expression]
-        type.key_condition_expression = params[:key_condition_expression]
+        type.return_consumed_capacity = params[:return_consumed_capacity] unless params[:return_consumed_capacity].nil?
+        type.projection_expression = params[:projection_expression] unless params[:projection_expression].nil?
+        type.filter_expression = params[:filter_expression] unless params[:filter_expression].nil?
+        type.key_condition_expression = params[:key_condition_expression] unless params[:key_condition_expression].nil?
         type.expression_attribute_names = ExpressionAttributeNameMap.build(params[:expression_attribute_names], context: "#{context}[:expression_attribute_names]") unless params[:expression_attribute_names].nil?
         type.expression_attribute_values = ExpressionAttributeValueMap.build(params[:expression_attribute_values], context: "#{context}[:expression_attribute_values]") unless params[:expression_attribute_values].nil?
         type
@@ -2628,8 +2628,8 @@ module AWS::SDK::DynamoDB
         type = Types::QueryOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.items = ItemList.build(params[:items], context: "#{context}[:items]") unless params[:items].nil?
-        type.count = params[:count]
-        type.scanned_count = params[:scanned_count]
+        type.count = params[:count] unless params[:count].nil?
+        type.scanned_count = params[:scanned_count] unless params[:scanned_count].nil?
         type.last_evaluated_key = Key.build(params[:last_evaluated_key], context: "#{context}[:last_evaluated_key]") unless params[:last_evaluated_key].nil?
         type.consumed_capacity = ConsumedCapacity.build(params[:consumed_capacity], context: "#{context}[:consumed_capacity]") unless params[:consumed_capacity].nil?
         type
@@ -2641,7 +2641,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::Replica, context: context)
         type = Types::Replica.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.region_name = params[:region_name]
+        type.region_name = params[:region_name] unless params[:region_name].nil?
         type
       end
     end
@@ -2651,7 +2651,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReplicaAlreadyExistsException, context: context)
         type = Types::ReplicaAlreadyExistsException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -2661,11 +2661,11 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReplicaAutoScalingDescription, context: context)
         type = Types::ReplicaAutoScalingDescription.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.region_name = params[:region_name]
+        type.region_name = params[:region_name] unless params[:region_name].nil?
         type.global_secondary_indexes = ReplicaGlobalSecondaryIndexAutoScalingDescriptionList.build(params[:global_secondary_indexes], context: "#{context}[:global_secondary_indexes]") unless params[:global_secondary_indexes].nil?
         type.replica_provisioned_read_capacity_auto_scaling_settings = AutoScalingSettingsDescription.build(params[:replica_provisioned_read_capacity_auto_scaling_settings], context: "#{context}[:replica_provisioned_read_capacity_auto_scaling_settings]") unless params[:replica_provisioned_read_capacity_auto_scaling_settings].nil?
         type.replica_provisioned_write_capacity_auto_scaling_settings = AutoScalingSettingsDescription.build(params[:replica_provisioned_write_capacity_auto_scaling_settings], context: "#{context}[:replica_provisioned_write_capacity_auto_scaling_settings]") unless params[:replica_provisioned_write_capacity_auto_scaling_settings].nil?
-        type.replica_status = params[:replica_status]
+        type.replica_status = params[:replica_status] unless params[:replica_status].nil?
         type
       end
     end
@@ -2686,7 +2686,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReplicaAutoScalingUpdate, context: context)
         type = Types::ReplicaAutoScalingUpdate.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.region_name = params[:region_name]
+        type.region_name = params[:region_name] unless params[:region_name].nil?
         type.replica_global_secondary_index_updates = ReplicaGlobalSecondaryIndexAutoScalingUpdateList.build(params[:replica_global_secondary_index_updates], context: "#{context}[:replica_global_secondary_index_updates]") unless params[:replica_global_secondary_index_updates].nil?
         type.replica_provisioned_read_capacity_auto_scaling_update = AutoScalingSettingsUpdate.build(params[:replica_provisioned_read_capacity_auto_scaling_update], context: "#{context}[:replica_provisioned_read_capacity_auto_scaling_update]") unless params[:replica_provisioned_read_capacity_auto_scaling_update].nil?
         type
@@ -2709,14 +2709,14 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReplicaDescription, context: context)
         type = Types::ReplicaDescription.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.region_name = params[:region_name]
-        type.replica_status = params[:replica_status]
-        type.replica_status_description = params[:replica_status_description]
-        type.replica_status_percent_progress = params[:replica_status_percent_progress]
-        type.kms_master_key_id = params[:kms_master_key_id]
+        type.region_name = params[:region_name] unless params[:region_name].nil?
+        type.replica_status = params[:replica_status] unless params[:replica_status].nil?
+        type.replica_status_description = params[:replica_status_description] unless params[:replica_status_description].nil?
+        type.replica_status_percent_progress = params[:replica_status_percent_progress] unless params[:replica_status_percent_progress].nil?
+        type.kms_master_key_id = params[:kms_master_key_id] unless params[:kms_master_key_id].nil?
         type.provisioned_throughput_override = ProvisionedThroughputOverride.build(params[:provisioned_throughput_override], context: "#{context}[:provisioned_throughput_override]") unless params[:provisioned_throughput_override].nil?
         type.global_secondary_indexes = ReplicaGlobalSecondaryIndexDescriptionList.build(params[:global_secondary_indexes], context: "#{context}[:global_secondary_indexes]") unless params[:global_secondary_indexes].nil?
-        type.replica_inaccessible_date_time = params[:replica_inaccessible_date_time]
+        type.replica_inaccessible_date_time = params[:replica_inaccessible_date_time] unless params[:replica_inaccessible_date_time].nil?
         type.replica_table_class_summary = TableClassSummary.build(params[:replica_table_class_summary], context: "#{context}[:replica_table_class_summary]") unless params[:replica_table_class_summary].nil?
         type
       end
@@ -2738,7 +2738,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReplicaGlobalSecondaryIndex, context: context)
         type = Types::ReplicaGlobalSecondaryIndex.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.index_name = params[:index_name]
+        type.index_name = params[:index_name] unless params[:index_name].nil?
         type.provisioned_throughput_override = ProvisionedThroughputOverride.build(params[:provisioned_throughput_override], context: "#{context}[:provisioned_throughput_override]") unless params[:provisioned_throughput_override].nil?
         type
       end
@@ -2749,8 +2749,8 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReplicaGlobalSecondaryIndexAutoScalingDescription, context: context)
         type = Types::ReplicaGlobalSecondaryIndexAutoScalingDescription.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.index_name = params[:index_name]
-        type.index_status = params[:index_status]
+        type.index_name = params[:index_name] unless params[:index_name].nil?
+        type.index_status = params[:index_status] unless params[:index_status].nil?
         type.provisioned_read_capacity_auto_scaling_settings = AutoScalingSettingsDescription.build(params[:provisioned_read_capacity_auto_scaling_settings], context: "#{context}[:provisioned_read_capacity_auto_scaling_settings]") unless params[:provisioned_read_capacity_auto_scaling_settings].nil?
         type.provisioned_write_capacity_auto_scaling_settings = AutoScalingSettingsDescription.build(params[:provisioned_write_capacity_auto_scaling_settings], context: "#{context}[:provisioned_write_capacity_auto_scaling_settings]") unless params[:provisioned_write_capacity_auto_scaling_settings].nil?
         type
@@ -2773,7 +2773,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReplicaGlobalSecondaryIndexAutoScalingUpdate, context: context)
         type = Types::ReplicaGlobalSecondaryIndexAutoScalingUpdate.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.index_name = params[:index_name]
+        type.index_name = params[:index_name] unless params[:index_name].nil?
         type.provisioned_read_capacity_auto_scaling_update = AutoScalingSettingsUpdate.build(params[:provisioned_read_capacity_auto_scaling_update], context: "#{context}[:provisioned_read_capacity_auto_scaling_update]") unless params[:provisioned_read_capacity_auto_scaling_update].nil?
         type
       end
@@ -2795,7 +2795,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReplicaGlobalSecondaryIndexDescription, context: context)
         type = Types::ReplicaGlobalSecondaryIndexDescription.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.index_name = params[:index_name]
+        type.index_name = params[:index_name] unless params[:index_name].nil?
         type.provisioned_throughput_override = ProvisionedThroughputOverride.build(params[:provisioned_throughput_override], context: "#{context}[:provisioned_throughput_override]") unless params[:provisioned_throughput_override].nil?
         type
       end
@@ -2828,11 +2828,11 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReplicaGlobalSecondaryIndexSettingsDescription, context: context)
         type = Types::ReplicaGlobalSecondaryIndexSettingsDescription.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.index_name = params[:index_name]
-        type.index_status = params[:index_status]
-        type.provisioned_read_capacity_units = params[:provisioned_read_capacity_units]
+        type.index_name = params[:index_name] unless params[:index_name].nil?
+        type.index_status = params[:index_status] unless params[:index_status].nil?
+        type.provisioned_read_capacity_units = params[:provisioned_read_capacity_units] unless params[:provisioned_read_capacity_units].nil?
         type.provisioned_read_capacity_auto_scaling_settings = AutoScalingSettingsDescription.build(params[:provisioned_read_capacity_auto_scaling_settings], context: "#{context}[:provisioned_read_capacity_auto_scaling_settings]") unless params[:provisioned_read_capacity_auto_scaling_settings].nil?
-        type.provisioned_write_capacity_units = params[:provisioned_write_capacity_units]
+        type.provisioned_write_capacity_units = params[:provisioned_write_capacity_units] unless params[:provisioned_write_capacity_units].nil?
         type.provisioned_write_capacity_auto_scaling_settings = AutoScalingSettingsDescription.build(params[:provisioned_write_capacity_auto_scaling_settings], context: "#{context}[:provisioned_write_capacity_auto_scaling_settings]") unless params[:provisioned_write_capacity_auto_scaling_settings].nil?
         type
       end
@@ -2854,8 +2854,8 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReplicaGlobalSecondaryIndexSettingsUpdate, context: context)
         type = Types::ReplicaGlobalSecondaryIndexSettingsUpdate.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.index_name = params[:index_name]
-        type.provisioned_read_capacity_units = params[:provisioned_read_capacity_units]
+        type.index_name = params[:index_name] unless params[:index_name].nil?
+        type.provisioned_read_capacity_units = params[:provisioned_read_capacity_units] unless params[:provisioned_read_capacity_units].nil?
         type.provisioned_read_capacity_auto_scaling_settings_update = AutoScalingSettingsUpdate.build(params[:provisioned_read_capacity_auto_scaling_settings_update], context: "#{context}[:provisioned_read_capacity_auto_scaling_settings_update]") unless params[:provisioned_read_capacity_auto_scaling_settings_update].nil?
         type
       end
@@ -2888,7 +2888,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReplicaNotFoundException, context: context)
         type = Types::ReplicaNotFoundException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -2898,12 +2898,12 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReplicaSettingsDescription, context: context)
         type = Types::ReplicaSettingsDescription.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.region_name = params[:region_name]
-        type.replica_status = params[:replica_status]
+        type.region_name = params[:region_name] unless params[:region_name].nil?
+        type.replica_status = params[:replica_status] unless params[:replica_status].nil?
         type.replica_billing_mode_summary = BillingModeSummary.build(params[:replica_billing_mode_summary], context: "#{context}[:replica_billing_mode_summary]") unless params[:replica_billing_mode_summary].nil?
-        type.replica_provisioned_read_capacity_units = params[:replica_provisioned_read_capacity_units]
+        type.replica_provisioned_read_capacity_units = params[:replica_provisioned_read_capacity_units] unless params[:replica_provisioned_read_capacity_units].nil?
         type.replica_provisioned_read_capacity_auto_scaling_settings = AutoScalingSettingsDescription.build(params[:replica_provisioned_read_capacity_auto_scaling_settings], context: "#{context}[:replica_provisioned_read_capacity_auto_scaling_settings]") unless params[:replica_provisioned_read_capacity_auto_scaling_settings].nil?
-        type.replica_provisioned_write_capacity_units = params[:replica_provisioned_write_capacity_units]
+        type.replica_provisioned_write_capacity_units = params[:replica_provisioned_write_capacity_units] unless params[:replica_provisioned_write_capacity_units].nil?
         type.replica_provisioned_write_capacity_auto_scaling_settings = AutoScalingSettingsDescription.build(params[:replica_provisioned_write_capacity_auto_scaling_settings], context: "#{context}[:replica_provisioned_write_capacity_auto_scaling_settings]") unless params[:replica_provisioned_write_capacity_auto_scaling_settings].nil?
         type.replica_global_secondary_index_settings = ReplicaGlobalSecondaryIndexSettingsDescriptionList.build(params[:replica_global_secondary_index_settings], context: "#{context}[:replica_global_secondary_index_settings]") unless params[:replica_global_secondary_index_settings].nil?
         type.replica_table_class_summary = TableClassSummary.build(params[:replica_table_class_summary], context: "#{context}[:replica_table_class_summary]") unless params[:replica_table_class_summary].nil?
@@ -2927,11 +2927,11 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReplicaSettingsUpdate, context: context)
         type = Types::ReplicaSettingsUpdate.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.region_name = params[:region_name]
-        type.replica_provisioned_read_capacity_units = params[:replica_provisioned_read_capacity_units]
+        type.region_name = params[:region_name] unless params[:region_name].nil?
+        type.replica_provisioned_read_capacity_units = params[:replica_provisioned_read_capacity_units] unless params[:replica_provisioned_read_capacity_units].nil?
         type.replica_provisioned_read_capacity_auto_scaling_settings_update = AutoScalingSettingsUpdate.build(params[:replica_provisioned_read_capacity_auto_scaling_settings_update], context: "#{context}[:replica_provisioned_read_capacity_auto_scaling_settings_update]") unless params[:replica_provisioned_read_capacity_auto_scaling_settings_update].nil?
         type.replica_global_secondary_index_settings_update = ReplicaGlobalSecondaryIndexSettingsUpdateList.build(params[:replica_global_secondary_index_settings_update], context: "#{context}[:replica_global_secondary_index_settings_update]") unless params[:replica_global_secondary_index_settings_update].nil?
-        type.replica_table_class = params[:replica_table_class]
+        type.replica_table_class = params[:replica_table_class] unless params[:replica_table_class].nil?
         type
       end
     end
@@ -2997,7 +2997,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::RequestLimitExceeded, context: context)
         type = Types::RequestLimitExceeded.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -3007,7 +3007,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::ResourceInUseException, context: context)
         type = Types::ResourceInUseException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -3017,7 +3017,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::ResourceNotFoundException, context: context)
         type = Types::ResourceNotFoundException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -3027,10 +3027,10 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::RestoreSummary, context: context)
         type = Types::RestoreSummary.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.source_backup_arn = params[:source_backup_arn]
-        type.source_table_arn = params[:source_table_arn]
-        type.restore_date_time = params[:restore_date_time]
-        type.restore_in_progress = params[:restore_in_progress]
+        type.source_backup_arn = params[:source_backup_arn] unless params[:source_backup_arn].nil?
+        type.source_table_arn = params[:source_table_arn] unless params[:source_table_arn].nil?
+        type.restore_date_time = params[:restore_date_time] unless params[:restore_date_time].nil?
+        type.restore_in_progress = params[:restore_in_progress] unless params[:restore_in_progress].nil?
         type
       end
     end
@@ -3040,9 +3040,9 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::RestoreTableFromBackupInput, context: context)
         type = Types::RestoreTableFromBackupInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.target_table_name = params[:target_table_name]
-        type.backup_arn = params[:backup_arn]
-        type.billing_mode_override = params[:billing_mode_override]
+        type.target_table_name = params[:target_table_name] unless params[:target_table_name].nil?
+        type.backup_arn = params[:backup_arn] unless params[:backup_arn].nil?
+        type.billing_mode_override = params[:billing_mode_override] unless params[:billing_mode_override].nil?
         type.global_secondary_index_override = GlobalSecondaryIndexList.build(params[:global_secondary_index_override], context: "#{context}[:global_secondary_index_override]") unless params[:global_secondary_index_override].nil?
         type.local_secondary_index_override = LocalSecondaryIndexList.build(params[:local_secondary_index_override], context: "#{context}[:local_secondary_index_override]") unless params[:local_secondary_index_override].nil?
         type.provisioned_throughput_override = ProvisionedThroughput.build(params[:provisioned_throughput_override], context: "#{context}[:provisioned_throughput_override]") unless params[:provisioned_throughput_override].nil?
@@ -3066,12 +3066,12 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::RestoreTableToPointInTimeInput, context: context)
         type = Types::RestoreTableToPointInTimeInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.source_table_arn = params[:source_table_arn]
-        type.source_table_name = params[:source_table_name]
-        type.target_table_name = params[:target_table_name]
-        type.use_latest_restorable_time = params[:use_latest_restorable_time]
-        type.restore_date_time = params[:restore_date_time]
-        type.billing_mode_override = params[:billing_mode_override]
+        type.source_table_arn = params[:source_table_arn] unless params[:source_table_arn].nil?
+        type.source_table_name = params[:source_table_name] unless params[:source_table_name].nil?
+        type.target_table_name = params[:target_table_name] unless params[:target_table_name].nil?
+        type.use_latest_restorable_time = params[:use_latest_restorable_time] unless params[:use_latest_restorable_time].nil?
+        type.restore_date_time = params[:restore_date_time] unless params[:restore_date_time].nil?
+        type.billing_mode_override = params[:billing_mode_override] unless params[:billing_mode_override].nil?
         type.global_secondary_index_override = GlobalSecondaryIndexList.build(params[:global_secondary_index_override], context: "#{context}[:global_secondary_index_override]") unless params[:global_secondary_index_override].nil?
         type.local_secondary_index_override = LocalSecondaryIndexList.build(params[:local_secondary_index_override], context: "#{context}[:local_secondary_index_override]") unless params[:local_secondary_index_override].nil?
         type.provisioned_throughput_override = ProvisionedThroughput.build(params[:provisioned_throughput_override], context: "#{context}[:provisioned_throughput_override]") unless params[:provisioned_throughput_override].nil?
@@ -3095,9 +3095,9 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::S3BucketSource, context: context)
         type = Types::S3BucketSource.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.s3_bucket_owner = params[:s3_bucket_owner]
-        type.s3_bucket = params[:s3_bucket]
-        type.s3_key_prefix = params[:s3_key_prefix]
+        type.s3_bucket_owner = params[:s3_bucket_owner] unless params[:s3_bucket_owner].nil?
+        type.s3_bucket = params[:s3_bucket] unless params[:s3_bucket].nil?
+        type.s3_key_prefix = params[:s3_key_prefix] unless params[:s3_key_prefix].nil?
         type
       end
     end
@@ -3107,10 +3107,10 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::SSEDescription, context: context)
         type = Types::SSEDescription.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.status = params[:status]
-        type.sse_type = params[:sse_type]
-        type.kms_master_key_arn = params[:kms_master_key_arn]
-        type.inaccessible_encryption_date_time = params[:inaccessible_encryption_date_time]
+        type.status = params[:status] unless params[:status].nil?
+        type.sse_type = params[:sse_type] unless params[:sse_type].nil?
+        type.kms_master_key_arn = params[:kms_master_key_arn] unless params[:kms_master_key_arn].nil?
+        type.inaccessible_encryption_date_time = params[:inaccessible_encryption_date_time] unless params[:inaccessible_encryption_date_time].nil?
         type
       end
     end
@@ -3120,9 +3120,9 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::SSESpecification, context: context)
         type = Types::SSESpecification.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.enabled = params[:enabled]
-        type.sse_type = params[:sse_type]
-        type.kms_master_key_id = params[:kms_master_key_id]
+        type.enabled = params[:enabled] unless params[:enabled].nil?
+        type.sse_type = params[:sse_type] unless params[:sse_type].nil?
+        type.kms_master_key_id = params[:kms_master_key_id] unless params[:kms_master_key_id].nil?
         type
       end
     end
@@ -3132,22 +3132,22 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::ScanInput, context: context)
         type = Types::ScanInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.table_name = params[:table_name]
-        type.index_name = params[:index_name]
+        type.table_name = params[:table_name] unless params[:table_name].nil?
+        type.index_name = params[:index_name] unless params[:index_name].nil?
         type.attributes_to_get = AttributeNameList.build(params[:attributes_to_get], context: "#{context}[:attributes_to_get]") unless params[:attributes_to_get].nil?
-        type.limit = params[:limit]
-        type.select = params[:select]
+        type.limit = params[:limit] unless params[:limit].nil?
+        type.select = params[:select] unless params[:select].nil?
         type.scan_filter = FilterConditionMap.build(params[:scan_filter], context: "#{context}[:scan_filter]") unless params[:scan_filter].nil?
-        type.conditional_operator = params[:conditional_operator]
+        type.conditional_operator = params[:conditional_operator] unless params[:conditional_operator].nil?
         type.exclusive_start_key = Key.build(params[:exclusive_start_key], context: "#{context}[:exclusive_start_key]") unless params[:exclusive_start_key].nil?
-        type.return_consumed_capacity = params[:return_consumed_capacity]
-        type.total_segments = params[:total_segments]
-        type.segment = params[:segment]
-        type.projection_expression = params[:projection_expression]
-        type.filter_expression = params[:filter_expression]
+        type.return_consumed_capacity = params[:return_consumed_capacity] unless params[:return_consumed_capacity].nil?
+        type.total_segments = params[:total_segments] unless params[:total_segments].nil?
+        type.segment = params[:segment] unless params[:segment].nil?
+        type.projection_expression = params[:projection_expression] unless params[:projection_expression].nil?
+        type.filter_expression = params[:filter_expression] unless params[:filter_expression].nil?
         type.expression_attribute_names = ExpressionAttributeNameMap.build(params[:expression_attribute_names], context: "#{context}[:expression_attribute_names]") unless params[:expression_attribute_names].nil?
         type.expression_attribute_values = ExpressionAttributeValueMap.build(params[:expression_attribute_values], context: "#{context}[:expression_attribute_values]") unless params[:expression_attribute_values].nil?
-        type.consistent_read = params[:consistent_read]
+        type.consistent_read = params[:consistent_read] unless params[:consistent_read].nil?
         type
       end
     end
@@ -3158,8 +3158,8 @@ module AWS::SDK::DynamoDB
         type = Types::ScanOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.items = ItemList.build(params[:items], context: "#{context}[:items]") unless params[:items].nil?
-        type.count = params[:count]
-        type.scanned_count = params[:scanned_count]
+        type.count = params[:count] unless params[:count].nil?
+        type.scanned_count = params[:scanned_count] unless params[:scanned_count].nil?
         type.last_evaluated_key = Key.build(params[:last_evaluated_key], context: "#{context}[:last_evaluated_key]") unless params[:last_evaluated_key].nil?
         type.consumed_capacity = ConsumedCapacity.build(params[:consumed_capacity], context: "#{context}[:consumed_capacity]") unless params[:consumed_capacity].nil?
         type
@@ -3182,15 +3182,15 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::SourceTableDetails, context: context)
         type = Types::SourceTableDetails.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.table_name = params[:table_name]
-        type.table_id = params[:table_id]
-        type.table_arn = params[:table_arn]
-        type.table_size_bytes = params[:table_size_bytes]
+        type.table_name = params[:table_name] unless params[:table_name].nil?
+        type.table_id = params[:table_id] unless params[:table_id].nil?
+        type.table_arn = params[:table_arn] unless params[:table_arn].nil?
+        type.table_size_bytes = params[:table_size_bytes] unless params[:table_size_bytes].nil?
         type.key_schema = KeySchema.build(params[:key_schema], context: "#{context}[:key_schema]") unless params[:key_schema].nil?
-        type.table_creation_date_time = params[:table_creation_date_time]
+        type.table_creation_date_time = params[:table_creation_date_time] unless params[:table_creation_date_time].nil?
         type.provisioned_throughput = ProvisionedThroughput.build(params[:provisioned_throughput], context: "#{context}[:provisioned_throughput]") unless params[:provisioned_throughput].nil?
-        type.item_count = params[:item_count]
-        type.billing_mode = params[:billing_mode]
+        type.item_count = params[:item_count] unless params[:item_count].nil?
+        type.billing_mode = params[:billing_mode] unless params[:billing_mode].nil?
         type
       end
     end
@@ -3214,8 +3214,8 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::StreamSpecification, context: context)
         type = Types::StreamSpecification.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.stream_enabled = params[:stream_enabled]
-        type.stream_view_type = params[:stream_view_type]
+        type.stream_enabled = params[:stream_enabled] unless params[:stream_enabled].nil?
+        type.stream_view_type = params[:stream_view_type] unless params[:stream_view_type].nil?
         type
       end
     end
@@ -3225,7 +3225,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
-          data << element
+          data << element unless element.nil?
         end
         data
       end
@@ -3236,7 +3236,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::TableAlreadyExistsException, context: context)
         type = Types::TableAlreadyExistsException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -3246,8 +3246,8 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::TableAutoScalingDescription, context: context)
         type = Types::TableAutoScalingDescription.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.table_name = params[:table_name]
-        type.table_status = params[:table_status]
+        type.table_name = params[:table_name] unless params[:table_name].nil?
+        type.table_status = params[:table_status] unless params[:table_status].nil?
         type.replicas = ReplicaAutoScalingDescriptionList.build(params[:replicas], context: "#{context}[:replicas]") unless params[:replicas].nil?
         type
       end
@@ -3258,8 +3258,8 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::TableClassSummary, context: context)
         type = Types::TableClassSummary.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.table_class = params[:table_class]
-        type.last_update_date_time = params[:last_update_date_time]
+        type.table_class = params[:table_class] unless params[:table_class].nil?
+        type.last_update_date_time = params[:last_update_date_time] unless params[:last_update_date_time].nil?
         type
       end
     end
@@ -3269,10 +3269,10 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::TableCreationParameters, context: context)
         type = Types::TableCreationParameters.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.table_name = params[:table_name]
+        type.table_name = params[:table_name] unless params[:table_name].nil?
         type.attribute_definitions = AttributeDefinitions.build(params[:attribute_definitions], context: "#{context}[:attribute_definitions]") unless params[:attribute_definitions].nil?
         type.key_schema = KeySchema.build(params[:key_schema], context: "#{context}[:key_schema]") unless params[:key_schema].nil?
-        type.billing_mode = params[:billing_mode]
+        type.billing_mode = params[:billing_mode] unless params[:billing_mode].nil?
         type.provisioned_throughput = ProvisionedThroughput.build(params[:provisioned_throughput], context: "#{context}[:provisioned_throughput]") unless params[:provisioned_throughput].nil?
         type.sse_specification = SSESpecification.build(params[:sse_specification], context: "#{context}[:sse_specification]") unless params[:sse_specification].nil?
         type.global_secondary_indexes = GlobalSecondaryIndexList.build(params[:global_secondary_indexes], context: "#{context}[:global_secondary_indexes]") unless params[:global_secondary_indexes].nil?
@@ -3286,28 +3286,28 @@ module AWS::SDK::DynamoDB
         type = Types::TableDescription.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.attribute_definitions = AttributeDefinitions.build(params[:attribute_definitions], context: "#{context}[:attribute_definitions]") unless params[:attribute_definitions].nil?
-        type.table_name = params[:table_name]
+        type.table_name = params[:table_name] unless params[:table_name].nil?
         type.key_schema = KeySchema.build(params[:key_schema], context: "#{context}[:key_schema]") unless params[:key_schema].nil?
-        type.table_status = params[:table_status]
-        type.creation_date_time = params[:creation_date_time]
+        type.table_status = params[:table_status] unless params[:table_status].nil?
+        type.creation_date_time = params[:creation_date_time] unless params[:creation_date_time].nil?
         type.provisioned_throughput = ProvisionedThroughputDescription.build(params[:provisioned_throughput], context: "#{context}[:provisioned_throughput]") unless params[:provisioned_throughput].nil?
-        type.table_size_bytes = params[:table_size_bytes]
-        type.item_count = params[:item_count]
-        type.table_arn = params[:table_arn]
-        type.table_id = params[:table_id]
+        type.table_size_bytes = params[:table_size_bytes] unless params[:table_size_bytes].nil?
+        type.item_count = params[:item_count] unless params[:item_count].nil?
+        type.table_arn = params[:table_arn] unless params[:table_arn].nil?
+        type.table_id = params[:table_id] unless params[:table_id].nil?
         type.billing_mode_summary = BillingModeSummary.build(params[:billing_mode_summary], context: "#{context}[:billing_mode_summary]") unless params[:billing_mode_summary].nil?
         type.local_secondary_indexes = LocalSecondaryIndexDescriptionList.build(params[:local_secondary_indexes], context: "#{context}[:local_secondary_indexes]") unless params[:local_secondary_indexes].nil?
         type.global_secondary_indexes = GlobalSecondaryIndexDescriptionList.build(params[:global_secondary_indexes], context: "#{context}[:global_secondary_indexes]") unless params[:global_secondary_indexes].nil?
         type.stream_specification = StreamSpecification.build(params[:stream_specification], context: "#{context}[:stream_specification]") unless params[:stream_specification].nil?
-        type.latest_stream_label = params[:latest_stream_label]
-        type.latest_stream_arn = params[:latest_stream_arn]
-        type.global_table_version = params[:global_table_version]
+        type.latest_stream_label = params[:latest_stream_label] unless params[:latest_stream_label].nil?
+        type.latest_stream_arn = params[:latest_stream_arn] unless params[:latest_stream_arn].nil?
+        type.global_table_version = params[:global_table_version] unless params[:global_table_version].nil?
         type.replicas = ReplicaDescriptionList.build(params[:replicas], context: "#{context}[:replicas]") unless params[:replicas].nil?
         type.restore_summary = RestoreSummary.build(params[:restore_summary], context: "#{context}[:restore_summary]") unless params[:restore_summary].nil?
         type.sse_description = SSEDescription.build(params[:sse_description], context: "#{context}[:sse_description]") unless params[:sse_description].nil?
         type.archival_summary = ArchivalSummary.build(params[:archival_summary], context: "#{context}[:archival_summary]") unless params[:archival_summary].nil?
         type.table_class_summary = TableClassSummary.build(params[:table_class_summary], context: "#{context}[:table_class_summary]") unless params[:table_class_summary].nil?
-        type.deletion_protection_enabled = params[:deletion_protection_enabled]
+        type.deletion_protection_enabled = params[:deletion_protection_enabled] unless params[:deletion_protection_enabled].nil?
         type
       end
     end
@@ -3317,7 +3317,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::TableInUseException, context: context)
         type = Types::TableInUseException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -3327,7 +3327,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
-          data << element
+          data << element unless element.nil?
         end
         data
       end
@@ -3338,7 +3338,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::TableNotFoundException, context: context)
         type = Types::TableNotFoundException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -3348,8 +3348,8 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::Tag, context: context)
         type = Types::Tag.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.key = params[:key]
-        type.value = params[:value]
+        type.key = params[:key] unless params[:key].nil?
+        type.value = params[:value] unless params[:value].nil?
         type
       end
     end
@@ -3359,7 +3359,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
-          data << element
+          data << element unless element.nil?
         end
         data
       end
@@ -3381,7 +3381,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::TagResourceInput, context: context)
         type = Types::TagResourceInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.resource_arn = params[:resource_arn]
+        type.resource_arn = params[:resource_arn] unless params[:resource_arn].nil?
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end
@@ -3401,8 +3401,8 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::TimeToLiveDescription, context: context)
         type = Types::TimeToLiveDescription.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.time_to_live_status = params[:time_to_live_status]
-        type.attribute_name = params[:attribute_name]
+        type.time_to_live_status = params[:time_to_live_status] unless params[:time_to_live_status].nil?
+        type.attribute_name = params[:attribute_name] unless params[:attribute_name].nil?
         type
       end
     end
@@ -3412,8 +3412,8 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::TimeToLiveSpecification, context: context)
         type = Types::TimeToLiveSpecification.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.enabled = params[:enabled]
-        type.attribute_name = params[:attribute_name]
+        type.enabled = params[:enabled] unless params[:enabled].nil?
+        type.attribute_name = params[:attribute_name] unless params[:attribute_name].nil?
         type
       end
     end
@@ -3445,7 +3445,7 @@ module AWS::SDK::DynamoDB
         type = Types::TransactGetItemsInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.transact_items = TransactGetItemList.build(params[:transact_items], context: "#{context}[:transact_items]") unless params[:transact_items].nil?
-        type.return_consumed_capacity = params[:return_consumed_capacity]
+        type.return_consumed_capacity = params[:return_consumed_capacity] unless params[:return_consumed_capacity].nil?
         type
       end
     end
@@ -3491,8 +3491,8 @@ module AWS::SDK::DynamoDB
         type = Types::TransactWriteItemsInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.transact_items = TransactWriteItemList.build(params[:transact_items], context: "#{context}[:transact_items]") unless params[:transact_items].nil?
-        type.return_consumed_capacity = params[:return_consumed_capacity]
-        type.return_item_collection_metrics = params[:return_item_collection_metrics]
+        type.return_consumed_capacity = params[:return_consumed_capacity] unless params[:return_consumed_capacity].nil?
+        type.return_item_collection_metrics = params[:return_item_collection_metrics] unless params[:return_item_collection_metrics].nil?
         type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type
       end
@@ -3514,7 +3514,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransactionCanceledException, context: context)
         type = Types::TransactionCanceledException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type.cancellation_reasons = CancellationReasonList.build(params[:cancellation_reasons], context: "#{context}[:cancellation_reasons]") unless params[:cancellation_reasons].nil?
         type
       end
@@ -3525,7 +3525,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransactionConflictException, context: context)
         type = Types::TransactionConflictException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -3535,7 +3535,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::TransactionInProgressException, context: context)
         type = Types::TransactionInProgressException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -3545,7 +3545,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::UntagResourceInput, context: context)
         type = Types::UntagResourceInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.resource_arn = params[:resource_arn]
+        type.resource_arn = params[:resource_arn] unless params[:resource_arn].nil?
         type.tag_keys = TagKeyList.build(params[:tag_keys], context: "#{context}[:tag_keys]") unless params[:tag_keys].nil?
         type
       end
@@ -3566,12 +3566,12 @@ module AWS::SDK::DynamoDB
         type = Types::Update.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.key = Key.build(params[:key], context: "#{context}[:key]") unless params[:key].nil?
-        type.update_expression = params[:update_expression]
-        type.table_name = params[:table_name]
-        type.condition_expression = params[:condition_expression]
+        type.update_expression = params[:update_expression] unless params[:update_expression].nil?
+        type.table_name = params[:table_name] unless params[:table_name].nil?
+        type.condition_expression = params[:condition_expression] unless params[:condition_expression].nil?
         type.expression_attribute_names = ExpressionAttributeNameMap.build(params[:expression_attribute_names], context: "#{context}[:expression_attribute_names]") unless params[:expression_attribute_names].nil?
         type.expression_attribute_values = ExpressionAttributeValueMap.build(params[:expression_attribute_values], context: "#{context}[:expression_attribute_values]") unless params[:expression_attribute_values].nil?
-        type.return_values_on_condition_check_failure = params[:return_values_on_condition_check_failure]
+        type.return_values_on_condition_check_failure = params[:return_values_on_condition_check_failure] unless params[:return_values_on_condition_check_failure].nil?
         type
       end
     end
@@ -3581,7 +3581,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateContinuousBackupsInput, context: context)
         type = Types::UpdateContinuousBackupsInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.table_name = params[:table_name]
+        type.table_name = params[:table_name] unless params[:table_name].nil?
         type.point_in_time_recovery_specification = PointInTimeRecoverySpecification.build(params[:point_in_time_recovery_specification], context: "#{context}[:point_in_time_recovery_specification]") unless params[:point_in_time_recovery_specification].nil?
         type
       end
@@ -3602,9 +3602,9 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateContributorInsightsInput, context: context)
         type = Types::UpdateContributorInsightsInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.table_name = params[:table_name]
-        type.index_name = params[:index_name]
-        type.contributor_insights_action = params[:contributor_insights_action]
+        type.table_name = params[:table_name] unless params[:table_name].nil?
+        type.index_name = params[:index_name] unless params[:index_name].nil?
+        type.contributor_insights_action = params[:contributor_insights_action] unless params[:contributor_insights_action].nil?
         type
       end
     end
@@ -3614,9 +3614,9 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateContributorInsightsOutput, context: context)
         type = Types::UpdateContributorInsightsOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.table_name = params[:table_name]
-        type.index_name = params[:index_name]
-        type.contributor_insights_status = params[:contributor_insights_status]
+        type.table_name = params[:table_name] unless params[:table_name].nil?
+        type.index_name = params[:index_name] unless params[:index_name].nil?
+        type.contributor_insights_status = params[:contributor_insights_status] unless params[:contributor_insights_status].nil?
         type
       end
     end
@@ -3626,7 +3626,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateGlobalSecondaryIndexAction, context: context)
         type = Types::UpdateGlobalSecondaryIndexAction.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.index_name = params[:index_name]
+        type.index_name = params[:index_name] unless params[:index_name].nil?
         type.provisioned_throughput = ProvisionedThroughput.build(params[:provisioned_throughput], context: "#{context}[:provisioned_throughput]") unless params[:provisioned_throughput].nil?
         type
       end
@@ -3637,7 +3637,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateGlobalTableInput, context: context)
         type = Types::UpdateGlobalTableInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.global_table_name = params[:global_table_name]
+        type.global_table_name = params[:global_table_name] unless params[:global_table_name].nil?
         type.replica_updates = ReplicaUpdateList.build(params[:replica_updates], context: "#{context}[:replica_updates]") unless params[:replica_updates].nil?
         type
       end
@@ -3658,9 +3658,9 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateGlobalTableSettingsInput, context: context)
         type = Types::UpdateGlobalTableSettingsInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.global_table_name = params[:global_table_name]
-        type.global_table_billing_mode = params[:global_table_billing_mode]
-        type.global_table_provisioned_write_capacity_units = params[:global_table_provisioned_write_capacity_units]
+        type.global_table_name = params[:global_table_name] unless params[:global_table_name].nil?
+        type.global_table_billing_mode = params[:global_table_billing_mode] unless params[:global_table_billing_mode].nil?
+        type.global_table_provisioned_write_capacity_units = params[:global_table_provisioned_write_capacity_units] unless params[:global_table_provisioned_write_capacity_units].nil?
         type.global_table_provisioned_write_capacity_auto_scaling_settings_update = AutoScalingSettingsUpdate.build(params[:global_table_provisioned_write_capacity_auto_scaling_settings_update], context: "#{context}[:global_table_provisioned_write_capacity_auto_scaling_settings_update]") unless params[:global_table_provisioned_write_capacity_auto_scaling_settings_update].nil?
         type.global_table_global_secondary_index_settings_update = GlobalTableGlobalSecondaryIndexSettingsUpdateList.build(params[:global_table_global_secondary_index_settings_update], context: "#{context}[:global_table_global_secondary_index_settings_update]") unless params[:global_table_global_secondary_index_settings_update].nil?
         type.replica_settings_update = ReplicaSettingsUpdateList.build(params[:replica_settings_update], context: "#{context}[:replica_settings_update]") unless params[:replica_settings_update].nil?
@@ -3673,7 +3673,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateGlobalTableSettingsOutput, context: context)
         type = Types::UpdateGlobalTableSettingsOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.global_table_name = params[:global_table_name]
+        type.global_table_name = params[:global_table_name] unless params[:global_table_name].nil?
         type.replica_settings = ReplicaSettingsDescriptionList.build(params[:replica_settings], context: "#{context}[:replica_settings]") unless params[:replica_settings].nil?
         type
       end
@@ -3684,19 +3684,19 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateItemInput, context: context)
         type = Types::UpdateItemInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.table_name = params[:table_name]
+        type.table_name = params[:table_name] unless params[:table_name].nil?
         type.key = Key.build(params[:key], context: "#{context}[:key]") unless params[:key].nil?
         type.attribute_updates = AttributeUpdates.build(params[:attribute_updates], context: "#{context}[:attribute_updates]") unless params[:attribute_updates].nil?
         type.expected = ExpectedAttributeMap.build(params[:expected], context: "#{context}[:expected]") unless params[:expected].nil?
-        type.conditional_operator = params[:conditional_operator]
-        type.return_values = params[:return_values]
-        type.return_consumed_capacity = params[:return_consumed_capacity]
-        type.return_item_collection_metrics = params[:return_item_collection_metrics]
-        type.update_expression = params[:update_expression]
-        type.condition_expression = params[:condition_expression]
+        type.conditional_operator = params[:conditional_operator] unless params[:conditional_operator].nil?
+        type.return_values = params[:return_values] unless params[:return_values].nil?
+        type.return_consumed_capacity = params[:return_consumed_capacity] unless params[:return_consumed_capacity].nil?
+        type.return_item_collection_metrics = params[:return_item_collection_metrics] unless params[:return_item_collection_metrics].nil?
+        type.update_expression = params[:update_expression] unless params[:update_expression].nil?
+        type.condition_expression = params[:condition_expression] unless params[:condition_expression].nil?
         type.expression_attribute_names = ExpressionAttributeNameMap.build(params[:expression_attribute_names], context: "#{context}[:expression_attribute_names]") unless params[:expression_attribute_names].nil?
         type.expression_attribute_values = ExpressionAttributeValueMap.build(params[:expression_attribute_values], context: "#{context}[:expression_attribute_values]") unless params[:expression_attribute_values].nil?
-        type.return_values_on_condition_check_failure = params[:return_values_on_condition_check_failure]
+        type.return_values_on_condition_check_failure = params[:return_values_on_condition_check_failure] unless params[:return_values_on_condition_check_failure].nil?
         type
       end
     end
@@ -3718,7 +3718,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateKinesisStreamingConfiguration, context: context)
         type = Types::UpdateKinesisStreamingConfiguration.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.approximate_creation_date_time_precision = params[:approximate_creation_date_time_precision]
+        type.approximate_creation_date_time_precision = params[:approximate_creation_date_time_precision] unless params[:approximate_creation_date_time_precision].nil?
         type
       end
     end
@@ -3728,8 +3728,8 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateKinesisStreamingDestinationInput, context: context)
         type = Types::UpdateKinesisStreamingDestinationInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.table_name = params[:table_name]
-        type.stream_arn = params[:stream_arn]
+        type.table_name = params[:table_name] unless params[:table_name].nil?
+        type.stream_arn = params[:stream_arn] unless params[:stream_arn].nil?
         type.update_kinesis_streaming_configuration = UpdateKinesisStreamingConfiguration.build(params[:update_kinesis_streaming_configuration], context: "#{context}[:update_kinesis_streaming_configuration]") unless params[:update_kinesis_streaming_configuration].nil?
         type
       end
@@ -3740,9 +3740,9 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateKinesisStreamingDestinationOutput, context: context)
         type = Types::UpdateKinesisStreamingDestinationOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.table_name = params[:table_name]
-        type.stream_arn = params[:stream_arn]
-        type.destination_status = params[:destination_status]
+        type.table_name = params[:table_name] unless params[:table_name].nil?
+        type.stream_arn = params[:stream_arn] unless params[:stream_arn].nil?
+        type.destination_status = params[:destination_status] unless params[:destination_status].nil?
         type.update_kinesis_streaming_configuration = UpdateKinesisStreamingConfiguration.build(params[:update_kinesis_streaming_configuration], context: "#{context}[:update_kinesis_streaming_configuration]") unless params[:update_kinesis_streaming_configuration].nil?
         type
       end
@@ -3753,11 +3753,11 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateReplicationGroupMemberAction, context: context)
         type = Types::UpdateReplicationGroupMemberAction.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.region_name = params[:region_name]
-        type.kms_master_key_id = params[:kms_master_key_id]
+        type.region_name = params[:region_name] unless params[:region_name].nil?
+        type.kms_master_key_id = params[:kms_master_key_id] unless params[:kms_master_key_id].nil?
         type.provisioned_throughput_override = ProvisionedThroughputOverride.build(params[:provisioned_throughput_override], context: "#{context}[:provisioned_throughput_override]") unless params[:provisioned_throughput_override].nil?
         type.global_secondary_indexes = ReplicaGlobalSecondaryIndexList.build(params[:global_secondary_indexes], context: "#{context}[:global_secondary_indexes]") unless params[:global_secondary_indexes].nil?
-        type.table_class_override = params[:table_class_override]
+        type.table_class_override = params[:table_class_override] unless params[:table_class_override].nil?
         type
       end
     end
@@ -3768,15 +3768,15 @@ module AWS::SDK::DynamoDB
         type = Types::UpdateTableInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.attribute_definitions = AttributeDefinitions.build(params[:attribute_definitions], context: "#{context}[:attribute_definitions]") unless params[:attribute_definitions].nil?
-        type.table_name = params[:table_name]
-        type.billing_mode = params[:billing_mode]
+        type.table_name = params[:table_name] unless params[:table_name].nil?
+        type.billing_mode = params[:billing_mode] unless params[:billing_mode].nil?
         type.provisioned_throughput = ProvisionedThroughput.build(params[:provisioned_throughput], context: "#{context}[:provisioned_throughput]") unless params[:provisioned_throughput].nil?
         type.global_secondary_index_updates = GlobalSecondaryIndexUpdateList.build(params[:global_secondary_index_updates], context: "#{context}[:global_secondary_index_updates]") unless params[:global_secondary_index_updates].nil?
         type.stream_specification = StreamSpecification.build(params[:stream_specification], context: "#{context}[:stream_specification]") unless params[:stream_specification].nil?
         type.sse_specification = SSESpecification.build(params[:sse_specification], context: "#{context}[:sse_specification]") unless params[:sse_specification].nil?
         type.replica_updates = ReplicationGroupUpdateList.build(params[:replica_updates], context: "#{context}[:replica_updates]") unless params[:replica_updates].nil?
-        type.table_class = params[:table_class]
-        type.deletion_protection_enabled = params[:deletion_protection_enabled]
+        type.table_class = params[:table_class] unless params[:table_class].nil?
+        type.deletion_protection_enabled = params[:deletion_protection_enabled] unless params[:deletion_protection_enabled].nil?
         type
       end
     end
@@ -3797,7 +3797,7 @@ module AWS::SDK::DynamoDB
         type = Types::UpdateTableReplicaAutoScalingInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.global_secondary_index_updates = GlobalSecondaryIndexAutoScalingUpdateList.build(params[:global_secondary_index_updates], context: "#{context}[:global_secondary_index_updates]") unless params[:global_secondary_index_updates].nil?
-        type.table_name = params[:table_name]
+        type.table_name = params[:table_name] unless params[:table_name].nil?
         type.provisioned_write_capacity_auto_scaling_update = AutoScalingSettingsUpdate.build(params[:provisioned_write_capacity_auto_scaling_update], context: "#{context}[:provisioned_write_capacity_auto_scaling_update]") unless params[:provisioned_write_capacity_auto_scaling_update].nil?
         type.replica_updates = ReplicaAutoScalingUpdateList.build(params[:replica_updates], context: "#{context}[:replica_updates]") unless params[:replica_updates].nil?
         type
@@ -3819,7 +3819,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateTimeToLiveInput, context: context)
         type = Types::UpdateTimeToLiveInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.table_name = params[:table_name]
+        type.table_name = params[:table_name] unless params[:table_name].nil?
         type.time_to_live_specification = TimeToLiveSpecification.build(params[:time_to_live_specification], context: "#{context}[:time_to_live_specification]") unless params[:time_to_live_specification].nil?
         type
       end

@@ -272,17 +272,20 @@ module AWS::SDK::SSO
     ) do
       include Hearth::Structure
 
-      def initialize(*)
-        super
-        self.expiration = 0 if self.expiration.nil?
-      end
-
       def to_s
         "#<struct AWS::SDK::SSO::Types::RoleCredentials "\
           "access_key_id=#{access_key_id || 'nil'}, "\
           "secret_access_key=\"[SENSITIVE]\", "\
           "session_token=\"[SENSITIVE]\", "\
           "expiration=#{expiration || 'nil'}>"
+      end
+
+      private
+
+      def _defaults
+        {
+          expiration: 0
+        }
       end
     end
 

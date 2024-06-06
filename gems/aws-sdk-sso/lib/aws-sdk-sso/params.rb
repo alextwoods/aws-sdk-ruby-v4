@@ -16,9 +16,9 @@ module AWS::SDK::SSO
         Hearth::Validator.validate_types!(params, ::Hash, Types::AccountInfo, context: context)
         type = Types::AccountInfo.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.account_id = params[:account_id]
-        type.account_name = params[:account_name]
-        type.email_address = params[:email_address]
+        type.account_id = params[:account_id] unless params[:account_id].nil?
+        type.account_name = params[:account_name] unless params[:account_name].nil?
+        type.email_address = params[:email_address] unless params[:email_address].nil?
         type
       end
     end
@@ -39,9 +39,9 @@ module AWS::SDK::SSO
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetRoleCredentialsInput, context: context)
         type = Types::GetRoleCredentialsInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.role_name = params[:role_name]
-        type.account_id = params[:account_id]
-        type.access_token = params[:access_token]
+        type.role_name = params[:role_name] unless params[:role_name].nil?
+        type.account_id = params[:account_id] unless params[:account_id].nil?
+        type.access_token = params[:access_token] unless params[:access_token].nil?
         type
       end
     end
@@ -61,7 +61,7 @@ module AWS::SDK::SSO
         Hearth::Validator.validate_types!(params, ::Hash, Types::InvalidRequestException, context: context)
         type = Types::InvalidRequestException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -71,10 +71,10 @@ module AWS::SDK::SSO
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListAccountRolesInput, context: context)
         type = Types::ListAccountRolesInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.next_token = params[:next_token]
-        type.max_results = params[:max_results]
-        type.access_token = params[:access_token]
-        type.account_id = params[:account_id]
+        type.next_token = params[:next_token] unless params[:next_token].nil?
+        type.max_results = params[:max_results] unless params[:max_results].nil?
+        type.access_token = params[:access_token] unless params[:access_token].nil?
+        type.account_id = params[:account_id] unless params[:account_id].nil?
         type
       end
     end
@@ -84,7 +84,7 @@ module AWS::SDK::SSO
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListAccountRolesOutput, context: context)
         type = Types::ListAccountRolesOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.next_token = params[:next_token]
+        type.next_token = params[:next_token] unless params[:next_token].nil?
         type.role_list = RoleListType.build(params[:role_list], context: "#{context}[:role_list]") unless params[:role_list].nil?
         type
       end
@@ -95,9 +95,9 @@ module AWS::SDK::SSO
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListAccountsInput, context: context)
         type = Types::ListAccountsInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.next_token = params[:next_token]
-        type.max_results = params[:max_results]
-        type.access_token = params[:access_token]
+        type.next_token = params[:next_token] unless params[:next_token].nil?
+        type.max_results = params[:max_results] unless params[:max_results].nil?
+        type.access_token = params[:access_token] unless params[:access_token].nil?
         type
       end
     end
@@ -107,7 +107,7 @@ module AWS::SDK::SSO
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListAccountsOutput, context: context)
         type = Types::ListAccountsOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.next_token = params[:next_token]
+        type.next_token = params[:next_token] unless params[:next_token].nil?
         type.account_list = AccountListType.build(params[:account_list], context: "#{context}[:account_list]") unless params[:account_list].nil?
         type
       end
@@ -118,7 +118,7 @@ module AWS::SDK::SSO
         Hearth::Validator.validate_types!(params, ::Hash, Types::LogoutInput, context: context)
         type = Types::LogoutInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.access_token = params[:access_token]
+        type.access_token = params[:access_token] unless params[:access_token].nil?
         type
       end
     end
@@ -137,7 +137,7 @@ module AWS::SDK::SSO
         Hearth::Validator.validate_types!(params, ::Hash, Types::ResourceNotFoundException, context: context)
         type = Types::ResourceNotFoundException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -147,10 +147,10 @@ module AWS::SDK::SSO
         Hearth::Validator.validate_types!(params, ::Hash, Types::RoleCredentials, context: context)
         type = Types::RoleCredentials.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.access_key_id = params[:access_key_id]
-        type.secret_access_key = params[:secret_access_key]
-        type.session_token = params[:session_token]
-        type.expiration = params[:expiration]
+        type.access_key_id = params[:access_key_id] unless params[:access_key_id].nil?
+        type.secret_access_key = params[:secret_access_key] unless params[:secret_access_key].nil?
+        type.session_token = params[:session_token] unless params[:session_token].nil?
+        type.expiration = params[:expiration] unless params[:expiration].nil?
         type
       end
     end
@@ -160,8 +160,8 @@ module AWS::SDK::SSO
         Hearth::Validator.validate_types!(params, ::Hash, Types::RoleInfo, context: context)
         type = Types::RoleInfo.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.role_name = params[:role_name]
-        type.account_id = params[:account_id]
+        type.role_name = params[:role_name] unless params[:role_name].nil?
+        type.account_id = params[:account_id] unless params[:account_id].nil?
         type
       end
     end
@@ -182,7 +182,7 @@ module AWS::SDK::SSO
         Hearth::Validator.validate_types!(params, ::Hash, Types::TooManyRequestsException, context: context)
         type = Types::TooManyRequestsException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -192,7 +192,7 @@ module AWS::SDK::SSO
         Hearth::Validator.validate_types!(params, ::Hash, Types::UnauthorizedException, context: context)
         type = Types::UnauthorizedException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end

@@ -16,12 +16,12 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::AlarmHistoryItem, context: context)
         type = Types::AlarmHistoryItem.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.alarm_name = params[:alarm_name]
-        type.alarm_type = params[:alarm_type]
-        type.timestamp = params[:timestamp]
-        type.history_item_type = params[:history_item_type]
-        type.history_summary = params[:history_summary]
-        type.history_data = params[:history_data]
+        type.alarm_name = params[:alarm_name] unless params[:alarm_name].nil?
+        type.alarm_type = params[:alarm_type] unless params[:alarm_type].nil?
+        type.timestamp = params[:timestamp] unless params[:timestamp].nil?
+        type.history_item_type = params[:history_item_type] unless params[:history_item_type].nil?
+        type.history_summary = params[:history_summary] unless params[:history_summary].nil?
+        type.history_data = params[:history_data] unless params[:history_data].nil?
         type
       end
     end
@@ -42,7 +42,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
-          data << element
+          data << element unless element.nil?
         end
         data
       end
@@ -53,7 +53,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
-          data << element
+          data << element unless element.nil?
         end
         data
       end
@@ -64,12 +64,12 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::AnomalyDetector, context: context)
         type = Types::AnomalyDetector.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.namespace = params[:namespace]
-        type.metric_name = params[:metric_name]
+        type.namespace = params[:namespace] unless params[:namespace].nil?
+        type.metric_name = params[:metric_name] unless params[:metric_name].nil?
         type.dimensions = Dimensions.build(params[:dimensions], context: "#{context}[:dimensions]") unless params[:dimensions].nil?
-        type.stat = params[:stat]
+        type.stat = params[:stat] unless params[:stat].nil?
         type.configuration = AnomalyDetectorConfiguration.build(params[:configuration], context: "#{context}[:configuration]") unless params[:configuration].nil?
-        type.state_value = params[:state_value]
+        type.state_value = params[:state_value] unless params[:state_value].nil?
         type.single_metric_anomaly_detector = SingleMetricAnomalyDetector.build(params[:single_metric_anomaly_detector], context: "#{context}[:single_metric_anomaly_detector]") unless params[:single_metric_anomaly_detector].nil?
         type.metric_math_anomaly_detector = MetricMathAnomalyDetector.build(params[:metric_math_anomaly_detector], context: "#{context}[:metric_math_anomaly_detector]") unless params[:metric_math_anomaly_detector].nil?
         type
@@ -82,7 +82,7 @@ module AWS::SDK::CloudWatch
         type = Types::AnomalyDetectorConfiguration.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.excluded_time_ranges = AnomalyDetectorExcludedTimeRanges.build(params[:excluded_time_ranges], context: "#{context}[:excluded_time_ranges]") unless params[:excluded_time_ranges].nil?
-        type.metric_timezone = params[:metric_timezone]
+        type.metric_timezone = params[:metric_timezone] unless params[:metric_timezone].nil?
         type
       end
     end
@@ -103,7 +103,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
-          data << element
+          data << element unless element.nil?
         end
         data
       end
@@ -136,25 +136,25 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::CompositeAlarm, context: context)
         type = Types::CompositeAlarm.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.actions_enabled = params[:actions_enabled]
+        type.actions_enabled = params[:actions_enabled] unless params[:actions_enabled].nil?
         type.alarm_actions = ResourceList.build(params[:alarm_actions], context: "#{context}[:alarm_actions]") unless params[:alarm_actions].nil?
-        type.alarm_arn = params[:alarm_arn]
-        type.alarm_configuration_updated_timestamp = params[:alarm_configuration_updated_timestamp]
-        type.alarm_description = params[:alarm_description]
-        type.alarm_name = params[:alarm_name]
-        type.alarm_rule = params[:alarm_rule]
+        type.alarm_arn = params[:alarm_arn] unless params[:alarm_arn].nil?
+        type.alarm_configuration_updated_timestamp = params[:alarm_configuration_updated_timestamp] unless params[:alarm_configuration_updated_timestamp].nil?
+        type.alarm_description = params[:alarm_description] unless params[:alarm_description].nil?
+        type.alarm_name = params[:alarm_name] unless params[:alarm_name].nil?
+        type.alarm_rule = params[:alarm_rule] unless params[:alarm_rule].nil?
         type.insufficient_data_actions = ResourceList.build(params[:insufficient_data_actions], context: "#{context}[:insufficient_data_actions]") unless params[:insufficient_data_actions].nil?
         type.ok_actions = ResourceList.build(params[:ok_actions], context: "#{context}[:ok_actions]") unless params[:ok_actions].nil?
-        type.state_reason = params[:state_reason]
-        type.state_reason_data = params[:state_reason_data]
-        type.state_updated_timestamp = params[:state_updated_timestamp]
-        type.state_value = params[:state_value]
-        type.state_transitioned_timestamp = params[:state_transitioned_timestamp]
-        type.actions_suppressed_by = params[:actions_suppressed_by]
-        type.actions_suppressed_reason = params[:actions_suppressed_reason]
-        type.actions_suppressor = params[:actions_suppressor]
-        type.actions_suppressor_wait_period = params[:actions_suppressor_wait_period]
-        type.actions_suppressor_extension_period = params[:actions_suppressor_extension_period]
+        type.state_reason = params[:state_reason] unless params[:state_reason].nil?
+        type.state_reason_data = params[:state_reason_data] unless params[:state_reason_data].nil?
+        type.state_updated_timestamp = params[:state_updated_timestamp] unless params[:state_updated_timestamp].nil?
+        type.state_value = params[:state_value] unless params[:state_value].nil?
+        type.state_transitioned_timestamp = params[:state_transitioned_timestamp] unless params[:state_transitioned_timestamp].nil?
+        type.actions_suppressed_by = params[:actions_suppressed_by] unless params[:actions_suppressed_by].nil?
+        type.actions_suppressed_reason = params[:actions_suppressed_reason] unless params[:actions_suppressed_reason].nil?
+        type.actions_suppressor = params[:actions_suppressor] unless params[:actions_suppressor].nil?
+        type.actions_suppressor_wait_period = params[:actions_suppressor_wait_period] unless params[:actions_suppressor_wait_period].nil?
+        type.actions_suppressor_extension_period = params[:actions_suppressor_extension_period] unless params[:actions_suppressor_extension_period].nil?
         type
       end
     end
@@ -175,7 +175,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::ConcurrentModificationException, context: context)
         type = Types::ConcurrentModificationException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -185,7 +185,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
-          data << element&.to_f
+          data << element&.to_f unless element.nil?
         end
         data
       end
@@ -207,10 +207,10 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::DashboardEntry, context: context)
         type = Types::DashboardEntry.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.dashboard_name = params[:dashboard_name]
-        type.dashboard_arn = params[:dashboard_arn]
-        type.last_modified = params[:last_modified]
-        type.size = params[:size]
+        type.dashboard_name = params[:dashboard_name] unless params[:dashboard_name].nil?
+        type.dashboard_arn = params[:dashboard_arn] unless params[:dashboard_arn].nil?
+        type.last_modified = params[:last_modified] unless params[:last_modified].nil?
+        type.size = params[:size] unless params[:size].nil?
         type
       end
     end
@@ -220,7 +220,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::DashboardInvalidInputError, context: context)
         type = Types::DashboardInvalidInputError.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type.dashboard_validation_messages = DashboardValidationMessages.build(params[:dashboard_validation_messages], context: "#{context}[:dashboard_validation_messages]") unless params[:dashboard_validation_messages].nil?
         type
       end
@@ -231,7 +231,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
-          data << element
+          data << element unless element.nil?
         end
         data
       end
@@ -242,7 +242,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::DashboardNotFoundError, context: context)
         type = Types::DashboardNotFoundError.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -252,8 +252,8 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::DashboardValidationMessage, context: context)
         type = Types::DashboardValidationMessage.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.data_path = params[:data_path]
-        type.message = params[:message]
+        type.data_path = params[:data_path] unless params[:data_path].nil?
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -274,13 +274,13 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::Datapoint, context: context)
         type = Types::Datapoint.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.timestamp = params[:timestamp]
-        type.sample_count = params[:sample_count]&.to_f
-        type.average = params[:average]&.to_f
-        type.sum = params[:sum]&.to_f
-        type.minimum = params[:minimum]&.to_f
-        type.maximum = params[:maximum]&.to_f
-        type.unit = params[:unit]
+        type.timestamp = params[:timestamp] unless params[:timestamp].nil?
+        type.sample_count = params[:sample_count]&.to_f unless params[:sample_count].nil?
+        type.average = params[:average]&.to_f unless params[:average].nil?
+        type.sum = params[:sum]&.to_f unless params[:sum].nil?
+        type.minimum = params[:minimum]&.to_f unless params[:minimum].nil?
+        type.maximum = params[:maximum]&.to_f unless params[:maximum].nil?
+        type.unit = params[:unit] unless params[:unit].nil?
         type.extended_statistics = DatapointValueMap.build(params[:extended_statistics], context: "#{context}[:extended_statistics]") unless params[:extended_statistics].nil?
         type
       end
@@ -291,7 +291,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, context: context)
         data = {}
         params.each do |key, value|
-          data[key] = value&.to_f
+          data[key] = value&.to_f unless value.nil?
         end
         data
       end
@@ -302,7 +302,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
-          data << element&.to_f
+          data << element&.to_f unless element.nil?
         end
         data
       end
@@ -343,10 +343,10 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteAnomalyDetectorInput, context: context)
         type = Types::DeleteAnomalyDetectorInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.namespace = params[:namespace]
-        type.metric_name = params[:metric_name]
+        type.namespace = params[:namespace] unless params[:namespace].nil?
+        type.metric_name = params[:metric_name] unless params[:metric_name].nil?
         type.dimensions = Dimensions.build(params[:dimensions], context: "#{context}[:dimensions]") unless params[:dimensions].nil?
-        type.stat = params[:stat]
+        type.stat = params[:stat] unless params[:stat].nil?
         type.single_metric_anomaly_detector = SingleMetricAnomalyDetector.build(params[:single_metric_anomaly_detector], context: "#{context}[:single_metric_anomaly_detector]") unless params[:single_metric_anomaly_detector].nil?
         type.metric_math_anomaly_detector = MetricMathAnomalyDetector.build(params[:metric_math_anomaly_detector], context: "#{context}[:metric_math_anomaly_detector]") unless params[:metric_math_anomaly_detector].nil?
         type
@@ -406,7 +406,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteMetricStreamInput, context: context)
         type = Types::DeleteMetricStreamInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.name = params[:name]
+        type.name = params[:name] unless params[:name].nil?
         type
       end
     end
@@ -425,14 +425,14 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeAlarmHistoryInput, context: context)
         type = Types::DescribeAlarmHistoryInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.alarm_name = params[:alarm_name]
+        type.alarm_name = params[:alarm_name] unless params[:alarm_name].nil?
         type.alarm_types = AlarmTypes.build(params[:alarm_types], context: "#{context}[:alarm_types]") unless params[:alarm_types].nil?
-        type.history_item_type = params[:history_item_type]
-        type.start_date = params[:start_date]
-        type.end_date = params[:end_date]
-        type.max_records = params[:max_records]
-        type.next_token = params[:next_token]
-        type.scan_by = params[:scan_by]
+        type.history_item_type = params[:history_item_type] unless params[:history_item_type].nil?
+        type.start_date = params[:start_date] unless params[:start_date].nil?
+        type.end_date = params[:end_date] unless params[:end_date].nil?
+        type.max_records = params[:max_records] unless params[:max_records].nil?
+        type.next_token = params[:next_token] unless params[:next_token].nil?
+        type.scan_by = params[:scan_by] unless params[:scan_by].nil?
         type
       end
     end
@@ -443,7 +443,7 @@ module AWS::SDK::CloudWatch
         type = Types::DescribeAlarmHistoryOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.alarm_history_items = AlarmHistoryItems.build(params[:alarm_history_items], context: "#{context}[:alarm_history_items]") unless params[:alarm_history_items].nil?
-        type.next_token = params[:next_token]
+        type.next_token = params[:next_token] unless params[:next_token].nil?
         type
       end
     end
@@ -453,13 +453,13 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeAlarmsForMetricInput, context: context)
         type = Types::DescribeAlarmsForMetricInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.metric_name = params[:metric_name]
-        type.namespace = params[:namespace]
-        type.statistic = params[:statistic]
-        type.extended_statistic = params[:extended_statistic]
+        type.metric_name = params[:metric_name] unless params[:metric_name].nil?
+        type.namespace = params[:namespace] unless params[:namespace].nil?
+        type.statistic = params[:statistic] unless params[:statistic].nil?
+        type.extended_statistic = params[:extended_statistic] unless params[:extended_statistic].nil?
         type.dimensions = Dimensions.build(params[:dimensions], context: "#{context}[:dimensions]") unless params[:dimensions].nil?
-        type.period = params[:period]
-        type.unit = params[:unit]
+        type.period = params[:period] unless params[:period].nil?
+        type.unit = params[:unit] unless params[:unit].nil?
         type
       end
     end
@@ -480,14 +480,14 @@ module AWS::SDK::CloudWatch
         type = Types::DescribeAlarmsInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.alarm_names = AlarmNames.build(params[:alarm_names], context: "#{context}[:alarm_names]") unless params[:alarm_names].nil?
-        type.alarm_name_prefix = params[:alarm_name_prefix]
+        type.alarm_name_prefix = params[:alarm_name_prefix] unless params[:alarm_name_prefix].nil?
         type.alarm_types = AlarmTypes.build(params[:alarm_types], context: "#{context}[:alarm_types]") unless params[:alarm_types].nil?
-        type.children_of_alarm_name = params[:children_of_alarm_name]
-        type.parents_of_alarm_name = params[:parents_of_alarm_name]
-        type.state_value = params[:state_value]
-        type.action_prefix = params[:action_prefix]
-        type.max_records = params[:max_records]
-        type.next_token = params[:next_token]
+        type.children_of_alarm_name = params[:children_of_alarm_name] unless params[:children_of_alarm_name].nil?
+        type.parents_of_alarm_name = params[:parents_of_alarm_name] unless params[:parents_of_alarm_name].nil?
+        type.state_value = params[:state_value] unless params[:state_value].nil?
+        type.action_prefix = params[:action_prefix] unless params[:action_prefix].nil?
+        type.max_records = params[:max_records] unless params[:max_records].nil?
+        type.next_token = params[:next_token] unless params[:next_token].nil?
         type
       end
     end
@@ -499,7 +499,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.composite_alarms = CompositeAlarms.build(params[:composite_alarms], context: "#{context}[:composite_alarms]") unless params[:composite_alarms].nil?
         type.metric_alarms = MetricAlarms.build(params[:metric_alarms], context: "#{context}[:metric_alarms]") unless params[:metric_alarms].nil?
-        type.next_token = params[:next_token]
+        type.next_token = params[:next_token] unless params[:next_token].nil?
         type
       end
     end
@@ -509,10 +509,10 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeAnomalyDetectorsInput, context: context)
         type = Types::DescribeAnomalyDetectorsInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.next_token = params[:next_token]
-        type.max_results = params[:max_results]
-        type.namespace = params[:namespace]
-        type.metric_name = params[:metric_name]
+        type.next_token = params[:next_token] unless params[:next_token].nil?
+        type.max_results = params[:max_results] unless params[:max_results].nil?
+        type.namespace = params[:namespace] unless params[:namespace].nil?
+        type.metric_name = params[:metric_name] unless params[:metric_name].nil?
         type.dimensions = Dimensions.build(params[:dimensions], context: "#{context}[:dimensions]") unless params[:dimensions].nil?
         type.anomaly_detector_types = AnomalyDetectorTypes.build(params[:anomaly_detector_types], context: "#{context}[:anomaly_detector_types]") unless params[:anomaly_detector_types].nil?
         type
@@ -525,7 +525,7 @@ module AWS::SDK::CloudWatch
         type = Types::DescribeAnomalyDetectorsOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.anomaly_detectors = AnomalyDetectors.build(params[:anomaly_detectors], context: "#{context}[:anomaly_detectors]") unless params[:anomaly_detectors].nil?
-        type.next_token = params[:next_token]
+        type.next_token = params[:next_token] unless params[:next_token].nil?
         type
       end
     end
@@ -535,8 +535,8 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeInsightRulesInput, context: context)
         type = Types::DescribeInsightRulesInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.next_token = params[:next_token]
-        type.max_results = params[:max_results]
+        type.next_token = params[:next_token] unless params[:next_token].nil?
+        type.max_results = params[:max_results] unless params[:max_results].nil?
         type
       end
     end
@@ -546,7 +546,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeInsightRulesOutput, context: context)
         type = Types::DescribeInsightRulesOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.next_token = params[:next_token]
+        type.next_token = params[:next_token] unless params[:next_token].nil?
         type.insight_rules = InsightRules.build(params[:insight_rules], context: "#{context}[:insight_rules]") unless params[:insight_rules].nil?
         type
       end
@@ -557,8 +557,8 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::Dimension, context: context)
         type = Types::Dimension.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.name = params[:name]
-        type.value = params[:value]
+        type.name = params[:name] unless params[:name].nil?
+        type.value = params[:value] unless params[:value].nil?
         type
       end
     end
@@ -568,8 +568,8 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::DimensionFilter, context: context)
         type = Types::DimensionFilter.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.name = params[:name]
-        type.value = params[:value]
+        type.name = params[:name] unless params[:name].nil?
+        type.value = params[:value] unless params[:value].nil?
         type
       end
     end
@@ -679,7 +679,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
-          data << element
+          data << element unless element.nil?
         end
         data
       end
@@ -690,7 +690,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetDashboardInput, context: context)
         type = Types::GetDashboardInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.dashboard_name = params[:dashboard_name]
+        type.dashboard_name = params[:dashboard_name] unless params[:dashboard_name].nil?
         type
       end
     end
@@ -700,9 +700,9 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetDashboardOutput, context: context)
         type = Types::GetDashboardOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.dashboard_arn = params[:dashboard_arn]
-        type.dashboard_body = params[:dashboard_body]
-        type.dashboard_name = params[:dashboard_name]
+        type.dashboard_arn = params[:dashboard_arn] unless params[:dashboard_arn].nil?
+        type.dashboard_body = params[:dashboard_body] unless params[:dashboard_body].nil?
+        type.dashboard_name = params[:dashboard_name] unless params[:dashboard_name].nil?
         type
       end
     end
@@ -712,13 +712,13 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetInsightRuleReportInput, context: context)
         type = Types::GetInsightRuleReportInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.rule_name = params[:rule_name]
-        type.start_time = params[:start_time]
-        type.end_time = params[:end_time]
-        type.period = params[:period]
-        type.max_contributor_count = params[:max_contributor_count]
+        type.rule_name = params[:rule_name] unless params[:rule_name].nil?
+        type.start_time = params[:start_time] unless params[:start_time].nil?
+        type.end_time = params[:end_time] unless params[:end_time].nil?
+        type.period = params[:period] unless params[:period].nil?
+        type.max_contributor_count = params[:max_contributor_count] unless params[:max_contributor_count].nil?
         type.metrics = InsightRuleMetricList.build(params[:metrics], context: "#{context}[:metrics]") unless params[:metrics].nil?
-        type.order_by = params[:order_by]
+        type.order_by = params[:order_by] unless params[:order_by].nil?
         type
       end
     end
@@ -729,9 +729,9 @@ module AWS::SDK::CloudWatch
         type = Types::GetInsightRuleReportOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.key_labels = InsightRuleContributorKeyLabels.build(params[:key_labels], context: "#{context}[:key_labels]") unless params[:key_labels].nil?
-        type.aggregation_statistic = params[:aggregation_statistic]
-        type.aggregate_value = params[:aggregate_value]&.to_f
-        type.approximate_unique_count = params[:approximate_unique_count]
+        type.aggregation_statistic = params[:aggregation_statistic] unless params[:aggregation_statistic].nil?
+        type.aggregate_value = params[:aggregate_value]&.to_f unless params[:aggregate_value].nil?
+        type.approximate_unique_count = params[:approximate_unique_count] unless params[:approximate_unique_count].nil?
         type.contributors = InsightRuleContributors.build(params[:contributors], context: "#{context}[:contributors]") unless params[:contributors].nil?
         type.metric_datapoints = InsightRuleMetricDatapoints.build(params[:metric_datapoints], context: "#{context}[:metric_datapoints]") unless params[:metric_datapoints].nil?
         type
@@ -744,11 +744,11 @@ module AWS::SDK::CloudWatch
         type = Types::GetMetricDataInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.metric_data_queries = MetricDataQueries.build(params[:metric_data_queries], context: "#{context}[:metric_data_queries]") unless params[:metric_data_queries].nil?
-        type.start_time = params[:start_time]
-        type.end_time = params[:end_time]
-        type.next_token = params[:next_token]
-        type.scan_by = params[:scan_by]
-        type.max_datapoints = params[:max_datapoints]
+        type.start_time = params[:start_time] unless params[:start_time].nil?
+        type.end_time = params[:end_time] unless params[:end_time].nil?
+        type.next_token = params[:next_token] unless params[:next_token].nil?
+        type.scan_by = params[:scan_by] unless params[:scan_by].nil?
+        type.max_datapoints = params[:max_datapoints] unless params[:max_datapoints].nil?
         type.label_options = LabelOptions.build(params[:label_options], context: "#{context}[:label_options]") unless params[:label_options].nil?
         type
       end
@@ -760,7 +760,7 @@ module AWS::SDK::CloudWatch
         type = Types::GetMetricDataOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.metric_data_results = MetricDataResults.build(params[:metric_data_results], context: "#{context}[:metric_data_results]") unless params[:metric_data_results].nil?
-        type.next_token = params[:next_token]
+        type.next_token = params[:next_token] unless params[:next_token].nil?
         type.messages = MetricDataResultMessages.build(params[:messages], context: "#{context}[:messages]") unless params[:messages].nil?
         type
       end
@@ -771,15 +771,15 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetMetricStatisticsInput, context: context)
         type = Types::GetMetricStatisticsInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.namespace = params[:namespace]
-        type.metric_name = params[:metric_name]
+        type.namespace = params[:namespace] unless params[:namespace].nil?
+        type.metric_name = params[:metric_name] unless params[:metric_name].nil?
         type.dimensions = Dimensions.build(params[:dimensions], context: "#{context}[:dimensions]") unless params[:dimensions].nil?
-        type.start_time = params[:start_time]
-        type.end_time = params[:end_time]
-        type.period = params[:period]
+        type.start_time = params[:start_time] unless params[:start_time].nil?
+        type.end_time = params[:end_time] unless params[:end_time].nil?
+        type.period = params[:period] unless params[:period].nil?
         type.statistics = Statistics.build(params[:statistics], context: "#{context}[:statistics]") unless params[:statistics].nil?
         type.extended_statistics = ExtendedStatistics.build(params[:extended_statistics], context: "#{context}[:extended_statistics]") unless params[:extended_statistics].nil?
-        type.unit = params[:unit]
+        type.unit = params[:unit] unless params[:unit].nil?
         type
       end
     end
@@ -789,7 +789,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetMetricStatisticsOutput, context: context)
         type = Types::GetMetricStatisticsOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.label = params[:label]
+        type.label = params[:label] unless params[:label].nil?
         type.datapoints = Datapoints.build(params[:datapoints], context: "#{context}[:datapoints]") unless params[:datapoints].nil?
         type
       end
@@ -800,7 +800,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetMetricStreamInput, context: context)
         type = Types::GetMetricStreamInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.name = params[:name]
+        type.name = params[:name] unless params[:name].nil?
         type
       end
     end
@@ -810,18 +810,18 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetMetricStreamOutput, context: context)
         type = Types::GetMetricStreamOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.arn = params[:arn]
-        type.name = params[:name]
+        type.arn = params[:arn] unless params[:arn].nil?
+        type.name = params[:name] unless params[:name].nil?
         type.include_filters = MetricStreamFilters.build(params[:include_filters], context: "#{context}[:include_filters]") unless params[:include_filters].nil?
         type.exclude_filters = MetricStreamFilters.build(params[:exclude_filters], context: "#{context}[:exclude_filters]") unless params[:exclude_filters].nil?
-        type.firehose_arn = params[:firehose_arn]
-        type.role_arn = params[:role_arn]
-        type.state = params[:state]
-        type.creation_date = params[:creation_date]
-        type.last_update_date = params[:last_update_date]
-        type.output_format = params[:output_format]
+        type.firehose_arn = params[:firehose_arn] unless params[:firehose_arn].nil?
+        type.role_arn = params[:role_arn] unless params[:role_arn].nil?
+        type.state = params[:state] unless params[:state].nil?
+        type.creation_date = params[:creation_date] unless params[:creation_date].nil?
+        type.last_update_date = params[:last_update_date] unless params[:last_update_date].nil?
+        type.output_format = params[:output_format] unless params[:output_format].nil?
         type.statistics_configurations = MetricStreamStatisticsConfigurations.build(params[:statistics_configurations], context: "#{context}[:statistics_configurations]") unless params[:statistics_configurations].nil?
-        type.include_linked_accounts_metrics = params[:include_linked_accounts_metrics]
+        type.include_linked_accounts_metrics = params[:include_linked_accounts_metrics] unless params[:include_linked_accounts_metrics].nil?
         type
       end
     end
@@ -831,8 +831,8 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetMetricWidgetImageInput, context: context)
         type = Types::GetMetricWidgetImageInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.metric_widget = params[:metric_widget]
-        type.output_format = params[:output_format]
+        type.metric_widget = params[:metric_widget] unless params[:metric_widget].nil?
+        type.output_format = params[:output_format] unless params[:output_format].nil?
         type
       end
     end
@@ -842,7 +842,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetMetricWidgetImageOutput, context: context)
         type = Types::GetMetricWidgetImageOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.metric_widget_image = params[:metric_widget_image]
+        type.metric_widget_image = params[:metric_widget_image] unless params[:metric_widget_image].nil?
         type
       end
     end
@@ -852,11 +852,11 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::InsightRule, context: context)
         type = Types::InsightRule.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.name = params[:name]
-        type.state = params[:state]
-        type.schema = params[:schema]
-        type.definition = params[:definition]
-        type.managed_rule = params[:managed_rule]
+        type.name = params[:name] unless params[:name].nil?
+        type.state = params[:state] unless params[:state].nil?
+        type.schema = params[:schema] unless params[:schema].nil?
+        type.definition = params[:definition] unless params[:definition].nil?
+        type.managed_rule = params[:managed_rule] unless params[:managed_rule].nil?
         type
       end
     end
@@ -867,7 +867,7 @@ module AWS::SDK::CloudWatch
         type = Types::InsightRuleContributor.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.keys = InsightRuleContributorKeys.build(params[:keys], context: "#{context}[:keys]") unless params[:keys].nil?
-        type.approximate_aggregate_value = params[:approximate_aggregate_value]&.to_f
+        type.approximate_aggregate_value = params[:approximate_aggregate_value]&.to_f unless params[:approximate_aggregate_value].nil?
         type.datapoints = InsightRuleContributorDatapoints.build(params[:datapoints], context: "#{context}[:datapoints]") unless params[:datapoints].nil?
         type
       end
@@ -878,8 +878,8 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::InsightRuleContributorDatapoint, context: context)
         type = Types::InsightRuleContributorDatapoint.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.timestamp = params[:timestamp]
-        type.approximate_value = params[:approximate_value]&.to_f
+        type.timestamp = params[:timestamp] unless params[:timestamp].nil?
+        type.approximate_value = params[:approximate_value]&.to_f unless params[:approximate_value].nil?
         type
       end
     end
@@ -900,7 +900,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
-          data << element
+          data << element unless element.nil?
         end
         data
       end
@@ -911,7 +911,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
-          data << element
+          data << element unless element.nil?
         end
         data
       end
@@ -933,14 +933,14 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::InsightRuleMetricDatapoint, context: context)
         type = Types::InsightRuleMetricDatapoint.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.timestamp = params[:timestamp]
-        type.unique_contributors = params[:unique_contributors]&.to_f
-        type.max_contributor_value = params[:max_contributor_value]&.to_f
-        type.sample_count = params[:sample_count]&.to_f
-        type.average = params[:average]&.to_f
-        type.sum = params[:sum]&.to_f
-        type.minimum = params[:minimum]&.to_f
-        type.maximum = params[:maximum]&.to_f
+        type.timestamp = params[:timestamp] unless params[:timestamp].nil?
+        type.unique_contributors = params[:unique_contributors]&.to_f unless params[:unique_contributors].nil?
+        type.max_contributor_value = params[:max_contributor_value]&.to_f unless params[:max_contributor_value].nil?
+        type.sample_count = params[:sample_count]&.to_f unless params[:sample_count].nil?
+        type.average = params[:average]&.to_f unless params[:average].nil?
+        type.sum = params[:sum]&.to_f unless params[:sum].nil?
+        type.minimum = params[:minimum]&.to_f unless params[:minimum].nil?
+        type.maximum = params[:maximum]&.to_f unless params[:maximum].nil?
         type
       end
     end
@@ -961,7 +961,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
-          data << element
+          data << element unless element.nil?
         end
         data
       end
@@ -972,7 +972,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
-          data << element
+          data << element unless element.nil?
         end
         data
       end
@@ -994,7 +994,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::InternalServiceFault, context: context)
         type = Types::InternalServiceFault.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -1004,7 +1004,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::InvalidFormatFault, context: context)
         type = Types::InvalidFormatFault.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -1014,7 +1014,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::InvalidNextToken, context: context)
         type = Types::InvalidNextToken.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -1024,7 +1024,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::InvalidParameterCombinationException, context: context)
         type = Types::InvalidParameterCombinationException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -1034,7 +1034,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::InvalidParameterValueException, context: context)
         type = Types::InvalidParameterValueException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -1044,7 +1044,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::LabelOptions, context: context)
         type = Types::LabelOptions.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.timezone = params[:timezone]
+        type.timezone = params[:timezone] unless params[:timezone].nil?
         type
       end
     end
@@ -1054,7 +1054,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::LimitExceededException, context: context)
         type = Types::LimitExceededException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -1064,7 +1064,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::LimitExceededFault, context: context)
         type = Types::LimitExceededFault.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -1074,8 +1074,8 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListDashboardsInput, context: context)
         type = Types::ListDashboardsInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.dashboard_name_prefix = params[:dashboard_name_prefix]
-        type.next_token = params[:next_token]
+        type.dashboard_name_prefix = params[:dashboard_name_prefix] unless params[:dashboard_name_prefix].nil?
+        type.next_token = params[:next_token] unless params[:next_token].nil?
         type
       end
     end
@@ -1086,7 +1086,7 @@ module AWS::SDK::CloudWatch
         type = Types::ListDashboardsOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.dashboard_entries = DashboardEntries.build(params[:dashboard_entries], context: "#{context}[:dashboard_entries]") unless params[:dashboard_entries].nil?
-        type.next_token = params[:next_token]
+        type.next_token = params[:next_token] unless params[:next_token].nil?
         type
       end
     end
@@ -1096,9 +1096,9 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListManagedInsightRulesInput, context: context)
         type = Types::ListManagedInsightRulesInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.resource_arn = params[:resource_arn]
-        type.next_token = params[:next_token]
-        type.max_results = params[:max_results]
+        type.resource_arn = params[:resource_arn] unless params[:resource_arn].nil?
+        type.next_token = params[:next_token] unless params[:next_token].nil?
+        type.max_results = params[:max_results] unless params[:max_results].nil?
         type
       end
     end
@@ -1109,7 +1109,7 @@ module AWS::SDK::CloudWatch
         type = Types::ListManagedInsightRulesOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.managed_rules = ManagedRuleDescriptions.build(params[:managed_rules], context: "#{context}[:managed_rules]") unless params[:managed_rules].nil?
-        type.next_token = params[:next_token]
+        type.next_token = params[:next_token] unless params[:next_token].nil?
         type
       end
     end
@@ -1119,8 +1119,8 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListMetricStreamsInput, context: context)
         type = Types::ListMetricStreamsInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.next_token = params[:next_token]
-        type.max_results = params[:max_results]
+        type.next_token = params[:next_token] unless params[:next_token].nil?
+        type.max_results = params[:max_results] unless params[:max_results].nil?
         type
       end
     end
@@ -1130,7 +1130,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListMetricStreamsOutput, context: context)
         type = Types::ListMetricStreamsOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.next_token = params[:next_token]
+        type.next_token = params[:next_token] unless params[:next_token].nil?
         type.entries = MetricStreamEntries.build(params[:entries], context: "#{context}[:entries]") unless params[:entries].nil?
         type
       end
@@ -1141,13 +1141,13 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListMetricsInput, context: context)
         type = Types::ListMetricsInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.namespace = params[:namespace]
-        type.metric_name = params[:metric_name]
+        type.namespace = params[:namespace] unless params[:namespace].nil?
+        type.metric_name = params[:metric_name] unless params[:metric_name].nil?
         type.dimensions = DimensionFilters.build(params[:dimensions], context: "#{context}[:dimensions]") unless params[:dimensions].nil?
-        type.next_token = params[:next_token]
-        type.recently_active = params[:recently_active]
-        type.include_linked_accounts = params[:include_linked_accounts]
-        type.owning_account = params[:owning_account]
+        type.next_token = params[:next_token] unless params[:next_token].nil?
+        type.recently_active = params[:recently_active] unless params[:recently_active].nil?
+        type.include_linked_accounts = params[:include_linked_accounts] unless params[:include_linked_accounts].nil?
+        type.owning_account = params[:owning_account] unless params[:owning_account].nil?
         type
       end
     end
@@ -1158,7 +1158,7 @@ module AWS::SDK::CloudWatch
         type = Types::ListMetricsOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.metrics = Metrics.build(params[:metrics], context: "#{context}[:metrics]") unless params[:metrics].nil?
-        type.next_token = params[:next_token]
+        type.next_token = params[:next_token] unless params[:next_token].nil?
         type.owning_accounts = OwningAccounts.build(params[:owning_accounts], context: "#{context}[:owning_accounts]") unless params[:owning_accounts].nil?
         type
       end
@@ -1169,7 +1169,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListTagsForResourceInput, context: context)
         type = Types::ListTagsForResourceInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.resource_arn = params[:resource_arn]
+        type.resource_arn = params[:resource_arn] unless params[:resource_arn].nil?
         type
       end
     end
@@ -1189,8 +1189,8 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::ManagedRule, context: context)
         type = Types::ManagedRule.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.template_name = params[:template_name]
-        type.resource_arn = params[:resource_arn]
+        type.template_name = params[:template_name] unless params[:template_name].nil?
+        type.resource_arn = params[:resource_arn] unless params[:resource_arn].nil?
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end
@@ -1201,8 +1201,8 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::ManagedRuleDescription, context: context)
         type = Types::ManagedRuleDescription.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.template_name = params[:template_name]
-        type.resource_arn = params[:resource_arn]
+        type.template_name = params[:template_name] unless params[:template_name].nil?
+        type.resource_arn = params[:resource_arn] unless params[:resource_arn].nil?
         type.rule_state = ManagedRuleState.build(params[:rule_state], context: "#{context}[:rule_state]") unless params[:rule_state].nil?
         type
       end
@@ -1224,8 +1224,8 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::ManagedRuleState, context: context)
         type = Types::ManagedRuleState.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.rule_name = params[:rule_name]
-        type.state = params[:state]
+        type.rule_name = params[:rule_name] unless params[:rule_name].nil?
+        type.state = params[:state] unless params[:state].nil?
         type
       end
     end
@@ -1246,8 +1246,8 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::MessageData, context: context)
         type = Types::MessageData.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.code = params[:code]
-        type.value = params[:value]
+        type.code = params[:code] unless params[:code].nil?
+        type.value = params[:value] unless params[:value].nil?
         type
       end
     end
@@ -1257,8 +1257,8 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::Metric, context: context)
         type = Types::Metric.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.namespace = params[:namespace]
-        type.metric_name = params[:metric_name]
+        type.namespace = params[:namespace] unless params[:namespace].nil?
+        type.metric_name = params[:metric_name] unless params[:metric_name].nil?
         type.dimensions = Dimensions.build(params[:dimensions], context: "#{context}[:dimensions]") unless params[:dimensions].nil?
         type
       end
@@ -1269,35 +1269,35 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::MetricAlarm, context: context)
         type = Types::MetricAlarm.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.alarm_name = params[:alarm_name]
-        type.alarm_arn = params[:alarm_arn]
-        type.alarm_description = params[:alarm_description]
-        type.alarm_configuration_updated_timestamp = params[:alarm_configuration_updated_timestamp]
-        type.actions_enabled = params[:actions_enabled]
+        type.alarm_name = params[:alarm_name] unless params[:alarm_name].nil?
+        type.alarm_arn = params[:alarm_arn] unless params[:alarm_arn].nil?
+        type.alarm_description = params[:alarm_description] unless params[:alarm_description].nil?
+        type.alarm_configuration_updated_timestamp = params[:alarm_configuration_updated_timestamp] unless params[:alarm_configuration_updated_timestamp].nil?
+        type.actions_enabled = params[:actions_enabled] unless params[:actions_enabled].nil?
         type.ok_actions = ResourceList.build(params[:ok_actions], context: "#{context}[:ok_actions]") unless params[:ok_actions].nil?
         type.alarm_actions = ResourceList.build(params[:alarm_actions], context: "#{context}[:alarm_actions]") unless params[:alarm_actions].nil?
         type.insufficient_data_actions = ResourceList.build(params[:insufficient_data_actions], context: "#{context}[:insufficient_data_actions]") unless params[:insufficient_data_actions].nil?
-        type.state_value = params[:state_value]
-        type.state_reason = params[:state_reason]
-        type.state_reason_data = params[:state_reason_data]
-        type.state_updated_timestamp = params[:state_updated_timestamp]
-        type.metric_name = params[:metric_name]
-        type.namespace = params[:namespace]
-        type.statistic = params[:statistic]
-        type.extended_statistic = params[:extended_statistic]
+        type.state_value = params[:state_value] unless params[:state_value].nil?
+        type.state_reason = params[:state_reason] unless params[:state_reason].nil?
+        type.state_reason_data = params[:state_reason_data] unless params[:state_reason_data].nil?
+        type.state_updated_timestamp = params[:state_updated_timestamp] unless params[:state_updated_timestamp].nil?
+        type.metric_name = params[:metric_name] unless params[:metric_name].nil?
+        type.namespace = params[:namespace] unless params[:namespace].nil?
+        type.statistic = params[:statistic] unless params[:statistic].nil?
+        type.extended_statistic = params[:extended_statistic] unless params[:extended_statistic].nil?
         type.dimensions = Dimensions.build(params[:dimensions], context: "#{context}[:dimensions]") unless params[:dimensions].nil?
-        type.period = params[:period]
-        type.unit = params[:unit]
-        type.evaluation_periods = params[:evaluation_periods]
-        type.datapoints_to_alarm = params[:datapoints_to_alarm]
-        type.threshold = params[:threshold]&.to_f
-        type.comparison_operator = params[:comparison_operator]
-        type.treat_missing_data = params[:treat_missing_data]
-        type.evaluate_low_sample_count_percentile = params[:evaluate_low_sample_count_percentile]
+        type.period = params[:period] unless params[:period].nil?
+        type.unit = params[:unit] unless params[:unit].nil?
+        type.evaluation_periods = params[:evaluation_periods] unless params[:evaluation_periods].nil?
+        type.datapoints_to_alarm = params[:datapoints_to_alarm] unless params[:datapoints_to_alarm].nil?
+        type.threshold = params[:threshold]&.to_f unless params[:threshold].nil?
+        type.comparison_operator = params[:comparison_operator] unless params[:comparison_operator].nil?
+        type.treat_missing_data = params[:treat_missing_data] unless params[:treat_missing_data].nil?
+        type.evaluate_low_sample_count_percentile = params[:evaluate_low_sample_count_percentile] unless params[:evaluate_low_sample_count_percentile].nil?
         type.metrics = MetricDataQueries.build(params[:metrics], context: "#{context}[:metrics]") unless params[:metrics].nil?
-        type.threshold_metric_id = params[:threshold_metric_id]
-        type.evaluation_state = params[:evaluation_state]
-        type.state_transitioned_timestamp = params[:state_transitioned_timestamp]
+        type.threshold_metric_id = params[:threshold_metric_id] unless params[:threshold_metric_id].nil?
+        type.evaluation_state = params[:evaluation_state] unless params[:evaluation_state].nil?
+        type.state_transitioned_timestamp = params[:state_transitioned_timestamp] unless params[:state_transitioned_timestamp].nil?
         type
       end
     end
@@ -1340,13 +1340,13 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::MetricDataQuery, context: context)
         type = Types::MetricDataQuery.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.id = params[:id]
+        type.id = params[:id] unless params[:id].nil?
         type.metric_stat = MetricStat.build(params[:metric_stat], context: "#{context}[:metric_stat]") unless params[:metric_stat].nil?
-        type.expression = params[:expression]
-        type.label = params[:label]
-        type.return_data = params[:return_data]
-        type.period = params[:period]
-        type.account_id = params[:account_id]
+        type.expression = params[:expression] unless params[:expression].nil?
+        type.label = params[:label] unless params[:label].nil?
+        type.return_data = params[:return_data] unless params[:return_data].nil?
+        type.period = params[:period] unless params[:period].nil?
+        type.account_id = params[:account_id] unless params[:account_id].nil?
         type
       end
     end
@@ -1356,11 +1356,11 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::MetricDataResult, context: context)
         type = Types::MetricDataResult.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.id = params[:id]
-        type.label = params[:label]
+        type.id = params[:id] unless params[:id].nil?
+        type.label = params[:label] unless params[:label].nil?
         type.timestamps = Timestamps.build(params[:timestamps], context: "#{context}[:timestamps]") unless params[:timestamps].nil?
         type.values = DatapointValues.build(params[:values], context: "#{context}[:values]") unless params[:values].nil?
-        type.status_code = params[:status_code]
+        type.status_code = params[:status_code] unless params[:status_code].nil?
         type.messages = MetricDataResultMessages.build(params[:messages], context: "#{context}[:messages]") unless params[:messages].nil?
         type
       end
@@ -1393,15 +1393,15 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::MetricDatum, context: context)
         type = Types::MetricDatum.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.metric_name = params[:metric_name]
+        type.metric_name = params[:metric_name] unless params[:metric_name].nil?
         type.dimensions = Dimensions.build(params[:dimensions], context: "#{context}[:dimensions]") unless params[:dimensions].nil?
-        type.timestamp = params[:timestamp]
-        type.value = params[:value]&.to_f
+        type.timestamp = params[:timestamp] unless params[:timestamp].nil?
+        type.value = params[:value]&.to_f unless params[:value].nil?
         type.statistic_values = StatisticSet.build(params[:statistic_values], context: "#{context}[:statistic_values]") unless params[:statistic_values].nil?
         type.values = Values.build(params[:values], context: "#{context}[:values]") unless params[:values].nil?
         type.counts = Counts.build(params[:counts], context: "#{context}[:counts]") unless params[:counts].nil?
-        type.unit = params[:unit]
-        type.storage_resolution = params[:storage_resolution]
+        type.unit = params[:unit] unless params[:unit].nil?
+        type.storage_resolution = params[:storage_resolution] unless params[:storage_resolution].nil?
         type
       end
     end
@@ -1422,9 +1422,9 @@ module AWS::SDK::CloudWatch
         type = Types::MetricStat.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.metric = Metric.build(params[:metric], context: "#{context}[:metric]") unless params[:metric].nil?
-        type.period = params[:period]
-        type.stat = params[:stat]
-        type.unit = params[:unit]
+        type.period = params[:period] unless params[:period].nil?
+        type.stat = params[:stat] unless params[:stat].nil?
+        type.unit = params[:unit] unless params[:unit].nil?
         type
       end
     end
@@ -1445,13 +1445,13 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::MetricStreamEntry, context: context)
         type = Types::MetricStreamEntry.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.arn = params[:arn]
-        type.creation_date = params[:creation_date]
-        type.last_update_date = params[:last_update_date]
-        type.name = params[:name]
-        type.firehose_arn = params[:firehose_arn]
-        type.state = params[:state]
-        type.output_format = params[:output_format]
+        type.arn = params[:arn] unless params[:arn].nil?
+        type.creation_date = params[:creation_date] unless params[:creation_date].nil?
+        type.last_update_date = params[:last_update_date] unless params[:last_update_date].nil?
+        type.name = params[:name] unless params[:name].nil?
+        type.firehose_arn = params[:firehose_arn] unless params[:firehose_arn].nil?
+        type.state = params[:state] unless params[:state].nil?
+        type.output_format = params[:output_format] unless params[:output_format].nil?
         type
       end
     end
@@ -1461,7 +1461,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::MetricStreamFilter, context: context)
         type = Types::MetricStreamFilter.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.namespace = params[:namespace]
+        type.namespace = params[:namespace] unless params[:namespace].nil?
         type.metric_names = MetricStreamFilterMetricNames.build(params[:metric_names], context: "#{context}[:metric_names]") unless params[:metric_names].nil?
         type
       end
@@ -1472,7 +1472,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
-          data << element
+          data << element unless element.nil?
         end
         data
       end
@@ -1494,7 +1494,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
-          data << element
+          data << element unless element.nil?
         end
         data
       end
@@ -1505,7 +1505,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
-          data << element
+          data << element unless element.nil?
         end
         data
       end
@@ -1549,8 +1549,8 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::MetricStreamStatisticsMetric, context: context)
         type = Types::MetricStreamStatisticsMetric.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.namespace = params[:namespace]
-        type.metric_name = params[:metric_name]
+        type.namespace = params[:namespace] unless params[:namespace].nil?
+        type.metric_name = params[:metric_name] unless params[:metric_name].nil?
         type
       end
     end
@@ -1571,7 +1571,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::MissingRequiredParameterException, context: context)
         type = Types::MissingRequiredParameterException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -1581,7 +1581,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
-          data << element
+          data << element unless element.nil?
         end
         data
       end
@@ -1592,10 +1592,10 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::PartialFailure, context: context)
         type = Types::PartialFailure.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.failure_resource = params[:failure_resource]
-        type.exception_type = params[:exception_type]
-        type.failure_code = params[:failure_code]
-        type.failure_description = params[:failure_description]
+        type.failure_resource = params[:failure_resource] unless params[:failure_resource].nil?
+        type.exception_type = params[:exception_type] unless params[:exception_type].nil?
+        type.failure_code = params[:failure_code] unless params[:failure_code].nil?
+        type.failure_description = params[:failure_description] unless params[:failure_description].nil?
         type
       end
     end
@@ -1605,10 +1605,10 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutAnomalyDetectorInput, context: context)
         type = Types::PutAnomalyDetectorInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.namespace = params[:namespace]
-        type.metric_name = params[:metric_name]
+        type.namespace = params[:namespace] unless params[:namespace].nil?
+        type.metric_name = params[:metric_name] unless params[:metric_name].nil?
         type.dimensions = Dimensions.build(params[:dimensions], context: "#{context}[:dimensions]") unless params[:dimensions].nil?
-        type.stat = params[:stat]
+        type.stat = params[:stat] unless params[:stat].nil?
         type.configuration = AnomalyDetectorConfiguration.build(params[:configuration], context: "#{context}[:configuration]") unless params[:configuration].nil?
         type.single_metric_anomaly_detector = SingleMetricAnomalyDetector.build(params[:single_metric_anomaly_detector], context: "#{context}[:single_metric_anomaly_detector]") unless params[:single_metric_anomaly_detector].nil?
         type.metric_math_anomaly_detector = MetricMathAnomalyDetector.build(params[:metric_math_anomaly_detector], context: "#{context}[:metric_math_anomaly_detector]") unless params[:metric_math_anomaly_detector].nil?
@@ -1630,17 +1630,17 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutCompositeAlarmInput, context: context)
         type = Types::PutCompositeAlarmInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.actions_enabled = params[:actions_enabled]
+        type.actions_enabled = params[:actions_enabled] unless params[:actions_enabled].nil?
         type.alarm_actions = ResourceList.build(params[:alarm_actions], context: "#{context}[:alarm_actions]") unless params[:alarm_actions].nil?
-        type.alarm_description = params[:alarm_description]
-        type.alarm_name = params[:alarm_name]
-        type.alarm_rule = params[:alarm_rule]
+        type.alarm_description = params[:alarm_description] unless params[:alarm_description].nil?
+        type.alarm_name = params[:alarm_name] unless params[:alarm_name].nil?
+        type.alarm_rule = params[:alarm_rule] unless params[:alarm_rule].nil?
         type.insufficient_data_actions = ResourceList.build(params[:insufficient_data_actions], context: "#{context}[:insufficient_data_actions]") unless params[:insufficient_data_actions].nil?
         type.ok_actions = ResourceList.build(params[:ok_actions], context: "#{context}[:ok_actions]") unless params[:ok_actions].nil?
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.actions_suppressor = params[:actions_suppressor]
-        type.actions_suppressor_wait_period = params[:actions_suppressor_wait_period]
-        type.actions_suppressor_extension_period = params[:actions_suppressor_extension_period]
+        type.actions_suppressor = params[:actions_suppressor] unless params[:actions_suppressor].nil?
+        type.actions_suppressor_wait_period = params[:actions_suppressor_wait_period] unless params[:actions_suppressor_wait_period].nil?
+        type.actions_suppressor_extension_period = params[:actions_suppressor_extension_period] unless params[:actions_suppressor_extension_period].nil?
         type
       end
     end
@@ -1659,8 +1659,8 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutDashboardInput, context: context)
         type = Types::PutDashboardInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.dashboard_name = params[:dashboard_name]
-        type.dashboard_body = params[:dashboard_body]
+        type.dashboard_name = params[:dashboard_name] unless params[:dashboard_name].nil?
+        type.dashboard_body = params[:dashboard_body] unless params[:dashboard_body].nil?
         type
       end
     end
@@ -1680,9 +1680,9 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutInsightRuleInput, context: context)
         type = Types::PutInsightRuleInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.rule_name = params[:rule_name]
-        type.rule_state = params[:rule_state]
-        type.rule_definition = params[:rule_definition]
+        type.rule_name = params[:rule_name] unless params[:rule_name].nil?
+        type.rule_state = params[:rule_state] unless params[:rule_state].nil?
+        type.rule_definition = params[:rule_definition] unless params[:rule_definition].nil?
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end
@@ -1722,28 +1722,28 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutMetricAlarmInput, context: context)
         type = Types::PutMetricAlarmInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.alarm_name = params[:alarm_name]
-        type.alarm_description = params[:alarm_description]
-        type.actions_enabled = params[:actions_enabled]
+        type.alarm_name = params[:alarm_name] unless params[:alarm_name].nil?
+        type.alarm_description = params[:alarm_description] unless params[:alarm_description].nil?
+        type.actions_enabled = params[:actions_enabled] unless params[:actions_enabled].nil?
         type.ok_actions = ResourceList.build(params[:ok_actions], context: "#{context}[:ok_actions]") unless params[:ok_actions].nil?
         type.alarm_actions = ResourceList.build(params[:alarm_actions], context: "#{context}[:alarm_actions]") unless params[:alarm_actions].nil?
         type.insufficient_data_actions = ResourceList.build(params[:insufficient_data_actions], context: "#{context}[:insufficient_data_actions]") unless params[:insufficient_data_actions].nil?
-        type.metric_name = params[:metric_name]
-        type.namespace = params[:namespace]
-        type.statistic = params[:statistic]
-        type.extended_statistic = params[:extended_statistic]
+        type.metric_name = params[:metric_name] unless params[:metric_name].nil?
+        type.namespace = params[:namespace] unless params[:namespace].nil?
+        type.statistic = params[:statistic] unless params[:statistic].nil?
+        type.extended_statistic = params[:extended_statistic] unless params[:extended_statistic].nil?
         type.dimensions = Dimensions.build(params[:dimensions], context: "#{context}[:dimensions]") unless params[:dimensions].nil?
-        type.period = params[:period]
-        type.unit = params[:unit]
-        type.evaluation_periods = params[:evaluation_periods]
-        type.datapoints_to_alarm = params[:datapoints_to_alarm]
-        type.threshold = params[:threshold]&.to_f
-        type.comparison_operator = params[:comparison_operator]
-        type.treat_missing_data = params[:treat_missing_data]
-        type.evaluate_low_sample_count_percentile = params[:evaluate_low_sample_count_percentile]
+        type.period = params[:period] unless params[:period].nil?
+        type.unit = params[:unit] unless params[:unit].nil?
+        type.evaluation_periods = params[:evaluation_periods] unless params[:evaluation_periods].nil?
+        type.datapoints_to_alarm = params[:datapoints_to_alarm] unless params[:datapoints_to_alarm].nil?
+        type.threshold = params[:threshold]&.to_f unless params[:threshold].nil?
+        type.comparison_operator = params[:comparison_operator] unless params[:comparison_operator].nil?
+        type.treat_missing_data = params[:treat_missing_data] unless params[:treat_missing_data].nil?
+        type.evaluate_low_sample_count_percentile = params[:evaluate_low_sample_count_percentile] unless params[:evaluate_low_sample_count_percentile].nil?
         type.metrics = MetricDataQueries.build(params[:metrics], context: "#{context}[:metrics]") unless params[:metrics].nil?
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.threshold_metric_id = params[:threshold_metric_id]
+        type.threshold_metric_id = params[:threshold_metric_id] unless params[:threshold_metric_id].nil?
         type
       end
     end
@@ -1762,7 +1762,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutMetricDataInput, context: context)
         type = Types::PutMetricDataInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.namespace = params[:namespace]
+        type.namespace = params[:namespace] unless params[:namespace].nil?
         type.metric_data = MetricData.build(params[:metric_data], context: "#{context}[:metric_data]") unless params[:metric_data].nil?
         type
       end
@@ -1782,15 +1782,15 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutMetricStreamInput, context: context)
         type = Types::PutMetricStreamInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.name = params[:name]
+        type.name = params[:name] unless params[:name].nil?
         type.include_filters = MetricStreamFilters.build(params[:include_filters], context: "#{context}[:include_filters]") unless params[:include_filters].nil?
         type.exclude_filters = MetricStreamFilters.build(params[:exclude_filters], context: "#{context}[:exclude_filters]") unless params[:exclude_filters].nil?
-        type.firehose_arn = params[:firehose_arn]
-        type.role_arn = params[:role_arn]
-        type.output_format = params[:output_format]
+        type.firehose_arn = params[:firehose_arn] unless params[:firehose_arn].nil?
+        type.role_arn = params[:role_arn] unless params[:role_arn].nil?
+        type.output_format = params[:output_format] unless params[:output_format].nil?
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type.statistics_configurations = MetricStreamStatisticsConfigurations.build(params[:statistics_configurations], context: "#{context}[:statistics_configurations]") unless params[:statistics_configurations].nil?
-        type.include_linked_accounts_metrics = params[:include_linked_accounts_metrics]
+        type.include_linked_accounts_metrics = params[:include_linked_accounts_metrics] unless params[:include_linked_accounts_metrics].nil?
         type
       end
     end
@@ -1800,7 +1800,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutMetricStreamOutput, context: context)
         type = Types::PutMetricStreamOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.arn = params[:arn]
+        type.arn = params[:arn] unless params[:arn].nil?
         type
       end
     end
@@ -1810,8 +1810,8 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::Range, context: context)
         type = Types::Range.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.start_time = params[:start_time]
-        type.end_time = params[:end_time]
+        type.start_time = params[:start_time] unless params[:start_time].nil?
+        type.end_time = params[:end_time] unless params[:end_time].nil?
         type
       end
     end
@@ -1821,7 +1821,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
-          data << element
+          data << element unless element.nil?
         end
         data
       end
@@ -1832,7 +1832,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::ResourceNotFound, context: context)
         type = Types::ResourceNotFound.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -1842,9 +1842,9 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::ResourceNotFoundException, context: context)
         type = Types::ResourceNotFoundException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.resource_type = params[:resource_type]
-        type.resource_id = params[:resource_id]
-        type.message = params[:message]
+        type.resource_type = params[:resource_type] unless params[:resource_type].nil?
+        type.resource_id = params[:resource_id] unless params[:resource_id].nil?
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -1854,10 +1854,10 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::SetAlarmStateInput, context: context)
         type = Types::SetAlarmStateInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.alarm_name = params[:alarm_name]
-        type.state_value = params[:state_value]
-        type.state_reason = params[:state_reason]
-        type.state_reason_data = params[:state_reason_data]
+        type.alarm_name = params[:alarm_name] unless params[:alarm_name].nil?
+        type.state_value = params[:state_value] unless params[:state_value].nil?
+        type.state_reason = params[:state_reason] unless params[:state_reason].nil?
+        type.state_reason_data = params[:state_reason_data] unless params[:state_reason_data].nil?
         type
       end
     end
@@ -1876,10 +1876,10 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::SingleMetricAnomalyDetector, context: context)
         type = Types::SingleMetricAnomalyDetector.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.namespace = params[:namespace]
-        type.metric_name = params[:metric_name]
+        type.namespace = params[:namespace] unless params[:namespace].nil?
+        type.metric_name = params[:metric_name] unless params[:metric_name].nil?
         type.dimensions = Dimensions.build(params[:dimensions], context: "#{context}[:dimensions]") unless params[:dimensions].nil?
-        type.stat = params[:stat]
+        type.stat = params[:stat] unless params[:stat].nil?
         type
       end
     end
@@ -1908,10 +1908,10 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::StatisticSet, context: context)
         type = Types::StatisticSet.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.sample_count = params[:sample_count]&.to_f
-        type.sum = params[:sum]&.to_f
-        type.minimum = params[:minimum]&.to_f
-        type.maximum = params[:maximum]&.to_f
+        type.sample_count = params[:sample_count]&.to_f unless params[:sample_count].nil?
+        type.sum = params[:sum]&.to_f unless params[:sum].nil?
+        type.minimum = params[:minimum]&.to_f unless params[:minimum].nil?
+        type.maximum = params[:maximum]&.to_f unless params[:maximum].nil?
         type
       end
     end
@@ -1921,7 +1921,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
-          data << element
+          data << element unless element.nil?
         end
         data
       end
@@ -1951,8 +1951,8 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::Tag, context: context)
         type = Types::Tag.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.key = params[:key]
-        type.value = params[:value]
+        type.key = params[:key] unless params[:key].nil?
+        type.value = params[:value] unless params[:value].nil?
         type
       end
     end
@@ -1962,7 +1962,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
-          data << element
+          data << element unless element.nil?
         end
         data
       end
@@ -1984,7 +1984,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::TagResourceInput, context: context)
         type = Types::TagResourceInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.resource_arn = params[:resource_arn]
+        type.resource_arn = params[:resource_arn] unless params[:resource_arn].nil?
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end
@@ -2004,7 +2004,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
-          data << element
+          data << element unless element.nil?
         end
         data
       end
@@ -2015,7 +2015,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Hash, Types::UntagResourceInput, context: context)
         type = Types::UntagResourceInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.resource_arn = params[:resource_arn]
+        type.resource_arn = params[:resource_arn] unless params[:resource_arn].nil?
         type.tag_keys = TagKeyList.build(params[:tag_keys], context: "#{context}[:tag_keys]") unless params[:tag_keys].nil?
         type
       end
@@ -2035,7 +2035,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
-          data << element&.to_f
+          data << element&.to_f unless element.nil?
         end
         data
       end

@@ -8009,6 +8009,14 @@ module AWS::SDK::S3
           "object_lock_retain_until_date=#{object_lock_retain_until_date || 'nil'}, "\
           "object_lock_legal_hold_status=#{object_lock_legal_hold_status || 'nil'}>"
       end
+
+      private
+
+      def _defaults
+        {
+          body: ""
+        }
+      end
     end
 
     # @!method initialize(params = {})
@@ -8191,6 +8199,14 @@ module AWS::SDK::S3
       keyword_init: true
     ) do
       include Hearth::Structure
+
+      private
+
+      def _defaults
+        {
+          body: ""
+        }
+      end
     end
 
     # @!method initialize(params = {})

@@ -18,7 +18,7 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::AccessDeniedException, context: context)
         type = Types::AccessDeniedException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -39,9 +39,9 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::AccessTokenSummary, context: context)
         type = Types::AccessTokenSummary.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.id = params[:id]
-        type.name = params[:name]
-        type.expires_time = params[:expires_time]
+        type.id = params[:id] unless params[:id].nil?
+        type.name = params[:name] unless params[:name].nil?
+        type.expires_time = params[:expires_time] unless params[:expires_time].nil?
         type
       end
     end
@@ -51,7 +51,7 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::ConflictException, context: context)
         type = Types::ConflictException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -61,8 +61,8 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateAccessTokenInput, context: context)
         type = Types::CreateAccessTokenInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.name = params[:name]
-        type.expires_time = params[:expires_time]
+        type.name = params[:name] unless params[:name].nil?
+        type.expires_time = params[:expires_time] unless params[:expires_time].nil?
         type
       end
     end
@@ -72,10 +72,10 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateAccessTokenOutput, context: context)
         type = Types::CreateAccessTokenOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.secret = params[:secret]
-        type.name = params[:name]
-        type.expires_time = params[:expires_time]
-        type.access_token_id = params[:access_token_id]
+        type.secret = params[:secret] unless params[:secret].nil?
+        type.name = params[:name] unless params[:name].nil?
+        type.expires_time = params[:expires_time] unless params[:expires_time].nil?
+        type.access_token_id = params[:access_token_id] unless params[:access_token_id].nil?
         type
       end
     end
@@ -85,16 +85,16 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateDevEnvironmentInput, context: context)
         type = Types::CreateDevEnvironmentInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.space_name = params[:space_name]
-        type.project_name = params[:project_name]
+        type.space_name = params[:space_name] unless params[:space_name].nil?
+        type.project_name = params[:project_name] unless params[:project_name].nil?
         type.repositories = RepositoriesInput.build(params[:repositories], context: "#{context}[:repositories]") unless params[:repositories].nil?
-        type.client_token = params[:client_token]
-        type.alias = params[:alias]
+        type.client_token = params[:client_token] unless params[:client_token].nil?
+        type.alias = params[:alias] unless params[:alias].nil?
         type.ides = IdeConfigurationList.build(params[:ides], context: "#{context}[:ides]") unless params[:ides].nil?
-        type.instance_type = params[:instance_type]
-        type.inactivity_timeout_minutes = params[:inactivity_timeout_minutes]
+        type.instance_type = params[:instance_type] unless params[:instance_type].nil?
+        type.inactivity_timeout_minutes = params[:inactivity_timeout_minutes] unless params[:inactivity_timeout_minutes].nil?
         type.persistent_storage = PersistentStorageConfiguration.build(params[:persistent_storage], context: "#{context}[:persistent_storage]") unless params[:persistent_storage].nil?
-        type.vpc_connection_name = params[:vpc_connection_name]
+        type.vpc_connection_name = params[:vpc_connection_name] unless params[:vpc_connection_name].nil?
         type
       end
     end
@@ -104,10 +104,10 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateDevEnvironmentOutput, context: context)
         type = Types::CreateDevEnvironmentOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.space_name = params[:space_name]
-        type.project_name = params[:project_name]
-        type.id = params[:id]
-        type.vpc_connection_name = params[:vpc_connection_name]
+        type.space_name = params[:space_name] unless params[:space_name].nil?
+        type.project_name = params[:project_name] unless params[:project_name].nil?
+        type.id = params[:id] unless params[:id].nil?
+        type.vpc_connection_name = params[:vpc_connection_name] unless params[:vpc_connection_name].nil?
         type
       end
     end
@@ -117,9 +117,9 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateProjectInput, context: context)
         type = Types::CreateProjectInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.space_name = params[:space_name]
-        type.display_name = params[:display_name]
-        type.description = params[:description]
+        type.space_name = params[:space_name] unless params[:space_name].nil?
+        type.display_name = params[:display_name] unless params[:display_name].nil?
+        type.description = params[:description] unless params[:description].nil?
         type
       end
     end
@@ -129,10 +129,10 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateProjectOutput, context: context)
         type = Types::CreateProjectOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.space_name = params[:space_name]
-        type.name = params[:name]
-        type.display_name = params[:display_name]
-        type.description = params[:description]
+        type.space_name = params[:space_name] unless params[:space_name].nil?
+        type.name = params[:name] unless params[:name].nil?
+        type.display_name = params[:display_name] unless params[:display_name].nil?
+        type.description = params[:description] unless params[:description].nil?
         type
       end
     end
@@ -142,11 +142,11 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateSourceRepositoryBranchInput, context: context)
         type = Types::CreateSourceRepositoryBranchInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.space_name = params[:space_name]
-        type.project_name = params[:project_name]
-        type.source_repository_name = params[:source_repository_name]
-        type.name = params[:name]
-        type.head_commit_id = params[:head_commit_id]
+        type.space_name = params[:space_name] unless params[:space_name].nil?
+        type.project_name = params[:project_name] unless params[:project_name].nil?
+        type.source_repository_name = params[:source_repository_name] unless params[:source_repository_name].nil?
+        type.name = params[:name] unless params[:name].nil?
+        type.head_commit_id = params[:head_commit_id] unless params[:head_commit_id].nil?
         type
       end
     end
@@ -156,10 +156,10 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateSourceRepositoryBranchOutput, context: context)
         type = Types::CreateSourceRepositoryBranchOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.ref = params[:ref]
-        type.name = params[:name]
-        type.last_updated_time = params[:last_updated_time]
-        type.head_commit_id = params[:head_commit_id]
+        type.ref = params[:ref] unless params[:ref].nil?
+        type.name = params[:name] unless params[:name].nil?
+        type.last_updated_time = params[:last_updated_time] unless params[:last_updated_time].nil?
+        type.head_commit_id = params[:head_commit_id] unless params[:head_commit_id].nil?
         type
       end
     end
@@ -169,10 +169,10 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateSourceRepositoryInput, context: context)
         type = Types::CreateSourceRepositoryInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.space_name = params[:space_name]
-        type.project_name = params[:project_name]
-        type.name = params[:name]
-        type.description = params[:description]
+        type.space_name = params[:space_name] unless params[:space_name].nil?
+        type.project_name = params[:project_name] unless params[:project_name].nil?
+        type.name = params[:name] unless params[:name].nil?
+        type.description = params[:description] unless params[:description].nil?
         type
       end
     end
@@ -182,10 +182,10 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateSourceRepositoryOutput, context: context)
         type = Types::CreateSourceRepositoryOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.space_name = params[:space_name]
-        type.project_name = params[:project_name]
-        type.name = params[:name]
-        type.description = params[:description]
+        type.space_name = params[:space_name] unless params[:space_name].nil?
+        type.project_name = params[:project_name] unless params[:project_name].nil?
+        type.name = params[:name] unless params[:name].nil?
+        type.description = params[:description] unless params[:description].nil?
         type
       end
     end
@@ -195,7 +195,7 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteAccessTokenInput, context: context)
         type = Types::DeleteAccessTokenInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.id = params[:id]
+        type.id = params[:id] unless params[:id].nil?
         type
       end
     end
@@ -214,9 +214,9 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteDevEnvironmentInput, context: context)
         type = Types::DeleteDevEnvironmentInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.space_name = params[:space_name]
-        type.project_name = params[:project_name]
-        type.id = params[:id]
+        type.space_name = params[:space_name] unless params[:space_name].nil?
+        type.project_name = params[:project_name] unless params[:project_name].nil?
+        type.id = params[:id] unless params[:id].nil?
         type
       end
     end
@@ -226,9 +226,9 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteDevEnvironmentOutput, context: context)
         type = Types::DeleteDevEnvironmentOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.space_name = params[:space_name]
-        type.project_name = params[:project_name]
-        type.id = params[:id]
+        type.space_name = params[:space_name] unless params[:space_name].nil?
+        type.project_name = params[:project_name] unless params[:project_name].nil?
+        type.id = params[:id] unless params[:id].nil?
         type
       end
     end
@@ -238,8 +238,8 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteProjectInput, context: context)
         type = Types::DeleteProjectInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.space_name = params[:space_name]
-        type.name = params[:name]
+        type.space_name = params[:space_name] unless params[:space_name].nil?
+        type.name = params[:name] unless params[:name].nil?
         type
       end
     end
@@ -249,9 +249,9 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteProjectOutput, context: context)
         type = Types::DeleteProjectOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.space_name = params[:space_name]
-        type.name = params[:name]
-        type.display_name = params[:display_name]
+        type.space_name = params[:space_name] unless params[:space_name].nil?
+        type.name = params[:name] unless params[:name].nil?
+        type.display_name = params[:display_name] unless params[:display_name].nil?
         type
       end
     end
@@ -261,9 +261,9 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteSourceRepositoryInput, context: context)
         type = Types::DeleteSourceRepositoryInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.space_name = params[:space_name]
-        type.project_name = params[:project_name]
-        type.name = params[:name]
+        type.space_name = params[:space_name] unless params[:space_name].nil?
+        type.project_name = params[:project_name] unless params[:project_name].nil?
+        type.name = params[:name] unless params[:name].nil?
         type
       end
     end
@@ -273,9 +273,9 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteSourceRepositoryOutput, context: context)
         type = Types::DeleteSourceRepositoryOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.space_name = params[:space_name]
-        type.project_name = params[:project_name]
-        type.name = params[:name]
+        type.space_name = params[:space_name] unless params[:space_name].nil?
+        type.project_name = params[:project_name] unless params[:project_name].nil?
+        type.name = params[:name] unless params[:name].nil?
         type
       end
     end
@@ -285,7 +285,7 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteSpaceInput, context: context)
         type = Types::DeleteSpaceInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.name = params[:name]
+        type.name = params[:name] unless params[:name].nil?
         type
       end
     end
@@ -295,8 +295,8 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteSpaceOutput, context: context)
         type = Types::DeleteSpaceOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.name = params[:name]
-        type.display_name = params[:display_name]
+        type.name = params[:name] unless params[:name].nil?
+        type.display_name = params[:display_name] unless params[:display_name].nil?
         type
       end
     end
@@ -306,8 +306,8 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::DevEnvironmentAccessDetails, context: context)
         type = Types::DevEnvironmentAccessDetails.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.stream_url = params[:stream_url]
-        type.token_value = params[:token_value]
+        type.stream_url = params[:stream_url] unless params[:stream_url].nil?
+        type.token_value = params[:token_value] unless params[:token_value].nil?
         type
       end
     end
@@ -328,8 +328,8 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::DevEnvironmentRepositorySummary, context: context)
         type = Types::DevEnvironmentRepositorySummary.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.repository_name = params[:repository_name]
-        type.branch_name = params[:branch_name]
+        type.repository_name = params[:repository_name] unless params[:repository_name].nil?
+        type.branch_name = params[:branch_name] unless params[:branch_name].nil?
         type
       end
     end
@@ -339,7 +339,7 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::DevEnvironmentSessionConfiguration, context: context)
         type = Types::DevEnvironmentSessionConfiguration.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.session_type = params[:session_type]
+        type.session_type = params[:session_type] unless params[:session_type].nil?
         type.execute_command_session_configuration = ExecuteCommandSessionConfiguration.build(params[:execute_command_session_configuration], context: "#{context}[:execute_command_session_configuration]") unless params[:execute_command_session_configuration].nil?
         type
       end
@@ -350,11 +350,11 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::DevEnvironmentSessionSummary, context: context)
         type = Types::DevEnvironmentSessionSummary.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.space_name = params[:space_name]
-        type.project_name = params[:project_name]
-        type.dev_environment_id = params[:dev_environment_id]
-        type.started_time = params[:started_time]
-        type.id = params[:id]
+        type.space_name = params[:space_name] unless params[:space_name].nil?
+        type.project_name = params[:project_name] unless params[:project_name].nil?
+        type.dev_environment_id = params[:dev_environment_id] unless params[:dev_environment_id].nil?
+        type.started_time = params[:started_time] unless params[:started_time].nil?
+        type.id = params[:id] unless params[:id].nil?
         type
       end
     end
@@ -375,20 +375,20 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::DevEnvironmentSummary, context: context)
         type = Types::DevEnvironmentSummary.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.space_name = params[:space_name]
-        type.project_name = params[:project_name]
-        type.id = params[:id]
-        type.last_updated_time = params[:last_updated_time]
-        type.creator_id = params[:creator_id]
-        type.status = params[:status]
-        type.status_reason = params[:status_reason]
+        type.space_name = params[:space_name] unless params[:space_name].nil?
+        type.project_name = params[:project_name] unless params[:project_name].nil?
+        type.id = params[:id] unless params[:id].nil?
+        type.last_updated_time = params[:last_updated_time] unless params[:last_updated_time].nil?
+        type.creator_id = params[:creator_id] unless params[:creator_id].nil?
+        type.status = params[:status] unless params[:status].nil?
+        type.status_reason = params[:status_reason] unless params[:status_reason].nil?
         type.repositories = DevEnvironmentRepositorySummaries.build(params[:repositories], context: "#{context}[:repositories]") unless params[:repositories].nil?
-        type.alias = params[:alias]
+        type.alias = params[:alias] unless params[:alias].nil?
         type.ides = Ides.build(params[:ides], context: "#{context}[:ides]") unless params[:ides].nil?
-        type.instance_type = params[:instance_type]
-        type.inactivity_timeout_minutes = params.fetch(:inactivity_timeout_minutes, 0)
+        type.instance_type = params[:instance_type] unless params[:instance_type].nil?
+        type.inactivity_timeout_minutes = params[:inactivity_timeout_minutes] unless params[:inactivity_timeout_minutes].nil?
         type.persistent_storage = PersistentStorage.build(params[:persistent_storage], context: "#{context}[:persistent_storage]") unless params[:persistent_storage].nil?
-        type.vpc_connection_name = params[:vpc_connection_name]
+        type.vpc_connection_name = params[:vpc_connection_name] unless params[:vpc_connection_name].nil?
         type
       end
     end
@@ -409,8 +409,8 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::EmailAddress, context: context)
         type = Types::EmailAddress.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.email = params[:email]
-        type.verified = params[:verified]
+        type.email = params[:email] unless params[:email].nil?
+        type.verified = params[:verified] unless params[:verified].nil?
         type
       end
     end
@@ -431,21 +431,21 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::EventLogEntry, context: context)
         type = Types::EventLogEntry.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.id = params[:id]
-        type.event_name = params[:event_name]
-        type.event_type = params[:event_type]
-        type.event_category = params[:event_category]
-        type.event_source = params[:event_source]
-        type.event_time = params[:event_time]
-        type.operation_type = params[:operation_type]
+        type.id = params[:id] unless params[:id].nil?
+        type.event_name = params[:event_name] unless params[:event_name].nil?
+        type.event_type = params[:event_type] unless params[:event_type].nil?
+        type.event_category = params[:event_category] unless params[:event_category].nil?
+        type.event_source = params[:event_source] unless params[:event_source].nil?
+        type.event_time = params[:event_time] unless params[:event_time].nil?
+        type.operation_type = params[:operation_type] unless params[:operation_type].nil?
         type.user_identity = UserIdentity.build(params[:user_identity], context: "#{context}[:user_identity]") unless params[:user_identity].nil?
         type.project_information = ProjectInformation.build(params[:project_information], context: "#{context}[:project_information]") unless params[:project_information].nil?
-        type.request_id = params[:request_id]
+        type.request_id = params[:request_id] unless params[:request_id].nil?
         type.request_payload = EventPayload.build(params[:request_payload], context: "#{context}[:request_payload]") unless params[:request_payload].nil?
         type.response_payload = EventPayload.build(params[:response_payload], context: "#{context}[:response_payload]") unless params[:response_payload].nil?
-        type.error_code = params[:error_code]
-        type.source_ip_address = params[:source_ip_address]
-        type.user_agent = params[:user_agent]
+        type.error_code = params[:error_code] unless params[:error_code].nil?
+        type.source_ip_address = params[:source_ip_address] unless params[:source_ip_address].nil?
+        type.user_agent = params[:user_agent] unless params[:user_agent].nil?
         type
       end
     end
@@ -455,8 +455,8 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::EventPayload, context: context)
         type = Types::EventPayload.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.content_type = params[:content_type]
-        type.data = params[:data]
+        type.content_type = params[:content_type] unless params[:content_type].nil?
+        type.data = params[:data] unless params[:data].nil?
         type
       end
     end
@@ -466,7 +466,7 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::ExecuteCommandSessionConfiguration, context: context)
         type = Types::ExecuteCommandSessionConfiguration.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.command = params[:command]
+        type.command = params[:command] unless params[:command].nil?
         type.arguments = ExecuteCommandSessionConfigurationArguments.build(params[:arguments], context: "#{context}[:arguments]") unless params[:arguments].nil?
         type
       end
@@ -477,7 +477,7 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
-          data << element
+          data << element unless element.nil?
         end
         data
       end
@@ -488,9 +488,9 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::Filter, context: context)
         type = Types::Filter.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.key = params[:key]
+        type.key = params[:key] unless params[:key].nil?
         type.values = StringList.build(params[:values], context: "#{context}[:values]") unless params[:values].nil?
-        type.comparison_operator = params[:comparison_operator]
+        type.comparison_operator = params[:comparison_operator] unless params[:comparison_operator].nil?
         type
       end
     end
@@ -511,9 +511,9 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetDevEnvironmentInput, context: context)
         type = Types::GetDevEnvironmentInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.space_name = params[:space_name]
-        type.project_name = params[:project_name]
-        type.id = params[:id]
+        type.space_name = params[:space_name] unless params[:space_name].nil?
+        type.project_name = params[:project_name] unless params[:project_name].nil?
+        type.id = params[:id] unless params[:id].nil?
         type
       end
     end
@@ -523,20 +523,20 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetDevEnvironmentOutput, context: context)
         type = Types::GetDevEnvironmentOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.space_name = params[:space_name]
-        type.project_name = params[:project_name]
-        type.id = params[:id]
-        type.last_updated_time = params[:last_updated_time]
-        type.creator_id = params[:creator_id]
-        type.status = params[:status]
-        type.status_reason = params[:status_reason]
+        type.space_name = params[:space_name] unless params[:space_name].nil?
+        type.project_name = params[:project_name] unless params[:project_name].nil?
+        type.id = params[:id] unless params[:id].nil?
+        type.last_updated_time = params[:last_updated_time] unless params[:last_updated_time].nil?
+        type.creator_id = params[:creator_id] unless params[:creator_id].nil?
+        type.status = params[:status] unless params[:status].nil?
+        type.status_reason = params[:status_reason] unless params[:status_reason].nil?
         type.repositories = DevEnvironmentRepositorySummaries.build(params[:repositories], context: "#{context}[:repositories]") unless params[:repositories].nil?
-        type.alias = params[:alias]
+        type.alias = params[:alias] unless params[:alias].nil?
         type.ides = Ides.build(params[:ides], context: "#{context}[:ides]") unless params[:ides].nil?
-        type.instance_type = params[:instance_type]
-        type.inactivity_timeout_minutes = params.fetch(:inactivity_timeout_minutes, 0)
+        type.instance_type = params[:instance_type] unless params[:instance_type].nil?
+        type.inactivity_timeout_minutes = params[:inactivity_timeout_minutes] unless params[:inactivity_timeout_minutes].nil?
         type.persistent_storage = PersistentStorage.build(params[:persistent_storage], context: "#{context}[:persistent_storage]") unless params[:persistent_storage].nil?
-        type.vpc_connection_name = params[:vpc_connection_name]
+        type.vpc_connection_name = params[:vpc_connection_name] unless params[:vpc_connection_name].nil?
         type
       end
     end
@@ -546,8 +546,8 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetProjectInput, context: context)
         type = Types::GetProjectInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.space_name = params[:space_name]
-        type.name = params[:name]
+        type.space_name = params[:space_name] unless params[:space_name].nil?
+        type.name = params[:name] unless params[:name].nil?
         type
       end
     end
@@ -557,10 +557,10 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetProjectOutput, context: context)
         type = Types::GetProjectOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.space_name = params[:space_name]
-        type.name = params[:name]
-        type.display_name = params[:display_name]
-        type.description = params[:description]
+        type.space_name = params[:space_name] unless params[:space_name].nil?
+        type.name = params[:name] unless params[:name].nil?
+        type.display_name = params[:display_name] unless params[:display_name].nil?
+        type.description = params[:description] unless params[:description].nil?
         type
       end
     end
@@ -570,9 +570,9 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetSourceRepositoryCloneUrlsInput, context: context)
         type = Types::GetSourceRepositoryCloneUrlsInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.space_name = params[:space_name]
-        type.project_name = params[:project_name]
-        type.source_repository_name = params[:source_repository_name]
+        type.space_name = params[:space_name] unless params[:space_name].nil?
+        type.project_name = params[:project_name] unless params[:project_name].nil?
+        type.source_repository_name = params[:source_repository_name] unless params[:source_repository_name].nil?
         type
       end
     end
@@ -582,7 +582,7 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetSourceRepositoryCloneUrlsOutput, context: context)
         type = Types::GetSourceRepositoryCloneUrlsOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.https = params[:https]
+        type.https = params[:https] unless params[:https].nil?
         type
       end
     end
@@ -592,9 +592,9 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetSourceRepositoryInput, context: context)
         type = Types::GetSourceRepositoryInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.space_name = params[:space_name]
-        type.project_name = params[:project_name]
-        type.name = params[:name]
+        type.space_name = params[:space_name] unless params[:space_name].nil?
+        type.project_name = params[:project_name] unless params[:project_name].nil?
+        type.name = params[:name] unless params[:name].nil?
         type
       end
     end
@@ -604,12 +604,12 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetSourceRepositoryOutput, context: context)
         type = Types::GetSourceRepositoryOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.space_name = params[:space_name]
-        type.project_name = params[:project_name]
-        type.name = params[:name]
-        type.description = params[:description]
-        type.last_updated_time = params[:last_updated_time]
-        type.created_time = params[:created_time]
+        type.space_name = params[:space_name] unless params[:space_name].nil?
+        type.project_name = params[:project_name] unless params[:project_name].nil?
+        type.name = params[:name] unless params[:name].nil?
+        type.description = params[:description] unless params[:description].nil?
+        type.last_updated_time = params[:last_updated_time] unless params[:last_updated_time].nil?
+        type.created_time = params[:created_time] unless params[:created_time].nil?
         type
       end
     end
@@ -619,7 +619,7 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetSpaceInput, context: context)
         type = Types::GetSpaceInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.name = params[:name]
+        type.name = params[:name] unless params[:name].nil?
         type
       end
     end
@@ -629,10 +629,10 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetSpaceOutput, context: context)
         type = Types::GetSpaceOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.name = params[:name]
-        type.region_name = params[:region_name]
-        type.display_name = params[:display_name]
-        type.description = params[:description]
+        type.name = params[:name] unless params[:name].nil?
+        type.region_name = params[:region_name] unless params[:region_name].nil?
+        type.display_name = params[:display_name] unless params[:display_name].nil?
+        type.description = params[:description] unless params[:description].nil?
         type
       end
     end
@@ -642,7 +642,7 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetSubscriptionInput, context: context)
         type = Types::GetSubscriptionInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.space_name = params[:space_name]
+        type.space_name = params[:space_name] unless params[:space_name].nil?
         type
       end
     end
@@ -652,10 +652,10 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetSubscriptionOutput, context: context)
         type = Types::GetSubscriptionOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.subscription_type = params[:subscription_type]
-        type.aws_account_name = params[:aws_account_name]
-        type.pending_subscription_type = params[:pending_subscription_type]
-        type.pending_subscription_start_time = params[:pending_subscription_start_time]
+        type.subscription_type = params[:subscription_type] unless params[:subscription_type].nil?
+        type.aws_account_name = params[:aws_account_name] unless params[:aws_account_name].nil?
+        type.pending_subscription_type = params[:pending_subscription_type] unless params[:pending_subscription_type].nil?
+        type.pending_subscription_start_time = params[:pending_subscription_start_time] unless params[:pending_subscription_start_time].nil?
         type
       end
     end
@@ -665,8 +665,8 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetUserDetailsInput, context: context)
         type = Types::GetUserDetailsInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.id = params[:id]
-        type.user_name = params[:user_name]
+        type.id = params[:id] unless params[:id].nil?
+        type.user_name = params[:user_name] unless params[:user_name].nil?
         type
       end
     end
@@ -676,11 +676,11 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetUserDetailsOutput, context: context)
         type = Types::GetUserDetailsOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.user_id = params[:user_id]
-        type.user_name = params[:user_name]
-        type.display_name = params[:display_name]
+        type.user_id = params[:user_id] unless params[:user_id].nil?
+        type.user_name = params[:user_name] unless params[:user_name].nil?
+        type.display_name = params[:display_name] unless params[:display_name].nil?
         type.primary_email = EmailAddress.build(params[:primary_email], context: "#{context}[:primary_email]") unless params[:primary_email].nil?
-        type.version = params[:version]
+        type.version = params[:version] unless params[:version].nil?
         type
       end
     end
@@ -690,9 +690,9 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetWorkflowInput, context: context)
         type = Types::GetWorkflowInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.space_name = params[:space_name]
-        type.id = params[:id]
-        type.project_name = params[:project_name]
+        type.space_name = params[:space_name] unless params[:space_name].nil?
+        type.id = params[:id] unless params[:id].nil?
+        type.project_name = params[:project_name] unless params[:project_name].nil?
         type
       end
     end
@@ -702,17 +702,17 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetWorkflowOutput, context: context)
         type = Types::GetWorkflowOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.space_name = params[:space_name]
-        type.project_name = params[:project_name]
-        type.id = params[:id]
-        type.name = params[:name]
-        type.source_repository_name = params[:source_repository_name]
-        type.source_branch_name = params[:source_branch_name]
+        type.space_name = params[:space_name] unless params[:space_name].nil?
+        type.project_name = params[:project_name] unless params[:project_name].nil?
+        type.id = params[:id] unless params[:id].nil?
+        type.name = params[:name] unless params[:name].nil?
+        type.source_repository_name = params[:source_repository_name] unless params[:source_repository_name].nil?
+        type.source_branch_name = params[:source_branch_name] unless params[:source_branch_name].nil?
         type.definition = WorkflowDefinition.build(params[:definition], context: "#{context}[:definition]") unless params[:definition].nil?
-        type.created_time = params[:created_time]
-        type.last_updated_time = params[:last_updated_time]
-        type.run_mode = params[:run_mode]
-        type.status = params[:status]
+        type.created_time = params[:created_time] unless params[:created_time].nil?
+        type.last_updated_time = params[:last_updated_time] unless params[:last_updated_time].nil?
+        type.run_mode = params[:run_mode] unless params[:run_mode].nil?
+        type.status = params[:status] unless params[:status].nil?
         type
       end
     end
@@ -722,9 +722,9 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetWorkflowRunInput, context: context)
         type = Types::GetWorkflowRunInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.space_name = params[:space_name]
-        type.id = params[:id]
-        type.project_name = params[:project_name]
+        type.space_name = params[:space_name] unless params[:space_name].nil?
+        type.id = params[:id] unless params[:id].nil?
+        type.project_name = params[:project_name] unless params[:project_name].nil?
         type
       end
     end
@@ -734,15 +734,15 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetWorkflowRunOutput, context: context)
         type = Types::GetWorkflowRunOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.space_name = params[:space_name]
-        type.project_name = params[:project_name]
-        type.id = params[:id]
-        type.workflow_id = params[:workflow_id]
-        type.status = params[:status]
+        type.space_name = params[:space_name] unless params[:space_name].nil?
+        type.project_name = params[:project_name] unless params[:project_name].nil?
+        type.id = params[:id] unless params[:id].nil?
+        type.workflow_id = params[:workflow_id] unless params[:workflow_id].nil?
+        type.status = params[:status] unless params[:status].nil?
         type.status_reasons = WorkflowRunStatusReasons.build(params[:status_reasons], context: "#{context}[:status_reasons]") unless params[:status_reasons].nil?
-        type.start_time = params[:start_time]
-        type.end_time = params[:end_time]
-        type.last_updated_time = params[:last_updated_time]
+        type.start_time = params[:start_time] unless params[:start_time].nil?
+        type.end_time = params[:end_time] unless params[:end_time].nil?
+        type.last_updated_time = params[:last_updated_time] unless params[:last_updated_time].nil?
         type
       end
     end
@@ -752,8 +752,8 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::Ide, context: context)
         type = Types::Ide.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.runtime = params[:runtime]
-        type.name = params[:name]
+        type.runtime = params[:runtime] unless params[:runtime].nil?
+        type.name = params[:name] unless params[:name].nil?
         type
       end
     end
@@ -763,8 +763,8 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::IdeConfiguration, context: context)
         type = Types::IdeConfiguration.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.runtime = params[:runtime]
-        type.name = params[:name]
+        type.runtime = params[:runtime] unless params[:runtime].nil?
+        type.name = params[:name] unless params[:name].nil?
         type
       end
     end
@@ -796,8 +796,8 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListAccessTokensInput, context: context)
         type = Types::ListAccessTokensInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.max_results = params[:max_results]
-        type.next_token = params[:next_token]
+        type.max_results = params[:max_results] unless params[:max_results].nil?
+        type.next_token = params[:next_token] unless params[:next_token].nil?
         type
       end
     end
@@ -808,7 +808,7 @@ module AWS::SDK::CodeCatalyst
         type = Types::ListAccessTokensOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.items = AccessTokenSummaries.build(params[:items], context: "#{context}[:items]") unless params[:items].nil?
-        type.next_token = params[:next_token]
+        type.next_token = params[:next_token] unless params[:next_token].nil?
         type
       end
     end
@@ -818,11 +818,11 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListDevEnvironmentSessionsInput, context: context)
         type = Types::ListDevEnvironmentSessionsInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.space_name = params[:space_name]
-        type.project_name = params[:project_name]
-        type.dev_environment_id = params[:dev_environment_id]
-        type.next_token = params[:next_token]
-        type.max_results = params[:max_results]
+        type.space_name = params[:space_name] unless params[:space_name].nil?
+        type.project_name = params[:project_name] unless params[:project_name].nil?
+        type.dev_environment_id = params[:dev_environment_id] unless params[:dev_environment_id].nil?
+        type.next_token = params[:next_token] unless params[:next_token].nil?
+        type.max_results = params[:max_results] unless params[:max_results].nil?
         type
       end
     end
@@ -833,7 +833,7 @@ module AWS::SDK::CodeCatalyst
         type = Types::ListDevEnvironmentSessionsOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.items = DevEnvironmentSessionsSummaryList.build(params[:items], context: "#{context}[:items]") unless params[:items].nil?
-        type.next_token = params[:next_token]
+        type.next_token = params[:next_token] unless params[:next_token].nil?
         type
       end
     end
@@ -843,11 +843,11 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListDevEnvironmentsInput, context: context)
         type = Types::ListDevEnvironmentsInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.space_name = params[:space_name]
-        type.project_name = params[:project_name]
+        type.space_name = params[:space_name] unless params[:space_name].nil?
+        type.project_name = params[:project_name] unless params[:project_name].nil?
         type.filters = Filters.build(params[:filters], context: "#{context}[:filters]") unless params[:filters].nil?
-        type.next_token = params[:next_token]
-        type.max_results = params[:max_results]
+        type.next_token = params[:next_token] unless params[:next_token].nil?
+        type.max_results = params[:max_results] unless params[:max_results].nil?
         type
       end
     end
@@ -858,7 +858,7 @@ module AWS::SDK::CodeCatalyst
         type = Types::ListDevEnvironmentsOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.items = DevEnvironmentSummaryList.build(params[:items], context: "#{context}[:items]") unless params[:items].nil?
-        type.next_token = params[:next_token]
+        type.next_token = params[:next_token] unless params[:next_token].nil?
         type
       end
     end
@@ -868,12 +868,12 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListEventLogsInput, context: context)
         type = Types::ListEventLogsInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.space_name = params[:space_name]
-        type.start_time = params[:start_time]
-        type.end_time = params[:end_time]
-        type.event_name = params[:event_name]
-        type.next_token = params[:next_token]
-        type.max_results = params[:max_results]
+        type.space_name = params[:space_name] unless params[:space_name].nil?
+        type.start_time = params[:start_time] unless params[:start_time].nil?
+        type.end_time = params[:end_time] unless params[:end_time].nil?
+        type.event_name = params[:event_name] unless params[:event_name].nil?
+        type.next_token = params[:next_token] unless params[:next_token].nil?
+        type.max_results = params[:max_results] unless params[:max_results].nil?
         type
       end
     end
@@ -883,7 +883,7 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListEventLogsOutput, context: context)
         type = Types::ListEventLogsOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.next_token = params[:next_token]
+        type.next_token = params[:next_token] unless params[:next_token].nil?
         type.items = EventLogEntries.build(params[:items], context: "#{context}[:items]") unless params[:items].nil?
         type
       end
@@ -894,9 +894,9 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListProjectsInput, context: context)
         type = Types::ListProjectsInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.space_name = params[:space_name]
-        type.next_token = params[:next_token]
-        type.max_results = params[:max_results]
+        type.space_name = params[:space_name] unless params[:space_name].nil?
+        type.next_token = params[:next_token] unless params[:next_token].nil?
+        type.max_results = params[:max_results] unless params[:max_results].nil?
         type.filters = ProjectListFilters.build(params[:filters], context: "#{context}[:filters]") unless params[:filters].nil?
         type
       end
@@ -907,7 +907,7 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListProjectsOutput, context: context)
         type = Types::ListProjectsOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.next_token = params[:next_token]
+        type.next_token = params[:next_token] unless params[:next_token].nil?
         type.items = ProjectSummaries.build(params[:items], context: "#{context}[:items]") unless params[:items].nil?
         type
       end
@@ -918,10 +918,10 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListSourceRepositoriesInput, context: context)
         type = Types::ListSourceRepositoriesInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.space_name = params[:space_name]
-        type.project_name = params[:project_name]
-        type.next_token = params[:next_token]
-        type.max_results = params[:max_results]
+        type.space_name = params[:space_name] unless params[:space_name].nil?
+        type.project_name = params[:project_name] unless params[:project_name].nil?
+        type.next_token = params[:next_token] unless params[:next_token].nil?
+        type.max_results = params[:max_results] unless params[:max_results].nil?
         type
       end
     end
@@ -931,11 +931,11 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListSourceRepositoriesItem, context: context)
         type = Types::ListSourceRepositoriesItem.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.id = params[:id]
-        type.name = params[:name]
-        type.description = params[:description]
-        type.last_updated_time = params[:last_updated_time]
-        type.created_time = params[:created_time]
+        type.id = params[:id] unless params[:id].nil?
+        type.name = params[:name] unless params[:name].nil?
+        type.description = params[:description] unless params[:description].nil?
+        type.last_updated_time = params[:last_updated_time] unless params[:last_updated_time].nil?
+        type.created_time = params[:created_time] unless params[:created_time].nil?
         type
       end
     end
@@ -957,7 +957,7 @@ module AWS::SDK::CodeCatalyst
         type = Types::ListSourceRepositoriesOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.items = ListSourceRepositoriesItems.build(params[:items], context: "#{context}[:items]") unless params[:items].nil?
-        type.next_token = params[:next_token]
+        type.next_token = params[:next_token] unless params[:next_token].nil?
         type
       end
     end
@@ -967,11 +967,11 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListSourceRepositoryBranchesInput, context: context)
         type = Types::ListSourceRepositoryBranchesInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.space_name = params[:space_name]
-        type.project_name = params[:project_name]
-        type.source_repository_name = params[:source_repository_name]
-        type.next_token = params[:next_token]
-        type.max_results = params[:max_results]
+        type.space_name = params[:space_name] unless params[:space_name].nil?
+        type.project_name = params[:project_name] unless params[:project_name].nil?
+        type.source_repository_name = params[:source_repository_name] unless params[:source_repository_name].nil?
+        type.next_token = params[:next_token] unless params[:next_token].nil?
+        type.max_results = params[:max_results] unless params[:max_results].nil?
         type
       end
     end
@@ -981,10 +981,10 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListSourceRepositoryBranchesItem, context: context)
         type = Types::ListSourceRepositoryBranchesItem.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.ref = params[:ref]
-        type.name = params[:name]
-        type.last_updated_time = params[:last_updated_time]
-        type.head_commit_id = params[:head_commit_id]
+        type.ref = params[:ref] unless params[:ref].nil?
+        type.name = params[:name] unless params[:name].nil?
+        type.last_updated_time = params[:last_updated_time] unless params[:last_updated_time].nil?
+        type.head_commit_id = params[:head_commit_id] unless params[:head_commit_id].nil?
         type
       end
     end
@@ -1005,7 +1005,7 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListSourceRepositoryBranchesOutput, context: context)
         type = Types::ListSourceRepositoryBranchesOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.next_token = params[:next_token]
+        type.next_token = params[:next_token] unless params[:next_token].nil?
         type.items = ListSourceRepositoryBranchesItems.build(params[:items], context: "#{context}[:items]") unless params[:items].nil?
         type
       end
@@ -1016,7 +1016,7 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListSpacesInput, context: context)
         type = Types::ListSpacesInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.next_token = params[:next_token]
+        type.next_token = params[:next_token] unless params[:next_token].nil?
         type
       end
     end
@@ -1026,7 +1026,7 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListSpacesOutput, context: context)
         type = Types::ListSpacesOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.next_token = params[:next_token]
+        type.next_token = params[:next_token] unless params[:next_token].nil?
         type.items = SpaceSummaries.build(params[:items], context: "#{context}[:items]") unless params[:items].nil?
         type
       end
@@ -1037,11 +1037,11 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListWorkflowRunsInput, context: context)
         type = Types::ListWorkflowRunsInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.space_name = params[:space_name]
-        type.workflow_id = params[:workflow_id]
-        type.project_name = params[:project_name]
-        type.next_token = params[:next_token]
-        type.max_results = params[:max_results]
+        type.space_name = params[:space_name] unless params[:space_name].nil?
+        type.workflow_id = params[:workflow_id] unless params[:workflow_id].nil?
+        type.project_name = params[:project_name] unless params[:project_name].nil?
+        type.next_token = params[:next_token] unless params[:next_token].nil?
+        type.max_results = params[:max_results] unless params[:max_results].nil?
         type.sort_by = WorkflowRunSortCriteriaList.build(params[:sort_by], context: "#{context}[:sort_by]") unless params[:sort_by].nil?
         type
       end
@@ -1052,7 +1052,7 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListWorkflowRunsOutput, context: context)
         type = Types::ListWorkflowRunsOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.next_token = params[:next_token]
+        type.next_token = params[:next_token] unless params[:next_token].nil?
         type.items = WorkflowRunSummaries.build(params[:items], context: "#{context}[:items]") unless params[:items].nil?
         type
       end
@@ -1063,10 +1063,10 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListWorkflowsInput, context: context)
         type = Types::ListWorkflowsInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.space_name = params[:space_name]
-        type.project_name = params[:project_name]
-        type.next_token = params[:next_token]
-        type.max_results = params[:max_results]
+        type.space_name = params[:space_name] unless params[:space_name].nil?
+        type.project_name = params[:project_name] unless params[:project_name].nil?
+        type.next_token = params[:next_token] unless params[:next_token].nil?
+        type.max_results = params[:max_results] unless params[:max_results].nil?
         type.sort_by = WorkflowSortCriteriaList.build(params[:sort_by], context: "#{context}[:sort_by]") unless params[:sort_by].nil?
         type
       end
@@ -1077,7 +1077,7 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListWorkflowsOutput, context: context)
         type = Types::ListWorkflowsOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.next_token = params[:next_token]
+        type.next_token = params[:next_token] unless params[:next_token].nil?
         type.items = WorkflowSummaries.build(params[:items], context: "#{context}[:items]") unless params[:items].nil?
         type
       end
@@ -1088,7 +1088,7 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::PersistentStorage, context: context)
         type = Types::PersistentStorage.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.size_in_gi_b = params[:size_in_gi_b]
+        type.size_in_gi_b = params[:size_in_gi_b] unless params[:size_in_gi_b].nil?
         type
       end
     end
@@ -1098,7 +1098,7 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::PersistentStorageConfiguration, context: context)
         type = Types::PersistentStorageConfiguration.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.size_in_gi_b = params[:size_in_gi_b]
+        type.size_in_gi_b = params[:size_in_gi_b] unless params[:size_in_gi_b].nil?
         type
       end
     end
@@ -1108,8 +1108,8 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::ProjectInformation, context: context)
         type = Types::ProjectInformation.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.name = params[:name]
-        type.project_id = params[:project_id]
+        type.name = params[:name] unless params[:name].nil?
+        type.project_id = params[:project_id] unless params[:project_id].nil?
         type
       end
     end
@@ -1119,9 +1119,9 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::ProjectListFilter, context: context)
         type = Types::ProjectListFilter.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.key = params[:key]
+        type.key = params[:key] unless params[:key].nil?
         type.values = StringList.build(params[:values], context: "#{context}[:values]") unless params[:values].nil?
-        type.comparison_operator = params[:comparison_operator]
+        type.comparison_operator = params[:comparison_operator] unless params[:comparison_operator].nil?
         type
       end
     end
@@ -1153,9 +1153,9 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::ProjectSummary, context: context)
         type = Types::ProjectSummary.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.name = params[:name]
-        type.display_name = params[:display_name]
-        type.description = params[:description]
+        type.name = params[:name] unless params[:name].nil?
+        type.display_name = params[:display_name] unless params[:display_name].nil?
+        type.description = params[:description] unless params[:description].nil?
         type
       end
     end
@@ -1176,8 +1176,8 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::RepositoryInput, context: context)
         type = Types::RepositoryInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.repository_name = params[:repository_name]
-        type.branch_name = params[:branch_name]
+        type.repository_name = params[:repository_name] unless params[:repository_name].nil?
+        type.branch_name = params[:branch_name] unless params[:branch_name].nil?
         type
       end
     end
@@ -1187,7 +1187,7 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::ResourceNotFoundException, context: context)
         type = Types::ResourceNotFoundException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -1197,7 +1197,7 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::ServiceQuotaExceededException, context: context)
         type = Types::ServiceQuotaExceededException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -1218,10 +1218,10 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::SpaceSummary, context: context)
         type = Types::SpaceSummary.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.name = params[:name]
-        type.region_name = params[:region_name]
-        type.display_name = params[:display_name]
-        type.description = params[:description]
+        type.name = params[:name] unless params[:name].nil?
+        type.region_name = params[:region_name] unless params[:region_name].nil?
+        type.display_name = params[:display_name] unless params[:display_name].nil?
+        type.description = params[:description] unless params[:description].nil?
         type
       end
     end
@@ -1231,12 +1231,12 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::StartDevEnvironmentInput, context: context)
         type = Types::StartDevEnvironmentInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.space_name = params[:space_name]
-        type.project_name = params[:project_name]
-        type.id = params[:id]
+        type.space_name = params[:space_name] unless params[:space_name].nil?
+        type.project_name = params[:project_name] unless params[:project_name].nil?
+        type.id = params[:id] unless params[:id].nil?
         type.ides = IdeConfigurationList.build(params[:ides], context: "#{context}[:ides]") unless params[:ides].nil?
-        type.instance_type = params[:instance_type]
-        type.inactivity_timeout_minutes = params[:inactivity_timeout_minutes]
+        type.instance_type = params[:instance_type] unless params[:instance_type].nil?
+        type.inactivity_timeout_minutes = params[:inactivity_timeout_minutes] unless params[:inactivity_timeout_minutes].nil?
         type
       end
     end
@@ -1246,10 +1246,10 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::StartDevEnvironmentOutput, context: context)
         type = Types::StartDevEnvironmentOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.space_name = params[:space_name]
-        type.project_name = params[:project_name]
-        type.id = params[:id]
-        type.status = params[:status]
+        type.space_name = params[:space_name] unless params[:space_name].nil?
+        type.project_name = params[:project_name] unless params[:project_name].nil?
+        type.id = params[:id] unless params[:id].nil?
+        type.status = params[:status] unless params[:status].nil?
         type
       end
     end
@@ -1259,9 +1259,9 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::StartDevEnvironmentSessionInput, context: context)
         type = Types::StartDevEnvironmentSessionInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.space_name = params[:space_name]
-        type.project_name = params[:project_name]
-        type.id = params[:id]
+        type.space_name = params[:space_name] unless params[:space_name].nil?
+        type.project_name = params[:project_name] unless params[:project_name].nil?
+        type.id = params[:id] unless params[:id].nil?
         type.session_configuration = DevEnvironmentSessionConfiguration.build(params[:session_configuration], context: "#{context}[:session_configuration]") unless params[:session_configuration].nil?
         type
       end
@@ -1273,10 +1273,10 @@ module AWS::SDK::CodeCatalyst
         type = Types::StartDevEnvironmentSessionOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.access_details = DevEnvironmentAccessDetails.build(params[:access_details], context: "#{context}[:access_details]") unless params[:access_details].nil?
-        type.session_id = params[:session_id]
-        type.space_name = params[:space_name]
-        type.project_name = params[:project_name]
-        type.id = params[:id]
+        type.session_id = params[:session_id] unless params[:session_id].nil?
+        type.space_name = params[:space_name] unless params[:space_name].nil?
+        type.project_name = params[:project_name] unless params[:project_name].nil?
+        type.id = params[:id] unless params[:id].nil?
         type
       end
     end
@@ -1286,9 +1286,9 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::StartWorkflowRunInput, context: context)
         type = Types::StartWorkflowRunInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.space_name = params[:space_name]
-        type.project_name = params[:project_name]
-        type.workflow_id = params[:workflow_id]
+        type.space_name = params[:space_name] unless params[:space_name].nil?
+        type.project_name = params[:project_name] unless params[:project_name].nil?
+        type.workflow_id = params[:workflow_id] unless params[:workflow_id].nil?
         type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
@@ -1299,10 +1299,10 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::StartWorkflowRunOutput, context: context)
         type = Types::StartWorkflowRunOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.space_name = params[:space_name]
-        type.project_name = params[:project_name]
-        type.id = params[:id]
-        type.workflow_id = params[:workflow_id]
+        type.space_name = params[:space_name] unless params[:space_name].nil?
+        type.project_name = params[:project_name] unless params[:project_name].nil?
+        type.id = params[:id] unless params[:id].nil?
+        type.workflow_id = params[:workflow_id] unless params[:workflow_id].nil?
         type
       end
     end
@@ -1312,9 +1312,9 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::StopDevEnvironmentInput, context: context)
         type = Types::StopDevEnvironmentInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.space_name = params[:space_name]
-        type.project_name = params[:project_name]
-        type.id = params[:id]
+        type.space_name = params[:space_name] unless params[:space_name].nil?
+        type.project_name = params[:project_name] unless params[:project_name].nil?
+        type.id = params[:id] unless params[:id].nil?
         type
       end
     end
@@ -1324,10 +1324,10 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::StopDevEnvironmentOutput, context: context)
         type = Types::StopDevEnvironmentOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.space_name = params[:space_name]
-        type.project_name = params[:project_name]
-        type.id = params[:id]
-        type.status = params[:status]
+        type.space_name = params[:space_name] unless params[:space_name].nil?
+        type.project_name = params[:project_name] unless params[:project_name].nil?
+        type.id = params[:id] unless params[:id].nil?
+        type.status = params[:status] unless params[:status].nil?
         type
       end
     end
@@ -1337,10 +1337,10 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::StopDevEnvironmentSessionInput, context: context)
         type = Types::StopDevEnvironmentSessionInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.space_name = params[:space_name]
-        type.project_name = params[:project_name]
-        type.id = params[:id]
-        type.session_id = params[:session_id]
+        type.space_name = params[:space_name] unless params[:space_name].nil?
+        type.project_name = params[:project_name] unless params[:project_name].nil?
+        type.id = params[:id] unless params[:id].nil?
+        type.session_id = params[:session_id] unless params[:session_id].nil?
         type
       end
     end
@@ -1350,10 +1350,10 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::StopDevEnvironmentSessionOutput, context: context)
         type = Types::StopDevEnvironmentSessionOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.space_name = params[:space_name]
-        type.project_name = params[:project_name]
-        type.id = params[:id]
-        type.session_id = params[:session_id]
+        type.space_name = params[:space_name] unless params[:space_name].nil?
+        type.project_name = params[:project_name] unless params[:project_name].nil?
+        type.id = params[:id] unless params[:id].nil?
+        type.session_id = params[:session_id] unless params[:session_id].nil?
         type
       end
     end
@@ -1363,7 +1363,7 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
-          data << element
+          data << element unless element.nil?
         end
         data
       end
@@ -1374,7 +1374,7 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::ThrottlingException, context: context)
         type = Types::ThrottlingException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -1384,14 +1384,14 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateDevEnvironmentInput, context: context)
         type = Types::UpdateDevEnvironmentInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.space_name = params[:space_name]
-        type.project_name = params[:project_name]
-        type.id = params[:id]
-        type.alias = params[:alias]
+        type.space_name = params[:space_name] unless params[:space_name].nil?
+        type.project_name = params[:project_name] unless params[:project_name].nil?
+        type.id = params[:id] unless params[:id].nil?
+        type.alias = params[:alias] unless params[:alias].nil?
         type.ides = IdeConfigurationList.build(params[:ides], context: "#{context}[:ides]") unless params[:ides].nil?
-        type.instance_type = params[:instance_type]
-        type.inactivity_timeout_minutes = params[:inactivity_timeout_minutes]
-        type.client_token = params[:client_token]
+        type.instance_type = params[:instance_type] unless params[:instance_type].nil?
+        type.inactivity_timeout_minutes = params[:inactivity_timeout_minutes] unless params[:inactivity_timeout_minutes].nil?
+        type.client_token = params[:client_token] unless params[:client_token].nil?
         type
       end
     end
@@ -1401,14 +1401,14 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateDevEnvironmentOutput, context: context)
         type = Types::UpdateDevEnvironmentOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.id = params[:id]
-        type.space_name = params[:space_name]
-        type.project_name = params[:project_name]
-        type.alias = params[:alias]
+        type.id = params[:id] unless params[:id].nil?
+        type.space_name = params[:space_name] unless params[:space_name].nil?
+        type.project_name = params[:project_name] unless params[:project_name].nil?
+        type.alias = params[:alias] unless params[:alias].nil?
         type.ides = IdeConfigurationList.build(params[:ides], context: "#{context}[:ides]") unless params[:ides].nil?
-        type.instance_type = params[:instance_type]
-        type.inactivity_timeout_minutes = params[:inactivity_timeout_minutes]
-        type.client_token = params[:client_token]
+        type.instance_type = params[:instance_type] unless params[:instance_type].nil?
+        type.inactivity_timeout_minutes = params[:inactivity_timeout_minutes] unless params[:inactivity_timeout_minutes].nil?
+        type.client_token = params[:client_token] unless params[:client_token].nil?
         type
       end
     end
@@ -1418,9 +1418,9 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateProjectInput, context: context)
         type = Types::UpdateProjectInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.space_name = params[:space_name]
-        type.name = params[:name]
-        type.description = params[:description]
+        type.space_name = params[:space_name] unless params[:space_name].nil?
+        type.name = params[:name] unless params[:name].nil?
+        type.description = params[:description] unless params[:description].nil?
         type
       end
     end
@@ -1430,10 +1430,10 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateProjectOutput, context: context)
         type = Types::UpdateProjectOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.space_name = params[:space_name]
-        type.name = params[:name]
-        type.display_name = params[:display_name]
-        type.description = params[:description]
+        type.space_name = params[:space_name] unless params[:space_name].nil?
+        type.name = params[:name] unless params[:name].nil?
+        type.display_name = params[:display_name] unless params[:display_name].nil?
+        type.description = params[:description] unless params[:description].nil?
         type
       end
     end
@@ -1443,8 +1443,8 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateSpaceInput, context: context)
         type = Types::UpdateSpaceInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.name = params[:name]
-        type.description = params[:description]
+        type.name = params[:name] unless params[:name].nil?
+        type.description = params[:description] unless params[:description].nil?
         type
       end
     end
@@ -1454,9 +1454,9 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateSpaceOutput, context: context)
         type = Types::UpdateSpaceOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.name = params[:name]
-        type.display_name = params[:display_name]
-        type.description = params[:description]
+        type.name = params[:name] unless params[:name].nil?
+        type.display_name = params[:display_name] unless params[:display_name].nil?
+        type.description = params[:description] unless params[:description].nil?
         type
       end
     end
@@ -1466,10 +1466,10 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::UserIdentity, context: context)
         type = Types::UserIdentity.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.user_type = params[:user_type]
-        type.principal_id = params[:principal_id]
-        type.user_name = params[:user_name]
-        type.aws_account_id = params[:aws_account_id]
+        type.user_type = params[:user_type] unless params[:user_type].nil?
+        type.principal_id = params[:principal_id] unless params[:principal_id].nil?
+        type.user_name = params[:user_name] unless params[:user_name].nil?
+        type.aws_account_id = params[:aws_account_id] unless params[:aws_account_id].nil?
         type
       end
     end
@@ -1479,7 +1479,7 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::ValidationException, context: context)
         type = Types::ValidationException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.message = params[:message]
+        type.message = params[:message] unless params[:message].nil?
         type
       end
     end
@@ -1498,7 +1498,7 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::VerifySessionOutput, context: context)
         type = Types::VerifySessionOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.identity = params[:identity]
+        type.identity = params[:identity] unless params[:identity].nil?
         type
       end
     end
@@ -1508,7 +1508,7 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::WorkflowDefinition, context: context)
         type = Types::WorkflowDefinition.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.path = params[:path]
+        type.path = params[:path] unless params[:path].nil?
         type
       end
     end
@@ -1518,7 +1518,7 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::WorkflowDefinitionSummary, context: context)
         type = Types::WorkflowDefinitionSummary.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.path = params[:path]
+        type.path = params[:path] unless params[:path].nil?
         type
       end
     end
@@ -1579,14 +1579,14 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::WorkflowRunSummary, context: context)
         type = Types::WorkflowRunSummary.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.id = params[:id]
-        type.workflow_id = params[:workflow_id]
-        type.workflow_name = params[:workflow_name]
-        type.status = params[:status]
+        type.id = params[:id] unless params[:id].nil?
+        type.workflow_id = params[:workflow_id] unless params[:workflow_id].nil?
+        type.workflow_name = params[:workflow_name] unless params[:workflow_name].nil?
+        type.status = params[:status] unless params[:status].nil?
         type.status_reasons = WorkflowRunStatusReasons.build(params[:status_reasons], context: "#{context}[:status_reasons]") unless params[:status_reasons].nil?
-        type.start_time = params[:start_time]
-        type.end_time = params[:end_time]
-        type.last_updated_time = params[:last_updated_time]
+        type.start_time = params[:start_time] unless params[:start_time].nil?
+        type.end_time = params[:end_time] unless params[:end_time].nil?
+        type.last_updated_time = params[:last_updated_time] unless params[:last_updated_time].nil?
         type
       end
     end
@@ -1627,15 +1627,15 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(params, ::Hash, Types::WorkflowSummary, context: context)
         type = Types::WorkflowSummary.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.id = params[:id]
-        type.name = params[:name]
-        type.source_repository_name = params[:source_repository_name]
-        type.source_branch_name = params[:source_branch_name]
+        type.id = params[:id] unless params[:id].nil?
+        type.name = params[:name] unless params[:name].nil?
+        type.source_repository_name = params[:source_repository_name] unless params[:source_repository_name].nil?
+        type.source_branch_name = params[:source_branch_name] unless params[:source_branch_name].nil?
         type.definition = WorkflowDefinitionSummary.build(params[:definition], context: "#{context}[:definition]") unless params[:definition].nil?
-        type.created_time = params[:created_time]
-        type.last_updated_time = params[:last_updated_time]
-        type.run_mode = params[:run_mode]
-        type.status = params[:status]
+        type.created_time = params[:created_time] unless params[:created_time].nil?
+        type.last_updated_time = params[:last_updated_time] unless params[:last_updated_time].nil?
+        type.run_mode = params[:run_mode] unless params[:run_mode].nil?
+        type.status = params[:status] unless params[:status].nil?
         type
       end
     end
