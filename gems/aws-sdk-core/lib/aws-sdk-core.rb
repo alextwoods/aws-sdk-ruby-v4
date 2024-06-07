@@ -9,60 +9,70 @@ module AWS
   module SDK
     # Namespace for AWS::SDK Core components
     module Core
-      # @return true if v4 aws-sdk-sts is available
-      def self.sts_loaded?
-        if @use_sts.nil?
-          @use_sts =
+      class << self
+        # @return [Hash] Returns a hash of default configuration options shared
+        #   by all constructed clients.
+        def config
+          @config ||= {}
+        end
+
+        # @param [Hash] config
+        def config=(config)
+          if config.is_a?(Hash)
+            raise ArgumentError, 'configuration object must be a hash'
+          end
+
+          @config = config
+        end
+
+        ## Utility methods for checking if certain gems are available
+
+        # @api private
+        # @return true if CRT is available
+        def crt_loaded?
+          if @use_crt.nil?
+            @use_crt =
+              begin
+                require 'aws-crt'
+                true
+              rescue LoadError
+                false
+              end
+          end
+          @use_crt
+        end
+
+        # @api private
+        def sso_loaded?
+          gem_loaded?('aws-sdk-sso')
+        end
+
+        # @api private
+        def sso_oidc_loaded?
+          gem_loaded?('aws-sdk-ssooidc')
+        end
+
+        # @api private
+        def sts_loaded?
+          gem_loaded?('aws-sdk-sts')
+        end
+
+        private
+
+        def gem_loaded?(gem_name)
+          name = "@use_#{gem_name.split('-').last}".to_sym
+          is_loaded = instance_variable_get(name)
+          return is_loaded unless is_loaded.nil?
+
+          is_loaded =
             begin
-              require 'aws-sdk-sts'
+              require gem_name
               true
             rescue LoadError, NameError
               false
             end
+          instance_variable_set(name, is_loaded)
         end
-        @use_sts
-      end
-
-      # @return true if v4 aws-sdk-sso is available
-      def self.sso_loaded?
-        if @use_sso.nil?
-          @use_sso =
-            begin
-              require 'aws-sdk-sso'
-              true
-            rescue LoadError, NameError
-              false
-            end
-        end
-        @use_sso
-      end
-
-      # @return true if v4 aws-sdk-ssooidc is available
-      def self.sso_oidc_loaded?
-        if @use_sso_oidc.nil?
-          @use_sso_oidc =
-            begin
-              require 'aws-sdk-ssooidc'
-              true
-            rescue LoadError, NameError
-              false
-            end
-        end
-        @use_sso_oidc
-      end
-
-      # @return true if CRT is available
-      def self.crt_loaded?
-        if @use_crt.nil?
-          @use_crt =
-            begin
-              require 'aws-crt'
-              true
-            rescue LoadError
-              false
-            end
-        end
-        @use_crt
       end
     end
   end

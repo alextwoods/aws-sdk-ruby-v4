@@ -14,6 +14,7 @@ group :benchmark do
 end
 
 group :development do
+  gem 'byebug'
   gem 'rbs'
   gem 'rubocop'
   gem 'rubocop-rake'
