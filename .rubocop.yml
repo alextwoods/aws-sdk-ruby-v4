@@ -1,9 +1,8 @@
-require:
-  - rubocop-rake
-  - rubocop-rspec
+require: rubocop-rake
 
 AllCops:
   NewCops: enable
+  SuggestExtensions: false
   TargetRubyVersion: 3.0
 
 Gemspec/RequireMFA:
@@ -16,7 +15,6 @@ Layout/LineLength:
 Metrics:
   Exclude:
     - '**/spec/**/*.rb'
-    # Signer is incredibly complex
     - 'gems/aws-sigv4/lib/aws-sigv4/signer.rb'
     - 'gems/aws-sdk-core/lib/aws-sdk-core/sso_bearer_provider.rb'
 
