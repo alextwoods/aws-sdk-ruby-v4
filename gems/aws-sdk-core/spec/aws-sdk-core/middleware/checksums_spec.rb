@@ -6,7 +6,8 @@ module AWS::SDK::Core
   module Middleware
     Input = ::Struct.new(
       :request_algorithm,
-      :request_validation
+      :request_validation,
+      keyword_init: true
     ) do
       include Hearth::Structure
     end

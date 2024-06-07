@@ -2,7 +2,6 @@
 
 $LOAD_PATH.unshift(File.expand_path('../lib', __dir__))
 
-require 'rspec'
 require 'aws-sigv4'
 require 'simplecov'
 

@@ -11,7 +11,7 @@ on:
 
 env:
   java_version: 17
-  ruby_version: 3.2
+  ruby_version: 3.3
 
 jobs:
   rspec:
@@ -38,7 +38,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gradle-
 
-      - name: Set up JDK
+      - name: Setup Java
         uses: actions/setup-java@v1
         with:
           java-version: ${{ env.java_version }}
@@ -59,38 +59,28 @@ jobs:
         run: bundle exec rake codegen:build
 
       - name: Unit tests
-        run: bundle exec rake test
+        run: bundle exec rake test:all
 
-  rubocop-core:
+  rubocop:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Set up Ruby
+      - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ env.ruby_version }}
+          bundler-cache: true
 
       - uses: actions/checkout@v2
 
       - name: Install gems
         run: bundle install
 
-      - name: Rubocop Core
-        run: bundle exec rake rubocop:core
+      - name: Rubocop Core gem
+        run: bundle exec rake rubocop:aws-sdk-core
 
-  rubocop-codegen:
-    runs-on: ubuntu-latest
+      - name: Rubocop SigV4 gem
+        run : bundle exec rake rubocop:aws-sigv4
 
-    steps:
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: ${{ env.ruby_version }}
-
-      - uses: actions/checkout@v2
-
-      - name: Install gems
-        run: bundle install
-
-      - name: Rubocop Codegen
+      - name: Rubocop Codegen files
         run: bundle exec rake rubocop:codegen

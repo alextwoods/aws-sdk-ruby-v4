@@ -1,21 +1,14 @@
 # frozen_string_literal: true
 
 namespace :rubocop do
-  desc 'Runs rubocop on hand coded gems'
-  task 'core' do
-    Dir.chdir('gems/aws-sdk-core') do
-      sh('bundle exec rubocop -E -S')
-    end
-
-    Dir.chdir('gems/aws-sigv4') do
-      sh('bundle exec rubocop -E -S')
-    end
+  desc 'Run rubocop for one gem by name'
+  rule(/^rubocop:.+/) do |task|
+    gem = task.name.split(':').last
+    sh("bundle exec rubocop -E -S gems/#{gem}")
   end
 
-  desc 'Runs rubocop on the hand coded ruby files (tests and middleware/plugins/ect) in codegen'
+  desc 'Runs rubocop on the hand-coded ruby files in codegen'
   task 'codegen' do
-    Dir.chdir('codegen') do
-      sh('bundle exec rubocop -E -S')
-    end
+    sh('bundle exec rubocop -E -S codegen')
   end
 end
