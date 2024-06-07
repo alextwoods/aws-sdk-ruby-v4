@@ -28,7 +28,7 @@ module AWS
         ## Utility methods for checking if certain gems are available
 
         # @api private
-        # @return true if CRT is available
+        # TODO: we should major version bump this
         def crt_loaded?
           if @use_crt.nil?
             @use_crt =
