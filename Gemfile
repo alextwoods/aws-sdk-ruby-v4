@@ -2,22 +2,19 @@
 
 source 'https://rubygems.org'
 
+gem 'rake', require: false
 gem 'rexml'
 
-gem 'rake', require: false
-
-# Use the latest hearth from Github
 gem 'hearth',
     git: 'https://github.com/smithy-lang/smithy-ruby',
     glob: 'hearth/hearth.gemspec'
 
-group :test do
-  gem 'rspec'
-  gem 'simplecov'
-  gem 'webmock'
+group :benchmark do
+  gem 'memory_profiler'
 end
 
 group :development do
+  gem 'byebug'
   gem 'rbs'
   gem 'rubocop'
   gem 'rubocop-rake'
@@ -25,6 +22,12 @@ group :development do
   gem 'steep'
 end
 
-group :benchmark do
-  gem 'memory_profiler'
+group :repl do
+  gem 'pry'
+end
+
+group :test do
+  gem 'rspec'
+  gem 'simplecov'
+  gem 'webmock'
 end
