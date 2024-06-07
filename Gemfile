@@ -6,9 +6,8 @@ gem 'rake', require: false
 gem 'rexml'
 
 gem 'hearth',
-    # git: 'https://github.com/smithy-lang/smithy-ruby',
-    # glob: 'hearth/hearth.gemspec'
-    path: '../smithy-ruby/hearth'
+    git: 'https://github.com/smithy-lang/smithy-ruby',
+    glob: 'hearth/hearth.gemspec'
 
 group :benchmark do
   gem 'memory_profiler'
