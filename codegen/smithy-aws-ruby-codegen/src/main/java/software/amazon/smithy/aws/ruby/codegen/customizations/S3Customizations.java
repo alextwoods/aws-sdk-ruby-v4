@@ -26,22 +26,25 @@ import java.util.Optional;
 
 public class S3Customizations implements RubyIntegration {
 
-    private static final String ACCELERATE_DOCS = """
+    private static final String USE_ACCELERATE_ENDPOINT_DOCS = """
             When set to `true`, accelerated bucket endpoints will be used
             for all object operations. You must first enable accelerate for
-            each bucket. [Go here for more information](http://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html).
+            each bucket. See [here](https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html) for more information.
             """;
     public static final ClientConfig USE_ACCELERATE_ENDPOINT = ClientConfig.builder()
             .name("use_accelerate_endpoint")
             .documentationRbsAndValidationType("Boolean")
-            .documentation(ACCELERATE_DOCS)
-            .defaultValue("false")
+            .documentation(USE_ACCELERATE_ENDPOINT_DOCS)
+            .defaults(ConfigProviderChain.builder()
+                    .staticProvider("false")
+                    .build())
             .build();
+
     private static final String DISABLE_MRAP_DOCS = """
             When set to `false` this will option will raise errors when multi-region
-            access point ARNs are used.  Multi-region access points can potentially
+            access point ARNs are used. Multi-region access points can potentially
             result in cross region requests.
-                                """;
+            """;
     public static final ClientConfig DISABLE_MRAP = ClientConfig.builder()
             .name("disable_multiregion_access_points")
             .documentationRbsAndValidationType("Boolean")
@@ -53,16 +56,18 @@ public class S3Customizations implements RubyIntegration {
                     .staticProvider("false")
                     .build())
             .build();
-    private static final String PATH_STYLE_DOCS = """
+
+    private static final String FORCE_PATH_STYLE_DOCS = """
             When set to `true`, the bucket name is always left in the
             request URI and never moved to the host as a sub-domain.
-                                """;
+            """;
     public static final ClientConfig FORCE_PATH_STYLE = ClientConfig.builder()
             .name("force_path_style")
             .documentationRbsAndValidationType("Boolean")
-            .documentation(PATH_STYLE_DOCS)
+            .documentation(FORCE_PATH_STYLE_DOCS)
             .defaultValue("false")
             .build();
+
     private static final String USE_ARN_REGION_DOCS = """
             For S3 ARNs passed into the `:bucket` parameter, this option will
             use the region in the ARN, allowing for cross-region requests to

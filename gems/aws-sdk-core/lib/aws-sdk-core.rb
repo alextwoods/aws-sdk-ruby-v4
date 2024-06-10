@@ -45,7 +45,7 @@ module AWS
         private
 
         def gem_loaded?(gem_name)
-          name = "@use_#{gem_name.split('-').last}".to_sym
+          name = :"@use_#{gem_name.split('-').last}"
           is_loaded = instance_variable_get(name)
           return is_loaded unless is_loaded.nil?
 

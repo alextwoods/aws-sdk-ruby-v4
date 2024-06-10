@@ -46,7 +46,7 @@ describe AWS::SDK::Core do
     [:crt_loaded?, :@use_crt, 'aws-crt'],
     [:sso_loaded?, :@use_sso, 'aws-sdk-sso'],
     [:sso_oidc_loaded?, :@use_ssooidc, 'aws-sdk-ssooidc'],
-    [:sts_loaded?, :@use_sts, 'aws-sdk-sts'],
+    [:sts_loaded?, :@use_sts, 'aws-sdk-sts']
   ].freeze
 
   feature_checks.each do |feature_check|
@@ -66,8 +66,8 @@ describe AWS::SDK::Core do
       end
 
       it 'memoizes its status' do
-        expect(AWS::SDK::Core).to receive(:require).once
-          .with(feature_check[2]).and_raise(LoadError)
+        expect(AWS::SDK::Core).to receive(:require)
+          .once.with(feature_check[2]).and_raise(LoadError)
         AWS::SDK::Core.send(feature_check[0])
         # second call should not call require again
         AWS::SDK::Core.send(feature_check[0])
