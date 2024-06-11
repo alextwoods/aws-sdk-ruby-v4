@@ -5,6 +5,7 @@ module AWS::SDK::S3
     attr_accessor auth_resolver (): Hearth::_AuthResolver[Auth::Params]
     attr_accessor auth_schemes (): Array[Hearth::AuthSchemes::Base]
     attr_accessor credentials_provider (): Hearth::IdentityProvider
+    attr_accessor disable_express_session_auth (): bool
     attr_accessor disable_host_prefix (): bool
     attr_accessor disable_multiregion_access_points (): bool
     attr_accessor disable_s3_express_session_auth (): bool

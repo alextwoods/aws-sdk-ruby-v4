@@ -10,6 +10,21 @@ module AWS
     # Namespace for AWS::SDK Core components
     module Core
       class << self
+        # @return [Hash] Returns a hash of default configuration options shared
+        #   by all constructed clients.
+        def config
+          @config ||= {}
+        end
+
+        # @param [Hash] config
+        def config=(config)
+          if config.is_a?(Hash)
+            raise ArgumentError, 'configuration object must be a hash'
+          end
+
+          @config = config
+        end
+
         ## Utility methods for checking if certain gems are available
 
         # @api private

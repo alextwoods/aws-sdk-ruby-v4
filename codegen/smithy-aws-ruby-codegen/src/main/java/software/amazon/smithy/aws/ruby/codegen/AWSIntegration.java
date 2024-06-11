@@ -1,5 +1,22 @@
+/*
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License").
+ * You may not use this file except in compliance with the License.
+ * A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ * or in the "license" file accompanying this file. This file is distributed
+ * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ * express or implied. See the License for the specific language governing
+ * permissions and limitations under the License.
+ */
+
 package software.amazon.smithy.aws.ruby.codegen;
 
+import java.util.List;
+import java.util.Map;
 import software.amazon.smithy.aws.ruby.codegen.protocol.ec2.Ec2Query;
 import software.amazon.smithy.aws.ruby.codegen.protocol.json.AwsJson1_1;
 import software.amazon.smithy.aws.ruby.codegen.protocol.json10.AwsJson1_0;
@@ -7,6 +24,7 @@ import software.amazon.smithy.aws.ruby.codegen.protocol.query.AwsQuery;
 import software.amazon.smithy.aws.ruby.codegen.protocol.restjson.RestJson1;
 import software.amazon.smithy.aws.ruby.codegen.protocol.restxml.RestXml;
 import software.amazon.smithy.aws.traits.auth.SigV4Trait;
+import software.amazon.smithy.codegen.core.Symbol;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
 import software.amazon.smithy.ruby.codegen.Hearth;
 import software.amazon.smithy.ruby.codegen.ProtocolGenerator;
@@ -18,10 +36,8 @@ import software.amazon.smithy.ruby.codegen.config.ClientConfig;
 import software.amazon.smithy.ruby.codegen.config.ConfigProviderChain;
 import software.amazon.smithy.utils.ListUtils;
 
-import java.util.List;
-import java.util.Map;
-
-public class AWSProtocols implements RubyIntegration {
+@SuppressWarnings("checkstyle:AbbreviationAsWordInName")
+public class AWSIntegration implements RubyIntegration {
     @Override
     public List<ProtocolGenerator> getProtocolGenerators() {
         return ListUtils.of(
@@ -93,9 +109,13 @@ public class AWSProtocols implements RubyIntegration {
                   
                 @see AWS::SDK::Core::CREDENTIALS_PROVIDER_CHAIN""";
 
+        Symbol awsCredentialsIdentity = Symbol.builder()
+                .namespace("AWS::SDK::Core::Identities", "::")
+                .name("Credentials").build();
         String identityProviderChain = " *AWS::SDK::Core::CREDENTIALS_PROVIDER_CHAIN";
+
         String defaultIdentity = "%s.new(access_key_id: 'stubbed-akid', secret_access_key: 'stubbed-secret')"
-                .formatted(Aws.AWS_CREDENTIALS_IDENTITY);
+                .formatted(awsCredentialsIdentity);
         String defaultConfigValue = "cfg[:stub_responses] ? %s.new(proc { %s }) : nil"
                 .formatted(Hearth.IDENTITY_PROVIDER, defaultIdentity);
 
@@ -112,14 +132,14 @@ public class AWSProtocols implements RubyIntegration {
         return AuthScheme.builder()
                 .shapeId(SigV4Trait.ID)
                 .rubyAuthScheme("AWS::SDK::Core::AuthSchemes::SigV4.new")
-                .rubyIdentityType(Aws.AWS_CREDENTIALS_IDENTITY.toString())
+                .rubyIdentityType(awsCredentialsIdentity.toString())
                 .identityProviderConfig(identityProviderConfig)
                 .extractSignerProperties((trait -> {
                     SigV4Trait sigv4 = (SigV4Trait) trait;
                     return Map.of(
                             "service", "'" + sigv4.getName() + "'",
                             "region", "params.region"
-                            );
+                    );
                 }))
                 .additionalConfig(AWSConfig.REGION)
                 .additionalAuthParam(AuthParam.builder()

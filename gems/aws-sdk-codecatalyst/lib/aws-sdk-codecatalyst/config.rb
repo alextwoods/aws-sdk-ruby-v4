@@ -55,7 +55,7 @@ module AWS::SDK::CodeCatalyst
   #     at HOME/.aws/credentials.  When not specified, 'default' is used.
   #   @option args [String] :region
   #     The AWS region to connect to. The configured `:region` is
-  #     used to determine the service `:endpoint`. When not passed,
+  #     used to determine the service `:endpoint`. When not provided,
   #     a default `:region` is searched for in the following locations:
   #
   #     * `ENV['AWS_REGION']`
@@ -76,9 +76,7 @@ module AWS::SDK::CodeCatalyst
   #   @option args [Hearth::Stubs] :stubs (Hearth::Stubs.new)
   #     Enable response stubbing for testing. See {Hearth::ClientStubs#stub_responses}.
   #   @option args [Boolean] :use_fips_endpoint
-  #     When set to `true`, fips compatible endpoints will be used if available.
-  #     When a `fips` region is used, the region is normalized and this config
-  #     is set to `true`.
+  #     When set to `true`, FIPS compatible endpoints will be used if available.
   #   @option args [Boolean] :validate_input (true)
   #     When `true`, request parameters are validated using the modeled shapes.
   # @!attribute auth_resolver

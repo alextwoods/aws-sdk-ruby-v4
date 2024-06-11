@@ -53,6 +53,8 @@ module AWS::SDK::S3
   #     * EC2/ECS instance profiles.
   #
   #     @see AWS::SDK::Core::CREDENTIALS_PROVIDER_CHAIN
+  #   @option args [Boolean] :disable_express_session_auth (false)
+  #     When set to `true`, the client will not use the express session auth.
   #   @option args [Boolean] :disable_host_prefix (false)
   #     When `true`, does not perform host prefix injection using @endpoint trait's hostPrefix property.
   #   @option args [Boolean] :disable_multiregion_access_points (false)
@@ -89,7 +91,7 @@ module AWS::SDK::S3
   #     at HOME/.aws/credentials.  When not specified, 'default' is used.
   #   @option args [String] :region
   #     The AWS region to connect to. The configured `:region` is
-  #     used to determine the service `:endpoint`. When not passed,
+  #     used to determine the service `:endpoint`. When not provided,
   #     a default `:region` is searched for in the following locations:
   #
   #     * `ENV['AWS_REGION']`
@@ -118,12 +120,10 @@ module AWS::SDK::S3
   #     use the region in the ARN, allowing for cross-region requests to
   #     be made. Set to `false` to use the client's region instead.
   #   @option args [Boolean] :use_dualstack_endpoint
-  #     When set to `true`, dualstack enabled endpoints (with `.aws` TLD)
-  #      will be used if available.
+  #     When set to `true`, DualStack enabled endpoints (with `.aws` TLD)
+  #     will be used if available.
   #   @option args [Boolean] :use_fips_endpoint
-  #     When set to `true`, fips compatible endpoints will be used if available.
-  #     When a `fips` region is used, the region is normalized and this config
-  #     is set to `true`.
+  #     When set to `true`, FIPS compatible endpoints will be used if available.
   #   @option args [Boolean] :validate_input (true)
   #     When `true`, request parameters are validated using the modeled shapes.
   # @!attribute auth_resolver
@@ -132,6 +132,8 @@ module AWS::SDK::S3
   #   @return [Array<Hearth::AuthSchemes::Base>]
   # @!attribute credentials_provider
   #   @return [Hearth::IdentityProvider]
+  # @!attribute disable_express_session_auth
+  #   @return [Boolean]
   # @!attribute disable_host_prefix
   #   @return [Boolean]
   # @!attribute disable_multiregion_access_points
@@ -176,6 +178,7 @@ module AWS::SDK::S3
     :auth_resolver,
     :auth_schemes,
     :credentials_provider,
+    :disable_express_session_auth,
     :disable_host_prefix,
     :disable_multiregion_access_points,
     :disable_s3_express_session_auth,
@@ -205,6 +208,7 @@ module AWS::SDK::S3
       Hearth::Validator.validate_responds_to!(auth_resolver, :resolve, context: 'config[:auth_resolver]')
       Hearth::Validator.validate_types!(auth_schemes, Array, context: 'config[:auth_schemes]')
       Hearth::Validator.validate_types!(credentials_provider, Hearth::IdentityProvider, context: 'config[:credentials_provider]')
+      Hearth::Validator.validate_types!(disable_express_session_auth, TrueClass, FalseClass, context: 'config[:disable_express_session_auth]')
       Hearth::Validator.validate_types!(disable_host_prefix, TrueClass, FalseClass, context: 'config[:disable_host_prefix]')
       Hearth::Validator.validate_types!(disable_multiregion_access_points, TrueClass, FalseClass, context: 'config[:disable_multiregion_access_points]')
       Hearth::Validator.validate_types!(disable_s3_express_session_auth, TrueClass, FalseClass, context: 'config[:disable_s3_express_session_auth]')
@@ -234,6 +238,7 @@ module AWS::SDK::S3
         auth_resolver: [Auth::Resolver.new],
         auth_schemes: [Auth::SCHEMES],
         credentials_provider: [proc { |cfg| cfg[:stub_responses] ? Hearth::IdentityProvider.new(proc { AWS::SDK::Core::Identities::Credentials.new(access_key_id: 'stubbed-akid', secret_access_key: 'stubbed-secret') }) : nil }, *AWS::SDK::Core::CREDENTIALS_PROVIDER_CHAIN],
+        disable_express_session_auth: [Hearth::Config::EnvProvider.new('AWS_S3_DISABLE_EXPRESS_SESSION_AUTH', type: 'Boolean'),AWS::SDK::Core::SharedConfigProvider.new('s3_disable_express_session_auth', type: 'Boolean'),false],
         disable_host_prefix: [false],
         disable_multiregion_access_points: [Hearth::Config::EnvProvider.new('AWS_S3_DISABLE_MULTIREGION_ACCESS_POINTS', type: 'Boolean'),AWS::SDK::Core::SharedConfigProvider.new('s3_disable_multiregion_access_points', type: 'Boolean'),false],
         disable_s3_express_session_auth: [],
