@@ -33,7 +33,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -89,7 +88,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -145,7 +143,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -201,7 +198,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -257,7 +253,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -313,7 +308,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -369,7 +363,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -425,7 +418,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -481,7 +473,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -537,7 +528,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -593,7 +583,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -649,7 +638,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -705,7 +693,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -761,7 +748,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -817,7 +803,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -873,7 +858,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -929,7 +913,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -985,7 +968,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -1041,7 +1023,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -1097,7 +1078,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -1153,7 +1133,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -1213,7 +1192,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -1269,7 +1247,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -1325,7 +1302,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -1381,7 +1357,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -1437,7 +1412,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -1493,7 +1467,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -1549,7 +1522,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -1605,7 +1577,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -1661,7 +1632,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -1717,7 +1687,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -1773,7 +1742,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -1829,7 +1797,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -1885,7 +1852,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -1941,7 +1907,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -1997,7 +1962,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -2053,7 +2017,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -2109,7 +2072,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -2165,7 +2127,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -2221,7 +2182,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -2277,7 +2237,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -2333,7 +2292,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -2389,7 +2347,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -2450,7 +2407,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -2506,7 +2462,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -2562,7 +2517,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -2618,7 +2572,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -2674,7 +2627,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -2730,7 +2682,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -2786,7 +2737,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -2842,7 +2792,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -2898,7 +2847,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -2954,7 +2902,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -3010,7 +2957,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -3066,7 +3012,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -3122,7 +3067,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -3178,7 +3122,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -3234,7 +3177,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -3290,7 +3232,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -3346,7 +3287,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -3402,7 +3342,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -3458,7 +3397,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -3514,7 +3452,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -3570,7 +3507,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -3626,7 +3562,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -3686,7 +3621,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -3746,7 +3680,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -3802,7 +3735,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -3862,7 +3794,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -3922,7 +3853,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -3978,7 +3908,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -4034,7 +3963,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -4094,7 +4022,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -4154,7 +4081,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -4210,7 +4136,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -4266,7 +4191,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -4325,7 +4249,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -4385,7 +4308,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -4445,7 +4367,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -4505,7 +4426,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -4565,7 +4485,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -4625,7 +4544,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -4685,7 +4603,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -4748,7 +4665,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -4808,7 +4724,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -4868,7 +4783,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -4928,7 +4842,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -4988,7 +4901,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -5048,7 +4960,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -5108,7 +5019,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -5168,7 +5078,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -5231,7 +5140,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -5287,7 +5195,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,
@@ -5343,7 +5250,6 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
           endpoint: config.endpoint,
           endpoint_resolver: config.endpoint_resolver,
           force_path_style: config.force_path_style,

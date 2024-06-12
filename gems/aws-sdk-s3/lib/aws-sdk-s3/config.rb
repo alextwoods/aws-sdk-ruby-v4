@@ -61,8 +61,6 @@ module AWS::SDK::S3
   #     When set to `false` this will option will raise errors when multi-region
   #     access point ARNs are used. Multi-region access points can potentially
   #     result in cross region requests.
-  #   @option args [Boolean] :disable_s3_express_session_auth
-  #     Disables this client's usage of Session Auth for S3Express       buckets and reverts to using conventional SigV4 for those.
   #   @option args [String] :endpoint
   #     Endpoint of the service
   #   @option args [#resolve(params)] :endpoint_resolver (Endpoint::Resolver.new)
@@ -138,8 +136,6 @@ module AWS::SDK::S3
   #   @return [Boolean]
   # @!attribute disable_multiregion_access_points
   #   @return [Boolean]
-  # @!attribute disable_s3_express_session_auth
-  #   @return [Boolean]
   # @!attribute endpoint
   #   @return [String]
   # @!attribute endpoint_resolver
@@ -181,7 +177,6 @@ module AWS::SDK::S3
     :disable_express_session_auth,
     :disable_host_prefix,
     :disable_multiregion_access_points,
-    :disable_s3_express_session_auth,
     :endpoint,
     :endpoint_resolver,
     :force_path_style,
@@ -211,7 +206,6 @@ module AWS::SDK::S3
       Hearth::Validator.validate_types!(disable_express_session_auth, TrueClass, FalseClass, context: 'config[:disable_express_session_auth]')
       Hearth::Validator.validate_types!(disable_host_prefix, TrueClass, FalseClass, context: 'config[:disable_host_prefix]')
       Hearth::Validator.validate_types!(disable_multiregion_access_points, TrueClass, FalseClass, context: 'config[:disable_multiregion_access_points]')
-      Hearth::Validator.validate_types!(disable_s3_express_session_auth, TrueClass, FalseClass, context: 'config[:disable_s3_express_session_auth]')
       Hearth::Validator.validate_types!(endpoint, String, context: 'config[:endpoint]')
       Hearth::Validator.validate_responds_to!(endpoint_resolver, :resolve, context: 'config[:endpoint_resolver]')
       Hearth::Validator.validate_types!(force_path_style, TrueClass, FalseClass, context: 'config[:force_path_style]')
@@ -241,7 +235,6 @@ module AWS::SDK::S3
         disable_express_session_auth: [Hearth::Config::EnvProvider.new('AWS_S3_DISABLE_EXPRESS_SESSION_AUTH', type: 'Boolean'),AWS::SDK::Core::SharedConfigProvider.new('s3_disable_express_session_auth', type: 'Boolean'),false],
         disable_host_prefix: [false],
         disable_multiregion_access_points: [Hearth::Config::EnvProvider.new('AWS_S3_DISABLE_MULTIREGION_ACCESS_POINTS', type: 'Boolean'),AWS::SDK::Core::SharedConfigProvider.new('s3_disable_multiregion_access_points', type: 'Boolean'),false],
-        disable_s3_express_session_auth: [],
         endpoint: [proc { |cfg| cfg[:stub_responses] ? 'http://localhost' : nil }],
         endpoint_resolver: [Endpoint::Resolver.new],
         force_path_style: [false],

@@ -15,6 +15,7 @@
 
 package software.amazon.smithy.aws.ruby.codegen.customizations;
 
+import java.security.Provider;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -112,8 +113,13 @@ public class S3Customizations implements RubyIntegration {
 
     @Override
     public Model preprocessModel(Model model, RubySettings settings) {
-        return new RemoveDisableS3ExpressSessionAuth()
-                .transform(ModelTransformer.create(), model);
+        Model removedDisabledS3ExpressSessionAuth =
+                new RemoveDisableS3ExpressSessionAuth().transform(ModelTransformer.create(),
+                        model);
+        Model addRequiresLengthToStreamingInput =
+                new AddRequiresLengthToStreamingInput().transform(ModelTransformer.create(),
+                        removedDisabledS3ExpressSessionAuth);
+        return addRequiresLengthToStreamingInput;
     }
 
     @Override
@@ -178,13 +184,19 @@ public class S3Customizations implements RubyIntegration {
         public static final ShapeId SERVICE_ID = ShapeId.from("com.amazonaws.s3#AmazonS3");
 
         Model transform(ModelTransformer transformer, Model model) {
-            Shape service = model.expectShape(SERVICE_ID);
-            ClientContextParamsTrait clientContextParams =
-                    service.getTrait(ClientContextParamsTrait.class).get();
-            clientContextParams.getParameters().entrySet().removeIf(
-                    entry -> entry.getKey().equals("DisableS3ExpressSessionAuth"));
+            if (!model.getShape(SERVICE_ID).isPresent()) {
+                return model;
+            }
 
-            return transformer.replaceShapes(model, List.of(service));
+            ServiceShape serviceShape = model.expectShape(SERVICE_ID, ServiceShape.class);
+            ClientContextParamsTrait clientContextParamsTrait =
+                    serviceShape.getTrait(ClientContextParamsTrait.class).get();
+            transformer.removeShapes(model, List.of(serviceShape));
+
+            ClientContextParamsTrait newClientContextParamsTrait =
+                    clientContextParamsTrait.toBuilder().removeParameter("DisableS3ExpressSessionAuth").build();
+            ServiceShape newServiceShape = serviceShape.toBuilder().addTrait(newClientContextParamsTrait).build();
+            return transformer.replaceShapes(model, List.of(newServiceShape));
         }
     }
 

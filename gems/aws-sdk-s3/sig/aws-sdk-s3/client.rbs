@@ -20,7 +20,6 @@ module AWS::SDK::S3
         ?disable_express_session_auth: bool,
         ?disable_host_prefix: bool,
         ?disable_multiregion_access_points: bool,
-        ?disable_s3_express_session_auth: bool,
         ?endpoint: String,
         ?endpoint_resolver: Hearth::_EndpointResolver[Endpoint::Params],
         ?force_path_style: bool,
