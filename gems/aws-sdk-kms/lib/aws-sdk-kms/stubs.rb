@@ -507,9 +507,9 @@ module AWS::SDK::KMS
       def self.stub(http_resp, stub:)
         data = {}
         data['KeyId'] = stub[:key_id] unless stub[:key_id].nil?
-        data['Plaintext'] = ::Base64::encode64(stub[:plaintext]) unless stub[:plaintext].nil?
+        data['Plaintext'] = ::Base64::strict_encode64(stub[:plaintext]) unless stub[:plaintext].nil?
         data['EncryptionAlgorithm'] = stub[:encryption_algorithm] unless stub[:encryption_algorithm].nil?
-        data['CiphertextForRecipient'] = ::Base64::encode64(stub[:ciphertext_for_recipient]) unless stub[:ciphertext_for_recipient].nil?
+        data['CiphertextForRecipient'] = ::Base64::strict_encode64(stub[:ciphertext_for_recipient]) unless stub[:ciphertext_for_recipient].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -824,7 +824,7 @@ module AWS::SDK::KMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['CiphertextBlob'] = ::Base64::encode64(stub[:ciphertext_blob]) unless stub[:ciphertext_blob].nil?
+        data['CiphertextBlob'] = ::Base64::strict_encode64(stub[:ciphertext_blob]) unless stub[:ciphertext_blob].nil?
         data['KeyId'] = stub[:key_id] unless stub[:key_id].nil?
         data['EncryptionAlgorithm'] = stub[:encryption_algorithm] unless stub[:encryption_algorithm].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
@@ -914,10 +914,10 @@ module AWS::SDK::KMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['CiphertextBlob'] = ::Base64::encode64(stub[:ciphertext_blob]) unless stub[:ciphertext_blob].nil?
-        data['Plaintext'] = ::Base64::encode64(stub[:plaintext]) unless stub[:plaintext].nil?
+        data['CiphertextBlob'] = ::Base64::strict_encode64(stub[:ciphertext_blob]) unless stub[:ciphertext_blob].nil?
+        data['Plaintext'] = ::Base64::strict_encode64(stub[:plaintext]) unless stub[:plaintext].nil?
         data['KeyId'] = stub[:key_id] unless stub[:key_id].nil?
-        data['CiphertextForRecipient'] = ::Base64::encode64(stub[:ciphertext_for_recipient]) unless stub[:ciphertext_for_recipient].nil?
+        data['CiphertextForRecipient'] = ::Base64::strict_encode64(stub[:ciphertext_for_recipient]) unless stub[:ciphertext_for_recipient].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -945,12 +945,12 @@ module AWS::SDK::KMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['PrivateKeyCiphertextBlob'] = ::Base64::encode64(stub[:private_key_ciphertext_blob]) unless stub[:private_key_ciphertext_blob].nil?
-        data['PrivateKeyPlaintext'] = ::Base64::encode64(stub[:private_key_plaintext]) unless stub[:private_key_plaintext].nil?
-        data['PublicKey'] = ::Base64::encode64(stub[:public_key]) unless stub[:public_key].nil?
+        data['PrivateKeyCiphertextBlob'] = ::Base64::strict_encode64(stub[:private_key_ciphertext_blob]) unless stub[:private_key_ciphertext_blob].nil?
+        data['PrivateKeyPlaintext'] = ::Base64::strict_encode64(stub[:private_key_plaintext]) unless stub[:private_key_plaintext].nil?
+        data['PublicKey'] = ::Base64::strict_encode64(stub[:public_key]) unless stub[:public_key].nil?
         data['KeyId'] = stub[:key_id] unless stub[:key_id].nil?
         data['KeyPairSpec'] = stub[:key_pair_spec] unless stub[:key_pair_spec].nil?
-        data['CiphertextForRecipient'] = ::Base64::encode64(stub[:ciphertext_for_recipient]) unless stub[:ciphertext_for_recipient].nil?
+        data['CiphertextForRecipient'] = ::Base64::strict_encode64(stub[:ciphertext_for_recipient]) unless stub[:ciphertext_for_recipient].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -976,8 +976,8 @@ module AWS::SDK::KMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['PrivateKeyCiphertextBlob'] = ::Base64::encode64(stub[:private_key_ciphertext_blob]) unless stub[:private_key_ciphertext_blob].nil?
-        data['PublicKey'] = ::Base64::encode64(stub[:public_key]) unless stub[:public_key].nil?
+        data['PrivateKeyCiphertextBlob'] = ::Base64::strict_encode64(stub[:private_key_ciphertext_blob]) unless stub[:private_key_ciphertext_blob].nil?
+        data['PublicKey'] = ::Base64::strict_encode64(stub[:public_key]) unless stub[:public_key].nil?
         data['KeyId'] = stub[:key_id] unless stub[:key_id].nil?
         data['KeyPairSpec'] = stub[:key_pair_spec] unless stub[:key_pair_spec].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
@@ -1003,7 +1003,7 @@ module AWS::SDK::KMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['CiphertextBlob'] = ::Base64::encode64(stub[:ciphertext_blob]) unless stub[:ciphertext_blob].nil?
+        data['CiphertextBlob'] = ::Base64::strict_encode64(stub[:ciphertext_blob]) unless stub[:ciphertext_blob].nil?
         data['KeyId'] = stub[:key_id] unless stub[:key_id].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
@@ -1029,7 +1029,7 @@ module AWS::SDK::KMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Mac'] = ::Base64::encode64(stub[:mac]) unless stub[:mac].nil?
+        data['Mac'] = ::Base64::strict_encode64(stub[:mac]) unless stub[:mac].nil?
         data['MacAlgorithm'] = stub[:mac_algorithm] unless stub[:mac_algorithm].nil?
         data['KeyId'] = stub[:key_id] unless stub[:key_id].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
@@ -1055,8 +1055,8 @@ module AWS::SDK::KMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Plaintext'] = ::Base64::encode64(stub[:plaintext]) unless stub[:plaintext].nil?
-        data['CiphertextForRecipient'] = ::Base64::encode64(stub[:ciphertext_for_recipient]) unless stub[:ciphertext_for_recipient].nil?
+        data['Plaintext'] = ::Base64::strict_encode64(stub[:plaintext]) unless stub[:plaintext].nil?
+        data['CiphertextForRecipient'] = ::Base64::strict_encode64(stub[:ciphertext_for_recipient]) unless stub[:ciphertext_for_recipient].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -1129,8 +1129,8 @@ module AWS::SDK::KMS
       def self.stub(http_resp, stub:)
         data = {}
         data['KeyId'] = stub[:key_id] unless stub[:key_id].nil?
-        data['ImportToken'] = ::Base64::encode64(stub[:import_token]) unless stub[:import_token].nil?
-        data['PublicKey'] = ::Base64::encode64(stub[:public_key]) unless stub[:public_key].nil?
+        data['ImportToken'] = ::Base64::strict_encode64(stub[:import_token]) unless stub[:import_token].nil?
+        data['PublicKey'] = ::Base64::strict_encode64(stub[:public_key]) unless stub[:public_key].nil?
         data['ParametersValidTo'] = Hearth::TimeHelper.to_epoch_seconds(stub[:parameters_valid_to]).to_i unless stub[:parameters_valid_to].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
@@ -1161,7 +1161,7 @@ module AWS::SDK::KMS
       def self.stub(http_resp, stub:)
         data = {}
         data['KeyId'] = stub[:key_id] unless stub[:key_id].nil?
-        data['PublicKey'] = ::Base64::encode64(stub[:public_key]) unless stub[:public_key].nil?
+        data['PublicKey'] = ::Base64::strict_encode64(stub[:public_key]) unless stub[:public_key].nil?
         data['CustomerMasterKeySpec'] = stub[:customer_master_key_spec] unless stub[:customer_master_key_spec].nil?
         data['KeySpec'] = stub[:key_spec] unless stub[:key_spec].nil?
         data['KeyUsage'] = stub[:key_usage] unless stub[:key_usage].nil?
@@ -2141,7 +2141,7 @@ module AWS::SDK::KMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['CiphertextBlob'] = ::Base64::encode64(stub[:ciphertext_blob]) unless stub[:ciphertext_blob].nil?
+        data['CiphertextBlob'] = ::Base64::strict_encode64(stub[:ciphertext_blob]) unless stub[:ciphertext_blob].nil?
         data['SourceKeyId'] = stub[:source_key_id] unless stub[:source_key_id].nil?
         data['KeyId'] = stub[:key_id] unless stub[:key_id].nil?
         data['SourceEncryptionAlgorithm'] = stub[:source_encryption_algorithm] unless stub[:source_encryption_algorithm].nil?
@@ -2269,7 +2269,7 @@ module AWS::SDK::KMS
       def self.stub(http_resp, stub:)
         data = {}
         data['KeyId'] = stub[:key_id] unless stub[:key_id].nil?
-        data['Signature'] = ::Base64::encode64(stub[:signature]) unless stub[:signature].nil?
+        data['Signature'] = ::Base64::strict_encode64(stub[:signature]) unless stub[:signature].nil?
         data['SigningAlgorithm'] = stub[:signing_algorithm] unless stub[:signing_algorithm].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200

@@ -18,8 +18,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::AbortMultipartUploadInput
+          validator: Validators::AbortMultipartUploadInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::AbortMultipartUpload
@@ -32,37 +32,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::AbortMultipartUpload,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::AbortMultipartUpload,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::AbortMultipartUpload,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 204,
             errors: [Errors::NoSuchUpload]
-          )
+          ),
+          data_parser: Parsers::AbortMultipartUpload
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::AbortMultipartUpload,
-          stub_error_classes: [Stubs::NoSuchUpload],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::NoSuchUpload],
+          stub_data_class: Stubs::AbortMultipartUpload,
           stubs: config.stubs
         )
         stack
@@ -74,8 +76,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::CompleteMultipartUploadInput
+          validator: Validators::CompleteMultipartUploadInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::CompleteMultipartUpload
@@ -88,37 +90,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::CompleteMultipartUpload,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::CompleteMultipartUpload,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::CompleteMultipartUpload,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::CompleteMultipartUpload
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::CompleteMultipartUpload,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::CompleteMultipartUpload,
           stubs: config.stubs
         )
         stack
@@ -130,8 +134,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::CopyObjectInput
+          validator: Validators::CopyObjectInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::CopyObject
@@ -144,37 +148,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::CopyObject,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::CopyObject,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::CopyObject,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::ObjectNotInActiveTierError]
-          )
+          ),
+          data_parser: Parsers::CopyObject
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::CopyObject,
-          stub_error_classes: [Stubs::ObjectNotInActiveTierError],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::ObjectNotInActiveTierError],
+          stub_data_class: Stubs::CopyObject,
           stubs: config.stubs
         )
         stack
@@ -186,8 +192,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::CreateBucketInput
+          validator: Validators::CreateBucketInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::CreateBucket
@@ -200,37 +206,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::CreateBucket,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::CreateBucket,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::CreateBucket,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::BucketAlreadyExists, Errors::BucketAlreadyOwnedByYou]
-          )
+          ),
+          data_parser: Parsers::CreateBucket
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::CreateBucket,
-          stub_error_classes: [Stubs::BucketAlreadyExists, Stubs::BucketAlreadyOwnedByYou],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::BucketAlreadyExists, Stubs::BucketAlreadyOwnedByYou],
+          stub_data_class: Stubs::CreateBucket,
           stubs: config.stubs
         )
         stack
@@ -242,8 +250,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::CreateMultipartUploadInput
+          validator: Validators::CreateMultipartUploadInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::CreateMultipartUpload
@@ -256,37 +264,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::CreateMultipartUpload,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::CreateMultipartUpload,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::CreateMultipartUpload,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::CreateMultipartUpload
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::CreateMultipartUpload,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::CreateMultipartUpload,
           stubs: config.stubs
         )
         stack
@@ -298,8 +308,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::CreateSessionInput
+          validator: Validators::CreateSessionInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::CreateSession
@@ -312,37 +322,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::CreateSession,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::CreateSession,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::CreateSession,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::NoSuchBucket]
-          )
+          ),
+          data_parser: Parsers::CreateSession
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::CreateSession,
-          stub_error_classes: [Stubs::NoSuchBucket],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::NoSuchBucket],
+          stub_data_class: Stubs::CreateSession,
           stubs: config.stubs
         )
         stack
@@ -354,8 +366,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::DeleteBucketInput
+          validator: Validators::DeleteBucketInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DeleteBucket
@@ -368,37 +380,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::DeleteBucket,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::DeleteBucket,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::DeleteBucket,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 204,
             errors: []
-          )
+          ),
+          data_parser: Parsers::DeleteBucket
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::DeleteBucket,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::DeleteBucket,
           stubs: config.stubs
         )
         stack
@@ -410,8 +424,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::DeleteBucketAnalyticsConfigurationInput
+          validator: Validators::DeleteBucketAnalyticsConfigurationInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DeleteBucketAnalyticsConfiguration
@@ -424,37 +438,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::DeleteBucketAnalyticsConfiguration,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::DeleteBucketAnalyticsConfiguration,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::DeleteBucketAnalyticsConfiguration,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 204,
             errors: []
-          )
+          ),
+          data_parser: Parsers::DeleteBucketAnalyticsConfiguration
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::DeleteBucketAnalyticsConfiguration,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::DeleteBucketAnalyticsConfiguration,
           stubs: config.stubs
         )
         stack
@@ -466,8 +482,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::DeleteBucketCorsInput
+          validator: Validators::DeleteBucketCorsInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DeleteBucketCors
@@ -480,37 +496,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::DeleteBucketCors,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::DeleteBucketCors,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::DeleteBucketCors,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 204,
             errors: []
-          )
+          ),
+          data_parser: Parsers::DeleteBucketCors
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::DeleteBucketCors,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::DeleteBucketCors,
           stubs: config.stubs
         )
         stack
@@ -522,8 +540,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::DeleteBucketEncryptionInput
+          validator: Validators::DeleteBucketEncryptionInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DeleteBucketEncryption
@@ -536,37 +554,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::DeleteBucketEncryption,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::DeleteBucketEncryption,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::DeleteBucketEncryption,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 204,
             errors: []
-          )
+          ),
+          data_parser: Parsers::DeleteBucketEncryption
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::DeleteBucketEncryption,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::DeleteBucketEncryption,
           stubs: config.stubs
         )
         stack
@@ -578,8 +598,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::DeleteBucketIntelligentTieringConfigurationInput
+          validator: Validators::DeleteBucketIntelligentTieringConfigurationInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DeleteBucketIntelligentTieringConfiguration
@@ -592,37 +612,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::DeleteBucketIntelligentTieringConfiguration,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::DeleteBucketIntelligentTieringConfiguration,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::DeleteBucketIntelligentTieringConfiguration,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 204,
             errors: []
-          )
+          ),
+          data_parser: Parsers::DeleteBucketIntelligentTieringConfiguration
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::DeleteBucketIntelligentTieringConfiguration,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::DeleteBucketIntelligentTieringConfiguration,
           stubs: config.stubs
         )
         stack
@@ -634,8 +656,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::DeleteBucketInventoryConfigurationInput
+          validator: Validators::DeleteBucketInventoryConfigurationInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DeleteBucketInventoryConfiguration
@@ -648,37 +670,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::DeleteBucketInventoryConfiguration,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::DeleteBucketInventoryConfiguration,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::DeleteBucketInventoryConfiguration,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 204,
             errors: []
-          )
+          ),
+          data_parser: Parsers::DeleteBucketInventoryConfiguration
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::DeleteBucketInventoryConfiguration,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::DeleteBucketInventoryConfiguration,
           stubs: config.stubs
         )
         stack
@@ -690,8 +714,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::DeleteBucketLifecycleInput
+          validator: Validators::DeleteBucketLifecycleInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DeleteBucketLifecycle
@@ -704,37 +728,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::DeleteBucketLifecycle,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::DeleteBucketLifecycle,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::DeleteBucketLifecycle,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 204,
             errors: []
-          )
+          ),
+          data_parser: Parsers::DeleteBucketLifecycle
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::DeleteBucketLifecycle,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::DeleteBucketLifecycle,
           stubs: config.stubs
         )
         stack
@@ -746,8 +772,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::DeleteBucketMetricsConfigurationInput
+          validator: Validators::DeleteBucketMetricsConfigurationInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DeleteBucketMetricsConfiguration
@@ -760,37 +786,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::DeleteBucketMetricsConfiguration,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::DeleteBucketMetricsConfiguration,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::DeleteBucketMetricsConfiguration,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 204,
             errors: []
-          )
+          ),
+          data_parser: Parsers::DeleteBucketMetricsConfiguration
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::DeleteBucketMetricsConfiguration,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::DeleteBucketMetricsConfiguration,
           stubs: config.stubs
         )
         stack
@@ -802,8 +830,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::DeleteBucketOwnershipControlsInput
+          validator: Validators::DeleteBucketOwnershipControlsInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DeleteBucketOwnershipControls
@@ -816,37 +844,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::DeleteBucketOwnershipControls,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::DeleteBucketOwnershipControls,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::DeleteBucketOwnershipControls,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 204,
             errors: []
-          )
+          ),
+          data_parser: Parsers::DeleteBucketOwnershipControls
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::DeleteBucketOwnershipControls,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::DeleteBucketOwnershipControls,
           stubs: config.stubs
         )
         stack
@@ -858,8 +888,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::DeleteBucketPolicyInput
+          validator: Validators::DeleteBucketPolicyInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DeleteBucketPolicy
@@ -872,37 +902,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::DeleteBucketPolicy,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::DeleteBucketPolicy,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::DeleteBucketPolicy,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 204,
             errors: []
-          )
+          ),
+          data_parser: Parsers::DeleteBucketPolicy
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::DeleteBucketPolicy,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::DeleteBucketPolicy,
           stubs: config.stubs
         )
         stack
@@ -914,8 +946,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::DeleteBucketReplicationInput
+          validator: Validators::DeleteBucketReplicationInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DeleteBucketReplication
@@ -928,37 +960,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::DeleteBucketReplication,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::DeleteBucketReplication,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::DeleteBucketReplication,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 204,
             errors: []
-          )
+          ),
+          data_parser: Parsers::DeleteBucketReplication
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::DeleteBucketReplication,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::DeleteBucketReplication,
           stubs: config.stubs
         )
         stack
@@ -970,8 +1004,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::DeleteBucketTaggingInput
+          validator: Validators::DeleteBucketTaggingInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DeleteBucketTagging
@@ -984,37 +1018,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::DeleteBucketTagging,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::DeleteBucketTagging,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::DeleteBucketTagging,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 204,
             errors: []
-          )
+          ),
+          data_parser: Parsers::DeleteBucketTagging
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::DeleteBucketTagging,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::DeleteBucketTagging,
           stubs: config.stubs
         )
         stack
@@ -1026,8 +1062,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::DeleteBucketWebsiteInput
+          validator: Validators::DeleteBucketWebsiteInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DeleteBucketWebsite
@@ -1040,37 +1076,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::DeleteBucketWebsite,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::DeleteBucketWebsite,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::DeleteBucketWebsite,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 204,
             errors: []
-          )
+          ),
+          data_parser: Parsers::DeleteBucketWebsite
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::DeleteBucketWebsite,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::DeleteBucketWebsite,
           stubs: config.stubs
         )
         stack
@@ -1082,8 +1120,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::DeleteObjectInput
+          validator: Validators::DeleteObjectInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DeleteObject
@@ -1096,37 +1134,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::DeleteObject,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::DeleteObject,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::DeleteObject,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 204,
             errors: []
-          )
+          ),
+          data_parser: Parsers::DeleteObject
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::DeleteObject,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::DeleteObject,
           stubs: config.stubs
         )
         stack
@@ -1138,8 +1178,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::DeleteObjectTaggingInput
+          validator: Validators::DeleteObjectTaggingInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DeleteObjectTagging
@@ -1152,37 +1192,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::DeleteObjectTagging,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::DeleteObjectTagging,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::DeleteObjectTagging,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 204,
             errors: []
-          )
+          ),
+          data_parser: Parsers::DeleteObjectTagging
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::DeleteObjectTagging,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::DeleteObjectTagging,
           stubs: config.stubs
         )
         stack
@@ -1194,8 +1236,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::DeleteObjectsInput
+          validator: Validators::DeleteObjectsInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DeleteObjects
@@ -1212,37 +1254,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::DeleteObjects,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::DeleteObjects,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::DeleteObjects,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::DeleteObjects
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::DeleteObjects,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::DeleteObjects,
           stubs: config.stubs
         )
         stack
@@ -1254,8 +1298,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::DeletePublicAccessBlockInput
+          validator: Validators::DeletePublicAccessBlockInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DeletePublicAccessBlock
@@ -1268,37 +1312,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::DeletePublicAccessBlock,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::DeletePublicAccessBlock,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::DeletePublicAccessBlock,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 204,
             errors: []
-          )
+          ),
+          data_parser: Parsers::DeletePublicAccessBlock
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::DeletePublicAccessBlock,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::DeletePublicAccessBlock,
           stubs: config.stubs
         )
         stack
@@ -1310,8 +1356,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::GetBucketAccelerateConfigurationInput
+          validator: Validators::GetBucketAccelerateConfigurationInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::GetBucketAccelerateConfiguration
@@ -1324,37 +1370,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::GetBucketAccelerateConfiguration,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::GetBucketAccelerateConfiguration,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::GetBucketAccelerateConfiguration,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::GetBucketAccelerateConfiguration
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::GetBucketAccelerateConfiguration,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::GetBucketAccelerateConfiguration,
           stubs: config.stubs
         )
         stack
@@ -1366,8 +1414,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::GetBucketAclInput
+          validator: Validators::GetBucketAclInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::GetBucketAcl
@@ -1380,37 +1428,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::GetBucketAcl,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::GetBucketAcl,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::GetBucketAcl,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::GetBucketAcl
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::GetBucketAcl,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::GetBucketAcl,
           stubs: config.stubs
         )
         stack
@@ -1422,8 +1472,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::GetBucketAnalyticsConfigurationInput
+          validator: Validators::GetBucketAnalyticsConfigurationInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::GetBucketAnalyticsConfiguration
@@ -1436,37 +1486,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::GetBucketAnalyticsConfiguration,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::GetBucketAnalyticsConfiguration,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::GetBucketAnalyticsConfiguration,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::GetBucketAnalyticsConfiguration
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::GetBucketAnalyticsConfiguration,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::GetBucketAnalyticsConfiguration,
           stubs: config.stubs
         )
         stack
@@ -1478,8 +1530,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::GetBucketCorsInput
+          validator: Validators::GetBucketCorsInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::GetBucketCors
@@ -1492,37 +1544,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::GetBucketCors,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::GetBucketCors,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::GetBucketCors,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::GetBucketCors
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::GetBucketCors,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::GetBucketCors,
           stubs: config.stubs
         )
         stack
@@ -1534,8 +1588,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::GetBucketEncryptionInput
+          validator: Validators::GetBucketEncryptionInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::GetBucketEncryption
@@ -1548,37 +1602,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::GetBucketEncryption,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::GetBucketEncryption,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::GetBucketEncryption,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::GetBucketEncryption
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::GetBucketEncryption,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::GetBucketEncryption,
           stubs: config.stubs
         )
         stack
@@ -1590,8 +1646,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::GetBucketIntelligentTieringConfigurationInput
+          validator: Validators::GetBucketIntelligentTieringConfigurationInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::GetBucketIntelligentTieringConfiguration
@@ -1604,37 +1660,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::GetBucketIntelligentTieringConfiguration,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::GetBucketIntelligentTieringConfiguration,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::GetBucketIntelligentTieringConfiguration,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::GetBucketIntelligentTieringConfiguration
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::GetBucketIntelligentTieringConfiguration,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::GetBucketIntelligentTieringConfiguration,
           stubs: config.stubs
         )
         stack
@@ -1646,8 +1704,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::GetBucketInventoryConfigurationInput
+          validator: Validators::GetBucketInventoryConfigurationInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::GetBucketInventoryConfiguration
@@ -1660,37 +1718,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::GetBucketInventoryConfiguration,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::GetBucketInventoryConfiguration,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::GetBucketInventoryConfiguration,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::GetBucketInventoryConfiguration
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::GetBucketInventoryConfiguration,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::GetBucketInventoryConfiguration,
           stubs: config.stubs
         )
         stack
@@ -1702,8 +1762,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::GetBucketLifecycleConfigurationInput
+          validator: Validators::GetBucketLifecycleConfigurationInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::GetBucketLifecycleConfiguration
@@ -1716,37 +1776,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::GetBucketLifecycleConfiguration,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::GetBucketLifecycleConfiguration,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::GetBucketLifecycleConfiguration,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::GetBucketLifecycleConfiguration
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::GetBucketLifecycleConfiguration,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::GetBucketLifecycleConfiguration,
           stubs: config.stubs
         )
         stack
@@ -1758,8 +1820,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::GetBucketLocationInput
+          validator: Validators::GetBucketLocationInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::GetBucketLocation
@@ -1772,37 +1834,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::GetBucketLocation,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::GetBucketLocation,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::GetBucketLocation,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::GetBucketLocation
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::GetBucketLocation,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::GetBucketLocation,
           stubs: config.stubs
         )
         stack
@@ -1814,8 +1878,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::GetBucketLoggingInput
+          validator: Validators::GetBucketLoggingInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::GetBucketLogging
@@ -1828,37 +1892,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::GetBucketLogging,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::GetBucketLogging,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::GetBucketLogging,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::GetBucketLogging
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::GetBucketLogging,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::GetBucketLogging,
           stubs: config.stubs
         )
         stack
@@ -1870,8 +1936,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::GetBucketMetricsConfigurationInput
+          validator: Validators::GetBucketMetricsConfigurationInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::GetBucketMetricsConfiguration
@@ -1884,37 +1950,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::GetBucketMetricsConfiguration,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::GetBucketMetricsConfiguration,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::GetBucketMetricsConfiguration,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::GetBucketMetricsConfiguration
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::GetBucketMetricsConfiguration,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::GetBucketMetricsConfiguration,
           stubs: config.stubs
         )
         stack
@@ -1926,8 +1994,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::GetBucketNotificationConfigurationInput
+          validator: Validators::GetBucketNotificationConfigurationInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::GetBucketNotificationConfiguration
@@ -1940,37 +2008,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::GetBucketNotificationConfiguration,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::GetBucketNotificationConfiguration,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::GetBucketNotificationConfiguration,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::GetBucketNotificationConfiguration
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::GetBucketNotificationConfiguration,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::GetBucketNotificationConfiguration,
           stubs: config.stubs
         )
         stack
@@ -1982,8 +2052,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::GetBucketOwnershipControlsInput
+          validator: Validators::GetBucketOwnershipControlsInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::GetBucketOwnershipControls
@@ -1996,37 +2066,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::GetBucketOwnershipControls,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::GetBucketOwnershipControls,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::GetBucketOwnershipControls,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::GetBucketOwnershipControls
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::GetBucketOwnershipControls,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::GetBucketOwnershipControls,
           stubs: config.stubs
         )
         stack
@@ -2038,8 +2110,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::GetBucketPolicyInput
+          validator: Validators::GetBucketPolicyInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::GetBucketPolicy
@@ -2052,37 +2124,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::GetBucketPolicy,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::GetBucketPolicy,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::GetBucketPolicy,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::GetBucketPolicy
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::GetBucketPolicy,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::GetBucketPolicy,
           stubs: config.stubs
         )
         stack
@@ -2094,8 +2168,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::GetBucketPolicyStatusInput
+          validator: Validators::GetBucketPolicyStatusInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::GetBucketPolicyStatus
@@ -2108,37 +2182,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::GetBucketPolicyStatus,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::GetBucketPolicyStatus,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::GetBucketPolicyStatus,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::GetBucketPolicyStatus
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::GetBucketPolicyStatus,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::GetBucketPolicyStatus,
           stubs: config.stubs
         )
         stack
@@ -2150,8 +2226,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::GetBucketReplicationInput
+          validator: Validators::GetBucketReplicationInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::GetBucketReplication
@@ -2164,37 +2240,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::GetBucketReplication,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::GetBucketReplication,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::GetBucketReplication,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::GetBucketReplication
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::GetBucketReplication,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::GetBucketReplication,
           stubs: config.stubs
         )
         stack
@@ -2206,8 +2284,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::GetBucketRequestPaymentInput
+          validator: Validators::GetBucketRequestPaymentInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::GetBucketRequestPayment
@@ -2220,37 +2298,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::GetBucketRequestPayment,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::GetBucketRequestPayment,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::GetBucketRequestPayment,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::GetBucketRequestPayment
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::GetBucketRequestPayment,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::GetBucketRequestPayment,
           stubs: config.stubs
         )
         stack
@@ -2262,8 +2342,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::GetBucketTaggingInput
+          validator: Validators::GetBucketTaggingInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::GetBucketTagging
@@ -2276,37 +2356,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::GetBucketTagging,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::GetBucketTagging,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::GetBucketTagging,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::GetBucketTagging
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::GetBucketTagging,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::GetBucketTagging,
           stubs: config.stubs
         )
         stack
@@ -2318,8 +2400,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::GetBucketVersioningInput
+          validator: Validators::GetBucketVersioningInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::GetBucketVersioning
@@ -2332,37 +2414,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::GetBucketVersioning,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::GetBucketVersioning,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::GetBucketVersioning,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::GetBucketVersioning
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::GetBucketVersioning,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::GetBucketVersioning,
           stubs: config.stubs
         )
         stack
@@ -2374,8 +2458,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::GetBucketWebsiteInput
+          validator: Validators::GetBucketWebsiteInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::GetBucketWebsite
@@ -2388,37 +2472,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::GetBucketWebsite,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::GetBucketWebsite,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::GetBucketWebsite,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::GetBucketWebsite
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::GetBucketWebsite,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::GetBucketWebsite,
           stubs: config.stubs
         )
         stack
@@ -2430,16 +2516,16 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::GetObjectInput
+          validator: Validators::GetObjectInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::GetObject
         )
         stack.use(AWS::SDK::Core::Middleware::Checksum,
-          request_checksum_required: false,
+          response_algorithms: ['CRC32', 'CRC32C', 'SHA256', 'SHA1'],
           request_validation_mode_member: :checksum_mode,
-          response_algorithms: ['CRC32', 'CRC32C', 'SHA256', 'SHA1']
+          request_checksum_required: false
         )
         stack.use(Hearth::Middleware::Auth,
           auth_params: Auth::Params.new(operation_name: :get_object, region: config.region),
@@ -2449,37 +2535,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::GetObject,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::GetObject,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::GetObject,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InvalidObjectState, Errors::NoSuchKey]
-          )
+          ),
+          data_parser: Parsers::GetObject
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::GetObject,
-          stub_error_classes: [Stubs::InvalidObjectState, Stubs::NoSuchKey],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::InvalidObjectState, Stubs::NoSuchKey],
+          stub_data_class: Stubs::GetObject,
           stubs: config.stubs
         )
         stack
@@ -2491,8 +2579,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::GetObjectAclInput
+          validator: Validators::GetObjectAclInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::GetObjectAcl
@@ -2505,37 +2593,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::GetObjectAcl,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::GetObjectAcl,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::GetObjectAcl,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::NoSuchKey]
-          )
+          ),
+          data_parser: Parsers::GetObjectAcl
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::GetObjectAcl,
-          stub_error_classes: [Stubs::NoSuchKey],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::NoSuchKey],
+          stub_data_class: Stubs::GetObjectAcl,
           stubs: config.stubs
         )
         stack
@@ -2547,8 +2637,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::GetObjectAttributesInput
+          validator: Validators::GetObjectAttributesInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::GetObjectAttributes
@@ -2561,37 +2651,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::GetObjectAttributes,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::GetObjectAttributes,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::GetObjectAttributes,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::NoSuchKey]
-          )
+          ),
+          data_parser: Parsers::GetObjectAttributes
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::GetObjectAttributes,
-          stub_error_classes: [Stubs::NoSuchKey],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::NoSuchKey],
+          stub_data_class: Stubs::GetObjectAttributes,
           stubs: config.stubs
         )
         stack
@@ -2603,8 +2695,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::GetObjectLegalHoldInput
+          validator: Validators::GetObjectLegalHoldInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::GetObjectLegalHold
@@ -2617,37 +2709,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::GetObjectLegalHold,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::GetObjectLegalHold,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::GetObjectLegalHold,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::GetObjectLegalHold
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::GetObjectLegalHold,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::GetObjectLegalHold,
           stubs: config.stubs
         )
         stack
@@ -2659,8 +2753,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::GetObjectLockConfigurationInput
+          validator: Validators::GetObjectLockConfigurationInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::GetObjectLockConfiguration
@@ -2673,37 +2767,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::GetObjectLockConfiguration,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::GetObjectLockConfiguration,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::GetObjectLockConfiguration,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::GetObjectLockConfiguration
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::GetObjectLockConfiguration,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::GetObjectLockConfiguration,
           stubs: config.stubs
         )
         stack
@@ -2715,8 +2811,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::GetObjectRetentionInput
+          validator: Validators::GetObjectRetentionInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::GetObjectRetention
@@ -2729,37 +2825,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::GetObjectRetention,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::GetObjectRetention,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::GetObjectRetention,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::GetObjectRetention
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::GetObjectRetention,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::GetObjectRetention,
           stubs: config.stubs
         )
         stack
@@ -2771,8 +2869,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::GetObjectTaggingInput
+          validator: Validators::GetObjectTaggingInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::GetObjectTagging
@@ -2785,37 +2883,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::GetObjectTagging,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::GetObjectTagging,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::GetObjectTagging,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::GetObjectTagging
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::GetObjectTagging,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::GetObjectTagging,
           stubs: config.stubs
         )
         stack
@@ -2827,8 +2927,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::GetObjectTorrentInput
+          validator: Validators::GetObjectTorrentInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::GetObjectTorrent
@@ -2841,37 +2941,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::GetObjectTorrent,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::GetObjectTorrent,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::GetObjectTorrent,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::GetObjectTorrent
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::GetObjectTorrent,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::GetObjectTorrent,
           stubs: config.stubs
         )
         stack
@@ -2883,8 +2985,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::GetPublicAccessBlockInput
+          validator: Validators::GetPublicAccessBlockInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::GetPublicAccessBlock
@@ -2897,37 +2999,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::GetPublicAccessBlock,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::GetPublicAccessBlock,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::GetPublicAccessBlock,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::GetPublicAccessBlock
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::GetPublicAccessBlock,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::GetPublicAccessBlock,
           stubs: config.stubs
         )
         stack
@@ -2939,8 +3043,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::HeadBucketInput
+          validator: Validators::HeadBucketInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::HeadBucket
@@ -2953,37 +3057,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::HeadBucket,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::HeadBucket,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::HeadBucket,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::NotFound]
-          )
+          ),
+          data_parser: Parsers::HeadBucket
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::HeadBucket,
-          stub_error_classes: [Stubs::NotFound],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::NotFound],
+          stub_data_class: Stubs::HeadBucket,
           stubs: config.stubs
         )
         stack
@@ -2995,8 +3101,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::HeadObjectInput
+          validator: Validators::HeadObjectInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::HeadObject
@@ -3009,37 +3115,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::HeadObject,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::HeadObject,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::HeadObject,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::NotFound]
-          )
+          ),
+          data_parser: Parsers::HeadObject
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::HeadObject,
-          stub_error_classes: [Stubs::NotFound],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::NotFound],
+          stub_data_class: Stubs::HeadObject,
           stubs: config.stubs
         )
         stack
@@ -3051,8 +3159,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::ListBucketAnalyticsConfigurationsInput
+          validator: Validators::ListBucketAnalyticsConfigurationsInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::ListBucketAnalyticsConfigurations
@@ -3065,37 +3173,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::ListBucketAnalyticsConfigurations,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::ListBucketAnalyticsConfigurations,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::ListBucketAnalyticsConfigurations,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::ListBucketAnalyticsConfigurations
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::ListBucketAnalyticsConfigurations,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::ListBucketAnalyticsConfigurations,
           stubs: config.stubs
         )
         stack
@@ -3107,8 +3217,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::ListBucketIntelligentTieringConfigurationsInput
+          validator: Validators::ListBucketIntelligentTieringConfigurationsInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::ListBucketIntelligentTieringConfigurations
@@ -3121,37 +3231,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::ListBucketIntelligentTieringConfigurations,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::ListBucketIntelligentTieringConfigurations,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::ListBucketIntelligentTieringConfigurations,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::ListBucketIntelligentTieringConfigurations
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::ListBucketIntelligentTieringConfigurations,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::ListBucketIntelligentTieringConfigurations,
           stubs: config.stubs
         )
         stack
@@ -3163,8 +3275,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::ListBucketInventoryConfigurationsInput
+          validator: Validators::ListBucketInventoryConfigurationsInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::ListBucketInventoryConfigurations
@@ -3177,37 +3289,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::ListBucketInventoryConfigurations,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::ListBucketInventoryConfigurations,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::ListBucketInventoryConfigurations,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::ListBucketInventoryConfigurations
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::ListBucketInventoryConfigurations,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::ListBucketInventoryConfigurations,
           stubs: config.stubs
         )
         stack
@@ -3219,8 +3333,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::ListBucketMetricsConfigurationsInput
+          validator: Validators::ListBucketMetricsConfigurationsInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::ListBucketMetricsConfigurations
@@ -3233,37 +3347,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::ListBucketMetricsConfigurations,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::ListBucketMetricsConfigurations,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::ListBucketMetricsConfigurations,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::ListBucketMetricsConfigurations
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::ListBucketMetricsConfigurations,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::ListBucketMetricsConfigurations,
           stubs: config.stubs
         )
         stack
@@ -3275,8 +3391,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::ListBucketsInput
+          validator: Validators::ListBucketsInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::ListBuckets
@@ -3289,37 +3405,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::ListBuckets,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::ListBuckets,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::ListBuckets,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::ListBuckets
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::ListBuckets,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::ListBuckets,
           stubs: config.stubs
         )
         stack
@@ -3331,8 +3449,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::ListDirectoryBucketsInput
+          validator: Validators::ListDirectoryBucketsInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::ListDirectoryBuckets
@@ -3345,37 +3463,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::ListDirectoryBuckets,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::ListDirectoryBuckets,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::ListDirectoryBuckets,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::ListDirectoryBuckets
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::ListDirectoryBuckets,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::ListDirectoryBuckets,
           stubs: config.stubs
         )
         stack
@@ -3387,8 +3507,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::ListMultipartUploadsInput
+          validator: Validators::ListMultipartUploadsInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::ListMultipartUploads
@@ -3401,37 +3521,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::ListMultipartUploads,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::ListMultipartUploads,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::ListMultipartUploads,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::ListMultipartUploads
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::ListMultipartUploads,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::ListMultipartUploads,
           stubs: config.stubs
         )
         stack
@@ -3443,8 +3565,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::ListObjectVersionsInput
+          validator: Validators::ListObjectVersionsInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::ListObjectVersions
@@ -3457,37 +3579,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::ListObjectVersions,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::ListObjectVersions,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::ListObjectVersions,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::ListObjectVersions
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::ListObjectVersions,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::ListObjectVersions,
           stubs: config.stubs
         )
         stack
@@ -3499,8 +3623,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::ListObjectsInput
+          validator: Validators::ListObjectsInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::ListObjects
@@ -3513,37 +3637,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::ListObjects,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::ListObjects,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::ListObjects,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::NoSuchBucket]
-          )
+          ),
+          data_parser: Parsers::ListObjects
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::ListObjects,
-          stub_error_classes: [Stubs::NoSuchBucket],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::NoSuchBucket],
+          stub_data_class: Stubs::ListObjects,
           stubs: config.stubs
         )
         stack
@@ -3555,8 +3681,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::ListObjectsV2Input
+          validator: Validators::ListObjectsV2Input,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::ListObjectsV2
@@ -3569,37 +3695,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::ListObjectsV2,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::ListObjectsV2,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::ListObjectsV2,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::NoSuchBucket]
-          )
+          ),
+          data_parser: Parsers::ListObjectsV2
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::ListObjectsV2,
-          stub_error_classes: [Stubs::NoSuchBucket],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::NoSuchBucket],
+          stub_data_class: Stubs::ListObjectsV2,
           stubs: config.stubs
         )
         stack
@@ -3611,8 +3739,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::ListPartsInput
+          validator: Validators::ListPartsInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::ListParts
@@ -3625,37 +3753,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::ListParts,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::ListParts,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::ListParts,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::ListParts
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::ListParts,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::ListParts,
           stubs: config.stubs
         )
         stack
@@ -3667,8 +3797,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::PutBucketAccelerateConfigurationInput
+          validator: Validators::PutBucketAccelerateConfigurationInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutBucketAccelerateConfiguration
@@ -3685,37 +3815,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::PutBucketAccelerateConfiguration,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::PutBucketAccelerateConfiguration,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::PutBucketAccelerateConfiguration,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::PutBucketAccelerateConfiguration
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::PutBucketAccelerateConfiguration,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::PutBucketAccelerateConfiguration,
           stubs: config.stubs
         )
         stack
@@ -3727,8 +3859,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::PutBucketAclInput
+          validator: Validators::PutBucketAclInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutBucketAcl
@@ -3745,37 +3877,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::PutBucketAcl,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::PutBucketAcl,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::PutBucketAcl,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::PutBucketAcl
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::PutBucketAcl,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::PutBucketAcl,
           stubs: config.stubs
         )
         stack
@@ -3787,8 +3921,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::PutBucketAnalyticsConfigurationInput
+          validator: Validators::PutBucketAnalyticsConfigurationInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutBucketAnalyticsConfiguration
@@ -3801,37 +3935,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::PutBucketAnalyticsConfiguration,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::PutBucketAnalyticsConfiguration,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::PutBucketAnalyticsConfiguration,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::PutBucketAnalyticsConfiguration
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::PutBucketAnalyticsConfiguration,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::PutBucketAnalyticsConfiguration,
           stubs: config.stubs
         )
         stack
@@ -3843,8 +3979,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::PutBucketCorsInput
+          validator: Validators::PutBucketCorsInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutBucketCors
@@ -3861,37 +3997,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::PutBucketCors,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::PutBucketCors,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::PutBucketCors,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::PutBucketCors
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::PutBucketCors,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::PutBucketCors,
           stubs: config.stubs
         )
         stack
@@ -3903,8 +4041,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::PutBucketEncryptionInput
+          validator: Validators::PutBucketEncryptionInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutBucketEncryption
@@ -3921,37 +4059,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::PutBucketEncryption,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::PutBucketEncryption,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::PutBucketEncryption,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::PutBucketEncryption
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::PutBucketEncryption,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::PutBucketEncryption,
           stubs: config.stubs
         )
         stack
@@ -3963,8 +4103,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::PutBucketIntelligentTieringConfigurationInput
+          validator: Validators::PutBucketIntelligentTieringConfigurationInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutBucketIntelligentTieringConfiguration
@@ -3977,37 +4117,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::PutBucketIntelligentTieringConfiguration,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::PutBucketIntelligentTieringConfiguration,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::PutBucketIntelligentTieringConfiguration,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::PutBucketIntelligentTieringConfiguration
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::PutBucketIntelligentTieringConfiguration,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::PutBucketIntelligentTieringConfiguration,
           stubs: config.stubs
         )
         stack
@@ -4019,8 +4161,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::PutBucketInventoryConfigurationInput
+          validator: Validators::PutBucketInventoryConfigurationInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutBucketInventoryConfiguration
@@ -4033,37 +4175,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::PutBucketInventoryConfiguration,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::PutBucketInventoryConfiguration,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::PutBucketInventoryConfiguration,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::PutBucketInventoryConfiguration
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::PutBucketInventoryConfiguration,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::PutBucketInventoryConfiguration,
           stubs: config.stubs
         )
         stack
@@ -4075,8 +4219,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::PutBucketLifecycleConfigurationInput
+          validator: Validators::PutBucketLifecycleConfigurationInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutBucketLifecycleConfiguration
@@ -4093,37 +4237,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::PutBucketLifecycleConfiguration,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::PutBucketLifecycleConfiguration,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::PutBucketLifecycleConfiguration,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::PutBucketLifecycleConfiguration
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::PutBucketLifecycleConfiguration,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::PutBucketLifecycleConfiguration,
           stubs: config.stubs
         )
         stack
@@ -4135,8 +4281,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::PutBucketLoggingInput
+          validator: Validators::PutBucketLoggingInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutBucketLogging
@@ -4153,37 +4299,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::PutBucketLogging,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::PutBucketLogging,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::PutBucketLogging,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::PutBucketLogging
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::PutBucketLogging,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::PutBucketLogging,
           stubs: config.stubs
         )
         stack
@@ -4195,8 +4343,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::PutBucketMetricsConfigurationInput
+          validator: Validators::PutBucketMetricsConfigurationInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutBucketMetricsConfiguration
@@ -4209,37 +4357,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::PutBucketMetricsConfiguration,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::PutBucketMetricsConfiguration,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::PutBucketMetricsConfiguration,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::PutBucketMetricsConfiguration
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::PutBucketMetricsConfiguration,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::PutBucketMetricsConfiguration,
           stubs: config.stubs
         )
         stack
@@ -4251,8 +4401,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::PutBucketNotificationConfigurationInput
+          validator: Validators::PutBucketNotificationConfigurationInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutBucketNotificationConfiguration
@@ -4265,37 +4415,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::PutBucketNotificationConfiguration,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::PutBucketNotificationConfiguration,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::PutBucketNotificationConfiguration,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::PutBucketNotificationConfiguration
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::PutBucketNotificationConfiguration,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::PutBucketNotificationConfiguration,
           stubs: config.stubs
         )
         stack
@@ -4307,8 +4459,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::PutBucketOwnershipControlsInput
+          validator: Validators::PutBucketOwnershipControlsInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutBucketOwnershipControls
@@ -4324,37 +4476,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::PutBucketOwnershipControls,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::PutBucketOwnershipControls,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::PutBucketOwnershipControls,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::PutBucketOwnershipControls
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::PutBucketOwnershipControls,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::PutBucketOwnershipControls,
           stubs: config.stubs
         )
         stack
@@ -4366,8 +4520,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::PutBucketPolicyInput
+          validator: Validators::PutBucketPolicyInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutBucketPolicy
@@ -4384,37 +4538,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::PutBucketPolicy,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::PutBucketPolicy,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::PutBucketPolicy,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::PutBucketPolicy
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::PutBucketPolicy,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::PutBucketPolicy,
           stubs: config.stubs
         )
         stack
@@ -4426,8 +4582,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::PutBucketReplicationInput
+          validator: Validators::PutBucketReplicationInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutBucketReplication
@@ -4444,37 +4600,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::PutBucketReplication,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::PutBucketReplication,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::PutBucketReplication,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::PutBucketReplication
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::PutBucketReplication,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::PutBucketReplication,
           stubs: config.stubs
         )
         stack
@@ -4486,8 +4644,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::PutBucketRequestPaymentInput
+          validator: Validators::PutBucketRequestPaymentInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutBucketRequestPayment
@@ -4504,37 +4662,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::PutBucketRequestPayment,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::PutBucketRequestPayment,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::PutBucketRequestPayment,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::PutBucketRequestPayment
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::PutBucketRequestPayment,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::PutBucketRequestPayment,
           stubs: config.stubs
         )
         stack
@@ -4546,8 +4706,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::PutBucketTaggingInput
+          validator: Validators::PutBucketTaggingInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutBucketTagging
@@ -4564,37 +4724,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::PutBucketTagging,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::PutBucketTagging,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::PutBucketTagging,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::PutBucketTagging
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::PutBucketTagging,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::PutBucketTagging,
           stubs: config.stubs
         )
         stack
@@ -4606,8 +4768,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::PutBucketVersioningInput
+          validator: Validators::PutBucketVersioningInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutBucketVersioning
@@ -4624,37 +4786,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::PutBucketVersioning,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::PutBucketVersioning,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::PutBucketVersioning,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::PutBucketVersioning
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::PutBucketVersioning,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::PutBucketVersioning,
           stubs: config.stubs
         )
         stack
@@ -4666,8 +4830,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::PutBucketWebsiteInput
+          validator: Validators::PutBucketWebsiteInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutBucketWebsite
@@ -4684,37 +4848,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::PutBucketWebsite,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::PutBucketWebsite,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::PutBucketWebsite,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::PutBucketWebsite
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::PutBucketWebsite,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::PutBucketWebsite,
           stubs: config.stubs
         )
         stack
@@ -4726,18 +4892,18 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::PutObjectInput
+          validator: Validators::PutObjectInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutObject
         )
         stack.use(AWS::SDK::Core::Middleware::Checksum,
           request_algorithm_member: :checksum_algorithm,
+          streaming: true,
           request_checksum_required: false,
-          require_decoded_content_length: true,
           signed_streaming: true,
-          streaming: true
+          require_decoded_content_length: true
         )
         stack.use(Hearth::Middleware::Auth,
           auth_params: Auth::Params.new(operation_name: :put_object, region: config.region),
@@ -4747,37 +4913,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::PutObject,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::PutObject,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::PutObject,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::PutObject
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::PutObject,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::PutObject,
           stubs: config.stubs
         )
         stack
@@ -4789,8 +4957,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::PutObjectAclInput
+          validator: Validators::PutObjectAclInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutObjectAcl
@@ -4807,37 +4975,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::PutObjectAcl,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::PutObjectAcl,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::PutObjectAcl,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::NoSuchKey]
-          )
+          ),
+          data_parser: Parsers::PutObjectAcl
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::PutObjectAcl,
-          stub_error_classes: [Stubs::NoSuchKey],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::NoSuchKey],
+          stub_data_class: Stubs::PutObjectAcl,
           stubs: config.stubs
         )
         stack
@@ -4849,8 +5019,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::PutObjectLegalHoldInput
+          validator: Validators::PutObjectLegalHoldInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutObjectLegalHold
@@ -4867,37 +5037,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::PutObjectLegalHold,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::PutObjectLegalHold,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::PutObjectLegalHold,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::PutObjectLegalHold
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::PutObjectLegalHold,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::PutObjectLegalHold,
           stubs: config.stubs
         )
         stack
@@ -4909,8 +5081,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::PutObjectLockConfigurationInput
+          validator: Validators::PutObjectLockConfigurationInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutObjectLockConfiguration
@@ -4927,37 +5099,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::PutObjectLockConfiguration,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::PutObjectLockConfiguration,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::PutObjectLockConfiguration,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::PutObjectLockConfiguration
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::PutObjectLockConfiguration,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::PutObjectLockConfiguration,
           stubs: config.stubs
         )
         stack
@@ -4969,8 +5143,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::PutObjectRetentionInput
+          validator: Validators::PutObjectRetentionInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutObjectRetention
@@ -4987,37 +5161,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::PutObjectRetention,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::PutObjectRetention,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::PutObjectRetention,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::PutObjectRetention
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::PutObjectRetention,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::PutObjectRetention,
           stubs: config.stubs
         )
         stack
@@ -5029,8 +5205,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::PutObjectTaggingInput
+          validator: Validators::PutObjectTaggingInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutObjectTagging
@@ -5047,37 +5223,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::PutObjectTagging,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::PutObjectTagging,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::PutObjectTagging,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::PutObjectTagging
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::PutObjectTagging,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::PutObjectTagging,
           stubs: config.stubs
         )
         stack
@@ -5089,8 +5267,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::PutPublicAccessBlockInput
+          validator: Validators::PutPublicAccessBlockInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutPublicAccessBlock
@@ -5107,37 +5285,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::PutPublicAccessBlock,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::PutPublicAccessBlock,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::PutPublicAccessBlock,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::PutPublicAccessBlock
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::PutPublicAccessBlock,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::PutPublicAccessBlock,
           stubs: config.stubs
         )
         stack
@@ -5149,8 +5329,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::RestoreObjectInput
+          validator: Validators::RestoreObjectInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::RestoreObject
@@ -5167,37 +5347,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::RestoreObject,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::RestoreObject,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::RestoreObject,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::ObjectAlreadyInActiveTierError]
-          )
+          ),
+          data_parser: Parsers::RestoreObject
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::RestoreObject,
-          stub_error_classes: [Stubs::ObjectAlreadyInActiveTierError],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::ObjectAlreadyInActiveTierError],
+          stub_data_class: Stubs::RestoreObject,
           stubs: config.stubs
         )
         stack
@@ -5209,18 +5391,18 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::UploadPartInput
+          validator: Validators::UploadPartInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::UploadPart
         )
         stack.use(AWS::SDK::Core::Middleware::Checksum,
           request_algorithm_member: :checksum_algorithm,
+          streaming: true,
           request_checksum_required: false,
-          require_decoded_content_length: true,
           signed_streaming: true,
-          streaming: true
+          require_decoded_content_length: true
         )
         stack.use(Hearth::Middleware::Auth,
           auth_params: Auth::Params.new(operation_name: :upload_part, region: config.region),
@@ -5230,37 +5412,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::UploadPart,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::UploadPart,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::UploadPart,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::UploadPart
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::UploadPart,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::UploadPart,
           stubs: config.stubs
         )
         stack
@@ -5272,8 +5456,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::UploadPartCopyInput
+          validator: Validators::UploadPartCopyInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::UploadPartCopy
@@ -5286,37 +5470,39 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::UploadPartCopy,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::UploadPartCopy,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::UploadPartCopy,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::UploadPartCopy
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::UploadPartCopy,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::UploadPartCopy,
           stubs: config.stubs
         )
         stack
@@ -5328,8 +5514,8 @@ module AWS::SDK::S3
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::WriteGetObjectResponseInput
+          validator: Validators::WriteGetObjectResponseInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::WriteGetObjectResponse
@@ -5342,41 +5528,43 @@ module AWS::SDK::S3
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
-          disable_multiregion_access_points: config.disable_multiregion_access_points,
-          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-          endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          force_path_style: config.force_path_style,
-          param_builder: Endpoint::Parameters::WriteGetObjectResponse,
-          region: config.region,
           use_accelerate_endpoint: config.use_accelerate_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          use_fips_endpoint: config.use_fips_endpoint,
+          force_path_style: config.force_path_style,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          disable_multi_region_access_points: config.disable_multi_region_access_points,
+          param_builder: Endpoint::Parameters::WriteGetObjectResponse,
+          endpoint: config.endpoint,
+          disable_s3_express_session_auth: config.disable_s3_express_session_auth,
+          accelerate: config.accelerate,
           use_arn_region: config.use_arn_region,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
-          use_fips_endpoint: config.use_fips_endpoint
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint
         )
         stack.use(Hearth::Middleware::HostPrefix,
-          disable_host_prefix: config.disable_host_prefix,
-          host_prefix: "{request_route}."
+          host_prefix: "{request_route}.",
+          disable_host_prefix: config.disable_host_prefix
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::WriteGetObjectResponse,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::WriteGetObjectResponse
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::WriteGetObjectResponse,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::WriteGetObjectResponse,
           stubs: config.stubs
         )
         stack

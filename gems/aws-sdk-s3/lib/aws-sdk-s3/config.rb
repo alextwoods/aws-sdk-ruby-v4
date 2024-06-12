@@ -9,6 +9,8 @@
 
 module AWS::SDK::S3
   # @!method initialize(*options)
+  #   @option args [Boolean] :accelerate
+  #     Enables this client to use S3 Transfer Acceleration endpoints.
   #   @option args [#resolve(params)] :auth_resolver (Auth::Resolver.new)
   #     A class that responds to a `resolve(auth_params)` method where `auth_params` is
   #     the {Auth::Params} struct. For a given operation_name, the method must return an
@@ -55,6 +57,8 @@ module AWS::SDK::S3
   #     @see AWS::SDK::Core::CREDENTIALS_PROVIDER_CHAIN
   #   @option args [Boolean] :disable_host_prefix (false)
   #     When `true`, does not perform host prefix injection using @endpoint trait's hostPrefix property.
+  #   @option args [Boolean] :disable_multi_region_access_points
+  #     Disables this client's usage of Multi-Region Access Points.
   #   @option args [Boolean] :disable_multiregion_access_points (false)
   #     When set to `false` this will option will raise errors when multi-region
   #     access point ARNs are used. Multi-region access points can potentially
@@ -126,6 +130,8 @@ module AWS::SDK::S3
   #     is set to `true`.
   #   @option args [Boolean] :validate_input (true)
   #     When `true`, request parameters are validated using the modeled shapes.
+  # @!attribute accelerate
+  #   @return [Boolean]
   # @!attribute auth_resolver
   #   @return [#resolve(params)]
   # @!attribute auth_schemes
@@ -133,6 +139,8 @@ module AWS::SDK::S3
   # @!attribute credentials_provider
   #   @return [Hearth::IdentityProvider]
   # @!attribute disable_host_prefix
+  #   @return [Boolean]
+  # @!attribute disable_multi_region_access_points
   #   @return [Boolean]
   # @!attribute disable_multiregion_access_points
   #   @return [Boolean]
@@ -173,10 +181,12 @@ module AWS::SDK::S3
   # @!attribute validate_input
   #   @return [Boolean]
   Config = ::Struct.new(
+    :accelerate,
     :auth_resolver,
     :auth_schemes,
     :credentials_provider,
     :disable_host_prefix,
+    :disable_multi_region_access_points,
     :disable_multiregion_access_points,
     :disable_s3_express_session_auth,
     :endpoint,
@@ -202,10 +212,12 @@ module AWS::SDK::S3
 
     # Validates the configuration.
     def validate!
+      Hearth::Validator.validate_types!(accelerate, TrueClass, FalseClass, context: 'config[:accelerate]')
       Hearth::Validator.validate_responds_to!(auth_resolver, :resolve, context: 'config[:auth_resolver]')
       Hearth::Validator.validate_types!(auth_schemes, Array, context: 'config[:auth_schemes]')
       Hearth::Validator.validate_types!(credentials_provider, Hearth::IdentityProvider, context: 'config[:credentials_provider]')
       Hearth::Validator.validate_types!(disable_host_prefix, TrueClass, FalseClass, context: 'config[:disable_host_prefix]')
+      Hearth::Validator.validate_types!(disable_multi_region_access_points, TrueClass, FalseClass, context: 'config[:disable_multi_region_access_points]')
       Hearth::Validator.validate_types!(disable_multiregion_access_points, TrueClass, FalseClass, context: 'config[:disable_multiregion_access_points]')
       Hearth::Validator.validate_types!(disable_s3_express_session_auth, TrueClass, FalseClass, context: 'config[:disable_s3_express_session_auth]')
       Hearth::Validator.validate_types!(endpoint, String, context: 'config[:endpoint]')
@@ -231,10 +243,12 @@ module AWS::SDK::S3
 
     def _defaults
       {
+        accelerate: [],
         auth_resolver: [Auth::Resolver.new],
         auth_schemes: [Auth::SCHEMES],
         credentials_provider: [proc { |cfg| cfg[:stub_responses] ? Hearth::IdentityProvider.new(proc { AWS::SDK::Core::Identities::Credentials.new(access_key_id: 'stubbed-akid', secret_access_key: 'stubbed-secret') }) : nil }, *AWS::SDK::Core::CREDENTIALS_PROVIDER_CHAIN],
         disable_host_prefix: [false],
+        disable_multi_region_access_points: [],
         disable_multiregion_access_points: [Hearth::Config::EnvProvider.new('AWS_S3_DISABLE_MULTIREGION_ACCESS_POINTS', type: 'Boolean'),AWS::SDK::Core::SharedConfigProvider.new('s3_disable_multiregion_access_points', type: 'Boolean'),false],
         disable_s3_express_session_auth: [],
         endpoint: [proc { |cfg| cfg[:stub_responses] ? 'http://localhost' : nil }],

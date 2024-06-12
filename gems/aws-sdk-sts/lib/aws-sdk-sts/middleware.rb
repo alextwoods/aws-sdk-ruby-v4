@@ -18,8 +18,8 @@ module AWS::SDK::STS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::AssumeRoleInput
+          validator: Validators::AssumeRoleInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::AssumeRole
@@ -33,31 +33,31 @@ module AWS::SDK::STS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::AssumeRole,
           region: config.region,
+          param_builder: Endpoint::Parameters::AssumeRole,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::AssumeRole,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::ExpiredTokenException, Errors::MalformedPolicyDocumentException, Errors::PackedPolicyTooLargeException, Errors::RegionDisabledException]
-          )
+          ),
+          data_parser: Parsers::AssumeRole
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::AssumeRole,
-          stub_error_classes: [Stubs::ExpiredTokenException, Stubs::MalformedPolicyDocumentException, Stubs::PackedPolicyTooLargeException, Stubs::RegionDisabledException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::ExpiredTokenException, Stubs::MalformedPolicyDocumentException, Stubs::PackedPolicyTooLargeException, Stubs::RegionDisabledException],
+          stub_data_class: Stubs::AssumeRole,
           stubs: config.stubs
         )
         stack
@@ -69,8 +69,8 @@ module AWS::SDK::STS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::AssumeRoleWithSAMLInput
+          validator: Validators::AssumeRoleWithSAMLInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::AssumeRoleWithSAML
@@ -84,31 +84,31 @@ module AWS::SDK::STS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::AssumeRoleWithSAML,
           region: config.region,
+          param_builder: Endpoint::Parameters::AssumeRoleWithSAML,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::AssumeRoleWithSAML,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::ExpiredTokenException, Errors::IDPRejectedClaimException, Errors::InvalidIdentityTokenException, Errors::MalformedPolicyDocumentException, Errors::PackedPolicyTooLargeException, Errors::RegionDisabledException]
-          )
+          ),
+          data_parser: Parsers::AssumeRoleWithSAML
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::AssumeRoleWithSAML,
-          stub_error_classes: [Stubs::ExpiredTokenException, Stubs::IDPRejectedClaimException, Stubs::InvalidIdentityTokenException, Stubs::MalformedPolicyDocumentException, Stubs::PackedPolicyTooLargeException, Stubs::RegionDisabledException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::ExpiredTokenException, Stubs::IDPRejectedClaimException, Stubs::InvalidIdentityTokenException, Stubs::MalformedPolicyDocumentException, Stubs::PackedPolicyTooLargeException, Stubs::RegionDisabledException],
+          stub_data_class: Stubs::AssumeRoleWithSAML,
           stubs: config.stubs
         )
         stack
@@ -120,8 +120,8 @@ module AWS::SDK::STS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::AssumeRoleWithWebIdentityInput
+          validator: Validators::AssumeRoleWithWebIdentityInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::AssumeRoleWithWebIdentity
@@ -135,31 +135,31 @@ module AWS::SDK::STS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::AssumeRoleWithWebIdentity,
           region: config.region,
+          param_builder: Endpoint::Parameters::AssumeRoleWithWebIdentity,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::AssumeRoleWithWebIdentity,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::ExpiredTokenException, Errors::IDPCommunicationErrorException, Errors::IDPRejectedClaimException, Errors::InvalidIdentityTokenException, Errors::MalformedPolicyDocumentException, Errors::PackedPolicyTooLargeException, Errors::RegionDisabledException]
-          )
+          ),
+          data_parser: Parsers::AssumeRoleWithWebIdentity
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::AssumeRoleWithWebIdentity,
-          stub_error_classes: [Stubs::ExpiredTokenException, Stubs::IDPCommunicationErrorException, Stubs::IDPRejectedClaimException, Stubs::InvalidIdentityTokenException, Stubs::MalformedPolicyDocumentException, Stubs::PackedPolicyTooLargeException, Stubs::RegionDisabledException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::ExpiredTokenException, Stubs::IDPCommunicationErrorException, Stubs::IDPRejectedClaimException, Stubs::InvalidIdentityTokenException, Stubs::MalformedPolicyDocumentException, Stubs::PackedPolicyTooLargeException, Stubs::RegionDisabledException],
+          stub_data_class: Stubs::AssumeRoleWithWebIdentity,
           stubs: config.stubs
         )
         stack
@@ -171,8 +171,8 @@ module AWS::SDK::STS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::DecodeAuthorizationMessageInput
+          validator: Validators::DecodeAuthorizationMessageInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DecodeAuthorizationMessage
@@ -186,31 +186,31 @@ module AWS::SDK::STS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::DecodeAuthorizationMessage,
           region: config.region,
+          param_builder: Endpoint::Parameters::DecodeAuthorizationMessage,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::DecodeAuthorizationMessage,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InvalidAuthorizationMessageException]
-          )
+          ),
+          data_parser: Parsers::DecodeAuthorizationMessage
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::DecodeAuthorizationMessage,
-          stub_error_classes: [Stubs::InvalidAuthorizationMessageException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::InvalidAuthorizationMessageException],
+          stub_data_class: Stubs::DecodeAuthorizationMessage,
           stubs: config.stubs
         )
         stack
@@ -222,8 +222,8 @@ module AWS::SDK::STS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::GetAccessKeyInfoInput
+          validator: Validators::GetAccessKeyInfoInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::GetAccessKeyInfo
@@ -237,31 +237,31 @@ module AWS::SDK::STS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::GetAccessKeyInfo,
           region: config.region,
+          param_builder: Endpoint::Parameters::GetAccessKeyInfo,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::GetAccessKeyInfo,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::GetAccessKeyInfo
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::GetAccessKeyInfo,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::GetAccessKeyInfo,
           stubs: config.stubs
         )
         stack
@@ -273,8 +273,8 @@ module AWS::SDK::STS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::GetCallerIdentityInput
+          validator: Validators::GetCallerIdentityInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::GetCallerIdentity
@@ -288,31 +288,31 @@ module AWS::SDK::STS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::GetCallerIdentity,
           region: config.region,
+          param_builder: Endpoint::Parameters::GetCallerIdentity,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::GetCallerIdentity,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::GetCallerIdentity
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::GetCallerIdentity,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::GetCallerIdentity,
           stubs: config.stubs
         )
         stack
@@ -324,8 +324,8 @@ module AWS::SDK::STS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::GetFederationTokenInput
+          validator: Validators::GetFederationTokenInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::GetFederationToken
@@ -339,31 +339,31 @@ module AWS::SDK::STS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::GetFederationToken,
           region: config.region,
+          param_builder: Endpoint::Parameters::GetFederationToken,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::GetFederationToken,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::MalformedPolicyDocumentException, Errors::PackedPolicyTooLargeException, Errors::RegionDisabledException]
-          )
+          ),
+          data_parser: Parsers::GetFederationToken
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::GetFederationToken,
-          stub_error_classes: [Stubs::MalformedPolicyDocumentException, Stubs::PackedPolicyTooLargeException, Stubs::RegionDisabledException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::MalformedPolicyDocumentException, Stubs::PackedPolicyTooLargeException, Stubs::RegionDisabledException],
+          stub_data_class: Stubs::GetFederationToken,
           stubs: config.stubs
         )
         stack
@@ -375,8 +375,8 @@ module AWS::SDK::STS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::GetSessionTokenInput
+          validator: Validators::GetSessionTokenInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::GetSessionToken
@@ -390,31 +390,31 @@ module AWS::SDK::STS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::GetSessionToken,
           region: config.region,
+          param_builder: Endpoint::Parameters::GetSessionToken,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::GetSessionToken,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::RegionDisabledException]
-          )
+          ),
+          data_parser: Parsers::GetSessionToken
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::GetSessionToken,
-          stub_error_classes: [Stubs::RegionDisabledException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::RegionDisabledException],
+          stub_data_class: Stubs::GetSessionToken,
           stubs: config.stubs
         )
         stack

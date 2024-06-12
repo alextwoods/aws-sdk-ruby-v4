@@ -18,8 +18,8 @@ module AWS::SDK::CloudWatch
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::DeleteAlarmsInput
+          validator: Validators::DeleteAlarmsInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DeleteAlarms
@@ -33,31 +33,31 @@ module AWS::SDK::CloudWatch
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::DeleteAlarms,
           region: config.region,
+          param_builder: Endpoint::Parameters::DeleteAlarms,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::DeleteAlarms,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::ResourceNotFound]
-          )
+          ),
+          data_parser: Parsers::DeleteAlarms
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::DeleteAlarms,
-          stub_error_classes: [Stubs::ResourceNotFound],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::ResourceNotFound],
+          stub_data_class: Stubs::DeleteAlarms,
           stubs: config.stubs
         )
         stack
@@ -69,8 +69,8 @@ module AWS::SDK::CloudWatch
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::DeleteAnomalyDetectorInput
+          validator: Validators::DeleteAnomalyDetectorInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DeleteAnomalyDetector
@@ -84,31 +84,31 @@ module AWS::SDK::CloudWatch
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::DeleteAnomalyDetector,
           region: config.region,
+          param_builder: Endpoint::Parameters::DeleteAnomalyDetector,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::DeleteAnomalyDetector,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::ResourceNotFoundException, Errors::InvalidParameterCombinationException, Errors::InvalidParameterValueException, Errors::InternalServiceFault, Errors::MissingRequiredParameterException]
-          )
+          ),
+          data_parser: Parsers::DeleteAnomalyDetector
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::DeleteAnomalyDetector,
-          stub_error_classes: [Stubs::ResourceNotFoundException, Stubs::InvalidParameterCombinationException, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault, Stubs::MissingRequiredParameterException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::ResourceNotFoundException, Stubs::InvalidParameterCombinationException, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault, Stubs::MissingRequiredParameterException],
+          stub_data_class: Stubs::DeleteAnomalyDetector,
           stubs: config.stubs
         )
         stack
@@ -120,8 +120,8 @@ module AWS::SDK::CloudWatch
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::DeleteDashboardsInput
+          validator: Validators::DeleteDashboardsInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DeleteDashboards
@@ -135,31 +135,31 @@ module AWS::SDK::CloudWatch
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::DeleteDashboards,
           region: config.region,
+          param_builder: Endpoint::Parameters::DeleteDashboards,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::DeleteDashboards,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::DashboardNotFoundError, Errors::InvalidParameterValueException, Errors::InternalServiceFault]
-          )
+          ),
+          data_parser: Parsers::DeleteDashboards
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::DeleteDashboards,
-          stub_error_classes: [Stubs::DashboardNotFoundError, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::DashboardNotFoundError, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault],
+          stub_data_class: Stubs::DeleteDashboards,
           stubs: config.stubs
         )
         stack
@@ -171,8 +171,8 @@ module AWS::SDK::CloudWatch
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::DeleteInsightRulesInput
+          validator: Validators::DeleteInsightRulesInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DeleteInsightRules
@@ -186,31 +186,31 @@ module AWS::SDK::CloudWatch
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::DeleteInsightRules,
           region: config.region,
+          param_builder: Endpoint::Parameters::DeleteInsightRules,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::DeleteInsightRules,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InvalidParameterValueException, Errors::MissingRequiredParameterException]
-          )
+          ),
+          data_parser: Parsers::DeleteInsightRules
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::DeleteInsightRules,
-          stub_error_classes: [Stubs::InvalidParameterValueException, Stubs::MissingRequiredParameterException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::InvalidParameterValueException, Stubs::MissingRequiredParameterException],
+          stub_data_class: Stubs::DeleteInsightRules,
           stubs: config.stubs
         )
         stack
@@ -222,8 +222,8 @@ module AWS::SDK::CloudWatch
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::DeleteMetricStreamInput
+          validator: Validators::DeleteMetricStreamInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DeleteMetricStream
@@ -237,31 +237,31 @@ module AWS::SDK::CloudWatch
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::DeleteMetricStream,
           region: config.region,
+          param_builder: Endpoint::Parameters::DeleteMetricStream,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::DeleteMetricStream,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InvalidParameterValueException, Errors::InternalServiceFault, Errors::MissingRequiredParameterException]
-          )
+          ),
+          data_parser: Parsers::DeleteMetricStream
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::DeleteMetricStream,
-          stub_error_classes: [Stubs::InvalidParameterValueException, Stubs::InternalServiceFault, Stubs::MissingRequiredParameterException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::InvalidParameterValueException, Stubs::InternalServiceFault, Stubs::MissingRequiredParameterException],
+          stub_data_class: Stubs::DeleteMetricStream,
           stubs: config.stubs
         )
         stack
@@ -273,8 +273,8 @@ module AWS::SDK::CloudWatch
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::DescribeAlarmHistoryInput
+          validator: Validators::DescribeAlarmHistoryInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DescribeAlarmHistory
@@ -288,31 +288,31 @@ module AWS::SDK::CloudWatch
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::DescribeAlarmHistory,
           region: config.region,
+          param_builder: Endpoint::Parameters::DescribeAlarmHistory,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::DescribeAlarmHistory,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InvalidNextToken]
-          )
+          ),
+          data_parser: Parsers::DescribeAlarmHistory
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::DescribeAlarmHistory,
-          stub_error_classes: [Stubs::InvalidNextToken],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::InvalidNextToken],
+          stub_data_class: Stubs::DescribeAlarmHistory,
           stubs: config.stubs
         )
         stack
@@ -324,8 +324,8 @@ module AWS::SDK::CloudWatch
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::DescribeAlarmsInput
+          validator: Validators::DescribeAlarmsInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DescribeAlarms
@@ -339,31 +339,31 @@ module AWS::SDK::CloudWatch
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::DescribeAlarms,
           region: config.region,
+          param_builder: Endpoint::Parameters::DescribeAlarms,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::DescribeAlarms,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InvalidNextToken]
-          )
+          ),
+          data_parser: Parsers::DescribeAlarms
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::DescribeAlarms,
-          stub_error_classes: [Stubs::InvalidNextToken],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::InvalidNextToken],
+          stub_data_class: Stubs::DescribeAlarms,
           stubs: config.stubs
         )
         stack
@@ -375,8 +375,8 @@ module AWS::SDK::CloudWatch
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::DescribeAlarmsForMetricInput
+          validator: Validators::DescribeAlarmsForMetricInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DescribeAlarmsForMetric
@@ -390,31 +390,31 @@ module AWS::SDK::CloudWatch
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::DescribeAlarmsForMetric,
           region: config.region,
+          param_builder: Endpoint::Parameters::DescribeAlarmsForMetric,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::DescribeAlarmsForMetric,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::DescribeAlarmsForMetric
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::DescribeAlarmsForMetric,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::DescribeAlarmsForMetric,
           stubs: config.stubs
         )
         stack
@@ -426,8 +426,8 @@ module AWS::SDK::CloudWatch
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::DescribeAnomalyDetectorsInput
+          validator: Validators::DescribeAnomalyDetectorsInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DescribeAnomalyDetectors
@@ -441,31 +441,31 @@ module AWS::SDK::CloudWatch
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::DescribeAnomalyDetectors,
           region: config.region,
+          param_builder: Endpoint::Parameters::DescribeAnomalyDetectors,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::DescribeAnomalyDetectors,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InvalidNextToken, Errors::InvalidParameterCombinationException, Errors::InvalidParameterValueException, Errors::InternalServiceFault]
-          )
+          ),
+          data_parser: Parsers::DescribeAnomalyDetectors
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::DescribeAnomalyDetectors,
-          stub_error_classes: [Stubs::InvalidNextToken, Stubs::InvalidParameterCombinationException, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::InvalidNextToken, Stubs::InvalidParameterCombinationException, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault],
+          stub_data_class: Stubs::DescribeAnomalyDetectors,
           stubs: config.stubs
         )
         stack
@@ -477,8 +477,8 @@ module AWS::SDK::CloudWatch
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::DescribeInsightRulesInput
+          validator: Validators::DescribeInsightRulesInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DescribeInsightRules
@@ -492,31 +492,31 @@ module AWS::SDK::CloudWatch
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::DescribeInsightRules,
           region: config.region,
+          param_builder: Endpoint::Parameters::DescribeInsightRules,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::DescribeInsightRules,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InvalidNextToken]
-          )
+          ),
+          data_parser: Parsers::DescribeInsightRules
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::DescribeInsightRules,
-          stub_error_classes: [Stubs::InvalidNextToken],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::InvalidNextToken],
+          stub_data_class: Stubs::DescribeInsightRules,
           stubs: config.stubs
         )
         stack
@@ -528,8 +528,8 @@ module AWS::SDK::CloudWatch
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::DisableAlarmActionsInput
+          validator: Validators::DisableAlarmActionsInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DisableAlarmActions
@@ -543,31 +543,31 @@ module AWS::SDK::CloudWatch
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::DisableAlarmActions,
           region: config.region,
+          param_builder: Endpoint::Parameters::DisableAlarmActions,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::DisableAlarmActions,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::DisableAlarmActions
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::DisableAlarmActions,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::DisableAlarmActions,
           stubs: config.stubs
         )
         stack
@@ -579,8 +579,8 @@ module AWS::SDK::CloudWatch
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::DisableInsightRulesInput
+          validator: Validators::DisableInsightRulesInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DisableInsightRules
@@ -594,31 +594,31 @@ module AWS::SDK::CloudWatch
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::DisableInsightRules,
           region: config.region,
+          param_builder: Endpoint::Parameters::DisableInsightRules,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::DisableInsightRules,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InvalidParameterValueException, Errors::MissingRequiredParameterException]
-          )
+          ),
+          data_parser: Parsers::DisableInsightRules
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::DisableInsightRules,
-          stub_error_classes: [Stubs::InvalidParameterValueException, Stubs::MissingRequiredParameterException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::InvalidParameterValueException, Stubs::MissingRequiredParameterException],
+          stub_data_class: Stubs::DisableInsightRules,
           stubs: config.stubs
         )
         stack
@@ -630,8 +630,8 @@ module AWS::SDK::CloudWatch
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::EnableAlarmActionsInput
+          validator: Validators::EnableAlarmActionsInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::EnableAlarmActions
@@ -645,31 +645,31 @@ module AWS::SDK::CloudWatch
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::EnableAlarmActions,
           region: config.region,
+          param_builder: Endpoint::Parameters::EnableAlarmActions,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::EnableAlarmActions,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::EnableAlarmActions
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::EnableAlarmActions,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::EnableAlarmActions,
           stubs: config.stubs
         )
         stack
@@ -681,8 +681,8 @@ module AWS::SDK::CloudWatch
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::EnableInsightRulesInput
+          validator: Validators::EnableInsightRulesInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::EnableInsightRules
@@ -696,31 +696,31 @@ module AWS::SDK::CloudWatch
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::EnableInsightRules,
           region: config.region,
+          param_builder: Endpoint::Parameters::EnableInsightRules,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::EnableInsightRules,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::LimitExceededException, Errors::InvalidParameterValueException, Errors::MissingRequiredParameterException]
-          )
+          ),
+          data_parser: Parsers::EnableInsightRules
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::EnableInsightRules,
-          stub_error_classes: [Stubs::LimitExceededException, Stubs::InvalidParameterValueException, Stubs::MissingRequiredParameterException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::LimitExceededException, Stubs::InvalidParameterValueException, Stubs::MissingRequiredParameterException],
+          stub_data_class: Stubs::EnableInsightRules,
           stubs: config.stubs
         )
         stack
@@ -732,8 +732,8 @@ module AWS::SDK::CloudWatch
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::GetDashboardInput
+          validator: Validators::GetDashboardInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::GetDashboard
@@ -747,31 +747,31 @@ module AWS::SDK::CloudWatch
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::GetDashboard,
           region: config.region,
+          param_builder: Endpoint::Parameters::GetDashboard,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::GetDashboard,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::DashboardNotFoundError, Errors::InvalidParameterValueException, Errors::InternalServiceFault]
-          )
+          ),
+          data_parser: Parsers::GetDashboard
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::GetDashboard,
-          stub_error_classes: [Stubs::DashboardNotFoundError, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::DashboardNotFoundError, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault],
+          stub_data_class: Stubs::GetDashboard,
           stubs: config.stubs
         )
         stack
@@ -783,8 +783,8 @@ module AWS::SDK::CloudWatch
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::GetInsightRuleReportInput
+          validator: Validators::GetInsightRuleReportInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::GetInsightRuleReport
@@ -798,31 +798,31 @@ module AWS::SDK::CloudWatch
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::GetInsightRuleReport,
           region: config.region,
+          param_builder: Endpoint::Parameters::GetInsightRuleReport,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::GetInsightRuleReport,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::ResourceNotFoundException, Errors::InvalidParameterValueException, Errors::MissingRequiredParameterException]
-          )
+          ),
+          data_parser: Parsers::GetInsightRuleReport
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::GetInsightRuleReport,
-          stub_error_classes: [Stubs::ResourceNotFoundException, Stubs::InvalidParameterValueException, Stubs::MissingRequiredParameterException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::ResourceNotFoundException, Stubs::InvalidParameterValueException, Stubs::MissingRequiredParameterException],
+          stub_data_class: Stubs::GetInsightRuleReport,
           stubs: config.stubs
         )
         stack
@@ -834,8 +834,8 @@ module AWS::SDK::CloudWatch
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::GetMetricDataInput
+          validator: Validators::GetMetricDataInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::GetMetricData
@@ -849,31 +849,31 @@ module AWS::SDK::CloudWatch
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::GetMetricData,
           region: config.region,
+          param_builder: Endpoint::Parameters::GetMetricData,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::GetMetricData,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InvalidNextToken]
-          )
+          ),
+          data_parser: Parsers::GetMetricData
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::GetMetricData,
-          stub_error_classes: [Stubs::InvalidNextToken],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::InvalidNextToken],
+          stub_data_class: Stubs::GetMetricData,
           stubs: config.stubs
         )
         stack
@@ -885,8 +885,8 @@ module AWS::SDK::CloudWatch
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::GetMetricStatisticsInput
+          validator: Validators::GetMetricStatisticsInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::GetMetricStatistics
@@ -900,31 +900,31 @@ module AWS::SDK::CloudWatch
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::GetMetricStatistics,
           region: config.region,
+          param_builder: Endpoint::Parameters::GetMetricStatistics,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::GetMetricStatistics,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InvalidParameterCombinationException, Errors::InvalidParameterValueException, Errors::InternalServiceFault, Errors::MissingRequiredParameterException]
-          )
+          ),
+          data_parser: Parsers::GetMetricStatistics
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::GetMetricStatistics,
-          stub_error_classes: [Stubs::InvalidParameterCombinationException, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault, Stubs::MissingRequiredParameterException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::InvalidParameterCombinationException, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault, Stubs::MissingRequiredParameterException],
+          stub_data_class: Stubs::GetMetricStatistics,
           stubs: config.stubs
         )
         stack
@@ -936,8 +936,8 @@ module AWS::SDK::CloudWatch
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::GetMetricStreamInput
+          validator: Validators::GetMetricStreamInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::GetMetricStream
@@ -951,31 +951,31 @@ module AWS::SDK::CloudWatch
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::GetMetricStream,
           region: config.region,
+          param_builder: Endpoint::Parameters::GetMetricStream,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::GetMetricStream,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::ResourceNotFoundException, Errors::InvalidParameterCombinationException, Errors::InvalidParameterValueException, Errors::InternalServiceFault, Errors::MissingRequiredParameterException]
-          )
+          ),
+          data_parser: Parsers::GetMetricStream
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::GetMetricStream,
-          stub_error_classes: [Stubs::ResourceNotFoundException, Stubs::InvalidParameterCombinationException, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault, Stubs::MissingRequiredParameterException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::ResourceNotFoundException, Stubs::InvalidParameterCombinationException, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault, Stubs::MissingRequiredParameterException],
+          stub_data_class: Stubs::GetMetricStream,
           stubs: config.stubs
         )
         stack
@@ -987,8 +987,8 @@ module AWS::SDK::CloudWatch
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::GetMetricWidgetImageInput
+          validator: Validators::GetMetricWidgetImageInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::GetMetricWidgetImage
@@ -1002,31 +1002,31 @@ module AWS::SDK::CloudWatch
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::GetMetricWidgetImage,
           region: config.region,
+          param_builder: Endpoint::Parameters::GetMetricWidgetImage,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::GetMetricWidgetImage,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          )
+          ),
+          data_parser: Parsers::GetMetricWidgetImage
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::GetMetricWidgetImage,
-          stub_error_classes: [],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [],
+          stub_data_class: Stubs::GetMetricWidgetImage,
           stubs: config.stubs
         )
         stack
@@ -1038,8 +1038,8 @@ module AWS::SDK::CloudWatch
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::ListDashboardsInput
+          validator: Validators::ListDashboardsInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::ListDashboards
@@ -1053,31 +1053,31 @@ module AWS::SDK::CloudWatch
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::ListDashboards,
           region: config.region,
+          param_builder: Endpoint::Parameters::ListDashboards,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::ListDashboards,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InvalidParameterValueException, Errors::InternalServiceFault]
-          )
+          ),
+          data_parser: Parsers::ListDashboards
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::ListDashboards,
-          stub_error_classes: [Stubs::InvalidParameterValueException, Stubs::InternalServiceFault],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::InvalidParameterValueException, Stubs::InternalServiceFault],
+          stub_data_class: Stubs::ListDashboards,
           stubs: config.stubs
         )
         stack
@@ -1089,8 +1089,8 @@ module AWS::SDK::CloudWatch
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::ListManagedInsightRulesInput
+          validator: Validators::ListManagedInsightRulesInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::ListManagedInsightRules
@@ -1104,31 +1104,31 @@ module AWS::SDK::CloudWatch
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::ListManagedInsightRules,
           region: config.region,
+          param_builder: Endpoint::Parameters::ListManagedInsightRules,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::ListManagedInsightRules,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InvalidNextToken, Errors::InvalidParameterValueException, Errors::MissingRequiredParameterException]
-          )
+          ),
+          data_parser: Parsers::ListManagedInsightRules
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::ListManagedInsightRules,
-          stub_error_classes: [Stubs::InvalidNextToken, Stubs::InvalidParameterValueException, Stubs::MissingRequiredParameterException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::InvalidNextToken, Stubs::InvalidParameterValueException, Stubs::MissingRequiredParameterException],
+          stub_data_class: Stubs::ListManagedInsightRules,
           stubs: config.stubs
         )
         stack
@@ -1140,8 +1140,8 @@ module AWS::SDK::CloudWatch
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::ListMetricStreamsInput
+          validator: Validators::ListMetricStreamsInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::ListMetricStreams
@@ -1155,31 +1155,31 @@ module AWS::SDK::CloudWatch
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::ListMetricStreams,
           region: config.region,
+          param_builder: Endpoint::Parameters::ListMetricStreams,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::ListMetricStreams,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InvalidNextToken, Errors::InvalidParameterValueException, Errors::InternalServiceFault, Errors::MissingRequiredParameterException]
-          )
+          ),
+          data_parser: Parsers::ListMetricStreams
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::ListMetricStreams,
-          stub_error_classes: [Stubs::InvalidNextToken, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault, Stubs::MissingRequiredParameterException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::InvalidNextToken, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault, Stubs::MissingRequiredParameterException],
+          stub_data_class: Stubs::ListMetricStreams,
           stubs: config.stubs
         )
         stack
@@ -1191,8 +1191,8 @@ module AWS::SDK::CloudWatch
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::ListMetricsInput
+          validator: Validators::ListMetricsInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::ListMetrics
@@ -1206,31 +1206,31 @@ module AWS::SDK::CloudWatch
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::ListMetrics,
           region: config.region,
+          param_builder: Endpoint::Parameters::ListMetrics,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::ListMetrics,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InvalidParameterValueException, Errors::InternalServiceFault]
-          )
+          ),
+          data_parser: Parsers::ListMetrics
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::ListMetrics,
-          stub_error_classes: [Stubs::InvalidParameterValueException, Stubs::InternalServiceFault],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::InvalidParameterValueException, Stubs::InternalServiceFault],
+          stub_data_class: Stubs::ListMetrics,
           stubs: config.stubs
         )
         stack
@@ -1242,8 +1242,8 @@ module AWS::SDK::CloudWatch
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::ListTagsForResourceInput
+          validator: Validators::ListTagsForResourceInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::ListTagsForResource
@@ -1257,31 +1257,31 @@ module AWS::SDK::CloudWatch
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::ListTagsForResource,
           region: config.region,
+          param_builder: Endpoint::Parameters::ListTagsForResource,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::ListTagsForResource,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::ResourceNotFoundException, Errors::InvalidParameterValueException, Errors::InternalServiceFault]
-          )
+          ),
+          data_parser: Parsers::ListTagsForResource
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::ListTagsForResource,
-          stub_error_classes: [Stubs::ResourceNotFoundException, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::ResourceNotFoundException, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault],
+          stub_data_class: Stubs::ListTagsForResource,
           stubs: config.stubs
         )
         stack
@@ -1293,8 +1293,8 @@ module AWS::SDK::CloudWatch
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::PutAnomalyDetectorInput
+          validator: Validators::PutAnomalyDetectorInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutAnomalyDetector
@@ -1308,31 +1308,31 @@ module AWS::SDK::CloudWatch
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::PutAnomalyDetector,
           region: config.region,
+          param_builder: Endpoint::Parameters::PutAnomalyDetector,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::PutAnomalyDetector,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::LimitExceededException, Errors::InvalidParameterCombinationException, Errors::InvalidParameterValueException, Errors::InternalServiceFault, Errors::MissingRequiredParameterException]
-          )
+          ),
+          data_parser: Parsers::PutAnomalyDetector
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::PutAnomalyDetector,
-          stub_error_classes: [Stubs::LimitExceededException, Stubs::InvalidParameterCombinationException, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault, Stubs::MissingRequiredParameterException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::LimitExceededException, Stubs::InvalidParameterCombinationException, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault, Stubs::MissingRequiredParameterException],
+          stub_data_class: Stubs::PutAnomalyDetector,
           stubs: config.stubs
         )
         stack
@@ -1344,8 +1344,8 @@ module AWS::SDK::CloudWatch
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::PutCompositeAlarmInput
+          validator: Validators::PutCompositeAlarmInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutCompositeAlarm
@@ -1359,31 +1359,31 @@ module AWS::SDK::CloudWatch
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::PutCompositeAlarm,
           region: config.region,
+          param_builder: Endpoint::Parameters::PutCompositeAlarm,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::PutCompositeAlarm,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::LimitExceededFault]
-          )
+          ),
+          data_parser: Parsers::PutCompositeAlarm
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::PutCompositeAlarm,
-          stub_error_classes: [Stubs::LimitExceededFault],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::LimitExceededFault],
+          stub_data_class: Stubs::PutCompositeAlarm,
           stubs: config.stubs
         )
         stack
@@ -1395,8 +1395,8 @@ module AWS::SDK::CloudWatch
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::PutDashboardInput
+          validator: Validators::PutDashboardInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutDashboard
@@ -1410,31 +1410,31 @@ module AWS::SDK::CloudWatch
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::PutDashboard,
           region: config.region,
+          param_builder: Endpoint::Parameters::PutDashboard,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::PutDashboard,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::DashboardInvalidInputError, Errors::InternalServiceFault]
-          )
+          ),
+          data_parser: Parsers::PutDashboard
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::PutDashboard,
-          stub_error_classes: [Stubs::DashboardInvalidInputError, Stubs::InternalServiceFault],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::DashboardInvalidInputError, Stubs::InternalServiceFault],
+          stub_data_class: Stubs::PutDashboard,
           stubs: config.stubs
         )
         stack
@@ -1446,8 +1446,8 @@ module AWS::SDK::CloudWatch
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::PutInsightRuleInput
+          validator: Validators::PutInsightRuleInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutInsightRule
@@ -1461,31 +1461,31 @@ module AWS::SDK::CloudWatch
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::PutInsightRule,
           region: config.region,
+          param_builder: Endpoint::Parameters::PutInsightRule,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::PutInsightRule,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::LimitExceededException, Errors::InvalidParameterValueException, Errors::MissingRequiredParameterException]
-          )
+          ),
+          data_parser: Parsers::PutInsightRule
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::PutInsightRule,
-          stub_error_classes: [Stubs::LimitExceededException, Stubs::InvalidParameterValueException, Stubs::MissingRequiredParameterException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::LimitExceededException, Stubs::InvalidParameterValueException, Stubs::MissingRequiredParameterException],
+          stub_data_class: Stubs::PutInsightRule,
           stubs: config.stubs
         )
         stack
@@ -1497,8 +1497,8 @@ module AWS::SDK::CloudWatch
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::PutManagedInsightRulesInput
+          validator: Validators::PutManagedInsightRulesInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutManagedInsightRules
@@ -1512,31 +1512,31 @@ module AWS::SDK::CloudWatch
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::PutManagedInsightRules,
           region: config.region,
+          param_builder: Endpoint::Parameters::PutManagedInsightRules,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::PutManagedInsightRules,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InvalidParameterValueException, Errors::MissingRequiredParameterException]
-          )
+          ),
+          data_parser: Parsers::PutManagedInsightRules
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::PutManagedInsightRules,
-          stub_error_classes: [Stubs::InvalidParameterValueException, Stubs::MissingRequiredParameterException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::InvalidParameterValueException, Stubs::MissingRequiredParameterException],
+          stub_data_class: Stubs::PutManagedInsightRules,
           stubs: config.stubs
         )
         stack
@@ -1548,8 +1548,8 @@ module AWS::SDK::CloudWatch
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::PutMetricAlarmInput
+          validator: Validators::PutMetricAlarmInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutMetricAlarm
@@ -1563,31 +1563,31 @@ module AWS::SDK::CloudWatch
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::PutMetricAlarm,
           region: config.region,
+          param_builder: Endpoint::Parameters::PutMetricAlarm,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::PutMetricAlarm,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::LimitExceededFault]
-          )
+          ),
+          data_parser: Parsers::PutMetricAlarm
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::PutMetricAlarm,
-          stub_error_classes: [Stubs::LimitExceededFault],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::LimitExceededFault],
+          stub_data_class: Stubs::PutMetricAlarm,
           stubs: config.stubs
         )
         stack
@@ -1599,8 +1599,8 @@ module AWS::SDK::CloudWatch
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::PutMetricDataInput
+          validator: Validators::PutMetricDataInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutMetricData
@@ -1613,38 +1613,38 @@ module AWS::SDK::CloudWatch
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::HTTP::Middleware::RequestCompression,
-          disable_request_compression: config.disable_request_compression,
+          streaming: false,
           encodings: ['gzip'],
           request_min_compression_size_bytes: config.request_min_compression_size_bytes,
-          streaming: false
+          disable_request_compression: config.disable_request_compression
         )
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::PutMetricData,
           region: config.region,
+          param_builder: Endpoint::Parameters::PutMetricData,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::PutMetricData,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServiceFault, Errors::InvalidParameterCombinationException, Errors::InvalidParameterValueException, Errors::MissingRequiredParameterException]
-          )
+          ),
+          data_parser: Parsers::PutMetricData
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::PutMetricData,
-          stub_error_classes: [Stubs::InternalServiceFault, Stubs::InvalidParameterCombinationException, Stubs::InvalidParameterValueException, Stubs::MissingRequiredParameterException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::InternalServiceFault, Stubs::InvalidParameterCombinationException, Stubs::InvalidParameterValueException, Stubs::MissingRequiredParameterException],
+          stub_data_class: Stubs::PutMetricData,
           stubs: config.stubs
         )
         stack
@@ -1656,8 +1656,8 @@ module AWS::SDK::CloudWatch
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::PutMetricStreamInput
+          validator: Validators::PutMetricStreamInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutMetricStream
@@ -1671,31 +1671,31 @@ module AWS::SDK::CloudWatch
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::PutMetricStream,
           region: config.region,
+          param_builder: Endpoint::Parameters::PutMetricStream,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::PutMetricStream,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InvalidParameterCombinationException, Errors::ConcurrentModificationException, Errors::InvalidParameterValueException, Errors::InternalServiceFault, Errors::MissingRequiredParameterException]
-          )
+          ),
+          data_parser: Parsers::PutMetricStream
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::PutMetricStream,
-          stub_error_classes: [Stubs::InvalidParameterCombinationException, Stubs::ConcurrentModificationException, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault, Stubs::MissingRequiredParameterException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::InvalidParameterCombinationException, Stubs::ConcurrentModificationException, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault, Stubs::MissingRequiredParameterException],
+          stub_data_class: Stubs::PutMetricStream,
           stubs: config.stubs
         )
         stack
@@ -1707,8 +1707,8 @@ module AWS::SDK::CloudWatch
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::SetAlarmStateInput
+          validator: Validators::SetAlarmStateInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::SetAlarmState
@@ -1722,31 +1722,31 @@ module AWS::SDK::CloudWatch
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::SetAlarmState,
           region: config.region,
+          param_builder: Endpoint::Parameters::SetAlarmState,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::SetAlarmState,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InvalidFormatFault, Errors::ResourceNotFound]
-          )
+          ),
+          data_parser: Parsers::SetAlarmState
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::SetAlarmState,
-          stub_error_classes: [Stubs::InvalidFormatFault, Stubs::ResourceNotFound],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::InvalidFormatFault, Stubs::ResourceNotFound],
+          stub_data_class: Stubs::SetAlarmState,
           stubs: config.stubs
         )
         stack
@@ -1758,8 +1758,8 @@ module AWS::SDK::CloudWatch
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::StartMetricStreamsInput
+          validator: Validators::StartMetricStreamsInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::StartMetricStreams
@@ -1773,31 +1773,31 @@ module AWS::SDK::CloudWatch
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::StartMetricStreams,
           region: config.region,
+          param_builder: Endpoint::Parameters::StartMetricStreams,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::StartMetricStreams,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InvalidParameterValueException, Errors::InternalServiceFault, Errors::MissingRequiredParameterException]
-          )
+          ),
+          data_parser: Parsers::StartMetricStreams
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::StartMetricStreams,
-          stub_error_classes: [Stubs::InvalidParameterValueException, Stubs::InternalServiceFault, Stubs::MissingRequiredParameterException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::InvalidParameterValueException, Stubs::InternalServiceFault, Stubs::MissingRequiredParameterException],
+          stub_data_class: Stubs::StartMetricStreams,
           stubs: config.stubs
         )
         stack
@@ -1809,8 +1809,8 @@ module AWS::SDK::CloudWatch
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::StopMetricStreamsInput
+          validator: Validators::StopMetricStreamsInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::StopMetricStreams
@@ -1824,31 +1824,31 @@ module AWS::SDK::CloudWatch
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::StopMetricStreams,
           region: config.region,
+          param_builder: Endpoint::Parameters::StopMetricStreams,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::StopMetricStreams,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InvalidParameterValueException, Errors::InternalServiceFault, Errors::MissingRequiredParameterException]
-          )
+          ),
+          data_parser: Parsers::StopMetricStreams
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::StopMetricStreams,
-          stub_error_classes: [Stubs::InvalidParameterValueException, Stubs::InternalServiceFault, Stubs::MissingRequiredParameterException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::InvalidParameterValueException, Stubs::InternalServiceFault, Stubs::MissingRequiredParameterException],
+          stub_data_class: Stubs::StopMetricStreams,
           stubs: config.stubs
         )
         stack
@@ -1860,8 +1860,8 @@ module AWS::SDK::CloudWatch
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::TagResourceInput
+          validator: Validators::TagResourceInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::TagResource
@@ -1875,31 +1875,31 @@ module AWS::SDK::CloudWatch
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::TagResource,
           region: config.region,
+          param_builder: Endpoint::Parameters::TagResource,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::TagResource,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::ResourceNotFoundException, Errors::ConcurrentModificationException, Errors::InvalidParameterValueException, Errors::InternalServiceFault]
-          )
+          ),
+          data_parser: Parsers::TagResource
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::TagResource,
-          stub_error_classes: [Stubs::ResourceNotFoundException, Stubs::ConcurrentModificationException, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::ResourceNotFoundException, Stubs::ConcurrentModificationException, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault],
+          stub_data_class: Stubs::TagResource,
           stubs: config.stubs
         )
         stack
@@ -1911,8 +1911,8 @@ module AWS::SDK::CloudWatch
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::UntagResourceInput
+          validator: Validators::UntagResourceInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::UntagResource
@@ -1926,31 +1926,31 @@ module AWS::SDK::CloudWatch
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::UntagResource,
           region: config.region,
+          param_builder: Endpoint::Parameters::UntagResource,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::UntagResource,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::ResourceNotFoundException, Errors::ConcurrentModificationException, Errors::InvalidParameterValueException, Errors::InternalServiceFault]
-          )
+          ),
+          data_parser: Parsers::UntagResource
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::UntagResource,
-          stub_error_classes: [Stubs::ResourceNotFoundException, Stubs::ConcurrentModificationException, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::ResourceNotFoundException, Stubs::ConcurrentModificationException, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault],
+          stub_data_class: Stubs::UntagResource,
           stubs: config.stubs
         )
         stack

@@ -18,8 +18,8 @@ module AWS::SDK::SSO
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::GetRoleCredentialsInput
+          validator: Validators::GetRoleCredentialsInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::GetRoleCredentials
@@ -32,31 +32,31 @@ module AWS::SDK::SSO
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::GetRoleCredentials,
           region: config.region,
+          param_builder: Endpoint::Parameters::GetRoleCredentials,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::GetRoleCredentials,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InvalidRequestException, Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::UnauthorizedException]
-          )
+          ),
+          data_parser: Parsers::GetRoleCredentials
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::GetRoleCredentials,
-          stub_error_classes: [Stubs::InvalidRequestException, Stubs::ResourceNotFoundException, Stubs::TooManyRequestsException, Stubs::UnauthorizedException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::InvalidRequestException, Stubs::ResourceNotFoundException, Stubs::TooManyRequestsException, Stubs::UnauthorizedException],
+          stub_data_class: Stubs::GetRoleCredentials,
           stubs: config.stubs
         )
         stack
@@ -68,8 +68,8 @@ module AWS::SDK::SSO
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::ListAccountRolesInput
+          validator: Validators::ListAccountRolesInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::ListAccountRoles
@@ -82,31 +82,31 @@ module AWS::SDK::SSO
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::ListAccountRoles,
           region: config.region,
+          param_builder: Endpoint::Parameters::ListAccountRoles,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::ListAccountRoles,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InvalidRequestException, Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::UnauthorizedException]
-          )
+          ),
+          data_parser: Parsers::ListAccountRoles
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::ListAccountRoles,
-          stub_error_classes: [Stubs::InvalidRequestException, Stubs::ResourceNotFoundException, Stubs::TooManyRequestsException, Stubs::UnauthorizedException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::InvalidRequestException, Stubs::ResourceNotFoundException, Stubs::TooManyRequestsException, Stubs::UnauthorizedException],
+          stub_data_class: Stubs::ListAccountRoles,
           stubs: config.stubs
         )
         stack
@@ -118,8 +118,8 @@ module AWS::SDK::SSO
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::ListAccountsInput
+          validator: Validators::ListAccountsInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::ListAccounts
@@ -132,31 +132,31 @@ module AWS::SDK::SSO
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::ListAccounts,
           region: config.region,
+          param_builder: Endpoint::Parameters::ListAccounts,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::ListAccounts,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InvalidRequestException, Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::UnauthorizedException]
-          )
+          ),
+          data_parser: Parsers::ListAccounts
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::ListAccounts,
-          stub_error_classes: [Stubs::InvalidRequestException, Stubs::ResourceNotFoundException, Stubs::TooManyRequestsException, Stubs::UnauthorizedException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::InvalidRequestException, Stubs::ResourceNotFoundException, Stubs::TooManyRequestsException, Stubs::UnauthorizedException],
+          stub_data_class: Stubs::ListAccounts,
           stubs: config.stubs
         )
         stack
@@ -168,8 +168,8 @@ module AWS::SDK::SSO
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::LogoutInput
+          validator: Validators::LogoutInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::Logout
@@ -182,31 +182,31 @@ module AWS::SDK::SSO
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::Logout,
           region: config.region,
+          param_builder: Endpoint::Parameters::Logout,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::Logout,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InvalidRequestException, Errors::TooManyRequestsException, Errors::UnauthorizedException]
-          )
+          ),
+          data_parser: Parsers::Logout
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::Logout,
-          stub_error_classes: [Stubs::InvalidRequestException, Stubs::TooManyRequestsException, Stubs::UnauthorizedException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::InvalidRequestException, Stubs::TooManyRequestsException, Stubs::UnauthorizedException],
+          stub_data_class: Stubs::Logout,
           stubs: config.stubs
         )
         stack

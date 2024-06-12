@@ -4893,7 +4893,7 @@ module AWS::SDK::S3
       def self.stub(node_name, stub)
         stub ||= Types::RecordsEvent.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Payload', ::Base64::encode64(stub[:payload]).strip) unless stub[:payload].nil?
+        xml << Hearth::XML::Node.new('Payload', ::Base64::strict_encode64(stub[:payload]).strip) unless stub[:payload].nil?
         xml
       end
     end

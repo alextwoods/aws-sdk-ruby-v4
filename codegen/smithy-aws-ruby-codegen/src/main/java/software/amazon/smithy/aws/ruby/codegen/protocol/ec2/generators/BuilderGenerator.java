@@ -187,7 +187,7 @@ public class BuilderGenerator extends BuilderGeneratorBase {
 
         @Override
         public Void blobShape(BlobShape shape) {
-            writer.write("params[context + $L] = $T::encode64($L).strip$L",
+            writer.write("params[context + $L] = $T::strict_encode64($L).strip$L",
                     dataName, RubyImportContainer.BASE64, inputGetter, checkRequired());
             return null;
         }

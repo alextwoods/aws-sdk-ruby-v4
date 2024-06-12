@@ -18,8 +18,8 @@ module AWS::SDK::KMS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::CancelKeyDeletionInput
+          validator: Validators::CancelKeyDeletionInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::CancelKeyDeletion
@@ -33,31 +33,31 @@ module AWS::SDK::KMS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::CancelKeyDeletion,
           region: config.region,
+          param_builder: Endpoint::Parameters::CancelKeyDeletion,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::CancelKeyDeletion,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]
-          )
+          ),
+          data_parser: Parsers::CancelKeyDeletion
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::CancelKeyDeletion,
-          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
+          stub_data_class: Stubs::CancelKeyDeletion,
           stubs: config.stubs
         )
         stack
@@ -69,8 +69,8 @@ module AWS::SDK::KMS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::ConnectCustomKeyStoreInput
+          validator: Validators::ConnectCustomKeyStoreInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::ConnectCustomKeyStore
@@ -84,31 +84,31 @@ module AWS::SDK::KMS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::ConnectCustomKeyStore,
           region: config.region,
+          param_builder: Endpoint::Parameters::ConnectCustomKeyStore,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::ConnectCustomKeyStore,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::CloudHsmClusterInvalidConfigurationException, Errors::CloudHsmClusterNotActiveException, Errors::CustomKeyStoreInvalidStateException, Errors::CustomKeyStoreNotFoundException, Errors::KMSInternalException]
-          )
+          ),
+          data_parser: Parsers::ConnectCustomKeyStore
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::ConnectCustomKeyStore,
-          stub_error_classes: [Stubs::CloudHsmClusterInvalidConfigurationException, Stubs::CloudHsmClusterNotActiveException, Stubs::CustomKeyStoreInvalidStateException, Stubs::CustomKeyStoreNotFoundException, Stubs::KMSInternalException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::CloudHsmClusterInvalidConfigurationException, Stubs::CloudHsmClusterNotActiveException, Stubs::CustomKeyStoreInvalidStateException, Stubs::CustomKeyStoreNotFoundException, Stubs::KMSInternalException],
+          stub_data_class: Stubs::ConnectCustomKeyStore,
           stubs: config.stubs
         )
         stack
@@ -120,8 +120,8 @@ module AWS::SDK::KMS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::CreateAliasInput
+          validator: Validators::CreateAliasInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::CreateAlias
@@ -135,31 +135,31 @@ module AWS::SDK::KMS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::CreateAlias,
           region: config.region,
+          param_builder: Endpoint::Parameters::CreateAlias,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::CreateAlias,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::AlreadyExistsException, Errors::DependencyTimeoutException, Errors::InvalidAliasNameException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::LimitExceededException, Errors::NotFoundException]
-          )
+          ),
+          data_parser: Parsers::CreateAlias
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::CreateAlias,
-          stub_error_classes: [Stubs::AlreadyExistsException, Stubs::DependencyTimeoutException, Stubs::InvalidAliasNameException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::LimitExceededException, Stubs::NotFoundException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::AlreadyExistsException, Stubs::DependencyTimeoutException, Stubs::InvalidAliasNameException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::LimitExceededException, Stubs::NotFoundException],
+          stub_data_class: Stubs::CreateAlias,
           stubs: config.stubs
         )
         stack
@@ -171,8 +171,8 @@ module AWS::SDK::KMS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::CreateCustomKeyStoreInput
+          validator: Validators::CreateCustomKeyStoreInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::CreateCustomKeyStore
@@ -186,31 +186,31 @@ module AWS::SDK::KMS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::CreateCustomKeyStore,
           region: config.region,
+          param_builder: Endpoint::Parameters::CreateCustomKeyStore,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::CreateCustomKeyStore,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::CloudHsmClusterInUseException, Errors::CloudHsmClusterInvalidConfigurationException, Errors::CloudHsmClusterNotActiveException, Errors::CloudHsmClusterNotFoundException, Errors::CustomKeyStoreNameInUseException, Errors::IncorrectTrustAnchorException, Errors::KMSInternalException, Errors::LimitExceededException, Errors::XksProxyIncorrectAuthenticationCredentialException, Errors::XksProxyInvalidConfigurationException, Errors::XksProxyInvalidResponseException, Errors::XksProxyUriEndpointInUseException, Errors::XksProxyUriInUseException, Errors::XksProxyUriUnreachableException, Errors::XksProxyVpcEndpointServiceInUseException, Errors::XksProxyVpcEndpointServiceInvalidConfigurationException, Errors::XksProxyVpcEndpointServiceNotFoundException]
-          )
+          ),
+          data_parser: Parsers::CreateCustomKeyStore
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::CreateCustomKeyStore,
-          stub_error_classes: [Stubs::CloudHsmClusterInUseException, Stubs::CloudHsmClusterInvalidConfigurationException, Stubs::CloudHsmClusterNotActiveException, Stubs::CloudHsmClusterNotFoundException, Stubs::CustomKeyStoreNameInUseException, Stubs::IncorrectTrustAnchorException, Stubs::KMSInternalException, Stubs::LimitExceededException, Stubs::XksProxyIncorrectAuthenticationCredentialException, Stubs::XksProxyInvalidConfigurationException, Stubs::XksProxyInvalidResponseException, Stubs::XksProxyUriEndpointInUseException, Stubs::XksProxyUriInUseException, Stubs::XksProxyUriUnreachableException, Stubs::XksProxyVpcEndpointServiceInUseException, Stubs::XksProxyVpcEndpointServiceInvalidConfigurationException, Stubs::XksProxyVpcEndpointServiceNotFoundException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::CloudHsmClusterInUseException, Stubs::CloudHsmClusterInvalidConfigurationException, Stubs::CloudHsmClusterNotActiveException, Stubs::CloudHsmClusterNotFoundException, Stubs::CustomKeyStoreNameInUseException, Stubs::IncorrectTrustAnchorException, Stubs::KMSInternalException, Stubs::LimitExceededException, Stubs::XksProxyIncorrectAuthenticationCredentialException, Stubs::XksProxyInvalidConfigurationException, Stubs::XksProxyInvalidResponseException, Stubs::XksProxyUriEndpointInUseException, Stubs::XksProxyUriInUseException, Stubs::XksProxyUriUnreachableException, Stubs::XksProxyVpcEndpointServiceInUseException, Stubs::XksProxyVpcEndpointServiceInvalidConfigurationException, Stubs::XksProxyVpcEndpointServiceNotFoundException],
+          stub_data_class: Stubs::CreateCustomKeyStore,
           stubs: config.stubs
         )
         stack
@@ -222,8 +222,8 @@ module AWS::SDK::KMS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::CreateGrantInput
+          validator: Validators::CreateGrantInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::CreateGrant
@@ -237,31 +237,31 @@ module AWS::SDK::KMS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::CreateGrant,
           region: config.region,
+          param_builder: Endpoint::Parameters::CreateGrant,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::CreateGrant,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::DependencyTimeoutException, Errors::DisabledException, Errors::DryRunOperationException, Errors::InvalidArnException, Errors::InvalidGrantTokenException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::LimitExceededException, Errors::NotFoundException]
-          )
+          ),
+          data_parser: Parsers::CreateGrant
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::CreateGrant,
-          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::InvalidArnException, Stubs::InvalidGrantTokenException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::LimitExceededException, Stubs::NotFoundException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::InvalidArnException, Stubs::InvalidGrantTokenException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::LimitExceededException, Stubs::NotFoundException],
+          stub_data_class: Stubs::CreateGrant,
           stubs: config.stubs
         )
         stack
@@ -273,8 +273,8 @@ module AWS::SDK::KMS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::CreateKeyInput
+          validator: Validators::CreateKeyInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::CreateKey
@@ -288,31 +288,31 @@ module AWS::SDK::KMS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::CreateKey,
           region: config.region,
+          param_builder: Endpoint::Parameters::CreateKey,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::CreateKey,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::CloudHsmClusterInvalidConfigurationException, Errors::CustomKeyStoreInvalidStateException, Errors::CustomKeyStoreNotFoundException, Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::LimitExceededException, Errors::MalformedPolicyDocumentException, Errors::TagException, Errors::UnsupportedOperationException, Errors::XksKeyAlreadyInUseException, Errors::XksKeyInvalidConfigurationException, Errors::XksKeyNotFoundException]
-          )
+          ),
+          data_parser: Parsers::CreateKey
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::CreateKey,
-          stub_error_classes: [Stubs::CloudHsmClusterInvalidConfigurationException, Stubs::CustomKeyStoreInvalidStateException, Stubs::CustomKeyStoreNotFoundException, Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::LimitExceededException, Stubs::MalformedPolicyDocumentException, Stubs::TagException, Stubs::UnsupportedOperationException, Stubs::XksKeyAlreadyInUseException, Stubs::XksKeyInvalidConfigurationException, Stubs::XksKeyNotFoundException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::CloudHsmClusterInvalidConfigurationException, Stubs::CustomKeyStoreInvalidStateException, Stubs::CustomKeyStoreNotFoundException, Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::LimitExceededException, Stubs::MalformedPolicyDocumentException, Stubs::TagException, Stubs::UnsupportedOperationException, Stubs::XksKeyAlreadyInUseException, Stubs::XksKeyInvalidConfigurationException, Stubs::XksKeyNotFoundException],
+          stub_data_class: Stubs::CreateKey,
           stubs: config.stubs
         )
         stack
@@ -324,8 +324,8 @@ module AWS::SDK::KMS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::DecryptInput
+          validator: Validators::DecryptInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::Decrypt
@@ -339,31 +339,31 @@ module AWS::SDK::KMS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::Decrypt,
           region: config.region,
+          param_builder: Endpoint::Parameters::Decrypt,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::Decrypt,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::DependencyTimeoutException, Errors::DisabledException, Errors::DryRunOperationException, Errors::IncorrectKeyException, Errors::InvalidCiphertextException, Errors::InvalidGrantTokenException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]
-          )
+          ),
+          data_parser: Parsers::Decrypt
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::Decrypt,
-          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::IncorrectKeyException, Stubs::InvalidCiphertextException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::IncorrectKeyException, Stubs::InvalidCiphertextException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
+          stub_data_class: Stubs::Decrypt,
           stubs: config.stubs
         )
         stack
@@ -375,8 +375,8 @@ module AWS::SDK::KMS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::DeleteAliasInput
+          validator: Validators::DeleteAliasInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DeleteAlias
@@ -390,31 +390,31 @@ module AWS::SDK::KMS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::DeleteAlias,
           region: config.region,
+          param_builder: Endpoint::Parameters::DeleteAlias,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::DeleteAlias,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::DependencyTimeoutException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]
-          )
+          ),
+          data_parser: Parsers::DeleteAlias
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::DeleteAlias,
-          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
+          stub_data_class: Stubs::DeleteAlias,
           stubs: config.stubs
         )
         stack
@@ -426,8 +426,8 @@ module AWS::SDK::KMS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::DeleteCustomKeyStoreInput
+          validator: Validators::DeleteCustomKeyStoreInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DeleteCustomKeyStore
@@ -441,31 +441,31 @@ module AWS::SDK::KMS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::DeleteCustomKeyStore,
           region: config.region,
+          param_builder: Endpoint::Parameters::DeleteCustomKeyStore,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::DeleteCustomKeyStore,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::CustomKeyStoreHasCMKsException, Errors::CustomKeyStoreInvalidStateException, Errors::CustomKeyStoreNotFoundException, Errors::KMSInternalException]
-          )
+          ),
+          data_parser: Parsers::DeleteCustomKeyStore
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::DeleteCustomKeyStore,
-          stub_error_classes: [Stubs::CustomKeyStoreHasCMKsException, Stubs::CustomKeyStoreInvalidStateException, Stubs::CustomKeyStoreNotFoundException, Stubs::KMSInternalException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::CustomKeyStoreHasCMKsException, Stubs::CustomKeyStoreInvalidStateException, Stubs::CustomKeyStoreNotFoundException, Stubs::KMSInternalException],
+          stub_data_class: Stubs::DeleteCustomKeyStore,
           stubs: config.stubs
         )
         stack
@@ -477,8 +477,8 @@ module AWS::SDK::KMS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::DeleteImportedKeyMaterialInput
+          validator: Validators::DeleteImportedKeyMaterialInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DeleteImportedKeyMaterial
@@ -492,31 +492,31 @@ module AWS::SDK::KMS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::DeleteImportedKeyMaterial,
           region: config.region,
+          param_builder: Endpoint::Parameters::DeleteImportedKeyMaterial,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::DeleteImportedKeyMaterial,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException, Errors::UnsupportedOperationException]
-          )
+          ),
+          data_parser: Parsers::DeleteImportedKeyMaterial
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::DeleteImportedKeyMaterial,
-          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
+          stub_data_class: Stubs::DeleteImportedKeyMaterial,
           stubs: config.stubs
         )
         stack
@@ -528,8 +528,8 @@ module AWS::SDK::KMS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::DescribeCustomKeyStoresInput
+          validator: Validators::DescribeCustomKeyStoresInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DescribeCustomKeyStores
@@ -543,31 +543,31 @@ module AWS::SDK::KMS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::DescribeCustomKeyStores,
           region: config.region,
+          param_builder: Endpoint::Parameters::DescribeCustomKeyStores,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::DescribeCustomKeyStores,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::CustomKeyStoreNotFoundException, Errors::InvalidMarkerException, Errors::KMSInternalException]
-          )
+          ),
+          data_parser: Parsers::DescribeCustomKeyStores
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::DescribeCustomKeyStores,
-          stub_error_classes: [Stubs::CustomKeyStoreNotFoundException, Stubs::InvalidMarkerException, Stubs::KMSInternalException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::CustomKeyStoreNotFoundException, Stubs::InvalidMarkerException, Stubs::KMSInternalException],
+          stub_data_class: Stubs::DescribeCustomKeyStores,
           stubs: config.stubs
         )
         stack
@@ -579,8 +579,8 @@ module AWS::SDK::KMS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::DescribeKeyInput
+          validator: Validators::DescribeKeyInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DescribeKey
@@ -594,31 +594,31 @@ module AWS::SDK::KMS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::DescribeKey,
           region: config.region,
+          param_builder: Endpoint::Parameters::DescribeKey,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::DescribeKey,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::NotFoundException]
-          )
+          ),
+          data_parser: Parsers::DescribeKey
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::DescribeKey,
-          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::NotFoundException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::NotFoundException],
+          stub_data_class: Stubs::DescribeKey,
           stubs: config.stubs
         )
         stack
@@ -630,8 +630,8 @@ module AWS::SDK::KMS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::DisableKeyInput
+          validator: Validators::DisableKeyInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DisableKey
@@ -645,31 +645,31 @@ module AWS::SDK::KMS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::DisableKey,
           region: config.region,
+          param_builder: Endpoint::Parameters::DisableKey,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::DisableKey,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]
-          )
+          ),
+          data_parser: Parsers::DisableKey
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::DisableKey,
-          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
+          stub_data_class: Stubs::DisableKey,
           stubs: config.stubs
         )
         stack
@@ -681,8 +681,8 @@ module AWS::SDK::KMS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::DisableKeyRotationInput
+          validator: Validators::DisableKeyRotationInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DisableKeyRotation
@@ -696,31 +696,31 @@ module AWS::SDK::KMS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::DisableKeyRotation,
           region: config.region,
+          param_builder: Endpoint::Parameters::DisableKeyRotation,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::DisableKeyRotation,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::DependencyTimeoutException, Errors::DisabledException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException, Errors::UnsupportedOperationException]
-          )
+          ),
+          data_parser: Parsers::DisableKeyRotation
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::DisableKeyRotation,
-          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
+          stub_data_class: Stubs::DisableKeyRotation,
           stubs: config.stubs
         )
         stack
@@ -732,8 +732,8 @@ module AWS::SDK::KMS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::DisconnectCustomKeyStoreInput
+          validator: Validators::DisconnectCustomKeyStoreInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DisconnectCustomKeyStore
@@ -747,31 +747,31 @@ module AWS::SDK::KMS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::DisconnectCustomKeyStore,
           region: config.region,
+          param_builder: Endpoint::Parameters::DisconnectCustomKeyStore,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::DisconnectCustomKeyStore,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::CustomKeyStoreInvalidStateException, Errors::CustomKeyStoreNotFoundException, Errors::KMSInternalException]
-          )
+          ),
+          data_parser: Parsers::DisconnectCustomKeyStore
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::DisconnectCustomKeyStore,
-          stub_error_classes: [Stubs::CustomKeyStoreInvalidStateException, Stubs::CustomKeyStoreNotFoundException, Stubs::KMSInternalException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::CustomKeyStoreInvalidStateException, Stubs::CustomKeyStoreNotFoundException, Stubs::KMSInternalException],
+          stub_data_class: Stubs::DisconnectCustomKeyStore,
           stubs: config.stubs
         )
         stack
@@ -783,8 +783,8 @@ module AWS::SDK::KMS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::EnableKeyInput
+          validator: Validators::EnableKeyInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::EnableKey
@@ -798,31 +798,31 @@ module AWS::SDK::KMS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::EnableKey,
           region: config.region,
+          param_builder: Endpoint::Parameters::EnableKey,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::EnableKey,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::LimitExceededException, Errors::NotFoundException]
-          )
+          ),
+          data_parser: Parsers::EnableKey
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::EnableKey,
-          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::LimitExceededException, Stubs::NotFoundException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::LimitExceededException, Stubs::NotFoundException],
+          stub_data_class: Stubs::EnableKey,
           stubs: config.stubs
         )
         stack
@@ -834,8 +834,8 @@ module AWS::SDK::KMS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::EnableKeyRotationInput
+          validator: Validators::EnableKeyRotationInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::EnableKeyRotation
@@ -849,31 +849,31 @@ module AWS::SDK::KMS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::EnableKeyRotation,
           region: config.region,
+          param_builder: Endpoint::Parameters::EnableKeyRotation,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::EnableKeyRotation,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::DependencyTimeoutException, Errors::DisabledException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException, Errors::UnsupportedOperationException]
-          )
+          ),
+          data_parser: Parsers::EnableKeyRotation
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::EnableKeyRotation,
-          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
+          stub_data_class: Stubs::EnableKeyRotation,
           stubs: config.stubs
         )
         stack
@@ -885,8 +885,8 @@ module AWS::SDK::KMS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::EncryptInput
+          validator: Validators::EncryptInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::Encrypt
@@ -900,31 +900,31 @@ module AWS::SDK::KMS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::Encrypt,
           region: config.region,
+          param_builder: Endpoint::Parameters::Encrypt,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::Encrypt,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::DependencyTimeoutException, Errors::DisabledException, Errors::DryRunOperationException, Errors::InvalidGrantTokenException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]
-          )
+          ),
+          data_parser: Parsers::Encrypt
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::Encrypt,
-          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
+          stub_data_class: Stubs::Encrypt,
           stubs: config.stubs
         )
         stack
@@ -936,8 +936,8 @@ module AWS::SDK::KMS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::GenerateDataKeyInput
+          validator: Validators::GenerateDataKeyInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::GenerateDataKey
@@ -951,31 +951,31 @@ module AWS::SDK::KMS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::GenerateDataKey,
           region: config.region,
+          param_builder: Endpoint::Parameters::GenerateDataKey,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::GenerateDataKey,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::DependencyTimeoutException, Errors::DisabledException, Errors::DryRunOperationException, Errors::InvalidGrantTokenException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]
-          )
+          ),
+          data_parser: Parsers::GenerateDataKey
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::GenerateDataKey,
-          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
+          stub_data_class: Stubs::GenerateDataKey,
           stubs: config.stubs
         )
         stack
@@ -987,8 +987,8 @@ module AWS::SDK::KMS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::GenerateDataKeyPairInput
+          validator: Validators::GenerateDataKeyPairInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::GenerateDataKeyPair
@@ -1002,31 +1002,31 @@ module AWS::SDK::KMS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::GenerateDataKeyPair,
           region: config.region,
+          param_builder: Endpoint::Parameters::GenerateDataKeyPair,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::GenerateDataKeyPair,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::DependencyTimeoutException, Errors::DisabledException, Errors::DryRunOperationException, Errors::InvalidGrantTokenException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException, Errors::UnsupportedOperationException]
-          )
+          ),
+          data_parser: Parsers::GenerateDataKeyPair
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::GenerateDataKeyPair,
-          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
+          stub_data_class: Stubs::GenerateDataKeyPair,
           stubs: config.stubs
         )
         stack
@@ -1038,8 +1038,8 @@ module AWS::SDK::KMS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::GenerateDataKeyPairWithoutPlaintextInput
+          validator: Validators::GenerateDataKeyPairWithoutPlaintextInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::GenerateDataKeyPairWithoutPlaintext
@@ -1053,31 +1053,31 @@ module AWS::SDK::KMS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::GenerateDataKeyPairWithoutPlaintext,
           region: config.region,
+          param_builder: Endpoint::Parameters::GenerateDataKeyPairWithoutPlaintext,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::GenerateDataKeyPairWithoutPlaintext,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::DependencyTimeoutException, Errors::DisabledException, Errors::DryRunOperationException, Errors::InvalidGrantTokenException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException, Errors::UnsupportedOperationException]
-          )
+          ),
+          data_parser: Parsers::GenerateDataKeyPairWithoutPlaintext
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::GenerateDataKeyPairWithoutPlaintext,
-          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
+          stub_data_class: Stubs::GenerateDataKeyPairWithoutPlaintext,
           stubs: config.stubs
         )
         stack
@@ -1089,8 +1089,8 @@ module AWS::SDK::KMS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::GenerateDataKeyWithoutPlaintextInput
+          validator: Validators::GenerateDataKeyWithoutPlaintextInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::GenerateDataKeyWithoutPlaintext
@@ -1104,31 +1104,31 @@ module AWS::SDK::KMS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::GenerateDataKeyWithoutPlaintext,
           region: config.region,
+          param_builder: Endpoint::Parameters::GenerateDataKeyWithoutPlaintext,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::GenerateDataKeyWithoutPlaintext,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::DependencyTimeoutException, Errors::DisabledException, Errors::DryRunOperationException, Errors::InvalidGrantTokenException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]
-          )
+          ),
+          data_parser: Parsers::GenerateDataKeyWithoutPlaintext
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::GenerateDataKeyWithoutPlaintext,
-          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
+          stub_data_class: Stubs::GenerateDataKeyWithoutPlaintext,
           stubs: config.stubs
         )
         stack
@@ -1140,8 +1140,8 @@ module AWS::SDK::KMS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::GenerateMacInput
+          validator: Validators::GenerateMacInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::GenerateMac
@@ -1155,31 +1155,31 @@ module AWS::SDK::KMS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::GenerateMac,
           region: config.region,
+          param_builder: Endpoint::Parameters::GenerateMac,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::GenerateMac,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::DisabledException, Errors::DryRunOperationException, Errors::InvalidGrantTokenException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]
-          )
+          ),
+          data_parser: Parsers::GenerateMac
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::GenerateMac,
-          stub_error_classes: [Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
+          stub_data_class: Stubs::GenerateMac,
           stubs: config.stubs
         )
         stack
@@ -1191,8 +1191,8 @@ module AWS::SDK::KMS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::GenerateRandomInput
+          validator: Validators::GenerateRandomInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::GenerateRandom
@@ -1206,31 +1206,31 @@ module AWS::SDK::KMS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::GenerateRandom,
           region: config.region,
+          param_builder: Endpoint::Parameters::GenerateRandom,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::GenerateRandom,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::CustomKeyStoreInvalidStateException, Errors::CustomKeyStoreNotFoundException, Errors::DependencyTimeoutException, Errors::KMSInternalException, Errors::UnsupportedOperationException]
-          )
+          ),
+          data_parser: Parsers::GenerateRandom
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::GenerateRandom,
-          stub_error_classes: [Stubs::CustomKeyStoreInvalidStateException, Stubs::CustomKeyStoreNotFoundException, Stubs::DependencyTimeoutException, Stubs::KMSInternalException, Stubs::UnsupportedOperationException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::CustomKeyStoreInvalidStateException, Stubs::CustomKeyStoreNotFoundException, Stubs::DependencyTimeoutException, Stubs::KMSInternalException, Stubs::UnsupportedOperationException],
+          stub_data_class: Stubs::GenerateRandom,
           stubs: config.stubs
         )
         stack
@@ -1242,8 +1242,8 @@ module AWS::SDK::KMS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::GetKeyPolicyInput
+          validator: Validators::GetKeyPolicyInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::GetKeyPolicy
@@ -1257,31 +1257,31 @@ module AWS::SDK::KMS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::GetKeyPolicy,
           region: config.region,
+          param_builder: Endpoint::Parameters::GetKeyPolicy,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::GetKeyPolicy,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]
-          )
+          ),
+          data_parser: Parsers::GetKeyPolicy
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::GetKeyPolicy,
-          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
+          stub_data_class: Stubs::GetKeyPolicy,
           stubs: config.stubs
         )
         stack
@@ -1293,8 +1293,8 @@ module AWS::SDK::KMS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::GetKeyRotationStatusInput
+          validator: Validators::GetKeyRotationStatusInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::GetKeyRotationStatus
@@ -1308,31 +1308,31 @@ module AWS::SDK::KMS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::GetKeyRotationStatus,
           region: config.region,
+          param_builder: Endpoint::Parameters::GetKeyRotationStatus,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::GetKeyRotationStatus,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException, Errors::UnsupportedOperationException]
-          )
+          ),
+          data_parser: Parsers::GetKeyRotationStatus
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::GetKeyRotationStatus,
-          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
+          stub_data_class: Stubs::GetKeyRotationStatus,
           stubs: config.stubs
         )
         stack
@@ -1344,8 +1344,8 @@ module AWS::SDK::KMS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::GetParametersForImportInput
+          validator: Validators::GetParametersForImportInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::GetParametersForImport
@@ -1359,31 +1359,31 @@ module AWS::SDK::KMS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::GetParametersForImport,
           region: config.region,
+          param_builder: Endpoint::Parameters::GetParametersForImport,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::GetParametersForImport,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException, Errors::UnsupportedOperationException]
-          )
+          ),
+          data_parser: Parsers::GetParametersForImport
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::GetParametersForImport,
-          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
+          stub_data_class: Stubs::GetParametersForImport,
           stubs: config.stubs
         )
         stack
@@ -1395,8 +1395,8 @@ module AWS::SDK::KMS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::GetPublicKeyInput
+          validator: Validators::GetPublicKeyInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::GetPublicKey
@@ -1410,31 +1410,31 @@ module AWS::SDK::KMS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::GetPublicKey,
           region: config.region,
+          param_builder: Endpoint::Parameters::GetPublicKey,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::GetPublicKey,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::DependencyTimeoutException, Errors::DisabledException, Errors::InvalidArnException, Errors::InvalidGrantTokenException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException, Errors::UnsupportedOperationException]
-          )
+          ),
+          data_parser: Parsers::GetPublicKey
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::GetPublicKey,
-          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::InvalidArnException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::InvalidArnException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
+          stub_data_class: Stubs::GetPublicKey,
           stubs: config.stubs
         )
         stack
@@ -1446,8 +1446,8 @@ module AWS::SDK::KMS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::ImportKeyMaterialInput
+          validator: Validators::ImportKeyMaterialInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::ImportKeyMaterial
@@ -1461,31 +1461,31 @@ module AWS::SDK::KMS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::ImportKeyMaterial,
           region: config.region,
+          param_builder: Endpoint::Parameters::ImportKeyMaterial,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::ImportKeyMaterial,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::DependencyTimeoutException, Errors::ExpiredImportTokenException, Errors::IncorrectKeyMaterialException, Errors::InvalidArnException, Errors::InvalidCiphertextException, Errors::InvalidImportTokenException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException, Errors::UnsupportedOperationException]
-          )
+          ),
+          data_parser: Parsers::ImportKeyMaterial
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::ImportKeyMaterial,
-          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::ExpiredImportTokenException, Stubs::IncorrectKeyMaterialException, Stubs::InvalidArnException, Stubs::InvalidCiphertextException, Stubs::InvalidImportTokenException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::ExpiredImportTokenException, Stubs::IncorrectKeyMaterialException, Stubs::InvalidArnException, Stubs::InvalidCiphertextException, Stubs::InvalidImportTokenException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
+          stub_data_class: Stubs::ImportKeyMaterial,
           stubs: config.stubs
         )
         stack
@@ -1497,8 +1497,8 @@ module AWS::SDK::KMS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::ListAliasesInput
+          validator: Validators::ListAliasesInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::ListAliases
@@ -1512,31 +1512,31 @@ module AWS::SDK::KMS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::ListAliases,
           region: config.region,
+          param_builder: Endpoint::Parameters::ListAliases,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::ListAliases,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::InvalidMarkerException, Errors::KMSInternalException, Errors::NotFoundException]
-          )
+          ),
+          data_parser: Parsers::ListAliases
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::ListAliases,
-          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::InvalidMarkerException, Stubs::KMSInternalException, Stubs::NotFoundException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::InvalidMarkerException, Stubs::KMSInternalException, Stubs::NotFoundException],
+          stub_data_class: Stubs::ListAliases,
           stubs: config.stubs
         )
         stack
@@ -1548,8 +1548,8 @@ module AWS::SDK::KMS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::ListGrantsInput
+          validator: Validators::ListGrantsInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::ListGrants
@@ -1563,31 +1563,31 @@ module AWS::SDK::KMS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::ListGrants,
           region: config.region,
+          param_builder: Endpoint::Parameters::ListGrants,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::ListGrants,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::InvalidGrantIdException, Errors::InvalidMarkerException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]
-          )
+          ),
+          data_parser: Parsers::ListGrants
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::ListGrants,
-          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::InvalidGrantIdException, Stubs::InvalidMarkerException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::InvalidGrantIdException, Stubs::InvalidMarkerException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
+          stub_data_class: Stubs::ListGrants,
           stubs: config.stubs
         )
         stack
@@ -1599,8 +1599,8 @@ module AWS::SDK::KMS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::ListKeyPoliciesInput
+          validator: Validators::ListKeyPoliciesInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::ListKeyPolicies
@@ -1614,31 +1614,31 @@ module AWS::SDK::KMS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::ListKeyPolicies,
           region: config.region,
+          param_builder: Endpoint::Parameters::ListKeyPolicies,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::ListKeyPolicies,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]
-          )
+          ),
+          data_parser: Parsers::ListKeyPolicies
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::ListKeyPolicies,
-          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
+          stub_data_class: Stubs::ListKeyPolicies,
           stubs: config.stubs
         )
         stack
@@ -1650,8 +1650,8 @@ module AWS::SDK::KMS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::ListKeysInput
+          validator: Validators::ListKeysInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::ListKeys
@@ -1665,31 +1665,31 @@ module AWS::SDK::KMS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::ListKeys,
           region: config.region,
+          param_builder: Endpoint::Parameters::ListKeys,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::ListKeys,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::DependencyTimeoutException, Errors::InvalidMarkerException, Errors::KMSInternalException]
-          )
+          ),
+          data_parser: Parsers::ListKeys
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::ListKeys,
-          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidMarkerException, Stubs::KMSInternalException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidMarkerException, Stubs::KMSInternalException],
+          stub_data_class: Stubs::ListKeys,
           stubs: config.stubs
         )
         stack
@@ -1701,8 +1701,8 @@ module AWS::SDK::KMS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::ListResourceTagsInput
+          validator: Validators::ListResourceTagsInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::ListResourceTags
@@ -1716,31 +1716,31 @@ module AWS::SDK::KMS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::ListResourceTags,
           region: config.region,
+          param_builder: Endpoint::Parameters::ListResourceTags,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::ListResourceTags,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InvalidArnException, Errors::InvalidMarkerException, Errors::KMSInternalException, Errors::NotFoundException]
-          )
+          ),
+          data_parser: Parsers::ListResourceTags
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::ListResourceTags,
-          stub_error_classes: [Stubs::InvalidArnException, Stubs::InvalidMarkerException, Stubs::KMSInternalException, Stubs::NotFoundException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::InvalidArnException, Stubs::InvalidMarkerException, Stubs::KMSInternalException, Stubs::NotFoundException],
+          stub_data_class: Stubs::ListResourceTags,
           stubs: config.stubs
         )
         stack
@@ -1752,8 +1752,8 @@ module AWS::SDK::KMS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::ListRetirableGrantsInput
+          validator: Validators::ListRetirableGrantsInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::ListRetirableGrants
@@ -1767,31 +1767,31 @@ module AWS::SDK::KMS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::ListRetirableGrants,
           region: config.region,
+          param_builder: Endpoint::Parameters::ListRetirableGrants,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::ListRetirableGrants,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::InvalidMarkerException, Errors::KMSInternalException, Errors::NotFoundException]
-          )
+          ),
+          data_parser: Parsers::ListRetirableGrants
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::ListRetirableGrants,
-          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::InvalidMarkerException, Stubs::KMSInternalException, Stubs::NotFoundException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::InvalidMarkerException, Stubs::KMSInternalException, Stubs::NotFoundException],
+          stub_data_class: Stubs::ListRetirableGrants,
           stubs: config.stubs
         )
         stack
@@ -1803,8 +1803,8 @@ module AWS::SDK::KMS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::PutKeyPolicyInput
+          validator: Validators::PutKeyPolicyInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutKeyPolicy
@@ -1818,31 +1818,31 @@ module AWS::SDK::KMS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::PutKeyPolicy,
           region: config.region,
+          param_builder: Endpoint::Parameters::PutKeyPolicy,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::PutKeyPolicy,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::LimitExceededException, Errors::MalformedPolicyDocumentException, Errors::NotFoundException, Errors::UnsupportedOperationException]
-          )
+          ),
+          data_parser: Parsers::PutKeyPolicy
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::PutKeyPolicy,
-          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::LimitExceededException, Stubs::MalformedPolicyDocumentException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::LimitExceededException, Stubs::MalformedPolicyDocumentException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
+          stub_data_class: Stubs::PutKeyPolicy,
           stubs: config.stubs
         )
         stack
@@ -1854,8 +1854,8 @@ module AWS::SDK::KMS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::ReEncryptInput
+          validator: Validators::ReEncryptInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::ReEncrypt
@@ -1869,31 +1869,31 @@ module AWS::SDK::KMS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::ReEncrypt,
           region: config.region,
+          param_builder: Endpoint::Parameters::ReEncrypt,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::ReEncrypt,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::DependencyTimeoutException, Errors::DisabledException, Errors::DryRunOperationException, Errors::IncorrectKeyException, Errors::InvalidCiphertextException, Errors::InvalidGrantTokenException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]
-          )
+          ),
+          data_parser: Parsers::ReEncrypt
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::ReEncrypt,
-          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::IncorrectKeyException, Stubs::InvalidCiphertextException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::IncorrectKeyException, Stubs::InvalidCiphertextException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
+          stub_data_class: Stubs::ReEncrypt,
           stubs: config.stubs
         )
         stack
@@ -1905,8 +1905,8 @@ module AWS::SDK::KMS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::ReplicateKeyInput
+          validator: Validators::ReplicateKeyInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::ReplicateKey
@@ -1920,31 +1920,31 @@ module AWS::SDK::KMS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::ReplicateKey,
           region: config.region,
+          param_builder: Endpoint::Parameters::ReplicateKey,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::ReplicateKey,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::AlreadyExistsException, Errors::DisabledException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::LimitExceededException, Errors::MalformedPolicyDocumentException, Errors::NotFoundException, Errors::TagException, Errors::UnsupportedOperationException]
-          )
+          ),
+          data_parser: Parsers::ReplicateKey
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::ReplicateKey,
-          stub_error_classes: [Stubs::AlreadyExistsException, Stubs::DisabledException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::LimitExceededException, Stubs::MalformedPolicyDocumentException, Stubs::NotFoundException, Stubs::TagException, Stubs::UnsupportedOperationException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::AlreadyExistsException, Stubs::DisabledException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::LimitExceededException, Stubs::MalformedPolicyDocumentException, Stubs::NotFoundException, Stubs::TagException, Stubs::UnsupportedOperationException],
+          stub_data_class: Stubs::ReplicateKey,
           stubs: config.stubs
         )
         stack
@@ -1956,8 +1956,8 @@ module AWS::SDK::KMS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::RetireGrantInput
+          validator: Validators::RetireGrantInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::RetireGrant
@@ -1971,31 +1971,31 @@ module AWS::SDK::KMS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::RetireGrant,
           region: config.region,
+          param_builder: Endpoint::Parameters::RetireGrant,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::RetireGrant,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::DependencyTimeoutException, Errors::DryRunOperationException, Errors::InvalidArnException, Errors::InvalidGrantIdException, Errors::InvalidGrantTokenException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]
-          )
+          ),
+          data_parser: Parsers::RetireGrant
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::RetireGrant,
-          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DryRunOperationException, Stubs::InvalidArnException, Stubs::InvalidGrantIdException, Stubs::InvalidGrantTokenException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DryRunOperationException, Stubs::InvalidArnException, Stubs::InvalidGrantIdException, Stubs::InvalidGrantTokenException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
+          stub_data_class: Stubs::RetireGrant,
           stubs: config.stubs
         )
         stack
@@ -2007,8 +2007,8 @@ module AWS::SDK::KMS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::RevokeGrantInput
+          validator: Validators::RevokeGrantInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::RevokeGrant
@@ -2022,31 +2022,31 @@ module AWS::SDK::KMS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::RevokeGrant,
           region: config.region,
+          param_builder: Endpoint::Parameters::RevokeGrant,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::RevokeGrant,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::DependencyTimeoutException, Errors::DryRunOperationException, Errors::InvalidArnException, Errors::InvalidGrantIdException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]
-          )
+          ),
+          data_parser: Parsers::RevokeGrant
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::RevokeGrant,
-          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DryRunOperationException, Stubs::InvalidArnException, Stubs::InvalidGrantIdException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DryRunOperationException, Stubs::InvalidArnException, Stubs::InvalidGrantIdException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
+          stub_data_class: Stubs::RevokeGrant,
           stubs: config.stubs
         )
         stack
@@ -2058,8 +2058,8 @@ module AWS::SDK::KMS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::ScheduleKeyDeletionInput
+          validator: Validators::ScheduleKeyDeletionInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::ScheduleKeyDeletion
@@ -2073,31 +2073,31 @@ module AWS::SDK::KMS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::ScheduleKeyDeletion,
           region: config.region,
+          param_builder: Endpoint::Parameters::ScheduleKeyDeletion,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::ScheduleKeyDeletion,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]
-          )
+          ),
+          data_parser: Parsers::ScheduleKeyDeletion
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::ScheduleKeyDeletion,
-          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
+          stub_data_class: Stubs::ScheduleKeyDeletion,
           stubs: config.stubs
         )
         stack
@@ -2109,8 +2109,8 @@ module AWS::SDK::KMS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::SignInput
+          validator: Validators::SignInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::Sign
@@ -2124,31 +2124,31 @@ module AWS::SDK::KMS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::Sign,
           region: config.region,
+          param_builder: Endpoint::Parameters::Sign,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::Sign,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::DependencyTimeoutException, Errors::DisabledException, Errors::DryRunOperationException, Errors::InvalidGrantTokenException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]
-          )
+          ),
+          data_parser: Parsers::Sign
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::Sign,
-          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
+          stub_data_class: Stubs::Sign,
           stubs: config.stubs
         )
         stack
@@ -2160,8 +2160,8 @@ module AWS::SDK::KMS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::TagResourceInput
+          validator: Validators::TagResourceInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::TagResource
@@ -2175,31 +2175,31 @@ module AWS::SDK::KMS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::TagResource,
           region: config.region,
+          param_builder: Endpoint::Parameters::TagResource,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::TagResource,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::LimitExceededException, Errors::NotFoundException, Errors::TagException]
-          )
+          ),
+          data_parser: Parsers::TagResource
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::TagResource,
-          stub_error_classes: [Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::LimitExceededException, Stubs::NotFoundException, Stubs::TagException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::LimitExceededException, Stubs::NotFoundException, Stubs::TagException],
+          stub_data_class: Stubs::TagResource,
           stubs: config.stubs
         )
         stack
@@ -2211,8 +2211,8 @@ module AWS::SDK::KMS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::UntagResourceInput
+          validator: Validators::UntagResourceInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::UntagResource
@@ -2226,31 +2226,31 @@ module AWS::SDK::KMS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::UntagResource,
           region: config.region,
+          param_builder: Endpoint::Parameters::UntagResource,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::UntagResource,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException, Errors::TagException]
-          )
+          ),
+          data_parser: Parsers::UntagResource
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::UntagResource,
-          stub_error_classes: [Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::TagException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::TagException],
+          stub_data_class: Stubs::UntagResource,
           stubs: config.stubs
         )
         stack
@@ -2262,8 +2262,8 @@ module AWS::SDK::KMS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::UpdateAliasInput
+          validator: Validators::UpdateAliasInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::UpdateAlias
@@ -2277,31 +2277,31 @@ module AWS::SDK::KMS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::UpdateAlias,
           region: config.region,
+          param_builder: Endpoint::Parameters::UpdateAlias,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::UpdateAlias,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::DependencyTimeoutException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::LimitExceededException, Errors::NotFoundException]
-          )
+          ),
+          data_parser: Parsers::UpdateAlias
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::UpdateAlias,
-          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::LimitExceededException, Stubs::NotFoundException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::LimitExceededException, Stubs::NotFoundException],
+          stub_data_class: Stubs::UpdateAlias,
           stubs: config.stubs
         )
         stack
@@ -2313,8 +2313,8 @@ module AWS::SDK::KMS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::UpdateCustomKeyStoreInput
+          validator: Validators::UpdateCustomKeyStoreInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::UpdateCustomKeyStore
@@ -2328,31 +2328,31 @@ module AWS::SDK::KMS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::UpdateCustomKeyStore,
           region: config.region,
+          param_builder: Endpoint::Parameters::UpdateCustomKeyStore,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::UpdateCustomKeyStore,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::CloudHsmClusterInvalidConfigurationException, Errors::CloudHsmClusterNotActiveException, Errors::CloudHsmClusterNotFoundException, Errors::CloudHsmClusterNotRelatedException, Errors::CustomKeyStoreInvalidStateException, Errors::CustomKeyStoreNameInUseException, Errors::CustomKeyStoreNotFoundException, Errors::KMSInternalException, Errors::XksProxyIncorrectAuthenticationCredentialException, Errors::XksProxyInvalidConfigurationException, Errors::XksProxyInvalidResponseException, Errors::XksProxyUriEndpointInUseException, Errors::XksProxyUriInUseException, Errors::XksProxyUriUnreachableException, Errors::XksProxyVpcEndpointServiceInUseException, Errors::XksProxyVpcEndpointServiceInvalidConfigurationException, Errors::XksProxyVpcEndpointServiceNotFoundException]
-          )
+          ),
+          data_parser: Parsers::UpdateCustomKeyStore
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::UpdateCustomKeyStore,
-          stub_error_classes: [Stubs::CloudHsmClusterInvalidConfigurationException, Stubs::CloudHsmClusterNotActiveException, Stubs::CloudHsmClusterNotFoundException, Stubs::CloudHsmClusterNotRelatedException, Stubs::CustomKeyStoreInvalidStateException, Stubs::CustomKeyStoreNameInUseException, Stubs::CustomKeyStoreNotFoundException, Stubs::KMSInternalException, Stubs::XksProxyIncorrectAuthenticationCredentialException, Stubs::XksProxyInvalidConfigurationException, Stubs::XksProxyInvalidResponseException, Stubs::XksProxyUriEndpointInUseException, Stubs::XksProxyUriInUseException, Stubs::XksProxyUriUnreachableException, Stubs::XksProxyVpcEndpointServiceInUseException, Stubs::XksProxyVpcEndpointServiceInvalidConfigurationException, Stubs::XksProxyVpcEndpointServiceNotFoundException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::CloudHsmClusterInvalidConfigurationException, Stubs::CloudHsmClusterNotActiveException, Stubs::CloudHsmClusterNotFoundException, Stubs::CloudHsmClusterNotRelatedException, Stubs::CustomKeyStoreInvalidStateException, Stubs::CustomKeyStoreNameInUseException, Stubs::CustomKeyStoreNotFoundException, Stubs::KMSInternalException, Stubs::XksProxyIncorrectAuthenticationCredentialException, Stubs::XksProxyInvalidConfigurationException, Stubs::XksProxyInvalidResponseException, Stubs::XksProxyUriEndpointInUseException, Stubs::XksProxyUriInUseException, Stubs::XksProxyUriUnreachableException, Stubs::XksProxyVpcEndpointServiceInUseException, Stubs::XksProxyVpcEndpointServiceInvalidConfigurationException, Stubs::XksProxyVpcEndpointServiceNotFoundException],
+          stub_data_class: Stubs::UpdateCustomKeyStore,
           stubs: config.stubs
         )
         stack
@@ -2364,8 +2364,8 @@ module AWS::SDK::KMS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::UpdateKeyDescriptionInput
+          validator: Validators::UpdateKeyDescriptionInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::UpdateKeyDescription
@@ -2379,31 +2379,31 @@ module AWS::SDK::KMS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::UpdateKeyDescription,
           region: config.region,
+          param_builder: Endpoint::Parameters::UpdateKeyDescription,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::UpdateKeyDescription,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]
-          )
+          ),
+          data_parser: Parsers::UpdateKeyDescription
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::UpdateKeyDescription,
-          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
+          stub_data_class: Stubs::UpdateKeyDescription,
           stubs: config.stubs
         )
         stack
@@ -2415,8 +2415,8 @@ module AWS::SDK::KMS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::UpdatePrimaryRegionInput
+          validator: Validators::UpdatePrimaryRegionInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::UpdatePrimaryRegion
@@ -2430,31 +2430,31 @@ module AWS::SDK::KMS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::UpdatePrimaryRegion,
           region: config.region,
+          param_builder: Endpoint::Parameters::UpdatePrimaryRegion,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::UpdatePrimaryRegion,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::DisabledException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException, Errors::UnsupportedOperationException]
-          )
+          ),
+          data_parser: Parsers::UpdatePrimaryRegion
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::UpdatePrimaryRegion,
-          stub_error_classes: [Stubs::DisabledException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::DisabledException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
+          stub_data_class: Stubs::UpdatePrimaryRegion,
           stubs: config.stubs
         )
         stack
@@ -2466,8 +2466,8 @@ module AWS::SDK::KMS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::VerifyInput
+          validator: Validators::VerifyInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::Verify
@@ -2481,31 +2481,31 @@ module AWS::SDK::KMS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::Verify,
           region: config.region,
+          param_builder: Endpoint::Parameters::Verify,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::Verify,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::DependencyTimeoutException, Errors::DisabledException, Errors::DryRunOperationException, Errors::InvalidGrantTokenException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::KMSInternalException, Errors::KMSInvalidSignatureException, Errors::KMSInvalidStateException, Errors::NotFoundException]
-          )
+          ),
+          data_parser: Parsers::Verify
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::Verify,
-          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidSignatureException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidSignatureException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
+          stub_data_class: Stubs::Verify,
           stubs: config.stubs
         )
         stack
@@ -2517,8 +2517,8 @@ module AWS::SDK::KMS
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::VerifyMacInput
+          validator: Validators::VerifyMacInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::VerifyMac
@@ -2532,31 +2532,31 @@ module AWS::SDK::KMS
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::VerifyMac,
           region: config.region,
+          param_builder: Endpoint::Parameters::VerifyMac,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::VerifyMac,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::DisabledException, Errors::DryRunOperationException, Errors::InvalidGrantTokenException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::KMSInternalException, Errors::KMSInvalidMacException, Errors::KMSInvalidStateException, Errors::NotFoundException]
-          )
+          ),
+          data_parser: Parsers::VerifyMac
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::VerifyMac,
-          stub_error_classes: [Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidMacException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidMacException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
+          stub_data_class: Stubs::VerifyMac,
           stubs: config.stubs
         )
         stack

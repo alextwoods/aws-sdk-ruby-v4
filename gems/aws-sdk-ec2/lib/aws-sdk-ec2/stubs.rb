@@ -30510,7 +30510,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('AWSAccessKeyId', stub[:aws_access_key_id].to_s) unless stub[:aws_access_key_id].nil?
         xml << Hearth::XML::Node.new('bucket', stub[:bucket].to_s) unless stub[:bucket].nil?
         xml << Hearth::XML::Node.new('prefix', stub[:prefix].to_s) unless stub[:prefix].nil?
-        xml << Hearth::XML::Node.new('uploadPolicy', ::Base64::encode64(stub[:upload_policy]).strip) unless stub[:upload_policy].nil?
+        xml << Hearth::XML::Node.new('uploadPolicy', ::Base64::strict_encode64(stub[:upload_policy]).strip) unless stub[:upload_policy].nil?
         xml << Hearth::XML::Node.new('uploadPolicySignature', stub[:upload_policy_signature].to_s) unless stub[:upload_policy_signature].nil?
         xml
       end

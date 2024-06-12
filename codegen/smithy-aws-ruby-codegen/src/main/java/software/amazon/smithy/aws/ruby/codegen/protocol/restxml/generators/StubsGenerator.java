@@ -320,7 +320,7 @@ public class StubsGenerator extends RestStubsGeneratorBase {
 
         @Override
         public Void blobShape(BlobShape shape) {
-            writer.write("xml << $T.new($L, $T::encode64($L).strip$L)$L",
+            writer.write("xml << $T.new($L, $T::strict_encode64($L).strip$L)$L",
                     Hearth.XML_NODE, nodeName, RubyImportContainer.BASE64,
                     inputGetter, xmlnsAttribute(), checkRequired());
             return null;

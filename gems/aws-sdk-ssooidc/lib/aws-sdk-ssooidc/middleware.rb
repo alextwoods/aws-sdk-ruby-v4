@@ -18,8 +18,8 @@ module AWS::SDK::SSOOIDC
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::CreateTokenInput
+          validator: Validators::CreateTokenInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::CreateToken
@@ -34,31 +34,31 @@ module AWS::SDK::SSOOIDC
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::CreateToken,
           region: config.region,
+          param_builder: Endpoint::Parameters::CreateToken,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::CreateToken,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::AccessDeniedException, Errors::AuthorizationPendingException, Errors::ExpiredTokenException, Errors::InternalServerException, Errors::InvalidClientException, Errors::InvalidGrantException, Errors::InvalidRequestException, Errors::InvalidScopeException, Errors::SlowDownException, Errors::UnauthorizedClientException, Errors::UnsupportedGrantTypeException]
-          )
+          ),
+          data_parser: Parsers::CreateToken
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::CreateToken,
-          stub_error_classes: [Stubs::AccessDeniedException, Stubs::AuthorizationPendingException, Stubs::ExpiredTokenException, Stubs::InternalServerException, Stubs::InvalidClientException, Stubs::InvalidGrantException, Stubs::InvalidRequestException, Stubs::InvalidScopeException, Stubs::SlowDownException, Stubs::UnauthorizedClientException, Stubs::UnsupportedGrantTypeException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::AccessDeniedException, Stubs::AuthorizationPendingException, Stubs::ExpiredTokenException, Stubs::InternalServerException, Stubs::InvalidClientException, Stubs::InvalidGrantException, Stubs::InvalidRequestException, Stubs::InvalidScopeException, Stubs::SlowDownException, Stubs::UnauthorizedClientException, Stubs::UnsupportedGrantTypeException],
+          stub_data_class: Stubs::CreateToken,
           stubs: config.stubs
         )
         stack
@@ -70,8 +70,8 @@ module AWS::SDK::SSOOIDC
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::CreateTokenWithIAMInput
+          validator: Validators::CreateTokenWithIAMInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::CreateTokenWithIAM
@@ -86,31 +86,31 @@ module AWS::SDK::SSOOIDC
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::CreateTokenWithIAM,
           region: config.region,
+          param_builder: Endpoint::Parameters::CreateTokenWithIAM,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::CreateTokenWithIAM,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::AccessDeniedException, Errors::AuthorizationPendingException, Errors::ExpiredTokenException, Errors::InternalServerException, Errors::InvalidClientException, Errors::InvalidGrantException, Errors::InvalidRequestException, Errors::InvalidRequestRegionException, Errors::InvalidScopeException, Errors::SlowDownException, Errors::UnauthorizedClientException, Errors::UnsupportedGrantTypeException]
-          )
+          ),
+          data_parser: Parsers::CreateTokenWithIAM
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::CreateTokenWithIAM,
-          stub_error_classes: [Stubs::AccessDeniedException, Stubs::AuthorizationPendingException, Stubs::ExpiredTokenException, Stubs::InternalServerException, Stubs::InvalidClientException, Stubs::InvalidGrantException, Stubs::InvalidRequestException, Stubs::InvalidRequestRegionException, Stubs::InvalidScopeException, Stubs::SlowDownException, Stubs::UnauthorizedClientException, Stubs::UnsupportedGrantTypeException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::AccessDeniedException, Stubs::AuthorizationPendingException, Stubs::ExpiredTokenException, Stubs::InternalServerException, Stubs::InvalidClientException, Stubs::InvalidGrantException, Stubs::InvalidRequestException, Stubs::InvalidRequestRegionException, Stubs::InvalidScopeException, Stubs::SlowDownException, Stubs::UnauthorizedClientException, Stubs::UnsupportedGrantTypeException],
+          stub_data_class: Stubs::CreateTokenWithIAM,
           stubs: config.stubs
         )
         stack
@@ -122,8 +122,8 @@ module AWS::SDK::SSOOIDC
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::RegisterClientInput
+          validator: Validators::RegisterClientInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::RegisterClient
@@ -138,31 +138,31 @@ module AWS::SDK::SSOOIDC
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::RegisterClient,
           region: config.region,
+          param_builder: Endpoint::Parameters::RegisterClient,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::RegisterClient,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServerException, Errors::InvalidClientMetadataException, Errors::InvalidRedirectUriException, Errors::InvalidRequestException, Errors::InvalidScopeException, Errors::UnsupportedGrantTypeException]
-          )
+          ),
+          data_parser: Parsers::RegisterClient
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::RegisterClient,
-          stub_error_classes: [Stubs::InternalServerException, Stubs::InvalidClientMetadataException, Stubs::InvalidRedirectUriException, Stubs::InvalidRequestException, Stubs::InvalidScopeException, Stubs::UnsupportedGrantTypeException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::InternalServerException, Stubs::InvalidClientMetadataException, Stubs::InvalidRedirectUriException, Stubs::InvalidRequestException, Stubs::InvalidScopeException, Stubs::UnsupportedGrantTypeException],
+          stub_data_class: Stubs::RegisterClient,
           stubs: config.stubs
         )
         stack
@@ -174,8 +174,8 @@ module AWS::SDK::SSOOIDC
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validate_input: config.validate_input,
-          validator: Validators::StartDeviceAuthorizationInput
+          validator: Validators::StartDeviceAuthorizationInput,
+          validate_input: config.validate_input
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::StartDeviceAuthorization
@@ -190,31 +190,31 @@ module AWS::SDK::SSOOIDC
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          endpoint_resolver: config.endpoint_resolver,
-          param_builder: Endpoint::Parameters::StartDeviceAuthorization,
           region: config.region,
+          param_builder: Endpoint::Parameters::StartDeviceAuthorization,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
+          endpoint_resolver: config.endpoint_resolver,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          error_inspector_class: Hearth::HTTP::ErrorInspector,
-          retry_strategy: config.retry_strategy
+          retry_strategy: config.retry_strategy,
+          error_inspector_class: Hearth::HTTP::ErrorInspector
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
-          data_parser: Parsers::StartDeviceAuthorization,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServerException, Errors::InvalidClientException, Errors::InvalidRequestException, Errors::SlowDownException, Errors::UnauthorizedClientException]
-          )
+          ),
+          data_parser: Parsers::StartDeviceAuthorization
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          client: config.http_client,
-          stub_data_class: Stubs::StartDeviceAuthorization,
-          stub_error_classes: [Stubs::InternalServerException, Stubs::InvalidClientException, Stubs::InvalidRequestException, Stubs::SlowDownException, Stubs::UnauthorizedClientException],
           stub_responses: config.stub_responses,
+          client: config.http_client,
+          stub_error_classes: [Stubs::InternalServerException, Stubs::InvalidClientException, Stubs::InvalidRequestException, Stubs::SlowDownException, Stubs::UnauthorizedClientException],
+          stub_data_class: Stubs::StartDeviceAuthorization,
           stubs: config.stubs
         )
         stack
