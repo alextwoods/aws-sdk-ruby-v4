@@ -18,8 +18,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::BatchExecuteStatementInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::BatchExecuteStatementInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::BatchExecuteStatement
@@ -33,31 +33,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::BatchExecuteStatement,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::BatchExecuteStatement,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::BatchExecuteStatement,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServerError, Errors::RequestLimitExceeded]
-          ),
-          data_parser: Parsers::BatchExecuteStatement
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::InternalServerError, Stubs::RequestLimitExceeded],
           stub_data_class: Stubs::BatchExecuteStatement,
+          stub_error_classes: [Stubs::InternalServerError, Stubs::RequestLimitExceeded],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -69,8 +69,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::BatchGetItemInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::BatchGetItemInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::BatchGetItem
@@ -84,31 +84,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::BatchGetItem,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::BatchGetItem,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::BatchGetItem,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]
-          ),
-          data_parser: Parsers::BatchGetItem
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::RequestLimitExceeded, Stubs::ProvisionedThroughputExceededException],
           stub_data_class: Stubs::BatchGetItem,
+          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::RequestLimitExceeded, Stubs::ProvisionedThroughputExceededException],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -120,8 +120,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::BatchWriteItemInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::BatchWriteItemInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::BatchWriteItem
@@ -135,31 +135,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::BatchWriteItem,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::BatchWriteItem,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::BatchWriteItem,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]
-          ),
-          data_parser: Parsers::BatchWriteItem
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::RequestLimitExceeded, Stubs::ItemCollectionSizeLimitExceededException, Stubs::ProvisionedThroughputExceededException],
           stub_data_class: Stubs::BatchWriteItem,
+          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::RequestLimitExceeded, Stubs::ItemCollectionSizeLimitExceededException, Stubs::ProvisionedThroughputExceededException],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -171,8 +171,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::CreateBackupInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::CreateBackupInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::CreateBackup
@@ -186,31 +186,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::CreateBackup,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::CreateBackup,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::CreateBackup,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::TableInUseException, Errors::BackupInUseException, Errors::TableNotFoundException, Errors::ContinuousBackupsUnavailableException]
-          ),
-          data_parser: Parsers::CreateBackup
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::LimitExceededException, Stubs::TableInUseException, Stubs::BackupInUseException, Stubs::TableNotFoundException, Stubs::ContinuousBackupsUnavailableException],
           stub_data_class: Stubs::CreateBackup,
+          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::LimitExceededException, Stubs::TableInUseException, Stubs::BackupInUseException, Stubs::TableNotFoundException, Stubs::ContinuousBackupsUnavailableException],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -222,8 +222,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::CreateGlobalTableInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::CreateGlobalTableInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::CreateGlobalTable
@@ -237,31 +237,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::CreateGlobalTable,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::CreateGlobalTable,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::CreateGlobalTable,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::TableNotFoundException, Errors::GlobalTableAlreadyExistsException]
-          ),
-          data_parser: Parsers::CreateGlobalTable
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::LimitExceededException, Stubs::TableNotFoundException, Stubs::GlobalTableAlreadyExistsException],
           stub_data_class: Stubs::CreateGlobalTable,
+          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::LimitExceededException, Stubs::TableNotFoundException, Stubs::GlobalTableAlreadyExistsException],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -273,8 +273,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::CreateTableInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::CreateTableInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::CreateTable
@@ -288,31 +288,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::CreateTable,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::CreateTable,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::CreateTable,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::ResourceInUseException]
-          ),
-          data_parser: Parsers::CreateTable
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::LimitExceededException, Stubs::ResourceInUseException],
           stub_data_class: Stubs::CreateTable,
+          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::LimitExceededException, Stubs::ResourceInUseException],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -324,8 +324,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::DeleteBackupInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::DeleteBackupInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DeleteBackup
@@ -339,31 +339,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::DeleteBackup,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::DeleteBackup,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::DeleteBackup,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::BackupNotFoundException, Errors::LimitExceededException, Errors::BackupInUseException]
-          ),
-          data_parser: Parsers::DeleteBackup
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::BackupNotFoundException, Stubs::LimitExceededException, Stubs::BackupInUseException],
           stub_data_class: Stubs::DeleteBackup,
+          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::BackupNotFoundException, Stubs::LimitExceededException, Stubs::BackupInUseException],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -375,8 +375,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::DeleteItemInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::DeleteItemInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DeleteItem
@@ -390,31 +390,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::DeleteItem,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::DeleteItem,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::DeleteItem,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::TransactionConflictException, Errors::ConditionalCheckFailedException, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]
-          ),
-          data_parser: Parsers::DeleteItem
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::RequestLimitExceeded, Stubs::TransactionConflictException, Stubs::ConditionalCheckFailedException, Stubs::ItemCollectionSizeLimitExceededException, Stubs::ProvisionedThroughputExceededException],
           stub_data_class: Stubs::DeleteItem,
+          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::RequestLimitExceeded, Stubs::TransactionConflictException, Stubs::ConditionalCheckFailedException, Stubs::ItemCollectionSizeLimitExceededException, Stubs::ProvisionedThroughputExceededException],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -426,8 +426,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::DeleteTableInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::DeleteTableInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DeleteTable
@@ -441,31 +441,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::DeleteTable,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::DeleteTable,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::DeleteTable,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]
-          ),
-          data_parser: Parsers::DeleteTable
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::LimitExceededException, Stubs::ResourceInUseException],
           stub_data_class: Stubs::DeleteTable,
+          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::LimitExceededException, Stubs::ResourceInUseException],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -477,8 +477,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::DescribeBackupInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::DescribeBackupInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DescribeBackup
@@ -492,31 +492,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::DescribeBackup,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::DescribeBackup,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::DescribeBackup,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::BackupNotFoundException]
-          ),
-          data_parser: Parsers::DescribeBackup
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::BackupNotFoundException],
           stub_data_class: Stubs::DescribeBackup,
+          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::BackupNotFoundException],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -528,8 +528,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::DescribeContinuousBackupsInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::DescribeContinuousBackupsInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DescribeContinuousBackups
@@ -543,31 +543,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::DescribeContinuousBackups,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::DescribeContinuousBackups,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::DescribeContinuousBackups,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::TableNotFoundException]
-          ),
-          data_parser: Parsers::DescribeContinuousBackups
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::TableNotFoundException],
           stub_data_class: Stubs::DescribeContinuousBackups,
+          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::TableNotFoundException],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -579,8 +579,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::DescribeContributorInsightsInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::DescribeContributorInsightsInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DescribeContributorInsights
@@ -594,31 +594,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::DescribeContributorInsights,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::DescribeContributorInsights,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::DescribeContributorInsights,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServerError, Errors::ResourceNotFoundException]
-          ),
-          data_parser: Parsers::DescribeContributorInsights
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::InternalServerError, Stubs::ResourceNotFoundException],
           stub_data_class: Stubs::DescribeContributorInsights,
+          stub_error_classes: [Stubs::InternalServerError, Stubs::ResourceNotFoundException],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -630,8 +630,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::DescribeEndpointsInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::DescribeEndpointsInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DescribeEndpoints
@@ -645,31 +645,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::DescribeEndpoints,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::DescribeEndpoints,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::DescribeEndpoints,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: []
-          ),
-          data_parser: Parsers::DescribeEndpoints
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [],
           stub_data_class: Stubs::DescribeEndpoints,
+          stub_error_classes: [],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -681,8 +681,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::DescribeExportInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::DescribeExportInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DescribeExport
@@ -696,31 +696,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::DescribeExport,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::DescribeExport,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::DescribeExport,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServerError, Errors::LimitExceededException, Errors::ExportNotFoundException]
-          ),
-          data_parser: Parsers::DescribeExport
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::InternalServerError, Stubs::LimitExceededException, Stubs::ExportNotFoundException],
           stub_data_class: Stubs::DescribeExport,
+          stub_error_classes: [Stubs::InternalServerError, Stubs::LimitExceededException, Stubs::ExportNotFoundException],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -732,8 +732,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::DescribeGlobalTableInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::DescribeGlobalTableInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DescribeGlobalTable
@@ -747,31 +747,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::DescribeGlobalTable,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::DescribeGlobalTable,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::DescribeGlobalTable,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::GlobalTableNotFoundException]
-          ),
-          data_parser: Parsers::DescribeGlobalTable
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::GlobalTableNotFoundException],
           stub_data_class: Stubs::DescribeGlobalTable,
+          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::GlobalTableNotFoundException],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -783,8 +783,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::DescribeGlobalTableSettingsInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::DescribeGlobalTableSettingsInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DescribeGlobalTableSettings
@@ -798,31 +798,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::DescribeGlobalTableSettings,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::DescribeGlobalTableSettings,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::DescribeGlobalTableSettings,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::GlobalTableNotFoundException]
-          ),
-          data_parser: Parsers::DescribeGlobalTableSettings
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::GlobalTableNotFoundException],
           stub_data_class: Stubs::DescribeGlobalTableSettings,
+          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::GlobalTableNotFoundException],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -834,8 +834,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::DescribeImportInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::DescribeImportInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DescribeImport
@@ -849,31 +849,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::DescribeImport,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::DescribeImport,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::DescribeImport,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::ImportNotFoundException]
-          ),
-          data_parser: Parsers::DescribeImport
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::ImportNotFoundException],
           stub_data_class: Stubs::DescribeImport,
+          stub_error_classes: [Stubs::ImportNotFoundException],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -885,8 +885,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::DescribeKinesisStreamingDestinationInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::DescribeKinesisStreamingDestinationInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DescribeKinesisStreamingDestination
@@ -900,31 +900,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::DescribeKinesisStreamingDestination,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::DescribeKinesisStreamingDestination,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::DescribeKinesisStreamingDestination,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException]
-          ),
-          data_parser: Parsers::DescribeKinesisStreamingDestination
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException],
           stub_data_class: Stubs::DescribeKinesisStreamingDestination,
+          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -936,8 +936,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::DescribeLimitsInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::DescribeLimitsInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DescribeLimits
@@ -951,31 +951,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::DescribeLimits,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::DescribeLimits,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::DescribeLimits,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServerError, Errors::InvalidEndpointException]
-          ),
-          data_parser: Parsers::DescribeLimits
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException],
           stub_data_class: Stubs::DescribeLimits,
+          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -987,8 +987,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::DescribeTableInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::DescribeTableInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DescribeTable
@@ -1002,31 +1002,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::DescribeTable,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::DescribeTable,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::DescribeTable,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException]
-          ),
-          data_parser: Parsers::DescribeTable
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException],
           stub_data_class: Stubs::DescribeTable,
+          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -1038,8 +1038,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::DescribeTableReplicaAutoScalingInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::DescribeTableReplicaAutoScalingInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DescribeTableReplicaAutoScaling
@@ -1053,31 +1053,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::DescribeTableReplicaAutoScaling,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::DescribeTableReplicaAutoScaling,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::DescribeTableReplicaAutoScaling,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServerError, Errors::ResourceNotFoundException]
-          ),
-          data_parser: Parsers::DescribeTableReplicaAutoScaling
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::InternalServerError, Stubs::ResourceNotFoundException],
           stub_data_class: Stubs::DescribeTableReplicaAutoScaling,
+          stub_error_classes: [Stubs::InternalServerError, Stubs::ResourceNotFoundException],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -1089,8 +1089,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::DescribeTimeToLiveInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::DescribeTimeToLiveInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DescribeTimeToLive
@@ -1104,31 +1104,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::DescribeTimeToLive,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::DescribeTimeToLive,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::DescribeTimeToLive,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException]
-          ),
-          data_parser: Parsers::DescribeTimeToLive
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException],
           stub_data_class: Stubs::DescribeTimeToLive,
+          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -1140,8 +1140,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::DisableKinesisStreamingDestinationInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::DisableKinesisStreamingDestinationInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::DisableKinesisStreamingDestination
@@ -1155,31 +1155,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::DisableKinesisStreamingDestination,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::DisableKinesisStreamingDestination,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::DisableKinesisStreamingDestination,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::ResourceInUseException, Errors::ResourceNotFoundException]
-          ),
-          data_parser: Parsers::DisableKinesisStreamingDestination
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::LimitExceededException, Stubs::ResourceInUseException, Stubs::ResourceNotFoundException],
           stub_data_class: Stubs::DisableKinesisStreamingDestination,
+          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::LimitExceededException, Stubs::ResourceInUseException, Stubs::ResourceNotFoundException],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -1191,8 +1191,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::EnableKinesisStreamingDestinationInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::EnableKinesisStreamingDestinationInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::EnableKinesisStreamingDestination
@@ -1206,31 +1206,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::EnableKinesisStreamingDestination,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::EnableKinesisStreamingDestination,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::EnableKinesisStreamingDestination,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::ResourceInUseException, Errors::ResourceNotFoundException]
-          ),
-          data_parser: Parsers::EnableKinesisStreamingDestination
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::LimitExceededException, Stubs::ResourceInUseException, Stubs::ResourceNotFoundException],
           stub_data_class: Stubs::EnableKinesisStreamingDestination,
+          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::LimitExceededException, Stubs::ResourceInUseException, Stubs::ResourceNotFoundException],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -1242,8 +1242,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::ExecuteStatementInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::ExecuteStatementInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::ExecuteStatement
@@ -1257,31 +1257,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::ExecuteStatement,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::ExecuteStatement,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::ExecuteStatement,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServerError, Errors::ResourceNotFoundException, Errors::DuplicateItemException, Errors::RequestLimitExceeded, Errors::TransactionConflictException, Errors::ConditionalCheckFailedException, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]
-          ),
-          data_parser: Parsers::ExecuteStatement
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::InternalServerError, Stubs::ResourceNotFoundException, Stubs::DuplicateItemException, Stubs::RequestLimitExceeded, Stubs::TransactionConflictException, Stubs::ConditionalCheckFailedException, Stubs::ItemCollectionSizeLimitExceededException, Stubs::ProvisionedThroughputExceededException],
           stub_data_class: Stubs::ExecuteStatement,
+          stub_error_classes: [Stubs::InternalServerError, Stubs::ResourceNotFoundException, Stubs::DuplicateItemException, Stubs::RequestLimitExceeded, Stubs::TransactionConflictException, Stubs::ConditionalCheckFailedException, Stubs::ItemCollectionSizeLimitExceededException, Stubs::ProvisionedThroughputExceededException],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -1293,8 +1293,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::ExecuteTransactionInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::ExecuteTransactionInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::ExecuteTransaction
@@ -1308,31 +1308,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::ExecuteTransaction,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::ExecuteTransaction,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::ExecuteTransaction,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServerError, Errors::ResourceNotFoundException, Errors::IdempotentParameterMismatchException, Errors::TransactionCanceledException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException, Errors::TransactionInProgressException]
-          ),
-          data_parser: Parsers::ExecuteTransaction
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::InternalServerError, Stubs::ResourceNotFoundException, Stubs::IdempotentParameterMismatchException, Stubs::TransactionCanceledException, Stubs::RequestLimitExceeded, Stubs::ProvisionedThroughputExceededException, Stubs::TransactionInProgressException],
           stub_data_class: Stubs::ExecuteTransaction,
+          stub_error_classes: [Stubs::InternalServerError, Stubs::ResourceNotFoundException, Stubs::IdempotentParameterMismatchException, Stubs::TransactionCanceledException, Stubs::RequestLimitExceeded, Stubs::ProvisionedThroughputExceededException, Stubs::TransactionInProgressException],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -1344,8 +1344,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::ExportTableToPointInTimeInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::ExportTableToPointInTimeInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::ExportTableToPointInTime
@@ -1359,31 +1359,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::ExportTableToPointInTime,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::ExportTableToPointInTime,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::ExportTableToPointInTime,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServerError, Errors::InvalidExportTimeException, Errors::LimitExceededException, Errors::PointInTimeRecoveryUnavailableException, Errors::ExportConflictException, Errors::TableNotFoundException]
-          ),
-          data_parser: Parsers::ExportTableToPointInTime
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidExportTimeException, Stubs::LimitExceededException, Stubs::PointInTimeRecoveryUnavailableException, Stubs::ExportConflictException, Stubs::TableNotFoundException],
           stub_data_class: Stubs::ExportTableToPointInTime,
+          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidExportTimeException, Stubs::LimitExceededException, Stubs::PointInTimeRecoveryUnavailableException, Stubs::ExportConflictException, Stubs::TableNotFoundException],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -1395,8 +1395,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::GetItemInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::GetItemInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::GetItem
@@ -1410,31 +1410,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::GetItem,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::GetItem,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::GetItem,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]
-          ),
-          data_parser: Parsers::GetItem
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::RequestLimitExceeded, Stubs::ProvisionedThroughputExceededException],
           stub_data_class: Stubs::GetItem,
+          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::RequestLimitExceeded, Stubs::ProvisionedThroughputExceededException],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -1446,8 +1446,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::ImportTableInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::ImportTableInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::ImportTable
@@ -1461,31 +1461,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::ImportTable,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::ImportTable,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::ImportTable,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::LimitExceededException, Errors::ResourceInUseException, Errors::ImportConflictException]
-          ),
-          data_parser: Parsers::ImportTable
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::LimitExceededException, Stubs::ResourceInUseException, Stubs::ImportConflictException],
           stub_data_class: Stubs::ImportTable,
+          stub_error_classes: [Stubs::LimitExceededException, Stubs::ResourceInUseException, Stubs::ImportConflictException],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -1497,8 +1497,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::ListBackupsInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::ListBackupsInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::ListBackups
@@ -1512,31 +1512,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::ListBackups,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::ListBackups,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::ListBackups,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServerError, Errors::InvalidEndpointException]
-          ),
-          data_parser: Parsers::ListBackups
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException],
           stub_data_class: Stubs::ListBackups,
+          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -1548,8 +1548,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::ListContributorInsightsInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::ListContributorInsightsInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::ListContributorInsights
@@ -1563,31 +1563,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::ListContributorInsights,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::ListContributorInsights,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::ListContributorInsights,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServerError, Errors::ResourceNotFoundException]
-          ),
-          data_parser: Parsers::ListContributorInsights
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::InternalServerError, Stubs::ResourceNotFoundException],
           stub_data_class: Stubs::ListContributorInsights,
+          stub_error_classes: [Stubs::InternalServerError, Stubs::ResourceNotFoundException],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -1599,8 +1599,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::ListExportsInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::ListExportsInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::ListExports
@@ -1614,31 +1614,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::ListExports,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::ListExports,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::ListExports,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServerError, Errors::LimitExceededException]
-          ),
-          data_parser: Parsers::ListExports
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::InternalServerError, Stubs::LimitExceededException],
           stub_data_class: Stubs::ListExports,
+          stub_error_classes: [Stubs::InternalServerError, Stubs::LimitExceededException],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -1650,8 +1650,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::ListGlobalTablesInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::ListGlobalTablesInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::ListGlobalTables
@@ -1665,31 +1665,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::ListGlobalTables,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::ListGlobalTables,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::ListGlobalTables,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServerError, Errors::InvalidEndpointException]
-          ),
-          data_parser: Parsers::ListGlobalTables
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException],
           stub_data_class: Stubs::ListGlobalTables,
+          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -1701,8 +1701,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::ListImportsInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::ListImportsInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::ListImports
@@ -1716,31 +1716,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::ListImports,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::ListImports,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::ListImports,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::LimitExceededException]
-          ),
-          data_parser: Parsers::ListImports
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::LimitExceededException],
           stub_data_class: Stubs::ListImports,
+          stub_error_classes: [Stubs::LimitExceededException],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -1752,8 +1752,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::ListTablesInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::ListTablesInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::ListTables
@@ -1767,31 +1767,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::ListTables,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::ListTables,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::ListTables,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServerError, Errors::InvalidEndpointException]
-          ),
-          data_parser: Parsers::ListTables
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException],
           stub_data_class: Stubs::ListTables,
+          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -1803,8 +1803,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::ListTagsOfResourceInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::ListTagsOfResourceInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::ListTagsOfResource
@@ -1818,31 +1818,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::ListTagsOfResource,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::ListTagsOfResource,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::ListTagsOfResource,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException]
-          ),
-          data_parser: Parsers::ListTagsOfResource
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException],
           stub_data_class: Stubs::ListTagsOfResource,
+          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -1854,8 +1854,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::PutItemInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::PutItemInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::PutItem
@@ -1869,31 +1869,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::PutItem,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::PutItem,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::PutItem,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::TransactionConflictException, Errors::ConditionalCheckFailedException, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]
-          ),
-          data_parser: Parsers::PutItem
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::RequestLimitExceeded, Stubs::TransactionConflictException, Stubs::ConditionalCheckFailedException, Stubs::ItemCollectionSizeLimitExceededException, Stubs::ProvisionedThroughputExceededException],
           stub_data_class: Stubs::PutItem,
+          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::RequestLimitExceeded, Stubs::TransactionConflictException, Stubs::ConditionalCheckFailedException, Stubs::ItemCollectionSizeLimitExceededException, Stubs::ProvisionedThroughputExceededException],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -1905,8 +1905,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::QueryInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::QueryInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::Query
@@ -1920,31 +1920,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::Query,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::Query,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::Query,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]
-          ),
-          data_parser: Parsers::Query
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::RequestLimitExceeded, Stubs::ProvisionedThroughputExceededException],
           stub_data_class: Stubs::Query,
+          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::RequestLimitExceeded, Stubs::ProvisionedThroughputExceededException],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -1956,8 +1956,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::RestoreTableFromBackupInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::RestoreTableFromBackupInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::RestoreTableFromBackup
@@ -1971,31 +1971,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::RestoreTableFromBackup,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::RestoreTableFromBackup,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::RestoreTableFromBackup,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::BackupNotFoundException, Errors::LimitExceededException, Errors::TableInUseException, Errors::BackupInUseException, Errors::TableAlreadyExistsException]
-          ),
-          data_parser: Parsers::RestoreTableFromBackup
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::BackupNotFoundException, Stubs::LimitExceededException, Stubs::TableInUseException, Stubs::BackupInUseException, Stubs::TableAlreadyExistsException],
           stub_data_class: Stubs::RestoreTableFromBackup,
+          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::BackupNotFoundException, Stubs::LimitExceededException, Stubs::TableInUseException, Stubs::BackupInUseException, Stubs::TableAlreadyExistsException],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -2007,8 +2007,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::RestoreTableToPointInTimeInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::RestoreTableToPointInTimeInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::RestoreTableToPointInTime
@@ -2022,31 +2022,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::RestoreTableToPointInTime,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::RestoreTableToPointInTime,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::RestoreTableToPointInTime,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::TableInUseException, Errors::PointInTimeRecoveryUnavailableException, Errors::InvalidRestoreTimeException, Errors::TableAlreadyExistsException, Errors::TableNotFoundException]
-          ),
-          data_parser: Parsers::RestoreTableToPointInTime
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::LimitExceededException, Stubs::TableInUseException, Stubs::PointInTimeRecoveryUnavailableException, Stubs::InvalidRestoreTimeException, Stubs::TableAlreadyExistsException, Stubs::TableNotFoundException],
           stub_data_class: Stubs::RestoreTableToPointInTime,
+          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::LimitExceededException, Stubs::TableInUseException, Stubs::PointInTimeRecoveryUnavailableException, Stubs::InvalidRestoreTimeException, Stubs::TableAlreadyExistsException, Stubs::TableNotFoundException],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -2058,8 +2058,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::ScanInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::ScanInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::Scan
@@ -2073,31 +2073,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::Scan,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::Scan,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::Scan,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]
-          ),
-          data_parser: Parsers::Scan
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::RequestLimitExceeded, Stubs::ProvisionedThroughputExceededException],
           stub_data_class: Stubs::Scan,
+          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::RequestLimitExceeded, Stubs::ProvisionedThroughputExceededException],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -2109,8 +2109,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::TagResourceInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::TagResourceInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::TagResource
@@ -2124,31 +2124,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::TagResource,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::TagResource,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::TagResource,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::ResourceInUseException, Errors::ResourceNotFoundException]
-          ),
-          data_parser: Parsers::TagResource
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::LimitExceededException, Stubs::ResourceInUseException, Stubs::ResourceNotFoundException],
           stub_data_class: Stubs::TagResource,
+          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::LimitExceededException, Stubs::ResourceInUseException, Stubs::ResourceNotFoundException],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -2160,8 +2160,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::TransactGetItemsInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::TransactGetItemsInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::TransactGetItems
@@ -2175,31 +2175,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::TransactGetItems,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::TransactGetItems,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::TransactGetItems,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::TransactionCanceledException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]
-          ),
-          data_parser: Parsers::TransactGetItems
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::TransactionCanceledException, Stubs::RequestLimitExceeded, Stubs::ProvisionedThroughputExceededException],
           stub_data_class: Stubs::TransactGetItems,
+          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::TransactionCanceledException, Stubs::RequestLimitExceeded, Stubs::ProvisionedThroughputExceededException],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -2211,8 +2211,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::TransactWriteItemsInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::TransactWriteItemsInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::TransactWriteItems
@@ -2226,31 +2226,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::TransactWriteItems,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::TransactWriteItems,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::TransactWriteItems,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::IdempotentParameterMismatchException, Errors::TransactionCanceledException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException, Errors::TransactionInProgressException]
-          ),
-          data_parser: Parsers::TransactWriteItems
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::IdempotentParameterMismatchException, Stubs::TransactionCanceledException, Stubs::RequestLimitExceeded, Stubs::ProvisionedThroughputExceededException, Stubs::TransactionInProgressException],
           stub_data_class: Stubs::TransactWriteItems,
+          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::IdempotentParameterMismatchException, Stubs::TransactionCanceledException, Stubs::RequestLimitExceeded, Stubs::ProvisionedThroughputExceededException, Stubs::TransactionInProgressException],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -2262,8 +2262,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::UntagResourceInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::UntagResourceInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::UntagResource
@@ -2277,31 +2277,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::UntagResource,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::UntagResource,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::UntagResource,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::ResourceInUseException, Errors::ResourceNotFoundException]
-          ),
-          data_parser: Parsers::UntagResource
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::LimitExceededException, Stubs::ResourceInUseException, Stubs::ResourceNotFoundException],
           stub_data_class: Stubs::UntagResource,
+          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::LimitExceededException, Stubs::ResourceInUseException, Stubs::ResourceNotFoundException],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -2313,8 +2313,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::UpdateContinuousBackupsInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::UpdateContinuousBackupsInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::UpdateContinuousBackups
@@ -2328,31 +2328,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::UpdateContinuousBackups,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::UpdateContinuousBackups,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::UpdateContinuousBackups,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::TableNotFoundException, Errors::ContinuousBackupsUnavailableException]
-          ),
-          data_parser: Parsers::UpdateContinuousBackups
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::TableNotFoundException, Stubs::ContinuousBackupsUnavailableException],
           stub_data_class: Stubs::UpdateContinuousBackups,
+          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::TableNotFoundException, Stubs::ContinuousBackupsUnavailableException],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -2364,8 +2364,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::UpdateContributorInsightsInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::UpdateContributorInsightsInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::UpdateContributorInsights
@@ -2379,31 +2379,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::UpdateContributorInsights,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::UpdateContributorInsights,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::UpdateContributorInsights,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServerError, Errors::ResourceNotFoundException]
-          ),
-          data_parser: Parsers::UpdateContributorInsights
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::InternalServerError, Stubs::ResourceNotFoundException],
           stub_data_class: Stubs::UpdateContributorInsights,
+          stub_error_classes: [Stubs::InternalServerError, Stubs::ResourceNotFoundException],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -2415,8 +2415,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::UpdateGlobalTableInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::UpdateGlobalTableInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::UpdateGlobalTable
@@ -2430,31 +2430,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::UpdateGlobalTable,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::UpdateGlobalTable,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::UpdateGlobalTable,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::GlobalTableNotFoundException, Errors::ReplicaNotFoundException, Errors::TableNotFoundException, Errors::ReplicaAlreadyExistsException]
-          ),
-          data_parser: Parsers::UpdateGlobalTable
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::GlobalTableNotFoundException, Stubs::ReplicaNotFoundException, Stubs::TableNotFoundException, Stubs::ReplicaAlreadyExistsException],
           stub_data_class: Stubs::UpdateGlobalTable,
+          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::GlobalTableNotFoundException, Stubs::ReplicaNotFoundException, Stubs::TableNotFoundException, Stubs::ReplicaAlreadyExistsException],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -2466,8 +2466,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::UpdateGlobalTableSettingsInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::UpdateGlobalTableSettingsInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::UpdateGlobalTableSettings
@@ -2481,31 +2481,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::UpdateGlobalTableSettings,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::UpdateGlobalTableSettings,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::UpdateGlobalTableSettings,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::GlobalTableNotFoundException, Errors::IndexNotFoundException, Errors::ReplicaNotFoundException, Errors::ResourceInUseException]
-          ),
-          data_parser: Parsers::UpdateGlobalTableSettings
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::LimitExceededException, Stubs::GlobalTableNotFoundException, Stubs::IndexNotFoundException, Stubs::ReplicaNotFoundException, Stubs::ResourceInUseException],
           stub_data_class: Stubs::UpdateGlobalTableSettings,
+          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::LimitExceededException, Stubs::GlobalTableNotFoundException, Stubs::IndexNotFoundException, Stubs::ReplicaNotFoundException, Stubs::ResourceInUseException],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -2517,8 +2517,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::UpdateItemInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::UpdateItemInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::UpdateItem
@@ -2532,31 +2532,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::UpdateItem,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::UpdateItem,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::UpdateItem,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::TransactionConflictException, Errors::ConditionalCheckFailedException, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]
-          ),
-          data_parser: Parsers::UpdateItem
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::RequestLimitExceeded, Stubs::TransactionConflictException, Stubs::ConditionalCheckFailedException, Stubs::ItemCollectionSizeLimitExceededException, Stubs::ProvisionedThroughputExceededException],
           stub_data_class: Stubs::UpdateItem,
+          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::RequestLimitExceeded, Stubs::TransactionConflictException, Stubs::ConditionalCheckFailedException, Stubs::ItemCollectionSizeLimitExceededException, Stubs::ProvisionedThroughputExceededException],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -2568,8 +2568,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::UpdateKinesisStreamingDestinationInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::UpdateKinesisStreamingDestinationInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::UpdateKinesisStreamingDestination
@@ -2583,31 +2583,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::UpdateKinesisStreamingDestination,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::UpdateKinesisStreamingDestination,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::UpdateKinesisStreamingDestination,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]
-          ),
-          data_parser: Parsers::UpdateKinesisStreamingDestination
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::LimitExceededException, Stubs::ResourceInUseException],
           stub_data_class: Stubs::UpdateKinesisStreamingDestination,
+          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::LimitExceededException, Stubs::ResourceInUseException],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -2619,8 +2619,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::UpdateTableInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::UpdateTableInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::UpdateTable
@@ -2634,31 +2634,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::UpdateTable,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::UpdateTable,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::UpdateTable,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]
-          ),
-          data_parser: Parsers::UpdateTable
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::LimitExceededException, Stubs::ResourceInUseException],
           stub_data_class: Stubs::UpdateTable,
+          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::LimitExceededException, Stubs::ResourceInUseException],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -2670,8 +2670,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::UpdateTableReplicaAutoScalingInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::UpdateTableReplicaAutoScalingInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::UpdateTableReplicaAutoScaling
@@ -2685,31 +2685,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::UpdateTableReplicaAutoScaling,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::UpdateTableReplicaAutoScaling,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::UpdateTableReplicaAutoScaling,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServerError, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]
-          ),
-          data_parser: Parsers::UpdateTableReplicaAutoScaling
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::InternalServerError, Stubs::ResourceNotFoundException, Stubs::LimitExceededException, Stubs::ResourceInUseException],
           stub_data_class: Stubs::UpdateTableReplicaAutoScaling,
+          stub_error_classes: [Stubs::InternalServerError, Stubs::ResourceNotFoundException, Stubs::LimitExceededException, Stubs::ResourceInUseException],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack
@@ -2721,8 +2721,8 @@ module AWS::SDK::DynamoDB
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
-          validator: Validators::UpdateTimeToLiveInput,
-          validate_input: config.validate_input
+          validate_input: config.validate_input,
+          validator: Validators::UpdateTimeToLiveInput
         )
         stack.use(Hearth::Middleware::Build,
           builder: Builders::UpdateTimeToLive
@@ -2736,31 +2736,31 @@ module AWS::SDK::DynamoDB
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
           endpoint: config.endpoint,
-          region: config.region,
-          param_builder: Endpoint::Parameters::UpdateTimeToLive,
-          use_dualstack_endpoint: config.use_dualstack_endpoint,
           endpoint_resolver: config.endpoint_resolver,
+          param_builder: Endpoint::Parameters::UpdateTimeToLive,
+          region: config.region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
         stack.use(Hearth::Middleware::Retry,
-          retry_strategy: config.retry_strategy,
-          error_inspector_class: Hearth::HTTP::ErrorInspector
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Hearth::Middleware::Parse,
+          data_parser: Parsers::UpdateTimeToLive,
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
             errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]
-          ),
-          data_parser: Parsers::UpdateTimeToLive
+          )
         )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
-          stub_responses: config.stub_responses,
           client: config.http_client,
-          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::LimitExceededException, Stubs::ResourceInUseException],
           stub_data_class: Stubs::UpdateTimeToLive,
+          stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::LimitExceededException, Stubs::ResourceInUseException],
+          stub_responses: config.stub_responses,
           stubs: config.stubs
         )
         stack

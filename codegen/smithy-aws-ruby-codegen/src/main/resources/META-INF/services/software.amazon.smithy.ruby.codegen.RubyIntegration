@@ -1,4 +1,4 @@
-software.amazon.smithy.aws.ruby.codegen.AWSProtocols
+software.amazon.smithy.aws.ruby.codegen.AWSIntegration
 software.amazon.smithy.aws.ruby.codegen.RequestId
 software.amazon.smithy.aws.ruby.codegen.EndpointRules
 software.amazon.smithy.aws.ruby.codegen.HttpChecksum

@@ -1,5 +1,25 @@
+/*
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License").
+ * You may not use this file except in compliance with the License.
+ * A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ * or in the "license" file accompanying this file. This file is distributed
+ * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ * express or implied. See the License for the specific language governing
+ * permissions and limitations under the License.
+ */
+
 package software.amazon.smithy.aws.ruby.codegen.customizations;
 
+import java.security.Provider;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import software.amazon.smithy.aws.ruby.codegen.AWSConfig;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.knowledge.OperationIndex;
 import software.amazon.smithy.model.shapes.BlobShape;
@@ -11,6 +31,7 @@ import software.amazon.smithy.model.shapes.ShapeId;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.traits.RequiresLengthTrait;
 import software.amazon.smithy.model.transform.ModelTransformer;
+import software.amazon.smithy.ruby.codegen.GenerationContext;
 import software.amazon.smithy.ruby.codegen.RubyIntegration;
 import software.amazon.smithy.ruby.codegen.RubySettings;
 import software.amazon.smithy.ruby.codegen.config.ClientConfig;
@@ -19,10 +40,10 @@ import software.amazon.smithy.ruby.codegen.rulesengine.BuiltInBinding;
 import software.amazon.smithy.ruby.codegen.rulesengine.FunctionBinding;
 import software.amazon.smithy.rulesengine.aws.language.functions.AwsBuiltIns;
 import software.amazon.smithy.rulesengine.aws.language.functions.IsVirtualHostableS3Bucket;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import software.amazon.smithy.rulesengine.language.evaluation.value.Value;
+import software.amazon.smithy.rulesengine.language.syntax.parameters.Parameter;
+import software.amazon.smithy.rulesengine.language.syntax.parameters.ParameterType;
+import software.amazon.smithy.rulesengine.traits.ClientContextParamsTrait;
 
 public class S3Customizations implements RubyIntegration {
 
@@ -92,8 +113,33 @@ public class S3Customizations implements RubyIntegration {
 
     @Override
     public Model preprocessModel(Model model, RubySettings settings) {
-        return new AddRequiresLengthToStreamingInput()
-                .transform(ModelTransformer.create(), model);
+        Model removedDisabledS3ExpressSessionAuth =
+                new RemoveDisableS3ExpressSessionAuth().transform(ModelTransformer.create(),
+                        model);
+        Model addRequiresLengthToStreamingInput =
+                new AddRequiresLengthToStreamingInput().transform(ModelTransformer.create(),
+                        removedDisabledS3ExpressSessionAuth);
+        return addRequiresLengthToStreamingInput;
+    }
+
+    @Override
+    public List<ClientConfig> getAdditionalClientConfig(GenerationContext context) {
+        String disableExpressSessionAuthDocs = """
+            When set to `true`, the client will not use the express session auth.
+            """;
+        ClientConfig disableExpressSessionAuth = ClientConfig.builder()
+                .name("disable_express_session_auth")
+                .documentationRbsAndValidationType("Boolean")
+                .documentation(disableExpressSessionAuthDocs)
+                .documentationDefaultValue("false")
+                .defaults(ConfigProviderChain.builder()
+                        .envProvider("AWS_S3_DISABLE_EXPRESS_SESSION_AUTH", "Boolean")
+                        .sharedConfigProvider("s3_disable_express_session_auth", "Boolean")
+                        .staticProvider("false")
+                        .build())
+                .build();
+
+        return List.of(disableExpressSessionAuth);
     }
 
     @Override
@@ -132,6 +178,26 @@ public class S3Customizations implements RubyIntegration {
                         .build()
 
         );
+    }
+
+    private static final class RemoveDisableS3ExpressSessionAuth {
+        public static final ShapeId SERVICE_ID = ShapeId.from("com.amazonaws.s3#AmazonS3");
+
+        Model transform(ModelTransformer transformer, Model model) {
+            if (!model.getShape(SERVICE_ID).isPresent()) {
+                return model;
+            }
+
+            ServiceShape serviceShape = model.expectShape(SERVICE_ID, ServiceShape.class);
+            ClientContextParamsTrait clientContextParamsTrait =
+                    serviceShape.getTrait(ClientContextParamsTrait.class).get();
+            transformer.removeShapes(model, List.of(serviceShape));
+
+            ClientContextParamsTrait newClientContextParamsTrait =
+                    clientContextParamsTrait.toBuilder().removeParameter("DisableS3ExpressSessionAuth").build();
+            ServiceShape newServiceShape = serviceShape.toBuilder().addTrait(newClientContextParamsTrait).build();
+            return transformer.replaceShapes(model, List.of(newServiceShape));
+        }
     }
 
     private static final class AddRequiresLengthToStreamingInput {

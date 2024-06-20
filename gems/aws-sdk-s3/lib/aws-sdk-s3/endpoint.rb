@@ -1032,7 +1032,6 @@ module AWS::SDK::S3
           params.key = input.key unless input.key.nil?
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -1051,7 +1050,6 @@ module AWS::SDK::S3
           params.key = input.key unless input.key.nil?
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -1089,7 +1087,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -1108,7 +1105,6 @@ module AWS::SDK::S3
           params.key = input.key unless input.key.nil?
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -1145,7 +1141,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -1164,7 +1159,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -1183,7 +1177,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -1202,7 +1195,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -1221,7 +1213,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -1240,7 +1231,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -1259,7 +1249,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -1278,7 +1267,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -1297,7 +1285,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -1316,7 +1303,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -1335,7 +1321,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -1354,7 +1339,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -1373,7 +1357,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -1392,7 +1375,6 @@ module AWS::SDK::S3
           params.key = input.key unless input.key.nil?
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -1410,7 +1392,6 @@ module AWS::SDK::S3
           params.use_global_endpoint = false
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -1428,7 +1409,6 @@ module AWS::SDK::S3
           params.use_global_endpoint = false
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -1447,7 +1427,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -1466,7 +1445,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -1485,7 +1463,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -1504,7 +1481,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -1523,7 +1499,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -1542,7 +1517,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -1561,7 +1535,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -1580,7 +1553,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -1599,7 +1571,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -1618,7 +1589,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -1637,7 +1607,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -1656,7 +1625,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -1675,7 +1643,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -1694,7 +1661,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -1713,7 +1679,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -1732,7 +1697,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -1751,7 +1715,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -1770,7 +1733,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -1789,7 +1751,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -1808,7 +1769,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -1827,7 +1787,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -1846,7 +1805,6 @@ module AWS::SDK::S3
           params.key = input.key unless input.key.nil?
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -1865,7 +1823,6 @@ module AWS::SDK::S3
           params.key = input.key unless input.key.nil?
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -1883,7 +1840,6 @@ module AWS::SDK::S3
           params.use_global_endpoint = false
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -1901,7 +1857,6 @@ module AWS::SDK::S3
           params.use_global_endpoint = false
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -1919,7 +1874,6 @@ module AWS::SDK::S3
           params.use_global_endpoint = false
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -1937,7 +1891,6 @@ module AWS::SDK::S3
           params.use_global_endpoint = false
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -1955,7 +1908,6 @@ module AWS::SDK::S3
           params.use_global_endpoint = false
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -1973,7 +1925,6 @@ module AWS::SDK::S3
           params.use_global_endpoint = false
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -1992,7 +1943,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -2010,7 +1960,6 @@ module AWS::SDK::S3
           params.use_global_endpoint = false
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -2029,7 +1978,6 @@ module AWS::SDK::S3
           params.key = input.key unless input.key.nil?
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -2048,7 +1996,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -2067,7 +2014,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -2086,7 +2032,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -2104,7 +2049,6 @@ module AWS::SDK::S3
           params.use_global_endpoint = false
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -2121,7 +2065,6 @@ module AWS::SDK::S3
           params.use_global_endpoint = false
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -2139,7 +2082,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -2158,7 +2100,6 @@ module AWS::SDK::S3
           params.prefix = input.prefix unless input.prefix.nil?
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -2177,7 +2118,6 @@ module AWS::SDK::S3
           params.prefix = input.prefix unless input.prefix.nil?
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -2196,7 +2136,6 @@ module AWS::SDK::S3
           params.prefix = input.prefix unless input.prefix.nil?
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -2215,7 +2154,6 @@ module AWS::SDK::S3
           params.prefix = input.prefix unless input.prefix.nil?
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -2234,7 +2172,6 @@ module AWS::SDK::S3
           params.key = input.key unless input.key.nil?
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -2253,7 +2190,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -2272,7 +2208,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -2291,7 +2226,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -2310,7 +2244,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -2329,7 +2262,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -2348,7 +2280,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -2367,7 +2298,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -2386,7 +2316,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -2405,7 +2334,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -2424,7 +2352,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -2443,7 +2370,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -2462,7 +2388,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -2481,7 +2406,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -2500,7 +2424,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -2519,7 +2442,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -2538,7 +2460,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -2557,7 +2478,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -2576,7 +2496,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -2595,7 +2514,6 @@ module AWS::SDK::S3
           params.key = input.key unless input.key.nil?
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -2614,7 +2532,6 @@ module AWS::SDK::S3
           params.key = input.key unless input.key.nil?
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -2632,7 +2549,6 @@ module AWS::SDK::S3
           params.use_global_endpoint = false
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -2650,7 +2566,6 @@ module AWS::SDK::S3
           params.use_global_endpoint = false
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -2668,7 +2583,6 @@ module AWS::SDK::S3
           params.use_global_endpoint = false
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -2686,7 +2600,6 @@ module AWS::SDK::S3
           params.use_global_endpoint = false
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -2705,7 +2618,6 @@ module AWS::SDK::S3
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
           params.use_s3_express_control_endpoint = true
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -2723,7 +2635,6 @@ module AWS::SDK::S3
           params.use_global_endpoint = false
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -2741,7 +2652,6 @@ module AWS::SDK::S3
           params.use_global_endpoint = false
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -2760,7 +2670,6 @@ module AWS::SDK::S3
           params.key = input.key unless input.key.nil?
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
@@ -2796,7 +2705,6 @@ module AWS::SDK::S3
           params.use_object_lambda_endpoint = true
           params.disable_multi_region_access_points = config[:disable_multiregion_access_points] unless config[:disable_multiregion_access_points].nil?
           params.use_arn_region = config[:use_arn_region] unless config[:use_arn_region].nil?
-          params.disable_s3_express_session_auth = config[:disable_s3_express_session_auth] unless config[:disable_s3_express_session_auth].nil?
           params
         end
       end
