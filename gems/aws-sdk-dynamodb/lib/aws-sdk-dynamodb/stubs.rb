@@ -128,7 +128,7 @@ module AWS::SDK::DynamoDB
         when Types::AttributeValue::N
           data['N'] = stub.__getobj__
         when Types::AttributeValue::B
-          data['B'] = ::Base64::encode64(stub.__getobj__)
+          data['B'] = ::Base64::strict_encode64(stub.__getobj__)
         when Types::AttributeValue::Ss
           data['SS'] = (StringSetAttributeValue.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::AttributeValue::Ns
@@ -600,7 +600,7 @@ module AWS::SDK::DynamoDB
         stub ||= []
         data = []
         stub.each do |element|
-          data << ::Base64::encode64(element) unless element.nil?
+          data << ::Base64::strict_encode64(element) unless element.nil?
         end
         data
       end

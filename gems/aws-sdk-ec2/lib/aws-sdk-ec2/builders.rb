@@ -1020,7 +1020,7 @@ module AWS::SDK::EC2
 
     class BlobAttributeValue
       def self.build(input, params, context: nil)
-        params[context + 'Value'] = ::Base64::encode64(input[:value]).strip unless input[:value].nil?
+        params[context + 'Value'] = ::Base64::strict_encode64(input[:value]).strip unless input[:value].nil?
       end
     end
 
@@ -9695,7 +9695,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'KeyName'] = input[:key_name].to_s unless input[:key_name].nil?
-        params[context + 'PublicKeyMaterial'] = ::Base64::encode64(input[:public_key_material]).strip unless input[:public_key_material].nil?
+        params[context + 'PublicKeyMaterial'] = ::Base64::strict_encode64(input[:public_key_material]).strip unless input[:public_key_material].nil?
         TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
         http_req.body = ::StringIO.new(params.to_s)
       end
@@ -14130,7 +14130,7 @@ module AWS::SDK::EC2
         params[context + 'AWSAccessKeyId'] = input[:aws_access_key_id].to_s unless input[:aws_access_key_id].nil?
         params[context + 'Bucket'] = input[:bucket].to_s unless input[:bucket].nil?
         params[context + 'Prefix'] = input[:prefix].to_s unless input[:prefix].nil?
-        params[context + 'UploadPolicy'] = ::Base64::encode64(input[:upload_policy]).strip unless input[:upload_policy].nil?
+        params[context + 'UploadPolicy'] = ::Base64::strict_encode64(input[:upload_policy]).strip unless input[:upload_policy].nil?
         params[context + 'UploadPolicySignature'] = input[:upload_policy_signature].to_s unless input[:upload_policy_signature].nil?
       end
     end

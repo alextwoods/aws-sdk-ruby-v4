@@ -1090,7 +1090,7 @@ module AWS::SDK::CloudWatch
         response = Hearth::XML::Node.new('GetMetricWidgetImageResponse')
         response.attributes['xmlns'] = 'http://monitoring.amazonaws.com/doc/2010-08-01/'
         xml = Hearth::XML::Node.new('GetMetricWidgetImageResult')
-        xml << Hearth::XML::Node.new('MetricWidgetImage', ::Base64::encode64(stub[:metric_widget_image]).strip) unless stub[:metric_widget_image].nil?
+        xml << Hearth::XML::Node.new('MetricWidgetImage', ::Base64::strict_encode64(stub[:metric_widget_image]).strip) unless stub[:metric_widget_image].nil?
         response << xml
         http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200

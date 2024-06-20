@@ -120,7 +120,7 @@ module AWS::SDK::KMS
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'TrentService.Decrypt'
         data = {}
-        data['CiphertextBlob'] = ::Base64::encode64(input[:ciphertext_blob]).strip unless input[:ciphertext_blob].nil?
+        data['CiphertextBlob'] = ::Base64::strict_encode64(input[:ciphertext_blob]).strip unless input[:ciphertext_blob].nil?
         data['EncryptionContext'] = EncryptionContextType.build(input[:encryption_context]) unless input[:encryption_context].nil?
         data['GrantTokens'] = GrantTokenList.build(input[:grant_tokens]) unless input[:grant_tokens].nil?
         data['KeyId'] = input[:key_id] unless input[:key_id].nil?
@@ -263,7 +263,7 @@ module AWS::SDK::KMS
         http_req.headers['X-Amz-Target'] = 'TrentService.Encrypt'
         data = {}
         data['KeyId'] = input[:key_id] unless input[:key_id].nil?
-        data['Plaintext'] = ::Base64::encode64(input[:plaintext]).strip unless input[:plaintext].nil?
+        data['Plaintext'] = ::Base64::strict_encode64(input[:plaintext]).strip unless input[:plaintext].nil?
         data['EncryptionContext'] = EncryptionContextType.build(input[:encryption_context]) unless input[:encryption_context].nil?
         data['GrantTokens'] = GrantTokenList.build(input[:grant_tokens]) unless input[:grant_tokens].nil?
         data['EncryptionAlgorithm'] = input[:encryption_algorithm] unless input[:encryption_algorithm].nil?
@@ -357,7 +357,7 @@ module AWS::SDK::KMS
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'TrentService.GenerateMac'
         data = {}
-        data['Message'] = ::Base64::encode64(input[:message]).strip unless input[:message].nil?
+        data['Message'] = ::Base64::strict_encode64(input[:message]).strip unless input[:message].nil?
         data['KeyId'] = input[:key_id] unless input[:key_id].nil?
         data['MacAlgorithm'] = input[:mac_algorithm] unless input[:mac_algorithm].nil?
         data['GrantTokens'] = GrantTokenList.build(input[:grant_tokens]) unless input[:grant_tokens].nil?
@@ -469,8 +469,8 @@ module AWS::SDK::KMS
         http_req.headers['X-Amz-Target'] = 'TrentService.ImportKeyMaterial'
         data = {}
         data['KeyId'] = input[:key_id] unless input[:key_id].nil?
-        data['ImportToken'] = ::Base64::encode64(input[:import_token]).strip unless input[:import_token].nil?
-        data['EncryptedKeyMaterial'] = ::Base64::encode64(input[:encrypted_key_material]).strip unless input[:encrypted_key_material].nil?
+        data['ImportToken'] = ::Base64::strict_encode64(input[:import_token]).strip unless input[:import_token].nil?
+        data['EncryptedKeyMaterial'] = ::Base64::strict_encode64(input[:encrypted_key_material]).strip unless input[:encrypted_key_material].nil?
         data['ValidTo'] = Hearth::TimeHelper.to_epoch_seconds(input[:valid_to]).to_i unless input[:valid_to].nil?
         data['ExpirationModel'] = input[:expiration_model] unless input[:expiration_model].nil?
         http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
@@ -584,7 +584,7 @@ module AWS::SDK::KMS
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'TrentService.ReEncrypt'
         data = {}
-        data['CiphertextBlob'] = ::Base64::encode64(input[:ciphertext_blob]).strip unless input[:ciphertext_blob].nil?
+        data['CiphertextBlob'] = ::Base64::strict_encode64(input[:ciphertext_blob]).strip unless input[:ciphertext_blob].nil?
         data['SourceEncryptionContext'] = EncryptionContextType.build(input[:source_encryption_context]) unless input[:source_encryption_context].nil?
         data['SourceKeyId'] = input[:source_key_id] unless input[:source_key_id].nil?
         data['DestinationKeyId'] = input[:destination_key_id] unless input[:destination_key_id].nil?
@@ -601,7 +601,7 @@ module AWS::SDK::KMS
       def self.build(input)
         data = {}
         data['KeyEncryptionAlgorithm'] = input[:key_encryption_algorithm] unless input[:key_encryption_algorithm].nil?
-        data['AttestationDocument'] = ::Base64::encode64(input[:attestation_document]).strip unless input[:attestation_document].nil?
+        data['AttestationDocument'] = ::Base64::strict_encode64(input[:attestation_document]).strip unless input[:attestation_document].nil?
         data
       end
     end
@@ -673,7 +673,7 @@ module AWS::SDK::KMS
         http_req.headers['X-Amz-Target'] = 'TrentService.Sign'
         data = {}
         data['KeyId'] = input[:key_id] unless input[:key_id].nil?
-        data['Message'] = ::Base64::encode64(input[:message]).strip unless input[:message].nil?
+        data['Message'] = ::Base64::strict_encode64(input[:message]).strip unless input[:message].nil?
         data['MessageType'] = input[:message_type] unless input[:message_type].nil?
         data['GrantTokens'] = GrantTokenList.build(input[:grant_tokens]) unless input[:grant_tokens].nil?
         data['SigningAlgorithm'] = input[:signing_algorithm] unless input[:signing_algorithm].nil?
@@ -804,9 +804,9 @@ module AWS::SDK::KMS
         http_req.headers['X-Amz-Target'] = 'TrentService.Verify'
         data = {}
         data['KeyId'] = input[:key_id] unless input[:key_id].nil?
-        data['Message'] = ::Base64::encode64(input[:message]).strip unless input[:message].nil?
+        data['Message'] = ::Base64::strict_encode64(input[:message]).strip unless input[:message].nil?
         data['MessageType'] = input[:message_type] unless input[:message_type].nil?
-        data['Signature'] = ::Base64::encode64(input[:signature]).strip unless input[:signature].nil?
+        data['Signature'] = ::Base64::strict_encode64(input[:signature]).strip unless input[:signature].nil?
         data['SigningAlgorithm'] = input[:signing_algorithm] unless input[:signing_algorithm].nil?
         data['GrantTokens'] = GrantTokenList.build(input[:grant_tokens]) unless input[:grant_tokens].nil?
         data['DryRun'] = input[:dry_run] unless input[:dry_run].nil?
@@ -821,10 +821,10 @@ module AWS::SDK::KMS
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'TrentService.VerifyMac'
         data = {}
-        data['Message'] = ::Base64::encode64(input[:message]).strip unless input[:message].nil?
+        data['Message'] = ::Base64::strict_encode64(input[:message]).strip unless input[:message].nil?
         data['KeyId'] = input[:key_id] unless input[:key_id].nil?
         data['MacAlgorithm'] = input[:mac_algorithm] unless input[:mac_algorithm].nil?
-        data['Mac'] = ::Base64::encode64(input[:mac]).strip unless input[:mac].nil?
+        data['Mac'] = ::Base64::strict_encode64(input[:mac]).strip unless input[:mac].nil?
         data['GrantTokens'] = GrantTokenList.build(input[:grant_tokens]) unless input[:grant_tokens].nil?
         data['DryRun'] = input[:dry_run] unless input[:dry_run].nil?
         http_req.body = ::StringIO.new(Hearth::JSON.dump(data))

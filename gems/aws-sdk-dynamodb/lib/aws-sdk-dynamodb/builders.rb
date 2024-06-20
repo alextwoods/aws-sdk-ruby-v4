@@ -62,7 +62,7 @@ module AWS::SDK::DynamoDB
         when Types::AttributeValue::N
           data['N'] = input
         when Types::AttributeValue::B
-          data['B'] = ::Base64::encode64(input).strip
+          data['B'] = ::Base64::strict_encode64(input).strip
         when Types::AttributeValue::Ss
           data['SS'] = (StringSetAttributeValue.build(input) unless input.nil?)
         when Types::AttributeValue::Ns
@@ -212,7 +212,7 @@ module AWS::SDK::DynamoDB
       def self.build(input)
         data = []
         input.each do |element|
-          data << ::Base64::encode64(element).strip unless element.nil?
+          data << ::Base64::strict_encode64(element).strip unless element.nil?
         end
         data
       end
