@@ -15,8 +15,28 @@
 
 package software.amazon.smithy.aws.ruby.codegen.protocol.restjson.generators;
 
-import software.amazon.smithy.model.shapes.*;
-import software.amazon.smithy.model.traits.*;
+import software.amazon.smithy.model.shapes.BlobShape;
+import software.amazon.smithy.model.shapes.DocumentShape;
+import software.amazon.smithy.model.shapes.DoubleShape;
+import software.amazon.smithy.model.shapes.FloatShape;
+import software.amazon.smithy.model.shapes.ListShape;
+import software.amazon.smithy.model.shapes.MapShape;
+import software.amazon.smithy.model.shapes.MemberShape;
+import software.amazon.smithy.model.shapes.Shape;
+import software.amazon.smithy.model.shapes.ShapeVisitor;
+import software.amazon.smithy.model.shapes.StringShape;
+import software.amazon.smithy.model.shapes.StructureShape;
+import software.amazon.smithy.model.shapes.TimestampShape;
+import software.amazon.smithy.model.shapes.UnionShape;
+import software.amazon.smithy.model.traits.HttpHeaderTrait;
+import software.amazon.smithy.model.traits.HttpPrefixHeadersTrait;
+import software.amazon.smithy.model.traits.HttpQueryParamsTrait;
+import software.amazon.smithy.model.traits.HttpQueryTrait;
+import software.amazon.smithy.model.traits.HttpResponseCodeTrait;
+import software.amazon.smithy.model.traits.JsonNameTrait;
+import software.amazon.smithy.model.traits.SparseTrait;
+import software.amazon.smithy.model.traits.StreamingTrait;
+import software.amazon.smithy.model.traits.TimestampFormatTrait;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
 import software.amazon.smithy.ruby.codegen.Hearth;
 import software.amazon.smithy.ruby.codegen.RubyImportContainer;
@@ -137,6 +157,18 @@ public class ParserGenerator extends RestParserGeneratorBase {
         }
     }
 
+    @Override
+    protected void renderEventParseMethod(StructureShape event) {
+        writer
+                .openBlock("def self.parse(message)")
+                .write("data = $T.new", context.symbolProvider().toSymbol(event))
+                .write("payload = message.payload.read")
+                .write("return data if payload.empty?")
+                .write("map = $T.parse(payload)", Hearth.JSON)
+                .call(() -> renderMemberParsers(event))
+                .write("data")
+                .closeBlock("end");
+    }
 
     private void renderMemberParsers(Shape s) {
         Stream<MemberShape> parseMembers = s.members().stream()

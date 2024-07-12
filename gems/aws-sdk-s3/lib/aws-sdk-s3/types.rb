@@ -182,12 +182,12 @@ module AWS::SDK::S3
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [String] :id
-    #   @option params [AnalyticsFilter] :filter
+    #   @option params [AnalyticsFilter] :member_filter
     #   @option params [StorageClassAnalysis] :storage_class_analysis
     # @!attribute id
     #   <p>The ID that identifies the analytics configuration.</p>
     #   @return [String]
-    # @!attribute filter
+    # @!attribute member_filter
     #   <p>The filter used to describe a set of objects for analyses. A filter must have exactly
     #            one prefix, one tag, or one conjunction (AnalyticsAndOperator). If no filter is provided,
     #            all objects will be considered in any analysis.</p>
@@ -198,7 +198,7 @@ module AWS::SDK::S3
     #   @return [StorageClassAnalysis]
     AnalyticsConfiguration = ::Struct.new(
       :id,
-      :filter,
+      :member_filter,
       :storage_class_analysis,
       keyword_init: true
     ) do
@@ -9130,13 +9130,13 @@ module AWS::SDK::S3
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [String] :id
-    #   @option params [IntelligentTieringFilter] :filter
+    #   @option params [IntelligentTieringFilter] :member_filter
     #   @option params [String] :status
     #   @option params [Array<Tiering>] :tierings
     # @!attribute id
     #   <p>The ID used to identify the S3 Intelligent-Tiering configuration.</p>
     #   @return [String]
-    # @!attribute filter
+    # @!attribute member_filter
     #   <p>Specifies a bucket filter. The configuration only includes objects that meet the
     #            filter's criteria.</p>
     #   @return [IntelligentTieringFilter]
@@ -9149,7 +9149,7 @@ module AWS::SDK::S3
     #   @return [Array<Tiering>]
     IntelligentTieringConfiguration = ::Struct.new(
       :id,
-      :filter,
+      :member_filter,
       :status,
       :tierings,
       keyword_init: true
@@ -9229,7 +9229,7 @@ module AWS::SDK::S3
     #   @param [Hash] params
     #   @option params [InventoryDestination] :destination
     #   @option params [Boolean] :is_enabled
-    #   @option params [InventoryFilter] :filter
+    #   @option params [InventoryFilter] :member_filter
     #   @option params [String] :id
     #   @option params [String] :included_object_versions
     #   @option params [Array<String>] :optional_fields
@@ -9242,7 +9242,7 @@ module AWS::SDK::S3
     #            inventory list is generated. If set to <code>False</code>, no inventory list is
     #            generated.</p>
     #   @return [Boolean]
-    # @!attribute filter
+    # @!attribute member_filter
     #   <p>Specifies an inventory filter. The inventory only includes objects that meet the
     #            filter's criteria.</p>
     #   @return [InventoryFilter]
@@ -9266,7 +9266,7 @@ module AWS::SDK::S3
     InventoryConfiguration = ::Struct.new(
       :destination,
       :is_enabled,
-      :filter,
+      :member_filter,
       :id,
       :included_object_versions,
       :optional_fields,
@@ -9483,7 +9483,7 @@ module AWS::SDK::S3
     #   @option params [String] :id
     #   @option params [String] :lambda_function_arn
     #   @option params [Array<String>] :events
-    #   @option params [NotificationConfigurationFilter] :filter
+    #   @option params [NotificationConfigurationFilter] :member_filter
     # @!attribute id
     #   <p>An optional unique identifier for configurations in a notification configuration. If you
     #            don't provide one, Amazon S3 will assign an ID.</p>
@@ -9497,7 +9497,7 @@ module AWS::SDK::S3
     #            see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Supported
     #               Event Types</a> in the <i>Amazon S3 User Guide</i>.</p>
     #   @return [Array<String>]
-    # @!attribute filter
+    # @!attribute member_filter
     #   <p>Specifies object key name filtering rules. For information about key name filtering, see
     #               <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-filtering.html">Configuring event
     #               notifications using object key name filtering</a> in the
@@ -9507,7 +9507,7 @@ module AWS::SDK::S3
       :id,
       :lambda_function_arn,
       :events,
-      :filter,
+      :member_filter,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -9551,7 +9551,7 @@ module AWS::SDK::S3
     #   @option params [LifecycleExpiration] :expiration
     #   @option params [String] :id
     #   @option params [String] :prefix
-    #   @option params [LifecycleRuleFilter] :filter
+    #   @option params [LifecycleRuleFilter] :member_filter
     #   @option params [String] :status
     #   @option params [Array<Transition>] :transitions
     #   @option params [Array<NoncurrentVersionTransition>] :noncurrent_version_transitions
@@ -9574,7 +9574,7 @@ module AWS::SDK::S3
     #            </important>
     #   @deprecated
     #   @return [String]
-    # @!attribute filter
+    # @!attribute member_filter
     #   <p>The <code>Filter</code> is used to identify objects that a Lifecycle Rule applies to. A
     #               <code>Filter</code> must have exactly one of <code>Prefix</code>, <code>Tag</code>, or
     #               <code>And</code> specified. <code>Filter</code> is required if the
@@ -9611,7 +9611,7 @@ module AWS::SDK::S3
       :expiration,
       :id,
       :prefix,
-      :filter,
+      :member_filter,
       :status,
       :transitions,
       :noncurrent_version_transitions,
@@ -11317,19 +11317,19 @@ module AWS::SDK::S3
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [String] :id
-    #   @option params [MetricsFilter] :filter
+    #   @option params [MetricsFilter] :member_filter
     # @!attribute id
     #   <p>The ID used to identify the metrics configuration. The ID has a 64 character limit and
     #            can only contain letters, numbers, periods, dashes, and underscores.</p>
     #   @return [String]
-    # @!attribute filter
+    # @!attribute member_filter
     #   <p>Specifies a metrics configuration filter. The metrics configuration will only include
     #            objects that meet the filter's criteria. A filter must be a prefix, an object tag, an
     #            access point ARN, or a conjunction (MetricsAndOperator).</p>
     #   @return [MetricsFilter]
     MetricsConfiguration = ::Struct.new(
       :id,
-      :filter,
+      :member_filter,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -11627,7 +11627,7 @@ module AWS::SDK::S3
     #   @option params [Time] :last_modified
     #   @option params [String] :e_tag
     #   @option params [Array<String>] :checksum_algorithm
-    #   @option params [Integer] :size
+    #   @option params [Integer] :member_size
     #   @option params [String] :storage_class
     #   @option params [Owner] :owner
     #   @option params [RestoreStatus] :restore_status
@@ -11669,7 +11669,7 @@ module AWS::SDK::S3
     # @!attribute checksum_algorithm
     #   <p>The algorithm that was used to create a checksum of the object.</p>
     #   @return [Array<String>]
-    # @!attribute size
+    # @!attribute member_size
     #   <p>Size in bytes of the object</p>
     #   @return [Integer]
     # @!attribute storage_class
@@ -11701,7 +11701,7 @@ module AWS::SDK::S3
       :last_modified,
       :e_tag,
       :checksum_algorithm,
-      :size,
+      :member_size,
       :storage_class,
       :owner,
       :restore_status,
@@ -11926,7 +11926,7 @@ module AWS::SDK::S3
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [Integer] :part_number
-    #   @option params [Integer] :size
+    #   @option params [Integer] :member_size
     #   @option params [String] :checksum_crc32
     #   @option params [String] :checksum_crc32_c
     #   @option params [String] :checksum_sha1
@@ -11935,7 +11935,7 @@ module AWS::SDK::S3
     #   <p>The part number identifying the part. This value is a positive integer between 1 and
     #            10,000.</p>
     #   @return [Integer]
-    # @!attribute size
+    # @!attribute member_size
     #   <p>The size of the uploaded part in bytes.</p>
     #   @return [Integer]
     # @!attribute checksum_crc32
@@ -11964,7 +11964,7 @@ module AWS::SDK::S3
     #   @return [String]
     ObjectPart = ::Struct.new(
       :part_number,
-      :size,
+      :member_size,
       :checksum_crc32,
       :checksum_crc32_c,
       :checksum_sha1,
@@ -12004,7 +12004,7 @@ module AWS::SDK::S3
     #   @param [Hash] params
     #   @option params [String] :e_tag
     #   @option params [Array<String>] :checksum_algorithm
-    #   @option params [Integer] :size
+    #   @option params [Integer] :member_size
     #   @option params [String] :storage_class
     #   @option params [String] :key
     #   @option params [String] :version_id
@@ -12018,7 +12018,7 @@ module AWS::SDK::S3
     # @!attribute checksum_algorithm
     #   <p>The algorithm that was used to create a checksum of the object.</p>
     #   @return [Array<String>]
-    # @!attribute size
+    # @!attribute member_size
     #   <p>Size in bytes of the object.</p>
     #   @return [Integer]
     # @!attribute storage_class
@@ -12050,7 +12050,7 @@ module AWS::SDK::S3
     ObjectVersion = ::Struct.new(
       :e_tag,
       :checksum_algorithm,
-      :size,
+      :member_size,
       :storage_class,
       :key,
       :version_id,
@@ -12225,7 +12225,7 @@ module AWS::SDK::S3
     #   @option params [Integer] :part_number
     #   @option params [Time] :last_modified
     #   @option params [String] :e_tag
-    #   @option params [Integer] :size
+    #   @option params [Integer] :member_size
     #   @option params [String] :checksum_crc32
     #   @option params [String] :checksum_crc32_c
     #   @option params [String] :checksum_sha1
@@ -12240,7 +12240,7 @@ module AWS::SDK::S3
     # @!attribute e_tag
     #   <p>Entity tag returned when the part was uploaded.</p>
     #   @return [String]
-    # @!attribute size
+    # @!attribute member_size
     #   <p>Size in bytes of the uploaded part data.</p>
     #   @return [Integer]
     # @!attribute checksum_crc32
@@ -12271,7 +12271,7 @@ module AWS::SDK::S3
       :part_number,
       :last_modified,
       :e_tag,
-      :size,
+      :member_size,
       :checksum_crc32,
       :checksum_crc32_c,
       :checksum_sha1,
@@ -14572,7 +14572,7 @@ module AWS::SDK::S3
     #   @option params [String] :id
     #   @option params [String] :queue_arn
     #   @option params [Array<String>] :events
-    #   @option params [NotificationConfigurationFilter] :filter
+    #   @option params [NotificationConfigurationFilter] :member_filter
     # @!attribute id
     #   <p>An optional unique identifier for configurations in a notification configuration. If you
     #            don't provide one, Amazon S3 will assign an ID.</p>
@@ -14584,7 +14584,7 @@ module AWS::SDK::S3
     # @!attribute events
     #   <p>A collection of bucket events for which to send notifications</p>
     #   @return [Array<String>]
-    # @!attribute filter
+    # @!attribute member_filter
     #   <p>Specifies object key name filtering rules. For information about key name filtering, see
     #               <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-filtering.html">Configuring event
     #               notifications using object key name filtering</a> in the
@@ -14594,7 +14594,7 @@ module AWS::SDK::S3
       :id,
       :queue_arn,
       :events,
-      :filter,
+      :member_filter,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -14757,7 +14757,7 @@ module AWS::SDK::S3
     #   @option params [String] :id
     #   @option params [Integer] :priority
     #   @option params [String] :prefix
-    #   @option params [ReplicationRuleFilter] :filter
+    #   @option params [ReplicationRuleFilter] :member_filter
     #   @option params [String] :status
     #   @option params [SourceSelectionCriteria] :source_selection_criteria
     #   @option params [ExistingObjectReplication] :existing_object_replication
@@ -14786,7 +14786,7 @@ module AWS::SDK::S3
     #            </important>
     #   @deprecated
     #   @return [String]
-    # @!attribute filter
+    # @!attribute member_filter
     #   <p>A filter that identifies the subset of objects to which the replication rule applies. A
     #               <code>Filter</code> must specify exactly one <code>Prefix</code>, <code>Tag</code>, or
     #            an <code>And</code> child element.</p>
@@ -14829,7 +14829,7 @@ module AWS::SDK::S3
       :id,
       :priority,
       :prefix,
-      :filter,
+      :member_filter,
       :status,
       :source_selection_criteria,
       :existing_object_replication,
@@ -16099,7 +16099,7 @@ module AWS::SDK::S3
     #   @option params [String] :id
     #   @option params [String] :topic_arn
     #   @option params [Array<String>] :events
-    #   @option params [NotificationConfigurationFilter] :filter
+    #   @option params [NotificationConfigurationFilter] :member_filter
     # @!attribute id
     #   <p>An optional unique identifier for configurations in a notification configuration. If you
     #            don't provide one, Amazon S3 will assign an ID.</p>
@@ -16113,7 +16113,7 @@ module AWS::SDK::S3
     #               <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Supported
     #               Event Types</a> in the <i>Amazon S3 User Guide</i>.</p>
     #   @return [Array<String>]
-    # @!attribute filter
+    # @!attribute member_filter
     #   <p>Specifies object key name filtering rules. For information about key name filtering, see
     #               <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-filtering.html">Configuring event
     #               notifications using object key name filtering</a> in the
@@ -16123,7 +16123,7 @@ module AWS::SDK::S3
       :id,
       :topic_arn,
       :events,
-      :filter,
+      :member_filter,
       keyword_init: true
     ) do
       include Hearth::Structure

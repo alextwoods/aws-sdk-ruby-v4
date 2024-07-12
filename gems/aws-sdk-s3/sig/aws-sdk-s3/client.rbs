@@ -751,7 +751,7 @@ module AWS::SDK::S3
         id: ::String,
         analytics_configuration: {
           id: ::String,
-          filter: {
+          member_filter: {
             Prefix: ::String,
             Tag: Types::Tag,
             And: Types::AnalyticsAndOperator
@@ -794,7 +794,7 @@ module AWS::SDK::S3
         id: ::String,
         intelligent_tiering_configuration: {
           id: ::String,
-          filter: {
+          member_filter: {
             prefix: ::String,
             tag: Types::Tag,
             and: Types::IntelligentTieringAndOperator
@@ -814,7 +814,7 @@ module AWS::SDK::S3
             s3_bucket_destination: Types::InventoryS3BucketDestination
           },
           is_enabled: bool,
-          filter: {
+          member_filter: {
             prefix: ::String
           },
           id: ::String,
@@ -862,7 +862,7 @@ module AWS::SDK::S3
         id: ::String,
         metrics_configuration: {
           id: ::String,
-          filter: {
+          member_filter: {
             Prefix: ::String,
             Tag: Types::Tag,
             AccessPointArn: ::String,
@@ -1159,56 +1159,6 @@ module AWS::SDK::S3
         ?expected_bucket_owner: ::String
       ) -> Hearth::Output[Types::RestoreObjectOutput]
 
-    def select_object_content: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  ?{ (::String) -> Hearth::BlockIO } -> Hearth::Output[Types::SelectObjectContentOutput] |
-      (?Types::SelectObjectContentInput params, ?::Hash[::Symbol, untyped] options)  ?{ (::String) -> Hearth::BlockIO } -> Hearth::Output[Types::SelectObjectContentOutput] |
-      (
-        bucket: ::String,
-        key: ::String,
-        ?sse_customer_algorithm: ::String,
-        ?sse_customer_key: ::String,
-        ?sse_customer_key_md5: ::String,
-        expression: ::String,
-        expression_type: ("SQL"),
-        ?request_progress: {
-          enabled: bool
-        },
-        input_serialization: {
-          csv: {
-            file_header_info: ::String,
-            comments: ::String,
-            quote_escape_character: ::String,
-            record_delimiter: ::String,
-            field_delimiter: ::String,
-            quote_character: ::String,
-            allow_quoted_record_delimiter: bool
-          },
-          compression_type: ("NONE" | "GZIP" | "BZIP2"),
-          json: {
-            type: ::String
-          },
-          parquet: {
-
-          }
-        },
-        output_serialization: {
-          csv: {
-            quote_fields: ::String,
-            quote_escape_character: ::String,
-            record_delimiter: ::String,
-            field_delimiter: ::String,
-            quote_character: ::String
-          },
-          json: {
-            record_delimiter: ::String
-          }
-        },
-        ?scan_range: {
-          start: ::Integer,
-          end: ::Integer
-        },
-        ?expected_bucket_owner: ::String
-      ) ?{ (::String) -> Hearth::BlockIO } -> Hearth::Output[Types::SelectObjectContentOutput]
-
     def upload_part: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::UploadPartOutput] |
       (?Types::UploadPartInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::UploadPartOutput] |
       (
@@ -1299,6 +1249,56 @@ module AWS::SDK::S3
         ?version_id: ::String,
         ?bucket_key_enabled: bool
       ) -> Hearth::Output[Types::WriteGetObjectResponseOutput]
+
+    def select_object_content: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  ?{ (::String) -> Hearth::BlockIO } -> Hearth::Output[Types::SelectObjectContentOutput] |
+      (?Types::SelectObjectContentInput params, ?::Hash[::Symbol, untyped] options)  ?{ (::String) -> Hearth::BlockIO } -> Hearth::Output[Types::SelectObjectContentOutput] |
+      (
+        bucket: ::String,
+        key: ::String,
+        ?sse_customer_algorithm: ::String,
+        ?sse_customer_key: ::String,
+        ?sse_customer_key_md5: ::String,
+        expression: ::String,
+        expression_type: ("SQL"),
+        ?request_progress: {
+          enabled: bool
+        },
+        input_serialization: {
+          csv: {
+            file_header_info: ::String,
+            comments: ::String,
+            quote_escape_character: ::String,
+            record_delimiter: ::String,
+            field_delimiter: ::String,
+            quote_character: ::String,
+            allow_quoted_record_delimiter: bool
+          },
+          compression_type: ("NONE" | "GZIP" | "BZIP2"),
+          json: {
+            type: ::String
+          },
+          parquet: {
+
+          }
+        },
+        output_serialization: {
+          csv: {
+            quote_fields: ::String,
+            quote_escape_character: ::String,
+            record_delimiter: ::String,
+            field_delimiter: ::String,
+            quote_character: ::String
+          },
+          json: {
+            record_delimiter: ::String
+          }
+        },
+        ?scan_range: {
+          start: ::Integer,
+          end: ::Integer
+        },
+        ?expected_bucket_owner: ::String
+      ) ?{ (::String) -> Hearth::BlockIO } -> Hearth::Output[Types::SelectObjectContentOutput]
 
   end
 end

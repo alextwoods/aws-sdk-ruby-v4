@@ -40,9 +40,8 @@ public class ParserGenerator extends ParserGeneratorBase {
                 .write("data = $T.new", context.symbolProvider().toSymbol(shape))
                 .write("body = http_resp.body.read")
                 .write("return data if body.empty?")
-                .write("xml = $T.parse(body)", Hearth.XML);
-        renderMemberParsers(shape);
-        writer
+                .write("xml = $T.parse(body)", Hearth.XML)
+                .call(() -> renderMemberParsers(shape))
                 .write("data")
                 .closeBlock("end");
     }
@@ -57,6 +56,19 @@ public class ParserGenerator extends ParserGeneratorBase {
                 .write("xml = $T.parse(body).at('Errors').at('Error')", Hearth.XML);
         renderMemberParsers(shape);
         writer
+                .write("data")
+                .closeBlock("end");
+    }
+
+    @Override
+    protected void renderEventParseMethod(StructureShape event) {
+        writer
+                .openBlock("def self.parse(message)")
+                .write("data = $T.new", context.symbolProvider().toSymbol(event))
+                .write("payload = message.payload.read")
+                .write("return data if payload.empty?")
+                .write("xml = $T.parse(payload)", Hearth.XML)
+                .call(() -> renderMemberParsers(event))
                 .write("data")
                 .closeBlock("end");
     }

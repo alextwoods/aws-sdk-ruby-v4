@@ -23,6 +23,7 @@ require_relative 'aws-sdk-s3/stubs'
 require_relative 'aws-sdk-s3/types'
 require_relative 'aws-sdk-s3/validators'
 require_relative 'aws-sdk-s3/waiters'
+require_relative 'aws-sdk-s3/event_stream'
 
 module AWS::SDK::S3
   VERSION = File.read(File.expand_path('../VERSION', __dir__)).strip

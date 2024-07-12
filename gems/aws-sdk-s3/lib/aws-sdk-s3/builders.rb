@@ -115,7 +115,7 @@ module AWS::SDK::S3
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Id', input[:id].to_s) unless input[:id].nil?
-        xml << AnalyticsFilter.build('Filter', input[:filter]) unless input[:filter].nil?
+        xml << AnalyticsFilter.build('Filter', input[:member_filter]) unless input[:member_filter].nil?
         xml << StorageClassAnalysis.build('StorageClassAnalysis', input[:storage_class_analysis]) unless input[:storage_class_analysis].nil?
         xml
       end
@@ -1676,7 +1676,7 @@ module AWS::SDK::S3
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Id', input[:id].to_s) unless input[:id].nil?
-        xml << IntelligentTieringFilter.build('Filter', input[:filter]) unless input[:filter].nil?
+        xml << IntelligentTieringFilter.build('Filter', input[:member_filter]) unless input[:member_filter].nil?
         xml << Hearth::XML::Node.new('Status', input[:status].to_s) unless input[:status].nil?
         xml << TieringList.build('Tiering', input[:tierings]) unless input[:tierings].nil?
         xml
@@ -1698,7 +1698,7 @@ module AWS::SDK::S3
         xml = Hearth::XML::Node.new(node_name)
         xml << InventoryDestination.build('Destination', input[:destination]) unless input[:destination].nil?
         xml << Hearth::XML::Node.new('IsEnabled', input[:is_enabled].to_s) unless input[:is_enabled].nil?
-        xml << InventoryFilter.build('Filter', input[:filter]) unless input[:filter].nil?
+        xml << InventoryFilter.build('Filter', input[:member_filter]) unless input[:member_filter].nil?
         xml << Hearth::XML::Node.new('Id', input[:id].to_s) unless input[:id].nil?
         xml << Hearth::XML::Node.new('IncludedObjectVersions', input[:included_object_versions].to_s) unless input[:included_object_versions].nil?
         xml << Hearth::XML::Node.new('OptionalFields', InventoryOptionalFields.build('Field', input[:optional_fields])) unless input[:optional_fields].nil?
@@ -1784,7 +1784,7 @@ module AWS::SDK::S3
         xml << Hearth::XML::Node.new('Id', input[:id].to_s) unless input[:id].nil?
         xml << Hearth::XML::Node.new('CloudFunction', input[:lambda_function_arn].to_s) unless input[:lambda_function_arn].nil?
         xml << EventList.build('Event', input[:events]) unless input[:events].nil?
-        xml << NotificationConfigurationFilter.build('Filter', input[:filter]) unless input[:filter].nil?
+        xml << NotificationConfigurationFilter.build('Filter', input[:member_filter]) unless input[:member_filter].nil?
         xml
       end
     end
@@ -1815,7 +1815,7 @@ module AWS::SDK::S3
         xml << LifecycleExpiration.build('Expiration', input[:expiration]) unless input[:expiration].nil?
         xml << Hearth::XML::Node.new('ID', input[:id].to_s) unless input[:id].nil?
         xml << Hearth::XML::Node.new('Prefix', input[:prefix].to_s) unless input[:prefix].nil?
-        xml << LifecycleRuleFilter.build('Filter', input[:filter]) unless input[:filter].nil?
+        xml << LifecycleRuleFilter.build('Filter', input[:member_filter]) unless input[:member_filter].nil?
         xml << Hearth::XML::Node.new('Status', input[:status].to_s) unless input[:status].nil?
         xml << TransitionList.build('Transition', input[:transitions]) unless input[:transitions].nil?
         xml << NoncurrentVersionTransitionList.build('NoncurrentVersionTransition', input[:noncurrent_version_transitions]) unless input[:noncurrent_version_transitions].nil?
@@ -2186,7 +2186,7 @@ module AWS::SDK::S3
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Id', input[:id].to_s) unless input[:id].nil?
-        xml << MetricsFilter.build('Filter', input[:filter]) unless input[:filter].nil?
+        xml << MetricsFilter.build('Filter', input[:member_filter]) unless input[:member_filter].nil?
         xml
       end
     end
@@ -3076,7 +3076,7 @@ module AWS::SDK::S3
         xml << Hearth::XML::Node.new('Id', input[:id].to_s) unless input[:id].nil?
         xml << Hearth::XML::Node.new('Queue', input[:queue_arn].to_s) unless input[:queue_arn].nil?
         xml << EventList.build('Event', input[:events]) unless input[:events].nil?
-        xml << NotificationConfigurationFilter.build('Filter', input[:filter]) unless input[:filter].nil?
+        xml << NotificationConfigurationFilter.build('Filter', input[:member_filter]) unless input[:member_filter].nil?
         xml
       end
     end
@@ -3135,7 +3135,7 @@ module AWS::SDK::S3
         xml << Hearth::XML::Node.new('ID', input[:id].to_s) unless input[:id].nil?
         xml << Hearth::XML::Node.new('Priority', input[:priority].to_s) unless input[:priority].nil?
         xml << Hearth::XML::Node.new('Prefix', input[:prefix].to_s) unless input[:prefix].nil?
-        xml << ReplicationRuleFilter.build('Filter', input[:filter]) unless input[:filter].nil?
+        xml << ReplicationRuleFilter.build('Filter', input[:member_filter]) unless input[:member_filter].nil?
         xml << Hearth::XML::Node.new('Status', input[:status].to_s) unless input[:status].nil?
         xml << SourceSelectionCriteria.build('SourceSelectionCriteria', input[:source_selection_criteria]) unless input[:source_selection_criteria].nil?
         xml << ExistingObjectReplication.build('ExistingObjectReplication', input[:existing_object_replication]) unless input[:existing_object_replication].nil?
@@ -3204,6 +3204,14 @@ module AWS::SDK::S3
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Payer', input[:payer].to_s) unless input[:payer].nil?
+        xml
+      end
+    end
+
+    class RequestProgress
+      def self.build(node_name, input)
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('Enabled', input[:enabled].to_s) unless input[:enabled].nil?
         xml
       end
     end
@@ -3306,6 +3314,51 @@ module AWS::SDK::S3
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml
+      end
+    end
+
+    class ScanRange
+      def self.build(node_name, input)
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('Start', input[:start].to_s) unless input[:start].nil?
+        xml << Hearth::XML::Node.new('End', input[:end].to_s) unless input[:end].nil?
+        xml
+      end
+    end
+
+    class SelectObjectContent
+      def self.build(http_req, input:)
+        http_req.http_method = 'POST'
+        CGI.parse('select&select-type=2&x-id=SelectObjectContent').each do |k,v|
+          http_req.append_query_param(k, v)
+        end
+        if input[:bucket].to_s.empty?
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
+        end
+        if input[:key].to_s.empty?
+          raise ArgumentError, "HTTP label :key cannot be empty."
+        end
+        http_req.append_path(format(
+            '/%<Bucket>s/%<Key>s',
+            Bucket: Hearth::HTTP.uri_escape(input[:bucket].to_s),
+            Key: (input[:key].to_s).split('/').map { |s| Hearth::HTTP.uri_escape(s) }.join('/')
+          )
+        )
+
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Hearth::XML::Node.new('SelectObjectContentRequest')
+        xml.attributes['xmlns'] = 'http://s3.amazonaws.com/doc/2006-03-01/'
+        xml << Hearth::XML::Node.new('Expression', input[:expression].to_s) unless input[:expression].nil?
+        xml << Hearth::XML::Node.new('ExpressionType', input[:expression_type].to_s) unless input[:expression_type].nil?
+        xml << RequestProgress.build('RequestProgress', input[:request_progress]) unless input[:request_progress].nil?
+        xml << InputSerialization.build('InputSerialization', input[:input_serialization]) unless input[:input_serialization].nil?
+        xml << OutputSerialization.build('OutputSerialization', input[:output_serialization]) unless input[:output_serialization].nil?
+        xml << ScanRange.build('ScanRange', input[:scan_range]) unless input[:scan_range].nil?
+        http_req.body = ::StringIO.new(xml.to_str) if xml
+        http_req.headers['x-amz-server-side-encryption-customer-algorithm'] = input[:sse_customer_algorithm] unless input[:sse_customer_algorithm].nil? || input[:sse_customer_algorithm].empty?
+        http_req.headers['x-amz-server-side-encryption-customer-key'] = input[:sse_customer_key] unless input[:sse_customer_key].nil? || input[:sse_customer_key].empty?
+        http_req.headers['x-amz-server-side-encryption-customer-key-MD5'] = input[:sse_customer_key_md5] unless input[:sse_customer_key_md5].nil? || input[:sse_customer_key_md5].empty?
+        http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
     end
 
@@ -3481,7 +3534,7 @@ module AWS::SDK::S3
         xml << Hearth::XML::Node.new('Id', input[:id].to_s) unless input[:id].nil?
         xml << Hearth::XML::Node.new('Topic', input[:topic_arn].to_s) unless input[:topic_arn].nil?
         xml << EventList.build('Event', input[:events]) unless input[:events].nil?
-        xml << NotificationConfigurationFilter.build('Filter', input[:filter]) unless input[:filter].nil?
+        xml << NotificationConfigurationFilter.build('Filter', input[:member_filter]) unless input[:member_filter].nil?
         xml
       end
     end
@@ -3676,6 +3729,9 @@ module AWS::SDK::S3
           http_req.headers["x-amz-meta-#{key}"] = value unless value.nil? || value.empty?
         end
       end
+    end
+
+    module EventStream
     end
   end
 end

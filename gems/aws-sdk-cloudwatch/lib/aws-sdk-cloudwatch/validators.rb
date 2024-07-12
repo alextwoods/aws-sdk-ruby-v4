@@ -175,7 +175,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(input[:dashboard_name], ::String, context: "#{context}[:dashboard_name]")
         Hearth::Validator.validate_types!(input[:dashboard_arn], ::String, context: "#{context}[:dashboard_arn]")
         Hearth::Validator.validate_types!(input[:last_modified], ::Time, context: "#{context}[:last_modified]")
-        Hearth::Validator.validate_types!(input[:size], ::Integer, context: "#{context}[:size]")
+        Hearth::Validator.validate_types!(input[:member_size], ::Integer, context: "#{context}[:member_size]")
       end
     end
 
@@ -226,7 +226,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(input[:timestamp], ::Time, context: "#{context}[:timestamp]")
         Hearth::Validator.validate_types!(input[:sample_count], ::Float, context: "#{context}[:sample_count]")
         Hearth::Validator.validate_types!(input[:average], ::Float, context: "#{context}[:average]")
-        Hearth::Validator.validate_types!(input[:sum], ::Float, context: "#{context}[:sum]")
+        Hearth::Validator.validate_types!(input[:member_sum], ::Float, context: "#{context}[:member_sum]")
         Hearth::Validator.validate_types!(input[:minimum], ::Float, context: "#{context}[:minimum]")
         Hearth::Validator.validate_types!(input[:maximum], ::Float, context: "#{context}[:maximum]")
         Hearth::Validator.validate_types!(input[:unit], ::String, context: "#{context}[:unit]")
@@ -768,7 +768,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(input[:max_contributor_value], ::Float, context: "#{context}[:max_contributor_value]")
         Hearth::Validator.validate_types!(input[:sample_count], ::Float, context: "#{context}[:sample_count]")
         Hearth::Validator.validate_types!(input[:average], ::Float, context: "#{context}[:average]")
-        Hearth::Validator.validate_types!(input[:sum], ::Float, context: "#{context}[:sum]")
+        Hearth::Validator.validate_types!(input[:member_sum], ::Float, context: "#{context}[:member_sum]")
         Hearth::Validator.validate_types!(input[:minimum], ::Float, context: "#{context}[:minimum]")
         Hearth::Validator.validate_types!(input[:maximum], ::Float, context: "#{context}[:maximum]")
       end
@@ -912,7 +912,7 @@ module AWS::SDK::CloudWatch
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::ListMetricStreamsOutput, context: context)
         Hearth::Validator.validate_types!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        MetricStreamEntries.validate!(input[:entries], context: "#{context}[:entries]") unless input[:entries].nil?
+        MetricStreamEntries.validate!(input[:member_entries], context: "#{context}[:member_entries]") unless input[:member_entries].nil?
       end
     end
 
@@ -1100,7 +1100,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate_types!(input[:label], ::String, context: "#{context}[:label]")
         Timestamps.validate!(input[:timestamps], context: "#{context}[:timestamps]") unless input[:timestamps].nil?
-        DatapointValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        DatapointValues.validate!(input[:member_values], context: "#{context}[:member_values]") unless input[:member_values].nil?
         Hearth::Validator.validate_types!(input[:status_code], ::String, context: "#{context}[:status_code]")
         MetricDataResultMessages.validate!(input[:messages], context: "#{context}[:messages]") unless input[:messages].nil?
       end
@@ -1133,7 +1133,7 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(input[:timestamp], ::Time, context: "#{context}[:timestamp]")
         Hearth::Validator.validate_types!(input[:value], ::Float, context: "#{context}[:value]")
         StatisticSet.validate!(input[:statistic_values], context: "#{context}[:statistic_values]") unless input[:statistic_values].nil?
-        Values.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        Values.validate!(input[:member_values], context: "#{context}[:member_values]") unless input[:member_values].nil?
         Counts.validate!(input[:counts], context: "#{context}[:counts]") unless input[:counts].nil?
         Hearth::Validator.validate_types!(input[:unit], ::String, context: "#{context}[:unit]")
         Hearth::Validator.validate_types!(input[:storage_resolution], ::Integer, context: "#{context}[:storage_resolution]")
@@ -1555,8 +1555,8 @@ module AWS::SDK::CloudWatch
         Hearth::Validator.validate_types!(input, Types::StatisticSet, context: context)
         Hearth::Validator.validate_required!(input[:sample_count], context: "#{context}[:sample_count]")
         Hearth::Validator.validate_types!(input[:sample_count], ::Float, context: "#{context}[:sample_count]")
-        Hearth::Validator.validate_required!(input[:sum], context: "#{context}[:sum]")
-        Hearth::Validator.validate_types!(input[:sum], ::Float, context: "#{context}[:sum]")
+        Hearth::Validator.validate_required!(input[:member_sum], context: "#{context}[:member_sum]")
+        Hearth::Validator.validate_types!(input[:member_sum], ::Float, context: "#{context}[:member_sum]")
         Hearth::Validator.validate_required!(input[:minimum], context: "#{context}[:minimum]")
         Hearth::Validator.validate_types!(input[:minimum], ::Float, context: "#{context}[:minimum]")
         Hearth::Validator.validate_required!(input[:maximum], context: "#{context}[:maximum]")

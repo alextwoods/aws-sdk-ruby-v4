@@ -104,7 +104,7 @@ module AWS::SDK::S3
         Hearth::Validator.validate_types!(input, Types::AnalyticsConfiguration, context: context)
         Hearth::Validator.validate_required!(input[:id], context: "#{context}[:id]")
         Hearth::Validator.validate_types!(input[:id], ::String, context: "#{context}[:id]")
-        AnalyticsFilter.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        AnalyticsFilter.validate!(input[:member_filter], context: "#{context}[:member_filter]") unless input[:member_filter].nil?
         Hearth::Validator.validate_required!(input[:storage_class_analysis], context: "#{context}[:storage_class_analysis]")
         StorageClassAnalysis.validate!(input[:storage_class_analysis], context: "#{context}[:storage_class_analysis]") unless input[:storage_class_analysis].nil?
       end
@@ -1813,7 +1813,7 @@ module AWS::SDK::S3
         Hearth::Validator.validate_types!(input, Types::IntelligentTieringConfiguration, context: context)
         Hearth::Validator.validate_required!(input[:id], context: "#{context}[:id]")
         Hearth::Validator.validate_types!(input[:id], ::String, context: "#{context}[:id]")
-        IntelligentTieringFilter.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        IntelligentTieringFilter.validate!(input[:member_filter], context: "#{context}[:member_filter]") unless input[:member_filter].nil?
         Hearth::Validator.validate_required!(input[:status], context: "#{context}[:status]")
         Hearth::Validator.validate_types!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate_required!(input[:tierings], context: "#{context}[:tierings]")
@@ -1854,7 +1854,7 @@ module AWS::SDK::S3
         InventoryDestination.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
         Hearth::Validator.validate_required!(input[:is_enabled], context: "#{context}[:is_enabled]")
         Hearth::Validator.validate_types!(input[:is_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:is_enabled]")
-        InventoryFilter.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        InventoryFilter.validate!(input[:member_filter], context: "#{context}[:member_filter]") unless input[:member_filter].nil?
         Hearth::Validator.validate_required!(input[:id], context: "#{context}[:id]")
         Hearth::Validator.validate_types!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate_required!(input[:included_object_versions], context: "#{context}[:included_object_versions]")
@@ -1950,7 +1950,7 @@ module AWS::SDK::S3
         Hearth::Validator.validate_types!(input[:lambda_function_arn], ::String, context: "#{context}[:lambda_function_arn]")
         Hearth::Validator.validate_required!(input[:events], context: "#{context}[:events]")
         EventList.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
-        NotificationConfigurationFilter.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        NotificationConfigurationFilter.validate!(input[:member_filter], context: "#{context}[:member_filter]") unless input[:member_filter].nil?
       end
     end
 
@@ -1978,7 +1978,7 @@ module AWS::SDK::S3
         LifecycleExpiration.validate!(input[:expiration], context: "#{context}[:expiration]") unless input[:expiration].nil?
         Hearth::Validator.validate_types!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate_types!(input[:prefix], ::String, context: "#{context}[:prefix]")
-        LifecycleRuleFilter.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        LifecycleRuleFilter.validate!(input[:member_filter], context: "#{context}[:member_filter]") unless input[:member_filter].nil?
         Hearth::Validator.validate_required!(input[:status], context: "#{context}[:status]")
         Hearth::Validator.validate_types!(input[:status], ::String, context: "#{context}[:status]")
         TransitionList.validate!(input[:transitions], context: "#{context}[:transitions]") unless input[:transitions].nil?
@@ -2410,7 +2410,7 @@ module AWS::SDK::S3
         Hearth::Validator.validate_types!(input, Types::MetricsConfiguration, context: context)
         Hearth::Validator.validate_required!(input[:id], context: "#{context}[:id]")
         Hearth::Validator.validate_types!(input[:id], ::String, context: "#{context}[:id]")
-        MetricsFilter.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        MetricsFilter.validate!(input[:member_filter], context: "#{context}[:member_filter]") unless input[:member_filter].nil?
       end
     end
 
@@ -2562,7 +2562,7 @@ module AWS::SDK::S3
         Hearth::Validator.validate_types!(input[:last_modified], ::Time, context: "#{context}[:last_modified]")
         Hearth::Validator.validate_types!(input[:e_tag], ::String, context: "#{context}[:e_tag]")
         ChecksumAlgorithmList.validate!(input[:checksum_algorithm], context: "#{context}[:checksum_algorithm]") unless input[:checksum_algorithm].nil?
-        Hearth::Validator.validate_types!(input[:size], ::Integer, context: "#{context}[:size]")
+        Hearth::Validator.validate_types!(input[:member_size], ::Integer, context: "#{context}[:member_size]")
         Hearth::Validator.validate_types!(input[:storage_class], ::String, context: "#{context}[:storage_class]")
         Owner.validate!(input[:owner], context: "#{context}[:owner]") unless input[:owner].nil?
         RestoreStatus.validate!(input[:restore_status], context: "#{context}[:restore_status]") unless input[:restore_status].nil?
@@ -2651,7 +2651,7 @@ module AWS::SDK::S3
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::ObjectPart, context: context)
         Hearth::Validator.validate_types!(input[:part_number], ::Integer, context: "#{context}[:part_number]")
-        Hearth::Validator.validate_types!(input[:size], ::Integer, context: "#{context}[:size]")
+        Hearth::Validator.validate_types!(input[:member_size], ::Integer, context: "#{context}[:member_size]")
         Hearth::Validator.validate_types!(input[:checksum_crc32], ::String, context: "#{context}[:checksum_crc32]")
         Hearth::Validator.validate_types!(input[:checksum_crc32_c], ::String, context: "#{context}[:checksum_crc32_c]")
         Hearth::Validator.validate_types!(input[:checksum_sha1], ::String, context: "#{context}[:checksum_sha1]")
@@ -2664,7 +2664,7 @@ module AWS::SDK::S3
         Hearth::Validator.validate_types!(input, Types::ObjectVersion, context: context)
         Hearth::Validator.validate_types!(input[:e_tag], ::String, context: "#{context}[:e_tag]")
         ChecksumAlgorithmList.validate!(input[:checksum_algorithm], context: "#{context}[:checksum_algorithm]") unless input[:checksum_algorithm].nil?
-        Hearth::Validator.validate_types!(input[:size], ::Integer, context: "#{context}[:size]")
+        Hearth::Validator.validate_types!(input[:member_size], ::Integer, context: "#{context}[:member_size]")
         Hearth::Validator.validate_types!(input[:storage_class], ::String, context: "#{context}[:storage_class]")
         Hearth::Validator.validate_types!(input[:key], ::String, context: "#{context}[:key]")
         Hearth::Validator.validate_types!(input[:version_id], ::String, context: "#{context}[:version_id]")
@@ -2753,7 +2753,7 @@ module AWS::SDK::S3
         Hearth::Validator.validate_types!(input[:part_number], ::Integer, context: "#{context}[:part_number]")
         Hearth::Validator.validate_types!(input[:last_modified], ::Time, context: "#{context}[:last_modified]")
         Hearth::Validator.validate_types!(input[:e_tag], ::String, context: "#{context}[:e_tag]")
-        Hearth::Validator.validate_types!(input[:size], ::Integer, context: "#{context}[:size]")
+        Hearth::Validator.validate_types!(input[:member_size], ::Integer, context: "#{context}[:member_size]")
         Hearth::Validator.validate_types!(input[:checksum_crc32], ::String, context: "#{context}[:checksum_crc32]")
         Hearth::Validator.validate_types!(input[:checksum_crc32_c], ::String, context: "#{context}[:checksum_crc32_c]")
         Hearth::Validator.validate_types!(input[:checksum_sha1], ::String, context: "#{context}[:checksum_sha1]")
@@ -3382,7 +3382,7 @@ module AWS::SDK::S3
         Hearth::Validator.validate_types!(input[:queue_arn], ::String, context: "#{context}[:queue_arn]")
         Hearth::Validator.validate_required!(input[:events], context: "#{context}[:events]")
         EventList.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
-        NotificationConfigurationFilter.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        NotificationConfigurationFilter.validate!(input[:member_filter], context: "#{context}[:member_filter]") unless input[:member_filter].nil?
       end
     end
 
@@ -3446,7 +3446,7 @@ module AWS::SDK::S3
         Hearth::Validator.validate_types!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate_types!(input[:priority], ::Integer, context: "#{context}[:priority]")
         Hearth::Validator.validate_types!(input[:prefix], ::String, context: "#{context}[:prefix]")
-        ReplicationRuleFilter.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        ReplicationRuleFilter.validate!(input[:member_filter], context: "#{context}[:member_filter]") unless input[:member_filter].nil?
         Hearth::Validator.validate_required!(input[:status], context: "#{context}[:status]")
         Hearth::Validator.validate_types!(input[:status], ::String, context: "#{context}[:status]")
         SourceSelectionCriteria.validate!(input[:source_selection_criteria], context: "#{context}[:source_selection_criteria]") unless input[:source_selection_criteria].nil?
@@ -3926,7 +3926,7 @@ module AWS::SDK::S3
         Hearth::Validator.validate_types!(input[:topic_arn], ::String, context: "#{context}[:topic_arn]")
         Hearth::Validator.validate_required!(input[:events], context: "#{context}[:events]")
         EventList.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
-        NotificationConfigurationFilter.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        NotificationConfigurationFilter.validate!(input[:member_filter], context: "#{context}[:member_filter]") unless input[:member_filter].nil?
       end
     end
 

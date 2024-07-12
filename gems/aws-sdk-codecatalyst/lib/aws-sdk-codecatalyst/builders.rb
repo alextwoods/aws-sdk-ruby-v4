@@ -256,7 +256,7 @@ module AWS::SDK::CodeCatalyst
       def self.build(input)
         data = {}
         data['key'] = input[:key] unless input[:key].nil?
-        data['values'] = StringList.build(input[:values]) unless input[:values].nil?
+        data['values'] = StringList.build(input[:member_values]) unless input[:member_values].nil?
         data['comparisonOperator'] = input[:comparison_operator] unless input[:comparison_operator].nil?
         data
       end
@@ -652,7 +652,7 @@ module AWS::SDK::CodeCatalyst
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['sortBy'] = WorkflowRunSortCriteriaList.build(input[:sort_by]) unless input[:sort_by].nil?
+        data['sortBy'] = WorkflowRunSortCriteriaList.build(input[:member_sort_by]) unless input[:member_sort_by].nil?
         http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -679,7 +679,7 @@ module AWS::SDK::CodeCatalyst
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['sortBy'] = WorkflowSortCriteriaList.build(input[:sort_by]) unless input[:sort_by].nil?
+        data['sortBy'] = WorkflowSortCriteriaList.build(input[:member_sort_by]) unless input[:member_sort_by].nil?
         http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -696,7 +696,7 @@ module AWS::SDK::CodeCatalyst
       def self.build(input)
         data = {}
         data['key'] = input[:key] unless input[:key].nil?
-        data['values'] = StringList.build(input[:values]) unless input[:values].nil?
+        data['values'] = StringList.build(input[:member_values]) unless input[:member_values].nil?
         data['comparisonOperator'] = input[:comparison_operator] unless input[:comparison_operator].nil?
         data
       end

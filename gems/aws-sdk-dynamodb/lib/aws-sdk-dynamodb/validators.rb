@@ -2148,7 +2148,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_required!(input[:table_name], context: "#{context}[:table_name]")
         Hearth::Validator.validate_types!(input[:table_name], ::String, context: "#{context}[:table_name]")
         Hearth::Validator.validate_types!(input[:index_name], ::String, context: "#{context}[:index_name]")
-        Hearth::Validator.validate_types!(input[:select], ::String, context: "#{context}[:select]")
+        Hearth::Validator.validate_types!(input[:member_select], ::String, context: "#{context}[:member_select]")
         AttributeNameList.validate!(input[:attributes_to_get], context: "#{context}[:attributes_to_get]") unless input[:attributes_to_get].nil?
         Hearth::Validator.validate_types!(input[:limit], ::Integer, context: "#{context}[:limit]")
         Hearth::Validator.validate_types!(input[:consistent_read], ::TrueClass, ::FalseClass, context: "#{context}[:consistent_read]")
@@ -2170,7 +2170,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::QueryOutput, context: context)
         ItemList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
-        Hearth::Validator.validate_types!(input[:count], ::Integer, context: "#{context}[:count]")
+        Hearth::Validator.validate_types!(input[:member_count], ::Integer, context: "#{context}[:member_count]")
         Hearth::Validator.validate_types!(input[:scanned_count], ::Integer, context: "#{context}[:scanned_count]")
         Key.validate!(input[:last_evaluated_key], context: "#{context}[:last_evaluated_key]") unless input[:last_evaluated_key].nil?
         ConsumedCapacity.validate!(input[:consumed_capacity], context: "#{context}[:consumed_capacity]") unless input[:consumed_capacity].nil?
@@ -2579,7 +2579,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(input[:index_name], ::String, context: "#{context}[:index_name]")
         AttributeNameList.validate!(input[:attributes_to_get], context: "#{context}[:attributes_to_get]") unless input[:attributes_to_get].nil?
         Hearth::Validator.validate_types!(input[:limit], ::Integer, context: "#{context}[:limit]")
-        Hearth::Validator.validate_types!(input[:select], ::String, context: "#{context}[:select]")
+        Hearth::Validator.validate_types!(input[:member_select], ::String, context: "#{context}[:member_select]")
         FilterConditionMap.validate!(input[:scan_filter], context: "#{context}[:scan_filter]") unless input[:scan_filter].nil?
         Hearth::Validator.validate_types!(input[:conditional_operator], ::String, context: "#{context}[:conditional_operator]")
         Key.validate!(input[:exclusive_start_key], context: "#{context}[:exclusive_start_key]") unless input[:exclusive_start_key].nil?
@@ -2598,7 +2598,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::ScanOutput, context: context)
         ItemList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
-        Hearth::Validator.validate_types!(input[:count], ::Integer, context: "#{context}[:count]")
+        Hearth::Validator.validate_types!(input[:member_count], ::Integer, context: "#{context}[:member_count]")
         Hearth::Validator.validate_types!(input[:scanned_count], ::Integer, context: "#{context}[:scanned_count]")
         Key.validate!(input[:last_evaluated_key], context: "#{context}[:last_evaluated_key]") unless input[:last_evaluated_key].nil?
         ConsumedCapacity.validate!(input[:consumed_capacity], context: "#{context}[:consumed_capacity]") unless input[:consumed_capacity].nil?

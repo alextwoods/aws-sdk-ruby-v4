@@ -14,7 +14,7 @@ module AWS::SDK::S3
   module Middleware
 
     class AbortMultipartUpload
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -69,7 +69,7 @@ module AWS::SDK::S3
     end
 
     class CompleteMultipartUpload
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -124,7 +124,7 @@ module AWS::SDK::S3
     end
 
     class CopyObject
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -179,7 +179,7 @@ module AWS::SDK::S3
     end
 
     class CreateBucket
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -234,7 +234,7 @@ module AWS::SDK::S3
     end
 
     class CreateMultipartUpload
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -289,7 +289,7 @@ module AWS::SDK::S3
     end
 
     class CreateSession
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -344,7 +344,7 @@ module AWS::SDK::S3
     end
 
     class DeleteBucket
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -399,7 +399,7 @@ module AWS::SDK::S3
     end
 
     class DeleteBucketAnalyticsConfiguration
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -454,7 +454,7 @@ module AWS::SDK::S3
     end
 
     class DeleteBucketCors
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -509,7 +509,7 @@ module AWS::SDK::S3
     end
 
     class DeleteBucketEncryption
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -564,7 +564,7 @@ module AWS::SDK::S3
     end
 
     class DeleteBucketIntelligentTieringConfiguration
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -619,7 +619,7 @@ module AWS::SDK::S3
     end
 
     class DeleteBucketInventoryConfiguration
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -674,7 +674,7 @@ module AWS::SDK::S3
     end
 
     class DeleteBucketLifecycle
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -729,7 +729,7 @@ module AWS::SDK::S3
     end
 
     class DeleteBucketMetricsConfiguration
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -784,7 +784,7 @@ module AWS::SDK::S3
     end
 
     class DeleteBucketOwnershipControls
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -839,7 +839,7 @@ module AWS::SDK::S3
     end
 
     class DeleteBucketPolicy
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -894,7 +894,7 @@ module AWS::SDK::S3
     end
 
     class DeleteBucketReplication
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -949,7 +949,7 @@ module AWS::SDK::S3
     end
 
     class DeleteBucketTagging
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1004,7 +1004,7 @@ module AWS::SDK::S3
     end
 
     class DeleteBucketWebsite
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1059,7 +1059,7 @@ module AWS::SDK::S3
     end
 
     class DeleteObject
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1114,7 +1114,7 @@ module AWS::SDK::S3
     end
 
     class DeleteObjectTagging
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1169,7 +1169,7 @@ module AWS::SDK::S3
     end
 
     class DeleteObjects
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1228,7 +1228,7 @@ module AWS::SDK::S3
     end
 
     class DeletePublicAccessBlock
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1283,7 +1283,7 @@ module AWS::SDK::S3
     end
 
     class GetBucketAccelerateConfiguration
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1338,7 +1338,7 @@ module AWS::SDK::S3
     end
 
     class GetBucketAcl
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1393,7 +1393,7 @@ module AWS::SDK::S3
     end
 
     class GetBucketAnalyticsConfiguration
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1448,7 +1448,7 @@ module AWS::SDK::S3
     end
 
     class GetBucketCors
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1503,7 +1503,7 @@ module AWS::SDK::S3
     end
 
     class GetBucketEncryption
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1558,7 +1558,7 @@ module AWS::SDK::S3
     end
 
     class GetBucketIntelligentTieringConfiguration
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1613,7 +1613,7 @@ module AWS::SDK::S3
     end
 
     class GetBucketInventoryConfiguration
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1668,7 +1668,7 @@ module AWS::SDK::S3
     end
 
     class GetBucketLifecycleConfiguration
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1723,7 +1723,7 @@ module AWS::SDK::S3
     end
 
     class GetBucketLocation
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1778,7 +1778,7 @@ module AWS::SDK::S3
     end
 
     class GetBucketLogging
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1833,7 +1833,7 @@ module AWS::SDK::S3
     end
 
     class GetBucketMetricsConfiguration
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1888,7 +1888,7 @@ module AWS::SDK::S3
     end
 
     class GetBucketNotificationConfiguration
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1943,7 +1943,7 @@ module AWS::SDK::S3
     end
 
     class GetBucketOwnershipControls
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1998,7 +1998,7 @@ module AWS::SDK::S3
     end
 
     class GetBucketPolicy
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2053,7 +2053,7 @@ module AWS::SDK::S3
     end
 
     class GetBucketPolicyStatus
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2108,7 +2108,7 @@ module AWS::SDK::S3
     end
 
     class GetBucketReplication
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2163,7 +2163,7 @@ module AWS::SDK::S3
     end
 
     class GetBucketRequestPayment
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2218,7 +2218,7 @@ module AWS::SDK::S3
     end
 
     class GetBucketTagging
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2273,7 +2273,7 @@ module AWS::SDK::S3
     end
 
     class GetBucketVersioning
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2328,7 +2328,7 @@ module AWS::SDK::S3
     end
 
     class GetBucketWebsite
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2383,7 +2383,7 @@ module AWS::SDK::S3
     end
 
     class GetObject
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2443,7 +2443,7 @@ module AWS::SDK::S3
     end
 
     class GetObjectAcl
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2498,7 +2498,7 @@ module AWS::SDK::S3
     end
 
     class GetObjectAttributes
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2553,7 +2553,7 @@ module AWS::SDK::S3
     end
 
     class GetObjectLegalHold
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2608,7 +2608,7 @@ module AWS::SDK::S3
     end
 
     class GetObjectLockConfiguration
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2663,7 +2663,7 @@ module AWS::SDK::S3
     end
 
     class GetObjectRetention
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2718,7 +2718,7 @@ module AWS::SDK::S3
     end
 
     class GetObjectTagging
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2773,7 +2773,7 @@ module AWS::SDK::S3
     end
 
     class GetObjectTorrent
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2828,7 +2828,7 @@ module AWS::SDK::S3
     end
 
     class GetPublicAccessBlock
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2883,7 +2883,7 @@ module AWS::SDK::S3
     end
 
     class HeadBucket
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2938,7 +2938,7 @@ module AWS::SDK::S3
     end
 
     class HeadObject
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2993,7 +2993,7 @@ module AWS::SDK::S3
     end
 
     class ListBucketAnalyticsConfigurations
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3048,7 +3048,7 @@ module AWS::SDK::S3
     end
 
     class ListBucketIntelligentTieringConfigurations
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3103,7 +3103,7 @@ module AWS::SDK::S3
     end
 
     class ListBucketInventoryConfigurations
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3158,7 +3158,7 @@ module AWS::SDK::S3
     end
 
     class ListBucketMetricsConfigurations
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3213,7 +3213,7 @@ module AWS::SDK::S3
     end
 
     class ListBuckets
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3268,7 +3268,7 @@ module AWS::SDK::S3
     end
 
     class ListDirectoryBuckets
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3323,7 +3323,7 @@ module AWS::SDK::S3
     end
 
     class ListMultipartUploads
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3378,7 +3378,7 @@ module AWS::SDK::S3
     end
 
     class ListObjectVersions
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3433,7 +3433,7 @@ module AWS::SDK::S3
     end
 
     class ListObjects
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3488,7 +3488,7 @@ module AWS::SDK::S3
     end
 
     class ListObjectsV2
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3543,7 +3543,7 @@ module AWS::SDK::S3
     end
 
     class ListParts
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3598,7 +3598,7 @@ module AWS::SDK::S3
     end
 
     class PutBucketAccelerateConfiguration
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3657,7 +3657,7 @@ module AWS::SDK::S3
     end
 
     class PutBucketAcl
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3716,7 +3716,7 @@ module AWS::SDK::S3
     end
 
     class PutBucketAnalyticsConfiguration
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3771,7 +3771,7 @@ module AWS::SDK::S3
     end
 
     class PutBucketCors
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3830,7 +3830,7 @@ module AWS::SDK::S3
     end
 
     class PutBucketEncryption
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3889,7 +3889,7 @@ module AWS::SDK::S3
     end
 
     class PutBucketIntelligentTieringConfiguration
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3944,7 +3944,7 @@ module AWS::SDK::S3
     end
 
     class PutBucketInventoryConfiguration
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3999,7 +3999,7 @@ module AWS::SDK::S3
     end
 
     class PutBucketLifecycleConfiguration
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4058,7 +4058,7 @@ module AWS::SDK::S3
     end
 
     class PutBucketLogging
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4117,7 +4117,7 @@ module AWS::SDK::S3
     end
 
     class PutBucketMetricsConfiguration
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4172,7 +4172,7 @@ module AWS::SDK::S3
     end
 
     class PutBucketNotificationConfiguration
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4227,7 +4227,7 @@ module AWS::SDK::S3
     end
 
     class PutBucketOwnershipControls
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4285,7 +4285,7 @@ module AWS::SDK::S3
     end
 
     class PutBucketPolicy
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4344,7 +4344,7 @@ module AWS::SDK::S3
     end
 
     class PutBucketReplication
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4403,7 +4403,7 @@ module AWS::SDK::S3
     end
 
     class PutBucketRequestPayment
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4462,7 +4462,7 @@ module AWS::SDK::S3
     end
 
     class PutBucketTagging
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4521,7 +4521,7 @@ module AWS::SDK::S3
     end
 
     class PutBucketVersioning
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4580,7 +4580,7 @@ module AWS::SDK::S3
     end
 
     class PutBucketWebsite
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4639,7 +4639,7 @@ module AWS::SDK::S3
     end
 
     class PutObject
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4701,7 +4701,7 @@ module AWS::SDK::S3
     end
 
     class PutObjectAcl
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4760,7 +4760,7 @@ module AWS::SDK::S3
     end
 
     class PutObjectLegalHold
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4819,7 +4819,7 @@ module AWS::SDK::S3
     end
 
     class PutObjectLockConfiguration
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4878,7 +4878,7 @@ module AWS::SDK::S3
     end
 
     class PutObjectRetention
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4937,7 +4937,7 @@ module AWS::SDK::S3
     end
 
     class PutObjectTagging
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4996,7 +4996,7 @@ module AWS::SDK::S3
     end
 
     class PutPublicAccessBlock
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5055,7 +5055,7 @@ module AWS::SDK::S3
     end
 
     class RestoreObject
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5113,8 +5113,55 @@ module AWS::SDK::S3
       end
     end
 
+    class SelectObjectContent
+      def self.build(config, options={})
+        stack = Hearth::MiddlewareStack.new
+        stack.use(Hearth::Middleware::Initialize)
+        stack.use(Hearth::Middleware::Validate,
+          validate_input: config.validate_input,
+          validator: Validators::SelectObjectContentInput
+        )
+        stack.use(Hearth::Middleware::Build,
+          builder: Builders::SelectObjectContent
+        )
+        stack.use(Hearth::Middleware::Auth,
+          auth_params: Auth::Params.new(operation_name: :select_object_content, region: config.region),
+          auth_resolver: config.auth_resolver,
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::Credentials => config.credentials_provider
+        )
+        stack.use(Hearth::HTTP::Middleware::ContentLength)
+        stack.use(Hearth::EventStream::Middleware::Handlers,
+          event_handler: options[:event_stream_handler],
+          message_encoding_module: Hearth::EventStream::Binary
+        )
+        stack.use(Hearth::Middleware::Endpoint,
+          disable_multiregion_access_points: config.disable_multiregion_access_points,
+          endpoint: config.endpoint,
+          endpoint_resolver: config.endpoint_resolver,
+          force_path_style: config.force_path_style,
+          param_builder: Endpoint::Parameters::SelectObjectContent,
+          region: config.region,
+          use_accelerate_endpoint: config.use_accelerate_endpoint,
+          use_arn_region: config.use_arn_region,
+          use_dualstack_endpoint: config.use_dualstack_endpoint,
+          use_fips_endpoint: config.use_fips_endpoint
+        )
+        stack.use(Hearth::EventStream::Middleware::Sign)
+        stack.use(Middleware::RequestId)
+        stack.use(Hearth::Middleware::Send,
+          client: config.http_client,
+          stub_data_class: Stubs::SelectObjectContent,
+          stub_error_classes: [],
+          stub_responses: config.stub_responses,
+          stubs: config.stubs
+        )
+        stack
+      end
+    end
+
     class UploadPart
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5176,7 +5223,7 @@ module AWS::SDK::S3
     end
 
     class UploadPartCopy
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5231,7 +5278,7 @@ module AWS::SDK::S3
     end
 
     class WriteGetObjectResponse
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,

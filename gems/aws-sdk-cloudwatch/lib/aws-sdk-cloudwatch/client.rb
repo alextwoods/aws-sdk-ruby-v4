@@ -9,6 +9,8 @@
 
 require 'stringio'
 
+require_relative 'plugins/global_config'
+
 module AWS::SDK::CloudWatch
   # <p>Amazon CloudWatch monitors your Amazon Web Services (Amazon Web Services) resources and the
   # 			applications you run on Amazon Web Services in real time. You can use CloudWatch to collect and track
@@ -26,7 +28,9 @@ module AWS::SDK::CloudWatch
   class Client < Hearth::Client
 
     # @api private
-    @plugins = Hearth::PluginList.new
+    @plugins = Hearth::PluginList.new([
+      Plugins::GlobalConfig.new
+    ])
 
     # @param [Hash] options
     #   Options used to construct an instance of {Config}
@@ -989,7 +993,7 @@ module AWS::SDK::CloudWatch
     #   resp.data.metric_datapoints[0].max_contributor_value #=> Float
     #   resp.data.metric_datapoints[0].sample_count #=> Float
     #   resp.data.metric_datapoints[0].average #=> Float
-    #   resp.data.metric_datapoints[0].sum #=> Float
+    #   resp.data.metric_datapoints[0].member_sum #=> Float
     #   resp.data.metric_datapoints[0].minimum #=> Float
     #   resp.data.metric_datapoints[0].maximum #=> Float
     def get_insight_rule_report(params = {}, options = {})
@@ -1112,8 +1116,8 @@ module AWS::SDK::CloudWatch
     #   resp.data.metric_data_results[0].label #=> String
     #   resp.data.metric_data_results[0].timestamps #=> Array<Time>
     #   resp.data.metric_data_results[0].timestamps[0] #=> Time
-    #   resp.data.metric_data_results[0].values #=> Array<Float>
-    #   resp.data.metric_data_results[0].values[0] #=> Float
+    #   resp.data.metric_data_results[0].member_values #=> Array<Float>
+    #   resp.data.metric_data_results[0].member_values[0] #=> Float
     #   resp.data.metric_data_results[0].status_code #=> String, one of ["Complete", "InternalError", "PartialData", "Forbidden"]
     #   resp.data.metric_data_results[0].messages #=> Array<MessageData>
     #   resp.data.metric_data_results[0].messages[0] #=> Types::MessageData
@@ -1225,7 +1229,7 @@ module AWS::SDK::CloudWatch
     #   resp.data.datapoints[0].timestamp #=> Time
     #   resp.data.datapoints[0].sample_count #=> Float
     #   resp.data.datapoints[0].average #=> Float
-    #   resp.data.datapoints[0].sum #=> Float
+    #   resp.data.datapoints[0].member_sum #=> Float
     #   resp.data.datapoints[0].minimum #=> Float
     #   resp.data.datapoints[0].maximum #=> Float
     #   resp.data.datapoints[0].unit #=> String, one of ["Seconds", "Microseconds", "Milliseconds", "Bytes", "Kilobytes", "Megabytes", "Gigabytes", "Terabytes", "Bits", "Kilobits", "Megabits", "Gigabits", "Terabits", "Percent", "Count", "Bytes/Second", "Kilobytes/Second", "Megabytes/Second", "Gigabytes/Second", "Terabytes/Second", "Bits/Second", "Kilobits/Second", "Megabits/Second", "Gigabits/Second", "Terabits/Second", "Count/Second", "None"]
@@ -1390,7 +1394,7 @@ module AWS::SDK::CloudWatch
     #   resp.data.dashboard_entries[0].dashboard_name #=> String
     #   resp.data.dashboard_entries[0].dashboard_arn #=> String
     #   resp.data.dashboard_entries[0].last_modified #=> Time
-    #   resp.data.dashboard_entries[0].size #=> Integer
+    #   resp.data.dashboard_entries[0].member_size #=> Integer
     #   resp.data.next_token #=> String
     def list_dashboards(params = {}, options = {})
       response_body = ::StringIO.new
@@ -1480,15 +1484,15 @@ module AWS::SDK::CloudWatch
     # @example Response structure
     #   resp.data #=> Types::ListMetricStreamsOutput
     #   resp.data.next_token #=> String
-    #   resp.data.entries #=> Array<MetricStreamEntry>
-    #   resp.data.entries[0] #=> Types::MetricStreamEntry
-    #   resp.data.entries[0].arn #=> String
-    #   resp.data.entries[0].creation_date #=> Time
-    #   resp.data.entries[0].last_update_date #=> Time
-    #   resp.data.entries[0].name #=> String
-    #   resp.data.entries[0].firehose_arn #=> String
-    #   resp.data.entries[0].state #=> String
-    #   resp.data.entries[0].output_format #=> String, one of ["json", "opentelemetry0.7", "opentelemetry1.0"]
+    #   resp.data.member_entries #=> Array<MetricStreamEntry>
+    #   resp.data.member_entries[0] #=> Types::MetricStreamEntry
+    #   resp.data.member_entries[0].arn #=> String
+    #   resp.data.member_entries[0].creation_date #=> Time
+    #   resp.data.member_entries[0].last_update_date #=> Time
+    #   resp.data.member_entries[0].name #=> String
+    #   resp.data.member_entries[0].firehose_arn #=> String
+    #   resp.data.member_entries[0].state #=> String
+    #   resp.data.member_entries[0].output_format #=> String, one of ["json", "opentelemetry0.7", "opentelemetry1.0"]
     def list_metric_streams(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
@@ -2157,11 +2161,11 @@ module AWS::SDK::CloudWatch
     #         value: 1.0,
     #         statistic_values: {
     #           sample_count: 1.0, # required
-    #           sum: 1.0, # required
+    #           member_sum: 1.0, # required
     #           minimum: 1.0, # required
     #           maximum: 1.0 # required
     #         },
-    #         values: [
+    #         member_values: [
     #           1.0
     #         ],
     #         counts: [

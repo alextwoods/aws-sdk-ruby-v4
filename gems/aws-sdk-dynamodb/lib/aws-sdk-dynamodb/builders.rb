@@ -1226,7 +1226,7 @@ module AWS::SDK::DynamoDB
         data = {}
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
         data['IndexName'] = input[:index_name] unless input[:index_name].nil?
-        data['Select'] = input[:select] unless input[:select].nil?
+        data['Select'] = input[:member_select] unless input[:member_select].nil?
         data['AttributesToGet'] = AttributeNameList.build(input[:attributes_to_get]) unless input[:attributes_to_get].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['ConsistentRead'] = input[:consistent_read] unless input[:consistent_read].nil?
@@ -1472,7 +1472,7 @@ module AWS::SDK::DynamoDB
         data['IndexName'] = input[:index_name] unless input[:index_name].nil?
         data['AttributesToGet'] = AttributeNameList.build(input[:attributes_to_get]) unless input[:attributes_to_get].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        data['Select'] = input[:select] unless input[:select].nil?
+        data['Select'] = input[:member_select] unless input[:member_select].nil?
         data['ScanFilter'] = FilterConditionMap.build(input[:scan_filter]) unless input[:scan_filter].nil?
         data['ConditionalOperator'] = input[:conditional_operator] unless input[:conditional_operator].nil?
         data['ExclusiveStartKey'] = Key.build(input[:exclusive_start_key]) unless input[:exclusive_start_key].nil?

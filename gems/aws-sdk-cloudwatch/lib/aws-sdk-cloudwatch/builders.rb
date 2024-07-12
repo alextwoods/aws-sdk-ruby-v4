@@ -656,7 +656,7 @@ module AWS::SDK::CloudWatch
         params[context + 'Timestamp'] = Hearth::TimeHelper.to_date_time(input[:timestamp]) unless input[:timestamp].nil?
         params[context + 'Value'] = Hearth::NumberHelper.serialize(input[:value]).to_s unless input[:value].nil?
         StatisticSet.build(input[:statistic_values], params, context: context + 'StatisticValues' + '.') unless input[:statistic_values].nil?
-        Values.build(input[:values], params, context: context + 'Values' + '.member') unless input[:values].nil?
+        Values.build(input[:member_values], params, context: context + 'Values' + '.member') unless input[:member_values].nil?
         Counts.build(input[:counts], params, context: context + 'Counts' + '.member') unless input[:counts].nil?
         params[context + 'Unit'] = input[:unit].to_s unless input[:unit].nil?
         params[context + 'StorageResolution'] = input[:storage_resolution].to_s unless input[:storage_resolution].nil?
@@ -995,7 +995,7 @@ module AWS::SDK::CloudWatch
     class StatisticSet
       def self.build(input, params, context: nil)
         params[context + 'SampleCount'] = Hearth::NumberHelper.serialize(input[:sample_count]).to_s unless input[:sample_count].nil?
-        params[context + 'Sum'] = Hearth::NumberHelper.serialize(input[:sum]).to_s unless input[:sum].nil?
+        params[context + 'Sum'] = Hearth::NumberHelper.serialize(input[:member_sum]).to_s unless input[:member_sum].nil?
         params[context + 'Minimum'] = Hearth::NumberHelper.serialize(input[:minimum]).to_s unless input[:minimum].nil?
         params[context + 'Maximum'] = Hearth::NumberHelper.serialize(input[:maximum]).to_s unless input[:maximum].nil?
       end

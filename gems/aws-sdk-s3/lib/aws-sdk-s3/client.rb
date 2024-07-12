@@ -9,12 +9,16 @@
 
 require 'stringio'
 
+require_relative 'plugins/global_config'
+
 module AWS::SDK::S3
   # <p></p>
   class Client < Hearth::Client
 
     # @api private
-    @plugins = Hearth::PluginList.new
+    @plugins = Hearth::PluginList.new([
+      Plugins::GlobalConfig.new
+    ])
 
     # @param [Hash] options
     #   Options used to construct an instance of {Config}
@@ -123,9 +127,7 @@ module AWS::SDK::S3
     #   })
     #
     #   # resp.to_h outputs the following:
-    #   {
-    #
-    #   }
+    #   {}
     def abort_multipart_upload(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
@@ -2310,9 +2312,7 @@ module AWS::SDK::S3
     #   })
     #
     #   # resp.to_h outputs the following:
-    #   {
-    #
-    #   }
+    #   {}
     def delete_object(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
@@ -2895,14 +2895,14 @@ module AWS::SDK::S3
     #   resp.data #=> Types::GetBucketAnalyticsConfigurationOutput
     #   resp.data.analytics_configuration #=> Types::AnalyticsConfiguration
     #   resp.data.analytics_configuration.id #=> String
-    #   resp.data.analytics_configuration.filter #=> Types::AnalyticsFilter, one of [Prefix, Tag, And]
-    #   resp.data.analytics_configuration.filter.prefix #=> String
-    #   resp.data.analytics_configuration.filter.tag #=> Types::Tag
-    #   resp.data.analytics_configuration.filter.tag.key #=> String
-    #   resp.data.analytics_configuration.filter.tag.value #=> String
-    #   resp.data.analytics_configuration.filter.and #=> Types::AnalyticsAndOperator
-    #   resp.data.analytics_configuration.filter.and.prefix #=> String
-    #   resp.data.analytics_configuration.filter.and.tags #=> Array<Tag>
+    #   resp.data.analytics_configuration.member_filter #=> Types::AnalyticsFilter, one of [Prefix, Tag, And]
+    #   resp.data.analytics_configuration.member_filter.prefix #=> String
+    #   resp.data.analytics_configuration.member_filter.tag #=> Types::Tag
+    #   resp.data.analytics_configuration.member_filter.tag.key #=> String
+    #   resp.data.analytics_configuration.member_filter.tag.value #=> String
+    #   resp.data.analytics_configuration.member_filter.and #=> Types::AnalyticsAndOperator
+    #   resp.data.analytics_configuration.member_filter.and.prefix #=> String
+    #   resp.data.analytics_configuration.member_filter.and.tags #=> Array<Tag>
     #   resp.data.analytics_configuration.storage_class_analysis #=> Types::StorageClassAnalysis
     #   resp.data.analytics_configuration.storage_class_analysis.data_export #=> Types::StorageClassAnalysisDataExport
     #   resp.data.analytics_configuration.storage_class_analysis.data_export.output_schema_version #=> String, one of ["V_1"]
@@ -3139,14 +3139,14 @@ module AWS::SDK::S3
     #   resp.data #=> Types::GetBucketIntelligentTieringConfigurationOutput
     #   resp.data.intelligent_tiering_configuration #=> Types::IntelligentTieringConfiguration
     #   resp.data.intelligent_tiering_configuration.id #=> String
-    #   resp.data.intelligent_tiering_configuration.filter #=> Types::IntelligentTieringFilter
-    #   resp.data.intelligent_tiering_configuration.filter.prefix #=> String
-    #   resp.data.intelligent_tiering_configuration.filter.tag #=> Types::Tag
-    #   resp.data.intelligent_tiering_configuration.filter.tag.key #=> String
-    #   resp.data.intelligent_tiering_configuration.filter.tag.value #=> String
-    #   resp.data.intelligent_tiering_configuration.filter.and #=> Types::IntelligentTieringAndOperator
-    #   resp.data.intelligent_tiering_configuration.filter.and.prefix #=> String
-    #   resp.data.intelligent_tiering_configuration.filter.and.tags #=> Array<Tag>
+    #   resp.data.intelligent_tiering_configuration.member_filter #=> Types::IntelligentTieringFilter
+    #   resp.data.intelligent_tiering_configuration.member_filter.prefix #=> String
+    #   resp.data.intelligent_tiering_configuration.member_filter.tag #=> Types::Tag
+    #   resp.data.intelligent_tiering_configuration.member_filter.tag.key #=> String
+    #   resp.data.intelligent_tiering_configuration.member_filter.tag.value #=> String
+    #   resp.data.intelligent_tiering_configuration.member_filter.and #=> Types::IntelligentTieringAndOperator
+    #   resp.data.intelligent_tiering_configuration.member_filter.and.prefix #=> String
+    #   resp.data.intelligent_tiering_configuration.member_filter.and.tags #=> Array<Tag>
     #   resp.data.intelligent_tiering_configuration.status #=> String, one of ["Enabled", "Disabled"]
     #   resp.data.intelligent_tiering_configuration.tierings #=> Array<Tiering>
     #   resp.data.intelligent_tiering_configuration.tierings[0] #=> Types::Tiering
@@ -3230,8 +3230,8 @@ module AWS::SDK::S3
     #   resp.data.inventory_configuration.destination.s3_bucket_destination.encryption.ssekms #=> Types::SSEKMS
     #   resp.data.inventory_configuration.destination.s3_bucket_destination.encryption.ssekms.key_id #=> String
     #   resp.data.inventory_configuration.is_enabled #=> Boolean
-    #   resp.data.inventory_configuration.filter #=> Types::InventoryFilter
-    #   resp.data.inventory_configuration.filter.prefix #=> String
+    #   resp.data.inventory_configuration.member_filter #=> Types::InventoryFilter
+    #   resp.data.inventory_configuration.member_filter.prefix #=> String
     #   resp.data.inventory_configuration.id #=> String
     #   resp.data.inventory_configuration.included_object_versions #=> String, one of ["All", "Current"]
     #   resp.data.inventory_configuration.optional_fields #=> Array<String>
@@ -3338,18 +3338,18 @@ module AWS::SDK::S3
     #   resp.data.rules[0].expiration.expired_object_delete_marker #=> Boolean
     #   resp.data.rules[0].id #=> String
     #   resp.data.rules[0].prefix #=> String
-    #   resp.data.rules[0].filter #=> Types::LifecycleRuleFilter, one of [Prefix, Tag, ObjectSizeGreaterThan, ObjectSizeLessThan, And]
-    #   resp.data.rules[0].filter.prefix #=> String
-    #   resp.data.rules[0].filter.tag #=> Types::Tag
-    #   resp.data.rules[0].filter.tag.key #=> String
-    #   resp.data.rules[0].filter.tag.value #=> String
-    #   resp.data.rules[0].filter.object_size_greater_than #=> Integer
-    #   resp.data.rules[0].filter.object_size_less_than #=> Integer
-    #   resp.data.rules[0].filter.and #=> Types::LifecycleRuleAndOperator
-    #   resp.data.rules[0].filter.and.prefix #=> String
-    #   resp.data.rules[0].filter.and.tags #=> Array<Tag>
-    #   resp.data.rules[0].filter.and.object_size_greater_than #=> Integer
-    #   resp.data.rules[0].filter.and.object_size_less_than #=> Integer
+    #   resp.data.rules[0].member_filter #=> Types::LifecycleRuleFilter, one of [Prefix, Tag, ObjectSizeGreaterThan, ObjectSizeLessThan, And]
+    #   resp.data.rules[0].member_filter.prefix #=> String
+    #   resp.data.rules[0].member_filter.tag #=> Types::Tag
+    #   resp.data.rules[0].member_filter.tag.key #=> String
+    #   resp.data.rules[0].member_filter.tag.value #=> String
+    #   resp.data.rules[0].member_filter.object_size_greater_than #=> Integer
+    #   resp.data.rules[0].member_filter.object_size_less_than #=> Integer
+    #   resp.data.rules[0].member_filter.and #=> Types::LifecycleRuleAndOperator
+    #   resp.data.rules[0].member_filter.and.prefix #=> String
+    #   resp.data.rules[0].member_filter.and.tags #=> Array<Tag>
+    #   resp.data.rules[0].member_filter.and.object_size_greater_than #=> Integer
+    #   resp.data.rules[0].member_filter.and.object_size_less_than #=> Integer
     #   resp.data.rules[0].status #=> String, one of ["Enabled", "Disabled"]
     #   resp.data.rules[0].transitions #=> Array<Transition>
     #   resp.data.rules[0].transitions[0] #=> Types::Transition
@@ -3606,16 +3606,16 @@ module AWS::SDK::S3
     #   resp.data #=> Types::GetBucketMetricsConfigurationOutput
     #   resp.data.metrics_configuration #=> Types::MetricsConfiguration
     #   resp.data.metrics_configuration.id #=> String
-    #   resp.data.metrics_configuration.filter #=> Types::MetricsFilter, one of [Prefix, Tag, AccessPointArn, And]
-    #   resp.data.metrics_configuration.filter.prefix #=> String
-    #   resp.data.metrics_configuration.filter.tag #=> Types::Tag
-    #   resp.data.metrics_configuration.filter.tag.key #=> String
-    #   resp.data.metrics_configuration.filter.tag.value #=> String
-    #   resp.data.metrics_configuration.filter.access_point_arn #=> String
-    #   resp.data.metrics_configuration.filter.and #=> Types::MetricsAndOperator
-    #   resp.data.metrics_configuration.filter.and.prefix #=> String
-    #   resp.data.metrics_configuration.filter.and.tags #=> Array<Tag>
-    #   resp.data.metrics_configuration.filter.and.access_point_arn #=> String
+    #   resp.data.metrics_configuration.member_filter #=> Types::MetricsFilter, one of [Prefix, Tag, AccessPointArn, And]
+    #   resp.data.metrics_configuration.member_filter.prefix #=> String
+    #   resp.data.metrics_configuration.member_filter.tag #=> Types::Tag
+    #   resp.data.metrics_configuration.member_filter.tag.key #=> String
+    #   resp.data.metrics_configuration.member_filter.tag.value #=> String
+    #   resp.data.metrics_configuration.member_filter.access_point_arn #=> String
+    #   resp.data.metrics_configuration.member_filter.and #=> Types::MetricsAndOperator
+    #   resp.data.metrics_configuration.member_filter.and.prefix #=> String
+    #   resp.data.metrics_configuration.member_filter.and.tags #=> Array<Tag>
+    #   resp.data.metrics_configuration.member_filter.and.access_point_arn #=> String
     def get_bucket_metrics_configuration(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
@@ -3683,24 +3683,24 @@ module AWS::SDK::S3
     #   resp.data.topic_configurations[0].topic_arn #=> String
     #   resp.data.topic_configurations[0].events #=> Array<String>
     #   resp.data.topic_configurations[0].events[0] #=> String, one of ["s3:ReducedRedundancyLostObject", "s3:ObjectCreated:*", "s3:ObjectCreated:Put", "s3:ObjectCreated:Post", "s3:ObjectCreated:Copy", "s3:ObjectCreated:CompleteMultipartUpload", "s3:ObjectRemoved:*", "s3:ObjectRemoved:Delete", "s3:ObjectRemoved:DeleteMarkerCreated", "s3:ObjectRestore:*", "s3:ObjectRestore:Post", "s3:ObjectRestore:Completed", "s3:Replication:*", "s3:Replication:OperationFailedReplication", "s3:Replication:OperationNotTracked", "s3:Replication:OperationMissedThreshold", "s3:Replication:OperationReplicatedAfterThreshold", "s3:ObjectRestore:Delete", "s3:LifecycleTransition", "s3:IntelligentTiering", "s3:ObjectAcl:Put", "s3:LifecycleExpiration:*", "s3:LifecycleExpiration:Delete", "s3:LifecycleExpiration:DeleteMarkerCreated", "s3:ObjectTagging:*", "s3:ObjectTagging:Put", "s3:ObjectTagging:Delete"]
-    #   resp.data.topic_configurations[0].filter #=> Types::NotificationConfigurationFilter
-    #   resp.data.topic_configurations[0].filter.key #=> Types::S3KeyFilter
-    #   resp.data.topic_configurations[0].filter.key.filter_rules #=> Array<FilterRule>
-    #   resp.data.topic_configurations[0].filter.key.filter_rules[0] #=> Types::FilterRule
-    #   resp.data.topic_configurations[0].filter.key.filter_rules[0].name #=> String, one of ["prefix", "suffix"]
-    #   resp.data.topic_configurations[0].filter.key.filter_rules[0].value #=> String
+    #   resp.data.topic_configurations[0].member_filter #=> Types::NotificationConfigurationFilter
+    #   resp.data.topic_configurations[0].member_filter.key #=> Types::S3KeyFilter
+    #   resp.data.topic_configurations[0].member_filter.key.filter_rules #=> Array<FilterRule>
+    #   resp.data.topic_configurations[0].member_filter.key.filter_rules[0] #=> Types::FilterRule
+    #   resp.data.topic_configurations[0].member_filter.key.filter_rules[0].name #=> String, one of ["prefix", "suffix"]
+    #   resp.data.topic_configurations[0].member_filter.key.filter_rules[0].value #=> String
     #   resp.data.queue_configurations #=> Array<QueueConfiguration>
     #   resp.data.queue_configurations[0] #=> Types::QueueConfiguration
     #   resp.data.queue_configurations[0].id #=> String
     #   resp.data.queue_configurations[0].queue_arn #=> String
     #   resp.data.queue_configurations[0].events #=> Array<String>
-    #   resp.data.queue_configurations[0].filter #=> Types::NotificationConfigurationFilter
+    #   resp.data.queue_configurations[0].member_filter #=> Types::NotificationConfigurationFilter
     #   resp.data.lambda_function_configurations #=> Array<LambdaFunctionConfiguration>
     #   resp.data.lambda_function_configurations[0] #=> Types::LambdaFunctionConfiguration
     #   resp.data.lambda_function_configurations[0].id #=> String
     #   resp.data.lambda_function_configurations[0].lambda_function_arn #=> String
     #   resp.data.lambda_function_configurations[0].events #=> Array<String>
-    #   resp.data.lambda_function_configurations[0].filter #=> Types::NotificationConfigurationFilter
+    #   resp.data.lambda_function_configurations[0].member_filter #=> Types::NotificationConfigurationFilter
     #   resp.data.event_bridge_configuration #=> Types::EventBridgeConfiguration
     def get_bucket_notification_configuration(params = {}, options = {})
       response_body = ::StringIO.new
@@ -4015,14 +4015,14 @@ module AWS::SDK::S3
     #   resp.data.replication_configuration.rules[0].id #=> String
     #   resp.data.replication_configuration.rules[0].priority #=> Integer
     #   resp.data.replication_configuration.rules[0].prefix #=> String
-    #   resp.data.replication_configuration.rules[0].filter #=> Types::ReplicationRuleFilter, one of [Prefix, Tag, And]
-    #   resp.data.replication_configuration.rules[0].filter.prefix #=> String
-    #   resp.data.replication_configuration.rules[0].filter.tag #=> Types::Tag
-    #   resp.data.replication_configuration.rules[0].filter.tag.key #=> String
-    #   resp.data.replication_configuration.rules[0].filter.tag.value #=> String
-    #   resp.data.replication_configuration.rules[0].filter.and #=> Types::ReplicationRuleAndOperator
-    #   resp.data.replication_configuration.rules[0].filter.and.prefix #=> String
-    #   resp.data.replication_configuration.rules[0].filter.and.tags #=> Array<Tag>
+    #   resp.data.replication_configuration.rules[0].member_filter #=> Types::ReplicationRuleFilter, one of [Prefix, Tag, And]
+    #   resp.data.replication_configuration.rules[0].member_filter.prefix #=> String
+    #   resp.data.replication_configuration.rules[0].member_filter.tag #=> Types::Tag
+    #   resp.data.replication_configuration.rules[0].member_filter.tag.key #=> String
+    #   resp.data.replication_configuration.rules[0].member_filter.tag.value #=> String
+    #   resp.data.replication_configuration.rules[0].member_filter.and #=> Types::ReplicationRuleAndOperator
+    #   resp.data.replication_configuration.rules[0].member_filter.and.prefix #=> String
+    #   resp.data.replication_configuration.rules[0].member_filter.and.tags #=> Array<Tag>
     #   resp.data.replication_configuration.rules[0].status #=> String, one of ["Enabled", "Disabled"]
     #   resp.data.replication_configuration.rules[0].source_selection_criteria #=> Types::SourceSelectionCriteria
     #   resp.data.replication_configuration.rules[0].source_selection_criteria.sse_kms_encrypted_objects #=> Types::SseKmsEncryptedObjects
@@ -5020,7 +5020,7 @@ module AWS::SDK::S3
     #   resp.data.object_parts.parts #=> Array<ObjectPart>
     #   resp.data.object_parts.parts[0] #=> Types::ObjectPart
     #   resp.data.object_parts.parts[0].part_number #=> Integer
-    #   resp.data.object_parts.parts[0].size #=> Integer
+    #   resp.data.object_parts.parts[0].member_size #=> Integer
     #   resp.data.object_parts.parts[0].checksum_crc32 #=> String
     #   resp.data.object_parts.parts[0].checksum_crc32_c #=> String
     #   resp.data.object_parts.parts[0].checksum_sha1 #=> String
@@ -5373,9 +5373,7 @@ module AWS::SDK::S3
     #   })
     #
     #   # resp.to_h outputs the following:
-    #   {
-    #
-    #   }
+    #   {}
     def get_object_torrent(params = {}, options = {}, &block)
       response_body = output_stream(options, &block)
       config = operation_config(options)
@@ -5852,14 +5850,14 @@ module AWS::SDK::S3
     #   resp.data.analytics_configuration_list #=> Array<AnalyticsConfiguration>
     #   resp.data.analytics_configuration_list[0] #=> Types::AnalyticsConfiguration
     #   resp.data.analytics_configuration_list[0].id #=> String
-    #   resp.data.analytics_configuration_list[0].filter #=> Types::AnalyticsFilter, one of [Prefix, Tag, And]
-    #   resp.data.analytics_configuration_list[0].filter.prefix #=> String
-    #   resp.data.analytics_configuration_list[0].filter.tag #=> Types::Tag
-    #   resp.data.analytics_configuration_list[0].filter.tag.key #=> String
-    #   resp.data.analytics_configuration_list[0].filter.tag.value #=> String
-    #   resp.data.analytics_configuration_list[0].filter.and #=> Types::AnalyticsAndOperator
-    #   resp.data.analytics_configuration_list[0].filter.and.prefix #=> String
-    #   resp.data.analytics_configuration_list[0].filter.and.tags #=> Array<Tag>
+    #   resp.data.analytics_configuration_list[0].member_filter #=> Types::AnalyticsFilter, one of [Prefix, Tag, And]
+    #   resp.data.analytics_configuration_list[0].member_filter.prefix #=> String
+    #   resp.data.analytics_configuration_list[0].member_filter.tag #=> Types::Tag
+    #   resp.data.analytics_configuration_list[0].member_filter.tag.key #=> String
+    #   resp.data.analytics_configuration_list[0].member_filter.tag.value #=> String
+    #   resp.data.analytics_configuration_list[0].member_filter.and #=> Types::AnalyticsAndOperator
+    #   resp.data.analytics_configuration_list[0].member_filter.and.prefix #=> String
+    #   resp.data.analytics_configuration_list[0].member_filter.and.tags #=> Array<Tag>
     #   resp.data.analytics_configuration_list[0].storage_class_analysis #=> Types::StorageClassAnalysis
     #   resp.data.analytics_configuration_list[0].storage_class_analysis.data_export #=> Types::StorageClassAnalysisDataExport
     #   resp.data.analytics_configuration_list[0].storage_class_analysis.data_export.output_schema_version #=> String, one of ["V_1"]
@@ -5935,14 +5933,14 @@ module AWS::SDK::S3
     #   resp.data.intelligent_tiering_configuration_list #=> Array<IntelligentTieringConfiguration>
     #   resp.data.intelligent_tiering_configuration_list[0] #=> Types::IntelligentTieringConfiguration
     #   resp.data.intelligent_tiering_configuration_list[0].id #=> String
-    #   resp.data.intelligent_tiering_configuration_list[0].filter #=> Types::IntelligentTieringFilter
-    #   resp.data.intelligent_tiering_configuration_list[0].filter.prefix #=> String
-    #   resp.data.intelligent_tiering_configuration_list[0].filter.tag #=> Types::Tag
-    #   resp.data.intelligent_tiering_configuration_list[0].filter.tag.key #=> String
-    #   resp.data.intelligent_tiering_configuration_list[0].filter.tag.value #=> String
-    #   resp.data.intelligent_tiering_configuration_list[0].filter.and #=> Types::IntelligentTieringAndOperator
-    #   resp.data.intelligent_tiering_configuration_list[0].filter.and.prefix #=> String
-    #   resp.data.intelligent_tiering_configuration_list[0].filter.and.tags #=> Array<Tag>
+    #   resp.data.intelligent_tiering_configuration_list[0].member_filter #=> Types::IntelligentTieringFilter
+    #   resp.data.intelligent_tiering_configuration_list[0].member_filter.prefix #=> String
+    #   resp.data.intelligent_tiering_configuration_list[0].member_filter.tag #=> Types::Tag
+    #   resp.data.intelligent_tiering_configuration_list[0].member_filter.tag.key #=> String
+    #   resp.data.intelligent_tiering_configuration_list[0].member_filter.tag.value #=> String
+    #   resp.data.intelligent_tiering_configuration_list[0].member_filter.and #=> Types::IntelligentTieringAndOperator
+    #   resp.data.intelligent_tiering_configuration_list[0].member_filter.and.prefix #=> String
+    #   resp.data.intelligent_tiering_configuration_list[0].member_filter.and.tags #=> Array<Tag>
     #   resp.data.intelligent_tiering_configuration_list[0].status #=> String, one of ["Enabled", "Disabled"]
     #   resp.data.intelligent_tiering_configuration_list[0].tierings #=> Array<Tiering>
     #   resp.data.intelligent_tiering_configuration_list[0].tierings[0] #=> Types::Tiering
@@ -6036,8 +6034,8 @@ module AWS::SDK::S3
     #   resp.data.inventory_configuration_list[0].destination.s3_bucket_destination.encryption.ssekms #=> Types::SSEKMS
     #   resp.data.inventory_configuration_list[0].destination.s3_bucket_destination.encryption.ssekms.key_id #=> String
     #   resp.data.inventory_configuration_list[0].is_enabled #=> Boolean
-    #   resp.data.inventory_configuration_list[0].filter #=> Types::InventoryFilter
-    #   resp.data.inventory_configuration_list[0].filter.prefix #=> String
+    #   resp.data.inventory_configuration_list[0].member_filter #=> Types::InventoryFilter
+    #   resp.data.inventory_configuration_list[0].member_filter.prefix #=> String
     #   resp.data.inventory_configuration_list[0].id #=> String
     #   resp.data.inventory_configuration_list[0].included_object_versions #=> String, one of ["All", "Current"]
     #   resp.data.inventory_configuration_list[0].optional_fields #=> Array<String>
@@ -6127,16 +6125,16 @@ module AWS::SDK::S3
     #   resp.data.metrics_configuration_list #=> Array<MetricsConfiguration>
     #   resp.data.metrics_configuration_list[0] #=> Types::MetricsConfiguration
     #   resp.data.metrics_configuration_list[0].id #=> String
-    #   resp.data.metrics_configuration_list[0].filter #=> Types::MetricsFilter, one of [Prefix, Tag, AccessPointArn, And]
-    #   resp.data.metrics_configuration_list[0].filter.prefix #=> String
-    #   resp.data.metrics_configuration_list[0].filter.tag #=> Types::Tag
-    #   resp.data.metrics_configuration_list[0].filter.tag.key #=> String
-    #   resp.data.metrics_configuration_list[0].filter.tag.value #=> String
-    #   resp.data.metrics_configuration_list[0].filter.access_point_arn #=> String
-    #   resp.data.metrics_configuration_list[0].filter.and #=> Types::MetricsAndOperator
-    #   resp.data.metrics_configuration_list[0].filter.and.prefix #=> String
-    #   resp.data.metrics_configuration_list[0].filter.and.tags #=> Array<Tag>
-    #   resp.data.metrics_configuration_list[0].filter.and.access_point_arn #=> String
+    #   resp.data.metrics_configuration_list[0].member_filter #=> Types::MetricsFilter, one of [Prefix, Tag, AccessPointArn, And]
+    #   resp.data.metrics_configuration_list[0].member_filter.prefix #=> String
+    #   resp.data.metrics_configuration_list[0].member_filter.tag #=> Types::Tag
+    #   resp.data.metrics_configuration_list[0].member_filter.tag.key #=> String
+    #   resp.data.metrics_configuration_list[0].member_filter.tag.value #=> String
+    #   resp.data.metrics_configuration_list[0].member_filter.access_point_arn #=> String
+    #   resp.data.metrics_configuration_list[0].member_filter.and #=> Types::MetricsAndOperator
+    #   resp.data.metrics_configuration_list[0].member_filter.and.prefix #=> String
+    #   resp.data.metrics_configuration_list[0].member_filter.and.tags #=> Array<Tag>
+    #   resp.data.metrics_configuration_list[0].member_filter.and.access_point_arn #=> String
     def list_bucket_metrics_configurations(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
@@ -6582,7 +6580,7 @@ module AWS::SDK::S3
     #   resp.data.versions[0].e_tag #=> String
     #   resp.data.versions[0].checksum_algorithm #=> Array<String>
     #   resp.data.versions[0].checksum_algorithm[0] #=> String, one of ["CRC32", "CRC32C", "SHA1", "SHA256"]
-    #   resp.data.versions[0].size #=> Integer
+    #   resp.data.versions[0].member_size #=> Integer
     #   resp.data.versions[0].storage_class #=> String, one of ["STANDARD"]
     #   resp.data.versions[0].key #=> String
     #   resp.data.versions[0].version_id #=> String
@@ -6631,7 +6629,7 @@ module AWS::SDK::S3
     #           id: "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
     #         },
     #         is_latest: true,
-    #         size: 3191
+    #         member_size: 3191
     #       },
     #       {
     #         last_modified: Time.parse('2016-12-13T00:58:26.000Z'),
@@ -6644,7 +6642,7 @@ module AWS::SDK::S3
     #           id: "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
     #         },
     #         is_latest: false,
-    #         size: 3191
+    #         member_size: 3191
     #       }
     #     ]
     #   }
@@ -6741,7 +6739,7 @@ module AWS::SDK::S3
     #   resp.data.contents[0].e_tag #=> String
     #   resp.data.contents[0].checksum_algorithm #=> Array<String>
     #   resp.data.contents[0].checksum_algorithm[0] #=> String, one of ["CRC32", "CRC32C", "SHA1", "SHA256"]
-    #   resp.data.contents[0].size #=> Integer
+    #   resp.data.contents[0].member_size #=> Integer
     #   resp.data.contents[0].storage_class #=> String, one of ["STANDARD", "REDUCED_REDUNDANCY", "GLACIER", "STANDARD_IA", "ONEZONE_IA", "INTELLIGENT_TIERING", "DEEP_ARCHIVE", "OUTPOSTS", "GLACIER_IR", "SNOW", "EXPRESS_ONEZONE"]
     #   resp.data.contents[0].owner #=> Types::Owner
     #   resp.data.contents[0].owner.display_name #=> String
@@ -6891,7 +6889,7 @@ module AWS::SDK::S3
     #   resp.data.contents[0].e_tag #=> String
     #   resp.data.contents[0].checksum_algorithm #=> Array<String>
     #   resp.data.contents[0].checksum_algorithm[0] #=> String, one of ["CRC32", "CRC32C", "SHA1", "SHA256"]
-    #   resp.data.contents[0].size #=> Integer
+    #   resp.data.contents[0].member_size #=> Integer
     #   resp.data.contents[0].storage_class #=> String, one of ["STANDARD", "REDUCED_REDUNDANCY", "GLACIER", "STANDARD_IA", "ONEZONE_IA", "INTELLIGENT_TIERING", "DEEP_ARCHIVE", "OUTPOSTS", "GLACIER_IR", "SNOW", "EXPRESS_ONEZONE"]
     #   resp.data.contents[0].owner #=> Types::Owner
     #   resp.data.contents[0].owner.display_name #=> String
@@ -7051,7 +7049,7 @@ module AWS::SDK::S3
     #   resp.data.parts[0].part_number #=> Integer
     #   resp.data.parts[0].last_modified #=> Time
     #   resp.data.parts[0].e_tag #=> String
-    #   resp.data.parts[0].size #=> Integer
+    #   resp.data.parts[0].member_size #=> Integer
     #   resp.data.parts[0].checksum_crc32 #=> String
     #   resp.data.parts[0].checksum_crc32_c #=> String
     #   resp.data.parts[0].checksum_sha1 #=> String
@@ -7558,7 +7556,7 @@ module AWS::SDK::S3
     #     id: 'Id', # required
     #     analytics_configuration: {
     #       id: 'Id', # required
-    #       filter: {
+    #       member_filter: {
     #         # One of:
     #         prefix: 'Prefix',
     #         tag: {
@@ -7917,7 +7915,7 @@ module AWS::SDK::S3
     #     id: 'Id', # required
     #     intelligent_tiering_configuration: {
     #       id: 'Id', # required
-    #       filter: {
+    #       member_filter: {
     #         prefix: 'Prefix',
     #         tag: {
     #           key: 'Key', # required
@@ -8073,7 +8071,7 @@ module AWS::SDK::S3
     #         } # required
     #       }, # required
     #       is_enabled: false, # required
-    #       filter: {
+    #       member_filter: {
     #         prefix: 'Prefix' # required
     #       },
     #       id: 'Id', # required
@@ -8228,7 +8226,7 @@ module AWS::SDK::S3
     #           },
     #           id: 'ID',
     #           prefix: 'Prefix',
-    #           filter: {
+    #           member_filter: {
     #             # One of:
     #             prefix: 'Prefix',
     #             tag: {
@@ -8279,7 +8277,7 @@ module AWS::SDK::S3
     #     lifecycle_configuration: {
     #       rules: [
     #         {
-    #           filter: {
+    #           member_filter: {
     #             prefix: "documents/"
     #           },
     #           status: "Enabled",
@@ -8556,7 +8554,7 @@ module AWS::SDK::S3
     #     id: 'Id', # required
     #     metrics_configuration: {
     #       id: 'Id', # required
-    #       filter: {
+    #       member_filter: {
     #         # One of:
     #         prefix: 'Prefix',
     #         tag: {
@@ -8668,7 +8666,7 @@ module AWS::SDK::S3
     #           events: [
     #             's3:ReducedRedundancyLostObject' # accepts ["s3:ReducedRedundancyLostObject", "s3:ObjectCreated:*", "s3:ObjectCreated:Put", "s3:ObjectCreated:Post", "s3:ObjectCreated:Copy", "s3:ObjectCreated:CompleteMultipartUpload", "s3:ObjectRemoved:*", "s3:ObjectRemoved:Delete", "s3:ObjectRemoved:DeleteMarkerCreated", "s3:ObjectRestore:*", "s3:ObjectRestore:Post", "s3:ObjectRestore:Completed", "s3:Replication:*", "s3:Replication:OperationFailedReplication", "s3:Replication:OperationNotTracked", "s3:Replication:OperationMissedThreshold", "s3:Replication:OperationReplicatedAfterThreshold", "s3:ObjectRestore:Delete", "s3:LifecycleTransition", "s3:IntelligentTiering", "s3:ObjectAcl:Put", "s3:LifecycleExpiration:*", "s3:LifecycleExpiration:Delete", "s3:LifecycleExpiration:DeleteMarkerCreated", "s3:ObjectTagging:*", "s3:ObjectTagging:Put", "s3:ObjectTagging:Delete"]
     #           ], # required
-    #           filter: {
+    #           member_filter: {
     #             key: {
     #               filter_rules: [
     #                 {
@@ -9011,7 +9009,7 @@ module AWS::SDK::S3
     #           id: 'ID',
     #           priority: 1,
     #           prefix: 'Prefix',
-    #           filter: {
+    #           member_filter: {
     #             # One of:
     #             prefix: 'Prefix',
     #             tag: {
@@ -10163,9 +10161,7 @@ module AWS::SDK::S3
     # @example To grant permissions using object ACL
     #   # The following example adds grants to an object ACL. The first permission grants user1 and user2 FULL_CONTROL and the AllUsers group READ permission.
     #   resp = client.put_object_acl({
-    #     access_control_policy: {
-    #
-    #     },
+    #     access_control_policy: {},
     #     bucket: "examplebucket",
     #     grant_full_control: "emailaddress=user1@example.com,emailaddress=user2@example.com",
     #     grant_read: "uri=http://acs.amazonaws.com/groups/global/AllUsers",
@@ -10173,9 +10169,7 @@ module AWS::SDK::S3
     #   })
     #
     #   # resp.to_h outputs the following:
-    #   {
-    #
-    #   }
+    #   {}
     def put_object_acl(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
@@ -10966,9 +10960,7 @@ module AWS::SDK::S3
     #   })
     #
     #   # resp.to_h outputs the following:
-    #   {
-    #
-    #   }
+    #   {}
     def restore_object(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
@@ -11567,6 +11559,222 @@ module AWS::SDK::S3
         raise output.error
       end
       context.config.logger.info("[#{context.invocation_id}] [#{self.class}#write_get_object_response] #{output.data}")
+      output
+    end
+
+    # <note>
+    #             <p>This operation is not supported by directory buckets.</p>
+    #          </note>
+    #          <p>This action filters the contents of an Amazon S3 object based on a simple structured query
+    #          language (SQL) statement. In the request, along with the SQL expression, you must also
+    #          specify a data serialization format (JSON, CSV, or Apache Parquet) of the object. Amazon S3 uses
+    #          this format to parse object data into records, and returns only records that match the
+    #          specified SQL expression. You must also specify the data serialization format for the
+    #          response.</p>
+    #          <p>This functionality is not supported for Amazon S3 on Outposts.</p>
+    #          <p>For more information about Amazon S3 Select, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/selecting-content-from-objects.html">Selecting Content from
+    #             Objects</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-glacier-select-sql-reference-select.html">SELECT
+    #             Command</a> in the <i>Amazon S3 User Guide</i>.</p>
+    #          <p></p>
+    #          <dl>
+    #             <dt>Permissions</dt>
+    #             <dd>
+    #                <p>You must have the <code>s3:GetObject</code> permission for this operation. Amazon S3
+    #                   Select does not support anonymous access. For more information about permissions,
+    #                   see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying Permissions in
+    #                      a Policy</a> in the <i>Amazon S3 User Guide</i>.</p>
+    #             </dd>
+    #             <dt>Object Data Formats</dt>
+    #             <dd>
+    #                <p>You can use Amazon S3 Select to query objects that have the following format
+    #                   properties:</p>
+    #                <ul>
+    #                   <li>
+    #                      <p>
+    #                         <i>CSV, JSON, and Parquet</i> - Objects must be in CSV,
+    #                         JSON, or Parquet format.</p>
+    #                   </li>
+    #                   <li>
+    #                      <p>
+    #                         <i>UTF-8</i> - UTF-8 is the only encoding type Amazon S3 Select
+    #                         supports.</p>
+    #                   </li>
+    #                   <li>
+    #                      <p>
+    #                         <i>GZIP or BZIP2</i> - CSV and JSON files can be compressed
+    #                         using GZIP or BZIP2. GZIP and BZIP2 are the only compression formats that
+    #                         Amazon S3 Select supports for CSV and JSON files. Amazon S3 Select supports columnar
+    #                         compression for Parquet using GZIP or Snappy. Amazon S3 Select does not support
+    #                         whole-object compression for Parquet objects.</p>
+    #                   </li>
+    #                   <li>
+    #                      <p>
+    #                         <i>Server-side encryption</i> - Amazon S3 Select supports
+    #                         querying objects that are protected with server-side encryption.</p>
+    #                      <p>For objects that are encrypted with customer-provided encryption keys
+    #                         (SSE-C), you must use HTTPS, and you must use the headers that are
+    #                         documented in the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a>. For more
+    #                         information about SSE-C, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side Encryption (Using Customer-Provided Encryption Keys)</a>
+    #                         in the <i>Amazon S3 User Guide</i>.</p>
+    #                      <p>For objects that are encrypted with Amazon S3 managed keys (SSE-S3) and
+    #                         Amazon Web Services KMS keys (SSE-KMS), server-side encryption is handled transparently,
+    #                         so you don't need to specify anything. For more information about
+    #                         server-side encryption, including SSE-S3 and SSE-KMS, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html">Protecting Data Using Server-Side Encryption</a> in the
+    #                            <i>Amazon S3 User Guide</i>.</p>
+    #                   </li>
+    #                </ul>
+    #             </dd>
+    #             <dt>Working with the Response Body</dt>
+    #             <dd>
+    #                <p>Given the response size is unknown, Amazon S3 Select streams the response as a
+    #                   series of messages and includes a <code>Transfer-Encoding</code> header with
+    #                      <code>chunked</code> as its value in the response. For more information, see
+    #                      <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTSelectObjectAppendix.html">Appendix:
+    #                      SelectObjectContent
+    #                   Response</a>.</p>
+    #             </dd>
+    #             <dt>GetObject Support</dt>
+    #             <dd>
+    #                <p>The <code>SelectObjectContent</code> action does not support the following
+    #                      <code>GetObject</code> functionality. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a>.</p>
+    #                <ul>
+    #                   <li>
+    #                      <p>
+    #                         <code>Range</code>: Although you can specify a scan range for an Amazon S3 Select
+    #                         request (see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_SelectObjectContent.html#AmazonS3-SelectObjectContent-request-ScanRange">SelectObjectContentRequest - ScanRange</a> in the request
+    #                         parameters), you cannot specify the range of bytes of an object to return.
+    #                      </p>
+    #                   </li>
+    #                   <li>
+    #                      <p>The <code>GLACIER</code>, <code>DEEP_ARCHIVE</code>, and
+    #                            <code>REDUCED_REDUNDANCY</code> storage classes, or the
+    #                            <code>ARCHIVE_ACCESS</code> and <code>DEEP_ARCHIVE_ACCESS</code> access
+    #                         tiers of the <code>INTELLIGENT_TIERING</code> storage class: You cannot
+    #                         query objects in the <code>GLACIER</code>, <code>DEEP_ARCHIVE</code>, or
+    #                            <code>REDUCED_REDUNDANCY</code> storage classes, nor objects in the
+    #                            <code>ARCHIVE_ACCESS</code> or <code>DEEP_ARCHIVE_ACCESS</code> access
+    #                         tiers of the <code>INTELLIGENT_TIERING</code> storage class. For more
+    #                         information about storage classes, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html">Using Amazon S3
+    #                            storage classes</a> in the
+    #                         <i>Amazon S3 User Guide</i>.</p>
+    #                   </li>
+    #                </ul>
+    #             </dd>
+    #             <dt>Special Errors</dt>
+    #             <dd>
+    #                <p>For a list of special errors for this operation, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#SelectObjectContentErrorCodeList">List of SELECT Object Content Error Codes</a>
+    #                </p>
+    #             </dd>
+    #          </dl>
+    #          <p>The following operations are related to <code>SelectObjectContent</code>:</p>
+    #          <ul>
+    #             <li>
+    #                <p>
+    #                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a>
+    #                </p>
+    #             </li>
+    #             <li>
+    #                <p>
+    #                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycleConfiguration.html">GetBucketLifecycleConfiguration</a>
+    #                </p>
+    #             </li>
+    #             <li>
+    #                <p>
+    #                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html">PutBucketLifecycleConfiguration</a>
+    #                </p>
+    #             </li>
+    #          </ul>
+    # @param [Hash | Types::SelectObjectContentInput] params
+    #   Request parameters for this operation.
+    #   See {Types::SelectObjectContentInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
+    # @return [Hearth::Output]
+    # @example Request syntax with placeholder values
+    #   resp = client.select_object_content(
+    #     bucket: 'Bucket', # required
+    #     key: 'Key', # required
+    #     sse_customer_algorithm: 'SSECustomerAlgorithm',
+    #     sse_customer_key: 'SSECustomerKey',
+    #     sse_customer_key_md5: 'SSECustomerKeyMD5',
+    #     expression: 'Expression', # required
+    #     expression_type: 'SQL', # required - accepts ["SQL"]
+    #     request_progress: {
+    #       enabled: false
+    #     },
+    #     input_serialization: {
+    #       csv: {
+    #         file_header_info: 'USE', # accepts ["USE", "IGNORE", "NONE"]
+    #         comments: 'Comments',
+    #         quote_escape_character: 'QuoteEscapeCharacter',
+    #         record_delimiter: 'RecordDelimiter',
+    #         field_delimiter: 'FieldDelimiter',
+    #         quote_character: 'QuoteCharacter',
+    #         allow_quoted_record_delimiter: false
+    #       },
+    #       compression_type: 'NONE', # accepts ["NONE", "GZIP", "BZIP2"]
+    #       json: {
+    #         type: 'DOCUMENT' # accepts ["DOCUMENT", "LINES"]
+    #       },
+    #       parquet: { }
+    #     }, # required
+    #     output_serialization: {
+    #       csv: {
+    #         quote_fields: 'ALWAYS', # accepts ["ALWAYS", "ASNEEDED"]
+    #         quote_escape_character: 'QuoteEscapeCharacter',
+    #         record_delimiter: 'RecordDelimiter',
+    #         field_delimiter: 'FieldDelimiter',
+    #         quote_character: 'QuoteCharacter'
+    #       },
+    #       json: {
+    #         record_delimiter: 'RecordDelimiter'
+    #       }
+    #     }, # required
+    #     scan_range: {
+    #       start: 1,
+    #       end: 1
+    #     },
+    #     expected_bucket_owner: 'ExpectedBucketOwner'
+    #   )
+    # @example Response structure
+    #   resp.data #=> Types::SelectObjectContentOutput
+    #   resp.data.payload #=> Types::SelectObjectContentEventStream, one of [Records, Stats, Progress, Cont, End]
+    #   resp.data.payload.records #=> Types::RecordsEvent
+    #   resp.data.payload.records.payload #=> String
+    #   resp.data.payload.stats #=> Types::StatsEvent
+    #   resp.data.payload.stats.details #=> Types::Stats
+    #   resp.data.payload.stats.details.bytes_scanned #=> Integer
+    #   resp.data.payload.stats.details.bytes_processed #=> Integer
+    #   resp.data.payload.stats.details.bytes_returned #=> Integer
+    #   resp.data.payload.progress #=> Types::ProgressEvent
+    #   resp.data.payload.progress.details #=> Types::Progress
+    #   resp.data.payload.progress.details.bytes_scanned #=> Integer
+    #   resp.data.payload.progress.details.bytes_processed #=> Integer
+    #   resp.data.payload.progress.details.bytes_returned #=> Integer
+    #   resp.data.payload.cont #=> Types::ContinuationEvent
+    #   resp.data.payload.end #=> Types::EndEvent
+    def select_object_content(params = {}, options = {})
+      middleware_opts = {}
+      middleware_opts[:event_stream_handler] = options.delete(:event_stream_handler)
+      raise ArgumentError, 'Missing `event_stream_handler`' unless middleware_opts[:event_stream_handler]
+      response_body = ::StringIO.new
+      config = operation_config(options)
+      input = Params::SelectObjectContentInput.build(params, context: 'params')
+      stack = AWS::SDK::S3::Middleware::SelectObjectContent.build(config, middleware_opts)
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI('')),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        config: config,
+        operation_name: :select_object_content,
+      )
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#select_object_content] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#select_object_content] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#select_object_content] #{output.data}")
       output
     end
   end

@@ -3305,7 +3305,7 @@ module AWS::SDK::DynamoDB
       def self.default(visited = [])
         {
           items: ItemList.default(visited),
-          count: 1,
+          member_count: 1,
           scanned_count: 1,
           last_evaluated_key: Key.default(visited),
           consumed_capacity: ConsumedCapacity.default(visited),
@@ -3315,7 +3315,7 @@ module AWS::SDK::DynamoDB
       def self.stub(http_resp, stub:)
         data = {}
         data['Items'] = ItemList.stub(stub[:items]) unless stub[:items].nil?
-        data['Count'] = stub[:count] unless stub[:count].nil?
+        data['Count'] = stub[:member_count] unless stub[:member_count].nil?
         data['ScannedCount'] = stub[:scanned_count] unless stub[:scanned_count].nil?
         data['LastEvaluatedKey'] = Key.stub(stub[:last_evaluated_key]) unless stub[:last_evaluated_key].nil?
         data['ConsumedCapacity'] = ConsumedCapacity.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
@@ -3900,7 +3900,7 @@ module AWS::SDK::DynamoDB
       def self.default(visited = [])
         {
           items: ItemList.default(visited),
-          count: 1,
+          member_count: 1,
           scanned_count: 1,
           last_evaluated_key: Key.default(visited),
           consumed_capacity: ConsumedCapacity.default(visited),
@@ -3910,7 +3910,7 @@ module AWS::SDK::DynamoDB
       def self.stub(http_resp, stub:)
         data = {}
         data['Items'] = ItemList.stub(stub[:items]) unless stub[:items].nil?
-        data['Count'] = stub[:count] unless stub[:count].nil?
+        data['Count'] = stub[:member_count] unless stub[:member_count].nil?
         data['ScannedCount'] = stub[:scanned_count] unless stub[:scanned_count].nil?
         data['LastEvaluatedKey'] = Key.stub(stub[:last_evaluated_key]) unless stub[:last_evaluated_key].nil?
         data['ConsumedCapacity'] = ConsumedCapacity.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?

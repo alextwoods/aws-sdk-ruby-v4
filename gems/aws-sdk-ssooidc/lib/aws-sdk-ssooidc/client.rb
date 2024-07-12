@@ -9,6 +9,8 @@
 
 require 'stringio'
 
+require_relative 'plugins/global_config'
+
 module AWS::SDK::SSOOIDC
   # <p>IAM Identity Center OpenID Connect (OIDC) is a web service that enables a client (such as CLI
   #       or a native application) to register with IAM Identity Center. The service also enables the client to
@@ -51,7 +53,9 @@ module AWS::SDK::SSOOIDC
   class Client < Hearth::Client
 
     # @api private
-    @plugins = Hearth::PluginList.new
+    @plugins = Hearth::PluginList.new([
+      Plugins::GlobalConfig.new
+    ])
 
     # @param [Hash] options
     #   Options used to construct an instance of {Config}

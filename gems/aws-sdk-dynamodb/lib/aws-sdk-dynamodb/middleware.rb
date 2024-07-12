@@ -14,7 +14,7 @@ module AWS::SDK::DynamoDB
   module Middleware
 
     class BatchExecuteStatement
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -65,7 +65,7 @@ module AWS::SDK::DynamoDB
     end
 
     class BatchGetItem
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -116,7 +116,7 @@ module AWS::SDK::DynamoDB
     end
 
     class BatchWriteItem
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -167,7 +167,7 @@ module AWS::SDK::DynamoDB
     end
 
     class CreateBackup
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -218,7 +218,7 @@ module AWS::SDK::DynamoDB
     end
 
     class CreateGlobalTable
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -269,7 +269,7 @@ module AWS::SDK::DynamoDB
     end
 
     class CreateTable
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -320,7 +320,7 @@ module AWS::SDK::DynamoDB
     end
 
     class DeleteBackup
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -371,7 +371,7 @@ module AWS::SDK::DynamoDB
     end
 
     class DeleteItem
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -422,7 +422,7 @@ module AWS::SDK::DynamoDB
     end
 
     class DeleteTable
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -473,7 +473,7 @@ module AWS::SDK::DynamoDB
     end
 
     class DescribeBackup
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -524,7 +524,7 @@ module AWS::SDK::DynamoDB
     end
 
     class DescribeContinuousBackups
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -575,7 +575,7 @@ module AWS::SDK::DynamoDB
     end
 
     class DescribeContributorInsights
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -626,7 +626,7 @@ module AWS::SDK::DynamoDB
     end
 
     class DescribeEndpoints
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -677,7 +677,7 @@ module AWS::SDK::DynamoDB
     end
 
     class DescribeExport
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -728,7 +728,7 @@ module AWS::SDK::DynamoDB
     end
 
     class DescribeGlobalTable
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -779,7 +779,7 @@ module AWS::SDK::DynamoDB
     end
 
     class DescribeGlobalTableSettings
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -830,7 +830,7 @@ module AWS::SDK::DynamoDB
     end
 
     class DescribeImport
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -881,7 +881,7 @@ module AWS::SDK::DynamoDB
     end
 
     class DescribeKinesisStreamingDestination
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -932,7 +932,7 @@ module AWS::SDK::DynamoDB
     end
 
     class DescribeLimits
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -983,7 +983,7 @@ module AWS::SDK::DynamoDB
     end
 
     class DescribeTable
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1034,7 +1034,7 @@ module AWS::SDK::DynamoDB
     end
 
     class DescribeTableReplicaAutoScaling
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1085,7 +1085,7 @@ module AWS::SDK::DynamoDB
     end
 
     class DescribeTimeToLive
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1136,7 +1136,7 @@ module AWS::SDK::DynamoDB
     end
 
     class DisableKinesisStreamingDestination
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1187,7 +1187,7 @@ module AWS::SDK::DynamoDB
     end
 
     class EnableKinesisStreamingDestination
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1238,7 +1238,7 @@ module AWS::SDK::DynamoDB
     end
 
     class ExecuteStatement
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1289,7 +1289,7 @@ module AWS::SDK::DynamoDB
     end
 
     class ExecuteTransaction
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1340,7 +1340,7 @@ module AWS::SDK::DynamoDB
     end
 
     class ExportTableToPointInTime
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1391,7 +1391,7 @@ module AWS::SDK::DynamoDB
     end
 
     class GetItem
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1442,7 +1442,7 @@ module AWS::SDK::DynamoDB
     end
 
     class ImportTable
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1493,7 +1493,7 @@ module AWS::SDK::DynamoDB
     end
 
     class ListBackups
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1544,7 +1544,7 @@ module AWS::SDK::DynamoDB
     end
 
     class ListContributorInsights
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1595,7 +1595,7 @@ module AWS::SDK::DynamoDB
     end
 
     class ListExports
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1646,7 +1646,7 @@ module AWS::SDK::DynamoDB
     end
 
     class ListGlobalTables
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1697,7 +1697,7 @@ module AWS::SDK::DynamoDB
     end
 
     class ListImports
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1748,7 +1748,7 @@ module AWS::SDK::DynamoDB
     end
 
     class ListTables
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1799,7 +1799,7 @@ module AWS::SDK::DynamoDB
     end
 
     class ListTagsOfResource
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1850,7 +1850,7 @@ module AWS::SDK::DynamoDB
     end
 
     class PutItem
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1901,7 +1901,7 @@ module AWS::SDK::DynamoDB
     end
 
     class Query
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1952,7 +1952,7 @@ module AWS::SDK::DynamoDB
     end
 
     class RestoreTableFromBackup
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2003,7 +2003,7 @@ module AWS::SDK::DynamoDB
     end
 
     class RestoreTableToPointInTime
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2054,7 +2054,7 @@ module AWS::SDK::DynamoDB
     end
 
     class Scan
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2105,7 +2105,7 @@ module AWS::SDK::DynamoDB
     end
 
     class TagResource
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2156,7 +2156,7 @@ module AWS::SDK::DynamoDB
     end
 
     class TransactGetItems
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2207,7 +2207,7 @@ module AWS::SDK::DynamoDB
     end
 
     class TransactWriteItems
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2258,7 +2258,7 @@ module AWS::SDK::DynamoDB
     end
 
     class UntagResource
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2309,7 +2309,7 @@ module AWS::SDK::DynamoDB
     end
 
     class UpdateContinuousBackups
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2360,7 +2360,7 @@ module AWS::SDK::DynamoDB
     end
 
     class UpdateContributorInsights
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2411,7 +2411,7 @@ module AWS::SDK::DynamoDB
     end
 
     class UpdateGlobalTable
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2462,7 +2462,7 @@ module AWS::SDK::DynamoDB
     end
 
     class UpdateGlobalTableSettings
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2513,7 +2513,7 @@ module AWS::SDK::DynamoDB
     end
 
     class UpdateItem
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2564,7 +2564,7 @@ module AWS::SDK::DynamoDB
     end
 
     class UpdateKinesisStreamingDestination
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2615,7 +2615,7 @@ module AWS::SDK::DynamoDB
     end
 
     class UpdateTable
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2666,7 +2666,7 @@ module AWS::SDK::DynamoDB
     end
 
     class UpdateTableReplicaAutoScaling
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2717,7 +2717,7 @@ module AWS::SDK::DynamoDB
     end
 
     class UpdateTimeToLive
-      def self.build(config)
+      def self.build(config, options={})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,

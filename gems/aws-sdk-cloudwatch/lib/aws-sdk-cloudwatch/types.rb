@@ -387,7 +387,7 @@ module AWS::SDK::CloudWatch
     #   @option params [String] :dashboard_name
     #   @option params [String] :dashboard_arn
     #   @option params [Time] :last_modified
-    #   @option params [Integer] :size
+    #   @option params [Integer] :member_size
     # @!attribute dashboard_name
     #   <p>The name of the dashboard.</p>
     #   @return [String]
@@ -398,14 +398,14 @@ module AWS::SDK::CloudWatch
     #   <p>The time stamp of when the dashboard was last modified, either by an API call or
     #   			through the console. This number is expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.</p>
     #   @return [Time]
-    # @!attribute size
+    # @!attribute member_size
     #   <p>The size of the dashboard, in bytes.</p>
     #   @return [Integer]
     DashboardEntry = ::Struct.new(
       :dashboard_name,
       :dashboard_arn,
       :last_modified,
-      :size,
+      :member_size,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -466,7 +466,7 @@ module AWS::SDK::CloudWatch
     #   @option params [Time] :timestamp
     #   @option params [Float] :sample_count
     #   @option params [Float] :average
-    #   @option params [Float] :sum
+    #   @option params [Float] :member_sum
     #   @option params [Float] :minimum
     #   @option params [Float] :maximum
     #   @option params [String] :unit
@@ -481,7 +481,7 @@ module AWS::SDK::CloudWatch
     # @!attribute average
     #   <p>The average of the metric values that correspond to the data point.</p>
     #   @return [Float]
-    # @!attribute sum
+    # @!attribute member_sum
     #   <p>The sum of the metric values for the data point.</p>
     #   @return [Float]
     # @!attribute minimum
@@ -501,7 +501,7 @@ module AWS::SDK::CloudWatch
       :timestamp,
       :sample_count,
       :average,
-      :sum,
+      :member_sum,
       :minimum,
       :maximum,
       :unit,
@@ -1904,7 +1904,7 @@ module AWS::SDK::CloudWatch
     #   @option params [Float] :max_contributor_value
     #   @option params [Float] :sample_count
     #   @option params [Float] :average
-    #   @option params [Float] :sum
+    #   @option params [Float] :member_sum
     #   @option params [Float] :minimum
     #   @option params [Float] :maximum
     # @!attribute timestamp
@@ -1928,7 +1928,7 @@ module AWS::SDK::CloudWatch
     #   <p>The average value from all contributors during the time period represented by that data point.</p>
     #            <p>This statistic is returned only if you included it in the <code>Metrics</code> array in your request.</p>
     #   @return [Float]
-    # @!attribute sum
+    # @!attribute member_sum
     #   <p>The sum of the values from all contributors during the time period represented by that data point.</p>
     #            <p>This statistic is returned only if you included it in the <code>Metrics</code> array in your request.</p>
     #   @return [Float]
@@ -1946,7 +1946,7 @@ module AWS::SDK::CloudWatch
       :max_contributor_value,
       :sample_count,
       :average,
-      :sum,
+      :member_sum,
       :minimum,
       :maximum,
       keyword_init: true
@@ -2207,17 +2207,17 @@ module AWS::SDK::CloudWatch
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [String] :next_token
-    #   @option params [Array<MetricStreamEntry>] :entries
+    #   @option params [Array<MetricStreamEntry>] :member_entries
     # @!attribute next_token
     #   <p>The token that marks the start of the next batch of returned results. You can use this
     #   		token in a subsequent operation to get the next batch of results.</p>
     #   @return [String]
-    # @!attribute entries
+    # @!attribute member_entries
     #   <p>The array of metric stream information.</p>
     #   @return [Array<MetricStreamEntry>]
     ListMetricStreamsOutput = ::Struct.new(
       :next_token,
-      :entries,
+      :member_entries,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -2828,7 +2828,7 @@ module AWS::SDK::CloudWatch
     #   @option params [String] :id
     #   @option params [String] :label
     #   @option params [Array<Time>] :timestamps
-    #   @option params [Array<Float>] :values
+    #   @option params [Array<Float>] :member_values
     #   @option params [String] :status_code
     #   @option params [Array<MessageData>] :messages
     # @!attribute id
@@ -2842,7 +2842,7 @@ module AWS::SDK::CloudWatch
     #   			timestamps always matches the number of values and the value for Timestamps[x] is
     #   			Values[x].</p>
     #   @return [Array<Time>]
-    # @!attribute values
+    # @!attribute member_values
     #   <p>The data points for the metric corresponding to <code>Timestamps</code>. The number of
     #   			values always matches the number of timestamps and the timestamp for Values[x] is
     #   			Timestamps[x].</p>
@@ -2862,7 +2862,7 @@ module AWS::SDK::CloudWatch
       :id,
       :label,
       :timestamps,
-      :values,
+      :member_values,
       :status_code,
       :messages,
       keyword_init: true
@@ -2879,7 +2879,7 @@ module AWS::SDK::CloudWatch
     #   @option params [Time] :timestamp
     #   @option params [Float] :value
     #   @option params [StatisticSet] :statistic_values
-    #   @option params [Array<Float>] :values
+    #   @option params [Array<Float>] :member_values
     #   @option params [Array<Float>] :counts
     #   @option params [String] :unit
     #   @option params [Integer] :storage_resolution
@@ -2901,7 +2901,7 @@ module AWS::SDK::CloudWatch
     # @!attribute statistic_values
     #   <p>The statistical values for the metric.</p>
     #   @return [StatisticSet]
-    # @!attribute values
+    # @!attribute member_values
     #   <p>Array of numbers representing the values for the metric during the period. Each unique value is listed just once
     #   		in this array, and the corresponding number in the <code>Counts</code> array specifies the number of times that value occurred during the period.
     #   		You can include up to 150 unique values in each <code>PutMetricData</code> action that specifies a <code>Values</code> array.</p>
@@ -2938,7 +2938,7 @@ module AWS::SDK::CloudWatch
       :timestamp,
       :value,
       :statistic_values,
-      :values,
+      :member_values,
       :counts,
       :unit,
       :storage_resolution,
@@ -4579,13 +4579,13 @@ module AWS::SDK::CloudWatch
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [Float] :sample_count
-    #   @option params [Float] :sum
+    #   @option params [Float] :member_sum
     #   @option params [Float] :minimum
     #   @option params [Float] :maximum
     # @!attribute sample_count
     #   <p>The number of samples used for the statistic set.</p>
     #   @return [Float]
-    # @!attribute sum
+    # @!attribute member_sum
     #   <p>The sum of values for the sample set.</p>
     #   @return [Float]
     # @!attribute minimum
@@ -4596,7 +4596,7 @@ module AWS::SDK::CloudWatch
     #   @return [Float]
     StatisticSet = ::Struct.new(
       :sample_count,
-      :sum,
+      :member_sum,
       :minimum,
       :maximum,
       keyword_init: true

@@ -489,7 +489,7 @@ module AWS::SDK::CodeCatalyst
         type = Types::Filter.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.key = params[:key] unless params[:key].nil?
-        type.values = StringList.build(params[:values], context: "#{context}[:values]") unless params[:values].nil?
+        type.member_values = StringList.build(params[:member_values], context: "#{context}[:member_values]") unless params[:member_values].nil?
         type.comparison_operator = params[:comparison_operator] unless params[:comparison_operator].nil?
         type
       end
@@ -1042,7 +1042,7 @@ module AWS::SDK::CodeCatalyst
         type.project_name = params[:project_name] unless params[:project_name].nil?
         type.next_token = params[:next_token] unless params[:next_token].nil?
         type.max_results = params[:max_results] unless params[:max_results].nil?
-        type.sort_by = WorkflowRunSortCriteriaList.build(params[:sort_by], context: "#{context}[:sort_by]") unless params[:sort_by].nil?
+        type.member_sort_by = WorkflowRunSortCriteriaList.build(params[:member_sort_by], context: "#{context}[:member_sort_by]") unless params[:member_sort_by].nil?
         type
       end
     end
@@ -1067,7 +1067,7 @@ module AWS::SDK::CodeCatalyst
         type.project_name = params[:project_name] unless params[:project_name].nil?
         type.next_token = params[:next_token] unless params[:next_token].nil?
         type.max_results = params[:max_results] unless params[:max_results].nil?
-        type.sort_by = WorkflowSortCriteriaList.build(params[:sort_by], context: "#{context}[:sort_by]") unless params[:sort_by].nil?
+        type.member_sort_by = WorkflowSortCriteriaList.build(params[:member_sort_by], context: "#{context}[:member_sort_by]") unless params[:member_sort_by].nil?
         type
       end
     end
@@ -1120,7 +1120,7 @@ module AWS::SDK::CodeCatalyst
         type = Types::ProjectListFilter.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.key = params[:key] unless params[:key].nil?
-        type.values = StringList.build(params[:values], context: "#{context}[:values]") unless params[:values].nil?
+        type.member_values = StringList.build(params[:member_values], context: "#{context}[:member_values]") unless params[:member_values].nil?
         type.comparison_operator = params[:comparison_operator] unless params[:comparison_operator].nil?
         type
       end

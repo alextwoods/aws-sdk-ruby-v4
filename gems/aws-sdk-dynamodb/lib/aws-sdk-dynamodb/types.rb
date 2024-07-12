@@ -6776,7 +6776,7 @@ module AWS::SDK::DynamoDB
     #   @param [Hash] params
     #   @option params [String] :table_name
     #   @option params [String] :index_name
-    #   @option params [String] :select
+    #   @option params [String] :member_select
     #   @option params [Array<String>] :attributes_to_get
     #   @option params [Integer] :limit
     #   @option params [Boolean] :consistent_read
@@ -6800,7 +6800,7 @@ module AWS::SDK::DynamoDB
     #               you must also provide <code>TableName.</code>
     #            </p>
     #   @return [String]
-    # @!attribute select
+    # @!attribute member_select
     #   <p>The attributes to be returned in the result. You can retrieve all item attributes,
     #               specific item attributes, the count of matching items, or in the case of an index, some
     #               or all of the attributes projected into the index.</p>
@@ -7158,7 +7158,7 @@ module AWS::SDK::DynamoDB
     QueryInput = ::Struct.new(
       :table_name,
       :index_name,
-      :select,
+      :member_select,
       :attributes_to_get,
       :limit,
       :consistent_read,
@@ -7182,7 +7182,7 @@ module AWS::SDK::DynamoDB
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [Array<Hash<String, AttributeValue>>] :items
-    #   @option params [Integer] :count (0)
+    #   @option params [Integer] :member_count (0)
     #   @option params [Integer] :scanned_count (0)
     #   @option params [Hash<String, AttributeValue>] :last_evaluated_key
     #   @option params [ConsumedCapacity] :consumed_capacity
@@ -7190,7 +7190,7 @@ module AWS::SDK::DynamoDB
     #   <p>An array of item attributes that match the query criteria. Each element in this array
     #               consists of an attribute name and the value for that attribute.</p>
     #   @return [Array<Hash<String, AttributeValue>>]
-    # @!attribute count
+    # @!attribute member_count
     #   <p>The number of items in the response.</p>
     #            <p>If you used a <code>QueryFilter</code> in the request, then <code>Count</code> is the
     #               number of items returned after the filter was applied, and <code>ScannedCount</code> is
@@ -7227,7 +7227,7 @@ module AWS::SDK::DynamoDB
     #   @return [ConsumedCapacity]
     QueryOutput = ::Struct.new(
       :items,
-      :count,
+      :member_count,
       :scanned_count,
       :last_evaluated_key,
       :consumed_capacity,
@@ -7239,7 +7239,7 @@ module AWS::SDK::DynamoDB
 
       def _defaults
         {
-          count: 0,
+          member_count: 0,
           scanned_count: 0
         }
       end
@@ -8310,7 +8310,7 @@ module AWS::SDK::DynamoDB
     #   @option params [String] :index_name
     #   @option params [Array<String>] :attributes_to_get
     #   @option params [Integer] :limit
-    #   @option params [String] :select
+    #   @option params [String] :member_select
     #   @option params [Hash<String, Condition>] :scan_filter
     #   @option params [String] :conditional_operator
     #   @option params [Hash<String, AttributeValue>] :exclusive_start_key
@@ -8347,7 +8347,7 @@ module AWS::SDK::DynamoDB
     #               operation to continue the operation. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html">Working with Queries</a> in the <i>Amazon DynamoDB Developer
     #                   Guide</i>.</p>
     #   @return [Integer]
-    # @!attribute select
+    # @!attribute member_select
     #   <p>The attributes to be returned in the result. You can retrieve all item attributes,
     #               specific item attributes, the count of matching items, or in the case of an index, some
     #               or all of the attributes projected into the index.</p>
@@ -8600,7 +8600,7 @@ module AWS::SDK::DynamoDB
       :index_name,
       :attributes_to_get,
       :limit,
-      :select,
+      :member_select,
       :scan_filter,
       :conditional_operator,
       :exclusive_start_key,
@@ -8621,7 +8621,7 @@ module AWS::SDK::DynamoDB
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [Array<Hash<String, AttributeValue>>] :items
-    #   @option params [Integer] :count (0)
+    #   @option params [Integer] :member_count (0)
     #   @option params [Integer] :scanned_count (0)
     #   @option params [Hash<String, AttributeValue>] :last_evaluated_key
     #   @option params [ConsumedCapacity] :consumed_capacity
@@ -8629,7 +8629,7 @@ module AWS::SDK::DynamoDB
     #   <p>An array of item attributes that match the scan criteria. Each element in this array
     #               consists of an attribute name and the value for that attribute.</p>
     #   @return [Array<Hash<String, AttributeValue>>]
-    # @!attribute count
+    # @!attribute member_count
     #   <p>The number of items in the response.</p>
     #            <p>If you set <code>ScanFilter</code> in the request, then <code>Count</code> is the
     #               number of items returned after the filter was applied, and <code>ScannedCount</code> is
@@ -8667,7 +8667,7 @@ module AWS::SDK::DynamoDB
     #   @return [ConsumedCapacity]
     ScanOutput = ::Struct.new(
       :items,
-      :count,
+      :member_count,
       :scanned_count,
       :last_evaluated_key,
       :consumed_capacity,
@@ -8679,7 +8679,7 @@ module AWS::SDK::DynamoDB
 
       def _defaults
         {
-          count: 0,
+          member_count: 0,
           scanned_count: 0
         }
       end

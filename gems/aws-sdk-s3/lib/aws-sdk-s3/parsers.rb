@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+
 module AWS::SDK::S3
   # @api private
   module Parsers
@@ -92,7 +94,7 @@ module AWS::SDK::S3
           data.id = (node.text || '')
         end
         xml.at('Filter') do |node|
-          data.filter = AnalyticsFilter.parse(node)
+          data.member_filter = AnalyticsFilter.parse(node)
         end
         xml.at('StorageClassAnalysis') do |node|
           data.storage_class_analysis = StorageClassAnalysis.parse(node)
@@ -1479,7 +1481,7 @@ module AWS::SDK::S3
           data.id = (node.text || '')
         end
         xml.at('Filter') do |node|
-          data.filter = IntelligentTieringFilter.parse(node)
+          data.member_filter = IntelligentTieringFilter.parse(node)
         end
         xml.at('Status') do |node|
           data.status = (node.text || '')
@@ -1544,7 +1546,7 @@ module AWS::SDK::S3
           data.is_enabled = (node.text == 'true')
         end
         xml.at('Filter') do |node|
-          data.filter = InventoryFilter.parse(node)
+          data.member_filter = InventoryFilter.parse(node)
         end
         xml.at('Id') do |node|
           data.id = (node.text || '')
@@ -1661,7 +1663,7 @@ module AWS::SDK::S3
           data.events = EventList.parse(children)
         end
         xml.at('Filter') do |node|
-          data.filter = NotificationConfigurationFilter.parse(node)
+          data.member_filter = NotificationConfigurationFilter.parse(node)
         end
         return data
       end
@@ -1706,7 +1708,7 @@ module AWS::SDK::S3
           data.prefix = (node.text || '')
         end
         xml.at('Filter') do |node|
-          data.filter = LifecycleRuleFilter.parse(node)
+          data.member_filter = LifecycleRuleFilter.parse(node)
         end
         xml.at('Status') do |node|
           data.status = (node.text || '')
@@ -2211,7 +2213,7 @@ module AWS::SDK::S3
           data.id = (node.text || '')
         end
         xml.at('Filter') do |node|
-          data.filter = MetricsFilter.parse(node)
+          data.member_filter = MetricsFilter.parse(node)
         end
         return data
       end
@@ -2401,7 +2403,7 @@ module AWS::SDK::S3
           data.checksum_algorithm = ChecksumAlgorithmList.parse(children)
         end
         xml.at('Size') do |node|
-          data.size = node.text&.to_i
+          data.member_size = node.text&.to_i
         end
         xml.at('StorageClass') do |node|
           data.storage_class = (node.text || '')
@@ -2501,7 +2503,7 @@ module AWS::SDK::S3
           data.part_number = node.text&.to_i
         end
         xml.at('Size') do |node|
-          data.size = node.text&.to_i
+          data.member_size = node.text&.to_i
         end
         xml.at('ChecksumCRC32') do |node|
           data.checksum_crc32 = (node.text || '')
@@ -2529,7 +2531,7 @@ module AWS::SDK::S3
           data.checksum_algorithm = ChecksumAlgorithmList.parse(children)
         end
         xml.at('Size') do |node|
-          data.size = node.text&.to_i
+          data.member_size = node.text&.to_i
         end
         xml.at('StorageClass') do |node|
           data.storage_class = (node.text || '')
@@ -2622,7 +2624,7 @@ module AWS::SDK::S3
           data.e_tag = (node.text || '')
         end
         xml.at('Size') do |node|
-          data.size = node.text&.to_i
+          data.member_size = node.text&.to_i
         end
         xml.at('ChecksumCRC32') do |node|
           data.checksum_crc32 = (node.text || '')
@@ -2981,7 +2983,7 @@ module AWS::SDK::S3
           data.events = EventList.parse(children)
         end
         xml.at('Filter') do |node|
-          data.filter = NotificationConfigurationFilter.parse(node)
+          data.member_filter = NotificationConfigurationFilter.parse(node)
         end
         return data
       end
@@ -3068,7 +3070,7 @@ module AWS::SDK::S3
           data.prefix = (node.text || '')
         end
         xml.at('Filter') do |node|
-          data.filter = ReplicationRuleFilter.parse(node)
+          data.member_filter = ReplicationRuleFilter.parse(node)
         end
         xml.at('Status') do |node|
           data.status = (node.text || '')
@@ -3446,7 +3448,7 @@ module AWS::SDK::S3
           data.events = EventList.parse(children)
         end
         xml.at('Filter') do |node|
-          data.filter = NotificationConfigurationFilter.parse(node)
+          data.member_filter = NotificationConfigurationFilter.parse(node)
         end
         return data
       end
@@ -3534,6 +3536,68 @@ module AWS::SDK::S3
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         data
+      end
+    end
+
+    module EventStream
+
+      class ContinuationEvent
+        def self.parse(message)
+          data = Types::ContinuationEvent.new
+          payload = message.payload.read
+          return data if payload.empty?
+          xml = Hearth::XML.parse(payload)
+          data
+        end
+      end
+
+      class EndEvent
+        def self.parse(message)
+          data = Types::EndEvent.new
+          payload = message.payload.read
+          return data if payload.empty?
+          xml = Hearth::XML.parse(payload)
+          data
+        end
+      end
+
+      class ProgressEvent
+        def self.parse(message)
+          data = Types::ProgressEvent.new
+          payload = message.payload.read
+          return data if payload.empty?
+          xml = Hearth::XML.parse(payload)
+          xml.at('Details') do |node|
+            data.details = Progress.parse(node)
+          end
+          data
+        end
+      end
+
+      class RecordsEvent
+        def self.parse(message)
+          data = Types::RecordsEvent.new
+          payload = message.payload.read
+          return data if payload.empty?
+          xml = Hearth::XML.parse(payload)
+          xml.at('Payload') do |node|
+            data.payload = ((::Base64::decode64(node.text) unless node.text.nil?) || '')
+          end
+          data
+        end
+      end
+
+      class StatsEvent
+        def self.parse(message)
+          data = Types::StatsEvent.new
+          payload = message.payload.read
+          return data if payload.empty?
+          xml = Hearth::XML.parse(payload)
+          xml.at('Details') do |node|
+            data.details = Stats.parse(node)
+          end
+          data
+        end
       end
     end
   end

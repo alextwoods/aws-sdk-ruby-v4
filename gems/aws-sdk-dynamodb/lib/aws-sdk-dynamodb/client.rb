@@ -9,6 +9,8 @@
 
 require 'stringio'
 
+require_relative 'plugins/global_config'
+
 module AWS::SDK::DynamoDB
   # <fullname>Amazon DynamoDB</fullname>
   #          <p>Amazon DynamoDB is a fully managed NoSQL database service that provides fast
@@ -30,7 +32,9 @@ module AWS::SDK::DynamoDB
   class Client < Hearth::Client
 
     # @api private
-    @plugins = Hearth::PluginList.new
+    @plugins = Hearth::PluginList.new([
+      Plugins::GlobalConfig.new
+    ])
 
     # @param [Hash] options
     #   Options used to construct an instance of {Config}
@@ -578,9 +582,7 @@ module AWS::SDK::DynamoDB
     #   })
     #
     #   # resp.to_h outputs the following:
-    #   {
-    #
-    #   }
+    #   {}
     def batch_write_item(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
@@ -3469,7 +3471,7 @@ module AWS::SDK::DynamoDB
     #   resp = client.query(
     #     table_name: 'TableName', # required
     #     index_name: 'IndexName',
-    #     select: 'ALL_ATTRIBUTES', # accepts ["ALL_ATTRIBUTES", "ALL_PROJECTED_ATTRIBUTES", "SPECIFIC_ATTRIBUTES", "COUNT"]
+    #     member_select: 'ALL_ATTRIBUTES', # accepts ["ALL_ATTRIBUTES", "ALL_PROJECTED_ATTRIBUTES", "SPECIFIC_ATTRIBUTES", "COUNT"]
     #     attributes_to_get: [
     #       'member'
     #     ],
@@ -3527,7 +3529,7 @@ module AWS::SDK::DynamoDB
     #   resp.data.items[0]['key'].l #=> Array<AttributeValue>
     #   resp.data.items[0]['key'].null #=> Boolean
     #   resp.data.items[0]['key'].bool #=> Boolean
-    #   resp.data.count #=> Integer
+    #   resp.data.member_count #=> Integer
     #   resp.data.scanned_count #=> Integer
     #   resp.data.last_evaluated_key #=> Hash<String, AttributeValue>
     #   resp.data.consumed_capacity #=> Types::ConsumedCapacity
@@ -3556,7 +3558,7 @@ module AWS::SDK::DynamoDB
     #
     #   # resp.to_h outputs the following:
     #   {
-    #     count: 2,
+    #     member_count: 2,
     #     items: [
     #       {
     #         'SongTitle' => {
@@ -3565,9 +3567,7 @@ module AWS::SDK::DynamoDB
     #       }
     #     ],
     #     scanned_count: 2,
-    #     consumed_capacity: {
-    #
-    #     }
+    #     consumed_capacity: {}
     #   }
     def query(params = {}, options = {})
       response_body = ::StringIO.new
@@ -4031,7 +4031,7 @@ module AWS::SDK::DynamoDB
     #       'member'
     #     ],
     #     limit: 1,
-    #     select: 'ALL_ATTRIBUTES', # accepts ["ALL_ATTRIBUTES", "ALL_PROJECTED_ATTRIBUTES", "SPECIFIC_ATTRIBUTES", "COUNT"]
+    #     member_select: 'ALL_ATTRIBUTES', # accepts ["ALL_ATTRIBUTES", "ALL_PROJECTED_ATTRIBUTES", "SPECIFIC_ATTRIBUTES", "COUNT"]
     #     scan_filter: {
     #       'key' => {
     #         attribute_value_list: [
@@ -4085,7 +4085,7 @@ module AWS::SDK::DynamoDB
     #   resp.data.items[0]['key'].l #=> Array<AttributeValue>
     #   resp.data.items[0]['key'].null #=> Boolean
     #   resp.data.items[0]['key'].bool #=> Boolean
-    #   resp.data.count #=> Integer
+    #   resp.data.member_count #=> Integer
     #   resp.data.scanned_count #=> Integer
     #   resp.data.last_evaluated_key #=> Hash<String, AttributeValue>
     #   resp.data.consumed_capacity #=> Types::ConsumedCapacity
@@ -4118,7 +4118,7 @@ module AWS::SDK::DynamoDB
     #
     #   # resp.to_h outputs the following:
     #   {
-    #     count: 2,
+    #     member_count: 2,
     #     items: [
     #       {
     #         'SongTitle' => {
@@ -4138,9 +4138,7 @@ module AWS::SDK::DynamoDB
     #       }
     #     ],
     #     scanned_count: 3,
-    #     consumed_capacity: {
-    #
-    #     }
+    #     consumed_capacity: {}
     #   }
     def scan(params = {}, options = {})
       response_body = ::StringIO.new

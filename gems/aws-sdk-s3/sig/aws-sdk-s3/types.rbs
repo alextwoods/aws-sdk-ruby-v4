@@ -54,7 +54,7 @@ module AWS::SDK::S3
     class AnalyticsConfiguration < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor id (): ::String
-      attr_accessor filter (): Types::AnalyticsFilter
+      attr_accessor member_filter (): Types::AnalyticsFilter
       attr_accessor storage_class_analysis (): Types::StorageClassAnalysis
     end
 
@@ -1461,7 +1461,7 @@ module AWS::SDK::S3
     class IntelligentTieringConfiguration < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor id (): ::String
-      attr_accessor filter (): Types::IntelligentTieringFilter
+      attr_accessor member_filter (): Types::IntelligentTieringFilter
       attr_accessor status (): ::String
       attr_accessor tierings (): ::Array[Types::Tiering]
     end
@@ -1489,7 +1489,7 @@ module AWS::SDK::S3
       include Hearth::Structure
       attr_accessor destination (): Types::InventoryDestination
       attr_accessor is_enabled (): bool
-      attr_accessor filter (): Types::InventoryFilter
+      attr_accessor member_filter (): Types::InventoryFilter
       attr_accessor id (): ::String
       attr_accessor included_object_versions (): ::String
       attr_accessor optional_fields (): ::Array[::String]
@@ -1599,7 +1599,7 @@ module AWS::SDK::S3
       attr_accessor id (): ::String
       attr_accessor lambda_function_arn (): ::String
       attr_accessor events (): ::Array[::String]
-      attr_accessor filter (): Types::NotificationConfigurationFilter
+      attr_accessor member_filter (): Types::NotificationConfigurationFilter
     end
 
     class LifecycleExpiration < ::Struct[untyped]
@@ -1614,7 +1614,7 @@ module AWS::SDK::S3
       attr_accessor expiration (): Types::LifecycleExpiration
       attr_accessor id (): ::String
       attr_accessor prefix (): ::String
-      attr_accessor filter (): Types::LifecycleRuleFilter
+      attr_accessor member_filter (): Types::LifecycleRuleFilter
       attr_accessor status (): ::String
       attr_accessor transitions (): ::Array[Types::Transition]
       attr_accessor noncurrent_version_transitions (): ::Array[Types::NoncurrentVersionTransition]
@@ -1956,7 +1956,7 @@ module AWS::SDK::S3
     class MetricsConfiguration < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor id (): ::String
-      attr_accessor filter (): Types::MetricsFilter
+      attr_accessor member_filter (): Types::MetricsFilter
     end
 
     class MetricsFilter < Hearth::Union
@@ -2051,7 +2051,7 @@ module AWS::SDK::S3
       attr_accessor last_modified (): ::Time
       attr_accessor e_tag (): ::String
       attr_accessor checksum_algorithm (): ::Array[::String]
-      attr_accessor size (): ::Integer
+      attr_accessor member_size (): ::Integer
       attr_accessor storage_class (): ::String
       attr_accessor owner (): Types::Owner
       attr_accessor restore_status (): Types::RestoreStatus
@@ -2154,7 +2154,7 @@ module AWS::SDK::S3
     class ObjectPart < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor part_number (): ::Integer
-      attr_accessor size (): ::Integer
+      attr_accessor member_size (): ::Integer
       attr_accessor checksum_crc32 (): ::String
       attr_accessor checksum_crc32_c (): ::String
       attr_accessor checksum_sha1 (): ::String
@@ -2189,7 +2189,7 @@ module AWS::SDK::S3
       include Hearth::Structure
       attr_accessor e_tag (): ::String
       attr_accessor checksum_algorithm (): ::Array[::String]
-      attr_accessor size (): ::Integer
+      attr_accessor member_size (): ::Integer
       attr_accessor storage_class (): ::String
       attr_accessor key (): ::String
       attr_accessor version_id (): ::String
@@ -2247,7 +2247,7 @@ module AWS::SDK::S3
       attr_accessor part_number (): ::Integer
       attr_accessor last_modified (): ::Time
       attr_accessor e_tag (): ::String
-      attr_accessor size (): ::Integer
+      attr_accessor member_size (): ::Integer
       attr_accessor checksum_crc32 (): ::String
       attr_accessor checksum_crc32_c (): ::String
       attr_accessor checksum_sha1 (): ::String
@@ -2716,7 +2716,7 @@ module AWS::SDK::S3
       attr_accessor id (): ::String
       attr_accessor queue_arn (): ::String
       attr_accessor events (): ::Array[::String]
-      attr_accessor filter (): Types::NotificationConfigurationFilter
+      attr_accessor member_filter (): Types::NotificationConfigurationFilter
     end
 
     module QuoteFields
@@ -2767,7 +2767,7 @@ module AWS::SDK::S3
       attr_accessor id (): ::String
       attr_accessor priority (): ::Integer
       attr_accessor prefix (): ::String
-      attr_accessor filter (): Types::ReplicationRuleFilter
+      attr_accessor member_filter (): Types::ReplicationRuleFilter
       attr_accessor status (): ::String
       attr_accessor source_selection_criteria (): Types::SourceSelectionCriteria
       attr_accessor existing_object_replication (): Types::ExistingObjectReplication
@@ -3152,7 +3152,7 @@ module AWS::SDK::S3
       attr_accessor id (): ::String
       attr_accessor topic_arn (): ::String
       attr_accessor events (): ::Array[::String]
-      attr_accessor filter (): Types::NotificationConfigurationFilter
+      attr_accessor member_filter (): Types::NotificationConfigurationFilter
     end
 
     class Transition < ::Struct[untyped]
