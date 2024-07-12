@@ -1,0 +1,622 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/smithy-lang/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::TranscribeStreaming
+  module Types
+
+    class Alternative < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor transcript (): ::String
+      attr_accessor items (): ::Array[Types::Item]
+      attr_accessor entities (): ::Array[Types::Entity]
+    end
+
+    class AudioEvent < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor audio_chunk (): ::String
+    end
+
+    class AudioStream < Hearth::Union
+      class AudioEvent < AudioStream
+        def to_h: () -> { audio_event: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
+      end
+
+      class ConfigurationEvent < AudioStream
+        def to_h: () -> { configuration_event: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
+      end
+
+      class Unknown < AudioStream
+        def to_h: () -> { unknown: { name: ::String, value: untyped } }
+        def to_s: () -> String
+      end
+    end
+
+    class BadRequestException < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor message (): ::String
+    end
+
+    class CallAnalyticsEntity < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor begin_offset_millis (): ::Integer
+      attr_accessor end_offset_millis (): ::Integer
+      attr_accessor category (): ::String
+      attr_accessor type (): ::String
+      attr_accessor content (): ::String
+      attr_accessor confidence (): ::Float
+    end
+
+    class CallAnalyticsItem < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor begin_offset_millis (): ::Integer
+      attr_accessor end_offset_millis (): ::Integer
+      attr_accessor type (): ::String
+      attr_accessor content (): ::String
+      attr_accessor confidence (): ::Float
+      attr_accessor vocabulary_filter_match (): bool
+      attr_accessor stable (): bool
+    end
+
+    module CallAnalyticsLanguageCode
+      EN_US: ::String
+
+      EN_GB: ::String
+
+      ES_US: ::String
+
+      FR_CA: ::String
+
+      FR_FR: ::String
+
+      EN_AU: ::String
+
+      IT_IT: ::String
+
+      DE_DE: ::String
+
+      PT_BR: ::String
+    end
+
+    class CallAnalyticsTranscriptResultStream < Hearth::Union
+      class UtteranceEvent < CallAnalyticsTranscriptResultStream
+        def to_h: () -> { utterance_event: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
+      end
+
+      class CategoryEvent < CallAnalyticsTranscriptResultStream
+        def to_h: () -> { category_event: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
+      end
+
+      class BadRequestException < CallAnalyticsTranscriptResultStream
+        def to_h: () -> { bad_request_exception: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
+      end
+
+      class LimitExceededException < CallAnalyticsTranscriptResultStream
+        def to_h: () -> { limit_exceeded_exception: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
+      end
+
+      class InternalFailureException < CallAnalyticsTranscriptResultStream
+        def to_h: () -> { internal_failure_exception: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
+      end
+
+      class ConflictException < CallAnalyticsTranscriptResultStream
+        def to_h: () -> { conflict_exception: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
+      end
+
+      class ServiceUnavailableException < CallAnalyticsTranscriptResultStream
+        def to_h: () -> { service_unavailable_exception: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
+      end
+
+      class Unknown < CallAnalyticsTranscriptResultStream
+        def to_h: () -> { unknown: { name: ::String, value: untyped } }
+        def to_s: () -> String
+      end
+    end
+
+    class CategoryEvent < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor matched_categories (): ::Array[::String]
+      attr_accessor matched_details (): ::Hash[::String, Types::PointsOfInterest]
+    end
+
+    class ChannelDefinition < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor channel_id (): ::Integer
+      attr_accessor participant_role (): ::String
+    end
+
+    class CharacterOffsets < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor begin (): ::Integer
+      attr_accessor end (): ::Integer
+    end
+
+    class ConfigurationEvent < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor channel_definitions (): ::Array[Types::ChannelDefinition]
+      attr_accessor post_call_analytics_settings (): Types::PostCallAnalyticsSettings
+    end
+
+    class ConflictException < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor message (): ::String
+    end
+
+    module ContentIdentificationType
+      PII: ::String
+    end
+
+    module ContentRedactionOutput
+      REDACTED: ::String
+
+      REDACTED_AND_UNREDACTED: ::String
+    end
+
+    module ContentRedactionType
+      PII: ::String
+    end
+
+    class Entity < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor start_time (): ::Float
+      attr_accessor end_time (): ::Float
+      attr_accessor category (): ::String
+      attr_accessor type (): ::String
+      attr_accessor content (): ::String
+      attr_accessor confidence (): ::Float
+    end
+
+    class InternalFailureException < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor message (): ::String
+    end
+
+    class IssueDetected < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor character_offsets (): Types::CharacterOffsets
+    end
+
+    class Item < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor start_time (): ::Float
+      attr_accessor end_time (): ::Float
+      attr_accessor type (): ::String
+      attr_accessor content (): ::String
+      attr_accessor vocabulary_filter_match (): bool
+      attr_accessor speaker (): ::String
+      attr_accessor confidence (): ::Float
+      attr_accessor stable (): bool
+    end
+
+    module ItemType
+      PRONUNCIATION: ::String
+
+      PUNCTUATION: ::String
+    end
+
+    module LanguageCode
+      EN_US: ::String
+
+      EN_GB: ::String
+
+      ES_US: ::String
+
+      FR_CA: ::String
+
+      FR_FR: ::String
+
+      EN_AU: ::String
+
+      IT_IT: ::String
+
+      DE_DE: ::String
+
+      PT_BR: ::String
+
+      JA_JP: ::String
+
+      KO_KR: ::String
+
+      ZH_CN: ::String
+
+      HI_IN: ::String
+
+      TH_TH: ::String
+    end
+
+    class LanguageWithScore < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor language_code (): ::String
+      attr_accessor score (): ::Float
+    end
+
+    class LimitExceededException < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor message (): ::String
+    end
+
+    module MediaEncoding
+      PCM: ::String
+
+      OGG_OPUS: ::String
+
+      FLAC: ::String
+    end
+
+    class MedicalAlternative < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor transcript (): ::String
+      attr_accessor items (): ::Array[Types::MedicalItem]
+      attr_accessor entities (): ::Array[Types::MedicalEntity]
+    end
+
+    module MedicalContentIdentificationType
+      PHI: ::String
+    end
+
+    class MedicalEntity < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor start_time (): ::Float
+      attr_accessor end_time (): ::Float
+      attr_accessor category (): ::String
+      attr_accessor content (): ::String
+      attr_accessor confidence (): ::Float
+    end
+
+    class MedicalItem < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor start_time (): ::Float
+      attr_accessor end_time (): ::Float
+      attr_accessor type (): ::String
+      attr_accessor content (): ::String
+      attr_accessor confidence (): ::Float
+      attr_accessor speaker (): ::String
+    end
+
+    class MedicalResult < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor result_id (): ::String
+      attr_accessor start_time (): ::Float
+      attr_accessor end_time (): ::Float
+      attr_accessor is_partial (): bool
+      attr_accessor alternatives (): ::Array[Types::MedicalAlternative]
+      attr_accessor channel_id (): ::String
+    end
+
+    class MedicalTranscript < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor results (): ::Array[Types::MedicalResult]
+    end
+
+    class MedicalTranscriptEvent < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor transcript (): Types::MedicalTranscript
+    end
+
+    class MedicalTranscriptResultStream < Hearth::Union
+      class TranscriptEvent < MedicalTranscriptResultStream
+        def to_h: () -> { transcript_event: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
+      end
+
+      class BadRequestException < MedicalTranscriptResultStream
+        def to_h: () -> { bad_request_exception: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
+      end
+
+      class LimitExceededException < MedicalTranscriptResultStream
+        def to_h: () -> { limit_exceeded_exception: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
+      end
+
+      class InternalFailureException < MedicalTranscriptResultStream
+        def to_h: () -> { internal_failure_exception: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
+      end
+
+      class ConflictException < MedicalTranscriptResultStream
+        def to_h: () -> { conflict_exception: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
+      end
+
+      class ServiceUnavailableException < MedicalTranscriptResultStream
+        def to_h: () -> { service_unavailable_exception: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
+      end
+
+      class Unknown < MedicalTranscriptResultStream
+        def to_h: () -> { unknown: { name: ::String, value: untyped } }
+        def to_s: () -> String
+      end
+    end
+
+    module PartialResultsStability
+      HIGH: ::String
+
+      MEDIUM: ::String
+
+      LOW: ::String
+    end
+
+    module ParticipantRole
+      AGENT: ::String
+
+      CUSTOMER: ::String
+    end
+
+    class PointsOfInterest < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor timestamp_ranges (): ::Array[Types::TimestampRange]
+    end
+
+    class PostCallAnalyticsSettings < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor output_location (): ::String
+      attr_accessor data_access_role_arn (): ::String
+      attr_accessor content_redaction_output (): ::String
+      attr_accessor output_encryption_kms_key_id (): ::String
+    end
+
+    class Result < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor result_id (): ::String
+      attr_accessor start_time (): ::Float
+      attr_accessor end_time (): ::Float
+      attr_accessor is_partial (): bool
+      attr_accessor alternatives (): ::Array[Types::Alternative]
+      attr_accessor channel_id (): ::String
+      attr_accessor language_code (): ::String
+      attr_accessor language_identification (): ::Array[Types::LanguageWithScore]
+    end
+
+    module Sentiment
+      POSITIVE: ::String
+
+      NEGATIVE: ::String
+
+      MIXED: ::String
+
+      NEUTRAL: ::String
+    end
+
+    class ServiceUnavailableException < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor message (): ::String
+    end
+
+    module Specialty
+      PRIMARYCARE: ::String
+
+      CARDIOLOGY: ::String
+
+      NEUROLOGY: ::String
+
+      ONCOLOGY: ::String
+
+      RADIOLOGY: ::String
+
+      UROLOGY: ::String
+    end
+
+    class StartCallAnalyticsStreamTranscriptionInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor language_code (): ::String
+      attr_accessor media_sample_rate_hertz (): ::Integer
+      attr_accessor media_encoding (): ::String
+      attr_accessor vocabulary_name (): ::String
+      attr_accessor session_id (): ::String
+      attr_accessor audio_stream (): Types::AudioStream
+      attr_accessor vocabulary_filter_name (): ::String
+      attr_accessor vocabulary_filter_method (): ::String
+      attr_accessor language_model_name (): ::String
+      attr_accessor enable_partial_results_stabilization (): bool
+      attr_accessor partial_results_stability (): ::String
+      attr_accessor content_identification_type (): ::String
+      attr_accessor content_redaction_type (): ::String
+      attr_accessor pii_entity_types (): ::String
+    end
+
+    class StartCallAnalyticsStreamTranscriptionOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor request_id (): ::String
+      attr_accessor language_code (): ::String
+      attr_accessor media_sample_rate_hertz (): ::Integer
+      attr_accessor media_encoding (): ::String
+      attr_accessor vocabulary_name (): ::String
+      attr_accessor session_id (): ::String
+      attr_accessor call_analytics_transcript_result_stream (): Types::CallAnalyticsTranscriptResultStream
+      attr_accessor vocabulary_filter_name (): ::String
+      attr_accessor vocabulary_filter_method (): ::String
+      attr_accessor language_model_name (): ::String
+      attr_accessor enable_partial_results_stabilization (): bool
+      attr_accessor partial_results_stability (): ::String
+      attr_accessor content_identification_type (): ::String
+      attr_accessor content_redaction_type (): ::String
+      attr_accessor pii_entity_types (): ::String
+    end
+
+    class StartMedicalStreamTranscriptionInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor language_code (): ::String
+      attr_accessor media_sample_rate_hertz (): ::Integer
+      attr_accessor media_encoding (): ::String
+      attr_accessor vocabulary_name (): ::String
+      attr_accessor specialty (): ::String
+      attr_accessor type (): ::String
+      attr_accessor show_speaker_label (): bool
+      attr_accessor session_id (): ::String
+      attr_accessor audio_stream (): Types::AudioStream
+      attr_accessor enable_channel_identification (): bool
+      attr_accessor number_of_channels (): ::Integer
+      attr_accessor content_identification_type (): ::String
+    end
+
+    class StartMedicalStreamTranscriptionOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor request_id (): ::String
+      attr_accessor language_code (): ::String
+      attr_accessor media_sample_rate_hertz (): ::Integer
+      attr_accessor media_encoding (): ::String
+      attr_accessor vocabulary_name (): ::String
+      attr_accessor specialty (): ::String
+      attr_accessor type (): ::String
+      attr_accessor show_speaker_label (): bool
+      attr_accessor session_id (): ::String
+      attr_accessor transcript_result_stream (): Types::MedicalTranscriptResultStream
+      attr_accessor enable_channel_identification (): bool
+      attr_accessor number_of_channels (): ::Integer
+      attr_accessor content_identification_type (): ::String
+    end
+
+    class StartStreamTranscriptionInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor language_code (): ::String
+      attr_accessor media_sample_rate_hertz (): ::Integer
+      attr_accessor media_encoding (): ::String
+      attr_accessor vocabulary_name (): ::String
+      attr_accessor session_id (): ::String
+      attr_accessor audio_stream (): Types::AudioStream
+      attr_accessor vocabulary_filter_name (): ::String
+      attr_accessor vocabulary_filter_method (): ::String
+      attr_accessor show_speaker_label (): bool
+      attr_accessor enable_channel_identification (): bool
+      attr_accessor number_of_channels (): ::Integer
+      attr_accessor enable_partial_results_stabilization (): bool
+      attr_accessor partial_results_stability (): ::String
+      attr_accessor content_identification_type (): ::String
+      attr_accessor content_redaction_type (): ::String
+      attr_accessor pii_entity_types (): ::String
+      attr_accessor language_model_name (): ::String
+      attr_accessor identify_language (): bool
+      attr_accessor language_options (): ::String
+      attr_accessor preferred_language (): ::String
+      attr_accessor identify_multiple_languages (): bool
+      attr_accessor vocabulary_names (): ::String
+      attr_accessor vocabulary_filter_names (): ::String
+    end
+
+    class StartStreamTranscriptionOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor request_id (): ::String
+      attr_accessor language_code (): ::String
+      attr_accessor media_sample_rate_hertz (): ::Integer
+      attr_accessor media_encoding (): ::String
+      attr_accessor vocabulary_name (): ::String
+      attr_accessor session_id (): ::String
+      attr_accessor transcript_result_stream (): Types::TranscriptResultStream
+      attr_accessor vocabulary_filter_name (): ::String
+      attr_accessor vocabulary_filter_method (): ::String
+      attr_accessor show_speaker_label (): bool
+      attr_accessor enable_channel_identification (): bool
+      attr_accessor number_of_channels (): ::Integer
+      attr_accessor enable_partial_results_stabilization (): bool
+      attr_accessor partial_results_stability (): ::String
+      attr_accessor content_identification_type (): ::String
+      attr_accessor content_redaction_type (): ::String
+      attr_accessor pii_entity_types (): ::String
+      attr_accessor language_model_name (): ::String
+      attr_accessor identify_language (): bool
+      attr_accessor language_options (): ::String
+      attr_accessor preferred_language (): ::String
+      attr_accessor identify_multiple_languages (): bool
+      attr_accessor vocabulary_names (): ::String
+      attr_accessor vocabulary_filter_names (): ::String
+    end
+
+    class TimestampRange < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor begin_offset_millis (): ::Integer
+      attr_accessor end_offset_millis (): ::Integer
+    end
+
+    class Transcript < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor results (): ::Array[Types::Result]
+    end
+
+    class TranscriptEvent < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor transcript (): Types::Transcript
+    end
+
+    class TranscriptResultStream < Hearth::Union
+      class TranscriptEvent < TranscriptResultStream
+        def to_h: () -> { transcript_event: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
+      end
+
+      class BadRequestException < TranscriptResultStream
+        def to_h: () -> { bad_request_exception: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
+      end
+
+      class LimitExceededException < TranscriptResultStream
+        def to_h: () -> { limit_exceeded_exception: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
+      end
+
+      class InternalFailureException < TranscriptResultStream
+        def to_h: () -> { internal_failure_exception: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
+      end
+
+      class ConflictException < TranscriptResultStream
+        def to_h: () -> { conflict_exception: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
+      end
+
+      class ServiceUnavailableException < TranscriptResultStream
+        def to_h: () -> { service_unavailable_exception: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
+      end
+
+      class Unknown < TranscriptResultStream
+        def to_h: () -> { unknown: { name: ::String, value: untyped } }
+        def to_s: () -> String
+      end
+    end
+
+    module Type
+      CONVERSATION: ::String
+
+      DICTATION: ::String
+    end
+
+    class UtteranceEvent < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor utterance_id (): ::String
+      attr_accessor is_partial (): bool
+      attr_accessor participant_role (): ::String
+      attr_accessor begin_offset_millis (): ::Integer
+      attr_accessor end_offset_millis (): ::Integer
+      attr_accessor transcript (): ::String
+      attr_accessor items (): ::Array[Types::CallAnalyticsItem]
+      attr_accessor entities (): ::Array[Types::CallAnalyticsEntity]
+      attr_accessor sentiment (): ::String
+      attr_accessor issues_detected (): ::Array[Types::IssueDetected]
+    end
+
+    module VocabularyFilterMethod
+      REMOVE: ::String
+
+      MASK: ::String
+
+      TAG: ::String
+    end
+
+  end
+end
