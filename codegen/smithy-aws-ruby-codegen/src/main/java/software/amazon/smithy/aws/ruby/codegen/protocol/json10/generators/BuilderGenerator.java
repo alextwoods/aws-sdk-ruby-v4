@@ -20,12 +20,15 @@ import java.util.stream.Stream;
 import software.amazon.smithy.codegen.core.Symbol;
 import software.amazon.smithy.model.shapes.*;
 import software.amazon.smithy.model.traits.SparseTrait;
+import software.amazon.smithy.model.traits.StreamingTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
 import software.amazon.smithy.ruby.codegen.Hearth;
+import software.amazon.smithy.ruby.codegen.RubyCodeWriter;
 import software.amazon.smithy.ruby.codegen.RubyImportContainer;
 import software.amazon.smithy.ruby.codegen.generators.BuilderGeneratorBase;
 import software.amazon.smithy.ruby.codegen.traits.NoSerializeTrait;
+import software.amazon.smithy.ruby.codegen.util.Streaming;
 import software.amazon.smithy.ruby.codegen.util.TimestampFormat;
 
 public class BuilderGenerator extends BuilderGeneratorBase {
@@ -37,7 +40,8 @@ public class BuilderGenerator extends BuilderGeneratorBase {
     private void renderMemberBuilders(Shape s) {
         //remove members marked NoSerialize
         Stream<MemberShape> serializeMembers = s.members().stream()
-                .filter(NoSerializeTrait.excludeNoSerializeMembers());
+                .filter(NoSerializeTrait.excludeNoSerializeMembers())
+                .filter((m) -> !StreamingTrait.isEventStream(model, m));
 
         serializeMembers.forEach((member) -> {
             Shape target = model.expectShape(member.getTarget());
@@ -63,6 +67,61 @@ public class BuilderGenerator extends BuilderGeneratorBase {
                 .write("data = {}")
                 .call(() -> renderMemberBuilders(inputShape))
                 .write("http_req.body = $T.new($T.dump(data))", RubyImportContainer.STRING_IO, Hearth.JSON)
+                .closeBlock("end");
+    }
+
+    @Override
+    protected void renderEventStreamOperationBuildMethod(OperationShape operation, Shape inputShape) {
+        boolean serializeBody = inputShape.members().stream()
+                .filter(NoSerializeTrait.excludeNoSerializeMembers())
+                .filter((m) -> !StreamingTrait.isEventStream(model, m))
+                .findAny().isPresent();
+
+        String target = context.service().getId().getName() + "." + operation.getId().getName();
+
+        writer
+                .openBlock("def self.build(http_req, input:)")
+                .write("http_req.http_method = 'POST'")
+                .write("http_req.append_path('/')")
+                .write("http_req.headers['X-Amz-Target'] = '$L'", target)
+                .write("http_req.headers['Content-Type'] = 'application/vnd.amazon.eventstream'")
+                .call(() -> {
+                    if (Streaming.isEventStreaming(model, model.expectShape(operation.getOutputShape()))) {
+                        writer.write("http_req.headers['Accept'] = 'application/vnd.amazon.eventstream'");
+                    }
+                })
+                .call(() -> {
+                    if (serializeBody) {
+                        writer
+                                .write("data = {}")
+                                .call(() -> renderMemberBuilders(inputShape))
+                                .write("http_req.body = $T.new($T.dump(data))",
+                                        RubyImportContainer.STRING_IO, Hearth.JSON);
+                    } else {
+                        writer.write("data = {}");
+                    }
+                })
+                .closeBlock("end");
+    }
+
+    @Override
+    protected void renderEventBuildMethod(StructureShape event) {
+        // TODO: Handle implicit vs explict payload and blob types!
+        RubyCodeWriter rubyCodeWriter = writer
+                .openBlock("def self.build(input:)")
+                .write("message = Hearth::EventStream::Message.new")
+                .write("message.headers[':message-type'] = "
+                        + "Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')")
+                .write("message.headers[':event-type'] = "
+                                + "Hearth::EventStream::HeaderValue.new(value: '$L', type: 'string')",
+                        event.getId().getName())
+                .write("message.headers[':content-type'] = "
+                        + "Hearth::EventStream::HeaderValue.new(value: 'application/x-amz-json-1.0', type: 'string')")
+                .write("data = {}")
+                .call(() -> renderMemberBuilders(event))
+                .write("message.payload = $T.new($T.dump(data))",
+                        RubyImportContainer.STRING_IO, Hearth.JSON)
+                .write("message")
                 .closeBlock("end");
     }
 

@@ -1,5 +1,6 @@
 package software.amazon.smithy.aws.ruby.codegen.protocol.restjson;
 
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import software.amazon.smithy.aws.ruby.codegen.protocol.restjson.generators.BuilderGenerator;
@@ -39,8 +40,14 @@ public class RestJson1 implements ProtocolGenerator {
     }
 
     @Override
-    public ApplicationTransport getApplicationTransport() {
-        return ApplicationTransport.createDefaultHttpApplicationTransport();
+    public ApplicationTransport getEventStreamTransport(ServiceShape service, Model model) {
+        RestJson1Trait protocolTrait = service.expectTrait(RestJson1Trait.class);
+        List<String> eventStreamHttp = protocolTrait.getEventStreamHttp();
+        if (!eventStreamHttp.isEmpty() && eventStreamHttp.get(0).equals("h2")) {
+            return ApplicationTransport.createDefaultHttp2ApplicationTransport();
+        } else {
+            return ApplicationTransport.createDefaultHttpApplicationTransport();
+        }
     }
 
     @Override

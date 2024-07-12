@@ -1,11 +1,15 @@
 package software.amazon.smithy.aws.ruby.codegen.protocol.json10;
 
+import java.util.List;
 import java.util.logging.Logger;
 import software.amazon.smithy.aws.ruby.codegen.protocol.json10.generators.BuilderGenerator;
 import software.amazon.smithy.aws.ruby.codegen.protocol.json10.generators.ErrorsGenerator;
 import software.amazon.smithy.aws.ruby.codegen.protocol.json10.generators.ParserGenerator;
 import software.amazon.smithy.aws.ruby.codegen.protocol.json10.generators.StubsGenerator;
 import software.amazon.smithy.aws.traits.protocols.AwsJson1_0Trait;
+import software.amazon.smithy.aws.traits.protocols.RestJson1Trait;
+import software.amazon.smithy.model.Model;
+import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.model.shapes.ShapeId;
 import software.amazon.smithy.ruby.codegen.ApplicationTransport;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
@@ -20,8 +24,14 @@ public class AwsJson1_0 implements ProtocolGenerator {
     }
 
     @Override
-    public ApplicationTransport getApplicationTransport() {
-        return ApplicationTransport.createDefaultHttpApplicationTransport();
+    public ApplicationTransport getEventStreamTransport(ServiceShape service, Model model) {
+        AwsJson1_0Trait protocolTrait = service.expectTrait(AwsJson1_0Trait.class);
+        List<String> eventStreamHttp = protocolTrait.getEventStreamHttp();
+        if (!eventStreamHttp.isEmpty() && eventStreamHttp.get(0).equals("h2")) {
+            return ApplicationTransport.createDefaultHttp2ApplicationTransport();
+        } else {
+            return ApplicationTransport.createDefaultHttpApplicationTransport();
+        }
     }
 
     @Override

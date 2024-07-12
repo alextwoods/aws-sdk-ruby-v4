@@ -1,5 +1,6 @@
 package software.amazon.smithy.aws.ruby.codegen.protocol.ec2;
 
+import java.util.List;
 import java.util.logging.Logger;
 import software.amazon.smithy.aws.ruby.codegen.protocol.ec2.generators.BuilderGenerator;
 import software.amazon.smithy.aws.ruby.codegen.protocol.ec2.generators.ErrorsGenerator;
@@ -7,6 +8,9 @@ import software.amazon.smithy.aws.ruby.codegen.protocol.ec2.generators.ParserGen
 import software.amazon.smithy.aws.ruby.codegen.protocol.ec2.generators.StubsGenerator;
 import software.amazon.smithy.aws.traits.protocols.AwsJson1_1Trait;
 import software.amazon.smithy.aws.traits.protocols.Ec2QueryTrait;
+import software.amazon.smithy.aws.traits.protocols.RestJson1Trait;
+import software.amazon.smithy.model.Model;
+import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.model.shapes.ShapeId;
 import software.amazon.smithy.ruby.codegen.ApplicationTransport;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
@@ -18,11 +22,6 @@ public class Ec2Query implements ProtocolGenerator {
     @Override
     public ShapeId getProtocol() {
         return Ec2QueryTrait.ID;
-    }
-
-    @Override
-    public ApplicationTransport getApplicationTransport() {
-        return ApplicationTransport.createDefaultHttpApplicationTransport();
     }
 
     @Override

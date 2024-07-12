@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-gems = Dir['gems/*']
+gems = Dir['gems/*'].select { |d| File.directory?(d) }
 gems.each do |gem_path|
   $LOAD_PATH.unshift(File.expand_path('lib', gem_path))
 end

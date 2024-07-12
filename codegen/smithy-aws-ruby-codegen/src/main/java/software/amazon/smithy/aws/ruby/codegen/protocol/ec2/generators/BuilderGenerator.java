@@ -19,6 +19,7 @@ import software.amazon.smithy.aws.traits.protocols.Ec2QueryNameTrait;
 import software.amazon.smithy.codegen.core.Symbol;
 import software.amazon.smithy.model.shapes.*;
 import software.amazon.smithy.model.traits.SparseTrait;
+import software.amazon.smithy.model.traits.StreamingTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait;
 import software.amazon.smithy.model.traits.XmlNameTrait;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
@@ -26,6 +27,7 @@ import software.amazon.smithy.ruby.codegen.Hearth;
 import software.amazon.smithy.ruby.codegen.RubyImportContainer;
 import software.amazon.smithy.ruby.codegen.generators.BuilderGeneratorBase;
 import software.amazon.smithy.ruby.codegen.traits.NoSerializeTrait;
+import software.amazon.smithy.ruby.codegen.util.Streaming;
 import software.amazon.smithy.ruby.codegen.util.TimestampFormat;
 import software.amazon.smithy.utils.StringUtils;
 
@@ -64,10 +66,52 @@ public class BuilderGenerator extends BuilderGeneratorBase {
                 .closeBlock("end");
     }
 
+    @Override
+    protected void renderEventStreamOperationBuildMethod(OperationShape operation, Shape inputShape) {
+        writer
+                .openBlock("def self.build(http_req, input:)")
+                .write("http_req.http_method = 'POST'")
+                .write("http_req.append_path('/')")
+                .write("http_req.headers['Content-Type'] = 'application/vnd.amazon.eventstream'")
+                .call(() -> {
+                    if (Streaming.isEventStreaming(model, model.expectShape(operation.getOutputShape()))) {
+                        writer.write("http_req.headers['Accept'] = 'application/vnd.amazon.eventstream'");
+                    }
+                })
+                .write("context = ''")
+                .write("params = $T.new", Hearth.QUERY_PARAM_LIST)
+                .write("params['Action'] = '$L'", symbolProvider.toSymbol(operation).getName())
+                .write("params['Version'] = '$L'", context.service().getVersion())
+                .call(() -> renderMemberBuilders(inputShape))
+                .write("http_req.body = $T.new(params.to_s)", RubyImportContainer.STRING_IO)
+                .closeBlock("end");
+    }
+
+    @Override
+    protected void renderEventBuildMethod(StructureShape event) {
+        writer
+                .openBlock("def self.build(input:)")
+                .write("message = Hearth::EventStream::Message.new")
+                .write("message.headers[':message-type'] = "
+                        + "Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')")
+                .write("message.headers[':event-type'] = "
+                                + "Hearth::EventStream::HeaderValue.new(value: '$L', type: 'string')",
+                        event.getId().getName())
+                .write("message.headers[':content-type'] = "
+                        + "Hearth::EventStream::HeaderValue.new(value: 'application/x-www-form-urlencoded', type: 'string')")
+                .write("params = $T.new", Hearth.QUERY_PARAM_LIST)
+                .call(() -> renderMemberBuilders(event))
+                .write("message.payload = $T.new($T.encode(params.to_s))",
+                        RubyImportContainer.STRING_IO)
+                .write("message")
+                .closeBlock("end");
+    }
+
     private void renderMemberBuilders(Shape s) {
         //remove members marked NoSerialize
         Stream<MemberShape> serializeMembers = s.members().stream()
-                .filter(NoSerializeTrait.excludeNoSerializeMembers());
+                .filter(NoSerializeTrait.excludeNoSerializeMembers())
+                .filter((m) -> !StreamingTrait.isEventStream(model, m));
 
         serializeMembers.forEach((member) -> {
             Shape target = model.expectShape(member.getTarget());
