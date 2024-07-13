@@ -544,7 +544,6 @@ module AWS::SDK::TranscribeStreaming
         Hearth::Validator.validate_types!(input[:media_encoding], ::String, context: "#{context}[:media_encoding]")
         Hearth::Validator.validate_types!(input[:vocabulary_name], ::String, context: "#{context}[:vocabulary_name]")
         Hearth::Validator.validate_types!(input[:session_id], ::String, context: "#{context}[:session_id]")
-        Hearth::Validator.validate_required!(input[:audio_stream], context: "#{context}[:audio_stream]")
         AudioStream.validate!(input[:audio_stream], context: "#{context}[:audio_stream]") unless input[:audio_stream].nil?
         Hearth::Validator.validate_types!(input[:vocabulary_filter_name], ::String, context: "#{context}[:vocabulary_filter_name]")
         Hearth::Validator.validate_types!(input[:vocabulary_filter_method], ::String, context: "#{context}[:vocabulary_filter_method]")
@@ -594,7 +593,6 @@ module AWS::SDK::TranscribeStreaming
         Hearth::Validator.validate_types!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate_types!(input[:show_speaker_label], ::TrueClass, ::FalseClass, context: "#{context}[:show_speaker_label]")
         Hearth::Validator.validate_types!(input[:session_id], ::String, context: "#{context}[:session_id]")
-        Hearth::Validator.validate_required!(input[:audio_stream], context: "#{context}[:audio_stream]")
         AudioStream.validate!(input[:audio_stream], context: "#{context}[:audio_stream]") unless input[:audio_stream].nil?
         Hearth::Validator.validate_types!(input[:enable_channel_identification], ::TrueClass, ::FalseClass, context: "#{context}[:enable_channel_identification]")
         Hearth::Validator.validate_types!(input[:number_of_channels], ::Integer, context: "#{context}[:number_of_channels]")
@@ -631,7 +629,6 @@ module AWS::SDK::TranscribeStreaming
         Hearth::Validator.validate_types!(input[:media_encoding], ::String, context: "#{context}[:media_encoding]")
         Hearth::Validator.validate_types!(input[:vocabulary_name], ::String, context: "#{context}[:vocabulary_name]")
         Hearth::Validator.validate_types!(input[:session_id], ::String, context: "#{context}[:session_id]")
-        Hearth::Validator.validate_required!(input[:audio_stream], context: "#{context}[:audio_stream]")
         AudioStream.validate!(input[:audio_stream], context: "#{context}[:audio_stream]") unless input[:audio_stream].nil?
         Hearth::Validator.validate_types!(input[:vocabulary_filter_name], ::String, context: "#{context}[:vocabulary_filter_name]")
         Hearth::Validator.validate_types!(input[:vocabulary_filter_method], ::String, context: "#{context}[:vocabulary_filter_method]")

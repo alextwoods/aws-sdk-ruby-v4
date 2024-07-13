@@ -347,6 +347,13 @@ module AWS::SDK::S3
       end
     end
 
+    class ContinuationEvent
+      def self.parse(xml)
+        data = Types::ContinuationEvent.new
+        return data
+      end
+    end
+
     class CopyObject
       def self.parse(http_resp)
         data = Types::CopyObjectOutput.new
@@ -773,6 +780,13 @@ module AWS::SDK::S3
         xml.at('ReplicaKmsKeyID') do |node|
           data.replica_kms_key_id = (node.text || '')
         end
+        return data
+      end
+    end
+
+    class EndEvent
+      def self.parse(xml)
+        data = Types::EndEvent.new
         return data
       end
     end
@@ -2682,6 +2696,32 @@ module AWS::SDK::S3
       end
     end
 
+    class Progress
+      def self.parse(xml)
+        data = Types::Progress.new
+        xml.at('BytesScanned') do |node|
+          data.bytes_scanned = node.text&.to_i
+        end
+        xml.at('BytesProcessed') do |node|
+          data.bytes_processed = node.text&.to_i
+        end
+        xml.at('BytesReturned') do |node|
+          data.bytes_returned = node.text&.to_i
+        end
+        return data
+      end
+    end
+
+    class ProgressEvent
+      def self.parse(xml)
+        data = Types::ProgressEvent.new
+        xml.at('Details') do |node|
+          data.details = Progress.parse(node)
+        end
+        return data
+      end
+    end
+
     class PublicAccessBlockConfiguration
       def self.parse(xml)
         data = Types::PublicAccessBlockConfiguration.new
@@ -2999,6 +3039,16 @@ module AWS::SDK::S3
       end
     end
 
+    class RecordsEvent
+      def self.parse(xml)
+        data = Types::RecordsEvent.new
+        xml.at('Payload') do |node|
+          data.payload = ((::Base64::decode64(node.text) unless node.text.nil?) || '')
+        end
+        return data
+      end
+    end
+
     class Redirect
       def self.parse(xml)
         data = Types::Redirect.new
@@ -3235,6 +3285,14 @@ module AWS::SDK::S3
       end
     end
 
+    class SelectObjectContent
+      def self.parse(http_resp)
+        data = Types::SelectObjectContentOutput.new
+        data.payload = http_resp.body
+        data
+      end
+    end
+
     class ServerSideEncryptionByDefault
       def self.parse(xml)
         data = Types::ServerSideEncryptionByDefault.new
@@ -3325,6 +3383,32 @@ module AWS::SDK::S3
         data = Types::SseKmsEncryptedObjects.new
         xml.at('Status') do |node|
           data.status = (node.text || '')
+        end
+        return data
+      end
+    end
+
+    class Stats
+      def self.parse(xml)
+        data = Types::Stats.new
+        xml.at('BytesScanned') do |node|
+          data.bytes_scanned = node.text&.to_i
+        end
+        xml.at('BytesProcessed') do |node|
+          data.bytes_processed = node.text&.to_i
+        end
+        xml.at('BytesReturned') do |node|
+          data.bytes_returned = node.text&.to_i
+        end
+        return data
+      end
+    end
+
+    class StatsEvent
+      def self.parse(xml)
+        data = Types::StatsEvent.new
+        xml.at('Details') do |node|
+          data.details = Stats.parse(node)
         end
         return data
       end

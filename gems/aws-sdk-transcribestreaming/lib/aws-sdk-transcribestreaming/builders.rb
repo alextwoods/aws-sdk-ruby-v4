@@ -146,10 +146,8 @@ module AWS::SDK::TranscribeStreaming
           message = Hearth::EventStream::Message.new
           message.headers[':message-type'] = Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')
           message.headers[':event-type'] = Hearth::EventStream::HeaderValue.new(value: 'AudioEvent', type: 'string')
-          message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/json', type: 'string')
-          data = {}
-          data['AudioChunk'] = ::Base64::strict_encode64(input[:audio_chunk]).strip unless input[:audio_chunk].nil?
-          message.payload = ::StringIO.new(Hearth::JSON.dump(data))
+          message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/octet-stream', type: 'string')
+          message.payload = ::StringIO.new(input[:audio_chunk])
           message
         end
       end

@@ -30,6 +30,7 @@ import software.amazon.smithy.model.shapes.StringShape;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.shapes.TimestampShape;
 import software.amazon.smithy.model.shapes.UnionShape;
+import software.amazon.smithy.model.traits.EventPayloadTrait;
 import software.amazon.smithy.model.traits.HttpHeaderTrait;
 import software.amazon.smithy.model.traits.HttpLabelTrait;
 import software.amazon.smithy.model.traits.HttpPrefixHeadersTrait;
@@ -124,7 +125,7 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
 
     @Override
     protected void renderEventBuildMethod(StructureShape event) {
-        // TODO: Handle implicit vs explict payload and blob types!
+        // TODO: Handle implicit payloads and headers?
         RubyCodeWriter rubyCodeWriter = writer
                 .openBlock("def self.build(input:)")
                 .write("message = Hearth::EventStream::Message.new")
@@ -133,12 +134,31 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
                 .write("message.headers[':event-type'] = "
                                 + "Hearth::EventStream::HeaderValue.new(value: '$L', type: 'string')",
                         event.getId().getName())
-                .write("message.headers[':content-type'] = "
-                        + "Hearth::EventStream::HeaderValue.new(value: 'application/json', type: 'string')")
-                .write("data = {}")
-                .call(() -> renderMemberBuilders(event))
-                .write("message.payload = $T.new($T.dump(data))",
-                        RubyImportContainer.STRING_IO, Hearth.JSON)
+                .call(() -> {
+                    Optional<MemberShape> eventPayload = event.members().stream()
+                            .filter((m) -> m.hasTrait(EventPayloadTrait.class))
+                            .findFirst();
+                    if (eventPayload.isPresent()) {
+                        // TODO: Does this content type need to be set based on the shape?
+                        String symbolName = ":" + symbolProvider.toMemberName(eventPayload.get());
+                        writer
+                                .write("message.headers[':content-type'] = "
+                                        + "Hearth::EventStream::HeaderValue.new("
+                                        +"value: 'application/octet-stream', type: 'string')")
+                                .write("message.payload = $T.new(input[$L])",
+                                        RubyImportContainer.STRING_IO, symbolName);
+
+                    } else {
+                        writer
+                                .write("message.headers[':content-type'] = "
+                                        + "Hearth::EventStream::HeaderValue.new("
+                                        +"value: 'application/json', type: 'string')")
+                                .write("data = {}")
+                                .call(() -> renderMemberBuilders(event))
+                                .write("message.payload = $T.new($T.dump(data))",
+                                        RubyImportContainer.STRING_IO, Hearth.JSON);
+                    }
+                })
                 .write("message")
                 .closeBlock("end");
     }
