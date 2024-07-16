@@ -1,0 +1,602 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/smithy-lang/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::LexRuntimeV2
+  module Types
+
+    class AccessDeniedException < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor message (): ::String
+    end
+
+    class ActiveContext < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor name (): ::String
+      attr_accessor time_to_live (): Types::ActiveContextTimeToLive
+      attr_accessor context_attributes (): ::Hash[::String, ::String]
+    end
+
+    class ActiveContextTimeToLive < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor time_to_live_in_seconds (): ::Integer
+      attr_accessor turns_to_live (): ::Integer
+    end
+
+    class AudioInputEvent < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor audio_chunk (): ::String
+      attr_accessor content_type (): ::String
+      attr_accessor event_id (): ::String
+      attr_accessor client_timestamp_millis (): ::Integer
+    end
+
+    class AudioResponseEvent < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor audio_chunk (): ::String
+      attr_accessor content_type (): ::String
+      attr_accessor event_id (): ::String
+    end
+
+    class BadGatewayException < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor message (): ::String
+    end
+
+    class Button < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor text (): ::String
+      attr_accessor value (): ::String
+    end
+
+    class ConfidenceScore < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor score (): ::Float
+    end
+
+    class ConfigurationEvent < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor request_attributes (): ::Hash[::String, ::String]
+      attr_accessor response_content_type (): ::String
+      attr_accessor session_state (): Types::SessionState
+      attr_accessor welcome_messages (): ::Array[Types::Message]
+      attr_accessor disable_playback (): bool
+      attr_accessor event_id (): ::String
+      attr_accessor client_timestamp_millis (): ::Integer
+    end
+
+    module ConfirmationState
+      CONFIRMED: ::String
+
+      DENIED: ::String
+
+      NONE: ::String
+    end
+
+    class ConflictException < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor message (): ::String
+    end
+
+    module ConversationMode
+      AUDIO: ::String
+
+      TEXT: ::String
+    end
+
+    class DTMFInputEvent < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor input_character (): ::String
+      attr_accessor event_id (): ::String
+      attr_accessor client_timestamp_millis (): ::Integer
+    end
+
+    class DeleteSessionInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bot_id (): ::String
+      attr_accessor bot_alias_id (): ::String
+      attr_accessor locale_id (): ::String
+      attr_accessor session_id (): ::String
+    end
+
+    class DeleteSessionOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bot_id (): ::String
+      attr_accessor bot_alias_id (): ::String
+      attr_accessor locale_id (): ::String
+      attr_accessor session_id (): ::String
+    end
+
+    class DependencyFailedException < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor message (): ::String
+    end
+
+    class DialogAction < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor type (): ::String
+      attr_accessor slot_to_elicit (): ::String
+      attr_accessor slot_elicitation_style (): ::String
+      attr_accessor sub_slot_to_elicit (): Types::ElicitSubSlot
+    end
+
+    module DialogActionType
+      CLOSE: ::String
+
+      CONFIRM_INTENT: ::String
+
+      DELEGATE: ::String
+
+      ELICIT_INTENT: ::String
+
+      ELICIT_SLOT: ::String
+
+      NONE: ::String
+    end
+
+    class DisconnectionEvent < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor event_id (): ::String
+      attr_accessor client_timestamp_millis (): ::Integer
+    end
+
+    class ElicitSubSlot < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor name (): ::String
+      attr_accessor sub_slot_to_elicit (): Types::ElicitSubSlot
+    end
+
+    class GetSessionInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bot_id (): ::String
+      attr_accessor bot_alias_id (): ::String
+      attr_accessor locale_id (): ::String
+      attr_accessor session_id (): ::String
+    end
+
+    class GetSessionOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor session_id (): ::String
+      attr_accessor messages (): ::Array[Types::Message]
+      attr_accessor interpretations (): ::Array[Types::Interpretation]
+      attr_accessor session_state (): Types::SessionState
+    end
+
+    class HeartbeatEvent < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor event_id (): ::String
+    end
+
+    class ImageResponseCard < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor title (): ::String
+      attr_accessor subtitle (): ::String
+      attr_accessor image_url (): ::String
+      attr_accessor buttons (): ::Array[Types::Button]
+    end
+
+    module InputMode
+      TEXT: ::String
+
+      SPEECH: ::String
+
+      DTMF: ::String
+    end
+
+    class Intent < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor name (): ::String
+      attr_accessor slots (): ::Hash[::String, Types::Slot]
+      attr_accessor state (): ::String
+      attr_accessor confirmation_state (): ::String
+    end
+
+    class IntentResultEvent < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor input_mode (): ::String
+      attr_accessor interpretations (): ::Array[Types::Interpretation]
+      attr_accessor session_state (): Types::SessionState
+      attr_accessor request_attributes (): ::Hash[::String, ::String]
+      attr_accessor session_id (): ::String
+      attr_accessor event_id (): ::String
+      attr_accessor recognized_bot_member (): Types::RecognizedBotMember
+    end
+
+    module IntentState
+      FAILED: ::String
+
+      FULFILLED: ::String
+
+      IN_PROGRESS: ::String
+
+      READY_FOR_FULFILLMENT: ::String
+
+      WAITING: ::String
+
+      FULFILLMENT_IN_PROGRESS: ::String
+    end
+
+    class InternalServerException < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor message (): ::String
+    end
+
+    class Interpretation < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor nlu_confidence (): Types::ConfidenceScore
+      attr_accessor sentiment_response (): Types::SentimentResponse
+      attr_accessor intent (): Types::Intent
+      attr_accessor interpretation_source (): ::String
+    end
+
+    module InterpretationSource
+      BEDROCK: ::String
+
+      LEX: ::String
+    end
+
+    class Message < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor content (): ::String
+      attr_accessor content_type (): ::String
+      attr_accessor image_response_card (): Types::ImageResponseCard
+    end
+
+    module MessageContentType
+      CUSTOM_PAYLOAD: ::String
+
+      IMAGE_RESPONSE_CARD: ::String
+
+      PLAIN_TEXT: ::String
+
+      SSML: ::String
+    end
+
+    class PlaybackCompletionEvent < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor event_id (): ::String
+      attr_accessor client_timestamp_millis (): ::Integer
+    end
+
+    class PlaybackInterruptionEvent < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor event_reason (): ::String
+      attr_accessor caused_by_event_id (): ::String
+      attr_accessor event_id (): ::String
+    end
+
+    module PlaybackInterruptionReason
+      DTMF_START_DETECTED: ::String
+
+      TEXT_DETECTED: ::String
+
+      VOICE_START_DETECTED: ::String
+    end
+
+    class PutSessionInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bot_id (): ::String
+      attr_accessor bot_alias_id (): ::String
+      attr_accessor locale_id (): ::String
+      attr_accessor session_id (): ::String
+      attr_accessor messages (): ::Array[Types::Message]
+      attr_accessor session_state (): Types::SessionState
+      attr_accessor request_attributes (): ::Hash[::String, ::String]
+      attr_accessor response_content_type (): ::String
+    end
+
+    class PutSessionOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor content_type (): ::String
+      attr_accessor messages (): ::String
+      attr_accessor session_state (): ::String
+      attr_accessor request_attributes (): ::String
+      attr_accessor session_id (): ::String
+      attr_accessor audio_stream (): ::String
+    end
+
+    class RecognizeTextInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bot_id (): ::String
+      attr_accessor bot_alias_id (): ::String
+      attr_accessor locale_id (): ::String
+      attr_accessor session_id (): ::String
+      attr_accessor text (): ::String
+      attr_accessor session_state (): Types::SessionState
+      attr_accessor request_attributes (): ::Hash[::String, ::String]
+    end
+
+    class RecognizeTextOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor messages (): ::Array[Types::Message]
+      attr_accessor session_state (): Types::SessionState
+      attr_accessor interpretations (): ::Array[Types::Interpretation]
+      attr_accessor request_attributes (): ::Hash[::String, ::String]
+      attr_accessor session_id (): ::String
+      attr_accessor recognized_bot_member (): Types::RecognizedBotMember
+    end
+
+    class RecognizeUtteranceInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bot_id (): ::String
+      attr_accessor bot_alias_id (): ::String
+      attr_accessor locale_id (): ::String
+      attr_accessor session_id (): ::String
+      attr_accessor session_state (): ::String
+      attr_accessor request_attributes (): ::String
+      attr_accessor request_content_type (): ::String
+      attr_accessor response_content_type (): ::String
+      attr_accessor input_stream (): ::String
+    end
+
+    class RecognizeUtteranceOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor input_mode (): ::String
+      attr_accessor content_type (): ::String
+      attr_accessor messages (): ::String
+      attr_accessor interpretations (): ::String
+      attr_accessor session_state (): ::String
+      attr_accessor request_attributes (): ::String
+      attr_accessor session_id (): ::String
+      attr_accessor input_transcript (): ::String
+      attr_accessor audio_stream (): ::String
+      attr_accessor recognized_bot_member (): ::String
+    end
+
+    class RecognizedBotMember < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bot_id (): ::String
+      attr_accessor bot_name (): ::String
+    end
+
+    class ResourceNotFoundException < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor message (): ::String
+    end
+
+    class RuntimeHintDetails < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor runtime_hint_values (): ::Array[Types::RuntimeHintValue]
+      attr_accessor sub_slot_hints (): ::Hash[::String, Types::RuntimeHintDetails]
+    end
+
+    class RuntimeHintValue < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor phrase (): ::String
+    end
+
+    class RuntimeHints < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor slot_hints (): ::Hash[::String, ::Hash[::String, Types::RuntimeHintDetails]]
+    end
+
+    class SentimentResponse < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor sentiment (): ::String
+      attr_accessor sentiment_score (): Types::SentimentScore
+    end
+
+    class SentimentScore < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor positive (): ::Float
+      attr_accessor negative (): ::Float
+      attr_accessor neutral (): ::Float
+      attr_accessor mixed (): ::Float
+    end
+
+    module SentimentType
+      MIXED: ::String
+
+      NEGATIVE: ::String
+
+      NEUTRAL: ::String
+
+      POSITIVE: ::String
+    end
+
+    class SessionState < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor dialog_action (): Types::DialogAction
+      attr_accessor intent (): Types::Intent
+      attr_accessor active_contexts (): ::Array[Types::ActiveContext]
+      attr_accessor session_attributes (): ::Hash[::String, ::String]
+      attr_accessor originating_request_id (): ::String
+      attr_accessor runtime_hints (): Types::RuntimeHints
+    end
+
+    module Shape
+      SCALAR: ::String
+
+      LIST: ::String
+
+      COMPOSITE: ::String
+    end
+
+    class Slot < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor value (): Types::Value
+      attr_accessor shape (): ::String
+      attr_accessor member_values (): ::Array[Types::Slot]
+      attr_accessor sub_slots (): ::Hash[::String, Types::Slot]
+    end
+
+    class StartConversationInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bot_id (): ::String
+      attr_accessor bot_alias_id (): ::String
+      attr_accessor locale_id (): ::String
+      attr_accessor session_id (): ::String
+      attr_accessor conversation_mode (): ::String
+      attr_accessor request_event_stream (): Types::StartConversationRequestEventStream
+    end
+
+    class StartConversationOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor response_event_stream (): Types::StartConversationResponseEventStream
+    end
+
+    class StartConversationRequestEventStream < Hearth::Union
+      class ConfigurationEvent < StartConversationRequestEventStream
+        def to_h: () -> { configuration_event: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
+      end
+
+      class AudioInputEvent < StartConversationRequestEventStream
+        def to_h: () -> { audio_input_event: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
+      end
+
+      class DtmfInputEvent < StartConversationRequestEventStream
+        def to_h: () -> { dtmf_input_event: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
+      end
+
+      class TextInputEvent < StartConversationRequestEventStream
+        def to_h: () -> { text_input_event: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
+      end
+
+      class PlaybackCompletionEvent < StartConversationRequestEventStream
+        def to_h: () -> { playback_completion_event: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
+      end
+
+      class DisconnectionEvent < StartConversationRequestEventStream
+        def to_h: () -> { disconnection_event: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
+      end
+
+      class Unknown < StartConversationRequestEventStream
+        def to_h: () -> { unknown: { name: ::String, value: untyped } }
+        def to_s: () -> String
+      end
+    end
+
+    class StartConversationResponseEventStream < Hearth::Union
+      class PlaybackInterruptionEvent < StartConversationResponseEventStream
+        def to_h: () -> { playback_interruption_event: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
+      end
+
+      class TranscriptEvent < StartConversationResponseEventStream
+        def to_h: () -> { transcript_event: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
+      end
+
+      class IntentResultEvent < StartConversationResponseEventStream
+        def to_h: () -> { intent_result_event: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
+      end
+
+      class TextResponseEvent < StartConversationResponseEventStream
+        def to_h: () -> { text_response_event: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
+      end
+
+      class AudioResponseEvent < StartConversationResponseEventStream
+        def to_h: () -> { audio_response_event: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
+      end
+
+      class HeartbeatEvent < StartConversationResponseEventStream
+        def to_h: () -> { heartbeat_event: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
+      end
+
+      class AccessDeniedException < StartConversationResponseEventStream
+        def to_h: () -> { access_denied_exception: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
+      end
+
+      class ResourceNotFoundException < StartConversationResponseEventStream
+        def to_h: () -> { resource_not_found_exception: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
+      end
+
+      class ValidationException < StartConversationResponseEventStream
+        def to_h: () -> { validation_exception: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
+      end
+
+      class ThrottlingException < StartConversationResponseEventStream
+        def to_h: () -> { throttling_exception: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
+      end
+
+      class InternalServerException < StartConversationResponseEventStream
+        def to_h: () -> { internal_server_exception: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
+      end
+
+      class ConflictException < StartConversationResponseEventStream
+        def to_h: () -> { conflict_exception: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
+      end
+
+      class DependencyFailedException < StartConversationResponseEventStream
+        def to_h: () -> { dependency_failed_exception: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
+      end
+
+      class BadGatewayException < StartConversationResponseEventStream
+        def to_h: () -> { bad_gateway_exception: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
+      end
+
+      class Unknown < StartConversationResponseEventStream
+        def to_h: () -> { unknown: { name: ::String, value: untyped } }
+        def to_s: () -> String
+      end
+    end
+
+    module StyleType
+      DEFAULT: ::String
+
+      SPELL_BY_LETTER: ::String
+
+      SPELL_BY_WORD: ::String
+    end
+
+    class TextInputEvent < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor text (): ::String
+      attr_accessor event_id (): ::String
+      attr_accessor client_timestamp_millis (): ::Integer
+    end
+
+    class TextResponseEvent < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor messages (): ::Array[Types::Message]
+      attr_accessor event_id (): ::String
+    end
+
+    class ThrottlingException < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor message (): ::String
+    end
+
+    class TranscriptEvent < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor transcript (): ::String
+      attr_accessor event_id (): ::String
+    end
+
+    class ValidationException < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor message (): ::String
+    end
+
+    class Value < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor original_value (): ::String
+      attr_accessor interpreted_value (): ::String
+      attr_accessor resolved_values (): ::Array[::String]
+    end
+
+  end
+end
