@@ -61,22 +61,24 @@ public class ParserGenerator extends ParserGeneratorBase {
     }
 
     @Override
-    protected void renderEventParseMethod(StructureShape event) {
-        writer
-                .openBlock("def self.parse(message)")
-                .write("data = $T.new", context.symbolProvider().toSymbol(event))
-                .write("payload = message.payload.read")
-                .write("return data if payload.empty?")
-                .write("xml = $T.parse(payload)", Hearth.XML)
-                .call(() -> renderMemberParsers(event))
-                .write("data")
-                .closeBlock("end");
+    protected void renderEventImplicitStructurePayloadParser(StructureShape event) {
+        writer.write("xml = $T.parse(payload)", Hearth.XML);
+        renderMemberParsers(event);
+    }
+
+    @Override
+    protected void renderEventExplicitStructurePayloadParser(MemberShape payloadMember, StructureShape shape) {
+        String dataName = symbolProvider.toMemberName(payloadMember);
+        String dataSetter = "data." + dataName + " = ";
+
+        writer.write("xml = $T.parse(payload)", Hearth.XML);
+        shape.accept(new MemberDeserializer(payloadMember, dataSetter));
     }
 
     private void renderMemberParsers(Shape s) {
         Stream<MemberShape> parseMembers = s.members().stream()
                 .filter((m) -> !m.hasTrait(HttpHeaderTrait.class) && !m.hasTrait(HttpPrefixHeadersTrait.class)
-                        && !m.hasTrait(HttpResponseCodeTrait.class));
+                        && !m.hasTrait(HttpResponseCodeTrait.class) && !m.hasTrait(EventHeaderTrait.class));
         parseMembers = parseMembers.filter(NoSerializeTrait.excludeNoSerializeMembers());
 
         parseMembers.forEach((member) -> {

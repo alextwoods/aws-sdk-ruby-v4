@@ -3650,10 +3650,8 @@ module AWS::SDK::S3
           data = Types::ProgressEvent.new
           payload = message.payload.read
           return data if payload.empty?
-          xml = Hearth::XML.parse(payload)
-          xml.at('Details') do |node|
-            data.details = Progress.parse(node)
-          end
+          node = xml = Hearth::XML.parse(payload)
+          data.details = Progress.parse(node)
           data
         end
       end
@@ -3663,10 +3661,7 @@ module AWS::SDK::S3
           data = Types::RecordsEvent.new
           payload = message.payload.read
           return data if payload.empty?
-          xml = Hearth::XML.parse(payload)
-          xml.at('Payload') do |node|
-            data.payload = ((::Base64::decode64(node.text) unless node.text.nil?) || '')
-          end
+          data.payload =  payload
           data
         end
       end
@@ -3676,10 +3671,8 @@ module AWS::SDK::S3
           data = Types::StatsEvent.new
           payload = message.payload.read
           return data if payload.empty?
-          xml = Hearth::XML.parse(payload)
-          xml.at('Details') do |node|
-            data.details = Stats.parse(node)
-          end
+          node = xml = Hearth::XML.parse(payload)
+          data.details = Stats.parse(node)
           data
         end
       end

@@ -94,16 +94,18 @@ public class ParserGenerator extends RestParserGeneratorBase {
     }
 
     @Override
-    protected void renderEventParseMethod(StructureShape event) {
-        writer
-                .openBlock("def self.parse(message)")
-                .write("data = $T.new", context.symbolProvider().toSymbol(event))
-                .write("payload = message.payload.read")
-                .write("return data if payload.empty?")
-                .write("xml = $T.parse(payload)", Hearth.XML)
-                .call(() -> renderMemberParsers(event))
-                .write("data")
-                .closeBlock("end");
+    protected void renderEventImplicitStructurePayloadParser(StructureShape event) {
+        writer.write("xml = $T.parse(payload)", Hearth.XML);
+        renderMemberParsers(event);
+    }
+
+    @Override
+    protected void renderEventExplicitStructurePayloadParser(MemberShape payloadMember, StructureShape shape) {
+        String dataName = symbolProvider.toMemberName(payloadMember);
+        String dataSetter = "data." + dataName + " = ";
+
+        writer.write("node = xml = $T.parse(payload)", Hearth.XML);
+        shape.accept(new MemberDeserializer(payloadMember, dataSetter));
     }
 
     private String unionMemberDataName(UnionShape s, MemberShape member) {
