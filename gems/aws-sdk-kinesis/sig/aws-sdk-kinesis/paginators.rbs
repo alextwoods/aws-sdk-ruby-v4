@@ -1,0 +1,26 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/smithy-lang/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::Kinesis
+  module Paginators
+
+    class ListStreamConsumers
+      def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
+
+      def pages: () -> ::Enumerator[Hearth::Output[Types::ListStreamConsumersOutput], void]
+    end
+
+    class ListStreams
+      def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
+
+      def pages: () -> ::Enumerator[Hearth::Output[Types::ListStreamsOutput], void]
+    end
+
+  end
+end
