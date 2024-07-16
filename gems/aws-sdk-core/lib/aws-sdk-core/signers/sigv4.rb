@@ -58,9 +58,12 @@ module AWS::SDK::Core
       def sign_event(message:, prior_signature:,
         identity:, properties:, event_type:, encoder:)
 
-        # TODO: Handle end_stream event_type
+        encoded_payload = if event_type == :end_stream
+                            '' # payload must be empty on end_stream
+                          else
+                            encoder.encode(message)
+                          end
 
-        encoded_payload = encoder.encode(message)
         headers, signature = @signer.sign_event(
           prior_signature: prior_signature,
           payload: encoded_payload,

@@ -71,7 +71,7 @@ public class ParserGenerator extends ParserGeneratorBase {
         String dataName = symbolProvider.toMemberName(payloadMember);
         String dataSetter = "data." + dataName + " = ";
 
-        writer.write("xml = $T.parse(payload)", Hearth.XML);
+        writer.write("node = xml = $T.parse(payload)", Hearth.XML);
         shape.accept(new MemberDeserializer(payloadMember, dataSetter));
     }
 
