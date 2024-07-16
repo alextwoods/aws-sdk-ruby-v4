@@ -105,7 +105,7 @@ module AWS::SDK::TranscribeStreaming
 
       def parse_event(type, message)
         case type
-        when 'TranscriptEvent' then Parsers::EventStream::TranscriptEvent.parse(message)
+        when 'TranscriptEvent' then Parsers::EventStream::MedicalTranscriptEvent.parse(message)
         when 'BadRequestException' then Parsers::EventStream::BadRequestException.parse(message)
         when 'LimitExceededException' then Parsers::EventStream::LimitExceededException.parse(message)
         when 'InternalFailureException' then Parsers::EventStream::InternalFailureException.parse(message)

@@ -88,26 +88,21 @@ public class BuilderGenerator extends BuilderGeneratorBase {
     }
 
     @Override
-    protected void renderEventBuildMethod(StructureShape event) {
+    protected void renderEventPayloadStructureBuilder(StructureShape event) {
         writer
-                .openBlock("def self.build(input:)")
-                .write("message = Hearth::EventStream::Message.new")
-                .write("message.headers[':message-type'] = "
-                        + "Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')")
-                .write("message.headers[':event-type'] = "
-                                + "Hearth::EventStream::HeaderValue.new(value: '$L', type: 'string')",
-                        event.getId().getName())
                 .write("message.headers[':content-type'] = "
                         + "Hearth::EventStream::HeaderValue.new(value: 'application/x-www-form-urlencoded', type: 'string')")
                 .write("params = $T.new", Hearth.QUERY_PARAM_LIST)
-                .call(() -> renderMemberBuilders(event))
+                .call(() -> renderMemberBuilders(event, "payload_input"))
                 .write("message.payload = $T.new($T.encode(params.to_s))",
-                        RubyImportContainer.STRING_IO)
-                .write("message")
-                .closeBlock("end");
+                        RubyImportContainer.STRING_IO);
     }
 
     private void renderMemberBuilders(Shape s) {
+        renderMemberBuilders(s, "input");
+    }
+
+    private void renderMemberBuilders(Shape s, String input) {
         //remove members marked NoSerialize
         Stream<MemberShape> serializeMembers = s.members().stream()
                 .filter(NoSerializeTrait.excludeNoSerializeMembers())
@@ -118,7 +113,7 @@ public class BuilderGenerator extends BuilderGeneratorBase {
 
             String dataName = writer.format("'$L'", getQueryParamName(member));
             String symbolName = ":" + symbolProvider.toMemberName(member);
-            String inputGetter = "input[" + symbolName + "]";
+            String inputGetter = input + "[" + symbolName + "]";
             target.accept(new MemberSerializer(member, dataName, inputGetter, true));
         });
     }

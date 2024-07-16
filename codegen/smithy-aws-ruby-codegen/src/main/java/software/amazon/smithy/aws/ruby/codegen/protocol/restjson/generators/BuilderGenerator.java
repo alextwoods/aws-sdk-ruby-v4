@@ -30,7 +30,7 @@ import software.amazon.smithy.model.shapes.StringShape;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.shapes.TimestampShape;
 import software.amazon.smithy.model.shapes.UnionShape;
-import software.amazon.smithy.model.traits.EventPayloadTrait;
+import software.amazon.smithy.model.traits.EventHeaderTrait;
 import software.amazon.smithy.model.traits.HttpHeaderTrait;
 import software.amazon.smithy.model.traits.HttpLabelTrait;
 import software.amazon.smithy.model.traits.HttpPrefixHeadersTrait;
@@ -43,7 +43,6 @@ import software.amazon.smithy.model.traits.StreamingTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
 import software.amazon.smithy.ruby.codegen.Hearth;
-import software.amazon.smithy.ruby.codegen.RubyCodeWriter;
 import software.amazon.smithy.ruby.codegen.RubyImportContainer;
 import software.amazon.smithy.ruby.codegen.generators.RestBuilderGeneratorBase;
 import software.amazon.smithy.ruby.codegen.traits.NoSerializeTrait;
@@ -60,11 +59,14 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
     }
 
     private void renderMemberBuilders(Shape s) {
+        renderMemberBuilders(s, "input");
+    }
+    private void renderMemberBuilders(Shape s, String input) {
         //remove members w/ http traits or marked NoSerialize
         Stream<MemberShape> serializeMembers = s.members().stream()
                 .filter((m) -> !m.hasTrait(HttpLabelTrait.class) && !m.hasTrait(HttpQueryTrait.class)
                         && !m.hasTrait(HttpHeaderTrait.class) && !m.hasTrait(HttpPrefixHeadersTrait.class)
-                        && !m.hasTrait(HttpQueryParamsTrait.class))
+                        && !m.hasTrait(HttpQueryParamsTrait.class) && !m.hasTrait(EventHeaderTrait.class))
                 .filter(NoSerializeTrait.excludeNoSerializeMembers())
                 .filter((m) -> !StreamingTrait.isEventStream(model, m));
 
@@ -78,7 +80,7 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
             }
 
             String dataSetter = "data[" + dataName + "] = ";
-            String inputGetter = "input[" + symbolName + "]";
+            String inputGetter = input + "[" + symbolName + "]";
             target.accept(new MemberSerializer(member, dataSetter, inputGetter, true));
         });
     }
@@ -124,43 +126,16 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
     }
 
     @Override
-    protected void renderEventBuildMethod(StructureShape event) {
-        // TODO: Handle implicit payloads and headers?
-        RubyCodeWriter rubyCodeWriter = writer
-                .openBlock("def self.build(input:)")
-                .write("message = Hearth::EventStream::Message.new")
-                .write("message.headers[':message-type'] = "
-                        + "Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')")
-                .write("message.headers[':event-type'] = "
-                                + "Hearth::EventStream::HeaderValue.new(value: '$L', type: 'string')",
-                        event.getId().getName())
-                .call(() -> {
-                    Optional<MemberShape> eventPayload = event.members().stream()
-                            .filter((m) -> m.hasTrait(EventPayloadTrait.class))
-                            .findFirst();
-                    if (eventPayload.isPresent()) {
-                        // TODO: Does this content type need to be set based on the shape?
-                        String symbolName = ":" + symbolProvider.toMemberName(eventPayload.get());
-                        writer
-                                .write("message.headers[':content-type'] = "
-                                        + "Hearth::EventStream::HeaderValue.new("
-                                        +"value: 'application/octet-stream', type: 'string')")
-                                .write("message.payload = $T.new(input[$L])",
-                                        RubyImportContainer.STRING_IO, symbolName);
+    protected void renderEventPayloadStructureBuilder(StructureShape event) {
+        writer
+                .write("message.headers[':content-type'] = "
+                        + "Hearth::EventStream::HeaderValue.new("
+                        + "value: 'application/json', type: 'string')")
+                .write("data = {}")
+                .call(() -> renderMemberBuilders(event, "payload_input"))
+                .write("message.payload = $T.new($T.dump(data))",
+                        RubyImportContainer.STRING_IO, Hearth.JSON);
 
-                    } else {
-                        writer
-                                .write("message.headers[':content-type'] = "
-                                        + "Hearth::EventStream::HeaderValue.new("
-                                        +"value: 'application/json', type: 'string')")
-                                .write("data = {}")
-                                .call(() -> renderMemberBuilders(event))
-                                .write("message.payload = $T.new($T.dump(data))",
-                                        RubyImportContainer.STRING_IO, Hearth.JSON);
-                    }
-                })
-                .write("message")
-                .closeBlock("end");
     }
 
     @Override

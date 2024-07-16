@@ -5133,7 +5133,9 @@ module AWS::SDK::S3
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::EventStream::Middleware::Handlers,
           event_handler: options[:event_stream_handler],
-          message_encoding_module: Hearth::EventStream::Binary
+          message_encoding_module: Hearth::EventStream::Binary,
+          request_events: false,
+          response_events: true
         )
         stack.use(Hearth::Middleware::Endpoint,
           disable_multiregion_access_points: config.disable_multiregion_access_points,
@@ -5147,7 +5149,7 @@ module AWS::SDK::S3
           use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
         )
-        stack.use(Hearth::EventStream::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign)
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,

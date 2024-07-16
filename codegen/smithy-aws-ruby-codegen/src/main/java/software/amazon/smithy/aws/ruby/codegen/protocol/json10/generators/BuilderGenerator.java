@@ -19,6 +19,7 @@ import java.util.Optional;
 import java.util.stream.Stream;
 import software.amazon.smithy.codegen.core.Symbol;
 import software.amazon.smithy.model.shapes.*;
+import software.amazon.smithy.model.traits.EventHeaderTrait;
 import software.amazon.smithy.model.traits.SparseTrait;
 import software.amazon.smithy.model.traits.StreamingTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait;
@@ -38,10 +39,13 @@ public class BuilderGenerator extends BuilderGeneratorBase {
     }
 
     private void renderMemberBuilders(Shape s) {
+        renderMemberBuilders(s, "input");
+    }
+    private void renderMemberBuilders(Shape s, String input) {
         //remove members marked NoSerialize
         Stream<MemberShape> serializeMembers = s.members().stream()
                 .filter(NoSerializeTrait.excludeNoSerializeMembers())
-                .filter((m) -> !StreamingTrait.isEventStream(model, m));
+                .filter((m) -> !StreamingTrait.isEventStream(model, m) && !m.hasTrait(EventHeaderTrait.class));
 
         serializeMembers.forEach((member) -> {
             Shape target = model.expectShape(member.getTarget());
@@ -50,7 +54,7 @@ public class BuilderGenerator extends BuilderGeneratorBase {
             String dataName = "'" + member.getMemberName() + "'";
 
             String dataSetter = "data[" + dataName + "] = ";
-            String inputGetter = "input[" + symbolName + "]";
+            String inputGetter = input + "[" + symbolName + "]";
             target.accept(new MemberSerializer(member, dataSetter, inputGetter, true));
         });
     }
@@ -105,24 +109,14 @@ public class BuilderGenerator extends BuilderGeneratorBase {
     }
 
     @Override
-    protected void renderEventBuildMethod(StructureShape event) {
-        // TODO: Handle implicit vs explict payload and blob types!
-        RubyCodeWriter rubyCodeWriter = writer
-                .openBlock("def self.build(input:)")
-                .write("message = Hearth::EventStream::Message.new")
-                .write("message.headers[':message-type'] = "
-                        + "Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')")
-                .write("message.headers[':event-type'] = "
-                                + "Hearth::EventStream::HeaderValue.new(value: '$L', type: 'string')",
-                        event.getId().getName())
+    protected void renderEventPayloadStructureBuilder(StructureShape event) {
+        writer
                 .write("message.headers[':content-type'] = "
                         + "Hearth::EventStream::HeaderValue.new(value: 'application/x-amz-json-1.0', type: 'string')")
                 .write("data = {}")
-                .call(() -> renderMemberBuilders(event))
+                .call(() -> renderMemberBuilders(event, "payload_input"))
                 .write("message.payload = $T.new($T.dump(data))",
-                        RubyImportContainer.STRING_IO, Hearth.JSON)
-                .write("message")
-                .closeBlock("end");
+                        RubyImportContainer.STRING_IO, Hearth.JSON);
     }
 
     @Override

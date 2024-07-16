@@ -146,6 +146,7 @@ module AWS::SDK::TranscribeStreaming
           message = Hearth::EventStream::Message.new
           message.headers[':message-type'] = Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')
           message.headers[':event-type'] = Hearth::EventStream::HeaderValue.new(value: 'AudioEvent', type: 'string')
+          message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/cbor', type: 'string')
           message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/octet-stream', type: 'string')
           message.payload = ::StringIO.new(input[:audio_chunk])
           message
@@ -156,10 +157,12 @@ module AWS::SDK::TranscribeStreaming
           message = Hearth::EventStream::Message.new
           message.headers[':message-type'] = Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')
           message.headers[':event-type'] = Hearth::EventStream::HeaderValue.new(value: 'ConfigurationEvent', type: 'string')
+          message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/cbor', type: 'string')
+          payload_input = input
           message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/json', type: 'string')
           data = {}
-          data['ChannelDefinitions'] = ChannelDefinitions.build(input[:channel_definitions]) unless input[:channel_definitions].nil?
-          data['PostCallAnalyticsSettings'] = PostCallAnalyticsSettings.build(input[:post_call_analytics_settings]) unless input[:post_call_analytics_settings].nil?
+          data['ChannelDefinitions'] = ChannelDefinitions.build(payload_input[:channel_definitions]) unless payload_input[:channel_definitions].nil?
+          data['PostCallAnalyticsSettings'] = PostCallAnalyticsSettings.build(payload_input[:post_call_analytics_settings]) unless payload_input[:post_call_analytics_settings].nil?
           message.payload = ::StringIO.new(Hearth::JSON.dump(data))
           message
         end
