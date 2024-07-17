@@ -10,7 +10,7 @@
 module AWS::SDK::S3
   module EventStream
 
-    class SelectObjectContent < Hearth::EventStream::HandlerBase
+    class SelectObjectContentEventStreamHandler < Hearth::EventStream::HandlerBase
 
       def on_records(&block)
         on('Records', block)

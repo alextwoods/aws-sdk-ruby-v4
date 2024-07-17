@@ -31,6 +31,7 @@ module AWS::SDK::TranscribeStreaming
           AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::EventStream::Middleware::Handlers,
+          async_output_class: EventStream::AudioStreamOutput,
           event_handler: options[:event_stream_handler],
           message_encoding_module: Hearth::EventStream::Binary,
           request_events: true,
@@ -44,6 +45,10 @@ module AWS::SDK::TranscribeStreaming
           region: config.region,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
+        )
+        stack.use(Hearth::Middleware::Retry,
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::EventStream::Middleware::Sign)
         stack.use(Middleware::RequestId)
@@ -76,6 +81,7 @@ module AWS::SDK::TranscribeStreaming
           AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::EventStream::Middleware::Handlers,
+          async_output_class: EventStream::AudioStreamOutput,
           event_handler: options[:event_stream_handler],
           message_encoding_module: Hearth::EventStream::Binary,
           request_events: true,
@@ -89,6 +95,10 @@ module AWS::SDK::TranscribeStreaming
           region: config.region,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
+        )
+        stack.use(Hearth::Middleware::Retry,
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::EventStream::Middleware::Sign)
         stack.use(Middleware::RequestId)
@@ -121,6 +131,7 @@ module AWS::SDK::TranscribeStreaming
           AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::EventStream::Middleware::Handlers,
+          async_output_class: EventStream::AudioStreamOutput,
           event_handler: options[:event_stream_handler],
           message_encoding_module: Hearth::EventStream::Binary,
           request_events: true,
@@ -134,6 +145,10 @@ module AWS::SDK::TranscribeStreaming
           region: config.region,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
+        )
+        stack.use(Hearth::Middleware::Retry,
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::EventStream::Middleware::Sign)
         stack.use(Middleware::RequestId)

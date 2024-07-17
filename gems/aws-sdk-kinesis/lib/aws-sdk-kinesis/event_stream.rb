@@ -10,7 +10,7 @@
 module AWS::SDK::Kinesis
   module EventStream
 
-    class SubscribeToShard < Hearth::EventStream::HandlerBase
+    class SubscribeToShardEventStreamHandler < Hearth::EventStream::HandlerBase
 
       def on_subscribe_to_shard_event(&block)
         on('SubscribeToShardEvent', block)

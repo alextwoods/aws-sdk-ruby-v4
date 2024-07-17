@@ -10,43 +10,7 @@
 module AWS::SDK::LexRuntimeV2
   module EventStream
 
-    class StartConversation < Hearth::EventStream::HandlerBase
-
-      def signal_configuration_event(params = {})
-        input = Params::ConfigurationEvent.build(params, context: 'params')
-        message = Builders::EventStream::ConfigurationEvent.build(input: input)
-        encoder.send_event(:event, message)
-      end
-
-      def signal_audio_input_event(params = {})
-        input = Params::AudioInputEvent.build(params, context: 'params')
-        message = Builders::EventStream::AudioInputEvent.build(input: input)
-        encoder.send_event(:event, message)
-      end
-
-      def signal_dtmf_input_event(params = {})
-        input = Params::DTMFInputEvent.build(params, context: 'params')
-        message = Builders::EventStream::DTMFInputEvent.build(input: input)
-        encoder.send_event(:event, message)
-      end
-
-      def signal_text_input_event(params = {})
-        input = Params::TextInputEvent.build(params, context: 'params')
-        message = Builders::EventStream::TextInputEvent.build(input: input)
-        encoder.send_event(:event, message)
-      end
-
-      def signal_playback_completion_event(params = {})
-        input = Params::PlaybackCompletionEvent.build(params, context: 'params')
-        message = Builders::EventStream::PlaybackCompletionEvent.build(input: input)
-        encoder.send_event(:event, message)
-      end
-
-      def signal_disconnection_event(params = {})
-        input = Params::DisconnectionEvent.build(params, context: 'params')
-        message = Builders::EventStream::DisconnectionEvent.build(input: input)
-        encoder.send_event(:event, message)
-      end
+    class StartConversationResponseEventStreamHandler < Hearth::EventStream::HandlerBase
 
       def on_playback_interruption_event(&block)
         on('PlaybackInterruptionEvent', block)
@@ -121,6 +85,45 @@ module AWS::SDK::LexRuntimeV2
         when 'DependencyFailedException' then Parsers::EventStream::DependencyFailedException.parse(message)
         when 'BadGatewayException' then Parsers::EventStream::BadGatewayException.parse(message)
         end
+      end
+    end
+
+    class StartConversationRequestEventStreamOutput < Hearth::EventStream::AsyncOutput
+
+      def signal_configuration_event(params = {})
+        input = Params::ConfigurationEvent.build(params, context: 'params')
+        message = Builders::EventStream::ConfigurationEvent.build(input: input)
+        send_event(message)
+      end
+
+      def signal_audio_input_event(params = {})
+        input = Params::AudioInputEvent.build(params, context: 'params')
+        message = Builders::EventStream::AudioInputEvent.build(input: input)
+        send_event(message)
+      end
+
+      def signal_dtmf_input_event(params = {})
+        input = Params::DTMFInputEvent.build(params, context: 'params')
+        message = Builders::EventStream::DTMFInputEvent.build(input: input)
+        send_event(message)
+      end
+
+      def signal_text_input_event(params = {})
+        input = Params::TextInputEvent.build(params, context: 'params')
+        message = Builders::EventStream::TextInputEvent.build(input: input)
+        send_event(message)
+      end
+
+      def signal_playback_completion_event(params = {})
+        input = Params::PlaybackCompletionEvent.build(params, context: 'params')
+        message = Builders::EventStream::PlaybackCompletionEvent.build(input: input)
+        send_event(message)
+      end
+
+      def signal_disconnection_event(params = {})
+        input = Params::DisconnectionEvent.build(params, context: 'params')
+        message = Builders::EventStream::DisconnectionEvent.build(input: input)
+        send_event(message)
       end
     end
   end

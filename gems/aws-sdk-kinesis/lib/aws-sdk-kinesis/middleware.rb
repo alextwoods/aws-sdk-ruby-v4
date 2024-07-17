@@ -1511,6 +1511,7 @@ module AWS::SDK::Kinesis
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::EventStream::Middleware::Handlers,
+          async_output_class: Hearth::EventStream::AsyncOutput,
           event_handler: options[:event_stream_handler],
           message_encoding_module: Hearth::EventStream::Binary,
           request_events: false,
@@ -1523,6 +1524,10 @@ module AWS::SDK::Kinesis
           region: config.region,
           use_dualstack_endpoint: config.use_dualstack_endpoint,
           use_fips_endpoint: config.use_fips_endpoint
+        )
+        stack.use(Hearth::Middleware::Retry,
+          error_inspector_class: Hearth::HTTP::ErrorInspector,
+          retry_strategy: config.retry_strategy
         )
         stack.use(Hearth::Middleware::Sign)
         stack.use(Middleware::RequestId)

@@ -191,8 +191,8 @@ module AWS::SDK::TranscribeStreaming
       input = Params::StartCallAnalyticsStreamTranscriptionInput.build(params, context: 'params')
       stack = AWS::SDK::TranscribeStreaming::Middleware::StartCallAnalyticsStreamTranscription.build(config, middleware_opts)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI('')),
-        response: Hearth::HTTP::Response.new(body: response_body),
+        request: Hearth::HTTP2::Request.new(uri: URI('')),
+        response: Hearth::HTTP2::Response.new(body: response_body),
         config: config,
         operation_name: :start_call_analytics_stream_transcription,
       )
@@ -332,8 +332,8 @@ module AWS::SDK::TranscribeStreaming
       input = Params::StartMedicalStreamTranscriptionInput.build(params, context: 'params')
       stack = AWS::SDK::TranscribeStreaming::Middleware::StartMedicalStreamTranscription.build(config, middleware_opts)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI('')),
-        response: Hearth::HTTP::Response.new(body: response_body),
+        request: Hearth::HTTP2::Request.new(uri: URI('')),
+        response: Hearth::HTTP2::Response.new(body: response_body),
         config: config,
         operation_name: :start_medical_stream_transcription,
       )
@@ -500,8 +500,8 @@ module AWS::SDK::TranscribeStreaming
       input = Params::StartStreamTranscriptionInput.build(params, context: 'params')
       stack = AWS::SDK::TranscribeStreaming::Middleware::StartStreamTranscription.build(config, middleware_opts)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI('')),
-        response: Hearth::HTTP::Response.new(body: response_body),
+        request: Hearth::HTTP2::Request.new(uri: URI('')),
+        response: Hearth::HTTP2::Response.new(body: response_body),
         config: config,
         operation_name: :start_stream_transcription,
       )

@@ -926,8 +926,8 @@ module AWS::SDK::LexRuntimeV2
       input = Params::StartConversationInput.build(params, context: 'params')
       stack = AWS::SDK::LexRuntimeV2::Middleware::StartConversation.build(config, middleware_opts)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI('')),
-        response: Hearth::HTTP::Response.new(body: response_body),
+        request: Hearth::HTTP2::Request.new(uri: URI('')),
+        response: Hearth::HTTP2::Response.new(body: response_body),
         config: config,
         operation_name: :start_conversation,
       )

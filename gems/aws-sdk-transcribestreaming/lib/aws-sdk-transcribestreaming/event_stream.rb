@@ -10,19 +10,7 @@
 module AWS::SDK::TranscribeStreaming
   module EventStream
 
-    class StartCallAnalyticsStreamTranscription < Hearth::EventStream::HandlerBase
-
-      def signal_audio_event(params = {})
-        input = Params::AudioEvent.build(params, context: 'params')
-        message = Builders::EventStream::AudioEvent.build(input: input)
-        encoder.send_event(:event, message)
-      end
-
-      def signal_configuration_event(params = {})
-        input = Params::ConfigurationEvent.build(params, context: 'params')
-        message = Builders::EventStream::ConfigurationEvent.build(input: input)
-        encoder.send_event(:event, message)
-      end
+    class CallAnalyticsTranscriptResultStreamHandler < Hearth::EventStream::HandlerBase
 
       def on_utterance_event(&block)
         on('UtteranceEvent', block)
@@ -65,19 +53,7 @@ module AWS::SDK::TranscribeStreaming
       end
     end
 
-    class StartMedicalStreamTranscription < Hearth::EventStream::HandlerBase
-
-      def signal_audio_event(params = {})
-        input = Params::AudioEvent.build(params, context: 'params')
-        message = Builders::EventStream::AudioEvent.build(input: input)
-        encoder.send_event(:event, message)
-      end
-
-      def signal_configuration_event(params = {})
-        input = Params::ConfigurationEvent.build(params, context: 'params')
-        message = Builders::EventStream::ConfigurationEvent.build(input: input)
-        encoder.send_event(:event, message)
-      end
+    class MedicalTranscriptResultStreamHandler < Hearth::EventStream::HandlerBase
 
       def on_transcript_event(&block)
         on('TranscriptEvent', block)
@@ -115,19 +91,7 @@ module AWS::SDK::TranscribeStreaming
       end
     end
 
-    class StartStreamTranscription < Hearth::EventStream::HandlerBase
-
-      def signal_audio_event(params = {})
-        input = Params::AudioEvent.build(params, context: 'params')
-        message = Builders::EventStream::AudioEvent.build(input: input)
-        encoder.send_event(:event, message)
-      end
-
-      def signal_configuration_event(params = {})
-        input = Params::ConfigurationEvent.build(params, context: 'params')
-        message = Builders::EventStream::ConfigurationEvent.build(input: input)
-        encoder.send_event(:event, message)
-      end
+    class TranscriptResultStreamHandler < Hearth::EventStream::HandlerBase
 
       def on_transcript_event(&block)
         on('TranscriptEvent', block)
@@ -162,6 +126,21 @@ module AWS::SDK::TranscribeStreaming
         when 'ConflictException' then Parsers::EventStream::ConflictException.parse(message)
         when 'ServiceUnavailableException' then Parsers::EventStream::ServiceUnavailableException.parse(message)
         end
+      end
+    end
+
+    class AudioStreamOutput < Hearth::EventStream::AsyncOutput
+
+      def signal_audio_event(params = {})
+        input = Params::AudioEvent.build(params, context: 'params')
+        message = Builders::EventStream::AudioEvent.build(input: input)
+        send_event(message)
+      end
+
+      def signal_configuration_event(params = {})
+        input = Params::ConfigurationEvent.build(params, context: 'params')
+        message = Builders::EventStream::ConfigurationEvent.build(input: input)
+        send_event(message)
       end
     end
   end
