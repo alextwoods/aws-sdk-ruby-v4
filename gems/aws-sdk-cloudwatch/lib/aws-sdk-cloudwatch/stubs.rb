@@ -286,7 +286,7 @@ module AWS::SDK::CloudWatch
           dashboard_name: 'dashboard_name',
           dashboard_arn: 'dashboard_arn',
           last_modified: Time.now,
-          size: 1,
+          member_size: 1,
         }
       end
 
@@ -296,7 +296,7 @@ module AWS::SDK::CloudWatch
         xml << Hearth::XML::Node.new('DashboardName', stub[:dashboard_name].to_s) unless stub[:dashboard_name].nil?
         xml << Hearth::XML::Node.new('DashboardArn', stub[:dashboard_arn].to_s) unless stub[:dashboard_arn].nil?
         xml << Hearth::XML::Node.new('LastModified', Hearth::TimeHelper.to_date_time(stub[:last_modified])) unless stub[:last_modified].nil?
-        xml << Hearth::XML::Node.new('Size', stub[:size].to_s) unless stub[:size].nil?
+        xml << Hearth::XML::Node.new('Size', stub[:member_size].to_s) unless stub[:member_size].nil?
         xml
       end
     end
@@ -400,7 +400,7 @@ module AWS::SDK::CloudWatch
           timestamp: Time.now,
           sample_count: 1.0,
           average: 1.0,
-          sum: 1.0,
+          member_sum: 1.0,
           minimum: 1.0,
           maximum: 1.0,
           unit: 'unit',
@@ -414,7 +414,7 @@ module AWS::SDK::CloudWatch
         xml << Hearth::XML::Node.new('Timestamp', Hearth::TimeHelper.to_date_time(stub[:timestamp])) unless stub[:timestamp].nil?
         xml << Hearth::XML::Node.new('SampleCount', Hearth::NumberHelper.serialize(stub[:sample_count]).to_s) unless stub[:sample_count].nil?
         xml << Hearth::XML::Node.new('Average', Hearth::NumberHelper.serialize(stub[:average]).to_s) unless stub[:average].nil?
-        xml << Hearth::XML::Node.new('Sum', Hearth::NumberHelper.serialize(stub[:sum]).to_s) unless stub[:sum].nil?
+        xml << Hearth::XML::Node.new('Sum', Hearth::NumberHelper.serialize(stub[:member_sum]).to_s) unless stub[:member_sum].nil?
         xml << Hearth::XML::Node.new('Minimum', Hearth::NumberHelper.serialize(stub[:minimum]).to_s) unless stub[:minimum].nil?
         xml << Hearth::XML::Node.new('Maximum', Hearth::NumberHelper.serialize(stub[:maximum]).to_s) unless stub[:maximum].nil?
         xml << Hearth::XML::Node.new('Unit', stub[:unit].to_s) unless stub[:unit].nil?
@@ -1244,7 +1244,7 @@ module AWS::SDK::CloudWatch
           max_contributor_value: 1.0,
           sample_count: 1.0,
           average: 1.0,
-          sum: 1.0,
+          member_sum: 1.0,
           minimum: 1.0,
           maximum: 1.0,
         }
@@ -1258,7 +1258,7 @@ module AWS::SDK::CloudWatch
         xml << Hearth::XML::Node.new('MaxContributorValue', Hearth::NumberHelper.serialize(stub[:max_contributor_value]).to_s) unless stub[:max_contributor_value].nil?
         xml << Hearth::XML::Node.new('SampleCount', Hearth::NumberHelper.serialize(stub[:sample_count]).to_s) unless stub[:sample_count].nil?
         xml << Hearth::XML::Node.new('Average', Hearth::NumberHelper.serialize(stub[:average]).to_s) unless stub[:average].nil?
-        xml << Hearth::XML::Node.new('Sum', Hearth::NumberHelper.serialize(stub[:sum]).to_s) unless stub[:sum].nil?
+        xml << Hearth::XML::Node.new('Sum', Hearth::NumberHelper.serialize(stub[:member_sum]).to_s) unless stub[:member_sum].nil?
         xml << Hearth::XML::Node.new('Minimum', Hearth::NumberHelper.serialize(stub[:minimum]).to_s) unless stub[:minimum].nil?
         xml << Hearth::XML::Node.new('Maximum', Hearth::NumberHelper.serialize(stub[:maximum]).to_s) unless stub[:maximum].nil?
         xml
@@ -1553,7 +1553,7 @@ module AWS::SDK::CloudWatch
       def self.default(visited = [])
         {
           next_token: 'next_token',
-          entries: MetricStreamEntries.default(visited),
+          member_entries: MetricStreamEntries.default(visited),
         }
       end
 
@@ -1563,7 +1563,7 @@ module AWS::SDK::CloudWatch
         response.attributes['xmlns'] = 'http://monitoring.amazonaws.com/doc/2010-08-01/'
         xml = Hearth::XML::Node.new('ListMetricStreamsResult')
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        xml << Hearth::XML::Node.new('Entries', MetricStreamEntries.stub('member', stub[:entries])) unless stub[:entries].nil?
+        xml << Hearth::XML::Node.new('Entries', MetricStreamEntries.stub('member', stub[:member_entries])) unless stub[:member_entries].nil?
         response << xml
         http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
@@ -1872,7 +1872,7 @@ module AWS::SDK::CloudWatch
           id: 'id',
           label: 'label',
           timestamps: Timestamps.default(visited),
-          values: DatapointValues.default(visited),
+          member_values: DatapointValues.default(visited),
           status_code: 'status_code',
           messages: MetricDataResultMessages.default(visited),
         }
@@ -1884,7 +1884,7 @@ module AWS::SDK::CloudWatch
         xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
         xml << Hearth::XML::Node.new('Label', stub[:label].to_s) unless stub[:label].nil?
         xml << Hearth::XML::Node.new('Timestamps', Timestamps.stub('member', stub[:timestamps])) unless stub[:timestamps].nil?
-        xml << Hearth::XML::Node.new('Values', DatapointValues.stub('member', stub[:values])) unless stub[:values].nil?
+        xml << Hearth::XML::Node.new('Values', DatapointValues.stub('member', stub[:member_values])) unless stub[:member_values].nil?
         xml << Hearth::XML::Node.new('StatusCode', stub[:status_code].to_s) unless stub[:status_code].nil?
         xml << Hearth::XML::Node.new('Messages', MetricDataResultMessages.stub('member', stub[:messages])) unless stub[:messages].nil?
         xml

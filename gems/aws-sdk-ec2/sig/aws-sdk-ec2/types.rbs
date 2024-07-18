@@ -12,14 +12,14 @@ module AWS::SDK::EC2
 
     class AcceleratorCount < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor min (): ::Integer
-      attr_accessor max (): ::Integer
+      attr_accessor member_min (): ::Integer
+      attr_accessor member_max (): ::Integer
     end
 
     class AcceleratorCountRequest < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor min (): ::Integer
-      attr_accessor max (): ::Integer
+      attr_accessor member_min (): ::Integer
+      attr_accessor member_max (): ::Integer
     end
 
     module AcceleratorManufacturer
@@ -62,14 +62,14 @@ module AWS::SDK::EC2
 
     class AcceleratorTotalMemoryMiB < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor min (): ::Integer
-      attr_accessor max (): ::Integer
+      attr_accessor member_min (): ::Integer
+      attr_accessor member_max (): ::Integer
     end
 
     class AcceleratorTotalMemoryMiBRequest < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor min (): ::Integer
-      attr_accessor max (): ::Integer
+      attr_accessor member_min (): ::Integer
+      attr_accessor member_max (): ::Integer
     end
 
     module AcceleratorType
@@ -1176,14 +1176,14 @@ module AWS::SDK::EC2
 
     class BaselineEbsBandwidthMbps < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor min (): ::Integer
-      attr_accessor max (): ::Integer
+      attr_accessor member_min (): ::Integer
+      attr_accessor member_max (): ::Integer
     end
 
     class BaselineEbsBandwidthMbpsRequest < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor min (): ::Integer
-      attr_accessor max (): ::Integer
+      attr_accessor member_min (): ::Integer
+      attr_accessor member_max (): ::Integer
     end
 
     module BatchState
@@ -1494,7 +1494,7 @@ module AWS::SDK::EC2
     class CapacityAllocation < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor allocation_type (): ::String
-      attr_accessor count (): ::Integer
+      attr_accessor member_count (): ::Integer
     end
 
     class CapacityBlockOffering < ::Struct[untyped]
@@ -2719,7 +2719,7 @@ module AWS::SDK::EC2
       include Hearth::Structure
       attr_accessor dry_run (): bool
       attr_accessor prefix_list_name (): ::String
-      attr_accessor entries (): ::Array[Types::AddPrefixListEntry]
+      attr_accessor member_entries (): ::Array[Types::AddPrefixListEntry]
       attr_accessor max_entries (): ::Integer
       attr_accessor tag_specifications (): ::Array[Types::TagSpecification]
       attr_accessor address_family (): ::String
@@ -3464,7 +3464,7 @@ module AWS::SDK::EC2
       attr_accessor iops (): ::Integer
       attr_accessor kms_key_id (): ::String
       attr_accessor outpost_arn (): ::String
-      attr_accessor size (): ::Integer
+      attr_accessor member_size (): ::Integer
       attr_accessor snapshot_id (): ::String
       attr_accessor volume_type (): ::String
       attr_accessor dry_run (): bool
@@ -3482,7 +3482,7 @@ module AWS::SDK::EC2
       attr_accessor encrypted (): bool
       attr_accessor kms_key_id (): ::String
       attr_accessor outpost_arn (): ::String
-      attr_accessor size (): ::Integer
+      attr_accessor member_size (): ::Integer
       attr_accessor snapshot_id (): ::String
       attr_accessor state (): ::String
       attr_accessor volume_id (): ::String
@@ -5206,7 +5206,7 @@ module AWS::SDK::EC2
     class DescribeFlowLogsInput < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor dry_run (): bool
-      attr_accessor filter (): ::Array[Types::Filter]
+      attr_accessor member_filter (): ::Array[Types::Filter]
       attr_accessor flow_log_ids (): ::Array[::String]
       attr_accessor max_results (): ::Integer
       attr_accessor next_token (): ::String
@@ -5248,7 +5248,7 @@ module AWS::SDK::EC2
 
     class DescribeHostReservationOfferingsInput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor filter (): ::Array[Types::Filter]
+      attr_accessor member_filter (): ::Array[Types::Filter]
       attr_accessor max_duration (): ::Integer
       attr_accessor max_results (): ::Integer
       attr_accessor min_duration (): ::Integer
@@ -5264,7 +5264,7 @@ module AWS::SDK::EC2
 
     class DescribeHostReservationsInput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor filter (): ::Array[Types::Filter]
+      attr_accessor member_filter (): ::Array[Types::Filter]
       attr_accessor host_reservation_id_set (): ::Array[::String]
       attr_accessor max_results (): ::Integer
       attr_accessor next_token (): ::String
@@ -5278,7 +5278,7 @@ module AWS::SDK::EC2
 
     class DescribeHostsInput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor filter (): ::Array[Types::Filter]
+      attr_accessor member_filter (): ::Array[Types::Filter]
       attr_accessor host_ids (): ::Array[::String]
       attr_accessor max_results (): ::Integer
       attr_accessor next_token (): ::String
@@ -5864,7 +5864,7 @@ module AWS::SDK::EC2
     class DescribeNatGatewaysInput < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor dry_run (): bool
-      attr_accessor filter (): ::Array[Types::Filter]
+      attr_accessor member_filter (): ::Array[Types::Filter]
       attr_accessor max_results (): ::Integer
       attr_accessor nat_gateway_ids (): ::Array[::String]
       attr_accessor next_token (): ::String
@@ -7090,7 +7090,7 @@ module AWS::SDK::EC2
     class DhcpConfiguration < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor key (): ::String
-      attr_accessor values (): ::Array[Types::AttributeValue]
+      attr_accessor member_values (): ::Array[Types::AttributeValue]
     end
 
     class DhcpOptions < ::Struct[untyped]
@@ -7510,7 +7510,7 @@ module AWS::SDK::EC2
       attr_accessor checksum (): ::String
       attr_accessor format (): ::String
       attr_accessor import_manifest_url (): ::String
-      attr_accessor size (): ::Integer
+      attr_accessor member_size (): ::Integer
     end
 
     class DiskImageDetail < ::Struct[untyped]
@@ -7531,13 +7531,13 @@ module AWS::SDK::EC2
     class DiskImageVolumeDescription < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor id (): ::String
-      attr_accessor size (): ::Integer
+      attr_accessor member_size (): ::Integer
     end
 
     class DiskInfo < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor size_in_gb (): ::Integer
-      attr_accessor count (): ::Integer
+      attr_accessor member_count (): ::Integer
       attr_accessor type (): ::String
     end
 
@@ -7768,7 +7768,7 @@ module AWS::SDK::EC2
     class ElasticInferenceAccelerator < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor type (): ::String
-      attr_accessor count (): ::Integer
+      attr_accessor member_count (): ::Integer
     end
 
     class ElasticInferenceAcceleratorAssociation < ::Struct[untyped]
@@ -8373,7 +8373,7 @@ module AWS::SDK::EC2
     class Filter < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor name (): ::String
-      attr_accessor values (): ::Array[::String]
+      attr_accessor member_values (): ::Array[::String]
     end
 
     class FilterPortRange < ::Struct[untyped]
@@ -8636,7 +8636,7 @@ module AWS::SDK::EC2
       include Hearth::Structure
       attr_accessor name (): ::String
       attr_accessor manufacturer (): ::String
-      attr_accessor count (): ::Integer
+      attr_accessor member_count (): ::Integer
       attr_accessor memory_info (): Types::FpgaDeviceMemoryInfo
     end
 
@@ -9089,7 +9089,7 @@ module AWS::SDK::EC2
 
     class GetManagedPrefixListEntriesOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor entries (): ::Array[Types::PrefixListEntry]
+      attr_accessor member_entries (): ::Array[Types::PrefixListEntry]
       attr_accessor next_token (): ::String
     end
 
@@ -9398,7 +9398,7 @@ module AWS::SDK::EC2
       include Hearth::Structure
       attr_accessor name (): ::String
       attr_accessor manufacturer (): ::String
-      attr_accessor count (): ::Integer
+      attr_accessor member_count (): ::Integer
       attr_accessor memory_info (): Types::GpuDeviceMemoryInfo
     end
 
@@ -9508,7 +9508,7 @@ module AWS::SDK::EC2
 
     class HostReservation < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor count (): ::Integer
+      attr_accessor member_count (): ::Integer
       attr_accessor currency_code (): ::String
       attr_accessor duration (): ::Integer
       attr_accessor end (): ::Time
@@ -9933,7 +9933,7 @@ module AWS::SDK::EC2
 
     class InferenceDeviceInfo < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor count (): ::Integer
+      attr_accessor member_count (): ::Integer
       attr_accessor name (): ::String
       attr_accessor manufacturer (): ::String
       attr_accessor memory_info (): Types::InferenceDeviceMemoryInfo
@@ -12984,13 +12984,13 @@ module AWS::SDK::EC2
     class LaunchTemplateElasticInferenceAccelerator < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor type (): ::String
-      attr_accessor count (): ::Integer
+      attr_accessor member_count (): ::Integer
     end
 
     class LaunchTemplateElasticInferenceAcceleratorResponse < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor type (): ::String
-      attr_accessor count (): ::Integer
+      attr_accessor member_count (): ::Integer
     end
 
     class LaunchTemplateEnaSrdSpecification < ::Struct[untyped]
@@ -13600,14 +13600,14 @@ module AWS::SDK::EC2
 
     class MemoryGiBPerVCpu < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor min (): ::Float
-      attr_accessor max (): ::Float
+      attr_accessor member_min (): ::Float
+      attr_accessor member_max (): ::Float
     end
 
     class MemoryGiBPerVCpuRequest < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor min (): ::Float
-      attr_accessor max (): ::Float
+      attr_accessor member_min (): ::Float
+      attr_accessor member_max (): ::Float
     end
 
     class MemoryInfo < ::Struct[untyped]
@@ -13617,14 +13617,14 @@ module AWS::SDK::EC2
 
     class MemoryMiB < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor min (): ::Integer
-      attr_accessor max (): ::Integer
+      attr_accessor member_min (): ::Integer
+      attr_accessor member_max (): ::Integer
     end
 
     class MemoryMiBRequest < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor min (): ::Integer
-      attr_accessor max (): ::Integer
+      attr_accessor member_min (): ::Integer
+      attr_accessor member_max (): ::Integer
     end
 
     class MetricPoint < ::Struct[untyped]
@@ -14465,7 +14465,7 @@ module AWS::SDK::EC2
       include Hearth::Structure
       attr_accessor dry_run (): bool
       attr_accessor volume_id (): ::String
-      attr_accessor size (): ::Integer
+      attr_accessor member_size (): ::Integer
       attr_accessor volume_type (): ::String
       attr_accessor iops (): ::Integer
       attr_accessor throughput (): ::Integer
@@ -14802,7 +14802,7 @@ module AWS::SDK::EC2
     class NetworkAcl < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor associations (): ::Array[Types::NetworkAclAssociation]
-      attr_accessor entries (): ::Array[Types::NetworkAclEntry]
+      attr_accessor member_entries (): ::Array[Types::NetworkAclEntry]
       attr_accessor is_default (): bool
       attr_accessor network_acl_id (): ::String
       attr_accessor tags (): ::Array[Types::Tag]
@@ -14831,14 +14831,14 @@ module AWS::SDK::EC2
 
     class NetworkBandwidthGbps < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor min (): ::Float
-      attr_accessor max (): ::Float
+      attr_accessor member_min (): ::Float
+      attr_accessor member_max (): ::Float
     end
 
     class NetworkBandwidthGbpsRequest < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor min (): ::Float
-      attr_accessor max (): ::Float
+      attr_accessor member_min (): ::Float
+      attr_accessor member_max (): ::Float
     end
 
     class NetworkCardInfo < ::Struct[untyped]
@@ -15009,14 +15009,14 @@ module AWS::SDK::EC2
 
     class NetworkInterfaceCount < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor min (): ::Integer
-      attr_accessor max (): ::Integer
+      attr_accessor member_min (): ::Integer
+      attr_accessor member_max (): ::Integer
     end
 
     class NetworkInterfaceCountRequest < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor min (): ::Integer
-      attr_accessor max (): ::Integer
+      attr_accessor member_min (): ::Integer
+      attr_accessor member_max (): ::Integer
     end
 
     module NetworkInterfaceCreationType
@@ -15118,7 +15118,7 @@ module AWS::SDK::EC2
     class NewDhcpConfiguration < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor key (): ::String
-      attr_accessor values (): ::Array[::String]
+      attr_accessor member_values (): ::Array[::String]
     end
 
     module NitroEnclavesSupport
@@ -15555,7 +15555,7 @@ module AWS::SDK::EC2
 
     class PricingDetail < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor count (): ::Integer
+      attr_accessor member_count (): ::Integer
       attr_accessor price (): ::Float
     end
 
@@ -18296,14 +18296,14 @@ module AWS::SDK::EC2
 
     class TotalLocalStorageGB < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor min (): ::Float
-      attr_accessor max (): ::Float
+      attr_accessor member_min (): ::Float
+      attr_accessor member_max (): ::Float
     end
 
     class TotalLocalStorageGBRequest < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor min (): ::Float
-      attr_accessor max (): ::Float
+      attr_accessor member_min (): ::Float
+      attr_accessor member_max (): ::Float
     end
 
     module TpmSupportValues
@@ -19215,14 +19215,14 @@ module AWS::SDK::EC2
 
     class VCpuCountRange < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor min (): ::Integer
-      attr_accessor max (): ::Integer
+      attr_accessor member_min (): ::Integer
+      attr_accessor member_max (): ::Integer
     end
 
     class VCpuCountRangeRequest < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor min (): ::Integer
-      attr_accessor max (): ::Integer
+      attr_accessor member_min (): ::Integer
+      attr_accessor member_max (): ::Integer
     end
 
     class VCpuInfo < ::Struct[untyped]
@@ -19482,7 +19482,7 @@ module AWS::SDK::EC2
       attr_accessor encrypted (): bool
       attr_accessor kms_key_id (): ::String
       attr_accessor outpost_arn (): ::String
-      attr_accessor size (): ::Integer
+      attr_accessor member_size (): ::Integer
       attr_accessor snapshot_id (): ::String
       attr_accessor state (): ::String
       attr_accessor volume_id (): ::String
@@ -19527,7 +19527,7 @@ module AWS::SDK::EC2
 
     class VolumeDetail < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor size (): ::Integer
+      attr_accessor member_size (): ::Integer
     end
 
     class VolumeModification < ::Struct[untyped]

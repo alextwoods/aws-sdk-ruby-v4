@@ -32,6 +32,7 @@ module AWS::SDK::S3
         ?retry_strategy: Hearth::_RetryStrategy,
         ?stub_responses: bool,
         ?stubs: Hearth::Stubs,
+        ?telemetry_provider: Hearth::Telemetry::TelemetryProvider,
         ?use_accelerate_endpoint: bool,
         ?use_arn_region: bool,
         ?use_dualstack_endpoint: bool,
@@ -751,7 +752,7 @@ module AWS::SDK::S3
         id: ::String,
         analytics_configuration: {
           id: ::String,
-          filter: {
+          member_filter: {
             Prefix: ::String,
             Tag: Types::Tag,
             And: Types::AnalyticsAndOperator
@@ -794,7 +795,7 @@ module AWS::SDK::S3
         id: ::String,
         intelligent_tiering_configuration: {
           id: ::String,
-          filter: {
+          member_filter: {
             prefix: ::String,
             tag: Types::Tag,
             and: Types::IntelligentTieringAndOperator
@@ -814,7 +815,7 @@ module AWS::SDK::S3
             s3_bucket_destination: Types::InventoryS3BucketDestination
           },
           is_enabled: bool,
-          filter: {
+          member_filter: {
             prefix: ::String
           },
           id: ::String,
@@ -862,7 +863,7 @@ module AWS::SDK::S3
         id: ::String,
         metrics_configuration: {
           id: ::String,
-          filter: {
+          member_filter: {
             Prefix: ::String,
             Tag: Types::Tag,
             AccessPointArn: ::String,

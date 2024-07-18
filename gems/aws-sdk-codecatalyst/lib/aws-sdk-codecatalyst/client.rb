@@ -9,6 +9,8 @@
 
 require 'stringio'
 
+require_relative 'plugins/global_config'
+
 module AWS::SDK::CodeCatalyst
   # <p>Welcome to the Amazon CodeCatalyst API reference. This reference provides descriptions of operations and data types for Amazon CodeCatalyst. You can use the Amazon CodeCatalyst
   #       API to work with the following objects. </p>
@@ -188,7 +190,9 @@ module AWS::SDK::CodeCatalyst
   class Client < Hearth::Client
 
     # @api private
-    @plugins = Hearth::PluginList.new
+    @plugins = Hearth::PluginList.new([
+      Plugins::GlobalConfig.new
+    ])
 
     # @param [Hash] options
     #   Options used to construct an instance of {Config}
@@ -225,6 +229,7 @@ module AWS::SDK::CodeCatalyst
     def create_access_token(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::codecatalyst.client')
       input = Params::CreateAccessTokenInput.build(params, context: 'params')
       stack = AWS::SDK::CodeCatalyst::Middleware::CreateAccessToken.build(config)
       context = Hearth::Context.new(
@@ -232,15 +237,24 @@ module AWS::SDK::CodeCatalyst
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :create_access_token,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_access_token] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#create_access_token] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'CodeCatalyst',
+        'rpc.method' => 'CreateAccessToken',
+        'code.function' => 'create_access_token',
+        'code.namespace' => 'AWS::SDK::CodeCatalyst::Client'
+      }
+      tracer.in_span('CodeCatalyst.CreateAccessToken', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_access_token] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#create_access_token] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_access_token] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_access_token] #{output.data}")
-      output
     end
 
     # <p>Creates a Dev Environment in Amazon CodeCatalyst, a cloud-based development environment that you can use to quickly work on the code stored
@@ -290,6 +304,7 @@ module AWS::SDK::CodeCatalyst
     def create_dev_environment(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::codecatalyst.client')
       input = Params::CreateDevEnvironmentInput.build(params, context: 'params')
       stack = AWS::SDK::CodeCatalyst::Middleware::CreateDevEnvironment.build(config)
       context = Hearth::Context.new(
@@ -297,15 +312,24 @@ module AWS::SDK::CodeCatalyst
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :create_dev_environment,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_dev_environment] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#create_dev_environment] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'CodeCatalyst',
+        'rpc.method' => 'CreateDevEnvironment',
+        'code.function' => 'create_dev_environment',
+        'code.namespace' => 'AWS::SDK::CodeCatalyst::Client'
+      }
+      tracer.in_span('CodeCatalyst.CreateDevEnvironment', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_dev_environment] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#create_dev_environment] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_dev_environment] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_dev_environment] #{output.data}")
-      output
     end
 
     # <p>Creates a project in a specified space.</p>
@@ -331,6 +355,7 @@ module AWS::SDK::CodeCatalyst
     def create_project(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::codecatalyst.client')
       input = Params::CreateProjectInput.build(params, context: 'params')
       stack = AWS::SDK::CodeCatalyst::Middleware::CreateProject.build(config)
       context = Hearth::Context.new(
@@ -338,15 +363,24 @@ module AWS::SDK::CodeCatalyst
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :create_project,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_project] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#create_project] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'CodeCatalyst',
+        'rpc.method' => 'CreateProject',
+        'code.function' => 'create_project',
+        'code.namespace' => 'AWS::SDK::CodeCatalyst::Client'
+      }
+      tracer.in_span('CodeCatalyst.CreateProject', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_project] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#create_project] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_project] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_project] #{output.data}")
-      output
     end
 
     # <p>Creates an empty Git-based source repository in a specified project. The repository is
@@ -374,6 +408,7 @@ module AWS::SDK::CodeCatalyst
     def create_source_repository(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::codecatalyst.client')
       input = Params::CreateSourceRepositoryInput.build(params, context: 'params')
       stack = AWS::SDK::CodeCatalyst::Middleware::CreateSourceRepository.build(config)
       context = Hearth::Context.new(
@@ -381,15 +416,24 @@ module AWS::SDK::CodeCatalyst
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :create_source_repository,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_source_repository] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#create_source_repository] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'CodeCatalyst',
+        'rpc.method' => 'CreateSourceRepository',
+        'code.function' => 'create_source_repository',
+        'code.namespace' => 'AWS::SDK::CodeCatalyst::Client'
+      }
+      tracer.in_span('CodeCatalyst.CreateSourceRepository', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_source_repository] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#create_source_repository] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_source_repository] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_source_repository] #{output.data}")
-      output
     end
 
     # <p>Creates a branch in a specified source repository in Amazon CodeCatalyst. </p>
@@ -420,6 +464,7 @@ module AWS::SDK::CodeCatalyst
     def create_source_repository_branch(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::codecatalyst.client')
       input = Params::CreateSourceRepositoryBranchInput.build(params, context: 'params')
       stack = AWS::SDK::CodeCatalyst::Middleware::CreateSourceRepositoryBranch.build(config)
       context = Hearth::Context.new(
@@ -427,15 +472,24 @@ module AWS::SDK::CodeCatalyst
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :create_source_repository_branch,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_source_repository_branch] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#create_source_repository_branch] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'CodeCatalyst',
+        'rpc.method' => 'CreateSourceRepositoryBranch',
+        'code.function' => 'create_source_repository_branch',
+        'code.namespace' => 'AWS::SDK::CodeCatalyst::Client'
+      }
+      tracer.in_span('CodeCatalyst.CreateSourceRepositoryBranch', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_source_repository_branch] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#create_source_repository_branch] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_source_repository_branch] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_source_repository_branch] #{output.data}")
-      output
     end
 
     # <p>Deletes a specified personal access token (PAT). A personal access token can only be deleted by the user who created it.</p>
@@ -455,6 +509,7 @@ module AWS::SDK::CodeCatalyst
     def delete_access_token(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::codecatalyst.client')
       input = Params::DeleteAccessTokenInput.build(params, context: 'params')
       stack = AWS::SDK::CodeCatalyst::Middleware::DeleteAccessToken.build(config)
       context = Hearth::Context.new(
@@ -462,15 +517,24 @@ module AWS::SDK::CodeCatalyst
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :delete_access_token,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_access_token] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_access_token] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'CodeCatalyst',
+        'rpc.method' => 'DeleteAccessToken',
+        'code.function' => 'delete_access_token',
+        'code.namespace' => 'AWS::SDK::CodeCatalyst::Client'
+      }
+      tracer.in_span('CodeCatalyst.DeleteAccessToken', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_access_token] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_access_token] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_access_token] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_access_token] #{output.data}")
-      output
     end
 
     # <p>Deletes a Dev Environment.  </p>
@@ -495,6 +559,7 @@ module AWS::SDK::CodeCatalyst
     def delete_dev_environment(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::codecatalyst.client')
       input = Params::DeleteDevEnvironmentInput.build(params, context: 'params')
       stack = AWS::SDK::CodeCatalyst::Middleware::DeleteDevEnvironment.build(config)
       context = Hearth::Context.new(
@@ -502,15 +567,24 @@ module AWS::SDK::CodeCatalyst
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :delete_dev_environment,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_dev_environment] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_dev_environment] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'CodeCatalyst',
+        'rpc.method' => 'DeleteDevEnvironment',
+        'code.function' => 'delete_dev_environment',
+        'code.namespace' => 'AWS::SDK::CodeCatalyst::Client'
+      }
+      tracer.in_span('CodeCatalyst.DeleteDevEnvironment', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_dev_environment] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_dev_environment] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_dev_environment] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_dev_environment] #{output.data}")
-      output
     end
 
     # <p>Deletes a project in a space.</p>
@@ -534,6 +608,7 @@ module AWS::SDK::CodeCatalyst
     def delete_project(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::codecatalyst.client')
       input = Params::DeleteProjectInput.build(params, context: 'params')
       stack = AWS::SDK::CodeCatalyst::Middleware::DeleteProject.build(config)
       context = Hearth::Context.new(
@@ -541,15 +616,24 @@ module AWS::SDK::CodeCatalyst
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :delete_project,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_project] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_project] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'CodeCatalyst',
+        'rpc.method' => 'DeleteProject',
+        'code.function' => 'delete_project',
+        'code.namespace' => 'AWS::SDK::CodeCatalyst::Client'
+      }
+      tracer.in_span('CodeCatalyst.DeleteProject', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_project] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_project] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_project] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_project] #{output.data}")
-      output
     end
 
     # <p>Deletes a source repository in Amazon CodeCatalyst. You cannot use this API to delete a linked repository. It can only be used to delete a Amazon CodeCatalyst source repository.</p>
@@ -574,6 +658,7 @@ module AWS::SDK::CodeCatalyst
     def delete_source_repository(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::codecatalyst.client')
       input = Params::DeleteSourceRepositoryInput.build(params, context: 'params')
       stack = AWS::SDK::CodeCatalyst::Middleware::DeleteSourceRepository.build(config)
       context = Hearth::Context.new(
@@ -581,15 +666,24 @@ module AWS::SDK::CodeCatalyst
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :delete_source_repository,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_source_repository] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_source_repository] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'CodeCatalyst',
+        'rpc.method' => 'DeleteSourceRepository',
+        'code.function' => 'delete_source_repository',
+        'code.namespace' => 'AWS::SDK::CodeCatalyst::Client'
+      }
+      tracer.in_span('CodeCatalyst.DeleteSourceRepository', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_source_repository] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_source_repository] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_source_repository] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_source_repository] #{output.data}")
-      output
     end
 
     # <p>Deletes a space.</p>
@@ -614,6 +708,7 @@ module AWS::SDK::CodeCatalyst
     def delete_space(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::codecatalyst.client')
       input = Params::DeleteSpaceInput.build(params, context: 'params')
       stack = AWS::SDK::CodeCatalyst::Middleware::DeleteSpace.build(config)
       context = Hearth::Context.new(
@@ -621,15 +716,24 @@ module AWS::SDK::CodeCatalyst
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :delete_space,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_space] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_space] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'CodeCatalyst',
+        'rpc.method' => 'DeleteSpace',
+        'code.function' => 'delete_space',
+        'code.namespace' => 'AWS::SDK::CodeCatalyst::Client'
+      }
+      tracer.in_span('CodeCatalyst.DeleteSpace', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_space] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_space] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_space] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_space] #{output.data}")
-      output
     end
 
     # <p>Returns information about a Dev Environment for a source repository in a project. Dev Environments are specific to the user who creates them.</p>
@@ -672,6 +776,7 @@ module AWS::SDK::CodeCatalyst
     def get_dev_environment(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::codecatalyst.client')
       input = Params::GetDevEnvironmentInput.build(params, context: 'params')
       stack = AWS::SDK::CodeCatalyst::Middleware::GetDevEnvironment.build(config)
       context = Hearth::Context.new(
@@ -679,15 +784,24 @@ module AWS::SDK::CodeCatalyst
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_dev_environment,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_dev_environment] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_dev_environment] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'CodeCatalyst',
+        'rpc.method' => 'GetDevEnvironment',
+        'code.function' => 'get_dev_environment',
+        'code.namespace' => 'AWS::SDK::CodeCatalyst::Client'
+      }
+      tracer.in_span('CodeCatalyst.GetDevEnvironment', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_dev_environment] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_dev_environment] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_dev_environment] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_dev_environment] #{output.data}")
-      output
     end
 
     # <p>Returns information about a project.</p>
@@ -712,6 +826,7 @@ module AWS::SDK::CodeCatalyst
     def get_project(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::codecatalyst.client')
       input = Params::GetProjectInput.build(params, context: 'params')
       stack = AWS::SDK::CodeCatalyst::Middleware::GetProject.build(config)
       context = Hearth::Context.new(
@@ -719,15 +834,24 @@ module AWS::SDK::CodeCatalyst
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_project,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_project] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_project] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'CodeCatalyst',
+        'rpc.method' => 'GetProject',
+        'code.function' => 'get_project',
+        'code.namespace' => 'AWS::SDK::CodeCatalyst::Client'
+      }
+      tracer.in_span('CodeCatalyst.GetProject', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_project] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_project] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_project] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_project] #{output.data}")
-      output
     end
 
     # <p>Returns information about a source repository.</p>
@@ -755,6 +879,7 @@ module AWS::SDK::CodeCatalyst
     def get_source_repository(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::codecatalyst.client')
       input = Params::GetSourceRepositoryInput.build(params, context: 'params')
       stack = AWS::SDK::CodeCatalyst::Middleware::GetSourceRepository.build(config)
       context = Hearth::Context.new(
@@ -762,15 +887,24 @@ module AWS::SDK::CodeCatalyst
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_source_repository,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_source_repository] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_source_repository] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'CodeCatalyst',
+        'rpc.method' => 'GetSourceRepository',
+        'code.function' => 'get_source_repository',
+        'code.namespace' => 'AWS::SDK::CodeCatalyst::Client'
+      }
+      tracer.in_span('CodeCatalyst.GetSourceRepository', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_source_repository] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_source_repository] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_source_repository] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_source_repository] #{output.data}")
-      output
     end
 
     # <p>Returns information about the URLs that can be used with a Git client to clone a source
@@ -794,6 +928,7 @@ module AWS::SDK::CodeCatalyst
     def get_source_repository_clone_urls(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::codecatalyst.client')
       input = Params::GetSourceRepositoryCloneUrlsInput.build(params, context: 'params')
       stack = AWS::SDK::CodeCatalyst::Middleware::GetSourceRepositoryCloneUrls.build(config)
       context = Hearth::Context.new(
@@ -801,15 +936,24 @@ module AWS::SDK::CodeCatalyst
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_source_repository_clone_urls,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_source_repository_clone_urls] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_source_repository_clone_urls] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'CodeCatalyst',
+        'rpc.method' => 'GetSourceRepositoryCloneUrls',
+        'code.function' => 'get_source_repository_clone_urls',
+        'code.namespace' => 'AWS::SDK::CodeCatalyst::Client'
+      }
+      tracer.in_span('CodeCatalyst.GetSourceRepositoryCloneUrls', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_source_repository_clone_urls] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_source_repository_clone_urls] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_source_repository_clone_urls] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_source_repository_clone_urls] #{output.data}")
-      output
     end
 
     # <p>Returns information about an space.</p>
@@ -833,6 +977,7 @@ module AWS::SDK::CodeCatalyst
     def get_space(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::codecatalyst.client')
       input = Params::GetSpaceInput.build(params, context: 'params')
       stack = AWS::SDK::CodeCatalyst::Middleware::GetSpace.build(config)
       context = Hearth::Context.new(
@@ -840,15 +985,24 @@ module AWS::SDK::CodeCatalyst
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_space,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_space] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_space] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'CodeCatalyst',
+        'rpc.method' => 'GetSpace',
+        'code.function' => 'get_space',
+        'code.namespace' => 'AWS::SDK::CodeCatalyst::Client'
+      }
+      tracer.in_span('CodeCatalyst.GetSpace', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_space] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_space] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_space] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_space] #{output.data}")
-      output
     end
 
     # <p>Returns information about the Amazon Web Services account used for billing purposes
@@ -873,6 +1027,7 @@ module AWS::SDK::CodeCatalyst
     def get_subscription(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::codecatalyst.client')
       input = Params::GetSubscriptionInput.build(params, context: 'params')
       stack = AWS::SDK::CodeCatalyst::Middleware::GetSubscription.build(config)
       context = Hearth::Context.new(
@@ -880,15 +1035,24 @@ module AWS::SDK::CodeCatalyst
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_subscription,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_subscription] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_subscription] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'CodeCatalyst',
+        'rpc.method' => 'GetSubscription',
+        'code.function' => 'get_subscription',
+        'code.namespace' => 'AWS::SDK::CodeCatalyst::Client'
+      }
+      tracer.in_span('CodeCatalyst.GetSubscription', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_subscription] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_subscription] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_subscription] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_subscription] #{output.data}")
-      output
     end
 
     # <p>Returns information about a user. </p>
@@ -916,6 +1080,7 @@ module AWS::SDK::CodeCatalyst
     def get_user_details(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::codecatalyst.client')
       input = Params::GetUserDetailsInput.build(params, context: 'params')
       stack = AWS::SDK::CodeCatalyst::Middleware::GetUserDetails.build(config)
       context = Hearth::Context.new(
@@ -923,15 +1088,24 @@ module AWS::SDK::CodeCatalyst
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_user_details,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_user_details] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_user_details] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'CodeCatalyst',
+        'rpc.method' => 'GetUserDetails',
+        'code.function' => 'get_user_details',
+        'code.namespace' => 'AWS::SDK::CodeCatalyst::Client'
+      }
+      tracer.in_span('CodeCatalyst.GetUserDetails', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_user_details] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_user_details] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_user_details] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_user_details] #{output.data}")
-      output
     end
 
     # <p>Returns information about a workflow.</p>
@@ -965,6 +1139,7 @@ module AWS::SDK::CodeCatalyst
     def get_workflow(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::codecatalyst.client')
       input = Params::GetWorkflowInput.build(params, context: 'params')
       stack = AWS::SDK::CodeCatalyst::Middleware::GetWorkflow.build(config)
       context = Hearth::Context.new(
@@ -972,15 +1147,24 @@ module AWS::SDK::CodeCatalyst
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_workflow,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_workflow] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_workflow] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'CodeCatalyst',
+        'rpc.method' => 'GetWorkflow',
+        'code.function' => 'get_workflow',
+        'code.namespace' => 'AWS::SDK::CodeCatalyst::Client'
+      }
+      tracer.in_span('CodeCatalyst.GetWorkflow', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_workflow] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_workflow] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_workflow] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_workflow] #{output.data}")
-      output
     end
 
     # <p>Returns information about a specified run of a workflow.</p>
@@ -1012,6 +1196,7 @@ module AWS::SDK::CodeCatalyst
     def get_workflow_run(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::codecatalyst.client')
       input = Params::GetWorkflowRunInput.build(params, context: 'params')
       stack = AWS::SDK::CodeCatalyst::Middleware::GetWorkflowRun.build(config)
       context = Hearth::Context.new(
@@ -1019,15 +1204,24 @@ module AWS::SDK::CodeCatalyst
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_workflow_run,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_workflow_run] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_workflow_run] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'CodeCatalyst',
+        'rpc.method' => 'GetWorkflowRun',
+        'code.function' => 'get_workflow_run',
+        'code.namespace' => 'AWS::SDK::CodeCatalyst::Client'
+      }
+      tracer.in_span('CodeCatalyst.GetWorkflowRun', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_workflow_run] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_workflow_run] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_workflow_run] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_workflow_run] #{output.data}")
-      output
     end
 
     # <p>Lists all personal access tokens (PATs) associated with the user who calls the API. You can only list PATs associated with your Amazon Web Services Builder ID.</p>
@@ -1054,6 +1248,7 @@ module AWS::SDK::CodeCatalyst
     def list_access_tokens(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::codecatalyst.client')
       input = Params::ListAccessTokensInput.build(params, context: 'params')
       stack = AWS::SDK::CodeCatalyst::Middleware::ListAccessTokens.build(config)
       context = Hearth::Context.new(
@@ -1061,15 +1256,24 @@ module AWS::SDK::CodeCatalyst
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :list_access_tokens,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_access_tokens] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_access_tokens] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'CodeCatalyst',
+        'rpc.method' => 'ListAccessTokens',
+        'code.function' => 'list_access_tokens',
+        'code.namespace' => 'AWS::SDK::CodeCatalyst::Client'
+      }
+      tracer.in_span('CodeCatalyst.ListAccessTokens', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_access_tokens] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_access_tokens] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_access_tokens] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_access_tokens] #{output.data}")
-      output
     end
 
     # <p>Retrieves a list of active sessions for a Dev Environment in a project.</p>
@@ -1101,6 +1305,7 @@ module AWS::SDK::CodeCatalyst
     def list_dev_environment_sessions(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::codecatalyst.client')
       input = Params::ListDevEnvironmentSessionsInput.build(params, context: 'params')
       stack = AWS::SDK::CodeCatalyst::Middleware::ListDevEnvironmentSessions.build(config)
       context = Hearth::Context.new(
@@ -1108,15 +1313,24 @@ module AWS::SDK::CodeCatalyst
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :list_dev_environment_sessions,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_dev_environment_sessions] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_dev_environment_sessions] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'CodeCatalyst',
+        'rpc.method' => 'ListDevEnvironmentSessions',
+        'code.function' => 'list_dev_environment_sessions',
+        'code.namespace' => 'AWS::SDK::CodeCatalyst::Client'
+      }
+      tracer.in_span('CodeCatalyst.ListDevEnvironmentSessions', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_dev_environment_sessions] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_dev_environment_sessions] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_dev_environment_sessions] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_dev_environment_sessions] #{output.data}")
-      output
     end
 
     # <p>Retrieves a list of Dev Environments in a project.</p>
@@ -1134,7 +1348,7 @@ module AWS::SDK::CodeCatalyst
     #     filters: [
     #       {
     #         key: 'key', # required
-    #         values: [
+    #         member_values: [
     #           'member'
     #         ], # required
     #         comparison_operator: 'comparisonOperator'
@@ -1172,6 +1386,7 @@ module AWS::SDK::CodeCatalyst
     def list_dev_environments(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::codecatalyst.client')
       input = Params::ListDevEnvironmentsInput.build(params, context: 'params')
       stack = AWS::SDK::CodeCatalyst::Middleware::ListDevEnvironments.build(config)
       context = Hearth::Context.new(
@@ -1179,15 +1394,24 @@ module AWS::SDK::CodeCatalyst
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :list_dev_environments,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_dev_environments] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_dev_environments] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'CodeCatalyst',
+        'rpc.method' => 'ListDevEnvironments',
+        'code.function' => 'list_dev_environments',
+        'code.namespace' => 'AWS::SDK::CodeCatalyst::Client'
+      }
+      tracer.in_span('CodeCatalyst.ListDevEnvironments', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_dev_environments] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_dev_environments] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_dev_environments] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_dev_environments] #{output.data}")
-      output
     end
 
     # <p>Retrieves a list of events that occurred during a specific time in a space. You can
@@ -1247,6 +1471,7 @@ module AWS::SDK::CodeCatalyst
     def list_event_logs(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::codecatalyst.client')
       input = Params::ListEventLogsInput.build(params, context: 'params')
       stack = AWS::SDK::CodeCatalyst::Middleware::ListEventLogs.build(config)
       context = Hearth::Context.new(
@@ -1254,15 +1479,24 @@ module AWS::SDK::CodeCatalyst
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :list_event_logs,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_event_logs] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_event_logs] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'CodeCatalyst',
+        'rpc.method' => 'ListEventLogs',
+        'code.function' => 'list_event_logs',
+        'code.namespace' => 'AWS::SDK::CodeCatalyst::Client'
+      }
+      tracer.in_span('CodeCatalyst.ListEventLogs', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_event_logs] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_event_logs] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_event_logs] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_event_logs] #{output.data}")
-      output
     end
 
     # <p>Retrieves a list of projects.</p>
@@ -1281,7 +1515,7 @@ module AWS::SDK::CodeCatalyst
     #     filters: [
     #       {
     #         key: 'hasAccessTo', # required - accepts ["hasAccessTo", "name"]
-    #         values: [
+    #         member_values: [
     #           'member'
     #         ], # required
     #         comparison_operator: 'EQ' # accepts ["EQ", "GT", "GE", "LT", "LE", "BEGINS_WITH"]
@@ -1299,6 +1533,7 @@ module AWS::SDK::CodeCatalyst
     def list_projects(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::codecatalyst.client')
       input = Params::ListProjectsInput.build(params, context: 'params')
       stack = AWS::SDK::CodeCatalyst::Middleware::ListProjects.build(config)
       context = Hearth::Context.new(
@@ -1306,15 +1541,24 @@ module AWS::SDK::CodeCatalyst
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :list_projects,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_projects] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_projects] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'CodeCatalyst',
+        'rpc.method' => 'ListProjects',
+        'code.function' => 'list_projects',
+        'code.namespace' => 'AWS::SDK::CodeCatalyst::Client'
+      }
+      tracer.in_span('CodeCatalyst.ListProjects', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_projects] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_projects] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_projects] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_projects] #{output.data}")
-      output
     end
 
     # <p>Retrieves a list of source repositories in a project.</p>
@@ -1345,6 +1589,7 @@ module AWS::SDK::CodeCatalyst
     def list_source_repositories(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::codecatalyst.client')
       input = Params::ListSourceRepositoriesInput.build(params, context: 'params')
       stack = AWS::SDK::CodeCatalyst::Middleware::ListSourceRepositories.build(config)
       context = Hearth::Context.new(
@@ -1352,15 +1597,24 @@ module AWS::SDK::CodeCatalyst
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :list_source_repositories,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_source_repositories] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_source_repositories] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'CodeCatalyst',
+        'rpc.method' => 'ListSourceRepositories',
+        'code.function' => 'list_source_repositories',
+        'code.namespace' => 'AWS::SDK::CodeCatalyst::Client'
+      }
+      tracer.in_span('CodeCatalyst.ListSourceRepositories', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_source_repositories] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_source_repositories] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_source_repositories] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_source_repositories] #{output.data}")
-      output
     end
 
     # <p>Retrieves a list of branches in a specified source repository.</p>
@@ -1391,6 +1645,7 @@ module AWS::SDK::CodeCatalyst
     def list_source_repository_branches(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::codecatalyst.client')
       input = Params::ListSourceRepositoryBranchesInput.build(params, context: 'params')
       stack = AWS::SDK::CodeCatalyst::Middleware::ListSourceRepositoryBranches.build(config)
       context = Hearth::Context.new(
@@ -1398,15 +1653,24 @@ module AWS::SDK::CodeCatalyst
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :list_source_repository_branches,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_source_repository_branches] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_source_repository_branches] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'CodeCatalyst',
+        'rpc.method' => 'ListSourceRepositoryBranches',
+        'code.function' => 'list_source_repository_branches',
+        'code.namespace' => 'AWS::SDK::CodeCatalyst::Client'
+      }
+      tracer.in_span('CodeCatalyst.ListSourceRepositoryBranches', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_source_repository_branches] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_source_repository_branches] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_source_repository_branches] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_source_repository_branches] #{output.data}")
-      output
     end
 
     # <p>Retrieves a list of spaces.</p>
@@ -1433,6 +1697,7 @@ module AWS::SDK::CodeCatalyst
     def list_spaces(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::codecatalyst.client')
       input = Params::ListSpacesInput.build(params, context: 'params')
       stack = AWS::SDK::CodeCatalyst::Middleware::ListSpaces.build(config)
       context = Hearth::Context.new(
@@ -1440,15 +1705,24 @@ module AWS::SDK::CodeCatalyst
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :list_spaces,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_spaces] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_spaces] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'CodeCatalyst',
+        'rpc.method' => 'ListSpaces',
+        'code.function' => 'list_spaces',
+        'code.namespace' => 'AWS::SDK::CodeCatalyst::Client'
+      }
+      tracer.in_span('CodeCatalyst.ListSpaces', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_spaces] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_spaces] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_spaces] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_spaces] #{output.data}")
-      output
     end
 
     # <p>Retrieves a list of workflow runs of a specified workflow.</p>
@@ -1466,7 +1740,7 @@ module AWS::SDK::CodeCatalyst
     #     project_name: 'projectName', # required
     #     next_token: 'nextToken',
     #     max_results: 1,
-    #     sort_by: [
+    #     member_sort_by: [
     #       { }
     #     ]
     #   )
@@ -1487,6 +1761,7 @@ module AWS::SDK::CodeCatalyst
     def list_workflow_runs(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::codecatalyst.client')
       input = Params::ListWorkflowRunsInput.build(params, context: 'params')
       stack = AWS::SDK::CodeCatalyst::Middleware::ListWorkflowRuns.build(config)
       context = Hearth::Context.new(
@@ -1494,15 +1769,24 @@ module AWS::SDK::CodeCatalyst
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :list_workflow_runs,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_workflow_runs] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_workflow_runs] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'CodeCatalyst',
+        'rpc.method' => 'ListWorkflowRuns',
+        'code.function' => 'list_workflow_runs',
+        'code.namespace' => 'AWS::SDK::CodeCatalyst::Client'
+      }
+      tracer.in_span('CodeCatalyst.ListWorkflowRuns', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_workflow_runs] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_workflow_runs] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_workflow_runs] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_workflow_runs] #{output.data}")
-      output
     end
 
     # <p>Retrieves a list of workflows in a specified project.</p>
@@ -1519,7 +1803,7 @@ module AWS::SDK::CodeCatalyst
     #     project_name: 'projectName', # required
     #     next_token: 'nextToken',
     #     max_results: 1,
-    #     sort_by: [
+    #     member_sort_by: [
     #       { }
     #     ]
     #   )
@@ -1541,6 +1825,7 @@ module AWS::SDK::CodeCatalyst
     def list_workflows(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::codecatalyst.client')
       input = Params::ListWorkflowsInput.build(params, context: 'params')
       stack = AWS::SDK::CodeCatalyst::Middleware::ListWorkflows.build(config)
       context = Hearth::Context.new(
@@ -1548,15 +1833,24 @@ module AWS::SDK::CodeCatalyst
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :list_workflows,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_workflows] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_workflows] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'CodeCatalyst',
+        'rpc.method' => 'ListWorkflows',
+        'code.function' => 'list_workflows',
+        'code.namespace' => 'AWS::SDK::CodeCatalyst::Client'
+      }
+      tracer.in_span('CodeCatalyst.ListWorkflows', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_workflows] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_workflows] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_workflows] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_workflows] #{output.data}")
-      output
     end
 
     # <p>Starts a specified Dev Environment and puts it into an active state. </p>
@@ -1590,6 +1884,7 @@ module AWS::SDK::CodeCatalyst
     def start_dev_environment(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::codecatalyst.client')
       input = Params::StartDevEnvironmentInput.build(params, context: 'params')
       stack = AWS::SDK::CodeCatalyst::Middleware::StartDevEnvironment.build(config)
       context = Hearth::Context.new(
@@ -1597,15 +1892,24 @@ module AWS::SDK::CodeCatalyst
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :start_dev_environment,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_dev_environment] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#start_dev_environment] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'CodeCatalyst',
+        'rpc.method' => 'StartDevEnvironment',
+        'code.function' => 'start_dev_environment',
+        'code.namespace' => 'AWS::SDK::CodeCatalyst::Client'
+      }
+      tracer.in_span('CodeCatalyst.StartDevEnvironment', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_dev_environment] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#start_dev_environment] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_dev_environment] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_dev_environment] #{output.data}")
-      output
     end
 
     # <p>Starts a session for a specified Dev Environment.</p>
@@ -1643,6 +1947,7 @@ module AWS::SDK::CodeCatalyst
     def start_dev_environment_session(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::codecatalyst.client')
       input = Params::StartDevEnvironmentSessionInput.build(params, context: 'params')
       stack = AWS::SDK::CodeCatalyst::Middleware::StartDevEnvironmentSession.build(config)
       context = Hearth::Context.new(
@@ -1650,15 +1955,24 @@ module AWS::SDK::CodeCatalyst
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :start_dev_environment_session,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_dev_environment_session] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#start_dev_environment_session] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'CodeCatalyst',
+        'rpc.method' => 'StartDevEnvironmentSession',
+        'code.function' => 'start_dev_environment_session',
+        'code.namespace' => 'AWS::SDK::CodeCatalyst::Client'
+      }
+      tracer.in_span('CodeCatalyst.StartDevEnvironmentSession', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_dev_environment_session] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#start_dev_environment_session] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_dev_environment_session] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_dev_environment_session] #{output.data}")
-      output
     end
 
     # <p>Begins a run of a specified workflow.</p>
@@ -1685,6 +1999,7 @@ module AWS::SDK::CodeCatalyst
     def start_workflow_run(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::codecatalyst.client')
       input = Params::StartWorkflowRunInput.build(params, context: 'params')
       stack = AWS::SDK::CodeCatalyst::Middleware::StartWorkflowRun.build(config)
       context = Hearth::Context.new(
@@ -1692,15 +2007,24 @@ module AWS::SDK::CodeCatalyst
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :start_workflow_run,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_workflow_run] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#start_workflow_run] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'CodeCatalyst',
+        'rpc.method' => 'StartWorkflowRun',
+        'code.function' => 'start_workflow_run',
+        'code.namespace' => 'AWS::SDK::CodeCatalyst::Client'
+      }
+      tracer.in_span('CodeCatalyst.StartWorkflowRun', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_workflow_run] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#start_workflow_run] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_workflow_run] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_workflow_run] #{output.data}")
-      output
     end
 
     # <p>Pauses a specified Dev Environment and places it in a non-running state. Stopped Dev Environments do not consume compute minutes.</p>
@@ -1726,6 +2050,7 @@ module AWS::SDK::CodeCatalyst
     def stop_dev_environment(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::codecatalyst.client')
       input = Params::StopDevEnvironmentInput.build(params, context: 'params')
       stack = AWS::SDK::CodeCatalyst::Middleware::StopDevEnvironment.build(config)
       context = Hearth::Context.new(
@@ -1733,15 +2058,24 @@ module AWS::SDK::CodeCatalyst
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :stop_dev_environment,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#stop_dev_environment] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#stop_dev_environment] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'CodeCatalyst',
+        'rpc.method' => 'StopDevEnvironment',
+        'code.function' => 'stop_dev_environment',
+        'code.namespace' => 'AWS::SDK::CodeCatalyst::Client'
+      }
+      tracer.in_span('CodeCatalyst.StopDevEnvironment', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#stop_dev_environment] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#stop_dev_environment] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#stop_dev_environment] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#stop_dev_environment] #{output.data}")
-      output
     end
 
     # <p>Stops a session for a specified Dev Environment.</p>
@@ -1768,6 +2102,7 @@ module AWS::SDK::CodeCatalyst
     def stop_dev_environment_session(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::codecatalyst.client')
       input = Params::StopDevEnvironmentSessionInput.build(params, context: 'params')
       stack = AWS::SDK::CodeCatalyst::Middleware::StopDevEnvironmentSession.build(config)
       context = Hearth::Context.new(
@@ -1775,15 +2110,24 @@ module AWS::SDK::CodeCatalyst
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :stop_dev_environment_session,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#stop_dev_environment_session] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#stop_dev_environment_session] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'CodeCatalyst',
+        'rpc.method' => 'StopDevEnvironmentSession',
+        'code.function' => 'stop_dev_environment_session',
+        'code.namespace' => 'AWS::SDK::CodeCatalyst::Client'
+      }
+      tracer.in_span('CodeCatalyst.StopDevEnvironmentSession', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#stop_dev_environment_session] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#stop_dev_environment_session] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#stop_dev_environment_session] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#stop_dev_environment_session] #{output.data}")
-      output
     end
 
     # <p>Changes one or more values for a Dev Environment. Updating certain values of the Dev Environment will cause a restart.</p>
@@ -1826,6 +2170,7 @@ module AWS::SDK::CodeCatalyst
     def update_dev_environment(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::codecatalyst.client')
       input = Params::UpdateDevEnvironmentInput.build(params, context: 'params')
       stack = AWS::SDK::CodeCatalyst::Middleware::UpdateDevEnvironment.build(config)
       context = Hearth::Context.new(
@@ -1833,15 +2178,24 @@ module AWS::SDK::CodeCatalyst
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :update_dev_environment,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_dev_environment] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#update_dev_environment] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'CodeCatalyst',
+        'rpc.method' => 'UpdateDevEnvironment',
+        'code.function' => 'update_dev_environment',
+        'code.namespace' => 'AWS::SDK::CodeCatalyst::Client'
+      }
+      tracer.in_span('CodeCatalyst.UpdateDevEnvironment', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_dev_environment] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#update_dev_environment] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_dev_environment] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_dev_environment] #{output.data}")
-      output
     end
 
     # <p>Changes one or more values for a project.</p>
@@ -1867,6 +2221,7 @@ module AWS::SDK::CodeCatalyst
     def update_project(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::codecatalyst.client')
       input = Params::UpdateProjectInput.build(params, context: 'params')
       stack = AWS::SDK::CodeCatalyst::Middleware::UpdateProject.build(config)
       context = Hearth::Context.new(
@@ -1874,15 +2229,24 @@ module AWS::SDK::CodeCatalyst
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :update_project,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_project] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#update_project] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'CodeCatalyst',
+        'rpc.method' => 'UpdateProject',
+        'code.function' => 'update_project',
+        'code.namespace' => 'AWS::SDK::CodeCatalyst::Client'
+      }
+      tracer.in_span('CodeCatalyst.UpdateProject', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_project] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#update_project] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_project] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_project] #{output.data}")
-      output
     end
 
     # <p>Changes one or more values for a space.</p>
@@ -1906,6 +2270,7 @@ module AWS::SDK::CodeCatalyst
     def update_space(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::codecatalyst.client')
       input = Params::UpdateSpaceInput.build(params, context: 'params')
       stack = AWS::SDK::CodeCatalyst::Middleware::UpdateSpace.build(config)
       context = Hearth::Context.new(
@@ -1913,15 +2278,24 @@ module AWS::SDK::CodeCatalyst
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :update_space,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_space] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#update_space] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'CodeCatalyst',
+        'rpc.method' => 'UpdateSpace',
+        'code.function' => 'update_space',
+        'code.namespace' => 'AWS::SDK::CodeCatalyst::Client'
+      }
+      tracer.in_span('CodeCatalyst.UpdateSpace', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_space] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#update_space] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_space] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_space] #{output.data}")
-      output
     end
 
     # <p>Verifies whether the calling user has a valid Amazon CodeCatalyst login and session.  If successful, this returns the ID of the user in Amazon CodeCatalyst.</p>
@@ -1940,6 +2314,7 @@ module AWS::SDK::CodeCatalyst
     def verify_session(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::codecatalyst.client')
       input = Params::VerifySessionInput.build(params, context: 'params')
       stack = AWS::SDK::CodeCatalyst::Middleware::VerifySession.build(config)
       context = Hearth::Context.new(
@@ -1947,15 +2322,24 @@ module AWS::SDK::CodeCatalyst
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :verify_session,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#verify_session] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#verify_session] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'CodeCatalyst',
+        'rpc.method' => 'VerifySession',
+        'code.function' => 'verify_session',
+        'code.namespace' => 'AWS::SDK::CodeCatalyst::Client'
+      }
+      tracer.in_span('CodeCatalyst.VerifySession', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#verify_session] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#verify_session] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#verify_session] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#verify_session] #{output.data}")
-      output
     end
   end
 end

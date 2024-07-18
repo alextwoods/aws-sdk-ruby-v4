@@ -943,12 +943,12 @@ module AWS::SDK::CodeCatalyst
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [String] :key
-    #   @option params [Array<String>] :values
+    #   @option params [Array<String>] :member_values
     #   @option params [String] :comparison_operator
     # @!attribute key
     #   <p>A key that can be used to sort results.</p>
     #   @return [String]
-    # @!attribute values
+    # @!attribute member_values
     #   <p>The values of the key.</p>
     #   @return [Array<String>]
     # @!attribute comparison_operator
@@ -956,7 +956,7 @@ module AWS::SDK::CodeCatalyst
     #   @return [String]
     Filter = ::Struct.new(
       :key,
-      :values,
+      :member_values,
       :comparison_operator,
       keyword_init: true
     ) do
@@ -2019,7 +2019,7 @@ module AWS::SDK::CodeCatalyst
     #   @option params [String] :project_name
     #   @option params [String] :next_token
     #   @option params [Integer] :max_results
-    #   @option params [Array<WorkflowRunSortCriteria>] :sort_by
+    #   @option params [Array<WorkflowRunSortCriteria>] :member_sort_by
     # @!attribute space_name
     #   <p>The name of the space.</p>
     #   @return [String]
@@ -2035,7 +2035,7 @@ module AWS::SDK::CodeCatalyst
     # @!attribute max_results
     #   <p>The maximum number of results to show in a single call to this API. If the number of results is larger than the number you specified, the response will include a <code>NextToken</code> element, which you can use to obtain additional results.</p>
     #   @return [Integer]
-    # @!attribute sort_by
+    # @!attribute member_sort_by
     #   <p>Information used to sort the items in the returned list.</p>
     #   @return [Array<WorkflowRunSortCriteria>]
     ListWorkflowRunsInput = ::Struct.new(
@@ -2044,7 +2044,7 @@ module AWS::SDK::CodeCatalyst
       :project_name,
       :next_token,
       :max_results,
-      :sort_by,
+      :member_sort_by,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -2074,7 +2074,7 @@ module AWS::SDK::CodeCatalyst
     #   @option params [String] :project_name
     #   @option params [String] :next_token
     #   @option params [Integer] :max_results
-    #   @option params [Array<WorkflowSortCriteria>] :sort_by
+    #   @option params [Array<WorkflowSortCriteria>] :member_sort_by
     # @!attribute space_name
     #   <p>The name of the space.</p>
     #   @return [String]
@@ -2087,7 +2087,7 @@ module AWS::SDK::CodeCatalyst
     # @!attribute max_results
     #   <p>The maximum number of results to show in a single call to this API. If the number of results is larger than the number you specified, the response will include a <code>NextToken</code> element, which you can use to obtain additional results.</p>
     #   @return [Integer]
-    # @!attribute sort_by
+    # @!attribute member_sort_by
     #   <p>Information used to sort the items in the returned list.</p>
     #   @return [Array<WorkflowSortCriteria>]
     ListWorkflowsInput = ::Struct.new(
@@ -2095,7 +2095,7 @@ module AWS::SDK::CodeCatalyst
       :project_name,
       :next_token,
       :max_results,
-      :sort_by,
+      :member_sort_by,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -2185,13 +2185,13 @@ module AWS::SDK::CodeCatalyst
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [String] :key
-    #   @option params [Array<String>] :values
+    #   @option params [Array<String>] :member_values
     #   @option params [String] :comparison_operator
     # @!attribute key
     #   <p>A key that can be used to sort results.</p>
     #   Enum, one of: ["hasAccessTo", "name"]
     #   @return [String]
-    # @!attribute values
+    # @!attribute member_values
     #   <p>The values of the key.</p>
     #   @return [Array<String>]
     # @!attribute comparison_operator
@@ -2200,7 +2200,7 @@ module AWS::SDK::CodeCatalyst
     #   @return [String]
     ProjectListFilter = ::Struct.new(
       :key,
-      :values,
+      :member_values,
       :comparison_operator,
       keyword_init: true
     ) do

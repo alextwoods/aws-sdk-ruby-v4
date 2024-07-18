@@ -18,9 +18,13 @@ module AWS::SDK::S3
       end
 
       def call(input, context)
-        output = @app.call(input, context)
-        output.metadata[:request_id] = context.response.headers['x-amzn-RequestId']
-        output
+        context.tracer.in_span('Middleware.RequestId') do |span|
+          output = @app.call(input, context)
+          request_id = context.response.headers['x-amz-request-id']
+          output.metadata[:request_id] = request_id
+          span.set_attribute('aws.request_id', request_id.to_s)
+          output
+        end
       end
     end
   end

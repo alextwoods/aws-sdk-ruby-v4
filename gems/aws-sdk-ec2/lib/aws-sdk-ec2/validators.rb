@@ -16,16 +16,16 @@ module AWS::SDK::EC2
     class AcceleratorCount
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::AcceleratorCount, context: context)
-        Hearth::Validator.validate_types!(input[:min], ::Integer, context: "#{context}[:min]")
-        Hearth::Validator.validate_types!(input[:max], ::Integer, context: "#{context}[:max]")
+        Hearth::Validator.validate_types!(input[:member_min], ::Integer, context: "#{context}[:member_min]")
+        Hearth::Validator.validate_types!(input[:member_max], ::Integer, context: "#{context}[:member_max]")
       end
     end
 
     class AcceleratorCountRequest
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::AcceleratorCountRequest, context: context)
-        Hearth::Validator.validate_types!(input[:min], ::Integer, context: "#{context}[:min]")
-        Hearth::Validator.validate_types!(input[:max], ::Integer, context: "#{context}[:max]")
+        Hearth::Validator.validate_types!(input[:member_min], ::Integer, context: "#{context}[:member_min]")
+        Hearth::Validator.validate_types!(input[:member_max], ::Integer, context: "#{context}[:member_max]")
       end
     end
 
@@ -50,16 +50,16 @@ module AWS::SDK::EC2
     class AcceleratorTotalMemoryMiB
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::AcceleratorTotalMemoryMiB, context: context)
-        Hearth::Validator.validate_types!(input[:min], ::Integer, context: "#{context}[:min]")
-        Hearth::Validator.validate_types!(input[:max], ::Integer, context: "#{context}[:max]")
+        Hearth::Validator.validate_types!(input[:member_min], ::Integer, context: "#{context}[:member_min]")
+        Hearth::Validator.validate_types!(input[:member_max], ::Integer, context: "#{context}[:member_max]")
       end
     end
 
     class AcceleratorTotalMemoryMiBRequest
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::AcceleratorTotalMemoryMiBRequest, context: context)
-        Hearth::Validator.validate_types!(input[:min], ::Integer, context: "#{context}[:min]")
-        Hearth::Validator.validate_types!(input[:max], ::Integer, context: "#{context}[:max]")
+        Hearth::Validator.validate_types!(input[:member_min], ::Integer, context: "#{context}[:member_min]")
+        Hearth::Validator.validate_types!(input[:member_max], ::Integer, context: "#{context}[:member_max]")
       end
     end
 
@@ -1565,16 +1565,16 @@ module AWS::SDK::EC2
     class BaselineEbsBandwidthMbps
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::BaselineEbsBandwidthMbps, context: context)
-        Hearth::Validator.validate_types!(input[:min], ::Integer, context: "#{context}[:min]")
-        Hearth::Validator.validate_types!(input[:max], ::Integer, context: "#{context}[:max]")
+        Hearth::Validator.validate_types!(input[:member_min], ::Integer, context: "#{context}[:member_min]")
+        Hearth::Validator.validate_types!(input[:member_max], ::Integer, context: "#{context}[:member_max]")
       end
     end
 
     class BaselineEbsBandwidthMbpsRequest
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::BaselineEbsBandwidthMbpsRequest, context: context)
-        Hearth::Validator.validate_types!(input[:min], ::Integer, context: "#{context}[:min]")
-        Hearth::Validator.validate_types!(input[:max], ::Integer, context: "#{context}[:max]")
+        Hearth::Validator.validate_types!(input[:member_min], ::Integer, context: "#{context}[:member_min]")
+        Hearth::Validator.validate_types!(input[:member_max], ::Integer, context: "#{context}[:member_max]")
       end
     end
 
@@ -1964,7 +1964,7 @@ module AWS::SDK::EC2
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::CapacityAllocation, context: context)
         Hearth::Validator.validate_types!(input[:allocation_type], ::String, context: "#{context}[:allocation_type]")
-        Hearth::Validator.validate_types!(input[:count], ::Integer, context: "#{context}[:count]")
+        Hearth::Validator.validate_types!(input[:member_count], ::Integer, context: "#{context}[:member_count]")
       end
     end
 
@@ -3557,7 +3557,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
         Hearth::Validator.validate_required!(input[:prefix_list_name], context: "#{context}[:prefix_list_name]")
         Hearth::Validator.validate_types!(input[:prefix_list_name], ::String, context: "#{context}[:prefix_list_name]")
-        AddPrefixListEntries.validate!(input[:entries], context: "#{context}[:entries]") unless input[:entries].nil?
+        AddPrefixListEntries.validate!(input[:member_entries], context: "#{context}[:member_entries]") unless input[:member_entries].nil?
         Hearth::Validator.validate_required!(input[:max_entries], context: "#{context}[:max_entries]")
         Hearth::Validator.validate_types!(input[:max_entries], ::Integer, context: "#{context}[:max_entries]")
         TagSpecificationList.validate!(input[:tag_specifications], context: "#{context}[:tag_specifications]") unless input[:tag_specifications].nil?
@@ -4575,7 +4575,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(input[:iops], ::Integer, context: "#{context}[:iops]")
         Hearth::Validator.validate_types!(input[:kms_key_id], ::String, context: "#{context}[:kms_key_id]")
         Hearth::Validator.validate_types!(input[:outpost_arn], ::String, context: "#{context}[:outpost_arn]")
-        Hearth::Validator.validate_types!(input[:size], ::Integer, context: "#{context}[:size]")
+        Hearth::Validator.validate_types!(input[:member_size], ::Integer, context: "#{context}[:member_size]")
         Hearth::Validator.validate_types!(input[:snapshot_id], ::String, context: "#{context}[:snapshot_id]")
         Hearth::Validator.validate_types!(input[:volume_type], ::String, context: "#{context}[:volume_type]")
         Hearth::Validator.validate_types!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
@@ -4595,7 +4595,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(input[:encrypted], ::TrueClass, ::FalseClass, context: "#{context}[:encrypted]")
         Hearth::Validator.validate_types!(input[:kms_key_id], ::String, context: "#{context}[:kms_key_id]")
         Hearth::Validator.validate_types!(input[:outpost_arn], ::String, context: "#{context}[:outpost_arn]")
-        Hearth::Validator.validate_types!(input[:size], ::Integer, context: "#{context}[:size]")
+        Hearth::Validator.validate_types!(input[:member_size], ::Integer, context: "#{context}[:member_size]")
         Hearth::Validator.validate_types!(input[:snapshot_id], ::String, context: "#{context}[:snapshot_id]")
         Hearth::Validator.validate_types!(input[:state], ::String, context: "#{context}[:state]")
         Hearth::Validator.validate_types!(input[:volume_id], ::String, context: "#{context}[:volume_id]")
@@ -7058,7 +7058,7 @@ module AWS::SDK::EC2
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::DescribeFlowLogsInput, context: context)
         Hearth::Validator.validate_types!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
-        FilterList.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        FilterList.validate!(input[:member_filter], context: "#{context}[:member_filter]") unless input[:member_filter].nil?
         FlowLogIdList.validate!(input[:flow_log_ids], context: "#{context}[:flow_log_ids]") unless input[:flow_log_ids].nil?
         Hearth::Validator.validate_types!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate_types!(input[:next_token], ::String, context: "#{context}[:next_token]")
@@ -7114,7 +7114,7 @@ module AWS::SDK::EC2
     class DescribeHostReservationOfferingsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::DescribeHostReservationOfferingsInput, context: context)
-        FilterList.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        FilterList.validate!(input[:member_filter], context: "#{context}[:member_filter]") unless input[:member_filter].nil?
         Hearth::Validator.validate_types!(input[:max_duration], ::Integer, context: "#{context}[:max_duration]")
         Hearth::Validator.validate_types!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate_types!(input[:min_duration], ::Integer, context: "#{context}[:min_duration]")
@@ -7134,7 +7134,7 @@ module AWS::SDK::EC2
     class DescribeHostReservationsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::DescribeHostReservationsInput, context: context)
-        FilterList.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        FilterList.validate!(input[:member_filter], context: "#{context}[:member_filter]") unless input[:member_filter].nil?
         HostReservationIdSet.validate!(input[:host_reservation_id_set], context: "#{context}[:host_reservation_id_set]") unless input[:host_reservation_id_set].nil?
         Hearth::Validator.validate_types!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate_types!(input[:next_token], ::String, context: "#{context}[:next_token]")
@@ -7152,7 +7152,7 @@ module AWS::SDK::EC2
     class DescribeHostsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::DescribeHostsInput, context: context)
-        FilterList.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        FilterList.validate!(input[:member_filter], context: "#{context}[:member_filter]") unless input[:member_filter].nil?
         RequestHostIdList.validate!(input[:host_ids], context: "#{context}[:host_ids]") unless input[:host_ids].nil?
         Hearth::Validator.validate_types!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate_types!(input[:next_token], ::String, context: "#{context}[:next_token]")
@@ -7913,7 +7913,7 @@ module AWS::SDK::EC2
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::DescribeNatGatewaysInput, context: context)
         Hearth::Validator.validate_types!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
-        FilterList.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        FilterList.validate!(input[:member_filter], context: "#{context}[:member_filter]") unless input[:member_filter].nil?
         Hearth::Validator.validate_types!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         NatGatewayIdStringList.validate!(input[:nat_gateway_ids], context: "#{context}[:nat_gateway_ids]") unless input[:nat_gateway_ids].nil?
         Hearth::Validator.validate_types!(input[:next_token], ::String, context: "#{context}[:next_token]")
@@ -9470,7 +9470,7 @@ module AWS::SDK::EC2
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::DhcpConfiguration, context: context)
         Hearth::Validator.validate_types!(input[:key], ::String, context: "#{context}[:key]")
-        DhcpConfigurationValueList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        DhcpConfigurationValueList.validate!(input[:member_values], context: "#{context}[:member_values]") unless input[:member_values].nil?
       end
     end
 
@@ -10125,7 +10125,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(input[:checksum], ::String, context: "#{context}[:checksum]")
         Hearth::Validator.validate_types!(input[:format], ::String, context: "#{context}[:format]")
         Hearth::Validator.validate_types!(input[:import_manifest_url], ::String, context: "#{context}[:import_manifest_url]")
-        Hearth::Validator.validate_types!(input[:size], ::Integer, context: "#{context}[:size]")
+        Hearth::Validator.validate_types!(input[:member_size], ::Integer, context: "#{context}[:member_size]")
       end
     end
 
@@ -10154,7 +10154,7 @@ module AWS::SDK::EC2
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::DiskImageVolumeDescription, context: context)
         Hearth::Validator.validate_types!(input[:id], ::String, context: "#{context}[:id]")
-        Hearth::Validator.validate_types!(input[:size], ::Integer, context: "#{context}[:size]")
+        Hearth::Validator.validate_types!(input[:member_size], ::Integer, context: "#{context}[:member_size]")
       end
     end
 
@@ -10162,7 +10162,7 @@ module AWS::SDK::EC2
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::DiskInfo, context: context)
         Hearth::Validator.validate_types!(input[:size_in_gb], ::Integer, context: "#{context}[:size_in_gb]")
-        Hearth::Validator.validate_types!(input[:count], ::Integer, context: "#{context}[:count]")
+        Hearth::Validator.validate_types!(input[:member_count], ::Integer, context: "#{context}[:member_count]")
         Hearth::Validator.validate_types!(input[:type], ::String, context: "#{context}[:type]")
       end
     end
@@ -10442,7 +10442,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(input, Types::ElasticInferenceAccelerator, context: context)
         Hearth::Validator.validate_required!(input[:type], context: "#{context}[:type]")
         Hearth::Validator.validate_types!(input[:type], ::String, context: "#{context}[:type]")
-        Hearth::Validator.validate_types!(input[:count], ::Integer, context: "#{context}[:count]")
+        Hearth::Validator.validate_types!(input[:member_count], ::Integer, context: "#{context}[:member_count]")
       end
     end
 
@@ -11267,7 +11267,7 @@ module AWS::SDK::EC2
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::Filter, context: context)
         Hearth::Validator.validate_types!(input[:name], ::String, context: "#{context}[:name]")
-        ValueStringList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        ValueStringList.validate!(input[:member_values], context: "#{context}[:member_values]") unless input[:member_values].nil?
       end
     end
 
@@ -11571,7 +11571,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(input, Types::FpgaDeviceInfo, context: context)
         Hearth::Validator.validate_types!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate_types!(input[:manufacturer], ::String, context: "#{context}[:manufacturer]")
-        Hearth::Validator.validate_types!(input[:count], ::Integer, context: "#{context}[:count]")
+        Hearth::Validator.validate_types!(input[:member_count], ::Integer, context: "#{context}[:member_count]")
         FpgaDeviceMemoryInfo.validate!(input[:memory_info], context: "#{context}[:memory_info]") unless input[:memory_info].nil?
       end
     end
@@ -12162,7 +12162,7 @@ module AWS::SDK::EC2
     class GetManagedPrefixListEntriesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::GetManagedPrefixListEntriesOutput, context: context)
-        PrefixListEntrySet.validate!(input[:entries], context: "#{context}[:entries]") unless input[:entries].nil?
+        PrefixListEntrySet.validate!(input[:member_entries], context: "#{context}[:member_entries]") unless input[:member_entries].nil?
         Hearth::Validator.validate_types!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -12577,7 +12577,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(input, Types::GpuDeviceInfo, context: context)
         Hearth::Validator.validate_types!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate_types!(input[:manufacturer], ::String, context: "#{context}[:manufacturer]")
-        Hearth::Validator.validate_types!(input[:count], ::Integer, context: "#{context}[:count]")
+        Hearth::Validator.validate_types!(input[:member_count], ::Integer, context: "#{context}[:member_count]")
         GpuDeviceMemoryInfo.validate!(input[:memory_info], context: "#{context}[:memory_info]") unless input[:memory_info].nil?
       end
     end
@@ -12798,7 +12798,7 @@ module AWS::SDK::EC2
     class HostReservation
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::HostReservation, context: context)
-        Hearth::Validator.validate_types!(input[:count], ::Integer, context: "#{context}[:count]")
+        Hearth::Validator.validate_types!(input[:member_count], ::Integer, context: "#{context}[:member_count]")
         Hearth::Validator.validate_types!(input[:currency_code], ::String, context: "#{context}[:currency_code]")
         Hearth::Validator.validate_types!(input[:duration], ::Integer, context: "#{context}[:duration]")
         Hearth::Validator.validate_types!(input[:end], ::Time, context: "#{context}[:end]")
@@ -13353,7 +13353,7 @@ module AWS::SDK::EC2
     class InferenceDeviceInfo
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::InferenceDeviceInfo, context: context)
-        Hearth::Validator.validate_types!(input[:count], ::Integer, context: "#{context}[:count]")
+        Hearth::Validator.validate_types!(input[:member_count], ::Integer, context: "#{context}[:member_count]")
         Hearth::Validator.validate_types!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate_types!(input[:manufacturer], ::String, context: "#{context}[:manufacturer]")
         InferenceDeviceMemoryInfo.validate!(input[:memory_info], context: "#{context}[:memory_info]") unless input[:memory_info].nil?
@@ -15345,7 +15345,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(input, Types::LaunchTemplateElasticInferenceAccelerator, context: context)
         Hearth::Validator.validate_required!(input[:type], context: "#{context}[:type]")
         Hearth::Validator.validate_types!(input[:type], ::String, context: "#{context}[:type]")
-        Hearth::Validator.validate_types!(input[:count], ::Integer, context: "#{context}[:count]")
+        Hearth::Validator.validate_types!(input[:member_count], ::Integer, context: "#{context}[:member_count]")
       end
     end
 
@@ -15362,7 +15362,7 @@ module AWS::SDK::EC2
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::LaunchTemplateElasticInferenceAcceleratorResponse, context: context)
         Hearth::Validator.validate_types!(input[:type], ::String, context: "#{context}[:type]")
-        Hearth::Validator.validate_types!(input[:count], ::Integer, context: "#{context}[:count]")
+        Hearth::Validator.validate_types!(input[:member_count], ::Integer, context: "#{context}[:member_count]")
       end
     end
 
@@ -16222,16 +16222,16 @@ module AWS::SDK::EC2
     class MemoryGiBPerVCpu
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::MemoryGiBPerVCpu, context: context)
-        Hearth::Validator.validate_types!(input[:min], ::Float, context: "#{context}[:min]")
-        Hearth::Validator.validate_types!(input[:max], ::Float, context: "#{context}[:max]")
+        Hearth::Validator.validate_types!(input[:member_min], ::Float, context: "#{context}[:member_min]")
+        Hearth::Validator.validate_types!(input[:member_max], ::Float, context: "#{context}[:member_max]")
       end
     end
 
     class MemoryGiBPerVCpuRequest
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::MemoryGiBPerVCpuRequest, context: context)
-        Hearth::Validator.validate_types!(input[:min], ::Float, context: "#{context}[:min]")
-        Hearth::Validator.validate_types!(input[:max], ::Float, context: "#{context}[:max]")
+        Hearth::Validator.validate_types!(input[:member_min], ::Float, context: "#{context}[:member_min]")
+        Hearth::Validator.validate_types!(input[:member_max], ::Float, context: "#{context}[:member_max]")
       end
     end
 
@@ -16245,17 +16245,17 @@ module AWS::SDK::EC2
     class MemoryMiB
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::MemoryMiB, context: context)
-        Hearth::Validator.validate_types!(input[:min], ::Integer, context: "#{context}[:min]")
-        Hearth::Validator.validate_types!(input[:max], ::Integer, context: "#{context}[:max]")
+        Hearth::Validator.validate_types!(input[:member_min], ::Integer, context: "#{context}[:member_min]")
+        Hearth::Validator.validate_types!(input[:member_max], ::Integer, context: "#{context}[:member_max]")
       end
     end
 
     class MemoryMiBRequest
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::MemoryMiBRequest, context: context)
-        Hearth::Validator.validate_required!(input[:min], context: "#{context}[:min]")
-        Hearth::Validator.validate_types!(input[:min], ::Integer, context: "#{context}[:min]")
-        Hearth::Validator.validate_types!(input[:max], ::Integer, context: "#{context}[:max]")
+        Hearth::Validator.validate_required!(input[:member_min], context: "#{context}[:member_min]")
+        Hearth::Validator.validate_types!(input[:member_min], ::Integer, context: "#{context}[:member_min]")
+        Hearth::Validator.validate_types!(input[:member_max], ::Integer, context: "#{context}[:member_max]")
       end
     end
 
@@ -17391,7 +17391,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
         Hearth::Validator.validate_required!(input[:volume_id], context: "#{context}[:volume_id]")
         Hearth::Validator.validate_types!(input[:volume_id], ::String, context: "#{context}[:volume_id]")
-        Hearth::Validator.validate_types!(input[:size], ::Integer, context: "#{context}[:size]")
+        Hearth::Validator.validate_types!(input[:member_size], ::Integer, context: "#{context}[:member_size]")
         Hearth::Validator.validate_types!(input[:volume_type], ::String, context: "#{context}[:volume_type]")
         Hearth::Validator.validate_types!(input[:iops], ::Integer, context: "#{context}[:iops]")
         Hearth::Validator.validate_types!(input[:throughput], ::Integer, context: "#{context}[:throughput]")
@@ -17812,7 +17812,7 @@ module AWS::SDK::EC2
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::NetworkAcl, context: context)
         NetworkAclAssociationList.validate!(input[:associations], context: "#{context}[:associations]") unless input[:associations].nil?
-        NetworkAclEntryList.validate!(input[:entries], context: "#{context}[:entries]") unless input[:entries].nil?
+        NetworkAclEntryList.validate!(input[:member_entries], context: "#{context}[:member_entries]") unless input[:member_entries].nil?
         Hearth::Validator.validate_types!(input[:is_default], ::TrueClass, ::FalseClass, context: "#{context}[:is_default]")
         Hearth::Validator.validate_types!(input[:network_acl_id], ::String, context: "#{context}[:network_acl_id]")
         TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
@@ -17883,16 +17883,16 @@ module AWS::SDK::EC2
     class NetworkBandwidthGbps
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::NetworkBandwidthGbps, context: context)
-        Hearth::Validator.validate_types!(input[:min], ::Float, context: "#{context}[:min]")
-        Hearth::Validator.validate_types!(input[:max], ::Float, context: "#{context}[:max]")
+        Hearth::Validator.validate_types!(input[:member_min], ::Float, context: "#{context}[:member_min]")
+        Hearth::Validator.validate_types!(input[:member_max], ::Float, context: "#{context}[:member_max]")
       end
     end
 
     class NetworkBandwidthGbpsRequest
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::NetworkBandwidthGbpsRequest, context: context)
-        Hearth::Validator.validate_types!(input[:min], ::Float, context: "#{context}[:min]")
-        Hearth::Validator.validate_types!(input[:max], ::Float, context: "#{context}[:max]")
+        Hearth::Validator.validate_types!(input[:member_min], ::Float, context: "#{context}[:member_min]")
+        Hearth::Validator.validate_types!(input[:member_max], ::Float, context: "#{context}[:member_max]")
       end
     end
 
@@ -18158,16 +18158,16 @@ module AWS::SDK::EC2
     class NetworkInterfaceCount
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::NetworkInterfaceCount, context: context)
-        Hearth::Validator.validate_types!(input[:min], ::Integer, context: "#{context}[:min]")
-        Hearth::Validator.validate_types!(input[:max], ::Integer, context: "#{context}[:max]")
+        Hearth::Validator.validate_types!(input[:member_min], ::Integer, context: "#{context}[:member_min]")
+        Hearth::Validator.validate_types!(input[:member_max], ::Integer, context: "#{context}[:member_max]")
       end
     end
 
     class NetworkInterfaceCountRequest
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::NetworkInterfaceCountRequest, context: context)
-        Hearth::Validator.validate_types!(input[:min], ::Integer, context: "#{context}[:min]")
-        Hearth::Validator.validate_types!(input[:max], ::Integer, context: "#{context}[:max]")
+        Hearth::Validator.validate_types!(input[:member_min], ::Integer, context: "#{context}[:member_min]")
+        Hearth::Validator.validate_types!(input[:member_max], ::Integer, context: "#{context}[:member_max]")
       end
     end
 
@@ -18285,7 +18285,7 @@ module AWS::SDK::EC2
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::NewDhcpConfiguration, context: context)
         Hearth::Validator.validate_types!(input[:key], ::String, context: "#{context}[:key]")
-        ValueStringList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        ValueStringList.validate!(input[:member_values], context: "#{context}[:member_values]") unless input[:member_values].nil?
       end
     end
 
@@ -18970,7 +18970,7 @@ module AWS::SDK::EC2
     class PricingDetail
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::PricingDetail, context: context)
-        Hearth::Validator.validate_types!(input[:count], ::Integer, context: "#{context}[:count]")
+        Hearth::Validator.validate_types!(input[:member_count], ::Integer, context: "#{context}[:member_count]")
         Hearth::Validator.validate_types!(input[:price], ::Float, context: "#{context}[:price]")
       end
     end
@@ -22808,16 +22808,16 @@ module AWS::SDK::EC2
     class TotalLocalStorageGB
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::TotalLocalStorageGB, context: context)
-        Hearth::Validator.validate_types!(input[:min], ::Float, context: "#{context}[:min]")
-        Hearth::Validator.validate_types!(input[:max], ::Float, context: "#{context}[:max]")
+        Hearth::Validator.validate_types!(input[:member_min], ::Float, context: "#{context}[:member_min]")
+        Hearth::Validator.validate_types!(input[:member_max], ::Float, context: "#{context}[:member_max]")
       end
     end
 
     class TotalLocalStorageGBRequest
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::TotalLocalStorageGBRequest, context: context)
-        Hearth::Validator.validate_types!(input[:min], ::Float, context: "#{context}[:min]")
-        Hearth::Validator.validate_types!(input[:max], ::Float, context: "#{context}[:max]")
+        Hearth::Validator.validate_types!(input[:member_min], ::Float, context: "#{context}[:member_min]")
+        Hearth::Validator.validate_types!(input[:member_max], ::Float, context: "#{context}[:member_max]")
       end
     end
 
@@ -24063,17 +24063,17 @@ module AWS::SDK::EC2
     class VCpuCountRange
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::VCpuCountRange, context: context)
-        Hearth::Validator.validate_types!(input[:min], ::Integer, context: "#{context}[:min]")
-        Hearth::Validator.validate_types!(input[:max], ::Integer, context: "#{context}[:max]")
+        Hearth::Validator.validate_types!(input[:member_min], ::Integer, context: "#{context}[:member_min]")
+        Hearth::Validator.validate_types!(input[:member_max], ::Integer, context: "#{context}[:member_max]")
       end
     end
 
     class VCpuCountRangeRequest
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::VCpuCountRangeRequest, context: context)
-        Hearth::Validator.validate_required!(input[:min], context: "#{context}[:min]")
-        Hearth::Validator.validate_types!(input[:min], ::Integer, context: "#{context}[:min]")
-        Hearth::Validator.validate_types!(input[:max], ::Integer, context: "#{context}[:max]")
+        Hearth::Validator.validate_required!(input[:member_min], context: "#{context}[:member_min]")
+        Hearth::Validator.validate_types!(input[:member_min], ::Integer, context: "#{context}[:member_min]")
+        Hearth::Validator.validate_types!(input[:member_max], ::Integer, context: "#{context}[:member_max]")
       end
     end
 
@@ -24490,7 +24490,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(input[:encrypted], ::TrueClass, ::FalseClass, context: "#{context}[:encrypted]")
         Hearth::Validator.validate_types!(input[:kms_key_id], ::String, context: "#{context}[:kms_key_id]")
         Hearth::Validator.validate_types!(input[:outpost_arn], ::String, context: "#{context}[:outpost_arn]")
-        Hearth::Validator.validate_types!(input[:size], ::Integer, context: "#{context}[:size]")
+        Hearth::Validator.validate_types!(input[:member_size], ::Integer, context: "#{context}[:member_size]")
         Hearth::Validator.validate_types!(input[:snapshot_id], ::String, context: "#{context}[:snapshot_id]")
         Hearth::Validator.validate_types!(input[:state], ::String, context: "#{context}[:state]")
         Hearth::Validator.validate_types!(input[:volume_id], ::String, context: "#{context}[:volume_id]")
@@ -24530,8 +24530,8 @@ module AWS::SDK::EC2
     class VolumeDetail
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::VolumeDetail, context: context)
-        Hearth::Validator.validate_required!(input[:size], context: "#{context}[:size]")
-        Hearth::Validator.validate_types!(input[:size], ::Integer, context: "#{context}[:size]")
+        Hearth::Validator.validate_required!(input[:member_size], context: "#{context}[:member_size]")
+        Hearth::Validator.validate_types!(input[:member_size], ::Integer, context: "#{context}[:member_size]")
       end
     end
 

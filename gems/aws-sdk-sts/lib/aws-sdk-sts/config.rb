@@ -100,6 +100,12 @@ module AWS::SDK::STS
   #     Enable response stubbing for testing. See {Hearth::ClientStubs#stub_responses}.
   #   @option args [Hearth::Stubs] :stubs (Hearth::Stubs.new)
   #     Enable response stubbing for testing. See {Hearth::ClientStubs#stub_responses}.
+  #   @option args [Hearth::Telemetry::TelemetryProvider] :telemetry_provider (Hearth::Telemetry::NoOpTelemetryProvider.new)
+  #     A telemetry provider is used to emit telemetry data. By default, this
+  #     functionality is disabled. The SDK currently supports OpenTelemetry (OTel)
+  #     as a provider. To use the OTel provider, load the `opentelemetry-sdk` gem
+  #     and then, pass in an instance of a `Hearth::Telemetry::OTelProvider`
+  #     for telemetry provider.
   #   @option args [Boolean] :use_dualstack_endpoint
   #     When set to `true`, DualStack enabled endpoints (with `.aws` TLD)
   #     will be used if available.
@@ -137,6 +143,8 @@ module AWS::SDK::STS
   #   @return [Boolean]
   # @!attribute stubs
   #   @return [Hearth::Stubs]
+  # @!attribute telemetry_provider
+  #   @return [Hearth::Telemetry::TelemetryProvider]
   # @!attribute use_dualstack_endpoint
   #   @return [Boolean]
   # @!attribute use_fips_endpoint
@@ -159,6 +167,7 @@ module AWS::SDK::STS
     :retry_strategy,
     :stub_responses,
     :stubs,
+    :telemetry_provider,
     :use_dualstack_endpoint,
     :use_fips_endpoint,
     :validate_input,
@@ -183,6 +192,7 @@ module AWS::SDK::STS
       Hearth::Validator.validate_responds_to!(retry_strategy, :acquire_initial_retry_token, :refresh_retry_token, :record_success, context: 'config[:retry_strategy]')
       Hearth::Validator.validate_types!(stub_responses, TrueClass, FalseClass, context: 'config[:stub_responses]')
       Hearth::Validator.validate_types!(stubs, Hearth::Stubs, context: 'config[:stubs]')
+      Hearth::Validator.validate_types!(telemetry_provider, Hearth::Telemetry::TelemetryProvider, context: 'config[:telemetry_provider]')
       Hearth::Validator.validate_types!(use_dualstack_endpoint, TrueClass, FalseClass, context: 'config[:use_dualstack_endpoint]')
       Hearth::Validator.validate_types!(use_fips_endpoint, TrueClass, FalseClass, context: 'config[:use_fips_endpoint]')
       Hearth::Validator.validate_types!(validate_input, TrueClass, FalseClass, context: 'config[:validate_input]')
@@ -207,6 +217,7 @@ module AWS::SDK::STS
         retry_strategy: [Hearth::Retry::Standard.new],
         stub_responses: [false],
         stubs: [Hearth::Stubs.new],
+        telemetry_provider: [Hearth::Telemetry::NoOpTelemetryProvider.new],
         use_dualstack_endpoint: [Hearth::Config::EnvProvider.new('AWS_USE_DUALSTACK_ENDPOINT', type: 'Boolean'),AWS::SDK::Core::SharedConfigProvider.new('use_dualstack_endpoint', type: 'Boolean')],
         use_fips_endpoint: [Hearth::Config::EnvProvider.new('AWS_USE_FIPS_ENDPOINT', type: 'Boolean'),AWS::SDK::Core::SharedConfigProvider.new('use_fips_endpoint', type: 'Boolean')],
         validate_input: [true]

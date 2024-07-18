@@ -16,15 +16,15 @@ module AWS::SDK::EC2
 
     class AcceleratorCount
       def self.build(input, params, context: nil)
-        params[context + 'Min'] = input[:min].to_s unless input[:min].nil?
-        params[context + 'Max'] = input[:max].to_s unless input[:max].nil?
+        params[context + 'Min'] = input[:member_min].to_s unless input[:member_min].nil?
+        params[context + 'Max'] = input[:member_max].to_s unless input[:member_max].nil?
       end
     end
 
     class AcceleratorCountRequest
       def self.build(input, params, context: nil)
-        params[context + 'Min'] = input[:min].to_s unless input[:min].nil?
-        params[context + 'Max'] = input[:max].to_s unless input[:max].nil?
+        params[context + 'Min'] = input[:member_min].to_s unless input[:member_min].nil?
+        params[context + 'Max'] = input[:member_max].to_s unless input[:member_max].nil?
       end
     end
 
@@ -54,15 +54,15 @@ module AWS::SDK::EC2
 
     class AcceleratorTotalMemoryMiB
       def self.build(input, params, context: nil)
-        params[context + 'Min'] = input[:min].to_s unless input[:min].nil?
-        params[context + 'Max'] = input[:max].to_s unless input[:max].nil?
+        params[context + 'Min'] = input[:member_min].to_s unless input[:member_min].nil?
+        params[context + 'Max'] = input[:member_max].to_s unless input[:member_max].nil?
       end
     end
 
     class AcceleratorTotalMemoryMiBRequest
       def self.build(input, params, context: nil)
-        params[context + 'Min'] = input[:min].to_s unless input[:min].nil?
-        params[context + 'Max'] = input[:max].to_s unless input[:max].nil?
+        params[context + 'Min'] = input[:member_min].to_s unless input[:member_min].nil?
+        params[context + 'Max'] = input[:member_max].to_s unless input[:member_max].nil?
       end
     end
 
@@ -994,15 +994,15 @@ module AWS::SDK::EC2
 
     class BaselineEbsBandwidthMbps
       def self.build(input, params, context: nil)
-        params[context + 'Min'] = input[:min].to_s unless input[:min].nil?
-        params[context + 'Max'] = input[:max].to_s unless input[:max].nil?
+        params[context + 'Min'] = input[:member_min].to_s unless input[:member_min].nil?
+        params[context + 'Max'] = input[:member_max].to_s unless input[:member_max].nil?
       end
     end
 
     class BaselineEbsBandwidthMbpsRequest
       def self.build(input, params, context: nil)
-        params[context + 'Min'] = input[:min].to_s unless input[:min].nil?
-        params[context + 'Max'] = input[:max].to_s unless input[:max].nil?
+        params[context + 'Min'] = input[:member_min].to_s unless input[:member_min].nil?
+        params[context + 'Max'] = input[:member_max].to_s unless input[:member_max].nil?
       end
     end
 
@@ -2180,7 +2180,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'PrefixListName'] = input[:prefix_list_name].to_s unless input[:prefix_list_name].nil?
-        AddPrefixListEntries.build(input[:entries], params, context: context + 'Entry') unless input[:entries].nil?
+        AddPrefixListEntries.build(input[:member_entries], params, context: context + 'Entry') unless input[:member_entries].nil?
         params[context + 'MaxEntries'] = input[:max_entries].to_s unless input[:max_entries].nil?
         TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
         params[context + 'AddressFamily'] = input[:address_family].to_s unless input[:address_family].nil?
@@ -3088,7 +3088,7 @@ module AWS::SDK::EC2
         params[context + 'Iops'] = input[:iops].to_s unless input[:iops].nil?
         params[context + 'KmsKeyId'] = input[:kms_key_id].to_s unless input[:kms_key_id].nil?
         params[context + 'OutpostArn'] = input[:outpost_arn].to_s unless input[:outpost_arn].nil?
-        params[context + 'Size'] = input[:size].to_s unless input[:size].nil?
+        params[context + 'Size'] = input[:member_size].to_s unless input[:member_size].nil?
         params[context + 'SnapshotId'] = input[:snapshot_id].to_s unless input[:snapshot_id].nil?
         params[context + 'VolumeType'] = input[:volume_type].to_s unless input[:volume_type].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
@@ -5193,7 +5193,7 @@ module AWS::SDK::EC2
         params['Action'] = 'DescribeFlowLogs'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        FilterList.build(input[:filter], params, context: context + 'Filter') unless input[:filter].nil?
+        FilterList.build(input[:member_filter], params, context: context + 'Filter') unless input[:member_filter].nil?
         FlowLogIdList.build(input[:flow_log_ids], params, context: context + 'FlowLogId') unless input[:flow_log_ids].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
@@ -5245,7 +5245,7 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeHostReservationOfferings'
         params['Version'] = '2016-11-15'
-        FilterList.build(input[:filter], params, context: context + 'Filter') unless input[:filter].nil?
+        FilterList.build(input[:member_filter], params, context: context + 'Filter') unless input[:member_filter].nil?
         params[context + 'MaxDuration'] = input[:max_duration].to_s unless input[:max_duration].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'MinDuration'] = input[:min_duration].to_s unless input[:min_duration].nil?
@@ -5264,7 +5264,7 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeHostReservations'
         params['Version'] = '2016-11-15'
-        FilterList.build(input[:filter], params, context: context + 'Filter') unless input[:filter].nil?
+        FilterList.build(input[:member_filter], params, context: context + 'Filter') unless input[:member_filter].nil?
         HostReservationIdSet.build(input[:host_reservation_id_set], params, context: context + 'HostReservationIdSet') unless input[:host_reservation_id_set].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
@@ -5281,7 +5281,7 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeHosts'
         params['Version'] = '2016-11-15'
-        FilterList.build(input[:filter], params, context: context + 'filter') unless input[:filter].nil?
+        FilterList.build(input[:member_filter], params, context: context + 'filter') unless input[:member_filter].nil?
         RequestHostIdList.build(input[:host_ids], params, context: context + 'hostId') unless input[:host_ids].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
@@ -5983,7 +5983,7 @@ module AWS::SDK::EC2
         params['Action'] = 'DescribeNatGateways'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        FilterList.build(input[:filter], params, context: context + 'Filter') unless input[:filter].nil?
+        FilterList.build(input[:member_filter], params, context: context + 'Filter') unless input[:member_filter].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         NatGatewayIdStringList.build(input[:nat_gateway_ids], params, context: context + 'NatGatewayId') unless input[:nat_gateway_ids].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
@@ -8017,7 +8017,7 @@ module AWS::SDK::EC2
     class ElasticInferenceAccelerator
       def self.build(input, params, context: nil)
         params[context + 'Type'] = input[:type].to_s unless input[:type].nil?
-        params[context + 'Count'] = input[:count].to_s unless input[:count].nil?
+        params[context + 'Count'] = input[:member_count].to_s unless input[:member_count].nil?
       end
     end
 
@@ -8497,7 +8497,7 @@ module AWS::SDK::EC2
     class Filter
       def self.build(input, params, context: nil)
         params[context + 'Name'] = input[:name].to_s unless input[:name].nil?
-        ValueStringList.build(input[:values], params, context: context + 'Value') unless input[:values].nil?
+        ValueStringList.build(input[:member_values], params, context: context + 'Value') unless input[:member_values].nil?
       end
     end
 
@@ -10450,7 +10450,7 @@ module AWS::SDK::EC2
     class LaunchTemplateElasticInferenceAccelerator
       def self.build(input, params, context: nil)
         params[context + 'Type'] = input[:type].to_s unless input[:type].nil?
-        params[context + 'Count'] = input[:count].to_s unless input[:count].nil?
+        params[context + 'Count'] = input[:member_count].to_s unless input[:member_count].nil?
       end
     end
 
@@ -10868,29 +10868,29 @@ module AWS::SDK::EC2
 
     class MemoryGiBPerVCpu
       def self.build(input, params, context: nil)
-        params[context + 'Min'] = Hearth::NumberHelper.serialize(input[:min]).to_s unless input[:min].nil?
-        params[context + 'Max'] = Hearth::NumberHelper.serialize(input[:max]).to_s unless input[:max].nil?
+        params[context + 'Min'] = Hearth::NumberHelper.serialize(input[:member_min]).to_s unless input[:member_min].nil?
+        params[context + 'Max'] = Hearth::NumberHelper.serialize(input[:member_max]).to_s unless input[:member_max].nil?
       end
     end
 
     class MemoryGiBPerVCpuRequest
       def self.build(input, params, context: nil)
-        params[context + 'Min'] = Hearth::NumberHelper.serialize(input[:min]).to_s unless input[:min].nil?
-        params[context + 'Max'] = Hearth::NumberHelper.serialize(input[:max]).to_s unless input[:max].nil?
+        params[context + 'Min'] = Hearth::NumberHelper.serialize(input[:member_min]).to_s unless input[:member_min].nil?
+        params[context + 'Max'] = Hearth::NumberHelper.serialize(input[:member_max]).to_s unless input[:member_max].nil?
       end
     end
 
     class MemoryMiB
       def self.build(input, params, context: nil)
-        params[context + 'Min'] = input[:min].to_s unless input[:min].nil?
-        params[context + 'Max'] = input[:max].to_s unless input[:max].nil?
+        params[context + 'Min'] = input[:member_min].to_s unless input[:member_min].nil?
+        params[context + 'Max'] = input[:member_max].to_s unless input[:member_max].nil?
       end
     end
 
     class MemoryMiBRequest
       def self.build(input, params, context: nil)
-        params[context + 'Min'] = input[:min].to_s unless input[:min].nil?
-        params[context + 'Max'] = input[:max].to_s unless input[:max].nil?
+        params[context + 'Min'] = input[:member_min].to_s unless input[:member_min].nil?
+        params[context + 'Max'] = input[:member_max].to_s unless input[:member_max].nil?
       end
     end
 
@@ -11926,7 +11926,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'VolumeId'] = input[:volume_id].to_s unless input[:volume_id].nil?
-        params[context + 'Size'] = input[:size].to_s unless input[:size].nil?
+        params[context + 'Size'] = input[:member_size].to_s unless input[:member_size].nil?
         params[context + 'VolumeType'] = input[:volume_type].to_s unless input[:volume_type].nil?
         params[context + 'Iops'] = input[:iops].to_s unless input[:iops].nil?
         params[context + 'Throughput'] = input[:throughput].to_s unless input[:throughput].nil?
@@ -12271,15 +12271,15 @@ module AWS::SDK::EC2
 
     class NetworkBandwidthGbps
       def self.build(input, params, context: nil)
-        params[context + 'Min'] = Hearth::NumberHelper.serialize(input[:min]).to_s unless input[:min].nil?
-        params[context + 'Max'] = Hearth::NumberHelper.serialize(input[:max]).to_s unless input[:max].nil?
+        params[context + 'Min'] = Hearth::NumberHelper.serialize(input[:member_min]).to_s unless input[:member_min].nil?
+        params[context + 'Max'] = Hearth::NumberHelper.serialize(input[:member_max]).to_s unless input[:member_max].nil?
       end
     end
 
     class NetworkBandwidthGbpsRequest
       def self.build(input, params, context: nil)
-        params[context + 'Min'] = Hearth::NumberHelper.serialize(input[:min]).to_s unless input[:min].nil?
-        params[context + 'Max'] = Hearth::NumberHelper.serialize(input[:max]).to_s unless input[:max].nil?
+        params[context + 'Min'] = Hearth::NumberHelper.serialize(input[:member_min]).to_s unless input[:member_min].nil?
+        params[context + 'Max'] = Hearth::NumberHelper.serialize(input[:member_max]).to_s unless input[:member_max].nil?
       end
     end
 
@@ -12340,15 +12340,15 @@ module AWS::SDK::EC2
 
     class NetworkInterfaceCount
       def self.build(input, params, context: nil)
-        params[context + 'Min'] = input[:min].to_s unless input[:min].nil?
-        params[context + 'Max'] = input[:max].to_s unless input[:max].nil?
+        params[context + 'Min'] = input[:member_min].to_s unless input[:member_min].nil?
+        params[context + 'Max'] = input[:member_max].to_s unless input[:member_max].nil?
       end
     end
 
     class NetworkInterfaceCountRequest
       def self.build(input, params, context: nil)
-        params[context + 'Min'] = input[:min].to_s unless input[:min].nil?
-        params[context + 'Max'] = input[:max].to_s unless input[:max].nil?
+        params[context + 'Min'] = input[:member_min].to_s unless input[:member_min].nil?
+        params[context + 'Max'] = input[:member_max].to_s unless input[:member_max].nil?
       end
     end
 
@@ -12379,7 +12379,7 @@ module AWS::SDK::EC2
     class NewDhcpConfiguration
       def self.build(input, params, context: nil)
         params[context + 'Key'] = input[:key].to_s unless input[:key].nil?
-        ValueStringList.build(input[:values], params, context: context + 'Value') unless input[:values].nil?
+        ValueStringList.build(input[:member_values], params, context: context + 'Value') unless input[:member_values].nil?
       end
     end
 
@@ -14928,15 +14928,15 @@ module AWS::SDK::EC2
 
     class TotalLocalStorageGB
       def self.build(input, params, context: nil)
-        params[context + 'Min'] = Hearth::NumberHelper.serialize(input[:min]).to_s unless input[:min].nil?
-        params[context + 'Max'] = Hearth::NumberHelper.serialize(input[:max]).to_s unless input[:max].nil?
+        params[context + 'Min'] = Hearth::NumberHelper.serialize(input[:member_min]).to_s unless input[:member_min].nil?
+        params[context + 'Max'] = Hearth::NumberHelper.serialize(input[:member_max]).to_s unless input[:member_max].nil?
       end
     end
 
     class TotalLocalStorageGBRequest
       def self.build(input, params, context: nil)
-        params[context + 'Min'] = Hearth::NumberHelper.serialize(input[:min]).to_s unless input[:min].nil?
-        params[context + 'Max'] = Hearth::NumberHelper.serialize(input[:max]).to_s unless input[:max].nil?
+        params[context + 'Min'] = Hearth::NumberHelper.serialize(input[:member_min]).to_s unless input[:member_min].nil?
+        params[context + 'Max'] = Hearth::NumberHelper.serialize(input[:member_max]).to_s unless input[:member_max].nil?
       end
     end
 
@@ -15349,15 +15349,15 @@ module AWS::SDK::EC2
 
     class VCpuCountRange
       def self.build(input, params, context: nil)
-        params[context + 'Min'] = input[:min].to_s unless input[:min].nil?
-        params[context + 'Max'] = input[:max].to_s unless input[:max].nil?
+        params[context + 'Min'] = input[:member_min].to_s unless input[:member_min].nil?
+        params[context + 'Max'] = input[:member_max].to_s unless input[:member_max].nil?
       end
     end
 
     class VCpuCountRangeRequest
       def self.build(input, params, context: nil)
-        params[context + 'Min'] = input[:min].to_s unless input[:min].nil?
-        params[context + 'Max'] = input[:max].to_s unless input[:max].nil?
+        params[context + 'Min'] = input[:member_min].to_s unless input[:member_min].nil?
+        params[context + 'Max'] = input[:member_max].to_s unless input[:member_max].nil?
       end
     end
 
@@ -15487,7 +15487,7 @@ module AWS::SDK::EC2
 
     class VolumeDetail
       def self.build(input, params, context: nil)
-        params[context + 'Size'] = input[:size].to_s unless input[:size].nil?
+        params[context + 'Size'] = input[:member_size].to_s unless input[:member_size].nil?
       end
     end
 

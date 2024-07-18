@@ -14,19 +14,19 @@ module AWS::SDK::EC2
     #          on an instance.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Integer] :min
-    #   @option params [Integer] :max
-    # @!attribute min
+    #   @option params [Integer] :member_min
+    #   @option params [Integer] :member_max
+    # @!attribute member_min
     #   <p>The minimum number of accelerators. If this parameter is not specified, there is no minimum
     #            limit.</p>
     #   @return [Integer]
-    # @!attribute max
+    # @!attribute member_max
     #   <p>The maximum number of accelerators. If this parameter is not specified, there is no
     #            maximum limit.</p>
     #   @return [Integer]
     AcceleratorCount = ::Struct.new(
-      :min,
-      :max,
+      :member_min,
+      :member_max,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -37,20 +37,20 @@ module AWS::SDK::EC2
     #             <code>0</code>.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Integer] :min
-    #   @option params [Integer] :max
-    # @!attribute min
+    #   @option params [Integer] :member_min
+    #   @option params [Integer] :member_max
+    # @!attribute member_min
     #   <p>The minimum number of accelerators. To specify no minimum limit, omit this
     #            parameter.</p>
     #   @return [Integer]
-    # @!attribute max
+    # @!attribute member_max
     #   <p>The maximum number of accelerators. To specify no maximum limit, omit this
     #            parameter. To exclude accelerator-enabled instance types, set <code>Max</code> to
     #            <code>0</code>.</p>
     #   @return [Integer]
     AcceleratorCountRequest = ::Struct.new(
-      :min,
-      :max,
+      :member_min,
+      :member_max,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -99,19 +99,19 @@ module AWS::SDK::EC2
     # <p>The minimum and maximum amount of total accelerator memory, in MiB.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Integer] :min
-    #   @option params [Integer] :max
-    # @!attribute min
+    #   @option params [Integer] :member_min
+    #   @option params [Integer] :member_max
+    # @!attribute member_min
     #   <p>The minimum amount of accelerator memory, in MiB. If this parameter is not specified,
     #            there is no minimum limit.</p>
     #   @return [Integer]
-    # @!attribute max
+    # @!attribute member_max
     #   <p>The maximum amount of accelerator memory, in MiB. If this parameter is not specified,
     #            there is no maximum limit.</p>
     #   @return [Integer]
     AcceleratorTotalMemoryMiB = ::Struct.new(
-      :min,
-      :max,
+      :member_min,
+      :member_max,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -120,19 +120,19 @@ module AWS::SDK::EC2
     # <p>The minimum and maximum amount of total accelerator memory, in MiB.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Integer] :min
-    #   @option params [Integer] :max
-    # @!attribute min
+    #   @option params [Integer] :member_min
+    #   @option params [Integer] :member_max
+    # @!attribute member_min
     #   <p>The minimum amount of accelerator memory, in MiB. To specify no minimum limit, omit this
     #            parameter.</p>
     #   @return [Integer]
-    # @!attribute max
+    # @!attribute member_max
     #   <p>The maximum amount of accelerator memory, in MiB. To specify no maximum limit, omit this
     #            parameter.</p>
     #   @return [Integer]
     AcceleratorTotalMemoryMiBRequest = ::Struct.new(
-      :min,
-      :max,
+      :member_min,
+      :member_max,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -3719,19 +3719,19 @@ module AWS::SDK::EC2
     #             EBS–optimized instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Integer] :min
-    #   @option params [Integer] :max
-    # @!attribute min
+    #   @option params [Integer] :member_min
+    #   @option params [Integer] :member_max
+    # @!attribute member_min
     #   <p>The minimum baseline bandwidth, in Mbps. If this parameter is not specified, there is no
     #            minimum limit.</p>
     #   @return [Integer]
-    # @!attribute max
+    # @!attribute member_max
     #   <p>The maximum baseline bandwidth, in Mbps. If this parameter is not specified, there is no
     #            maximum limit.</p>
     #   @return [Integer]
     BaselineEbsBandwidthMbps = ::Struct.new(
-      :min,
-      :max,
+      :member_min,
+      :member_max,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -3742,19 +3742,19 @@ module AWS::SDK::EC2
     #             EBS–optimized instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Integer] :min
-    #   @option params [Integer] :max
-    # @!attribute min
+    #   @option params [Integer] :member_min
+    #   @option params [Integer] :member_max
+    # @!attribute member_min
     #   <p>The minimum baseline bandwidth, in Mbps. To specify no minimum limit, omit
     #            this parameter.</p>
     #   @return [Integer]
-    # @!attribute max
+    # @!attribute member_max
     #   <p>The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit
     #            this parameter.</p>
     #   @return [Integer]
     BaselineEbsBandwidthMbpsRequest = ::Struct.new(
-      :min,
-      :max,
+      :member_min,
+      :member_max,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -4581,19 +4581,19 @@ module AWS::SDK::EC2
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [String] :allocation_type
-    #   @option params [Integer] :count
+    #   @option params [Integer] :member_count
     # @!attribute allocation_type
     #   <p>The usage type. <code>used</code> indicates that the instance capacity is
     #   			in use by instances that are running in the Capacity Reservation.</p>
     #   Enum, one of: ["used"]
     #   @return [String]
-    # @!attribute count
+    # @!attribute member_count
     #   <p>The amount of instance capacity associated with the usage. For example a value of
     #   			<code>4</code> indicates that instance capacity for 4 instances is currently in use.</p>
     #   @return [Integer]
     CapacityAllocation = ::Struct.new(
       :allocation_type,
-      :count,
+      :member_count,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -9474,7 +9474,7 @@ module AWS::SDK::EC2
     #   @param [Hash] params
     #   @option params [Boolean] :dry_run
     #   @option params [String] :prefix_list_name
-    #   @option params [Array<AddPrefixListEntry>] :entries
+    #   @option params [Array<AddPrefixListEntry>] :member_entries
     #   @option params [Integer] :max_entries
     #   @option params [Array<TagSpecification>] :tag_specifications
     #   @option params [String] :address_family
@@ -9488,7 +9488,7 @@ module AWS::SDK::EC2
     #   <p>A name for the prefix list.</p>
     #            <p>Constraints: Up to 255 characters in length. The name cannot start with <code>com.amazonaws</code>.</p>
     #   @return [String]
-    # @!attribute entries
+    # @!attribute member_entries
     #   <p>One or more entries for the prefix list.</p>
     #   @return [Array<AddPrefixListEntry>]
     # @!attribute max_entries
@@ -9511,7 +9511,7 @@ module AWS::SDK::EC2
     CreateManagedPrefixListInput = ::Struct.new(
       :dry_run,
       :prefix_list_name,
-      :entries,
+      :member_entries,
       :max_entries,
       :tag_specifications,
       :address_family,
@@ -12469,7 +12469,7 @@ module AWS::SDK::EC2
     #   @option params [Integer] :iops
     #   @option params [String] :kms_key_id
     #   @option params [String] :outpost_arn
-    #   @option params [Integer] :size
+    #   @option params [Integer] :member_size
     #   @option params [String] :snapshot_id
     #   @option params [String] :volume_type
     #   @option params [Boolean] :dry_run
@@ -12540,7 +12540,7 @@ module AWS::SDK::EC2
     # @!attribute outpost_arn
     #   <p>The Amazon Resource Name (ARN) of the Outpost.</p>
     #   @return [String]
-    # @!attribute size
+    # @!attribute member_size
     #   <p>The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size.
     #         If you specify a snapshot, the default is the snapshot size. You can specify a volume
     #         size that is equal to or larger than the snapshot size.</p>
@@ -12635,7 +12635,7 @@ module AWS::SDK::EC2
       :iops,
       :kms_key_id,
       :outpost_arn,
-      :size,
+      :member_size,
       :snapshot_id,
       :volume_type,
       :dry_run,
@@ -12657,7 +12657,7 @@ module AWS::SDK::EC2
     #   @option params [Boolean] :encrypted
     #   @option params [String] :kms_key_id
     #   @option params [String] :outpost_arn
-    #   @option params [Integer] :size
+    #   @option params [Integer] :member_size
     #   @option params [String] :snapshot_id
     #   @option params [String] :state
     #   @option params [String] :volume_id
@@ -12687,7 +12687,7 @@ module AWS::SDK::EC2
     # @!attribute outpost_arn
     #   <p>The Amazon Resource Name (ARN) of the Outpost.</p>
     #   @return [String]
-    # @!attribute size
+    # @!attribute member_size
     #   <p>The size of the volume, in GiBs.</p>
     #   @return [Integer]
     # @!attribute snapshot_id
@@ -12732,7 +12732,7 @@ module AWS::SDK::EC2
       :encrypted,
       :kms_key_id,
       :outpost_arn,
-      :size,
+      :member_size,
       :snapshot_id,
       :state,
       :volume_id,
@@ -19058,7 +19058,7 @@ module AWS::SDK::EC2
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [Boolean] :dry_run
-    #   @option params [Array<Filter>] :filter
+    #   @option params [Array<Filter>] :member_filter
     #   @option params [Array<String>] :flow_log_ids
     #   @option params [Integer] :max_results
     #   @option params [String] :next_token
@@ -19067,7 +19067,7 @@ module AWS::SDK::EC2
     #      and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
     #      Otherwise, it is <code>UnauthorizedOperation</code>.</p>
     #   @return [Boolean]
-    # @!attribute filter
+    # @!attribute member_filter
     #   <p>One or more filters.</p>
     #            <ul>
     #               <li>
@@ -19123,7 +19123,7 @@ module AWS::SDK::EC2
     #   @return [String]
     DescribeFlowLogsInput = ::Struct.new(
       :dry_run,
-      :filter,
+      :member_filter,
       :flow_log_ids,
       :max_results,
       :next_token,
@@ -19298,13 +19298,13 @@ module AWS::SDK::EC2
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Array<Filter>] :filter
+    #   @option params [Array<Filter>] :member_filter
     #   @option params [Integer] :max_duration
     #   @option params [Integer] :max_results
     #   @option params [Integer] :min_duration
     #   @option params [String] :next_token
     #   @option params [String] :offering_id
-    # @!attribute filter
+    # @!attribute member_filter
     #   <p>The filters.</p>
     #            <ul>
     #               <li>
@@ -19341,7 +19341,7 @@ module AWS::SDK::EC2
     #   <p>The ID of the reservation offering.</p>
     #   @return [String]
     DescribeHostReservationOfferingsInput = ::Struct.new(
-      :filter,
+      :member_filter,
       :max_duration,
       :max_results,
       :min_duration,
@@ -19372,11 +19372,11 @@ module AWS::SDK::EC2
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Array<Filter>] :filter
+    #   @option params [Array<Filter>] :member_filter
     #   @option params [Array<String>] :host_reservation_id_set
     #   @option params [Integer] :max_results
     #   @option params [String] :next_token
-    # @!attribute filter
+    # @!attribute member_filter
     #   <p>The filters.</p>
     #            <ul>
     #               <li>
@@ -19416,7 +19416,7 @@ module AWS::SDK::EC2
     #   <p>The token to use to retrieve the next page of results.</p>
     #   @return [String]
     DescribeHostReservationsInput = ::Struct.new(
-      :filter,
+      :member_filter,
       :host_reservation_id_set,
       :max_results,
       :next_token,
@@ -19445,11 +19445,11 @@ module AWS::SDK::EC2
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Array<Filter>] :filter
+    #   @option params [Array<Filter>] :member_filter
     #   @option params [Array<String>] :host_ids
     #   @option params [Integer] :max_results
     #   @option params [String] :next_token
-    # @!attribute filter
+    # @!attribute member_filter
     #   <p>The filters.</p>
     #            <ul>
     #               <li>
@@ -19502,7 +19502,7 @@ module AWS::SDK::EC2
     #   <p>The token to use to retrieve the next page of results.</p>
     #   @return [String]
     DescribeHostsInput = ::Struct.new(
-      :filter,
+      :member_filter,
       :host_ids,
       :max_results,
       :next_token,
@@ -23406,7 +23406,7 @@ module AWS::SDK::EC2
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [Boolean] :dry_run
-    #   @option params [Array<Filter>] :filter
+    #   @option params [Array<Filter>] :member_filter
     #   @option params [Integer] :max_results
     #   @option params [Array<String>] :nat_gateway_ids
     #   @option params [String] :next_token
@@ -23415,7 +23415,7 @@ module AWS::SDK::EC2
     #      and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
     #      Otherwise, it is <code>UnauthorizedOperation</code>.</p>
     #   @return [Boolean]
-    # @!attribute filter
+    # @!attribute member_filter
     #   <p>The filters.</p>
     #            <ul>
     #               <li>
@@ -23459,7 +23459,7 @@ module AWS::SDK::EC2
     #   @return [String]
     DescribeNatGatewaysInput = ::Struct.new(
       :dry_run,
-      :filter,
+      :member_filter,
       :max_results,
       :nat_gateway_ids,
       :next_token,
@@ -30234,16 +30234,16 @@ module AWS::SDK::EC2
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [String] :key
-    #   @option params [Array<AttributeValue>] :values
+    #   @option params [Array<AttributeValue>] :member_values
     # @!attribute key
     #   <p>The name of a DHCP option.</p>
     #   @return [String]
-    # @!attribute values
+    # @!attribute member_values
     #   <p>The values for the DHCP option.</p>
     #   @return [Array<AttributeValue>]
     DhcpConfiguration = ::Struct.new(
       :key,
-      :values,
+      :member_values,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -31588,7 +31588,7 @@ module AWS::SDK::EC2
     #   @option params [String] :checksum
     #   @option params [String] :format
     #   @option params [String] :import_manifest_url
-    #   @option params [Integer] :size
+    #   @option params [Integer] :member_size
     # @!attribute checksum
     #   <p>The checksum computed for the disk image.</p>
     #   @return [String]
@@ -31602,14 +31602,14 @@ module AWS::SDK::EC2
     #      the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
     #            <p>For information about the import manifest referenced by this API action, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html">VM Import Manifest</a>.</p>
     #   @return [String]
-    # @!attribute size
+    # @!attribute member_size
     #   <p>The size of the disk image, in GiB.</p>
     #   @return [Integer]
     DiskImageDescription = ::Struct.new(
       :checksum,
       :format,
       :import_manifest_url,
-      :size,
+      :member_size,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -31619,7 +31619,7 @@ module AWS::SDK::EC2
           "checksum=#{checksum || 'nil'}, "\
           "format=#{format || 'nil'}, "\
           "import_manifest_url=\"[SENSITIVE]\", "\
-          "size=#{size || 'nil'}>"
+          "member_size=#{member_size || 'nil'}>"
       end
     end
 
@@ -31672,16 +31672,16 @@ module AWS::SDK::EC2
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [String] :id
-    #   @option params [Integer] :size
+    #   @option params [Integer] :member_size
     # @!attribute id
     #   <p>The volume identifier.</p>
     #   @return [String]
-    # @!attribute size
+    # @!attribute member_size
     #   <p>The size of the volume, in GiB.</p>
     #   @return [Integer]
     DiskImageVolumeDescription = ::Struct.new(
       :id,
-      :size,
+      :member_size,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -31691,12 +31691,12 @@ module AWS::SDK::EC2
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [Integer] :size_in_gb
-    #   @option params [Integer] :count
+    #   @option params [Integer] :member_count
     #   @option params [String] :type
     # @!attribute size_in_gb
     #   <p>The size of the disk in GB.</p>
     #   @return [Integer]
-    # @!attribute count
+    # @!attribute member_count
     #   <p>The number of disks with this configuration.</p>
     #   @return [Integer]
     # @!attribute type
@@ -31705,7 +31705,7 @@ module AWS::SDK::EC2
     #   @return [String]
     DiskInfo = ::Struct.new(
       :size_in_gb,
-      :count,
+      :member_count,
       :type,
       keyword_init: true
     ) do
@@ -32472,13 +32472,13 @@ module AWS::SDK::EC2
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [String] :type
-    #   @option params [Integer] :count
+    #   @option params [Integer] :member_count
     # @!attribute type
     #   <p>
     #           	The type of elastic inference accelerator. The possible values are <code>eia1.medium</code>, <code>eia1.large</code>, <code>eia1.xlarge</code>, <code>eia2.medium</code>, <code>eia2.large</code>, and <code>eia2.xlarge</code>.
     #           </p>
     #   @return [String]
-    # @!attribute count
+    # @!attribute member_count
     #   <p>
     #               The number of elastic inference accelerators to attach to the instance.
     #           </p>
@@ -32486,7 +32486,7 @@ module AWS::SDK::EC2
     #   @return [Integer]
     ElasticInferenceAccelerator = ::Struct.new(
       :type,
-      :count,
+      :member_count,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -34657,18 +34657,18 @@ module AWS::SDK::EC2
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [String] :name
-    #   @option params [Array<String>] :values
+    #   @option params [Array<String>] :member_values
     # @!attribute name
     #   <p>The name of the filter. Filter names are case-sensitive.</p>
     #   @return [String]
-    # @!attribute values
+    # @!attribute member_values
     #   <p>The filter values. Filter values are case-sensitive. If you specify multiple values for a
     #            filter, the values are joined with an <code>OR</code>, and the request returns all results
     #            that match any of the specified values.</p>
     #   @return [Array<String>]
     Filter = ::Struct.new(
       :name,
-      :values,
+      :member_values,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -35604,7 +35604,7 @@ module AWS::SDK::EC2
     #   @param [Hash] params
     #   @option params [String] :name
     #   @option params [String] :manufacturer
-    #   @option params [Integer] :count
+    #   @option params [Integer] :member_count
     #   @option params [FpgaDeviceMemoryInfo] :memory_info
     # @!attribute name
     #   <p>The name of the FPGA accelerator.</p>
@@ -35612,7 +35612,7 @@ module AWS::SDK::EC2
     # @!attribute manufacturer
     #   <p>The manufacturer of the FPGA accelerator.</p>
     #   @return [String]
-    # @!attribute count
+    # @!attribute member_count
     #   <p>The count of FPGA accelerators for the instance type.</p>
     #   @return [Integer]
     # @!attribute memory_info
@@ -35621,7 +35621,7 @@ module AWS::SDK::EC2
     FpgaDeviceInfo = ::Struct.new(
       :name,
       :manufacturer,
-      :count,
+      :member_count,
       :memory_info,
       keyword_init: true
     ) do
@@ -37214,16 +37214,16 @@ module AWS::SDK::EC2
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Array<PrefixListEntry>] :entries
+    #   @option params [Array<PrefixListEntry>] :member_entries
     #   @option params [String] :next_token
-    # @!attribute entries
+    # @!attribute member_entries
     #   <p>Information about the prefix list entries.</p>
     #   @return [Array<PrefixListEntry>]
     # @!attribute next_token
     #   <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
     #   @return [String]
     GetManagedPrefixListEntriesOutput = ::Struct.new(
-      :entries,
+      :member_entries,
       :next_token,
       keyword_init: true
     ) do
@@ -38512,7 +38512,7 @@ module AWS::SDK::EC2
     #   @param [Hash] params
     #   @option params [String] :name
     #   @option params [String] :manufacturer
-    #   @option params [Integer] :count
+    #   @option params [Integer] :member_count
     #   @option params [GpuDeviceMemoryInfo] :memory_info
     # @!attribute name
     #   <p>The name of the GPU accelerator.</p>
@@ -38520,7 +38520,7 @@ module AWS::SDK::EC2
     # @!attribute manufacturer
     #   <p>The manufacturer of the GPU accelerator.</p>
     #   @return [String]
-    # @!attribute count
+    # @!attribute member_count
     #   <p>The number of GPUs for the instance type.</p>
     #   @return [Integer]
     # @!attribute memory_info
@@ -38529,7 +38529,7 @@ module AWS::SDK::EC2
     GpuDeviceInfo = ::Struct.new(
       :name,
       :manufacturer,
-      :count,
+      :member_count,
       :memory_info,
       keyword_init: true
     ) do
@@ -38956,7 +38956,7 @@ module AWS::SDK::EC2
     # <p>Details about the Dedicated Host Reservation and associated Dedicated Hosts.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Integer] :count
+    #   @option params [Integer] :member_count
     #   @option params [String] :currency_code
     #   @option params [Integer] :duration
     #   @option params [Time] :end
@@ -38970,7 +38970,7 @@ module AWS::SDK::EC2
     #   @option params [String] :state
     #   @option params [String] :upfront_price
     #   @option params [Array<Tag>] :tags
-    # @!attribute count
+    # @!attribute member_count
     #   <p>The number of Dedicated Hosts the reservation is associated with.</p>
     #   @return [Integer]
     # @!attribute currency_code
@@ -39021,7 +39021,7 @@ module AWS::SDK::EC2
     #   <p>Any tags assigned to the Dedicated Host Reservation.</p>
     #   @return [Array<Tag>]
     HostReservation = ::Struct.new(
-      :count,
+      :member_count,
       :currency_code,
       :duration,
       :end,
@@ -40484,11 +40484,11 @@ module AWS::SDK::EC2
     # <p>Describes the Inference accelerators for the instance type.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Integer] :count
+    #   @option params [Integer] :member_count
     #   @option params [String] :name
     #   @option params [String] :manufacturer
     #   @option params [InferenceDeviceMemoryInfo] :memory_info
-    # @!attribute count
+    # @!attribute member_count
     #   <p>The number of Inference accelerators for the instance type.</p>
     #   @return [Integer]
     # @!attribute name
@@ -40501,7 +40501,7 @@ module AWS::SDK::EC2
     #   <p>Describes the memory available to the inference accelerator.</p>
     #   @return [InferenceDeviceMemoryInfo]
     InferenceDeviceInfo = ::Struct.new(
-      :count,
+      :member_count,
       :name,
       :manufacturer,
       :memory_info,
@@ -47668,18 +47668,18 @@ module AWS::SDK::EC2
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [String] :type
-    #   @option params [Integer] :count
+    #   @option params [Integer] :member_count
     # @!attribute type
     #   <p> The type of elastic inference accelerator. The possible values are eia1.medium,
     #               eia1.large, and eia1.xlarge. </p>
     #   @return [String]
-    # @!attribute count
+    # @!attribute member_count
     #   <p> The number of elastic inference accelerators to attach to the instance. </p>
     #            <p>Default: 1</p>
     #   @return [Integer]
     LaunchTemplateElasticInferenceAccelerator = ::Struct.new(
       :type,
-      :count,
+      :member_count,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -47689,18 +47689,18 @@ module AWS::SDK::EC2
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [String] :type
-    #   @option params [Integer] :count
+    #   @option params [Integer] :member_count
     # @!attribute type
     #   <p> The type of elastic inference accelerator. The possible values are eia1.medium,
     #               eia1.large, and eia1.xlarge. </p>
     #   @return [String]
-    # @!attribute count
+    # @!attribute member_count
     #   <p> The number of elastic inference accelerators to attach to the instance. </p>
     #            <p>Default: 1</p>
     #   @return [Integer]
     LaunchTemplateElasticInferenceAcceleratorResponse = ::Struct.new(
       :type,
-      :count,
+      :member_count,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -49951,19 +49951,19 @@ module AWS::SDK::EC2
     #          <p></p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Float] :min
-    #   @option params [Float] :max
-    # @!attribute min
+    #   @option params [Float] :member_min
+    #   @option params [Float] :member_max
+    # @!attribute member_min
     #   <p>The minimum amount of memory per vCPU, in GiB. If this parameter is not specified, there is
     #            no minimum limit.</p>
     #   @return [Float]
-    # @!attribute max
+    # @!attribute member_max
     #   <p>The maximum amount of memory per vCPU, in GiB. If this parameter is not specified, there is
     #            no maximum limit.</p>
     #   @return [Float]
     MemoryGiBPerVCpu = ::Struct.new(
-      :min,
-      :max,
+      :member_min,
+      :member_max,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -49972,19 +49972,19 @@ module AWS::SDK::EC2
     # <p>The minimum and maximum amount of memory per vCPU, in GiB.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Float] :min
-    #   @option params [Float] :max
-    # @!attribute min
+    #   @option params [Float] :member_min
+    #   @option params [Float] :member_max
+    # @!attribute member_min
     #   <p>The minimum amount of memory per vCPU, in GiB. To specify no minimum limit, omit this
     #            parameter.</p>
     #   @return [Float]
-    # @!attribute max
+    # @!attribute member_max
     #   <p>The maximum amount of memory per vCPU, in GiB. To specify no maximum limit, omit this
     #            parameter.</p>
     #   @return [Float]
     MemoryGiBPerVCpuRequest = ::Struct.new(
-      :min,
-      :max,
+      :member_min,
+      :member_max,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -50007,19 +50007,19 @@ module AWS::SDK::EC2
     # <p>The minimum and maximum amount of memory, in MiB.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Integer] :min
-    #   @option params [Integer] :max
-    # @!attribute min
+    #   @option params [Integer] :member_min
+    #   @option params [Integer] :member_max
+    # @!attribute member_min
     #   <p>The minimum amount of memory, in MiB. If this parameter is not specified, there is no minimum
     #            limit.</p>
     #   @return [Integer]
-    # @!attribute max
+    # @!attribute member_max
     #   <p>The maximum amount of memory, in MiB. If this parameter is not specified, there is no
     #            maximum limit.</p>
     #   @return [Integer]
     MemoryMiB = ::Struct.new(
-      :min,
-      :max,
+      :member_min,
+      :member_max,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -50028,19 +50028,19 @@ module AWS::SDK::EC2
     # <p>The minimum and maximum amount of memory, in MiB.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Integer] :min
-    #   @option params [Integer] :max
-    # @!attribute min
+    #   @option params [Integer] :member_min
+    #   @option params [Integer] :member_max
+    # @!attribute member_min
     #   <p>The minimum amount of memory, in MiB. To specify no minimum limit, specify
     #            <code>0</code>.</p>
     #   @return [Integer]
-    # @!attribute max
+    # @!attribute member_max
     #   <p>The maximum amount of memory, in MiB. To specify no maximum limit, omit this
     #            parameter.</p>
     #   @return [Integer]
     MemoryMiBRequest = ::Struct.new(
-      :min,
-      :max,
+      :member_min,
+      :member_max,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -53409,7 +53409,7 @@ module AWS::SDK::EC2
     #   @param [Hash] params
     #   @option params [Boolean] :dry_run
     #   @option params [String] :volume_id
-    #   @option params [Integer] :size
+    #   @option params [Integer] :member_size
     #   @option params [String] :volume_type
     #   @option params [Integer] :iops
     #   @option params [Integer] :throughput
@@ -53422,7 +53422,7 @@ module AWS::SDK::EC2
     # @!attribute volume_id
     #   <p>The ID of the volume.</p>
     #   @return [String]
-    # @!attribute size
+    # @!attribute member_size
     #   <p>The target size of the volume, in GiB. The target volume size must be greater than or
     #         equal to the existing size of the volume.</p>
     #            <p>The following are the supported volumes sizes for each volume type:</p>
@@ -53496,7 +53496,7 @@ module AWS::SDK::EC2
     ModifyVolumeInput = ::Struct.new(
       :dry_run,
       :volume_id,
-      :size,
+      :member_size,
       :volume_type,
       :iops,
       :throughput,
@@ -54781,7 +54781,7 @@ module AWS::SDK::EC2
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [Array<NetworkAclAssociation>] :associations
-    #   @option params [Array<NetworkAclEntry>] :entries
+    #   @option params [Array<NetworkAclEntry>] :member_entries
     #   @option params [Boolean] :is_default
     #   @option params [String] :network_acl_id
     #   @option params [Array<Tag>] :tags
@@ -54790,7 +54790,7 @@ module AWS::SDK::EC2
     # @!attribute associations
     #   <p>Any associations between the network ACL and one or more subnets</p>
     #   @return [Array<NetworkAclAssociation>]
-    # @!attribute entries
+    # @!attribute member_entries
     #   <p>The entries (rules) in the network ACL.</p>
     #   @return [Array<NetworkAclEntry>]
     # @!attribute is_default
@@ -54810,7 +54810,7 @@ module AWS::SDK::EC2
     #   @return [String]
     NetworkAcl = ::Struct.new(
       :associations,
-      :entries,
+      :member_entries,
       :is_default,
       :network_acl_id,
       :tags,
@@ -54905,19 +54905,19 @@ module AWS::SDK::EC2
     #          </note>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Float] :min
-    #   @option params [Float] :max
-    # @!attribute min
+    #   @option params [Float] :member_min
+    #   @option params [Float] :member_max
+    # @!attribute member_min
     #   <p>The minimum amount of network bandwidth, in Gbps. If this parameter is not specified, there is no minimum
     #            limit.</p>
     #   @return [Float]
-    # @!attribute max
+    # @!attribute member_max
     #   <p>The maximum amount of network bandwidth, in Gbps. If this parameter is not specified, there is no
     #            maximum limit.</p>
     #   @return [Float]
     NetworkBandwidthGbps = ::Struct.new(
-      :min,
-      :max,
+      :member_min,
+      :member_max,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -54933,19 +54933,19 @@ module AWS::SDK::EC2
     #          </note>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Float] :min
-    #   @option params [Float] :max
-    # @!attribute min
+    #   @option params [Float] :member_min
+    #   @option params [Float] :member_max
+    # @!attribute member_min
     #   <p>The minimum amount of network bandwidth, in Gbps. To specify no minimum limit, omit this
     #            parameter.</p>
     #   @return [Float]
-    # @!attribute max
+    # @!attribute member_max
     #   <p>The maximum amount of network bandwidth, in Gbps. To specify no maximum limit, omit this
     #            parameter.</p>
     #   @return [Float]
     NetworkBandwidthGbpsRequest = ::Struct.new(
-      :min,
-      :max,
+      :member_min,
+      :member_max,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -55642,19 +55642,19 @@ module AWS::SDK::EC2
     # <p>The minimum and maximum number of network interfaces.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Integer] :min
-    #   @option params [Integer] :max
-    # @!attribute min
+    #   @option params [Integer] :member_min
+    #   @option params [Integer] :member_max
+    # @!attribute member_min
     #   <p>The minimum number of network interfaces. If this parameter is not specified, there is no
     #            minimum limit.</p>
     #   @return [Integer]
-    # @!attribute max
+    # @!attribute member_max
     #   <p>The maximum number of network interfaces. If this parameter is not specified, there is no
     #            maximum limit.</p>
     #   @return [Integer]
     NetworkInterfaceCount = ::Struct.new(
-      :min,
-      :max,
+      :member_min,
+      :member_max,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -55663,19 +55663,19 @@ module AWS::SDK::EC2
     # <p>The minimum and maximum number of network interfaces.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Integer] :min
-    #   @option params [Integer] :max
-    # @!attribute min
+    #   @option params [Integer] :member_min
+    #   @option params [Integer] :member_max
+    # @!attribute member_min
     #   <p>The minimum number of network interfaces. To specify no minimum limit, omit this
     #            parameter.</p>
     #   @return [Integer]
-    # @!attribute max
+    # @!attribute member_max
     #   <p>The maximum number of network interfaces. To specify no maximum limit, omit this
     #            parameter.</p>
     #   @return [Integer]
     NetworkInterfaceCountRequest = ::Struct.new(
-      :min,
-      :max,
+      :member_min,
+      :member_max,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -55863,16 +55863,16 @@ module AWS::SDK::EC2
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [String] :key
-    #   @option params [Array<String>] :values
+    #   @option params [Array<String>] :member_values
     # @!attribute key
     #   <p>The name of a DHCP option.</p>
     #   @return [String]
-    # @!attribute values
+    # @!attribute member_values
     #   <p>The values for the DHCP option.</p>
     #   @return [Array<String>]
     NewDhcpConfiguration = ::Struct.new(
       :key,
-      :values,
+      :member_values,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -57164,16 +57164,16 @@ module AWS::SDK::EC2
     # <p>Describes a Reserved Instance offering.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Integer] :count
+    #   @option params [Integer] :member_count
     #   @option params [Float] :price
-    # @!attribute count
+    # @!attribute member_count
     #   <p>The number of reservations available for the price.</p>
     #   @return [Integer]
     # @!attribute price
     #   <p>The price per instance.</p>
     #   @return [Float]
     PricingDetail = ::Struct.new(
-      :count,
+      :member_count,
       :price,
       keyword_init: true
     ) do
@@ -67559,19 +67559,19 @@ module AWS::SDK::EC2
     # <p>The minimum and maximum amount of total local storage, in GB.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Float] :min
-    #   @option params [Float] :max
-    # @!attribute min
+    #   @option params [Float] :member_min
+    #   @option params [Float] :member_max
+    # @!attribute member_min
     #   <p>The minimum amount of total local storage, in GB. If this parameter is not specified, there is
     #            no minimum limit.</p>
     #   @return [Float]
-    # @!attribute max
+    # @!attribute member_max
     #   <p>The maximum amount of total local storage, in GB. If this parameter is not specified, there is
     #            no maximum limit.</p>
     #   @return [Float]
     TotalLocalStorageGB = ::Struct.new(
-      :min,
-      :max,
+      :member_min,
+      :member_max,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -67580,19 +67580,19 @@ module AWS::SDK::EC2
     # <p>The minimum and maximum amount of total local storage, in GB.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Float] :min
-    #   @option params [Float] :max
-    # @!attribute min
+    #   @option params [Float] :member_min
+    #   @option params [Float] :member_max
+    # @!attribute member_min
     #   <p>The minimum amount of total local storage, in GB. To specify no minimum limit, omit this
     #            parameter.</p>
     #   @return [Float]
-    # @!attribute max
+    # @!attribute member_max
     #   <p>The maximum amount of total local storage, in GB. To specify no maximum limit, omit this
     #            parameter.</p>
     #   @return [Float]
     TotalLocalStorageGBRequest = ::Struct.new(
-      :min,
-      :max,
+      :member_min,
+      :member_max,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -70389,19 +70389,19 @@ module AWS::SDK::EC2
     # <p>The minimum and maximum number of vCPUs.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Integer] :min
-    #   @option params [Integer] :max
-    # @!attribute min
+    #   @option params [Integer] :member_min
+    #   @option params [Integer] :member_max
+    # @!attribute member_min
     #   <p>The minimum number of vCPUs. If the value is <code>0</code>, there is no minimum
     #            limit.</p>
     #   @return [Integer]
-    # @!attribute max
+    # @!attribute member_max
     #   <p>The maximum number of vCPUs. If this parameter is not specified, there is no maximum
     #            limit.</p>
     #   @return [Integer]
     VCpuCountRange = ::Struct.new(
-      :min,
-      :max,
+      :member_min,
+      :member_max,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -70410,17 +70410,17 @@ module AWS::SDK::EC2
     # <p>The minimum and maximum number of vCPUs.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Integer] :min
-    #   @option params [Integer] :max
-    # @!attribute min
+    #   @option params [Integer] :member_min
+    #   @option params [Integer] :member_max
+    # @!attribute member_min
     #   <p>The minimum number of vCPUs. To specify no minimum limit, specify <code>0</code>.</p>
     #   @return [Integer]
-    # @!attribute max
+    # @!attribute member_max
     #   <p>The maximum number of vCPUs. To specify no maximum limit, omit this parameter.</p>
     #   @return [Integer]
     VCpuCountRangeRequest = ::Struct.new(
-      :min,
-      :max,
+      :member_min,
+      :member_max,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -71301,7 +71301,7 @@ module AWS::SDK::EC2
     #   @option params [Boolean] :encrypted
     #   @option params [String] :kms_key_id
     #   @option params [String] :outpost_arn
-    #   @option params [Integer] :size
+    #   @option params [Integer] :member_size
     #   @option params [String] :snapshot_id
     #   @option params [String] :state
     #   @option params [String] :volume_id
@@ -71331,7 +71331,7 @@ module AWS::SDK::EC2
     # @!attribute outpost_arn
     #   <p>The Amazon Resource Name (ARN) of the Outpost.</p>
     #   @return [String]
-    # @!attribute size
+    # @!attribute member_size
     #   <p>The size of the volume, in GiBs.</p>
     #   @return [Integer]
     # @!attribute snapshot_id
@@ -71376,7 +71376,7 @@ module AWS::SDK::EC2
       :encrypted,
       :kms_key_id,
       :outpost_arn,
-      :size,
+      :member_size,
       :snapshot_id,
       :state,
       :volume_id,
@@ -71473,12 +71473,12 @@ module AWS::SDK::EC2
     # <p>Describes an EBS volume.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Integer] :size
-    # @!attribute size
+    #   @option params [Integer] :member_size
+    # @!attribute member_size
     #   <p>The size of the volume, in GiB.</p>
     #   @return [Integer]
     VolumeDetail = ::Struct.new(
-      :size,
+      :member_size,
       keyword_init: true
     ) do
       include Hearth::Structure

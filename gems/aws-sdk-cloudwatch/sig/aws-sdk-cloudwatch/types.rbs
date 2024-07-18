@@ -115,7 +115,7 @@ module AWS::SDK::CloudWatch
       attr_accessor dashboard_name (): ::String
       attr_accessor dashboard_arn (): ::String
       attr_accessor last_modified (): ::Time
-      attr_accessor size (): ::Integer
+      attr_accessor member_size (): ::Integer
     end
 
     class DashboardInvalidInputError < ::Struct[untyped]
@@ -140,7 +140,7 @@ module AWS::SDK::CloudWatch
       attr_accessor timestamp (): ::Time
       attr_accessor sample_count (): ::Float
       attr_accessor average (): ::Float
-      attr_accessor sum (): ::Float
+      attr_accessor member_sum (): ::Float
       attr_accessor minimum (): ::Float
       attr_accessor maximum (): ::Float
       attr_accessor unit (): ::String
@@ -473,7 +473,7 @@ module AWS::SDK::CloudWatch
       attr_accessor max_contributor_value (): ::Float
       attr_accessor sample_count (): ::Float
       attr_accessor average (): ::Float
-      attr_accessor sum (): ::Float
+      attr_accessor member_sum (): ::Float
       attr_accessor minimum (): ::Float
       attr_accessor maximum (): ::Float
     end
@@ -552,7 +552,7 @@ module AWS::SDK::CloudWatch
     class ListMetricStreamsOutput < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor next_token (): ::String
-      attr_accessor entries (): ::Array[Types::MetricStreamEntry]
+      attr_accessor member_entries (): ::Array[Types::MetricStreamEntry]
     end
 
     class ListMetricsInput < ::Struct[untyped]
@@ -665,7 +665,7 @@ module AWS::SDK::CloudWatch
       attr_accessor id (): ::String
       attr_accessor label (): ::String
       attr_accessor timestamps (): ::Array[::Time]
-      attr_accessor values (): ::Array[::Float]
+      attr_accessor member_values (): ::Array[::Float]
       attr_accessor status_code (): ::String
       attr_accessor messages (): ::Array[Types::MessageData]
     end
@@ -677,7 +677,7 @@ module AWS::SDK::CloudWatch
       attr_accessor timestamp (): ::Time
       attr_accessor value (): ::Float
       attr_accessor statistic_values (): Types::StatisticSet
-      attr_accessor values (): ::Array[::Float]
+      attr_accessor member_values (): ::Array[::Float]
       attr_accessor counts (): ::Array[::Float]
       attr_accessor unit (): ::String
       attr_accessor storage_resolution (): ::Integer
@@ -1007,7 +1007,7 @@ module AWS::SDK::CloudWatch
     class StatisticSet < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor sample_count (): ::Float
-      attr_accessor sum (): ::Float
+      attr_accessor member_sum (): ::Float
       attr_accessor minimum (): ::Float
       attr_accessor maximum (): ::Float
     end

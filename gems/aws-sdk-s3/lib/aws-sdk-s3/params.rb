@@ -126,7 +126,7 @@ module AWS::SDK::S3
         type = Types::AnalyticsConfiguration.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.id = params[:id] unless params[:id].nil?
-        type.filter = AnalyticsFilter.build(params[:filter], context: "#{context}[:filter]") unless params[:filter].nil?
+        type.member_filter = AnalyticsFilter.build(params[:member_filter], context: "#{context}[:member_filter]") unless params[:member_filter].nil?
         type.storage_class_analysis = StorageClassAnalysis.build(params[:storage_class_analysis], context: "#{context}[:storage_class_analysis]") unless params[:storage_class_analysis].nil?
         type
       end
@@ -2211,7 +2211,7 @@ module AWS::SDK::S3
         type = Types::IntelligentTieringConfiguration.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.id = params[:id] unless params[:id].nil?
-        type.filter = IntelligentTieringFilter.build(params[:filter], context: "#{context}[:filter]") unless params[:filter].nil?
+        type.member_filter = IntelligentTieringFilter.build(params[:member_filter], context: "#{context}[:member_filter]") unless params[:member_filter].nil?
         type.status = params[:status] unless params[:status].nil?
         type.tierings = TieringList.build(params[:tierings], context: "#{context}[:tierings]") unless params[:tierings].nil?
         type
@@ -2259,7 +2259,7 @@ module AWS::SDK::S3
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.destination = InventoryDestination.build(params[:destination], context: "#{context}[:destination]") unless params[:destination].nil?
         type.is_enabled = params[:is_enabled] unless params[:is_enabled].nil?
-        type.filter = InventoryFilter.build(params[:filter], context: "#{context}[:filter]") unless params[:filter].nil?
+        type.member_filter = InventoryFilter.build(params[:member_filter], context: "#{context}[:member_filter]") unless params[:member_filter].nil?
         type.id = params[:id] unless params[:id].nil?
         type.included_object_versions = params[:included_object_versions] unless params[:included_object_versions].nil?
         type.optional_fields = InventoryOptionalFields.build(params[:optional_fields], context: "#{context}[:optional_fields]") unless params[:optional_fields].nil?
@@ -2373,7 +2373,7 @@ module AWS::SDK::S3
         type.id = params[:id] unless params[:id].nil?
         type.lambda_function_arn = params[:lambda_function_arn] unless params[:lambda_function_arn].nil?
         type.events = EventList.build(params[:events], context: "#{context}[:events]") unless params[:events].nil?
-        type.filter = NotificationConfigurationFilter.build(params[:filter], context: "#{context}[:filter]") unless params[:filter].nil?
+        type.member_filter = NotificationConfigurationFilter.build(params[:member_filter], context: "#{context}[:member_filter]") unless params[:member_filter].nil?
         type
       end
     end
@@ -2409,7 +2409,7 @@ module AWS::SDK::S3
         type.expiration = LifecycleExpiration.build(params[:expiration], context: "#{context}[:expiration]") unless params[:expiration].nil?
         type.id = params[:id] unless params[:id].nil?
         type.prefix = params[:prefix] unless params[:prefix].nil?
-        type.filter = LifecycleRuleFilter.build(params[:filter], context: "#{context}[:filter]") unless params[:filter].nil?
+        type.member_filter = LifecycleRuleFilter.build(params[:member_filter], context: "#{context}[:member_filter]") unless params[:member_filter].nil?
         type.status = params[:status] unless params[:status].nil?
         type.transitions = TransitionList.build(params[:transitions], context: "#{context}[:transitions]") unless params[:transitions].nil?
         type.noncurrent_version_transitions = NoncurrentVersionTransitionList.build(params[:noncurrent_version_transitions], context: "#{context}[:noncurrent_version_transitions]") unless params[:noncurrent_version_transitions].nil?
@@ -2901,7 +2901,7 @@ module AWS::SDK::S3
         type = Types::MetricsConfiguration.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.id = params[:id] unless params[:id].nil?
-        type.filter = MetricsFilter.build(params[:filter], context: "#{context}[:filter]") unless params[:filter].nil?
+        type.member_filter = MetricsFilter.build(params[:member_filter], context: "#{context}[:member_filter]") unless params[:member_filter].nil?
         type
       end
     end
@@ -3079,7 +3079,7 @@ module AWS::SDK::S3
         type.last_modified = params[:last_modified] unless params[:last_modified].nil?
         type.e_tag = params[:e_tag] unless params[:e_tag].nil?
         type.checksum_algorithm = ChecksumAlgorithmList.build(params[:checksum_algorithm], context: "#{context}[:checksum_algorithm]") unless params[:checksum_algorithm].nil?
-        type.size = params[:size] unless params[:size].nil?
+        type.member_size = params[:member_size] unless params[:member_size].nil?
         type.storage_class = params[:storage_class] unless params[:storage_class].nil?
         type.owner = Owner.build(params[:owner], context: "#{context}[:owner]") unless params[:owner].nil?
         type.restore_status = RestoreStatus.build(params[:restore_status], context: "#{context}[:restore_status]") unless params[:restore_status].nil?
@@ -3197,7 +3197,7 @@ module AWS::SDK::S3
         type = Types::ObjectPart.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.part_number = params[:part_number] unless params[:part_number].nil?
-        type.size = params[:size] unless params[:size].nil?
+        type.member_size = params[:member_size] unless params[:member_size].nil?
         type.checksum_crc32 = params[:checksum_crc32] unless params[:checksum_crc32].nil?
         type.checksum_crc32_c = params[:checksum_crc32_c] unless params[:checksum_crc32_c].nil?
         type.checksum_sha1 = params[:checksum_sha1] unless params[:checksum_sha1].nil?
@@ -3213,7 +3213,7 @@ module AWS::SDK::S3
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.e_tag = params[:e_tag] unless params[:e_tag].nil?
         type.checksum_algorithm = ChecksumAlgorithmList.build(params[:checksum_algorithm], context: "#{context}[:checksum_algorithm]") unless params[:checksum_algorithm].nil?
-        type.size = params[:size] unless params[:size].nil?
+        type.member_size = params[:member_size] unless params[:member_size].nil?
         type.storage_class = params[:storage_class] unless params[:storage_class].nil?
         type.key = params[:key] unless params[:key].nil?
         type.version_id = params[:version_id] unless params[:version_id].nil?
@@ -3327,7 +3327,7 @@ module AWS::SDK::S3
         type.part_number = params[:part_number] unless params[:part_number].nil?
         type.last_modified = params[:last_modified] unless params[:last_modified].nil?
         type.e_tag = params[:e_tag] unless params[:e_tag].nil?
-        type.size = params[:size] unless params[:size].nil?
+        type.member_size = params[:member_size] unless params[:member_size].nil?
         type.checksum_crc32 = params[:checksum_crc32] unless params[:checksum_crc32].nil?
         type.checksum_crc32_c = params[:checksum_crc32_c] unless params[:checksum_crc32_c].nil?
         type.checksum_sha1 = params[:checksum_sha1] unless params[:checksum_sha1].nil?
@@ -4072,7 +4072,7 @@ module AWS::SDK::S3
         type.id = params[:id] unless params[:id].nil?
         type.queue_arn = params[:queue_arn] unless params[:queue_arn].nil?
         type.events = EventList.build(params[:events], context: "#{context}[:events]") unless params[:events].nil?
-        type.filter = NotificationConfigurationFilter.build(params[:filter], context: "#{context}[:filter]") unless params[:filter].nil?
+        type.member_filter = NotificationConfigurationFilter.build(params[:member_filter], context: "#{context}[:member_filter]") unless params[:member_filter].nil?
         type
       end
     end
@@ -4152,7 +4152,7 @@ module AWS::SDK::S3
         type.id = params[:id] unless params[:id].nil?
         type.priority = params[:priority] unless params[:priority].nil?
         type.prefix = params[:prefix] unless params[:prefix].nil?
-        type.filter = ReplicationRuleFilter.build(params[:filter], context: "#{context}[:filter]") unless params[:filter].nil?
+        type.member_filter = ReplicationRuleFilter.build(params[:member_filter], context: "#{context}[:member_filter]") unless params[:member_filter].nil?
         type.status = params[:status] unless params[:status].nil?
         type.source_selection_criteria = SourceSelectionCriteria.build(params[:source_selection_criteria], context: "#{context}[:source_selection_criteria]") unless params[:source_selection_criteria].nil?
         type.existing_object_replication = ExistingObjectReplication.build(params[:existing_object_replication], context: "#{context}[:existing_object_replication]") unless params[:existing_object_replication].nil?
@@ -4692,7 +4692,7 @@ module AWS::SDK::S3
         type.id = params[:id] unless params[:id].nil?
         type.topic_arn = params[:topic_arn] unless params[:topic_arn].nil?
         type.events = EventList.build(params[:events], context: "#{context}[:events]") unless params[:events].nil?
-        type.filter = NotificationConfigurationFilter.build(params[:filter], context: "#{context}[:filter]") unless params[:filter].nil?
+        type.member_filter = NotificationConfigurationFilter.build(params[:member_filter], context: "#{context}[:member_filter]") unless params[:member_filter].nil?
         type
       end
     end

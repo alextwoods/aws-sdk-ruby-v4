@@ -1435,7 +1435,7 @@ module AWS::SDK::DynamoDB
       include Hearth::Structure
       attr_accessor table_name (): ::String
       attr_accessor index_name (): ::String
-      attr_accessor select (): ::String
+      attr_accessor member_select (): ::String
       attr_accessor attributes_to_get (): ::Array[::String]
       attr_accessor limit (): ::Integer
       attr_accessor consistent_read (): bool
@@ -1455,7 +1455,7 @@ module AWS::SDK::DynamoDB
     class QueryOutput < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor items (): ::Array[::Hash[::String, Types::AttributeValue]]
-      attr_accessor count (): ::Integer
+      attr_accessor member_count (): ::Integer
       attr_accessor scanned_count (): ::Integer
       attr_accessor last_evaluated_key (): ::Hash[::String, Types::AttributeValue]
       attr_accessor consumed_capacity (): Types::ConsumedCapacity
@@ -1749,7 +1749,7 @@ module AWS::SDK::DynamoDB
       attr_accessor index_name (): ::String
       attr_accessor attributes_to_get (): ::Array[::String]
       attr_accessor limit (): ::Integer
-      attr_accessor select (): ::String
+      attr_accessor member_select (): ::String
       attr_accessor scan_filter (): ::Hash[::String, Types::Condition]
       attr_accessor conditional_operator (): ::String
       attr_accessor exclusive_start_key (): ::Hash[::String, Types::AttributeValue]
@@ -1766,7 +1766,7 @@ module AWS::SDK::DynamoDB
     class ScanOutput < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor items (): ::Array[::Hash[::String, Types::AttributeValue]]
-      attr_accessor count (): ::Integer
+      attr_accessor member_count (): ::Integer
       attr_accessor scanned_count (): ::Integer
       attr_accessor last_evaluated_key (): ::Hash[::String, Types::AttributeValue]
       attr_accessor consumed_capacity (): Types::ConsumedCapacity

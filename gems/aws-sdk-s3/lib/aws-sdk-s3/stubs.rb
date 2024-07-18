@@ -152,7 +152,7 @@ module AWS::SDK::S3
         visited = visited + ['AnalyticsConfiguration']
         {
           id: 'id',
-          filter: AnalyticsFilter.default(visited),
+          member_filter: AnalyticsFilter.default(visited),
           storage_class_analysis: StorageClassAnalysis.default(visited),
         }
       end
@@ -161,7 +161,7 @@ module AWS::SDK::S3
         stub ||= Types::AnalyticsConfiguration.new
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
-        xml << Stubs::AnalyticsFilter.stub('Filter', stub[:filter]) unless stub[:filter].nil?
+        xml << Stubs::AnalyticsFilter.stub('Filter', stub[:member_filter]) unless stub[:member_filter].nil?
         xml << Stubs::StorageClassAnalysis.stub('StorageClassAnalysis', stub[:storage_class_analysis]) unless stub[:storage_class_analysis].nil?
         xml
       end
@@ -2579,7 +2579,7 @@ module AWS::SDK::S3
         visited = visited + ['IntelligentTieringConfiguration']
         {
           id: 'id',
-          filter: IntelligentTieringFilter.default(visited),
+          member_filter: IntelligentTieringFilter.default(visited),
           status: 'status',
           tierings: TieringList.default(visited),
         }
@@ -2589,7 +2589,7 @@ module AWS::SDK::S3
         stub ||= Types::IntelligentTieringConfiguration.new
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
-        xml << Stubs::IntelligentTieringFilter.stub('Filter', stub[:filter]) unless stub[:filter].nil?
+        xml << Stubs::IntelligentTieringFilter.stub('Filter', stub[:member_filter]) unless stub[:member_filter].nil?
         xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
         xml << Stubs::TieringList.stub('Tiering', stub[:tierings]) unless stub[:tierings].nil?
         xml
@@ -2671,7 +2671,7 @@ module AWS::SDK::S3
         {
           destination: InventoryDestination.default(visited),
           is_enabled: false,
-          filter: InventoryFilter.default(visited),
+          member_filter: InventoryFilter.default(visited),
           id: 'id',
           included_object_versions: 'included_object_versions',
           optional_fields: InventoryOptionalFields.default(visited),
@@ -2684,7 +2684,7 @@ module AWS::SDK::S3
         xml = Hearth::XML::Node.new(node_name)
         xml << Stubs::InventoryDestination.stub('Destination', stub[:destination]) unless stub[:destination].nil?
         xml << Hearth::XML::Node.new('IsEnabled', stub[:is_enabled].to_s) unless stub[:is_enabled].nil?
-        xml << Stubs::InventoryFilter.stub('Filter', stub[:filter]) unless stub[:filter].nil?
+        xml << Stubs::InventoryFilter.stub('Filter', stub[:member_filter]) unless stub[:member_filter].nil?
         xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
         xml << Hearth::XML::Node.new('IncludedObjectVersions', stub[:included_object_versions].to_s) unless stub[:included_object_versions].nil?
         xml << Hearth::XML::Node.new('OptionalFields', Stubs::InventoryOptionalFields.stub('Field', stub[:optional_fields])) unless stub[:optional_fields].nil?
@@ -2834,7 +2834,7 @@ module AWS::SDK::S3
           id: 'id',
           lambda_function_arn: 'lambda_function_arn',
           events: EventList.default(visited),
-          filter: NotificationConfigurationFilter.default(visited),
+          member_filter: NotificationConfigurationFilter.default(visited),
         }
       end
 
@@ -2844,7 +2844,7 @@ module AWS::SDK::S3
         xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
         xml << Hearth::XML::Node.new('CloudFunction', stub[:lambda_function_arn].to_s) unless stub[:lambda_function_arn].nil?
         xml << Stubs::EventList.stub('Event', stub[:events]) unless stub[:events].nil?
-        xml << Stubs::NotificationConfigurationFilter.stub('Filter', stub[:filter]) unless stub[:filter].nil?
+        xml << Stubs::NotificationConfigurationFilter.stub('Filter', stub[:member_filter]) unless stub[:member_filter].nil?
         xml
       end
     end
@@ -2897,7 +2897,7 @@ module AWS::SDK::S3
           expiration: LifecycleExpiration.default(visited),
           id: 'id',
           prefix: 'prefix',
-          filter: LifecycleRuleFilter.default(visited),
+          member_filter: LifecycleRuleFilter.default(visited),
           status: 'status',
           transitions: TransitionList.default(visited),
           noncurrent_version_transitions: NoncurrentVersionTransitionList.default(visited),
@@ -2912,7 +2912,7 @@ module AWS::SDK::S3
         xml << Stubs::LifecycleExpiration.stub('Expiration', stub[:expiration]) unless stub[:expiration].nil?
         xml << Hearth::XML::Node.new('ID', stub[:id].to_s) unless stub[:id].nil?
         xml << Hearth::XML::Node.new('Prefix', stub[:prefix].to_s) unless stub[:prefix].nil?
-        xml << Stubs::LifecycleRuleFilter.stub('Filter', stub[:filter]) unless stub[:filter].nil?
+        xml << Stubs::LifecycleRuleFilter.stub('Filter', stub[:member_filter]) unless stub[:member_filter].nil?
         xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
         xml << Stubs::TransitionList.stub('Transition', stub[:transitions]) unless stub[:transitions].nil?
         xml << Stubs::NoncurrentVersionTransitionList.stub('NoncurrentVersionTransition', stub[:noncurrent_version_transitions]) unless stub[:noncurrent_version_transitions].nil?
@@ -3533,7 +3533,7 @@ module AWS::SDK::S3
         visited = visited + ['MetricsConfiguration']
         {
           id: 'id',
-          filter: MetricsFilter.default(visited),
+          member_filter: MetricsFilter.default(visited),
         }
       end
 
@@ -3541,7 +3541,7 @@ module AWS::SDK::S3
         stub ||= Types::MetricsConfiguration.new
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
-        xml << Stubs::MetricsFilter.stub('Filter', stub[:filter]) unless stub[:filter].nil?
+        xml << Stubs::MetricsFilter.stub('Filter', stub[:member_filter]) unless stub[:member_filter].nil?
         xml
       end
     end
@@ -3823,7 +3823,7 @@ module AWS::SDK::S3
           last_modified: Time.now,
           e_tag: 'e_tag',
           checksum_algorithm: ChecksumAlgorithmList.default(visited),
-          size: 1,
+          member_size: 1,
           storage_class: 'storage_class',
           owner: Owner.default(visited),
           restore_status: RestoreStatus.default(visited),
@@ -3837,7 +3837,7 @@ module AWS::SDK::S3
         xml << Hearth::XML::Node.new('LastModified', Hearth::TimeHelper.to_date_time(stub[:last_modified])) unless stub[:last_modified].nil?
         xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
         xml << Stubs::ChecksumAlgorithmList.stub('ChecksumAlgorithm', stub[:checksum_algorithm]) unless stub[:checksum_algorithm].nil?
-        xml << Hearth::XML::Node.new('Size', stub[:size].to_s) unless stub[:size].nil?
+        xml << Hearth::XML::Node.new('Size', stub[:member_size].to_s) unless stub[:member_size].nil?
         xml << Hearth::XML::Node.new('StorageClass', stub[:storage_class].to_s) unless stub[:storage_class].nil?
         xml << Stubs::Owner.stub('Owner', stub[:owner]) unless stub[:owner].nil?
         xml << Stubs::RestoreStatus.stub('RestoreStatus', stub[:restore_status]) unless stub[:restore_status].nil?
@@ -3990,7 +3990,7 @@ module AWS::SDK::S3
         visited = visited + ['ObjectPart']
         {
           part_number: 1,
-          size: 1,
+          member_size: 1,
           checksum_crc32: 'checksum_crc32',
           checksum_crc32_c: 'checksum_crc32_c',
           checksum_sha1: 'checksum_sha1',
@@ -4002,7 +4002,7 @@ module AWS::SDK::S3
         stub ||= Types::ObjectPart.new
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('PartNumber', stub[:part_number].to_s) unless stub[:part_number].nil?
-        xml << Hearth::XML::Node.new('Size', stub[:size].to_s) unless stub[:size].nil?
+        xml << Hearth::XML::Node.new('Size', stub[:member_size].to_s) unless stub[:member_size].nil?
         xml << Hearth::XML::Node.new('ChecksumCRC32', stub[:checksum_crc32].to_s) unless stub[:checksum_crc32].nil?
         xml << Hearth::XML::Node.new('ChecksumCRC32C', stub[:checksum_crc32_c].to_s) unless stub[:checksum_crc32_c].nil?
         xml << Hearth::XML::Node.new('ChecksumSHA1', stub[:checksum_sha1].to_s) unless stub[:checksum_sha1].nil?
@@ -4018,7 +4018,7 @@ module AWS::SDK::S3
         {
           e_tag: 'e_tag',
           checksum_algorithm: ChecksumAlgorithmList.default(visited),
-          size: 1,
+          member_size: 1,
           storage_class: 'storage_class',
           key: 'key',
           version_id: 'version_id',
@@ -4034,7 +4034,7 @@ module AWS::SDK::S3
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
         xml << Stubs::ChecksumAlgorithmList.stub('ChecksumAlgorithm', stub[:checksum_algorithm]) unless stub[:checksum_algorithm].nil?
-        xml << Hearth::XML::Node.new('Size', stub[:size].to_s) unless stub[:size].nil?
+        xml << Hearth::XML::Node.new('Size', stub[:member_size].to_s) unless stub[:member_size].nil?
         xml << Hearth::XML::Node.new('StorageClass', stub[:storage_class].to_s) unless stub[:storage_class].nil?
         xml << Hearth::XML::Node.new('Key', stub[:key].to_s) unless stub[:key].nil?
         xml << Hearth::XML::Node.new('VersionId', stub[:version_id].to_s) unless stub[:version_id].nil?
@@ -4145,7 +4145,7 @@ module AWS::SDK::S3
           part_number: 1,
           last_modified: Time.now,
           e_tag: 'e_tag',
-          size: 1,
+          member_size: 1,
           checksum_crc32: 'checksum_crc32',
           checksum_crc32_c: 'checksum_crc32_c',
           checksum_sha1: 'checksum_sha1',
@@ -4159,7 +4159,7 @@ module AWS::SDK::S3
         xml << Hearth::XML::Node.new('PartNumber', stub[:part_number].to_s) unless stub[:part_number].nil?
         xml << Hearth::XML::Node.new('LastModified', Hearth::TimeHelper.to_date_time(stub[:last_modified])) unless stub[:last_modified].nil?
         xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
-        xml << Hearth::XML::Node.new('Size', stub[:size].to_s) unless stub[:size].nil?
+        xml << Hearth::XML::Node.new('Size', stub[:member_size].to_s) unless stub[:member_size].nil?
         xml << Hearth::XML::Node.new('ChecksumCRC32', stub[:checksum_crc32].to_s) unless stub[:checksum_crc32].nil?
         xml << Hearth::XML::Node.new('ChecksumCRC32C', stub[:checksum_crc32_c].to_s) unless stub[:checksum_crc32_c].nil?
         xml << Hearth::XML::Node.new('ChecksumSHA1', stub[:checksum_sha1].to_s) unless stub[:checksum_sha1].nil?
@@ -4847,7 +4847,7 @@ module AWS::SDK::S3
           id: 'id',
           queue_arn: 'queue_arn',
           events: EventList.default(visited),
-          filter: NotificationConfigurationFilter.default(visited),
+          member_filter: NotificationConfigurationFilter.default(visited),
         }
       end
 
@@ -4857,7 +4857,7 @@ module AWS::SDK::S3
         xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
         xml << Hearth::XML::Node.new('Queue', stub[:queue_arn].to_s) unless stub[:queue_arn].nil?
         xml << Stubs::EventList.stub('Event', stub[:events]) unless stub[:events].nil?
-        xml << Stubs::NotificationConfigurationFilter.stub('Filter', stub[:filter]) unless stub[:filter].nil?
+        xml << Stubs::NotificationConfigurationFilter.stub('Filter', stub[:member_filter]) unless stub[:member_filter].nil?
         xml
       end
     end
@@ -4986,7 +4986,7 @@ module AWS::SDK::S3
           id: 'id',
           priority: 1,
           prefix: 'prefix',
-          filter: ReplicationRuleFilter.default(visited),
+          member_filter: ReplicationRuleFilter.default(visited),
           status: 'status',
           source_selection_criteria: SourceSelectionCriteria.default(visited),
           existing_object_replication: ExistingObjectReplication.default(visited),
@@ -5001,7 +5001,7 @@ module AWS::SDK::S3
         xml << Hearth::XML::Node.new('ID', stub[:id].to_s) unless stub[:id].nil?
         xml << Hearth::XML::Node.new('Priority', stub[:priority].to_s) unless stub[:priority].nil?
         xml << Hearth::XML::Node.new('Prefix', stub[:prefix].to_s) unless stub[:prefix].nil?
-        xml << Stubs::ReplicationRuleFilter.stub('Filter', stub[:filter]) unless stub[:filter].nil?
+        xml << Stubs::ReplicationRuleFilter.stub('Filter', stub[:member_filter]) unless stub[:member_filter].nil?
         xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
         xml << Stubs::SourceSelectionCriteria.stub('SourceSelectionCriteria', stub[:source_selection_criteria]) unless stub[:source_selection_criteria].nil?
         xml << Stubs::ExistingObjectReplication.stub('ExistingObjectReplication', stub[:existing_object_replication]) unless stub[:existing_object_replication].nil?
@@ -5662,7 +5662,7 @@ module AWS::SDK::S3
           id: 'id',
           topic_arn: 'topic_arn',
           events: EventList.default(visited),
-          filter: NotificationConfigurationFilter.default(visited),
+          member_filter: NotificationConfigurationFilter.default(visited),
         }
       end
 
@@ -5672,7 +5672,7 @@ module AWS::SDK::S3
         xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
         xml << Hearth::XML::Node.new('Topic', stub[:topic_arn].to_s) unless stub[:topic_arn].nil?
         xml << Stubs::EventList.stub('Event', stub[:events]) unless stub[:events].nil?
-        xml << Stubs::NotificationConfigurationFilter.stub('Filter', stub[:filter]) unless stub[:filter].nil?
+        xml << Stubs::NotificationConfigurationFilter.stub('Filter', stub[:member_filter]) unless stub[:member_filter].nil?
         xml
       end
     end

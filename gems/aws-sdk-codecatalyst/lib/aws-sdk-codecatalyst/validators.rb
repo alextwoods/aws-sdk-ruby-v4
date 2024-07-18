@@ -454,8 +454,8 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(input, Types::Filter, context: context)
         Hearth::Validator.validate_required!(input[:key], context: "#{context}[:key]")
         Hearth::Validator.validate_types!(input[:key], ::String, context: "#{context}[:key]")
-        Hearth::Validator.validate_required!(input[:values], context: "#{context}[:values]")
-        StringList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        Hearth::Validator.validate_required!(input[:member_values], context: "#{context}[:member_values]")
+        StringList.validate!(input[:member_values], context: "#{context}[:member_values]") unless input[:member_values].nil?
         Hearth::Validator.validate_types!(input[:comparison_operator], ::String, context: "#{context}[:comparison_operator]")
       end
     end
@@ -959,7 +959,7 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(input[:project_name], ::String, context: "#{context}[:project_name]")
         Hearth::Validator.validate_types!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate_types!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        WorkflowRunSortCriteriaList.validate!(input[:sort_by], context: "#{context}[:sort_by]") unless input[:sort_by].nil?
+        WorkflowRunSortCriteriaList.validate!(input[:member_sort_by], context: "#{context}[:member_sort_by]") unless input[:member_sort_by].nil?
       end
     end
 
@@ -980,7 +980,7 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(input[:project_name], ::String, context: "#{context}[:project_name]")
         Hearth::Validator.validate_types!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate_types!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        WorkflowSortCriteriaList.validate!(input[:sort_by], context: "#{context}[:sort_by]") unless input[:sort_by].nil?
+        WorkflowSortCriteriaList.validate!(input[:member_sort_by], context: "#{context}[:member_sort_by]") unless input[:member_sort_by].nil?
       end
     end
 
@@ -1021,8 +1021,8 @@ module AWS::SDK::CodeCatalyst
         Hearth::Validator.validate_types!(input, Types::ProjectListFilter, context: context)
         Hearth::Validator.validate_required!(input[:key], context: "#{context}[:key]")
         Hearth::Validator.validate_types!(input[:key], ::String, context: "#{context}[:key]")
-        Hearth::Validator.validate_required!(input[:values], context: "#{context}[:values]")
-        StringList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        Hearth::Validator.validate_required!(input[:member_values], context: "#{context}[:member_values]")
+        StringList.validate!(input[:member_values], context: "#{context}[:member_values]") unless input[:member_values].nil?
         Hearth::Validator.validate_types!(input[:comparison_operator], ::String, context: "#{context}[:comparison_operator]")
       end
     end

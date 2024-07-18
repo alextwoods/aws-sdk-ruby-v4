@@ -47,7 +47,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'arn:aws:not-s3:us-west-2:123456789012:accesspoint:myendpoint', key: 'key')
+            client.get_object({
+              bucket: "arn:aws:not-s3:us-west-2:123456789012:accesspoint:myendpoint",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'Invalid ARN: The ARN was not for the S3 service, found: not-s3')
         end
       end
@@ -72,7 +75,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint:more-data', key: 'key')
+            client.get_object({
+              bucket: "arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint:more-data",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'Invalid ARN: The ARN may only contain a single resource component after `accesspoint`.')
         end
       end
@@ -97,7 +103,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'arn:aws:s3:us-west-2:123456789012:accesspoint:', key: 'key')
+            client.get_object({
+              bucket: "arn:aws:s3:us-west-2:123456789012:accesspoint:",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'Invalid ARN: Expected a resource of the format `accesspoint:<accesspoint name>` but no name was provided')
         end
       end
@@ -122,7 +131,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'arn:aws:s3:us-west-2:123456_789012:accesspoint:apname', key: 'key')
+            client.get_object({
+              bucket: "arn:aws:s3:us-west-2:123456_789012:accesspoint:apname",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'Invalid ARN: The account id may only contain a-z, A-Z, 0-9 and `-`. Found: `123456_789012`')
         end
       end
@@ -147,7 +159,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'arn:aws:s3:us-west-2:123456789012:accesspoint:ap_name', key: 'key')
+            client.get_object({
+              bucket: "arn:aws:s3:us-west-2:123456789012:accesspoint:ap_name",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'Invalid ARN: The access point name may only contain a-z, A-Z, 0-9 and `-`. Found: `ap_name`')
         end
       end
@@ -187,7 +202,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -212,7 +230,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'arn:aws:s3:cn-north-1:123456789012:accesspoint:myendpoint', key: 'key')
+            client.get_object({
+              bucket: "arn:aws:s3:cn-north-1:123456789012:accesspoint:myendpoint",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'Partition does not support FIPS')
         end
       end
@@ -237,7 +258,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'arn:aws:s3:us-west -2:123456789012:accesspoint:myendpoint', key: 'key')
+            client.get_object({
+              bucket: "arn:aws:s3:us-west -2:123456789012:accesspoint:myendpoint",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'Invalid region in ARN: `us-west -2` (invalid DNS name)')
         end
       end
@@ -262,7 +286,9 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.create_bucket(bucket: 'arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint')
+            client.create_bucket({
+              bucket: "arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint"
+            })
           end.to raise_error(ArgumentError, 'Access points are not supported for this operation')
         end
       end
@@ -287,7 +313,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'arn:aws:s3:us-west-2:123456789012:', key: 'key')
+            client.get_object({
+              bucket: "arn:aws:s3:us-west-2:123456789012:",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'Invalid ARN: `arn:aws:s3:us-west-2:123456789012:` was not a valid ARN')
         end
       end
@@ -314,7 +343,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'arn:aws-cn:s3:cn-north-1:123456789012:accesspoint:myendpoint', key: 'key')
+            client.get_object({
+              bucket: "arn:aws-cn:s3:cn-north-1:123456789012:accesspoint:myendpoint",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'Cannot set dual-stack in combination with a custom endpoint.')
         end
       end
@@ -356,7 +388,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -396,7 +431,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -435,7 +473,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'arn:aws:s3::123456789012:accesspoint:mfzwi23gnjvgw.mrap', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "arn:aws:s3::123456789012:accesspoint:mfzwi23gnjvgw.mrap",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -460,7 +501,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'arn:aws:s3::123456789012:accesspoint:mfzwi23gnjvgw.mrap', key: 'key')
+            client.get_object({
+              bucket: "arn:aws:s3::123456789012:accesspoint:mfzwi23gnjvgw.mrap",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'S3 MRAP does not support FIPS')
         end
       end
@@ -486,7 +530,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'arn:aws:s3::123456789012:accesspoint:mfzwi23gnjvgw.mrap', key: 'key')
+            client.get_object({
+              bucket: "arn:aws:s3::123456789012:accesspoint:mfzwi23gnjvgw.mrap",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'S3 MRAP does not support dual-stack')
         end
       end
@@ -512,7 +559,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'arn:aws:s3::123456789012:accesspoint:mfzwi23gnjvgw.mrap', key: 'key')
+            client.get_object({
+              bucket: "arn:aws:s3::123456789012:accesspoint:mfzwi23gnjvgw.mrap",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'S3 MRAP does not support S3 Accelerate')
         end
       end
@@ -538,7 +588,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'arn:aws:s3::123456789012:accesspoint:mfzwi23gnjvgw.mrap', key: 'key')
+            client.get_object({
+              bucket: "arn:aws:s3::123456789012:accesspoint:mfzwi23gnjvgw.mrap",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'Invalid configuration: Multi-Region Access Point ARNs are disabled.')
         end
       end
@@ -580,7 +633,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'bucketname', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "bucketname",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -607,7 +663,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'bucketname', key: 'key')
+            client.get_object({
+              bucket: "bucketname",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'Cannot set dual-stack in combination with a custom endpoint.')
         end
       end
@@ -633,7 +692,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'arn:aws:s3::123456789012:accesspoint:mfzwi23gnjvgw.mrap', key: 'key')
+            client.get_object({
+              bucket: "arn:aws:s3::123456789012:accesspoint:mfzwi23gnjvgw.mrap",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'Path-style addressing cannot be used with ARN buckets')
         end
       end
@@ -674,7 +736,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: '99_ab', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "99_ab",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -700,7 +765,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: '99_ab', key: 'key')
+            client.get_object({
+              bucket: "99_ab",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'Cannot set dual-stack in combination with a custom endpoint.')
         end
       end
@@ -740,7 +808,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'example.com#', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "example.com#",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -779,7 +850,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'bucket name', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "bucket name",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -855,7 +929,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: '99_ab', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "99_ab",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -908,7 +985,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'bucketname', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "bucketname",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -933,7 +1013,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'arn:aws:s3:us-east-1:123456789012:accesspoint:myendpoint', key: 'key')
+            client.get_object({
+              bucket: "arn:aws:s3:us-east-1:123456789012:accesspoint:myendpoint",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'Invalid configuration: region from ARN `us-east-1` does not match client region `us-west-2` and UseArnRegion is `false`')
         end
       end
@@ -973,7 +1056,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -1013,7 +1099,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -1052,7 +1141,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'bucket.name', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "bucket.name",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -1091,7 +1183,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'aaa', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "aaa",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -1130,7 +1225,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'aa', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "aa",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -1169,7 +1267,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'BucketName', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "BucketName",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -1209,7 +1310,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'bucket.name', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "bucket.name",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -1868,7 +1972,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'bucket-name', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "bucket-name",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -1907,7 +2014,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.list_objects({bucket: 'bucket-name', prefix: 'prefix'}, interceptors: [interceptor])
+          client.list_objects({
+            bucket: "bucket-name",
+            prefix: "prefix"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -1947,7 +2057,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'bucket-name', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "bucket-name",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -1987,7 +2100,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'bucket-name', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "bucket-name",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -2028,7 +2144,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'bucket-name', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "bucket-name",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -2068,7 +2187,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'bucket-name', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "bucket-name",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -2108,7 +2230,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'bucket-name', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "bucket-name",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -2148,7 +2273,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'bucket-name', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "bucket-name",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -2188,7 +2316,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'bucket-name', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "bucket-name",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -2229,7 +2360,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'bucket-name', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "bucket-name",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -2270,7 +2404,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'bucket-name', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "bucket-name",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -2311,7 +2448,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'bucket-name', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "bucket-name",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -2352,7 +2492,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'bucket-name', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "bucket-name",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -2392,7 +2535,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'bucket-name', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "bucket-name",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -2451,7 +2597,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'bucket-name', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "bucket-name",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -2492,7 +2641,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'bucket-name', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "bucket-name",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -2533,7 +2685,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'bucket-name', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "bucket-name",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -2574,7 +2729,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'bucket-name', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "bucket-name",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -2616,7 +2774,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'bucket-name', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "bucket-name",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -2658,7 +2819,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'bucket-name', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "bucket-name",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -2698,7 +2862,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-01234567890123456/accesspoint/reports', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-01234567890123456/accesspoint/reports",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -2722,7 +2889,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'arn:aws-cn:s3::123456789012:accesspoint:mfzwi23gnjvgw.mrap', key: 'key')
+            client.get_object({
+              bucket: "arn:aws-cn:s3::123456789012:accesspoint:mfzwi23gnjvgw.mrap",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'Client was configured for partition `aws` but bucket referred to partition `aws-cn`')
         end
       end
@@ -2763,7 +2933,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -3817,7 +3990,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'bucket-name', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "bucket-name",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -3857,7 +4033,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'bucket-name', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "bucket-name",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -3898,7 +4077,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'bucket-name', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "bucket-name",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -3938,7 +4120,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'bucket-name', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "bucket-name",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -3978,7 +4163,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'bucket-name', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "bucket-name",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -4019,7 +4207,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'bucket-name', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "bucket-name",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -4045,7 +4236,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'bucket-name', key: 'key')
+            client.get_object({
+              bucket: "bucket-name",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'Accelerate cannot be used with FIPS')
         end
       end
@@ -4085,7 +4279,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'bucket-name', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "bucket-name",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -4125,7 +4322,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'bucket-name', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "bucket-name",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -4190,7 +4390,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'bucket-name', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "bucket-name",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -4230,7 +4433,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'bucket-name', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "bucket-name",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -4271,7 +4477,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'bucket-name', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "bucket-name",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -4311,7 +4520,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'bucket-name', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "bucket-name",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -4351,7 +4563,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'bucket-name', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "bucket-name",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -4392,7 +4607,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'bucket-name', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "bucket-name",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -4418,7 +4636,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'bucket-name', key: 'key')
+            client.get_object({
+              bucket: "bucket-name",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'Accelerate cannot be used with FIPS')
         end
       end
@@ -4459,7 +4680,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'bucket-name', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "bucket-name",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -4500,7 +4724,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'bucket.with.dots', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "bucket.with.dots",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -4526,7 +4753,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'bucket-name', key: 'key')
+            client.get_object({
+              bucket: "bucket-name",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'Path-style addressing cannot be used with S3 Accelerate')
         end
       end
@@ -4568,7 +4798,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'bucket-name', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "bucket-name",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -4593,7 +4826,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'arn:PARTITION:s3-outposts:REGION:123456789012:outpost:op-01234567890123456:bucket:mybucket', key: 'key')
+            client.get_object({
+              bucket: "arn:PARTITION:s3-outposts:REGION:123456789012:outpost:op-01234567890123456:bucket:mybucket",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'Path-style addressing cannot be used with ARN buckets')
         end
       end
@@ -4634,7 +4870,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: '99a_b', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "99a_b",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -4673,7 +4912,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: '99a_b', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "99a_b",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -4713,7 +4955,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'bucket-name', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "bucket-name",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -4739,7 +4984,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'bucket-name', key: 'key')
+            client.get_object({
+              bucket: "bucket-name",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'Partition does not support FIPS')
         end
       end
@@ -4766,7 +5014,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'bucket-name', key: 'key')
+            client.get_object({
+              bucket: "bucket-name",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'Path-style addressing cannot be used with S3 Accelerate')
         end
       end
@@ -4808,7 +5059,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'bucket-name', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "bucket-name",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -4833,7 +5087,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'arn:PARTITION:s3-outposts:REGION:123456789012:outpost:op-01234567890123456:bucket:mybucket', key: 'key')
+            client.get_object({
+              bucket: "arn:PARTITION:s3-outposts:REGION:123456789012:outpost:op-01234567890123456:bucket:mybucket",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'Path-style addressing cannot be used with ARN buckets')
         end
       end
@@ -4874,7 +5131,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: '99a_b', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "99a_b",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -4913,7 +5173,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: '99a_b', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "99a_b",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -4953,7 +5216,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'bucket-name', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "bucket-name",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -4994,7 +5260,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'bucket-name', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "bucket-name",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -5020,7 +5289,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'bucket-name', key: 'key')
+            client.get_object({
+              bucket: "bucket-name",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'Path-style addressing cannot be used with S3 Accelerate')
         end
       end
@@ -5062,7 +5334,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'bucket-name', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "bucket-name",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -5087,7 +5362,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'arn:PARTITION:s3-outposts:REGION:123456789012:outpost:op-01234567890123456:bucket:mybucket', key: 'key')
+            client.get_object({
+              bucket: "arn:PARTITION:s3-outposts:REGION:123456789012:outpost:op-01234567890123456:bucket:mybucket",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'Path-style addressing cannot be used with ARN buckets')
         end
       end
@@ -5128,7 +5406,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: '99a_b', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "99a_b",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -5167,7 +5448,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: '99a_b', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "99a_b",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -5207,7 +5491,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'bucket-name', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "bucket-name",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -5248,7 +5535,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'bucket-name', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "bucket-name",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -5274,7 +5564,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'bucket-name', key: 'key')
+            client.get_object({
+              bucket: "bucket-name",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'A custom endpoint cannot be combined with FIPS')
         end
       end
@@ -5301,7 +5594,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'bucket-name', key: 'key')
+            client.get_object({
+              bucket: "bucket-name",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'Cannot set dual-stack in combination with a custom endpoint.')
         end
       end
@@ -5328,7 +5624,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'bucket-name', key: 'key')
+            client.get_object({
+              bucket: "bucket-name",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'A custom endpoint cannot be combined with S3 Accelerate')
         end
       end
@@ -5369,7 +5668,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -5409,7 +5711,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'bucket-name', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "bucket-name",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -5450,7 +5755,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'bucket-name', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "bucket-name",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -5489,7 +5797,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'bucket-name', key: 'key')
+            client.get_object({
+              bucket: "bucket-name",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'Cannot set dual-stack in combination with a custom endpoint.')
         end
       end
@@ -5543,7 +5854,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'arn:aws-cn:s3:cn-north-1:123456789012:accesspoint:myendpoint', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "arn:aws-cn:s3:cn-north-1:123456789012:accesspoint:myendpoint",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -5583,7 +5897,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'bucket-name', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "bucket-name",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -5624,7 +5941,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'bucket-name', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "bucket-name",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -5650,7 +5970,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'bucket-name', key: 'key')
+            client.get_object({
+              bucket: "bucket-name",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'A custom endpoint cannot be combined with FIPS')
         end
       end
@@ -5677,7 +6000,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'bucket-name', key: 'key')
+            client.get_object({
+              bucket: "bucket-name",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'Cannot set dual-stack in combination with a custom endpoint.')
         end
       end
@@ -5704,7 +6030,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'bucket-name', key: 'key')
+            client.get_object({
+              bucket: "bucket-name",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'A custom endpoint cannot be combined with S3 Accelerate')
         end
       end
@@ -5745,7 +6074,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'arn:aws:s3:af-south-1:123456789012:accesspoint:myendpoint', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "arn:aws:s3:af-south-1:123456789012:accesspoint:myendpoint",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -5784,7 +6116,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -5824,7 +6159,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -5849,7 +6187,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint', key: 'key')
+            client.get_object({
+              bucket: "arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'Access Points do not support S3 Accelerate')
         end
       end
@@ -5891,7 +6232,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -5930,7 +6274,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'arn:aws-cn:s3:cn-north-1:123456789012:accesspoint:myendpoint', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "arn:aws-cn:s3:cn-north-1:123456789012:accesspoint:myendpoint",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -5968,7 +6315,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'arn:aws-cn:s3:cn-north-1:123456789012:accesspoint:myendpoint', key: 'key')
+            client.get_object({
+              bucket: "arn:aws-cn:s3:cn-north-1:123456789012:accesspoint:myendpoint",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'Access Points do not support S3 Accelerate')
         end
       end
@@ -6021,7 +6371,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'arn:aws:s3:af-south-1:123456789012:accesspoint:myendpoint', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "arn:aws:s3:af-south-1:123456789012:accesspoint:myendpoint",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -6061,7 +6414,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'arn:aws:s3:af-south-1:123456789012:accesspoint:myendpoint', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "arn:aws:s3:af-south-1:123456789012:accesspoint:myendpoint",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -6086,7 +6442,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'arn:aws:s3:af-south-1:123456789012:accesspoint:myendpoint', key: 'key')
+            client.get_object({
+              bucket: "arn:aws:s3:af-south-1:123456789012:accesspoint:myendpoint",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'Access Points do not support S3 Accelerate')
         end
       end
@@ -6128,7 +6487,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'arn:aws:s3:af-south-1:123456789012:accesspoint:myendpoint', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "arn:aws:s3:af-south-1:123456789012:accesspoint:myendpoint",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -6167,7 +6529,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'arn:aws:s3-outposts:us-west-2:123456789012:outpost/op-01234567890123456/accesspoint/reports', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "arn:aws:s3-outposts:us-west-2:123456789012:outpost/op-01234567890123456/accesspoint/reports",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -6207,7 +6572,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'arn:aws:s3-outposts:us-west-2:123456789012:outpost/op-01234567890123456/accesspoint/reports', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "arn:aws:s3-outposts:us-west-2:123456789012:outpost/op-01234567890123456/accesspoint/reports",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -6232,7 +6600,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'arn:aws:s3-outposts:us-east-1:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint', key: 'key')
+            client.get_object({
+              bucket: "arn:aws:s3-outposts:us-east-1:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'Invalid configuration: region from ARN `us-east-1` does not match client region `us-west-2` and UseArnRegion is `false`')
         end
       end
@@ -6259,7 +6630,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'arn:aws:s3-outposts:us-east-1:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint', key: 'key')
+            client.get_object({
+              bucket: "arn:aws:s3-outposts:us-east-1:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'Invalid configuration: region from ARN `us-east-1` does not match client region `us-west-2` and UseArnRegion is `false`')
         end
       end
@@ -6300,7 +6674,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'arn:aws:s3-outposts:us-east-1:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "arn:aws:s3-outposts:us-east-1:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -6339,7 +6716,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'arn:aws:s3-outposts:us-east-1:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "arn:aws:s3-outposts:us-east-1:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -6364,7 +6744,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'arn:aws:s3-outposts:cn-north-1:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint', key: 'key')
+            client.get_object({
+              bucket: "arn:aws:s3-outposts:cn-north-1:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'Client was configured for partition `aws` but ARN (`arn:aws:s3-outposts:cn-north-1:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint`) has `aws-cn`')
         end
       end
@@ -6405,7 +6788,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-01234567890123456/accesspoint/reports', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-01234567890123456/accesspoint/reports",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -6497,7 +6883,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'arn:aws:s3-object-lambda:us-east-1:123456789012:accesspoint/mybanner', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "arn:aws:s3-object-lambda:us-east-1:123456789012:accesspoint/mybanner",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -6537,7 +6926,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'arn:aws:s3-object-lambda:us-west-2:123456789012:accesspoint/mybanner', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "arn:aws:s3-object-lambda:us-west-2:123456789012:accesspoint/mybanner",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -6577,7 +6969,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'arn:aws:s3-object-lambda:us-west-2:123456789012:accesspoint:mybanner', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "arn:aws:s3-object-lambda:us-west-2:123456789012:accesspoint:mybanner",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -6617,7 +7012,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'arn:aws:s3-object-lambda:us-east-1:123456789012:accesspoint/mybanner', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "arn:aws:s3-object-lambda:us-east-1:123456789012:accesspoint/mybanner",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -6657,7 +7055,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'arn:aws:s3-object-lambda:us-east-1:123456789012:accesspoint/mybanner', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "arn:aws:s3-object-lambda:us-east-1:123456789012:accesspoint/mybanner",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -6682,7 +7083,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'arn:aws:s3-object-lambda:us-east-1:123456789012:accesspoint/mybanner', key: 'key')
+            client.get_object({
+              bucket: "arn:aws:s3-object-lambda:us-east-1:123456789012:accesspoint/mybanner",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'Invalid configuration: region from ARN `us-east-1` does not match client region `s3-external-1` and UseArnRegion is `false`')
         end
       end
@@ -6723,7 +7127,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'arn:aws:s3-object-lambda:us-east-1:123456789012:accesspoint/mybanner', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "arn:aws:s3-object-lambda:us-east-1:123456789012:accesspoint/mybanner",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -6748,7 +7155,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'arn:aws:s3-object-lambda:us-east-1:123456789012:accesspoint/mybanner', key: 'key')
+            client.get_object({
+              bucket: "arn:aws:s3-object-lambda:us-east-1:123456789012:accesspoint/mybanner",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'Invalid configuration: region from ARN `us-east-1` does not match client region `aws-global` and UseArnRegion is `false`')
         end
       end
@@ -6774,7 +7184,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'arn:aws-cn:s3-object-lambda:cn-north-1:123456789012:accesspoint/mybanner', key: 'key')
+            client.get_object({
+              bucket: "arn:aws-cn:s3-object-lambda:cn-north-1:123456789012:accesspoint/mybanner",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'Client was configured for partition `aws` but ARN (`arn:aws-cn:s3-object-lambda:cn-north-1:123456789012:accesspoint/mybanner`) has `aws-cn`')
         end
       end
@@ -6801,7 +7214,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'arn:aws:s3-object-lambda:us-west-2:123456789012:accesspoint/mybanner', key: 'key')
+            client.get_object({
+              bucket: "arn:aws:s3-object-lambda:us-west-2:123456789012:accesspoint/mybanner",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'S3 Object Lambda does not support Dual-stack')
         end
       end
@@ -6877,7 +7293,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'arn:aws:s3-object-lambda:us-west-2:123456789012:accesspoint/mybanner', key: 'key')
+            client.get_object({
+              bucket: "arn:aws:s3-object-lambda:us-west-2:123456789012:accesspoint/mybanner",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'S3 Object Lambda does not support S3 Accelerate')
         end
       end
@@ -6903,7 +7322,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'arn:aws:sqs:us-west-2:123456789012:someresource', key: 'key')
+            client.get_object({
+              bucket: "arn:aws:sqs:us-west-2:123456789012:someresource",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'Invalid ARN: Unrecognized format: arn:aws:sqs:us-west-2:123456789012:someresource (type: someresource)')
         end
       end
@@ -6968,7 +7390,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'arn:aws:s3-object-lambda:us-west-2:123.45678.9012:accesspoint:mybucket', key: 'key')
+            client.get_object({
+              bucket: "arn:aws:s3-object-lambda:us-west-2:123.45678.9012:accesspoint:mybucket",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'Invalid ARN: The account id may only contain a-z, A-Z, 0-9 and `-`. Found: `123.45678.9012`')
         end
       end
@@ -7062,7 +7487,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'arn:aws:s3-object-lambda:us-west-2:123456789012:accesspoint/mybanner', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "arn:aws:s3-object-lambda:us-west-2:123456789012:accesspoint/mybanner",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -7087,7 +7515,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'arn:aws:s3-object-lambda:us-east-1:123456789012:accesspoint/mybanner', key: 'key')
+            client.get_object({
+              bucket: "arn:aws:s3-object-lambda:us-east-1:123456789012:accesspoint/mybanner",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'Invalid configuration: region from ARN `us-east-1` does not match client region `us-west-2` and UseArnRegion is `false`')
         end
       end
@@ -7127,7 +7558,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.write_get_object_response({request_route: 'RequestRoute', request_token: 'RequestToken'}, interceptors: [interceptor])
+          client.write_get_object_response({
+            request_route: "RequestRoute",
+            request_token: "RequestToken"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -7167,7 +7601,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.write_get_object_response({request_route: 'RequestRoute', request_token: 'RequestToken'}, interceptors: [interceptor])
+          client.write_get_object_response({
+            request_route: "RequestRoute",
+            request_token: "RequestToken"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -7206,7 +7643,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.write_get_object_response({request_route: 'RequestRoute', request_token: 'RequestToken'}, interceptors: [interceptor])
+          client.write_get_object_response({
+            request_route: "RequestRoute",
+            request_token: "RequestToken"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -7246,7 +7686,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.write_get_object_response({request_route: 'RequestRoute', request_token: 'RequestToken'}, interceptors: [interceptor])
+          client.write_get_object_response({
+            request_route: "RequestRoute",
+            request_token: "RequestToken"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -7271,7 +7714,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.write_get_object_response(request_route: 'RequestRoute', request_token: 'RequestToken')
+            client.write_get_object_response({
+              request_route: "RequestRoute",
+              request_token: "RequestToken"
+            })
           end.to raise_error(ArgumentError, 'S3 Object Lambda does not support Dual-stack')
         end
       end
@@ -7600,7 +8046,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'mybucket--use1-az1--x-s3', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "mybucket--use1-az1--x-s3",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -7640,7 +8089,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'mybucket--use1-az1--x-s3', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "mybucket--use1-az1--x-s3",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -7679,7 +8131,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'mybucket--apne1-az1--x-s3', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "mybucket--apne1-az1--x-s3",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -7719,7 +8174,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'mybucket--apne1-az1--x-s3', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "mybucket--apne1-az1--x-s3",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -7758,7 +8216,9 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.create_bucket({bucket: 'mybucket--use1-az1--x-s3'}, interceptors: [interceptor])
+          client.create_bucket({
+            bucket: "mybucket--use1-az1--x-s3"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -7798,7 +8258,9 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.create_bucket({bucket: 'mybucket--use1-az1--x-s3'}, interceptors: [interceptor])
+          client.create_bucket({
+            bucket: "mybucket--use1-az1--x-s3"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -8025,7 +8487,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'mybucket--usw2-az1--x-s3', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "mybucket--usw2-az1--x-s3",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -8083,7 +8548,10 @@ module AWS::SDK::S3
             end
           end
           interceptor = Hearth::Interceptor.new(read_before_transmit: proc)
-          client.get_object({bucket: 'mybucket--usw2-az1--x-s3', key: 'key'}, interceptors: [interceptor])
+          client.get_object({
+            bucket: "mybucket--usw2-az1--x-s3",
+            key: "key"
+          }, interceptors: [interceptor])
         end
       end
 
@@ -8107,7 +8575,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'mybucket--usaz1--x-s3', key: 'key')
+            client.get_object({
+              bucket: "mybucket--usaz1--x-s3",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'Unrecognized S3Express bucket name format.')
         end
       end
@@ -8132,7 +8603,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'mybucket--usaz1--x-s3', key: 'key')
+            client.get_object({
+              bucket: "mybucket--usaz1--x-s3",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'Unrecognized S3Express bucket name format.')
         end
       end
@@ -8158,7 +8632,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'mybucket--use1-az1--x-s3', key: 'key')
+            client.get_object({
+              bucket: "mybucket--use1-az1--x-s3",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'S3Express does not support Dual-stack.')
         end
       end
@@ -8184,7 +8661,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'mybucket--use1-az1--x-s3', key: 'key')
+            client.get_object({
+              bucket: "mybucket--use1-az1--x-s3",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'S3Express does not support S3 Accelerate.')
         end
       end
@@ -8209,7 +8689,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'my.bucket--use1-az1--x-s3', key: 'key')
+            client.get_object({
+              bucket: "my.bucket--use1-az1--x-s3",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'S3Express bucket name is not a valid virtual hostable name.')
         end
       end
@@ -8235,7 +8718,10 @@ module AWS::SDK::S3
 
           client = Client.new(config)
           expect do
-            client.get_object(bucket: 'my.bucket--usw2-az1--x-s3', key: 'key')
+            client.get_object({
+              bucket: "my.bucket--usw2-az1--x-s3",
+              key: "key"
+            })
           end.to raise_error(ArgumentError, 'S3Express bucket name is not a valid virtual hostable name.')
         end
       end

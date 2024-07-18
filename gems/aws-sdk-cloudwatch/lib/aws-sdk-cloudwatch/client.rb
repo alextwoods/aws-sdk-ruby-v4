@@ -9,6 +9,8 @@
 
 require 'stringio'
 
+require_relative 'plugins/global_config'
+
 module AWS::SDK::CloudWatch
   # <p>Amazon CloudWatch monitors your Amazon Web Services (Amazon Web Services) resources and the
   # 			applications you run on Amazon Web Services in real time. You can use CloudWatch to collect and track
@@ -26,7 +28,9 @@ module AWS::SDK::CloudWatch
   class Client < Hearth::Client
 
     # @api private
-    @plugins = Hearth::PluginList.new
+    @plugins = Hearth::PluginList.new([
+      Plugins::GlobalConfig.new
+    ])
 
     # @param [Hash] options
     #   Options used to construct an instance of {Config}
@@ -73,6 +77,7 @@ module AWS::SDK::CloudWatch
     def delete_alarms(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::cloudwatch.client')
       input = Params::DeleteAlarmsInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::DeleteAlarms.build(config)
       context = Hearth::Context.new(
@@ -80,15 +85,24 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :delete_alarms,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_alarms] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_alarms] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'GraniteServiceVersion20100801',
+        'rpc.method' => 'DeleteAlarms',
+        'code.function' => 'delete_alarms',
+        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
+      }
+      tracer.in_span('GraniteServiceVersion20100801.DeleteAlarms', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_alarms] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_alarms] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_alarms] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_alarms] #{output.data}")
-      output
     end
 
     # <p>
@@ -150,6 +164,7 @@ module AWS::SDK::CloudWatch
     def delete_anomaly_detector(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::cloudwatch.client')
       input = Params::DeleteAnomalyDetectorInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::DeleteAnomalyDetector.build(config)
       context = Hearth::Context.new(
@@ -157,15 +172,24 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :delete_anomaly_detector,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_anomaly_detector] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_anomaly_detector] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'GraniteServiceVersion20100801',
+        'rpc.method' => 'DeleteAnomalyDetector',
+        'code.function' => 'delete_anomaly_detector',
+        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
+      }
+      tracer.in_span('GraniteServiceVersion20100801.DeleteAnomalyDetector', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_anomaly_detector] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_anomaly_detector] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_anomaly_detector] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_anomaly_detector] #{output.data}")
-      output
     end
 
     # <p>Deletes all dashboards that you specify. You
@@ -189,6 +213,7 @@ module AWS::SDK::CloudWatch
     def delete_dashboards(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::cloudwatch.client')
       input = Params::DeleteDashboardsInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::DeleteDashboards.build(config)
       context = Hearth::Context.new(
@@ -196,15 +221,24 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :delete_dashboards,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_dashboards] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_dashboards] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'GraniteServiceVersion20100801',
+        'rpc.method' => 'DeleteDashboards',
+        'code.function' => 'delete_dashboards',
+        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
+      }
+      tracer.in_span('GraniteServiceVersion20100801.DeleteDashboards', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_dashboards] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_dashboards] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_dashboards] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_dashboards] #{output.data}")
-      output
     end
 
     # <p>Permanently deletes the specified Contributor Insights rules.</p>
@@ -235,6 +269,7 @@ module AWS::SDK::CloudWatch
     def delete_insight_rules(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::cloudwatch.client')
       input = Params::DeleteInsightRulesInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::DeleteInsightRules.build(config)
       context = Hearth::Context.new(
@@ -242,15 +277,24 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :delete_insight_rules,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_insight_rules] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_insight_rules] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'GraniteServiceVersion20100801',
+        'rpc.method' => 'DeleteInsightRules',
+        'code.function' => 'delete_insight_rules',
+        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
+      }
+      tracer.in_span('GraniteServiceVersion20100801.DeleteInsightRules', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_insight_rules] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_insight_rules] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_insight_rules] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_insight_rules] #{output.data}")
-      output
     end
 
     # <p>Permanently deletes the metric stream that you specify.</p>
@@ -270,6 +314,7 @@ module AWS::SDK::CloudWatch
     def delete_metric_stream(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::cloudwatch.client')
       input = Params::DeleteMetricStreamInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::DeleteMetricStream.build(config)
       context = Hearth::Context.new(
@@ -277,15 +322,24 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :delete_metric_stream,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_metric_stream] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_metric_stream] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'GraniteServiceVersion20100801',
+        'rpc.method' => 'DeleteMetricStream',
+        'code.function' => 'delete_metric_stream',
+        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
+      }
+      tracer.in_span('GraniteServiceVersion20100801.DeleteMetricStream', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_metric_stream] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_metric_stream] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_metric_stream] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_metric_stream] #{output.data}")
-      output
     end
 
     # <p>Retrieves the history for the specified alarm. You can filter the results by date range or item type.
@@ -328,6 +382,7 @@ module AWS::SDK::CloudWatch
     def describe_alarm_history(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::cloudwatch.client')
       input = Params::DescribeAlarmHistoryInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::DescribeAlarmHistory.build(config)
       context = Hearth::Context.new(
@@ -335,15 +390,24 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :describe_alarm_history,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_alarm_history] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#describe_alarm_history] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'GraniteServiceVersion20100801',
+        'rpc.method' => 'DescribeAlarmHistory',
+        'code.function' => 'describe_alarm_history',
+        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
+      }
+      tracer.in_span('GraniteServiceVersion20100801.DescribeAlarmHistory', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_alarm_history] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#describe_alarm_history] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_alarm_history] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_alarm_history] #{output.data}")
-      output
     end
 
     # <p>Retrieves the specified alarms. You can filter the results by specifying a prefix for the alarm
@@ -451,6 +515,7 @@ module AWS::SDK::CloudWatch
     def describe_alarms(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::cloudwatch.client')
       input = Params::DescribeAlarmsInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::DescribeAlarms.build(config)
       context = Hearth::Context.new(
@@ -458,15 +523,24 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :describe_alarms,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_alarms] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#describe_alarms] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'GraniteServiceVersion20100801',
+        'rpc.method' => 'DescribeAlarms',
+        'code.function' => 'describe_alarms',
+        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
+      }
+      tracer.in_span('GraniteServiceVersion20100801.DescribeAlarms', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_alarms] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#describe_alarms] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_alarms] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_alarms] #{output.data}")
-      output
     end
 
     # <p>Retrieves the alarms for the specified metric. To
@@ -551,6 +625,7 @@ module AWS::SDK::CloudWatch
     def describe_alarms_for_metric(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::cloudwatch.client')
       input = Params::DescribeAlarmsForMetricInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::DescribeAlarmsForMetric.build(config)
       context = Hearth::Context.new(
@@ -558,15 +633,24 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :describe_alarms_for_metric,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_alarms_for_metric] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#describe_alarms_for_metric] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'GraniteServiceVersion20100801',
+        'rpc.method' => 'DescribeAlarmsForMetric',
+        'code.function' => 'describe_alarms_for_metric',
+        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
+      }
+      tracer.in_span('GraniteServiceVersion20100801.DescribeAlarmsForMetric', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_alarms_for_metric] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#describe_alarms_for_metric] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_alarms_for_metric] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_alarms_for_metric] #{output.data}")
-      output
     end
 
     # <p>Lists the anomaly detection models that you have created in your account.
@@ -643,6 +727,7 @@ module AWS::SDK::CloudWatch
     def describe_anomaly_detectors(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::cloudwatch.client')
       input = Params::DescribeAnomalyDetectorsInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::DescribeAnomalyDetectors.build(config)
       context = Hearth::Context.new(
@@ -650,15 +735,24 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :describe_anomaly_detectors,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_anomaly_detectors] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#describe_anomaly_detectors] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'GraniteServiceVersion20100801',
+        'rpc.method' => 'DescribeAnomalyDetectors',
+        'code.function' => 'describe_anomaly_detectors',
+        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
+      }
+      tracer.in_span('GraniteServiceVersion20100801.DescribeAnomalyDetectors', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_anomaly_detectors] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#describe_anomaly_detectors] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_anomaly_detectors] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_anomaly_detectors] #{output.data}")
-      output
     end
 
     # <p>Returns a list of all the Contributor Insights rules in your account.</p>
@@ -689,6 +783,7 @@ module AWS::SDK::CloudWatch
     def describe_insight_rules(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::cloudwatch.client')
       input = Params::DescribeInsightRulesInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::DescribeInsightRules.build(config)
       context = Hearth::Context.new(
@@ -696,15 +791,24 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :describe_insight_rules,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_insight_rules] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#describe_insight_rules] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'GraniteServiceVersion20100801',
+        'rpc.method' => 'DescribeInsightRules',
+        'code.function' => 'describe_insight_rules',
+        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
+      }
+      tracer.in_span('GraniteServiceVersion20100801.DescribeInsightRules', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_insight_rules] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#describe_insight_rules] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_insight_rules] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_insight_rules] #{output.data}")
-      output
     end
 
     # <p>Disables the actions for the specified alarms. When an alarm's actions are disabled, the
@@ -727,6 +831,7 @@ module AWS::SDK::CloudWatch
     def disable_alarm_actions(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::cloudwatch.client')
       input = Params::DisableAlarmActionsInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::DisableAlarmActions.build(config)
       context = Hearth::Context.new(
@@ -734,15 +839,24 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :disable_alarm_actions,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_alarm_actions] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#disable_alarm_actions] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'GraniteServiceVersion20100801',
+        'rpc.method' => 'DisableAlarmActions',
+        'code.function' => 'disable_alarm_actions',
+        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
+      }
+      tracer.in_span('GraniteServiceVersion20100801.DisableAlarmActions', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_alarm_actions] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#disable_alarm_actions] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_alarm_actions] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_alarm_actions] #{output.data}")
-      output
     end
 
     # <p>Disables the specified Contributor Insights rules. When rules are disabled, they do not analyze log groups and do
@@ -771,6 +885,7 @@ module AWS::SDK::CloudWatch
     def disable_insight_rules(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::cloudwatch.client')
       input = Params::DisableInsightRulesInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::DisableInsightRules.build(config)
       context = Hearth::Context.new(
@@ -778,15 +893,24 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :disable_insight_rules,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_insight_rules] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#disable_insight_rules] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'GraniteServiceVersion20100801',
+        'rpc.method' => 'DisableInsightRules',
+        'code.function' => 'disable_insight_rules',
+        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
+      }
+      tracer.in_span('GraniteServiceVersion20100801.DisableInsightRules', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_insight_rules] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#disable_insight_rules] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_insight_rules] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_insight_rules] #{output.data}")
-      output
     end
 
     # <p>Enables the actions for the specified alarms.</p>
@@ -808,6 +932,7 @@ module AWS::SDK::CloudWatch
     def enable_alarm_actions(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::cloudwatch.client')
       input = Params::EnableAlarmActionsInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::EnableAlarmActions.build(config)
       context = Hearth::Context.new(
@@ -815,15 +940,24 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :enable_alarm_actions,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_alarm_actions] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#enable_alarm_actions] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'GraniteServiceVersion20100801',
+        'rpc.method' => 'EnableAlarmActions',
+        'code.function' => 'enable_alarm_actions',
+        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
+      }
+      tracer.in_span('GraniteServiceVersion20100801.EnableAlarmActions', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_alarm_actions] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#enable_alarm_actions] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_alarm_actions] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_alarm_actions] #{output.data}")
-      output
     end
 
     # <p>Enables the specified Contributor Insights rules. When rules are enabled, they immediately begin analyzing log data.</p>
@@ -851,6 +985,7 @@ module AWS::SDK::CloudWatch
     def enable_insight_rules(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::cloudwatch.client')
       input = Params::EnableInsightRulesInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::EnableInsightRules.build(config)
       context = Hearth::Context.new(
@@ -858,15 +993,24 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :enable_insight_rules,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_insight_rules] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#enable_insight_rules] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'GraniteServiceVersion20100801',
+        'rpc.method' => 'EnableInsightRules',
+        'code.function' => 'enable_insight_rules',
+        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
+      }
+      tracer.in_span('GraniteServiceVersion20100801.EnableInsightRules', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_insight_rules] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#enable_insight_rules] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_insight_rules] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_insight_rules] #{output.data}")
-      output
     end
 
     # <p>Displays the details of the dashboard that you specify.</p>
@@ -892,6 +1036,7 @@ module AWS::SDK::CloudWatch
     def get_dashboard(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::cloudwatch.client')
       input = Params::GetDashboardInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::GetDashboard.build(config)
       context = Hearth::Context.new(
@@ -899,15 +1044,24 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_dashboard,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_dashboard] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_dashboard] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'GraniteServiceVersion20100801',
+        'rpc.method' => 'GetDashboard',
+        'code.function' => 'get_dashboard',
+        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
+      }
+      tracer.in_span('GraniteServiceVersion20100801.GetDashboard', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_dashboard] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_dashboard] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_dashboard] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_dashboard] #{output.data}")
-      output
     end
 
     # <p>This operation returns the time series data collected by a Contributor Insights rule. The data includes the identity and number of
@@ -989,12 +1143,13 @@ module AWS::SDK::CloudWatch
     #   resp.data.metric_datapoints[0].max_contributor_value #=> Float
     #   resp.data.metric_datapoints[0].sample_count #=> Float
     #   resp.data.metric_datapoints[0].average #=> Float
-    #   resp.data.metric_datapoints[0].sum #=> Float
+    #   resp.data.metric_datapoints[0].member_sum #=> Float
     #   resp.data.metric_datapoints[0].minimum #=> Float
     #   resp.data.metric_datapoints[0].maximum #=> Float
     def get_insight_rule_report(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::cloudwatch.client')
       input = Params::GetInsightRuleReportInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::GetInsightRuleReport.build(config)
       context = Hearth::Context.new(
@@ -1002,15 +1157,24 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_insight_rule_report,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_insight_rule_report] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_insight_rule_report] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'GraniteServiceVersion20100801',
+        'rpc.method' => 'GetInsightRuleReport',
+        'code.function' => 'get_insight_rule_report',
+        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
+      }
+      tracer.in_span('GraniteServiceVersion20100801.GetInsightRuleReport', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_insight_rule_report] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_insight_rule_report] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_insight_rule_report] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_insight_rule_report] #{output.data}")
-      output
     end
 
     # <p>You can use the <code>GetMetricData</code> API to retrieve CloudWatch metric values. The operation
@@ -1112,8 +1276,8 @@ module AWS::SDK::CloudWatch
     #   resp.data.metric_data_results[0].label #=> String
     #   resp.data.metric_data_results[0].timestamps #=> Array<Time>
     #   resp.data.metric_data_results[0].timestamps[0] #=> Time
-    #   resp.data.metric_data_results[0].values #=> Array<Float>
-    #   resp.data.metric_data_results[0].values[0] #=> Float
+    #   resp.data.metric_data_results[0].member_values #=> Array<Float>
+    #   resp.data.metric_data_results[0].member_values[0] #=> Float
     #   resp.data.metric_data_results[0].status_code #=> String, one of ["Complete", "InternalError", "PartialData", "Forbidden"]
     #   resp.data.metric_data_results[0].messages #=> Array<MessageData>
     #   resp.data.metric_data_results[0].messages[0] #=> Types::MessageData
@@ -1124,6 +1288,7 @@ module AWS::SDK::CloudWatch
     def get_metric_data(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::cloudwatch.client')
       input = Params::GetMetricDataInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::GetMetricData.build(config)
       context = Hearth::Context.new(
@@ -1131,15 +1296,24 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_metric_data,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_data] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_metric_data] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'GraniteServiceVersion20100801',
+        'rpc.method' => 'GetMetricData',
+        'code.function' => 'get_metric_data',
+        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
+      }
+      tracer.in_span('GraniteServiceVersion20100801.GetMetricData', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_data] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_metric_data] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_data] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_data] #{output.data}")
-      output
     end
 
     # <p>Gets statistics for the specified metric.</p>
@@ -1225,7 +1399,7 @@ module AWS::SDK::CloudWatch
     #   resp.data.datapoints[0].timestamp #=> Time
     #   resp.data.datapoints[0].sample_count #=> Float
     #   resp.data.datapoints[0].average #=> Float
-    #   resp.data.datapoints[0].sum #=> Float
+    #   resp.data.datapoints[0].member_sum #=> Float
     #   resp.data.datapoints[0].minimum #=> Float
     #   resp.data.datapoints[0].maximum #=> Float
     #   resp.data.datapoints[0].unit #=> String, one of ["Seconds", "Microseconds", "Milliseconds", "Bytes", "Kilobytes", "Megabytes", "Gigabytes", "Terabytes", "Bits", "Kilobits", "Megabits", "Gigabits", "Terabits", "Percent", "Count", "Bytes/Second", "Kilobytes/Second", "Megabytes/Second", "Gigabytes/Second", "Terabytes/Second", "Bits/Second", "Kilobits/Second", "Megabits/Second", "Gigabits/Second", "Terabits/Second", "Count/Second", "None"]
@@ -1234,6 +1408,7 @@ module AWS::SDK::CloudWatch
     def get_metric_statistics(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::cloudwatch.client')
       input = Params::GetMetricStatisticsInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::GetMetricStatistics.build(config)
       context = Hearth::Context.new(
@@ -1241,15 +1416,24 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_metric_statistics,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_statistics] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_metric_statistics] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'GraniteServiceVersion20100801',
+        'rpc.method' => 'GetMetricStatistics',
+        'code.function' => 'get_metric_statistics',
+        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
+      }
+      tracer.in_span('GraniteServiceVersion20100801.GetMetricStatistics', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_statistics] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_metric_statistics] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_statistics] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_statistics] #{output.data}")
-      output
     end
 
     # <p>Returns information about the metric stream that you specify.</p>
@@ -1292,6 +1476,7 @@ module AWS::SDK::CloudWatch
     def get_metric_stream(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::cloudwatch.client')
       input = Params::GetMetricStreamInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::GetMetricStream.build(config)
       context = Hearth::Context.new(
@@ -1299,15 +1484,24 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_metric_stream,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_stream] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_metric_stream] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'GraniteServiceVersion20100801',
+        'rpc.method' => 'GetMetricStream',
+        'code.function' => 'get_metric_stream',
+        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
+      }
+      tracer.in_span('GraniteServiceVersion20100801.GetMetricStream', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_stream] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_metric_stream] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_stream] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_stream] #{output.data}")
-      output
     end
 
     # <p>You can use the <code>GetMetricWidgetImage</code> API to retrieve a snapshot graph of
@@ -1344,6 +1538,7 @@ module AWS::SDK::CloudWatch
     def get_metric_widget_image(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::cloudwatch.client')
       input = Params::GetMetricWidgetImageInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::GetMetricWidgetImage.build(config)
       context = Hearth::Context.new(
@@ -1351,15 +1546,24 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_metric_widget_image,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_widget_image] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_metric_widget_image] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'GraniteServiceVersion20100801',
+        'rpc.method' => 'GetMetricWidgetImage',
+        'code.function' => 'get_metric_widget_image',
+        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
+      }
+      tracer.in_span('GraniteServiceVersion20100801.GetMetricWidgetImage', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_widget_image] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_metric_widget_image] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_widget_image] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_widget_image] #{output.data}")
-      output
     end
 
     # <p>Returns a list of the dashboards for your account. If you include <code>DashboardNamePrefix</code>, only
@@ -1390,11 +1594,12 @@ module AWS::SDK::CloudWatch
     #   resp.data.dashboard_entries[0].dashboard_name #=> String
     #   resp.data.dashboard_entries[0].dashboard_arn #=> String
     #   resp.data.dashboard_entries[0].last_modified #=> Time
-    #   resp.data.dashboard_entries[0].size #=> Integer
+    #   resp.data.dashboard_entries[0].member_size #=> Integer
     #   resp.data.next_token #=> String
     def list_dashboards(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::cloudwatch.client')
       input = Params::ListDashboardsInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::ListDashboards.build(config)
       context = Hearth::Context.new(
@@ -1402,15 +1607,24 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :list_dashboards,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_dashboards] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_dashboards] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'GraniteServiceVersion20100801',
+        'rpc.method' => 'ListDashboards',
+        'code.function' => 'list_dashboards',
+        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
+      }
+      tracer.in_span('GraniteServiceVersion20100801.ListDashboards', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_dashboards] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_dashboards] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_dashboards] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_dashboards] #{output.data}")
-      output
     end
 
     # <p>
@@ -1446,6 +1660,7 @@ module AWS::SDK::CloudWatch
     def list_managed_insight_rules(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::cloudwatch.client')
       input = Params::ListManagedInsightRulesInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::ListManagedInsightRules.build(config)
       context = Hearth::Context.new(
@@ -1453,15 +1668,24 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :list_managed_insight_rules,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_managed_insight_rules] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_managed_insight_rules] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'GraniteServiceVersion20100801',
+        'rpc.method' => 'ListManagedInsightRules',
+        'code.function' => 'list_managed_insight_rules',
+        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
+      }
+      tracer.in_span('GraniteServiceVersion20100801.ListManagedInsightRules', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_managed_insight_rules] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_managed_insight_rules] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_managed_insight_rules] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_managed_insight_rules] #{output.data}")
-      output
     end
 
     # <p>Returns a list of metric streams in this account.</p>
@@ -1480,18 +1704,19 @@ module AWS::SDK::CloudWatch
     # @example Response structure
     #   resp.data #=> Types::ListMetricStreamsOutput
     #   resp.data.next_token #=> String
-    #   resp.data.entries #=> Array<MetricStreamEntry>
-    #   resp.data.entries[0] #=> Types::MetricStreamEntry
-    #   resp.data.entries[0].arn #=> String
-    #   resp.data.entries[0].creation_date #=> Time
-    #   resp.data.entries[0].last_update_date #=> Time
-    #   resp.data.entries[0].name #=> String
-    #   resp.data.entries[0].firehose_arn #=> String
-    #   resp.data.entries[0].state #=> String
-    #   resp.data.entries[0].output_format #=> String, one of ["json", "opentelemetry0.7", "opentelemetry1.0"]
+    #   resp.data.member_entries #=> Array<MetricStreamEntry>
+    #   resp.data.member_entries[0] #=> Types::MetricStreamEntry
+    #   resp.data.member_entries[0].arn #=> String
+    #   resp.data.member_entries[0].creation_date #=> Time
+    #   resp.data.member_entries[0].last_update_date #=> Time
+    #   resp.data.member_entries[0].name #=> String
+    #   resp.data.member_entries[0].firehose_arn #=> String
+    #   resp.data.member_entries[0].state #=> String
+    #   resp.data.member_entries[0].output_format #=> String, one of ["json", "opentelemetry0.7", "opentelemetry1.0"]
     def list_metric_streams(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::cloudwatch.client')
       input = Params::ListMetricStreamsInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::ListMetricStreams.build(config)
       context = Hearth::Context.new(
@@ -1499,15 +1724,24 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :list_metric_streams,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_metric_streams] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_metric_streams] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'GraniteServiceVersion20100801',
+        'rpc.method' => 'ListMetricStreams',
+        'code.function' => 'list_metric_streams',
+        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
+      }
+      tracer.in_span('GraniteServiceVersion20100801.ListMetricStreams', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_metric_streams] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_metric_streams] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_metric_streams] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_metric_streams] #{output.data}")
-      output
     end
 
     # <p>List the specified metrics. You can use the returned metrics with <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html">GetMetricData</a> or <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html">GetMetricStatistics</a> to get statistical data.</p>
@@ -1561,6 +1795,7 @@ module AWS::SDK::CloudWatch
     def list_metrics(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::cloudwatch.client')
       input = Params::ListMetricsInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::ListMetrics.build(config)
       context = Hearth::Context.new(
@@ -1568,15 +1803,24 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :list_metrics,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_metrics] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_metrics] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'GraniteServiceVersion20100801',
+        'rpc.method' => 'ListMetrics',
+        'code.function' => 'list_metrics',
+        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
+      }
+      tracer.in_span('GraniteServiceVersion20100801.ListMetrics', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_metrics] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_metrics] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_metrics] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_metrics] #{output.data}")
-      output
     end
 
     # <p>Displays the tags associated with a CloudWatch resource. Currently, alarms
@@ -1601,6 +1845,7 @@ module AWS::SDK::CloudWatch
     def list_tags_for_resource(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::cloudwatch.client')
       input = Params::ListTagsForResourceInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::ListTagsForResource.build(config)
       context = Hearth::Context.new(
@@ -1608,15 +1853,24 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :list_tags_for_resource,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_tags_for_resource] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_tags_for_resource] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'GraniteServiceVersion20100801',
+        'rpc.method' => 'ListTagsForResource',
+        'code.function' => 'list_tags_for_resource',
+        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
+      }
+      tracer.in_span('GraniteServiceVersion20100801.ListTagsForResource', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_tags_for_resource] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_tags_for_resource] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_tags_for_resource] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_tags_for_resource] #{output.data}")
-      output
     end
 
     # <p>Creates an anomaly detection model for a CloudWatch metric. You can use the model
@@ -1681,6 +1935,7 @@ module AWS::SDK::CloudWatch
     def put_anomaly_detector(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::cloudwatch.client')
       input = Params::PutAnomalyDetectorInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::PutAnomalyDetector.build(config)
       context = Hearth::Context.new(
@@ -1688,15 +1943,24 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :put_anomaly_detector,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_anomaly_detector] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_anomaly_detector] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'GraniteServiceVersion20100801',
+        'rpc.method' => 'PutAnomalyDetector',
+        'code.function' => 'put_anomaly_detector',
+        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
+      }
+      tracer.in_span('GraniteServiceVersion20100801.PutAnomalyDetector', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_anomaly_detector] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_anomaly_detector] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_anomaly_detector] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_anomaly_detector] #{output.data}")
-      output
     end
 
     # <p>Creates or updates a <i>composite alarm</i>. When you create a composite
@@ -1769,6 +2033,7 @@ module AWS::SDK::CloudWatch
     def put_composite_alarm(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::cloudwatch.client')
       input = Params::PutCompositeAlarmInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::PutCompositeAlarm.build(config)
       context = Hearth::Context.new(
@@ -1776,15 +2041,24 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :put_composite_alarm,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_composite_alarm] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_composite_alarm] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'GraniteServiceVersion20100801',
+        'rpc.method' => 'PutCompositeAlarm',
+        'code.function' => 'put_composite_alarm',
+        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
+      }
+      tracer.in_span('GraniteServiceVersion20100801.PutCompositeAlarm', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_composite_alarm] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_composite_alarm] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_composite_alarm] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_composite_alarm] #{output.data}")
-      output
     end
 
     # <p>Creates a dashboard if it does not already exist, or updates an existing dashboard. If you update a dashboard,
@@ -1822,6 +2096,7 @@ module AWS::SDK::CloudWatch
     def put_dashboard(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::cloudwatch.client')
       input = Params::PutDashboardInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::PutDashboard.build(config)
       context = Hearth::Context.new(
@@ -1829,15 +2104,24 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :put_dashboard,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_dashboard] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_dashboard] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'GraniteServiceVersion20100801',
+        'rpc.method' => 'PutDashboard',
+        'code.function' => 'put_dashboard',
+        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
+      }
+      tracer.in_span('GraniteServiceVersion20100801.PutDashboard', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_dashboard] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_dashboard] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_dashboard] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_dashboard] #{output.data}")
-      output
     end
 
     # <p>Creates a Contributor Insights rule. Rules evaluate log events in a
@@ -1869,6 +2153,7 @@ module AWS::SDK::CloudWatch
     def put_insight_rule(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::cloudwatch.client')
       input = Params::PutInsightRuleInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::PutInsightRule.build(config)
       context = Hearth::Context.new(
@@ -1876,15 +2161,24 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :put_insight_rule,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_insight_rule] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_insight_rule] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'GraniteServiceVersion20100801',
+        'rpc.method' => 'PutInsightRule',
+        'code.function' => 'put_insight_rule',
+        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
+      }
+      tracer.in_span('GraniteServiceVersion20100801.PutInsightRule', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_insight_rule] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_insight_rule] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_insight_rule] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_insight_rule] #{output.data}")
-      output
     end
 
     # <p>
@@ -1937,6 +2231,7 @@ module AWS::SDK::CloudWatch
     def put_managed_insight_rules(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::cloudwatch.client')
       input = Params::PutManagedInsightRulesInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::PutManagedInsightRules.build(config)
       context = Hearth::Context.new(
@@ -1944,15 +2239,24 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :put_managed_insight_rules,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_managed_insight_rules] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_managed_insight_rules] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'GraniteServiceVersion20100801',
+        'rpc.method' => 'PutManagedInsightRules',
+        'code.function' => 'put_managed_insight_rules',
+        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
+      }
+      tracer.in_span('GraniteServiceVersion20100801.PutManagedInsightRules', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_managed_insight_rules] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_managed_insight_rules] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_managed_insight_rules] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_managed_insight_rules] #{output.data}")
-      output
     end
 
     # <p>Creates or updates an alarm and associates it with the specified metric, metric math expression,
@@ -2073,6 +2377,7 @@ module AWS::SDK::CloudWatch
     def put_metric_alarm(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::cloudwatch.client')
       input = Params::PutMetricAlarmInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::PutMetricAlarm.build(config)
       context = Hearth::Context.new(
@@ -2080,15 +2385,24 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :put_metric_alarm,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_metric_alarm] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_metric_alarm] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'GraniteServiceVersion20100801',
+        'rpc.method' => 'PutMetricAlarm',
+        'code.function' => 'put_metric_alarm',
+        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
+      }
+      tracer.in_span('GraniteServiceVersion20100801.PutMetricAlarm', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_metric_alarm] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_metric_alarm] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_metric_alarm] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_metric_alarm] #{output.data}")
-      output
     end
 
     # <p>Publishes metric data points to Amazon CloudWatch. CloudWatch associates
@@ -2157,11 +2471,11 @@ module AWS::SDK::CloudWatch
     #         value: 1.0,
     #         statistic_values: {
     #           sample_count: 1.0, # required
-    #           sum: 1.0, # required
+    #           member_sum: 1.0, # required
     #           minimum: 1.0, # required
     #           maximum: 1.0 # required
     #         },
-    #         values: [
+    #         member_values: [
     #           1.0
     #         ],
     #         counts: [
@@ -2177,6 +2491,7 @@ module AWS::SDK::CloudWatch
     def put_metric_data(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::cloudwatch.client')
       input = Params::PutMetricDataInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::PutMetricData.build(config)
       context = Hearth::Context.new(
@@ -2184,15 +2499,24 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :put_metric_data,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_metric_data] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_metric_data] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'GraniteServiceVersion20100801',
+        'rpc.method' => 'PutMetricData',
+        'code.function' => 'put_metric_data',
+        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
+      }
+      tracer.in_span('GraniteServiceVersion20100801.PutMetricData', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_metric_data] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_metric_data] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_metric_data] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_metric_data] #{output.data}")
-      output
     end
 
     # <p>Creates or updates a metric stream. Metric streams can automatically stream CloudWatch
@@ -2277,6 +2601,7 @@ module AWS::SDK::CloudWatch
     def put_metric_stream(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::cloudwatch.client')
       input = Params::PutMetricStreamInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::PutMetricStream.build(config)
       context = Hearth::Context.new(
@@ -2284,15 +2609,24 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :put_metric_stream,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_metric_stream] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_metric_stream] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'GraniteServiceVersion20100801',
+        'rpc.method' => 'PutMetricStream',
+        'code.function' => 'put_metric_stream',
+        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
+      }
+      tracer.in_span('GraniteServiceVersion20100801.PutMetricStream', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_metric_stream] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_metric_stream] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_metric_stream] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_metric_stream] #{output.data}")
-      output
     end
 
     # <p>Temporarily sets the state of an alarm for testing purposes. When the updated
@@ -2330,6 +2664,7 @@ module AWS::SDK::CloudWatch
     def set_alarm_state(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::cloudwatch.client')
       input = Params::SetAlarmStateInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::SetAlarmState.build(config)
       context = Hearth::Context.new(
@@ -2337,15 +2672,24 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :set_alarm_state,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#set_alarm_state] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#set_alarm_state] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'GraniteServiceVersion20100801',
+        'rpc.method' => 'SetAlarmState',
+        'code.function' => 'set_alarm_state',
+        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
+      }
+      tracer.in_span('GraniteServiceVersion20100801.SetAlarmState', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#set_alarm_state] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#set_alarm_state] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#set_alarm_state] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#set_alarm_state] #{output.data}")
-      output
     end
 
     # <p>Starts the streaming of metrics for one or more of your metric streams.</p>
@@ -2367,6 +2711,7 @@ module AWS::SDK::CloudWatch
     def start_metric_streams(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::cloudwatch.client')
       input = Params::StartMetricStreamsInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::StartMetricStreams.build(config)
       context = Hearth::Context.new(
@@ -2374,15 +2719,24 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :start_metric_streams,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_metric_streams] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#start_metric_streams] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'GraniteServiceVersion20100801',
+        'rpc.method' => 'StartMetricStreams',
+        'code.function' => 'start_metric_streams',
+        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
+      }
+      tracer.in_span('GraniteServiceVersion20100801.StartMetricStreams', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_metric_streams] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#start_metric_streams] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_metric_streams] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_metric_streams] #{output.data}")
-      output
     end
 
     # <p>Stops the streaming of metrics for one or more of your metric streams.</p>
@@ -2404,6 +2758,7 @@ module AWS::SDK::CloudWatch
     def stop_metric_streams(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::cloudwatch.client')
       input = Params::StopMetricStreamsInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::StopMetricStreams.build(config)
       context = Hearth::Context.new(
@@ -2411,15 +2766,24 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :stop_metric_streams,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#stop_metric_streams] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#stop_metric_streams] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'GraniteServiceVersion20100801',
+        'rpc.method' => 'StopMetricStreams',
+        'code.function' => 'stop_metric_streams',
+        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
+      }
+      tracer.in_span('GraniteServiceVersion20100801.StopMetricStreams', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#stop_metric_streams] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#stop_metric_streams] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#stop_metric_streams] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#stop_metric_streams] #{output.data}")
-      output
     end
 
     # <p>Assigns one or more tags (key-value pairs) to the specified CloudWatch resource. Currently, the only CloudWatch resources that
@@ -2455,6 +2819,7 @@ module AWS::SDK::CloudWatch
     def tag_resource(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::cloudwatch.client')
       input = Params::TagResourceInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::TagResource.build(config)
       context = Hearth::Context.new(
@@ -2462,15 +2827,24 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :tag_resource,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#tag_resource] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#tag_resource] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'GraniteServiceVersion20100801',
+        'rpc.method' => 'TagResource',
+        'code.function' => 'tag_resource',
+        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
+      }
+      tracer.in_span('GraniteServiceVersion20100801.TagResource', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#tag_resource] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#tag_resource] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#tag_resource] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#tag_resource] #{output.data}")
-      output
     end
 
     # <p>Removes one or more tags from the specified resource.</p>
@@ -2493,6 +2867,7 @@ module AWS::SDK::CloudWatch
     def untag_resource(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::cloudwatch.client')
       input = Params::UntagResourceInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::UntagResource.build(config)
       context = Hearth::Context.new(
@@ -2500,15 +2875,24 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :untag_resource,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#untag_resource] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#untag_resource] #{output.error} (#{output.error.class})")
-        raise output.error
+      attributes = {
+        'rpc.service' => 'GraniteServiceVersion20100801',
+        'rpc.method' => 'UntagResource',
+        'code.function' => 'untag_resource',
+        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
+      }
+      tracer.in_span('GraniteServiceVersion20100801.UntagResource', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#untag_resource] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#untag_resource] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#untag_resource] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#untag_resource] #{output.data}")
-      output
     end
   end
 end

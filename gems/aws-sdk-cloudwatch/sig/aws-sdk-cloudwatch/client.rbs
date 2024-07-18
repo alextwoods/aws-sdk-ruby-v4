@@ -31,6 +31,7 @@ module AWS::SDK::CloudWatch
         ?retry_strategy: Hearth::_RetryStrategy,
         ?stub_responses: bool,
         ?stubs: Hearth::Stubs,
+        ?telemetry_provider: Hearth::Telemetry::TelemetryProvider,
         ?use_dualstack_endpoint: bool,
         ?use_fips_endpoint: bool,
         ?validate_input: bool
@@ -407,7 +408,7 @@ module AWS::SDK::CloudWatch
           timestamp: ::Time,
           value: ::Float,
           statistic_values: Types::StatisticSet,
-          values: ::Array[::Float],
+          member_values: ::Array[::Float],
           counts: ::Array[::Float],
           unit: ::String,
           storage_resolution: ::Integer

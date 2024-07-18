@@ -19,15 +19,15 @@ module AWS::SDK::EC2
         return nil if visited.include?('AcceleratorCount')
         visited = visited + ['AcceleratorCount']
         {
-          min: 1,
-          max: 1,
+          member_min: 1,
+          member_max: 1,
         }
       end
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('min', stub[:min].to_s) unless stub[:min].nil?
-        xml << Hearth::XML::Node.new('max', stub[:max].to_s) unless stub[:max].nil?
+        xml << Hearth::XML::Node.new('min', stub[:member_min].to_s) unless stub[:member_min].nil?
+        xml << Hearth::XML::Node.new('max', stub[:member_max].to_s) unless stub[:member_max].nil?
         xml
       end
     end
@@ -73,15 +73,15 @@ module AWS::SDK::EC2
         return nil if visited.include?('AcceleratorTotalMemoryMiB')
         visited = visited + ['AcceleratorTotalMemoryMiB']
         {
-          min: 1,
-          max: 1,
+          member_min: 1,
+          member_max: 1,
         }
       end
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('min', stub[:min].to_s) unless stub[:min].nil?
-        xml << Hearth::XML::Node.new('max', stub[:max].to_s) unless stub[:max].nil?
+        xml << Hearth::XML::Node.new('min', stub[:member_min].to_s) unless stub[:member_min].nil?
+        xml << Hearth::XML::Node.new('max', stub[:member_max].to_s) unless stub[:member_max].nil?
         xml
       end
     end
@@ -2319,15 +2319,15 @@ module AWS::SDK::EC2
         return nil if visited.include?('BaselineEbsBandwidthMbps')
         visited = visited + ['BaselineEbsBandwidthMbps']
         {
-          min: 1,
-          max: 1,
+          member_min: 1,
+          member_max: 1,
         }
       end
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('min', stub[:min].to_s) unless stub[:min].nil?
-        xml << Hearth::XML::Node.new('max', stub[:max].to_s) unless stub[:max].nil?
+        xml << Hearth::XML::Node.new('min', stub[:member_min].to_s) unless stub[:member_min].nil?
+        xml << Hearth::XML::Node.new('max', stub[:member_max].to_s) unless stub[:member_max].nil?
         xml
       end
     end
@@ -2971,14 +2971,14 @@ module AWS::SDK::EC2
         visited = visited + ['CapacityAllocation']
         {
           allocation_type: 'allocation_type',
-          count: 1,
+          member_count: 1,
         }
       end
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('allocationType', stub[:allocation_type].to_s) unless stub[:allocation_type].nil?
-        xml << Hearth::XML::Node.new('count', stub[:count].to_s) unless stub[:count].nil?
+        xml << Hearth::XML::Node.new('count', stub[:member_count].to_s) unless stub[:member_count].nil?
         xml
       end
     end
@@ -6383,7 +6383,7 @@ module AWS::SDK::EC2
           encrypted: false,
           kms_key_id: 'kms_key_id',
           outpost_arn: 'outpost_arn',
-          size: 1,
+          member_size: 1,
           snapshot_id: 'snapshot_id',
           state: 'state',
           volume_id: 'volume_id',
@@ -6407,7 +6407,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('encrypted', stub[:encrypted].to_s) unless stub[:encrypted].nil?
         xml << Hearth::XML::Node.new('kmsKeyId', stub[:kms_key_id].to_s) unless stub[:kms_key_id].nil?
         xml << Hearth::XML::Node.new('outpostArn', stub[:outpost_arn].to_s) unless stub[:outpost_arn].nil?
-        xml << Hearth::XML::Node.new('size', stub[:size].to_s) unless stub[:size].nil?
+        xml << Hearth::XML::Node.new('size', stub[:member_size].to_s) unless stub[:member_size].nil?
         xml << Hearth::XML::Node.new('snapshotId', stub[:snapshot_id].to_s) unless stub[:snapshot_id].nil?
         xml << Hearth::XML::Node.new('status', stub[:state].to_s) unless stub[:state].nil?
         xml << Hearth::XML::Node.new('volumeId', stub[:volume_id].to_s) unless stub[:volume_id].nil?
@@ -13492,14 +13492,14 @@ module AWS::SDK::EC2
         visited = visited + ['DhcpConfiguration']
         {
           key: 'key',
-          values: DhcpConfigurationValueList.default(visited),
+          member_values: DhcpConfigurationValueList.default(visited),
         }
       end
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('key', stub[:key].to_s) unless stub[:key].nil?
-        xml << Hearth::XML::Node.new('valueSet', DhcpConfigurationValueList.stub('item', stub[:values])) unless stub[:values].nil?
+        xml << Hearth::XML::Node.new('valueSet', DhcpConfigurationValueList.stub('item', stub[:member_values])) unless stub[:member_values].nil?
         xml
       end
     end
@@ -14522,7 +14522,7 @@ module AWS::SDK::EC2
           checksum: 'checksum',
           format: 'format',
           import_manifest_url: 'import_manifest_url',
-          size: 1,
+          member_size: 1,
         }
       end
 
@@ -14531,7 +14531,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('checksum', stub[:checksum].to_s) unless stub[:checksum].nil?
         xml << Hearth::XML::Node.new('format', stub[:format].to_s) unless stub[:format].nil?
         xml << Hearth::XML::Node.new('importManifestUrl', stub[:import_manifest_url].to_s) unless stub[:import_manifest_url].nil?
-        xml << Hearth::XML::Node.new('size', stub[:size].to_s) unless stub[:size].nil?
+        xml << Hearth::XML::Node.new('size', stub[:member_size].to_s) unless stub[:member_size].nil?
         xml
       end
     end
@@ -14542,14 +14542,14 @@ module AWS::SDK::EC2
         visited = visited + ['DiskImageVolumeDescription']
         {
           id: 'id',
-          size: 1,
+          member_size: 1,
         }
       end
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('id', stub[:id].to_s) unless stub[:id].nil?
-        xml << Hearth::XML::Node.new('size', stub[:size].to_s) unless stub[:size].nil?
+        xml << Hearth::XML::Node.new('size', stub[:member_size].to_s) unless stub[:member_size].nil?
         xml
       end
     end
@@ -14560,7 +14560,7 @@ module AWS::SDK::EC2
         visited = visited + ['DiskInfo']
         {
           size_in_gb: 1,
-          count: 1,
+          member_count: 1,
           type: 'type',
         }
       end
@@ -14568,7 +14568,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('sizeInGB', stub[:size_in_gb].to_s) unless stub[:size_in_gb].nil?
-        xml << Hearth::XML::Node.new('count', stub[:count].to_s) unless stub[:count].nil?
+        xml << Hearth::XML::Node.new('count', stub[:member_count].to_s) unless stub[:member_count].nil?
         xml << Hearth::XML::Node.new('type', stub[:type].to_s) unless stub[:type].nil?
         xml
       end
@@ -16668,7 +16668,7 @@ module AWS::SDK::EC2
         {
           name: 'name',
           manufacturer: 'manufacturer',
-          count: 1,
+          member_count: 1,
           memory_info: FpgaDeviceMemoryInfo.default(visited),
         }
       end
@@ -16677,7 +16677,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('name', stub[:name].to_s) unless stub[:name].nil?
         xml << Hearth::XML::Node.new('manufacturer', stub[:manufacturer].to_s) unless stub[:manufacturer].nil?
-        xml << Hearth::XML::Node.new('count', stub[:count].to_s) unless stub[:count].nil?
+        xml << Hearth::XML::Node.new('count', stub[:member_count].to_s) unless stub[:member_count].nil?
         xml << FpgaDeviceMemoryInfo.stub('memoryInfo', stub[:memory_info]) unless stub[:memory_info].nil?
         xml
       end
@@ -17537,7 +17537,7 @@ module AWS::SDK::EC2
 
       def self.default(visited = [])
         {
-          entries: PrefixListEntrySet.default(visited),
+          member_entries: PrefixListEntrySet.default(visited),
           next_token: 'next_token',
         }
       end
@@ -17546,7 +17546,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('GetManagedPrefixListEntriesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('entrySet', PrefixListEntrySet.stub('item', stub[:entries])) unless stub[:entries].nil?
+        xml << Hearth::XML::Node.new('entrySet', PrefixListEntrySet.stub('item', stub[:member_entries])) unless stub[:member_entries].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         http_resp.body = ::StringIO.new(xml.to_str) if xml
         http_resp.status = 200
@@ -18147,7 +18147,7 @@ module AWS::SDK::EC2
         {
           name: 'name',
           manufacturer: 'manufacturer',
-          count: 1,
+          member_count: 1,
           memory_info: GpuDeviceMemoryInfo.default(visited),
         }
       end
@@ -18156,7 +18156,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('name', stub[:name].to_s) unless stub[:name].nil?
         xml << Hearth::XML::Node.new('manufacturer', stub[:manufacturer].to_s) unless stub[:manufacturer].nil?
-        xml << Hearth::XML::Node.new('count', stub[:count].to_s) unless stub[:count].nil?
+        xml << Hearth::XML::Node.new('count', stub[:member_count].to_s) unless stub[:member_count].nil?
         xml << GpuDeviceMemoryInfo.stub('memoryInfo', stub[:memory_info]) unless stub[:memory_info].nil?
         xml
       end
@@ -18563,7 +18563,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('HostReservation')
         visited = visited + ['HostReservation']
         {
-          count: 1,
+          member_count: 1,
           currency_code: 'currency_code',
           duration: 1,
           end: Time.now,
@@ -18582,7 +18582,7 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('count', stub[:count].to_s) unless stub[:count].nil?
+        xml << Hearth::XML::Node.new('count', stub[:member_count].to_s) unless stub[:member_count].nil?
         xml << Hearth::XML::Node.new('currencyCode', stub[:currency_code].to_s) unless stub[:currency_code].nil?
         xml << Hearth::XML::Node.new('duration', stub[:duration].to_s) unless stub[:duration].nil?
         xml << Hearth::XML::Node.new('end', Hearth::TimeHelper.to_date_time(stub[:end])) unless stub[:end].nil?
@@ -19369,7 +19369,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('InferenceDeviceInfo')
         visited = visited + ['InferenceDeviceInfo']
         {
-          count: 1,
+          member_count: 1,
           name: 'name',
           manufacturer: 'manufacturer',
           memory_info: InferenceDeviceMemoryInfo.default(visited),
@@ -19378,7 +19378,7 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('count', stub[:count].to_s) unless stub[:count].nil?
+        xml << Hearth::XML::Node.new('count', stub[:member_count].to_s) unless stub[:member_count].nil?
         xml << Hearth::XML::Node.new('name', stub[:name].to_s) unless stub[:name].nil?
         xml << Hearth::XML::Node.new('manufacturer', stub[:manufacturer].to_s) unless stub[:manufacturer].nil?
         xml << InferenceDeviceMemoryInfo.stub('memoryInfo', stub[:memory_info]) unless stub[:memory_info].nil?
@@ -22822,14 +22822,14 @@ module AWS::SDK::EC2
         visited = visited + ['LaunchTemplateElasticInferenceAcceleratorResponse']
         {
           type: 'type',
-          count: 1,
+          member_count: 1,
         }
       end
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('type', stub[:type].to_s) unless stub[:type].nil?
-        xml << Hearth::XML::Node.new('count', stub[:count].to_s) unless stub[:count].nil?
+        xml << Hearth::XML::Node.new('count', stub[:member_count].to_s) unless stub[:member_count].nil?
         xml
       end
     end
@@ -24024,15 +24024,15 @@ module AWS::SDK::EC2
         return nil if visited.include?('MemoryGiBPerVCpu')
         visited = visited + ['MemoryGiBPerVCpu']
         {
-          min: 1.0,
-          max: 1.0,
+          member_min: 1.0,
+          member_max: 1.0,
         }
       end
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('min', Hearth::NumberHelper.serialize(stub[:min]).to_s) unless stub[:min].nil?
-        xml << Hearth::XML::Node.new('max', Hearth::NumberHelper.serialize(stub[:max]).to_s) unless stub[:max].nil?
+        xml << Hearth::XML::Node.new('min', Hearth::NumberHelper.serialize(stub[:member_min]).to_s) unless stub[:member_min].nil?
+        xml << Hearth::XML::Node.new('max', Hearth::NumberHelper.serialize(stub[:member_max]).to_s) unless stub[:member_max].nil?
         xml
       end
     end
@@ -24058,15 +24058,15 @@ module AWS::SDK::EC2
         return nil if visited.include?('MemoryMiB')
         visited = visited + ['MemoryMiB']
         {
-          min: 1,
-          max: 1,
+          member_min: 1,
+          member_max: 1,
         }
       end
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('min', stub[:min].to_s) unless stub[:min].nil?
-        xml << Hearth::XML::Node.new('max', stub[:max].to_s) unless stub[:max].nil?
+        xml << Hearth::XML::Node.new('min', stub[:member_min].to_s) unless stub[:member_min].nil?
+        xml << Hearth::XML::Node.new('max', stub[:member_max].to_s) unless stub[:member_max].nil?
         xml
       end
     end
@@ -25954,7 +25954,7 @@ module AWS::SDK::EC2
         visited = visited + ['NetworkAcl']
         {
           associations: NetworkAclAssociationList.default(visited),
-          entries: NetworkAclEntryList.default(visited),
+          member_entries: NetworkAclEntryList.default(visited),
           is_default: false,
           network_acl_id: 'network_acl_id',
           tags: TagList.default(visited),
@@ -25966,7 +25966,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('associationSet', NetworkAclAssociationList.stub('item', stub[:associations])) unless stub[:associations].nil?
-        xml << Hearth::XML::Node.new('entrySet', NetworkAclEntryList.stub('item', stub[:entries])) unless stub[:entries].nil?
+        xml << Hearth::XML::Node.new('entrySet', NetworkAclEntryList.stub('item', stub[:member_entries])) unless stub[:member_entries].nil?
         xml << Hearth::XML::Node.new('default', stub[:is_default].to_s) unless stub[:is_default].nil?
         xml << Hearth::XML::Node.new('networkAclId', stub[:network_acl_id].to_s) unless stub[:network_acl_id].nil?
         xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
@@ -26085,15 +26085,15 @@ module AWS::SDK::EC2
         return nil if visited.include?('NetworkBandwidthGbps')
         visited = visited + ['NetworkBandwidthGbps']
         {
-          min: 1.0,
-          max: 1.0,
+          member_min: 1.0,
+          member_max: 1.0,
         }
       end
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('min', Hearth::NumberHelper.serialize(stub[:min]).to_s) unless stub[:min].nil?
-        xml << Hearth::XML::Node.new('max', Hearth::NumberHelper.serialize(stub[:max]).to_s) unless stub[:max].nil?
+        xml << Hearth::XML::Node.new('min', Hearth::NumberHelper.serialize(stub[:member_min]).to_s) unless stub[:member_min].nil?
+        xml << Hearth::XML::Node.new('max', Hearth::NumberHelper.serialize(stub[:member_max]).to_s) unless stub[:member_max].nil?
         xml
       end
     end
@@ -26553,15 +26553,15 @@ module AWS::SDK::EC2
         return nil if visited.include?('NetworkInterfaceCount')
         visited = visited + ['NetworkInterfaceCount']
         {
-          min: 1,
-          max: 1,
+          member_min: 1,
+          member_max: 1,
         }
       end
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('min', stub[:min].to_s) unless stub[:min].nil?
-        xml << Hearth::XML::Node.new('max', stub[:max].to_s) unless stub[:max].nil?
+        xml << Hearth::XML::Node.new('min', stub[:member_min].to_s) unless stub[:member_min].nil?
+        xml << Hearth::XML::Node.new('max', stub[:member_max].to_s) unless stub[:member_max].nil?
         xml
       end
     end
@@ -27699,14 +27699,14 @@ module AWS::SDK::EC2
         return nil if visited.include?('PricingDetail')
         visited = visited + ['PricingDetail']
         {
-          count: 1,
+          member_count: 1,
           price: 1.0,
         }
       end
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('count', stub[:count].to_s) unless stub[:count].nil?
+        xml << Hearth::XML::Node.new('count', stub[:member_count].to_s) unless stub[:member_count].nil?
         xml << Hearth::XML::Node.new('price', Hearth::NumberHelper.serialize(stub[:price]).to_s) unless stub[:price].nil?
         xml
       end
@@ -33088,15 +33088,15 @@ module AWS::SDK::EC2
         return nil if visited.include?('TotalLocalStorageGB')
         visited = visited + ['TotalLocalStorageGB']
         {
-          min: 1.0,
-          max: 1.0,
+          member_min: 1.0,
+          member_max: 1.0,
         }
       end
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('min', Hearth::NumberHelper.serialize(stub[:min]).to_s) unless stub[:min].nil?
-        xml << Hearth::XML::Node.new('max', Hearth::NumberHelper.serialize(stub[:max]).to_s) unless stub[:max].nil?
+        xml << Hearth::XML::Node.new('min', Hearth::NumberHelper.serialize(stub[:member_min]).to_s) unless stub[:member_min].nil?
+        xml << Hearth::XML::Node.new('max', Hearth::NumberHelper.serialize(stub[:member_max]).to_s) unless stub[:member_max].nil?
         xml
       end
     end
@@ -35207,15 +35207,15 @@ module AWS::SDK::EC2
         return nil if visited.include?('VCpuCountRange')
         visited = visited + ['VCpuCountRange']
         {
-          min: 1,
-          max: 1,
+          member_min: 1,
+          member_max: 1,
         }
       end
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('min', stub[:min].to_s) unless stub[:min].nil?
-        xml << Hearth::XML::Node.new('max', stub[:max].to_s) unless stub[:max].nil?
+        xml << Hearth::XML::Node.new('min', stub[:member_min].to_s) unless stub[:member_min].nil?
+        xml << Hearth::XML::Node.new('max', stub[:member_max].to_s) unless stub[:member_max].nil?
         xml
       end
     end
@@ -35873,7 +35873,7 @@ module AWS::SDK::EC2
           encrypted: false,
           kms_key_id: 'kms_key_id',
           outpost_arn: 'outpost_arn',
-          size: 1,
+          member_size: 1,
           snapshot_id: 'snapshot_id',
           state: 'state',
           volume_id: 'volume_id',
@@ -35895,7 +35895,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('encrypted', stub[:encrypted].to_s) unless stub[:encrypted].nil?
         xml << Hearth::XML::Node.new('kmsKeyId', stub[:kms_key_id].to_s) unless stub[:kms_key_id].nil?
         xml << Hearth::XML::Node.new('outpostArn', stub[:outpost_arn].to_s) unless stub[:outpost_arn].nil?
-        xml << Hearth::XML::Node.new('size', stub[:size].to_s) unless stub[:size].nil?
+        xml << Hearth::XML::Node.new('size', stub[:member_size].to_s) unless stub[:member_size].nil?
         xml << Hearth::XML::Node.new('snapshotId', stub[:snapshot_id].to_s) unless stub[:snapshot_id].nil?
         xml << Hearth::XML::Node.new('status', stub[:state].to_s) unless stub[:state].nil?
         xml << Hearth::XML::Node.new('volumeId', stub[:volume_id].to_s) unless stub[:volume_id].nil?
