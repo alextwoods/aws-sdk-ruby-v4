@@ -67,8 +67,6 @@ module AWS::SDK::TranscribeStreaming
         http_req.append_path('/call-analytics-stream-transcription')
         http_req.headers['Content-Type'] = 'application/vnd.amazon.eventstream'
         http_req.headers['Accept'] = 'application/vnd.amazon.eventstream'
-        data = {}
-        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amzn-transcribe-language-code'] = input[:language_code] unless input[:language_code].nil? || input[:language_code].empty?
         http_req.headers['x-amzn-transcribe-sample-rate'] = input[:media_sample_rate_hertz].to_s unless input[:media_sample_rate_hertz].nil?
         http_req.headers['x-amzn-transcribe-media-encoding'] = input[:media_encoding] unless input[:media_encoding].nil? || input[:media_encoding].empty?
@@ -91,8 +89,6 @@ module AWS::SDK::TranscribeStreaming
         http_req.append_path('/medical-stream-transcription')
         http_req.headers['Content-Type'] = 'application/vnd.amazon.eventstream'
         http_req.headers['Accept'] = 'application/vnd.amazon.eventstream'
-        data = {}
-        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amzn-transcribe-language-code'] = input[:language_code] unless input[:language_code].nil? || input[:language_code].empty?
         http_req.headers['x-amzn-transcribe-sample-rate'] = input[:media_sample_rate_hertz].to_s unless input[:media_sample_rate_hertz].nil?
         http_req.headers['x-amzn-transcribe-media-encoding'] = input[:media_encoding] unless input[:media_encoding].nil? || input[:media_encoding].empty?
@@ -113,8 +109,6 @@ module AWS::SDK::TranscribeStreaming
         http_req.append_path('/stream-transcription')
         http_req.headers['Content-Type'] = 'application/vnd.amazon.eventstream'
         http_req.headers['Accept'] = 'application/vnd.amazon.eventstream'
-        data = {}
-        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amzn-transcribe-language-code'] = input[:language_code] unless input[:language_code].nil? || input[:language_code].empty?
         http_req.headers['x-amzn-transcribe-sample-rate'] = input[:media_sample_rate_hertz].to_s unless input[:media_sample_rate_hertz].nil?
         http_req.headers['x-amzn-transcribe-media-encoding'] = input[:media_encoding] unless input[:media_encoding].nil? || input[:media_encoding].empty?

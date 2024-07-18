@@ -71,7 +71,17 @@ public class BuilderGenerator extends BuilderGeneratorBase {
                 .write("params['Action'] = '$L'", symbolProvider.toSymbol(operation).getName())
                 .write("params['Version'] = '$L'", context.service().getVersion())
                 .call(() -> renderMemberBuilders(inputShape))
-                .write("http_req.body = $T.new(params.to_s)", RubyImportContainer.STRING_IO)
+                .write("message = Hearth::EventStream::Message.new")
+                .write("message.headers[':message-type'] = "
+                        + "Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')")
+                .write("message.headers[':event-type'] = "
+                        + "Hearth::EventStream::HeaderValue.new(value: 'initial-request', "
+                        + "type: 'string')")
+                .write("message.headers[':content-type'] = "
+                        + "Hearth::EventStream::HeaderValue.new(value: 'application/x-www-form-urlencoded', "
+                        + "type: 'string')")
+                .write("message.payload = $T.new(params.to_s)", RubyImportContainer.STRING_IO)
+                .write("http_req.body = message")
                 .closeBlock("end");
     }
 

@@ -453,8 +453,6 @@ module AWS::SDK::LexRuntimeV2
         )
         http_req.headers['Content-Type'] = 'application/vnd.amazon.eventstream'
         http_req.headers['Accept'] = 'application/vnd.amazon.eventstream'
-        data = {}
-        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-lex-conversation-mode'] = input[:conversation_mode] unless input[:conversation_mode].nil? || input[:conversation_mode].empty?
       end
     end

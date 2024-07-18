@@ -110,7 +110,7 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
     }
 
     @Override
-    protected void renderEventStreamBodyBuilder(OperationShape operation, Shape inputShape, boolean serializeBody) {
+    protected void renderEventStreamContentType(OperationShape operation, Shape inputShape) {
         writer
                 .write("http_req.headers['Content-Type'] = 'application/vnd.amazon.eventstream'")
                 .call(() -> {
@@ -118,29 +118,6 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
                         writer.write("http_req.headers['Accept'] = 'application/vnd.amazon.eventstream'");
                     }
                 });
-
-        String nodeName = symbolProvider.toSymbol(inputShape).getName();
-        if (inputShape.hasTrait(XmlNameTrait.class)) {
-            nodeName = inputShape.getTrait(XmlNameTrait.class).get().getValue();
-        } else if (inputShape.hasTrait(OriginalShapeIdTrait.class)) {
-            nodeName = inputShape.getTrait(OriginalShapeIdTrait.class).get().getOriginalId().getName();
-        }
-
-        if (serializeBody) {
-            writer
-                    .write("xml = $T.new('$L')", Hearth.XML_NODE, nodeName)
-                    .call(() -> {
-                        XmlNamespaceTrait xmlnsTrait = context.service()
-                                .getTrait(XmlNamespaceTrait.class)
-                                .orElse(inputShape.getTrait(XmlNamespaceTrait.class)
-                                        .orElse(null));
-                        if (xmlnsTrait != null) {
-                            writeXmlNamespace(xmlnsTrait, "xml");
-                        }
-                        renderMemberBuilders(inputShape);
-                    })
-                    .write("http_req.body = $T.new(xml.to_str) if xml", RubyImportContainer.STRING_IO);
-        }
     }
 
     @Override
