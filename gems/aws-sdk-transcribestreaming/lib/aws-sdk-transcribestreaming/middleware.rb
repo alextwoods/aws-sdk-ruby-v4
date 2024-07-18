@@ -31,7 +31,7 @@ module AWS::SDK::TranscribeStreaming
           AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::EventStream::Middleware::Handlers,
-          async_output_class: EventStream::AudioStreamOutput,
+          async_output_class: EventStream::StartCallAnalyticsStreamTranscriptionOutput,
           event_handler: options[:event_stream_handler],
           message_encoding_module: Hearth::EventStream::Binary,
           request_events: true,
@@ -81,7 +81,7 @@ module AWS::SDK::TranscribeStreaming
           AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::EventStream::Middleware::Handlers,
-          async_output_class: EventStream::AudioStreamOutput,
+          async_output_class: EventStream::StartMedicalStreamTranscriptionOutput,
           event_handler: options[:event_stream_handler],
           message_encoding_module: Hearth::EventStream::Binary,
           request_events: true,
@@ -131,7 +131,7 @@ module AWS::SDK::TranscribeStreaming
           AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::EventStream::Middleware::Handlers,
-          async_output_class: EventStream::AudioStreamOutput,
+          async_output_class: EventStream::StartStreamTranscriptionOutput,
           event_handler: options[:event_stream_handler],
           message_encoding_module: Hearth::EventStream::Binary,
           request_events: true,

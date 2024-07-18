@@ -656,6 +656,17 @@ module AWS::SDK::LexRuntimeV2
         end
       end
 
+      class StartConversationInitialResponse
+        def self.parse(message)
+          data = Types::StartConversationOutput.new
+          payload = message.payload.read
+          return data if payload.empty?
+          map = Hearth::JSON.parse(payload)
+          data.response_event_stream = (StartConversationResponseEventStream.parse(map['responseEventStream']) unless map['responseEventStream'].nil?)
+          data
+        end
+      end
+
       class TextResponseEvent
         def self.parse(message)
           data = Types::TextResponseEvent.new

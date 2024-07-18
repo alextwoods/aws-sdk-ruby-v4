@@ -10,7 +10,7 @@
 module AWS::SDK::TranscribeStreaming
   module EventStream
 
-    class CallAnalyticsTranscriptResultStreamHandler < Hearth::EventStream::HandlerBase
+    class StartCallAnalyticsStreamTranscriptionHandler < Hearth::EventStream::HandlerBase
 
       def on_utterance_event(&block)
         on('UtteranceEvent', block)
@@ -42,6 +42,7 @@ module AWS::SDK::TranscribeStreaming
 
       def parse_event(type, message)
         case type
+        when 'initial-response' then Parsers::EventStream::StartCallAnalyticsStreamTranscriptionInitialResponse.parse(message)
         when 'UtteranceEvent' then Parsers::EventStream::UtteranceEvent.parse(message)
         when 'CategoryEvent' then Parsers::EventStream::CategoryEvent.parse(message)
         when 'BadRequestException' then Parsers::EventStream::BadRequestException.parse(message)
@@ -53,7 +54,7 @@ module AWS::SDK::TranscribeStreaming
       end
     end
 
-    class MedicalTranscriptResultStreamHandler < Hearth::EventStream::HandlerBase
+    class StartMedicalStreamTranscriptionHandler < Hearth::EventStream::HandlerBase
 
       def on_transcript_event(&block)
         on('TranscriptEvent', block)
@@ -81,6 +82,7 @@ module AWS::SDK::TranscribeStreaming
 
       def parse_event(type, message)
         case type
+        when 'initial-response' then Parsers::EventStream::StartMedicalStreamTranscriptionInitialResponse.parse(message)
         when 'TranscriptEvent' then Parsers::EventStream::MedicalTranscriptEvent.parse(message)
         when 'BadRequestException' then Parsers::EventStream::BadRequestException.parse(message)
         when 'LimitExceededException' then Parsers::EventStream::LimitExceededException.parse(message)
@@ -91,7 +93,7 @@ module AWS::SDK::TranscribeStreaming
       end
     end
 
-    class TranscriptResultStreamHandler < Hearth::EventStream::HandlerBase
+    class StartStreamTranscriptionHandler < Hearth::EventStream::HandlerBase
 
       def on_transcript_event(&block)
         on('TranscriptEvent', block)
@@ -119,6 +121,7 @@ module AWS::SDK::TranscribeStreaming
 
       def parse_event(type, message)
         case type
+        when 'initial-response' then Parsers::EventStream::StartStreamTranscriptionInitialResponse.parse(message)
         when 'TranscriptEvent' then Parsers::EventStream::TranscriptEvent.parse(message)
         when 'BadRequestException' then Parsers::EventStream::BadRequestException.parse(message)
         when 'LimitExceededException' then Parsers::EventStream::LimitExceededException.parse(message)
@@ -129,17 +132,125 @@ module AWS::SDK::TranscribeStreaming
       end
     end
 
-    class AudioStreamOutput < Hearth::EventStream::AsyncOutput
+    class StartCallAnalyticsStreamTranscriptionOutput < Hearth::EventStream::AsyncOutput
 
-      def signal_audio_event(params = {})
-        input = Params::AudioEvent.build(params, context: 'params')
-        message = Builders::EventStream::AudioEvent.build(input: input)
+      def signal_utterance_event(params = {})
+        input = Params::UtteranceEvent.build(params, context: 'params')
+        message = Builders::EventStream::UtteranceEvent.build(input: input)
         send_event(message)
       end
 
-      def signal_configuration_event(params = {})
-        input = Params::ConfigurationEvent.build(params, context: 'params')
-        message = Builders::EventStream::ConfigurationEvent.build(input: input)
+      def signal_category_event(params = {})
+        input = Params::CategoryEvent.build(params, context: 'params')
+        message = Builders::EventStream::CategoryEvent.build(input: input)
+        send_event(message)
+      end
+
+      def signal_bad_request_exception(params = {})
+        input = Params::BadRequestException.build(params, context: 'params')
+        message = Builders::EventStream::BadRequestException.build(input: input)
+        send_event(message)
+      end
+
+      def signal_limit_exceeded_exception(params = {})
+        input = Params::LimitExceededException.build(params, context: 'params')
+        message = Builders::EventStream::LimitExceededException.build(input: input)
+        send_event(message)
+      end
+
+      def signal_internal_failure_exception(params = {})
+        input = Params::InternalFailureException.build(params, context: 'params')
+        message = Builders::EventStream::InternalFailureException.build(input: input)
+        send_event(message)
+      end
+
+      def signal_conflict_exception(params = {})
+        input = Params::ConflictException.build(params, context: 'params')
+        message = Builders::EventStream::ConflictException.build(input: input)
+        send_event(message)
+      end
+
+      def signal_service_unavailable_exception(params = {})
+        input = Params::ServiceUnavailableException.build(params, context: 'params')
+        message = Builders::EventStream::ServiceUnavailableException.build(input: input)
+        send_event(message)
+      end
+    end
+
+    class StartMedicalStreamTranscriptionOutput < Hearth::EventStream::AsyncOutput
+
+      def signal_transcript_event(params = {})
+        input = Params::MedicalTranscriptEvent.build(params, context: 'params')
+        message = Builders::EventStream::MedicalTranscriptEvent.build(input: input)
+        send_event(message)
+      end
+
+      def signal_bad_request_exception(params = {})
+        input = Params::BadRequestException.build(params, context: 'params')
+        message = Builders::EventStream::BadRequestException.build(input: input)
+        send_event(message)
+      end
+
+      def signal_limit_exceeded_exception(params = {})
+        input = Params::LimitExceededException.build(params, context: 'params')
+        message = Builders::EventStream::LimitExceededException.build(input: input)
+        send_event(message)
+      end
+
+      def signal_internal_failure_exception(params = {})
+        input = Params::InternalFailureException.build(params, context: 'params')
+        message = Builders::EventStream::InternalFailureException.build(input: input)
+        send_event(message)
+      end
+
+      def signal_conflict_exception(params = {})
+        input = Params::ConflictException.build(params, context: 'params')
+        message = Builders::EventStream::ConflictException.build(input: input)
+        send_event(message)
+      end
+
+      def signal_service_unavailable_exception(params = {})
+        input = Params::ServiceUnavailableException.build(params, context: 'params')
+        message = Builders::EventStream::ServiceUnavailableException.build(input: input)
+        send_event(message)
+      end
+    end
+
+    class StartStreamTranscriptionOutput < Hearth::EventStream::AsyncOutput
+
+      def signal_transcript_event(params = {})
+        input = Params::TranscriptEvent.build(params, context: 'params')
+        message = Builders::EventStream::TranscriptEvent.build(input: input)
+        send_event(message)
+      end
+
+      def signal_bad_request_exception(params = {})
+        input = Params::BadRequestException.build(params, context: 'params')
+        message = Builders::EventStream::BadRequestException.build(input: input)
+        send_event(message)
+      end
+
+      def signal_limit_exceeded_exception(params = {})
+        input = Params::LimitExceededException.build(params, context: 'params')
+        message = Builders::EventStream::LimitExceededException.build(input: input)
+        send_event(message)
+      end
+
+      def signal_internal_failure_exception(params = {})
+        input = Params::InternalFailureException.build(params, context: 'params')
+        message = Builders::EventStream::InternalFailureException.build(input: input)
+        send_event(message)
+      end
+
+      def signal_conflict_exception(params = {})
+        input = Params::ConflictException.build(params, context: 'params')
+        message = Builders::EventStream::ConflictException.build(input: input)
+        send_event(message)
+      end
+
+      def signal_service_unavailable_exception(params = {})
+        input = Params::ServiceUnavailableException.build(params, context: 'params')
+        message = Builders::EventStream::ServiceUnavailableException.build(input: input)
         send_event(message)
       end
     end

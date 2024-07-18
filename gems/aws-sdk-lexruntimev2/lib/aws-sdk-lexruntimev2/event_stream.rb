@@ -10,7 +10,7 @@
 module AWS::SDK::LexRuntimeV2
   module EventStream
 
-    class StartConversationResponseEventStreamHandler < Hearth::EventStream::HandlerBase
+    class StartConversationHandler < Hearth::EventStream::HandlerBase
 
       def on_playback_interruption_event(&block)
         on('PlaybackInterruptionEvent', block)
@@ -70,6 +70,7 @@ module AWS::SDK::LexRuntimeV2
 
       def parse_event(type, message)
         case type
+        when 'initial-response' then Parsers::EventStream::StartConversationInitialResponse.parse(message)
         when 'PlaybackInterruptionEvent' then Parsers::EventStream::PlaybackInterruptionEvent.parse(message)
         when 'TranscriptEvent' then Parsers::EventStream::TranscriptEvent.parse(message)
         when 'IntentResultEvent' then Parsers::EventStream::IntentResultEvent.parse(message)
@@ -88,41 +89,89 @@ module AWS::SDK::LexRuntimeV2
       end
     end
 
-    class StartConversationRequestEventStreamOutput < Hearth::EventStream::AsyncOutput
+    class StartConversationOutput < Hearth::EventStream::AsyncOutput
 
-      def signal_configuration_event(params = {})
-        input = Params::ConfigurationEvent.build(params, context: 'params')
-        message = Builders::EventStream::ConfigurationEvent.build(input: input)
+      def signal_playback_interruption_event(params = {})
+        input = Params::PlaybackInterruptionEvent.build(params, context: 'params')
+        message = Builders::EventStream::PlaybackInterruptionEvent.build(input: input)
         send_event(message)
       end
 
-      def signal_audio_input_event(params = {})
-        input = Params::AudioInputEvent.build(params, context: 'params')
-        message = Builders::EventStream::AudioInputEvent.build(input: input)
+      def signal_transcript_event(params = {})
+        input = Params::TranscriptEvent.build(params, context: 'params')
+        message = Builders::EventStream::TranscriptEvent.build(input: input)
         send_event(message)
       end
 
-      def signal_dtmf_input_event(params = {})
-        input = Params::DTMFInputEvent.build(params, context: 'params')
-        message = Builders::EventStream::DTMFInputEvent.build(input: input)
+      def signal_intent_result_event(params = {})
+        input = Params::IntentResultEvent.build(params, context: 'params')
+        message = Builders::EventStream::IntentResultEvent.build(input: input)
         send_event(message)
       end
 
-      def signal_text_input_event(params = {})
-        input = Params::TextInputEvent.build(params, context: 'params')
-        message = Builders::EventStream::TextInputEvent.build(input: input)
+      def signal_text_response_event(params = {})
+        input = Params::TextResponseEvent.build(params, context: 'params')
+        message = Builders::EventStream::TextResponseEvent.build(input: input)
         send_event(message)
       end
 
-      def signal_playback_completion_event(params = {})
-        input = Params::PlaybackCompletionEvent.build(params, context: 'params')
-        message = Builders::EventStream::PlaybackCompletionEvent.build(input: input)
+      def signal_audio_response_event(params = {})
+        input = Params::AudioResponseEvent.build(params, context: 'params')
+        message = Builders::EventStream::AudioResponseEvent.build(input: input)
         send_event(message)
       end
 
-      def signal_disconnection_event(params = {})
-        input = Params::DisconnectionEvent.build(params, context: 'params')
-        message = Builders::EventStream::DisconnectionEvent.build(input: input)
+      def signal_heartbeat_event(params = {})
+        input = Params::HeartbeatEvent.build(params, context: 'params')
+        message = Builders::EventStream::HeartbeatEvent.build(input: input)
+        send_event(message)
+      end
+
+      def signal_access_denied_exception(params = {})
+        input = Params::AccessDeniedException.build(params, context: 'params')
+        message = Builders::EventStream::AccessDeniedException.build(input: input)
+        send_event(message)
+      end
+
+      def signal_resource_not_found_exception(params = {})
+        input = Params::ResourceNotFoundException.build(params, context: 'params')
+        message = Builders::EventStream::ResourceNotFoundException.build(input: input)
+        send_event(message)
+      end
+
+      def signal_validation_exception(params = {})
+        input = Params::ValidationException.build(params, context: 'params')
+        message = Builders::EventStream::ValidationException.build(input: input)
+        send_event(message)
+      end
+
+      def signal_throttling_exception(params = {})
+        input = Params::ThrottlingException.build(params, context: 'params')
+        message = Builders::EventStream::ThrottlingException.build(input: input)
+        send_event(message)
+      end
+
+      def signal_internal_server_exception(params = {})
+        input = Params::InternalServerException.build(params, context: 'params')
+        message = Builders::EventStream::InternalServerException.build(input: input)
+        send_event(message)
+      end
+
+      def signal_conflict_exception(params = {})
+        input = Params::ConflictException.build(params, context: 'params')
+        message = Builders::EventStream::ConflictException.build(input: input)
+        send_event(message)
+      end
+
+      def signal_dependency_failed_exception(params = {})
+        input = Params::DependencyFailedException.build(params, context: 'params')
+        message = Builders::EventStream::DependencyFailedException.build(input: input)
+        send_event(message)
+      end
+
+      def signal_bad_gateway_exception(params = {})
+        input = Params::BadGatewayException.build(params, context: 'params')
+        message = Builders::EventStream::BadGatewayException.build(input: input)
         send_event(message)
       end
     end

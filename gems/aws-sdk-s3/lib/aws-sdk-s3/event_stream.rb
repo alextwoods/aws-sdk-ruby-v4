@@ -10,7 +10,7 @@
 module AWS::SDK::S3
   module EventStream
 
-    class SelectObjectContentEventStreamHandler < Hearth::EventStream::HandlerBase
+    class SelectObjectContentHandler < Hearth::EventStream::HandlerBase
 
       def on_records(&block)
         on('Records', block)
@@ -34,6 +34,7 @@ module AWS::SDK::S3
 
       def parse_event(type, message)
         case type
+        when 'initial-response' then Parsers::EventStream::SelectObjectContentInitialResponse.parse(message)
         when 'Records' then Parsers::EventStream::RecordsEvent.parse(message)
         when 'Stats' then Parsers::EventStream::StatsEvent.parse(message)
         when 'Progress' then Parsers::EventStream::ProgressEvent.parse(message)

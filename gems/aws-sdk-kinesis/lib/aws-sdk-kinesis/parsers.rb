@@ -927,6 +927,17 @@ module AWS::SDK::Kinesis
         end
       end
 
+      class SubscribeToShardInitialResponse
+        def self.parse(message)
+          data = Types::SubscribeToShardOutput.new
+          payload = message.payload.read
+          return data if payload.empty?
+          map = Hearth::JSON.parse(payload)
+          data.event_stream = (SubscribeToShardEventStream.parse(map['EventStream']) unless map['EventStream'].nil?)
+          data
+        end
+      end
+
       class SubscribeToShardEvent
         def self.parse(message)
           data = Types::SubscribeToShardEvent.new

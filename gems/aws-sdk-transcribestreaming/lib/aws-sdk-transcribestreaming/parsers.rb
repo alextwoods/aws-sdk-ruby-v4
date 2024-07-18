@@ -593,6 +593,39 @@ module AWS::SDK::TranscribeStreaming
         end
       end
 
+      class StartCallAnalyticsStreamTranscriptionInitialResponse
+        def self.parse(message)
+          data = Types::StartCallAnalyticsStreamTranscriptionOutput.new
+          payload = message.payload.read
+          return data if payload.empty?
+          map = Hearth::JSON.parse(payload)
+          data.call_analytics_transcript_result_stream = (CallAnalyticsTranscriptResultStream.parse(map['CallAnalyticsTranscriptResultStream']) unless map['CallAnalyticsTranscriptResultStream'].nil?)
+          data
+        end
+      end
+
+      class StartMedicalStreamTranscriptionInitialResponse
+        def self.parse(message)
+          data = Types::StartMedicalStreamTranscriptionOutput.new
+          payload = message.payload.read
+          return data if payload.empty?
+          map = Hearth::JSON.parse(payload)
+          data.transcript_result_stream = (MedicalTranscriptResultStream.parse(map['TranscriptResultStream']) unless map['TranscriptResultStream'].nil?)
+          data
+        end
+      end
+
+      class StartStreamTranscriptionInitialResponse
+        def self.parse(message)
+          data = Types::StartStreamTranscriptionOutput.new
+          payload = message.payload.read
+          return data if payload.empty?
+          map = Hearth::JSON.parse(payload)
+          data.transcript_result_stream = (TranscriptResultStream.parse(map['TranscriptResultStream']) unless map['TranscriptResultStream'].nil?)
+          data
+        end
+      end
+
       class TranscriptEvent
         def self.parse(message)
           data = Types::TranscriptEvent.new

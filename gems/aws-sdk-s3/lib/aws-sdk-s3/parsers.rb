@@ -3666,6 +3666,19 @@ module AWS::SDK::S3
         end
       end
 
+      class SelectObjectContentInitialResponse
+        def self.parse(message)
+          data = Types::SelectObjectContentOutput.new
+          payload = message.payload.read
+          return data if payload.empty?
+          xml = Hearth::XML.parse(payload)
+          xml.at('Payload') do |node|
+            data.payload = SelectObjectContentEventStream.parse(node)
+          end
+          data
+        end
+      end
+
       class StatsEvent
         def self.parse(message)
           data = Types::StatsEvent.new

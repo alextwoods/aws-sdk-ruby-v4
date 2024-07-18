@@ -10,7 +10,7 @@
 module AWS::SDK::Kinesis
   module EventStream
 
-    class SubscribeToShardEventStreamHandler < Hearth::EventStream::HandlerBase
+    class SubscribeToShardHandler < Hearth::EventStream::HandlerBase
 
       def on_subscribe_to_shard_event(&block)
         on('SubscribeToShardEvent', block)
@@ -54,6 +54,7 @@ module AWS::SDK::Kinesis
 
       def parse_event(type, message)
         case type
+        when 'initial-response' then Parsers::EventStream::SubscribeToShardInitialResponse.parse(message)
         when 'SubscribeToShardEvent' then Parsers::EventStream::SubscribeToShardEvent.parse(message)
         when 'ResourceNotFoundException' then Parsers::EventStream::ResourceNotFoundException.parse(message)
         when 'ResourceInUseException' then Parsers::EventStream::ResourceInUseException.parse(message)
