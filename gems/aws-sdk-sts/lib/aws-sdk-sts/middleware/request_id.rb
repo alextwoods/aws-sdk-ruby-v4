@@ -22,7 +22,7 @@ module AWS::SDK::STS
           output = @app.call(input, context)
           request_id = context.response.headers['x-amz-request-id']
           output.metadata[:request_id] = request_id
-          span.set_attribute('aws.request_id', request_id.to_s)
+          span.set_attribute('aws.request_id', request_id)
           output
         end
       end
