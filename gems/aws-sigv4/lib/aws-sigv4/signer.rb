@@ -232,8 +232,8 @@ module AWS
         end
 
         if options[:signing_algorithm] == :sigv4a &&
-          options[:region] &&
-          !options[:region].empty?
+           options[:region] &&
+           !options[:region].empty?
           sigv4_headers['x-amz-region-set'] = options[:region]
         end
 
@@ -490,7 +490,7 @@ module AWS
         )
 
         if options[:signing_algorithm] == :sigv4a &&
-          options[:region] && !options[:region].empty?
+           options[:region] && !options[:region].empty?
           params['X-Amz-Region-Set'] = options[:region]
         end
 
@@ -545,7 +545,11 @@ module AWS
       private
 
       def sts_algorithm(signing_algorithm)
-        signing_algorithm == :sigv4a ? 'AWS4-ECDSA-P256-SHA256' : 'AWS4-HMAC-SHA256'
+        if signing_algorithm == :sigv4a
+          'AWS4-ECDSA-P256-SHA256'
+        else
+          'AWS4-HMAC-SHA256'
+        end
       end
 
       def canonical_request(http_method, url, use_double_uri_encode, headers,
@@ -561,7 +565,7 @@ module AWS
       end
 
       def string_to_sign(datetime, region, service,
-        canonical_request, signing_algorithm)
+                         canonical_request, signing_algorithm)
         [
           sts_algorithm(signing_algorithm),
           datetime,
@@ -617,7 +621,7 @@ module AWS
       end
 
       def asymmetric_signature(creds, string_to_sign)
-        ec, _ = AWS::Sigv4::AsymmetricCredentials.derive_asymmetric_key(
+        ec, = AWS::Sigv4::AsymmetricCredentials.derive_asymmetric_key(
           creds.access_key_id, creds.secret_access_key
         )
         sts_digest = OpenSSL::Digest::SHA256.digest(string_to_sign)

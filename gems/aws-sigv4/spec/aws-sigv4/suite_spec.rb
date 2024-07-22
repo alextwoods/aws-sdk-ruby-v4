@@ -282,7 +282,8 @@ module AWS::SigV4
 
       let(:extra) do
         AWS::Sigv4::AsymmetricCredentials.derive_asymmetric_key(
-          credentials.access_key_id, credentials.secret_access_key)[1]
+          credentials.access_key_id, credentials.secret_access_key
+        )[1]
       end
 
       Dir.glob(File.expand_path('v4a/**', __dir__)).each do |path|
@@ -347,7 +348,9 @@ module AWS::SigV4
             unless Signer.use_crt?
               it 'computes the public key' do
                 skip_if_test_missing(path, 'public-key.json')
-                expected_pk = JSON.parse(File.read(File.join(path, 'public-key.json')))
+                expected_pk = JSON.parse(
+                  File.read(File.join(path, 'public-key.json'))
+                )
 
                 expect(extra[:pk_x].to_s(16)).to eq expected_pk['X']
                 expect(extra[:pk_y].to_s(16)).to eq expected_pk['Y']
@@ -371,7 +374,8 @@ module AWS::SigV4
                 SpecHelper.debug("EXPECTED SIGNATURE: |#{expected}|")
 
                 sts_digest = OpenSSL::Digest::SHA256.digest(
-                  signature.metadata[:string_to_sign])
+                  signature.metadata[:string_to_sign]
+                )
                 verify_signature(computed, expected, extra, sts_digest)
               end
             end

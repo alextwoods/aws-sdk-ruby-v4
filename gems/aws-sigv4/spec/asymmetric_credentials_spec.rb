@@ -2,11 +2,11 @@
 
 require_relative 'spec_helper'
 
-module Aws
+module AWS
   module Sigv4
     describe AsymmetricCredentials do
-
-      # values for d,pk_x and pk_y are taken from get-vanilla sigv4a reference test
+      # values for d,pk_x and pk_y are taken from get-vanilla sigv4a
+      # reference test
       let(:access_key_id) { 'AKIDEXAMPLE' }
       let(:secret_access_key) { 'wJalrXUtnFEMI/K7MDENG+bPxRfiCYEXAMPLEKEY' }
       let(:ec) do
@@ -24,7 +24,9 @@ module Aws
 
         it 'computes the private key' do
           expect(extra[:d]).to be_a(Integer)
-          expect(extra[:d]).to eq 57437631014447175651096573782723065210935272504912550018654791361221980923292
+          expect(extra[:d]).to eq(
+            0x7EFC8C0E65A324242818C5A50C891C6060B6A00717B7BA3CBE3C5D765BE9259C
+          )
         end
 
         it 'computes the public key' do
@@ -33,10 +35,14 @@ module Aws
 
         it 'computes the pk_x and pk_y' do
           expect(extra[:pk_x]).to be_a(Integer)
-          expect(extra[:pk_x]).to eq 82493312425604201858614910479538123276547530192671928569404457423490168469169
+          expect(extra[:pk_x]).to eq(
+            0xB6618F6A65740A99E650B33B6B4B5BD0D43B176D721A3EDFEA7E7D2D56D936B1
+          )
 
           expect(extra[:pk_y]).to be_a(Integer)
-          expect(extra[:pk_y]).to eq 60777455846638291266199385583357715250110920888403467466325436560561456866584
+          expect(extra[:pk_y]).to eq(
+            0x865ED22A7EADC9C5CB9D2CBACA1B3699139FEDC5043DC6661864218330C8E518
+          )
         end
       end
     end
