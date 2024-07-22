@@ -9,6 +9,8 @@
 
 require 'stringio'
 
+require_relative 'plugins/global_config'
+
 module AWS::SDK::DynamoDB
   # <fullname>Amazon DynamoDB</fullname>
   #          <p>Amazon DynamoDB is a fully managed NoSQL database service that provides fast
@@ -30,7 +32,9 @@ module AWS::SDK::DynamoDB
   class Client < Hearth::Client
 
     # @api private
-    @plugins = Hearth::PluginList.new
+    @plugins = Hearth::PluginList.new([
+      Plugins::GlobalConfig.new
+    ])
 
     # @param [Hash] options
     #   Options used to construct an instance of {Config}
@@ -578,9 +582,7 @@ module AWS::SDK::DynamoDB
     #   })
     #
     #   # resp.to_h outputs the following:
-    #   {
-    #
-    #   }
+    #   {}
     def batch_write_item(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
@@ -3565,9 +3567,7 @@ module AWS::SDK::DynamoDB
     #       }
     #     ],
     #     scanned_count: 2,
-    #     consumed_capacity: {
-    #
-    #     }
+    #     consumed_capacity: {}
     #   }
     def query(params = {}, options = {})
       response_body = ::StringIO.new
@@ -4138,9 +4138,7 @@ module AWS::SDK::DynamoDB
     #       }
     #     ],
     #     scanned_count: 3,
-    #     consumed_capacity: {
-    #
-    #     }
+    #     consumed_capacity: {}
     #   }
     def scan(params = {}, options = {})
       response_body = ::StringIO.new

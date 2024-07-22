@@ -33,7 +33,7 @@ module AWS::SDK::CodeCatalyst
         http_resp.status = 403
         http_resp.headers['X-Amzn-Errortype'] = 'AccessDeniedException'
         http_resp.headers['Content-Type'] = 'application/json'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -71,9 +71,9 @@ module AWS::SDK::CodeCatalyst
       def self.stub(stub)
         stub ||= Types::AccessTokenSummary.new
         data = {}
-        data['id'] = stub[:id] unless stub[:id].nil?
-        data['name'] = stub[:name] unless stub[:name].nil?
-        data['expiresTime'] = Hearth::TimeHelper.to_date_time(stub[:expires_time]) unless stub[:expires_time].nil?
+        data['id'] = stub.id unless stub.id.nil?
+        data['name'] = stub.name unless stub.name.nil?
+        data['expiresTime'] = Hearth::TimeHelper.to_date_time(stub.expires_time) unless stub.expires_time.nil?
         data
       end
     end
@@ -98,7 +98,7 @@ module AWS::SDK::CodeCatalyst
         http_resp.status = 409
         http_resp.headers['X-Amzn-Errortype'] = 'ConflictException'
         http_resp.headers['Content-Type'] = 'application/json'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -125,10 +125,10 @@ module AWS::SDK::CodeCatalyst
         data = {}
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
-        data['secret'] = stub[:secret] unless stub[:secret].nil?
-        data['name'] = stub[:name] unless stub[:name].nil?
-        data['expiresTime'] = Hearth::TimeHelper.to_date_time(stub[:expires_time]) unless stub[:expires_time].nil?
-        data['accessTokenId'] = stub[:access_token_id] unless stub[:access_token_id].nil?
+        data['secret'] = stub.secret unless stub.secret.nil?
+        data['name'] = stub.name unless stub.name.nil?
+        data['expiresTime'] = Hearth::TimeHelper.to_date_time(stub.expires_time) unless stub.expires_time.nil?
+        data['accessTokenId'] = stub.access_token_id unless stub.access_token_id.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -155,10 +155,10 @@ module AWS::SDK::CodeCatalyst
         data = {}
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
-        data['spaceName'] = stub[:space_name] unless stub[:space_name].nil?
-        data['projectName'] = stub[:project_name] unless stub[:project_name].nil?
-        data['id'] = stub[:id] unless stub[:id].nil?
-        data['vpcConnectionName'] = stub[:vpc_connection_name] unless stub[:vpc_connection_name].nil?
+        data['spaceName'] = stub.space_name unless stub.space_name.nil?
+        data['projectName'] = stub.project_name unless stub.project_name.nil?
+        data['id'] = stub.id unless stub.id.nil?
+        data['vpcConnectionName'] = stub.vpc_connection_name unless stub.vpc_connection_name.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -185,10 +185,10 @@ module AWS::SDK::CodeCatalyst
         data = {}
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
-        data['spaceName'] = stub[:space_name] unless stub[:space_name].nil?
-        data['name'] = stub[:name] unless stub[:name].nil?
-        data['displayName'] = stub[:display_name] unless stub[:display_name].nil?
-        data['description'] = stub[:description] unless stub[:description].nil?
+        data['spaceName'] = stub.space_name unless stub.space_name.nil?
+        data['name'] = stub.name unless stub.name.nil?
+        data['displayName'] = stub.display_name unless stub.display_name.nil?
+        data['description'] = stub.description unless stub.description.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -215,10 +215,10 @@ module AWS::SDK::CodeCatalyst
         data = {}
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
-        data['spaceName'] = stub[:space_name] unless stub[:space_name].nil?
-        data['projectName'] = stub[:project_name] unless stub[:project_name].nil?
-        data['name'] = stub[:name] unless stub[:name].nil?
-        data['description'] = stub[:description] unless stub[:description].nil?
+        data['spaceName'] = stub.space_name unless stub.space_name.nil?
+        data['projectName'] = stub.project_name unless stub.project_name.nil?
+        data['name'] = stub.name unless stub.name.nil?
+        data['description'] = stub.description unless stub.description.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -245,10 +245,10 @@ module AWS::SDK::CodeCatalyst
         data = {}
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ref'] = stub[:ref] unless stub[:ref].nil?
-        data['name'] = stub[:name] unless stub[:name].nil?
-        data['lastUpdatedTime'] = Hearth::TimeHelper.to_date_time(stub[:last_updated_time]) unless stub[:last_updated_time].nil?
-        data['headCommitId'] = stub[:head_commit_id] unless stub[:head_commit_id].nil?
+        data['ref'] = stub.ref unless stub.ref.nil?
+        data['name'] = stub.name unless stub.name.nil?
+        data['lastUpdatedTime'] = Hearth::TimeHelper.to_date_time(stub.last_updated_time) unless stub.last_updated_time.nil?
+        data['headCommitId'] = stub.head_commit_id unless stub.head_commit_id.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -294,9 +294,9 @@ module AWS::SDK::CodeCatalyst
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['spaceName'] = stub[:space_name] unless stub[:space_name].nil?
-        data['projectName'] = stub[:project_name] unless stub[:project_name].nil?
-        data['id'] = stub[:id] unless stub[:id].nil?
+        data['spaceName'] = stub.space_name unless stub.space_name.nil?
+        data['projectName'] = stub.project_name unless stub.project_name.nil?
+        data['id'] = stub.id unless stub.id.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -322,9 +322,9 @@ module AWS::SDK::CodeCatalyst
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['spaceName'] = stub[:space_name] unless stub[:space_name].nil?
-        data['name'] = stub[:name] unless stub[:name].nil?
-        data['displayName'] = stub[:display_name] unless stub[:display_name].nil?
+        data['spaceName'] = stub.space_name unless stub.space_name.nil?
+        data['name'] = stub.name unless stub.name.nil?
+        data['displayName'] = stub.display_name unless stub.display_name.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -350,9 +350,9 @@ module AWS::SDK::CodeCatalyst
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['spaceName'] = stub[:space_name] unless stub[:space_name].nil?
-        data['projectName'] = stub[:project_name] unless stub[:project_name].nil?
-        data['name'] = stub[:name] unless stub[:name].nil?
+        data['spaceName'] = stub.space_name unless stub.space_name.nil?
+        data['projectName'] = stub.project_name unless stub.project_name.nil?
+        data['name'] = stub.name unless stub.name.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -377,8 +377,8 @@ module AWS::SDK::CodeCatalyst
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['name'] = stub[:name] unless stub[:name].nil?
-        data['displayName'] = stub[:display_name] unless stub[:display_name].nil?
+        data['name'] = stub.name unless stub.name.nil?
+        data['displayName'] = stub.display_name unless stub.display_name.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -396,8 +396,8 @@ module AWS::SDK::CodeCatalyst
       def self.stub(stub)
         stub ||= Types::DevEnvironmentAccessDetails.new
         data = {}
-        data['streamUrl'] = stub[:stream_url] unless stub[:stream_url].nil?
-        data['tokenValue'] = stub[:token_value] unless stub[:token_value].nil?
+        data['streamUrl'] = stub.stream_url unless stub.stream_url.nil?
+        data['tokenValue'] = stub.token_value unless stub.token_value.nil?
         data
       end
     end
@@ -434,8 +434,8 @@ module AWS::SDK::CodeCatalyst
       def self.stub(stub)
         stub ||= Types::DevEnvironmentRepositorySummary.new
         data = {}
-        data['repositoryName'] = stub[:repository_name] unless stub[:repository_name].nil?
-        data['branchName'] = stub[:branch_name] unless stub[:branch_name].nil?
+        data['repositoryName'] = stub.repository_name unless stub.repository_name.nil?
+        data['branchName'] = stub.branch_name unless stub.branch_name.nil?
         data
       end
     end
@@ -456,11 +456,11 @@ module AWS::SDK::CodeCatalyst
       def self.stub(stub)
         stub ||= Types::DevEnvironmentSessionSummary.new
         data = {}
-        data['spaceName'] = stub[:space_name] unless stub[:space_name].nil?
-        data['projectName'] = stub[:project_name] unless stub[:project_name].nil?
-        data['devEnvironmentId'] = stub[:dev_environment_id] unless stub[:dev_environment_id].nil?
-        data['startedTime'] = Hearth::TimeHelper.to_date_time(stub[:started_time]) unless stub[:started_time].nil?
-        data['id'] = stub[:id] unless stub[:id].nil?
+        data['spaceName'] = stub.space_name unless stub.space_name.nil?
+        data['projectName'] = stub.project_name unless stub.project_name.nil?
+        data['devEnvironmentId'] = stub.dev_environment_id unless stub.dev_environment_id.nil?
+        data['startedTime'] = Hearth::TimeHelper.to_date_time(stub.started_time) unless stub.started_time.nil?
+        data['id'] = stub.id unless stub.id.nil?
         data
       end
     end
@@ -509,20 +509,20 @@ module AWS::SDK::CodeCatalyst
       def self.stub(stub)
         stub ||= Types::DevEnvironmentSummary.new
         data = {}
-        data['spaceName'] = stub[:space_name] unless stub[:space_name].nil?
-        data['projectName'] = stub[:project_name] unless stub[:project_name].nil?
-        data['id'] = stub[:id] unless stub[:id].nil?
-        data['lastUpdatedTime'] = Hearth::TimeHelper.to_date_time(stub[:last_updated_time]) unless stub[:last_updated_time].nil?
-        data['creatorId'] = stub[:creator_id] unless stub[:creator_id].nil?
-        data['status'] = stub[:status] unless stub[:status].nil?
-        data['statusReason'] = stub[:status_reason] unless stub[:status_reason].nil?
-        data['repositories'] = DevEnvironmentRepositorySummaries.stub(stub[:repositories]) unless stub[:repositories].nil?
-        data['alias'] = stub[:alias] unless stub[:alias].nil?
-        data['ides'] = Ides.stub(stub[:ides]) unless stub[:ides].nil?
-        data['instanceType'] = stub[:instance_type] unless stub[:instance_type].nil?
-        data['inactivityTimeoutMinutes'] = stub[:inactivity_timeout_minutes] unless stub[:inactivity_timeout_minutes].nil?
-        data['persistentStorage'] = PersistentStorage.stub(stub[:persistent_storage]) unless stub[:persistent_storage].nil?
-        data['vpcConnectionName'] = stub[:vpc_connection_name] unless stub[:vpc_connection_name].nil?
+        data['spaceName'] = stub.space_name unless stub.space_name.nil?
+        data['projectName'] = stub.project_name unless stub.project_name.nil?
+        data['id'] = stub.id unless stub.id.nil?
+        data['lastUpdatedTime'] = Hearth::TimeHelper.to_date_time(stub.last_updated_time) unless stub.last_updated_time.nil?
+        data['creatorId'] = stub.creator_id unless stub.creator_id.nil?
+        data['status'] = stub.status unless stub.status.nil?
+        data['statusReason'] = stub.status_reason unless stub.status_reason.nil?
+        data['repositories'] = DevEnvironmentRepositorySummaries.stub(stub.repositories) unless stub.repositories.nil?
+        data['alias'] = stub.alias unless stub.alias.nil?
+        data['ides'] = Ides.stub(stub.ides) unless stub.ides.nil?
+        data['instanceType'] = stub.instance_type unless stub.instance_type.nil?
+        data['inactivityTimeoutMinutes'] = stub.inactivity_timeout_minutes unless stub.inactivity_timeout_minutes.nil?
+        data['persistentStorage'] = PersistentStorage.stub(stub.persistent_storage) unless stub.persistent_storage.nil?
+        data['vpcConnectionName'] = stub.vpc_connection_name unless stub.vpc_connection_name.nil?
         data
       end
     end
@@ -559,8 +559,8 @@ module AWS::SDK::CodeCatalyst
       def self.stub(stub)
         stub ||= Types::EmailAddress.new
         data = {}
-        data['email'] = stub[:email] unless stub[:email].nil?
-        data['verified'] = stub[:verified] unless stub[:verified].nil?
+        data['email'] = stub.email unless stub.email.nil?
+        data['verified'] = stub.verified unless stub.verified.nil?
         data
       end
     end
@@ -610,21 +610,21 @@ module AWS::SDK::CodeCatalyst
       def self.stub(stub)
         stub ||= Types::EventLogEntry.new
         data = {}
-        data['id'] = stub[:id] unless stub[:id].nil?
-        data['eventName'] = stub[:event_name] unless stub[:event_name].nil?
-        data['eventType'] = stub[:event_type] unless stub[:event_type].nil?
-        data['eventCategory'] = stub[:event_category] unless stub[:event_category].nil?
-        data['eventSource'] = stub[:event_source] unless stub[:event_source].nil?
-        data['eventTime'] = Hearth::TimeHelper.to_date_time(stub[:event_time]) unless stub[:event_time].nil?
-        data['operationType'] = stub[:operation_type] unless stub[:operation_type].nil?
-        data['userIdentity'] = UserIdentity.stub(stub[:user_identity]) unless stub[:user_identity].nil?
-        data['projectInformation'] = ProjectInformation.stub(stub[:project_information]) unless stub[:project_information].nil?
-        data['requestId'] = stub[:request_id] unless stub[:request_id].nil?
-        data['requestPayload'] = EventPayload.stub(stub[:request_payload]) unless stub[:request_payload].nil?
-        data['responsePayload'] = EventPayload.stub(stub[:response_payload]) unless stub[:response_payload].nil?
-        data['errorCode'] = stub[:error_code] unless stub[:error_code].nil?
-        data['sourceIpAddress'] = stub[:source_ip_address] unless stub[:source_ip_address].nil?
-        data['userAgent'] = stub[:user_agent] unless stub[:user_agent].nil?
+        data['id'] = stub.id unless stub.id.nil?
+        data['eventName'] = stub.event_name unless stub.event_name.nil?
+        data['eventType'] = stub.event_type unless stub.event_type.nil?
+        data['eventCategory'] = stub.event_category unless stub.event_category.nil?
+        data['eventSource'] = stub.event_source unless stub.event_source.nil?
+        data['eventTime'] = Hearth::TimeHelper.to_date_time(stub.event_time) unless stub.event_time.nil?
+        data['operationType'] = stub.operation_type unless stub.operation_type.nil?
+        data['userIdentity'] = UserIdentity.stub(stub.user_identity) unless stub.user_identity.nil?
+        data['projectInformation'] = ProjectInformation.stub(stub.project_information) unless stub.project_information.nil?
+        data['requestId'] = stub.request_id unless stub.request_id.nil?
+        data['requestPayload'] = EventPayload.stub(stub.request_payload) unless stub.request_payload.nil?
+        data['responsePayload'] = EventPayload.stub(stub.response_payload) unless stub.response_payload.nil?
+        data['errorCode'] = stub.error_code unless stub.error_code.nil?
+        data['sourceIpAddress'] = stub.source_ip_address unless stub.source_ip_address.nil?
+        data['userAgent'] = stub.user_agent unless stub.user_agent.nil?
         data
       end
     end
@@ -642,8 +642,8 @@ module AWS::SDK::CodeCatalyst
       def self.stub(stub)
         stub ||= Types::EventPayload.new
         data = {}
-        data['contentType'] = stub[:content_type] unless stub[:content_type].nil?
-        data['data'] = stub[:data] unless stub[:data].nil?
+        data['contentType'] = stub.content_type unless stub.content_type.nil?
+        data['data'] = stub.data unless stub.data.nil?
         data
       end
     end
@@ -680,20 +680,20 @@ module AWS::SDK::CodeCatalyst
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['spaceName'] = stub[:space_name] unless stub[:space_name].nil?
-        data['projectName'] = stub[:project_name] unless stub[:project_name].nil?
-        data['id'] = stub[:id] unless stub[:id].nil?
-        data['lastUpdatedTime'] = Hearth::TimeHelper.to_date_time(stub[:last_updated_time]) unless stub[:last_updated_time].nil?
-        data['creatorId'] = stub[:creator_id] unless stub[:creator_id].nil?
-        data['status'] = stub[:status] unless stub[:status].nil?
-        data['statusReason'] = stub[:status_reason] unless stub[:status_reason].nil?
-        data['repositories'] = DevEnvironmentRepositorySummaries.stub(stub[:repositories]) unless stub[:repositories].nil?
-        data['alias'] = stub[:alias] unless stub[:alias].nil?
-        data['ides'] = Ides.stub(stub[:ides]) unless stub[:ides].nil?
-        data['instanceType'] = stub[:instance_type] unless stub[:instance_type].nil?
-        data['inactivityTimeoutMinutes'] = stub[:inactivity_timeout_minutes] unless stub[:inactivity_timeout_minutes].nil?
-        data['persistentStorage'] = PersistentStorage.stub(stub[:persistent_storage]) unless stub[:persistent_storage].nil?
-        data['vpcConnectionName'] = stub[:vpc_connection_name] unless stub[:vpc_connection_name].nil?
+        data['spaceName'] = stub.space_name unless stub.space_name.nil?
+        data['projectName'] = stub.project_name unless stub.project_name.nil?
+        data['id'] = stub.id unless stub.id.nil?
+        data['lastUpdatedTime'] = Hearth::TimeHelper.to_date_time(stub.last_updated_time) unless stub.last_updated_time.nil?
+        data['creatorId'] = stub.creator_id unless stub.creator_id.nil?
+        data['status'] = stub.status unless stub.status.nil?
+        data['statusReason'] = stub.status_reason unless stub.status_reason.nil?
+        data['repositories'] = DevEnvironmentRepositorySummaries.stub(stub.repositories) unless stub.repositories.nil?
+        data['alias'] = stub.alias unless stub.alias.nil?
+        data['ides'] = Ides.stub(stub.ides) unless stub.ides.nil?
+        data['instanceType'] = stub.instance_type unless stub.instance_type.nil?
+        data['inactivityTimeoutMinutes'] = stub.inactivity_timeout_minutes unless stub.inactivity_timeout_minutes.nil?
+        data['persistentStorage'] = PersistentStorage.stub(stub.persistent_storage) unless stub.persistent_storage.nil?
+        data['vpcConnectionName'] = stub.vpc_connection_name unless stub.vpc_connection_name.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -720,10 +720,10 @@ module AWS::SDK::CodeCatalyst
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['spaceName'] = stub[:space_name] unless stub[:space_name].nil?
-        data['name'] = stub[:name] unless stub[:name].nil?
-        data['displayName'] = stub[:display_name] unless stub[:display_name].nil?
-        data['description'] = stub[:description] unless stub[:description].nil?
+        data['spaceName'] = stub.space_name unless stub.space_name.nil?
+        data['name'] = stub.name unless stub.name.nil?
+        data['displayName'] = stub.display_name unless stub.display_name.nil?
+        data['description'] = stub.description unless stub.description.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -752,12 +752,12 @@ module AWS::SDK::CodeCatalyst
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['spaceName'] = stub[:space_name] unless stub[:space_name].nil?
-        data['projectName'] = stub[:project_name] unless stub[:project_name].nil?
-        data['name'] = stub[:name] unless stub[:name].nil?
-        data['description'] = stub[:description] unless stub[:description].nil?
-        data['lastUpdatedTime'] = Hearth::TimeHelper.to_date_time(stub[:last_updated_time]) unless stub[:last_updated_time].nil?
-        data['createdTime'] = Hearth::TimeHelper.to_date_time(stub[:created_time]) unless stub[:created_time].nil?
+        data['spaceName'] = stub.space_name unless stub.space_name.nil?
+        data['projectName'] = stub.project_name unless stub.project_name.nil?
+        data['name'] = stub.name unless stub.name.nil?
+        data['description'] = stub.description unless stub.description.nil?
+        data['lastUpdatedTime'] = Hearth::TimeHelper.to_date_time(stub.last_updated_time) unless stub.last_updated_time.nil?
+        data['createdTime'] = Hearth::TimeHelper.to_date_time(stub.created_time) unless stub.created_time.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -781,7 +781,7 @@ module AWS::SDK::CodeCatalyst
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['https'] = stub[:https] unless stub[:https].nil?
+        data['https'] = stub.https unless stub.https.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -808,10 +808,10 @@ module AWS::SDK::CodeCatalyst
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['name'] = stub[:name] unless stub[:name].nil?
-        data['regionName'] = stub[:region_name] unless stub[:region_name].nil?
-        data['displayName'] = stub[:display_name] unless stub[:display_name].nil?
-        data['description'] = stub[:description] unless stub[:description].nil?
+        data['name'] = stub.name unless stub.name.nil?
+        data['regionName'] = stub.region_name unless stub.region_name.nil?
+        data['displayName'] = stub.display_name unless stub.display_name.nil?
+        data['description'] = stub.description unless stub.description.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -838,10 +838,10 @@ module AWS::SDK::CodeCatalyst
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['subscriptionType'] = stub[:subscription_type] unless stub[:subscription_type].nil?
-        data['awsAccountName'] = stub[:aws_account_name] unless stub[:aws_account_name].nil?
-        data['pendingSubscriptionType'] = stub[:pending_subscription_type] unless stub[:pending_subscription_type].nil?
-        data['pendingSubscriptionStartTime'] = Hearth::TimeHelper.to_date_time(stub[:pending_subscription_start_time]) unless stub[:pending_subscription_start_time].nil?
+        data['subscriptionType'] = stub.subscription_type unless stub.subscription_type.nil?
+        data['awsAccountName'] = stub.aws_account_name unless stub.aws_account_name.nil?
+        data['pendingSubscriptionType'] = stub.pending_subscription_type unless stub.pending_subscription_type.nil?
+        data['pendingSubscriptionStartTime'] = Hearth::TimeHelper.to_date_time(stub.pending_subscription_start_time) unless stub.pending_subscription_start_time.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -869,11 +869,11 @@ module AWS::SDK::CodeCatalyst
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['userId'] = stub[:user_id] unless stub[:user_id].nil?
-        data['userName'] = stub[:user_name] unless stub[:user_name].nil?
-        data['displayName'] = stub[:display_name] unless stub[:display_name].nil?
-        data['primaryEmail'] = EmailAddress.stub(stub[:primary_email]) unless stub[:primary_email].nil?
-        data['version'] = stub[:version] unless stub[:version].nil?
+        data['userId'] = stub.user_id unless stub.user_id.nil?
+        data['userName'] = stub.user_name unless stub.user_name.nil?
+        data['displayName'] = stub.display_name unless stub.display_name.nil?
+        data['primaryEmail'] = EmailAddress.stub(stub.primary_email) unless stub.primary_email.nil?
+        data['version'] = stub.version unless stub.version.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -907,17 +907,17 @@ module AWS::SDK::CodeCatalyst
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['spaceName'] = stub[:space_name] unless stub[:space_name].nil?
-        data['projectName'] = stub[:project_name] unless stub[:project_name].nil?
-        data['id'] = stub[:id] unless stub[:id].nil?
-        data['name'] = stub[:name] unless stub[:name].nil?
-        data['sourceRepositoryName'] = stub[:source_repository_name] unless stub[:source_repository_name].nil?
-        data['sourceBranchName'] = stub[:source_branch_name] unless stub[:source_branch_name].nil?
-        data['definition'] = WorkflowDefinition.stub(stub[:definition]) unless stub[:definition].nil?
-        data['createdTime'] = Hearth::TimeHelper.to_date_time(stub[:created_time]) unless stub[:created_time].nil?
-        data['lastUpdatedTime'] = Hearth::TimeHelper.to_date_time(stub[:last_updated_time]) unless stub[:last_updated_time].nil?
-        data['runMode'] = stub[:run_mode] unless stub[:run_mode].nil?
-        data['status'] = stub[:status] unless stub[:status].nil?
+        data['spaceName'] = stub.space_name unless stub.space_name.nil?
+        data['projectName'] = stub.project_name unless stub.project_name.nil?
+        data['id'] = stub.id unless stub.id.nil?
+        data['name'] = stub.name unless stub.name.nil?
+        data['sourceRepositoryName'] = stub.source_repository_name unless stub.source_repository_name.nil?
+        data['sourceBranchName'] = stub.source_branch_name unless stub.source_branch_name.nil?
+        data['definition'] = WorkflowDefinition.stub(stub.definition) unless stub.definition.nil?
+        data['createdTime'] = Hearth::TimeHelper.to_date_time(stub.created_time) unless stub.created_time.nil?
+        data['lastUpdatedTime'] = Hearth::TimeHelper.to_date_time(stub.last_updated_time) unless stub.last_updated_time.nil?
+        data['runMode'] = stub.run_mode unless stub.run_mode.nil?
+        data['status'] = stub.status unless stub.status.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -949,15 +949,15 @@ module AWS::SDK::CodeCatalyst
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['spaceName'] = stub[:space_name] unless stub[:space_name].nil?
-        data['projectName'] = stub[:project_name] unless stub[:project_name].nil?
-        data['id'] = stub[:id] unless stub[:id].nil?
-        data['workflowId'] = stub[:workflow_id] unless stub[:workflow_id].nil?
-        data['status'] = stub[:status] unless stub[:status].nil?
-        data['statusReasons'] = WorkflowRunStatusReasons.stub(stub[:status_reasons]) unless stub[:status_reasons].nil?
-        data['startTime'] = Hearth::TimeHelper.to_date_time(stub[:start_time]) unless stub[:start_time].nil?
-        data['endTime'] = Hearth::TimeHelper.to_date_time(stub[:end_time]) unless stub[:end_time].nil?
-        data['lastUpdatedTime'] = Hearth::TimeHelper.to_date_time(stub[:last_updated_time]) unless stub[:last_updated_time].nil?
+        data['spaceName'] = stub.space_name unless stub.space_name.nil?
+        data['projectName'] = stub.project_name unless stub.project_name.nil?
+        data['id'] = stub.id unless stub.id.nil?
+        data['workflowId'] = stub.workflow_id unless stub.workflow_id.nil?
+        data['status'] = stub.status unless stub.status.nil?
+        data['statusReasons'] = WorkflowRunStatusReasons.stub(stub.status_reasons) unless stub.status_reasons.nil?
+        data['startTime'] = Hearth::TimeHelper.to_date_time(stub.start_time) unless stub.start_time.nil?
+        data['endTime'] = Hearth::TimeHelper.to_date_time(stub.end_time) unless stub.end_time.nil?
+        data['lastUpdatedTime'] = Hearth::TimeHelper.to_date_time(stub.last_updated_time) unless stub.last_updated_time.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -975,8 +975,8 @@ module AWS::SDK::CodeCatalyst
       def self.stub(stub)
         stub ||= Types::Ide.new
         data = {}
-        data['runtime'] = stub[:runtime] unless stub[:runtime].nil?
-        data['name'] = stub[:name] unless stub[:name].nil?
+        data['runtime'] = stub.runtime unless stub.runtime.nil?
+        data['name'] = stub.name unless stub.name.nil?
         data
       end
     end
@@ -994,8 +994,8 @@ module AWS::SDK::CodeCatalyst
       def self.stub(stub)
         stub ||= Types::IdeConfiguration.new
         data = {}
-        data['runtime'] = stub[:runtime] unless stub[:runtime].nil?
-        data['name'] = stub[:name] unless stub[:name].nil?
+        data['runtime'] = stub.runtime unless stub.runtime.nil?
+        data['name'] = stub.name unless stub.name.nil?
         data
       end
     end
@@ -1058,8 +1058,8 @@ module AWS::SDK::CodeCatalyst
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['items'] = AccessTokenSummaries.stub(stub[:items]) unless stub[:items].nil?
-        data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
+        data['items'] = AccessTokenSummaries.stub(stub.items) unless stub.items.nil?
+        data['nextToken'] = stub.next_token unless stub.next_token.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1084,8 +1084,8 @@ module AWS::SDK::CodeCatalyst
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['items'] = DevEnvironmentSessionsSummaryList.stub(stub[:items]) unless stub[:items].nil?
-        data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
+        data['items'] = DevEnvironmentSessionsSummaryList.stub(stub.items) unless stub.items.nil?
+        data['nextToken'] = stub.next_token unless stub.next_token.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1110,8 +1110,8 @@ module AWS::SDK::CodeCatalyst
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['items'] = DevEnvironmentSummaryList.stub(stub[:items]) unless stub[:items].nil?
-        data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
+        data['items'] = DevEnvironmentSummaryList.stub(stub.items) unless stub.items.nil?
+        data['nextToken'] = stub.next_token unless stub.next_token.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1136,8 +1136,8 @@ module AWS::SDK::CodeCatalyst
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['items'] = EventLogEntries.stub(stub[:items]) unless stub[:items].nil?
+        data['nextToken'] = stub.next_token unless stub.next_token.nil?
+        data['items'] = EventLogEntries.stub(stub.items) unless stub.items.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1162,8 +1162,8 @@ module AWS::SDK::CodeCatalyst
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['items'] = ProjectSummaries.stub(stub[:items]) unless stub[:items].nil?
+        data['nextToken'] = stub.next_token unless stub.next_token.nil?
+        data['items'] = ProjectSummaries.stub(stub.items) unless stub.items.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1188,8 +1188,8 @@ module AWS::SDK::CodeCatalyst
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['items'] = ListSourceRepositoriesItems.stub(stub[:items]) unless stub[:items].nil?
-        data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
+        data['items'] = ListSourceRepositoriesItems.stub(stub.items) unless stub.items.nil?
+        data['nextToken'] = stub.next_token unless stub.next_token.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1210,11 +1210,11 @@ module AWS::SDK::CodeCatalyst
       def self.stub(stub)
         stub ||= Types::ListSourceRepositoriesItem.new
         data = {}
-        data['id'] = stub[:id] unless stub[:id].nil?
-        data['name'] = stub[:name] unless stub[:name].nil?
-        data['description'] = stub[:description] unless stub[:description].nil?
-        data['lastUpdatedTime'] = Hearth::TimeHelper.to_date_time(stub[:last_updated_time]) unless stub[:last_updated_time].nil?
-        data['createdTime'] = Hearth::TimeHelper.to_date_time(stub[:created_time]) unless stub[:created_time].nil?
+        data['id'] = stub.id unless stub.id.nil?
+        data['name'] = stub.name unless stub.name.nil?
+        data['description'] = stub.description unless stub.description.nil?
+        data['lastUpdatedTime'] = Hearth::TimeHelper.to_date_time(stub.last_updated_time) unless stub.last_updated_time.nil?
+        data['createdTime'] = Hearth::TimeHelper.to_date_time(stub.created_time) unless stub.created_time.nil?
         data
       end
     end
@@ -1258,8 +1258,8 @@ module AWS::SDK::CodeCatalyst
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['items'] = ListSourceRepositoryBranchesItems.stub(stub[:items]) unless stub[:items].nil?
+        data['nextToken'] = stub.next_token unless stub.next_token.nil?
+        data['items'] = ListSourceRepositoryBranchesItems.stub(stub.items) unless stub.items.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1279,10 +1279,10 @@ module AWS::SDK::CodeCatalyst
       def self.stub(stub)
         stub ||= Types::ListSourceRepositoryBranchesItem.new
         data = {}
-        data['ref'] = stub[:ref] unless stub[:ref].nil?
-        data['name'] = stub[:name] unless stub[:name].nil?
-        data['lastUpdatedTime'] = Hearth::TimeHelper.to_date_time(stub[:last_updated_time]) unless stub[:last_updated_time].nil?
-        data['headCommitId'] = stub[:head_commit_id] unless stub[:head_commit_id].nil?
+        data['ref'] = stub.ref unless stub.ref.nil?
+        data['name'] = stub.name unless stub.name.nil?
+        data['lastUpdatedTime'] = Hearth::TimeHelper.to_date_time(stub.last_updated_time) unless stub.last_updated_time.nil?
+        data['headCommitId'] = stub.head_commit_id unless stub.head_commit_id.nil?
         data
       end
     end
@@ -1326,8 +1326,8 @@ module AWS::SDK::CodeCatalyst
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['items'] = SpaceSummaries.stub(stub[:items]) unless stub[:items].nil?
+        data['nextToken'] = stub.next_token unless stub.next_token.nil?
+        data['items'] = SpaceSummaries.stub(stub.items) unless stub.items.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1352,8 +1352,8 @@ module AWS::SDK::CodeCatalyst
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['items'] = WorkflowRunSummaries.stub(stub[:items]) unless stub[:items].nil?
+        data['nextToken'] = stub.next_token unless stub.next_token.nil?
+        data['items'] = WorkflowRunSummaries.stub(stub.items) unless stub.items.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1378,8 +1378,8 @@ module AWS::SDK::CodeCatalyst
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['items'] = WorkflowSummaries.stub(stub[:items]) unless stub[:items].nil?
+        data['nextToken'] = stub.next_token unless stub.next_token.nil?
+        data['items'] = WorkflowSummaries.stub(stub.items) unless stub.items.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1396,7 +1396,7 @@ module AWS::SDK::CodeCatalyst
       def self.stub(stub)
         stub ||= Types::PersistentStorage.new
         data = {}
-        data['sizeInGiB'] = stub[:size_in_gi_b] unless stub[:size_in_gi_b].nil?
+        data['sizeInGiB'] = stub.size_in_gi_b unless stub.size_in_gi_b.nil?
         data
       end
     end
@@ -1414,8 +1414,8 @@ module AWS::SDK::CodeCatalyst
       def self.stub(stub)
         stub ||= Types::ProjectInformation.new
         data = {}
-        data['name'] = stub[:name] unless stub[:name].nil?
-        data['projectId'] = stub[:project_id] unless stub[:project_id].nil?
+        data['name'] = stub.name unless stub.name.nil?
+        data['projectId'] = stub.project_id unless stub.project_id.nil?
         data
       end
     end
@@ -1453,9 +1453,9 @@ module AWS::SDK::CodeCatalyst
       def self.stub(stub)
         stub ||= Types::ProjectSummary.new
         data = {}
-        data['name'] = stub[:name] unless stub[:name].nil?
-        data['displayName'] = stub[:display_name] unless stub[:display_name].nil?
-        data['description'] = stub[:description] unless stub[:description].nil?
+        data['name'] = stub.name unless stub.name.nil?
+        data['displayName'] = stub.display_name unless stub.display_name.nil?
+        data['description'] = stub.description unless stub.description.nil?
         data
       end
     end
@@ -1480,7 +1480,7 @@ module AWS::SDK::CodeCatalyst
         http_resp.status = 404
         http_resp.headers['X-Amzn-Errortype'] = 'ResourceNotFoundException'
         http_resp.headers['Content-Type'] = 'application/json'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1505,7 +1505,7 @@ module AWS::SDK::CodeCatalyst
         http_resp.status = 402
         http_resp.headers['X-Amzn-Errortype'] = 'ServiceQuotaExceededException'
         http_resp.headers['Content-Type'] = 'application/json'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1544,10 +1544,10 @@ module AWS::SDK::CodeCatalyst
       def self.stub(stub)
         stub ||= Types::SpaceSummary.new
         data = {}
-        data['name'] = stub[:name] unless stub[:name].nil?
-        data['regionName'] = stub[:region_name] unless stub[:region_name].nil?
-        data['displayName'] = stub[:display_name] unless stub[:display_name].nil?
-        data['description'] = stub[:description] unless stub[:description].nil?
+        data['name'] = stub.name unless stub.name.nil?
+        data['regionName'] = stub.region_name unless stub.region_name.nil?
+        data['displayName'] = stub.display_name unless stub.display_name.nil?
+        data['description'] = stub.description unless stub.description.nil?
         data
       end
     end
@@ -1574,10 +1574,10 @@ module AWS::SDK::CodeCatalyst
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['spaceName'] = stub[:space_name] unless stub[:space_name].nil?
-        data['projectName'] = stub[:project_name] unless stub[:project_name].nil?
-        data['id'] = stub[:id] unless stub[:id].nil?
-        data['status'] = stub[:status] unless stub[:status].nil?
+        data['spaceName'] = stub.space_name unless stub.space_name.nil?
+        data['projectName'] = stub.project_name unless stub.project_name.nil?
+        data['id'] = stub.id unless stub.id.nil?
+        data['status'] = stub.status unless stub.status.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1605,11 +1605,11 @@ module AWS::SDK::CodeCatalyst
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['accessDetails'] = DevEnvironmentAccessDetails.stub(stub[:access_details]) unless stub[:access_details].nil?
-        data['sessionId'] = stub[:session_id] unless stub[:session_id].nil?
-        data['spaceName'] = stub[:space_name] unless stub[:space_name].nil?
-        data['projectName'] = stub[:project_name] unless stub[:project_name].nil?
-        data['id'] = stub[:id] unless stub[:id].nil?
+        data['accessDetails'] = DevEnvironmentAccessDetails.stub(stub.access_details) unless stub.access_details.nil?
+        data['sessionId'] = stub.session_id unless stub.session_id.nil?
+        data['spaceName'] = stub.space_name unless stub.space_name.nil?
+        data['projectName'] = stub.project_name unless stub.project_name.nil?
+        data['id'] = stub.id unless stub.id.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1636,10 +1636,10 @@ module AWS::SDK::CodeCatalyst
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['spaceName'] = stub[:space_name] unless stub[:space_name].nil?
-        data['projectName'] = stub[:project_name] unless stub[:project_name].nil?
-        data['id'] = stub[:id] unless stub[:id].nil?
-        data['workflowId'] = stub[:workflow_id] unless stub[:workflow_id].nil?
+        data['spaceName'] = stub.space_name unless stub.space_name.nil?
+        data['projectName'] = stub.project_name unless stub.project_name.nil?
+        data['id'] = stub.id unless stub.id.nil?
+        data['workflowId'] = stub.workflow_id unless stub.workflow_id.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1666,10 +1666,10 @@ module AWS::SDK::CodeCatalyst
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['spaceName'] = stub[:space_name] unless stub[:space_name].nil?
-        data['projectName'] = stub[:project_name] unless stub[:project_name].nil?
-        data['id'] = stub[:id] unless stub[:id].nil?
-        data['status'] = stub[:status] unless stub[:status].nil?
+        data['spaceName'] = stub.space_name unless stub.space_name.nil?
+        data['projectName'] = stub.project_name unless stub.project_name.nil?
+        data['id'] = stub.id unless stub.id.nil?
+        data['status'] = stub.status unless stub.status.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1696,10 +1696,10 @@ module AWS::SDK::CodeCatalyst
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['spaceName'] = stub[:space_name] unless stub[:space_name].nil?
-        data['projectName'] = stub[:project_name] unless stub[:project_name].nil?
-        data['id'] = stub[:id] unless stub[:id].nil?
-        data['sessionId'] = stub[:session_id] unless stub[:session_id].nil?
+        data['spaceName'] = stub.space_name unless stub.space_name.nil?
+        data['projectName'] = stub.project_name unless stub.project_name.nil?
+        data['id'] = stub.id unless stub.id.nil?
+        data['sessionId'] = stub.session_id unless stub.session_id.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1724,7 +1724,7 @@ module AWS::SDK::CodeCatalyst
         http_resp.status = 429
         http_resp.headers['X-Amzn-Errortype'] = 'ThrottlingException'
         http_resp.headers['Content-Type'] = 'application/json'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1755,14 +1755,14 @@ module AWS::SDK::CodeCatalyst
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['id'] = stub[:id] unless stub[:id].nil?
-        data['spaceName'] = stub[:space_name] unless stub[:space_name].nil?
-        data['projectName'] = stub[:project_name] unless stub[:project_name].nil?
-        data['alias'] = stub[:alias] unless stub[:alias].nil?
-        data['ides'] = IdeConfigurationList.stub(stub[:ides]) unless stub[:ides].nil?
-        data['instanceType'] = stub[:instance_type] unless stub[:instance_type].nil?
-        data['inactivityTimeoutMinutes'] = stub[:inactivity_timeout_minutes] unless stub[:inactivity_timeout_minutes].nil?
-        data['clientToken'] = stub[:client_token] unless stub[:client_token].nil?
+        data['id'] = stub.id unless stub.id.nil?
+        data['spaceName'] = stub.space_name unless stub.space_name.nil?
+        data['projectName'] = stub.project_name unless stub.project_name.nil?
+        data['alias'] = stub.alias unless stub.alias.nil?
+        data['ides'] = IdeConfigurationList.stub(stub.ides) unless stub.ides.nil?
+        data['instanceType'] = stub.instance_type unless stub.instance_type.nil?
+        data['inactivityTimeoutMinutes'] = stub.inactivity_timeout_minutes unless stub.inactivity_timeout_minutes.nil?
+        data['clientToken'] = stub.client_token unless stub.client_token.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1789,10 +1789,10 @@ module AWS::SDK::CodeCatalyst
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['spaceName'] = stub[:space_name] unless stub[:space_name].nil?
-        data['name'] = stub[:name] unless stub[:name].nil?
-        data['displayName'] = stub[:display_name] unless stub[:display_name].nil?
-        data['description'] = stub[:description] unless stub[:description].nil?
+        data['spaceName'] = stub.space_name unless stub.space_name.nil?
+        data['name'] = stub.name unless stub.name.nil?
+        data['displayName'] = stub.display_name unless stub.display_name.nil?
+        data['description'] = stub.description unless stub.description.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1818,9 +1818,9 @@ module AWS::SDK::CodeCatalyst
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['name'] = stub[:name] unless stub[:name].nil?
-        data['displayName'] = stub[:display_name] unless stub[:display_name].nil?
-        data['description'] = stub[:description] unless stub[:description].nil?
+        data['name'] = stub.name unless stub.name.nil?
+        data['displayName'] = stub.display_name unless stub.display_name.nil?
+        data['description'] = stub.description unless stub.description.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1840,10 +1840,10 @@ module AWS::SDK::CodeCatalyst
       def self.stub(stub)
         stub ||= Types::UserIdentity.new
         data = {}
-        data['userType'] = stub[:user_type] unless stub[:user_type].nil?
-        data['principalId'] = stub[:principal_id] unless stub[:principal_id].nil?
-        data['userName'] = stub[:user_name] unless stub[:user_name].nil?
-        data['awsAccountId'] = stub[:aws_account_id] unless stub[:aws_account_id].nil?
+        data['userType'] = stub.user_type unless stub.user_type.nil?
+        data['principalId'] = stub.principal_id unless stub.principal_id.nil?
+        data['userName'] = stub.user_name unless stub.user_name.nil?
+        data['awsAccountId'] = stub.aws_account_id unless stub.aws_account_id.nil?
         data
       end
     end
@@ -1868,7 +1868,7 @@ module AWS::SDK::CodeCatalyst
         http_resp.status = 400
         http_resp.headers['X-Amzn-Errortype'] = 'ValidationException'
         http_resp.headers['Content-Type'] = 'application/json'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1892,7 +1892,7 @@ module AWS::SDK::CodeCatalyst
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['identity'] = stub[:identity] unless stub[:identity].nil?
+        data['identity'] = stub.identity unless stub.identity.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1909,7 +1909,7 @@ module AWS::SDK::CodeCatalyst
       def self.stub(stub)
         stub ||= Types::WorkflowDefinition.new
         data = {}
-        data['path'] = stub[:path] unless stub[:path].nil?
+        data['path'] = stub.path unless stub.path.nil?
         data
       end
     end
@@ -1926,7 +1926,7 @@ module AWS::SDK::CodeCatalyst
       def self.stub(stub)
         stub ||= Types::WorkflowDefinitionSummary.new
         data = {}
-        data['path'] = stub[:path] unless stub[:path].nil?
+        data['path'] = stub.path unless stub.path.nil?
         data
       end
     end
@@ -2003,14 +2003,14 @@ module AWS::SDK::CodeCatalyst
       def self.stub(stub)
         stub ||= Types::WorkflowRunSummary.new
         data = {}
-        data['id'] = stub[:id] unless stub[:id].nil?
-        data['workflowId'] = stub[:workflow_id] unless stub[:workflow_id].nil?
-        data['workflowName'] = stub[:workflow_name] unless stub[:workflow_name].nil?
-        data['status'] = stub[:status] unless stub[:status].nil?
-        data['statusReasons'] = WorkflowRunStatusReasons.stub(stub[:status_reasons]) unless stub[:status_reasons].nil?
-        data['startTime'] = Hearth::TimeHelper.to_date_time(stub[:start_time]) unless stub[:start_time].nil?
-        data['endTime'] = Hearth::TimeHelper.to_date_time(stub[:end_time]) unless stub[:end_time].nil?
-        data['lastUpdatedTime'] = Hearth::TimeHelper.to_date_time(stub[:last_updated_time]) unless stub[:last_updated_time].nil?
+        data['id'] = stub.id unless stub.id.nil?
+        data['workflowId'] = stub.workflow_id unless stub.workflow_id.nil?
+        data['workflowName'] = stub.workflow_name unless stub.workflow_name.nil?
+        data['status'] = stub.status unless stub.status.nil?
+        data['statusReasons'] = WorkflowRunStatusReasons.stub(stub.status_reasons) unless stub.status_reasons.nil?
+        data['startTime'] = Hearth::TimeHelper.to_date_time(stub.start_time) unless stub.start_time.nil?
+        data['endTime'] = Hearth::TimeHelper.to_date_time(stub.end_time) unless stub.end_time.nil?
+        data['lastUpdatedTime'] = Hearth::TimeHelper.to_date_time(stub.last_updated_time) unless stub.last_updated_time.nil?
         data
       end
     end
@@ -2054,15 +2054,15 @@ module AWS::SDK::CodeCatalyst
       def self.stub(stub)
         stub ||= Types::WorkflowSummary.new
         data = {}
-        data['id'] = stub[:id] unless stub[:id].nil?
-        data['name'] = stub[:name] unless stub[:name].nil?
-        data['sourceRepositoryName'] = stub[:source_repository_name] unless stub[:source_repository_name].nil?
-        data['sourceBranchName'] = stub[:source_branch_name] unless stub[:source_branch_name].nil?
-        data['definition'] = WorkflowDefinitionSummary.stub(stub[:definition]) unless stub[:definition].nil?
-        data['createdTime'] = Hearth::TimeHelper.to_date_time(stub[:created_time]) unless stub[:created_time].nil?
-        data['lastUpdatedTime'] = Hearth::TimeHelper.to_date_time(stub[:last_updated_time]) unless stub[:last_updated_time].nil?
-        data['runMode'] = stub[:run_mode] unless stub[:run_mode].nil?
-        data['status'] = stub[:status] unless stub[:status].nil?
+        data['id'] = stub.id unless stub.id.nil?
+        data['name'] = stub.name unless stub.name.nil?
+        data['sourceRepositoryName'] = stub.source_repository_name unless stub.source_repository_name.nil?
+        data['sourceBranchName'] = stub.source_branch_name unless stub.source_branch_name.nil?
+        data['definition'] = WorkflowDefinitionSummary.stub(stub.definition) unless stub.definition.nil?
+        data['createdTime'] = Hearth::TimeHelper.to_date_time(stub.created_time) unless stub.created_time.nil?
+        data['lastUpdatedTime'] = Hearth::TimeHelper.to_date_time(stub.last_updated_time) unless stub.last_updated_time.nil?
+        data['runMode'] = stub.run_mode unless stub.run_mode.nil?
+        data['status'] = stub.status unless stub.status.nil?
         data
       end
     end

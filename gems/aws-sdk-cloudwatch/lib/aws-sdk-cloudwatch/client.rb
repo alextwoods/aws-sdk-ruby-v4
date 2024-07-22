@@ -9,6 +9,8 @@
 
 require 'stringio'
 
+require_relative 'plugins/global_config'
+
 module AWS::SDK::CloudWatch
   # <p>Amazon CloudWatch monitors your Amazon Web Services (Amazon Web Services) resources and the
   # 			applications you run on Amazon Web Services in real time. You can use CloudWatch to collect and track
@@ -26,7 +28,9 @@ module AWS::SDK::CloudWatch
   class Client < Hearth::Client
 
     # @api private
-    @plugins = Hearth::PluginList.new
+    @plugins = Hearth::PluginList.new([
+      Plugins::GlobalConfig.new
+    ])
 
     # @param [Hash] options
     #   Options used to construct an instance of {Config}

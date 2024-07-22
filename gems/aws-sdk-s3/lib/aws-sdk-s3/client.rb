@@ -9,12 +9,16 @@
 
 require 'stringio'
 
+require_relative 'plugins/global_config'
+
 module AWS::SDK::S3
   # <p></p>
   class Client < Hearth::Client
 
     # @api private
-    @plugins = Hearth::PluginList.new
+    @plugins = Hearth::PluginList.new([
+      Plugins::GlobalConfig.new
+    ])
 
     # @param [Hash] options
     #   Options used to construct an instance of {Config}
@@ -123,9 +127,7 @@ module AWS::SDK::S3
     #   })
     #
     #   # resp.to_h outputs the following:
-    #   {
-    #
-    #   }
+    #   {}
     def abort_multipart_upload(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
@@ -2310,9 +2312,7 @@ module AWS::SDK::S3
     #   })
     #
     #   # resp.to_h outputs the following:
-    #   {
-    #
-    #   }
+    #   {}
     def delete_object(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
@@ -4590,7 +4590,7 @@ module AWS::SDK::S3
     #   )
     # @example Response structure
     #   resp.data #=> Types::GetObjectOutput
-    #   resp.data.body #=> String
+    #   resp.data.body #=> IO
     #   resp.data.delete_marker #=> Boolean
     #   resp.data.accept_ranges #=> String
     #   resp.data.expiration #=> String
@@ -5363,7 +5363,7 @@ module AWS::SDK::S3
     #   )
     # @example Response structure
     #   resp.data #=> Types::GetObjectTorrentOutput
-    #   resp.data.body #=> String
+    #   resp.data.body #=> IO
     #   resp.data.request_charged #=> String, one of ["requester"]
     # @example To retrieve torrent files for an object
     #   # The following example retrieves torrent files of an object.
@@ -5373,9 +5373,7 @@ module AWS::SDK::S3
     #   })
     #
     #   # resp.to_h outputs the following:
-    #   {
-    #
-    #   }
+    #   {}
     def get_object_torrent(params = {}, options = {}, &block)
       response_body = output_stream(options, &block)
       config = operation_config(options)
@@ -10163,9 +10161,7 @@ module AWS::SDK::S3
     # @example To grant permissions using object ACL
     #   # The following example adds grants to an object ACL. The first permission grants user1 and user2 FULL_CONTROL and the AllUsers group READ permission.
     #   resp = client.put_object_acl({
-    #     access_control_policy: {
-    #
-    #     },
+    #     access_control_policy: {},
     #     bucket: "examplebucket",
     #     grant_full_control: "emailaddress=user1@example.com,emailaddress=user2@example.com",
     #     grant_read: "uri=http://acs.amazonaws.com/groups/global/AllUsers",
@@ -10173,9 +10169,7 @@ module AWS::SDK::S3
     #   })
     #
     #   # resp.to_h outputs the following:
-    #   {
-    #
-    #   }
+    #   {}
     def put_object_acl(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
@@ -10966,9 +10960,7 @@ module AWS::SDK::S3
     #   })
     #
     #   # resp.to_h outputs the following:
-    #   {
-    #
-    #   }
+    #   {}
     def restore_object(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)

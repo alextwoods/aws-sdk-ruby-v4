@@ -15,15 +15,13 @@
 
 package software.amazon.smithy.aws.ruby.codegen.protocol.query.generators;
 
+import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 import software.amazon.smithy.aws.traits.protocols.AwsQueryErrorTrait;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
 import software.amazon.smithy.ruby.codegen.Hearth;
 import software.amazon.smithy.ruby.codegen.generators.ErrorsGeneratorBase;
-
-import java.util.List;
 
 public class ErrorsGenerator extends ErrorsGeneratorBase {
 
@@ -52,7 +50,7 @@ public class ErrorsGenerator extends ErrorsGeneratorBase {
     private void renderErrorCodesMap() {
         List<Shape> customErrorshapes =
                 getErrorShapes().stream().filter((s) -> s.hasTrait(AwsQueryErrorTrait.class))
-                .collect(Collectors.toList());
+                        .collect(Collectors.toList());
 
         if (customErrorshapes.isEmpty()) {
             writer.write("custom_errors = {}");

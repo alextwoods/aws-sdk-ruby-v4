@@ -9,6 +9,8 @@
 
 require 'stringio'
 
+require_relative 'plugins/global_config'
+
 module AWS::SDK::KMS
   # <fullname>Key Management Service</fullname>
   #          <p>Key Management Service (KMS) is an encryption and key management web service. This guide describes
@@ -108,7 +110,9 @@ module AWS::SDK::KMS
   class Client < Hearth::Client
 
     # @api private
-    @plugins = Hearth::PluginList.new
+    @plugins = Hearth::PluginList.new([
+      Plugins::GlobalConfig.new
+    ])
 
     # @param [Hash] options
     #   Options used to construct an instance of {Config}
@@ -290,9 +294,7 @@ module AWS::SDK::KMS
     #   })
     #
     #   # resp.to_h outputs the following:
-    #   {
-    #
-    #   }
+    #   {}
     def connect_custom_key_store(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
@@ -1302,9 +1304,7 @@ module AWS::SDK::KMS
     #   })
     #
     #   # resp.to_h outputs the following:
-    #   {
-    #
-    #   }
+    #   {}
     def delete_custom_key_store(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
@@ -2058,9 +2058,7 @@ module AWS::SDK::KMS
     #   })
     #
     #   # resp.to_h outputs the following:
-    #   {
-    #
-    #   }
+    #   {}
     def disconnect_custom_key_store(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
@@ -5629,9 +5627,7 @@ module AWS::SDK::KMS
     #   })
     #
     #   # resp.to_h outputs the following:
-    #   {
-    #
-    #   }
+    #   {}
     # @example To edit the password of an AWS CloudHSM key store
     #   # This example tells AWS KMS the password for the kmsuser crypto user in the AWS CloudHSM cluster that is associated with the AWS KMS custom key store. (It does not change the password in the CloudHSM cluster.) This operation does not return any data.
     #   resp = client.update_custom_key_store({
@@ -5640,9 +5636,7 @@ module AWS::SDK::KMS
     #   })
     #
     #   # resp.to_h outputs the following:
-    #   {
-    #
-    #   }
+    #   {}
     # @example To associate the custom key store with a different, but related, AWS CloudHSM cluster.
     #   # This example changes the AWS CloudHSM cluster that is associated with an AWS CloudHSM key store to a related cluster, such as a different backup of the same cluster. This operation does not return any data. To verify that the operation worked, use the DescribeCustomKeyStores operation.
     #   resp = client.update_custom_key_store({
@@ -5651,9 +5645,7 @@ module AWS::SDK::KMS
     #   })
     #
     #   # resp.to_h outputs the following:
-    #   {
-    #
-    #   }
+    #   {}
     # @example To edit the proxy URI path of an external key store.
     #   # This example updates the proxy URI path for an external key store
     #   resp = client.update_custom_key_store({
@@ -5662,9 +5654,7 @@ module AWS::SDK::KMS
     #   })
     #
     #   # resp.to_h outputs the following:
-    #   {
-    #
-    #   }
+    #   {}
     # @example To update the proxy connectivity of an external key store to VPC_ENDPOINT_SERVICE
     #   # To change the external key store proxy connectivity option from public endpoint connectivity to VPC endpoint service connectivity, in addition to changing the <code>XksProxyConnectivity</code> value, you must change the <code>XksProxyUriEndpoint</code> value to reflect the private DNS name associated with the VPC endpoint service. You must also add an <code>XksProxyVpcEndpointServiceName</code> value.
     #   resp = client.update_custom_key_store({
@@ -5675,9 +5665,7 @@ module AWS::SDK::KMS
     #   })
     #
     #   # resp.to_h outputs the following:
-    #   {
-    #
-    #   }
+    #   {}
     def update_custom_key_store(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)

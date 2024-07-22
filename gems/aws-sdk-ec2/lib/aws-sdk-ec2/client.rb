@@ -9,6 +9,8 @@
 
 require 'stringio'
 
+require_relative 'plugins/global_config'
+
 module AWS::SDK::EC2
   # <fullname>Amazon Elastic Compute Cloud</fullname>
   #          <p>Amazon Elastic Compute Cloud (Amazon EC2) provides secure and resizable computing capacity in the Amazon Web Services Cloud.
@@ -39,7 +41,9 @@ module AWS::SDK::EC2
   class Client < Hearth::Client
 
     # @api private
-    @plugins = Hearth::PluginList.new
+    @plugins = Hearth::PluginList.new([
+      Plugins::GlobalConfig.new
+    ])
 
     # @param [Hash] options
     #   Options used to construct an instance of {Config}
@@ -2370,9 +2374,7 @@ module AWS::SDK::EC2
     #   })
     #
     #   # resp.to_h outputs the following:
-    #   {
-    #
-    #   }
+    #   {}
     # @example To add a rule that allows outbound traffic to a specific security group
     #   # This example adds a rule that grants access to the specified security group on TCP port 80.
     #   resp = client.authorize_security_group_egress({
@@ -2392,9 +2394,7 @@ module AWS::SDK::EC2
     #   })
     #
     #   # resp.to_h outputs the following:
-    #   {
-    #
-    #   }
+    #   {}
     def authorize_security_group_egress(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
@@ -2540,9 +2540,7 @@ module AWS::SDK::EC2
     #   })
     #
     #   # resp.to_h outputs the following:
-    #   {
-    #
-    #   }
+    #   {}
     # @example To add a rule that allows inbound HTTP traffic from another security group
     #   # This example enables inbound traffic on TCP port 80 from the specified security group. The group must be in the same VPC or a peer VPC. Incoming traffic is allowed based on the private IP addresses of instances that are associated with the specified security group.
     #   resp = client.authorize_security_group_ingress({
@@ -2563,9 +2561,7 @@ module AWS::SDK::EC2
     #   })
     #
     #   # resp.to_h outputs the following:
-    #   {
-    #
-    #   }
+    #   {}
     # @example To add a rule that allows inbound RDP traffic from an IPv6 address range
     #   # This example adds an inbound rule that allows RDP traffic from the specified IPv6 address range. The rule includes a description to help you identify it later.
     #   resp = client.authorize_security_group_ingress({
@@ -2586,9 +2582,7 @@ module AWS::SDK::EC2
     #   })
     #
     #   # resp.to_h outputs the following:
-    #   {
-    #
-    #   }
+    #   {}
     def authorize_security_group_ingress(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
@@ -7608,9 +7602,7 @@ module AWS::SDK::EC2
     #   })
     #
     #   # resp.to_h outputs the following:
-    #   {
-    #
-    #   }
+    #   {}
     def create_placement_group(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
@@ -12769,9 +12761,7 @@ module AWS::SDK::EC2
     #   })
     #
     #   # resp.to_h outputs the following:
-    #   {
-    #
-    #   }
+    #   {}
     def delete_placement_group(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
@@ -12995,9 +12985,7 @@ module AWS::SDK::EC2
     #   })
     #
     #   # resp.to_h outputs the following:
-    #   {
-    #
-    #   }
+    #   {}
     def delete_security_group(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
@@ -13050,9 +13038,7 @@ module AWS::SDK::EC2
     #   })
     #
     #   # resp.to_h outputs the following:
-    #   {
-    #
-    #   }
+    #   {}
     def delete_snapshot(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
@@ -14256,9 +14242,7 @@ module AWS::SDK::EC2
     #   })
     #
     #   # resp.to_h outputs the following:
-    #   {
-    #
-    #   }
+    #   {}
     def delete_volume(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
@@ -19466,9 +19450,7 @@ module AWS::SDK::EC2
     #   })
     #
     #   # resp.to_h outputs the following:
-    #   {
-    #
-    #   }
+    #   {}
     # @example To describe the instances with a specific instance type
     #   # This example describes the instances with the t2.micro instance type.
     #   resp = client.describe_instances({
@@ -19483,9 +19465,7 @@ module AWS::SDK::EC2
     #   })
     #
     #   # resp.to_h outputs the following:
-    #   {
-    #
-    #   }
+    #   {}
     # @example To describe the instances with a specific tag
     #   # This example describes the instances with the Purpose=test tag.
     #   resp = client.describe_instances({
@@ -19500,9 +19480,7 @@ module AWS::SDK::EC2
     #   })
     #
     #   # resp.to_h outputs the following:
-    #   {
-    #
-    #   }
+    #   {}
     def describe_instances(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
@@ -23369,9 +23347,7 @@ module AWS::SDK::EC2
     #   })
     #
     #   # resp.to_h outputs the following:
-    #   {
-    #
-    #   }
+    #   {}
     # @example To describe a tagged security group
     #   # This example describes the security groups that include the specified tag (Purpose=test).
     #   resp = client.describe_security_groups({
@@ -23386,9 +23362,7 @@ module AWS::SDK::EC2
     #   })
     #
     #   # resp.to_h outputs the following:
-    #   {
-    #
-    #   }
+    #   {}
     def describe_security_groups(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
@@ -34847,9 +34821,7 @@ module AWS::SDK::EC2
     #   })
     #
     #   # resp.to_h outputs the following:
-    #   {
-    #
-    #   }
+    #   {}
     # @example To grant launch permissions
     #   # This example grants launch permissions for the specified AMI to the specified AWS account.
     #   resp = client.modify_image_attribute({
@@ -34864,9 +34836,7 @@ module AWS::SDK::EC2
     #   })
     #
     #   # resp.to_h outputs the following:
-    #   {
-    #
-    #   }
+    #   {}
     def modify_image_attribute(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
@@ -34948,9 +34918,7 @@ module AWS::SDK::EC2
     #   })
     #
     #   # resp.to_h outputs the following:
-    #   {
-    #
-    #   }
+    #   {}
     # @example To enable enhanced networking
     #   # This example enables enhanced networking for the specified stopped instance.
     #   resp = client.modify_instance_attribute({
@@ -34961,9 +34929,7 @@ module AWS::SDK::EC2
     #   })
     #
     #   # resp.to_h outputs the following:
-    #   {
-    #
-    #   }
+    #   {}
     def modify_instance_attribute(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
@@ -36194,9 +36160,7 @@ module AWS::SDK::EC2
     #   })
     #
     #   # resp.to_h outputs the following:
-    #   {
-    #
-    #   }
+    #   {}
     # @example To make a snapshot public
     #   # This example makes the snapshot ``snap-1234567890abcdef0`` public.
     #   resp = client.modify_snapshot_attribute({
@@ -36209,9 +36173,7 @@ module AWS::SDK::EC2
     #   })
     #
     #   # resp.to_h outputs the following:
-    #   {
-    #
-    #   }
+    #   {}
     def modify_snapshot_attribute(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
@@ -37456,9 +37418,7 @@ module AWS::SDK::EC2
     #   })
     #
     #   # resp.to_h outputs the following:
-    #   {
-    #
-    #   }
+    #   {}
     def modify_volume_attribute(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
@@ -39139,9 +39099,7 @@ module AWS::SDK::EC2
     #   })
     #
     #   # resp.to_h outputs the following:
-    #   {
-    #
-    #   }
+    #   {}
     def reboot_instances(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
@@ -41174,9 +41132,7 @@ module AWS::SDK::EC2
     #   })
     #
     #   # resp.to_h outputs the following:
-    #   {
-    #
-    #   }
+    #   {}
     def reset_image_attribute(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
@@ -41230,9 +41186,7 @@ module AWS::SDK::EC2
     #   })
     #
     #   # resp.to_h outputs the following:
-    #   {
-    #
-    #   }
+    #   {}
     def reset_instance_attribute(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
@@ -41317,9 +41271,7 @@ module AWS::SDK::EC2
     #   })
     #
     #   # resp.to_h outputs the following:
-    #   {
-    #
-    #   }
+    #   {}
     def reset_snapshot_attribute(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
@@ -42315,9 +42267,7 @@ module AWS::SDK::EC2
     #   })
     #
     #   # resp.to_h outputs the following:
-    #   {
-    #
-    #   }
+    #   {}
     def run_instances(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
@@ -43707,9 +43657,7 @@ module AWS::SDK::EC2
     #   })
     #
     #   # resp.to_h outputs the following:
-    #   {
-    #
-    #   }
+    #   {}
     def update_security_group_rule_descriptions_egress(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
@@ -43813,9 +43761,7 @@ module AWS::SDK::EC2
     #   })
     #
     #   # resp.to_h outputs the following:
-    #   {
-    #
-    #   }
+    #   {}
     def update_security_group_rule_descriptions_ingress(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)

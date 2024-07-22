@@ -10,82 +10,82 @@
 module AWS::SDK::STS
   module Types
 
-    class AssumeRoleInput < ::Struct[untyped]
+    class AssumeRoleInput
       include Hearth::Structure
       attr_accessor role_arn (): ::String
       attr_accessor role_session_name (): ::String
-      attr_accessor policy_arns (): ::Array[Types::PolicyDescriptorType]
-      attr_accessor policy (): ::String
-      attr_accessor duration_seconds (): ::Integer
-      attr_accessor tags (): ::Array[Types::Tag]
-      attr_accessor transitive_tag_keys (): ::Array[::String]
-      attr_accessor external_id (): ::String
-      attr_accessor serial_number (): ::String
-      attr_accessor token_code (): ::String
-      attr_accessor source_identity (): ::String
-      attr_accessor provided_contexts (): ::Array[Types::ProvidedContext]
+      attr_accessor policy_arns (): ::Array[Types::PolicyDescriptorType]?
+      attr_accessor policy (): ::String?
+      attr_accessor duration_seconds (): ::Integer?
+      attr_accessor tags (): ::Array[Types::Tag]?
+      attr_accessor transitive_tag_keys (): ::Array[::String]?
+      attr_accessor external_id (): ::String?
+      attr_accessor serial_number (): ::String?
+      attr_accessor token_code (): ::String?
+      attr_accessor source_identity (): ::String?
+      attr_accessor provided_contexts (): ::Array[Types::ProvidedContext]?
     end
 
-    class AssumeRoleOutput < ::Struct[untyped]
+    class AssumeRoleOutput
       include Hearth::Structure
-      attr_accessor credentials (): Types::Credentials
-      attr_accessor assumed_role_user (): Types::AssumedRoleUser
-      attr_accessor packed_policy_size (): ::Integer
-      attr_accessor source_identity (): ::String
+      attr_accessor credentials (): Types::Credentials?
+      attr_accessor assumed_role_user (): Types::AssumedRoleUser?
+      attr_accessor packed_policy_size (): ::Integer?
+      attr_accessor source_identity (): ::String?
     end
 
-    class AssumeRoleWithSAMLInput < ::Struct[untyped]
+    class AssumeRoleWithSAMLInput
       include Hearth::Structure
       attr_accessor role_arn (): ::String
       attr_accessor principal_arn (): ::String
       attr_accessor saml_assertion (): ::String
-      attr_accessor policy_arns (): ::Array[Types::PolicyDescriptorType]
-      attr_accessor policy (): ::String
-      attr_accessor duration_seconds (): ::Integer
+      attr_accessor policy_arns (): ::Array[Types::PolicyDescriptorType]?
+      attr_accessor policy (): ::String?
+      attr_accessor duration_seconds (): ::Integer?
     end
 
-    class AssumeRoleWithSAMLOutput < ::Struct[untyped]
+    class AssumeRoleWithSAMLOutput
       include Hearth::Structure
-      attr_accessor credentials (): Types::Credentials
-      attr_accessor assumed_role_user (): Types::AssumedRoleUser
-      attr_accessor packed_policy_size (): ::Integer
-      attr_accessor subject (): ::String
-      attr_accessor subject_type (): ::String
-      attr_accessor issuer (): ::String
-      attr_accessor audience (): ::String
-      attr_accessor name_qualifier (): ::String
-      attr_accessor source_identity (): ::String
+      attr_accessor credentials (): Types::Credentials?
+      attr_accessor assumed_role_user (): Types::AssumedRoleUser?
+      attr_accessor packed_policy_size (): ::Integer?
+      attr_accessor subject (): ::String?
+      attr_accessor subject_type (): ::String?
+      attr_accessor issuer (): ::String?
+      attr_accessor audience (): ::String?
+      attr_accessor name_qualifier (): ::String?
+      attr_accessor source_identity (): ::String?
     end
 
-    class AssumeRoleWithWebIdentityInput < ::Struct[untyped]
+    class AssumeRoleWithWebIdentityInput
       include Hearth::Structure
       attr_accessor role_arn (): ::String
       attr_accessor role_session_name (): ::String
       attr_accessor web_identity_token (): ::String
-      attr_accessor provider_id (): ::String
-      attr_accessor policy_arns (): ::Array[Types::PolicyDescriptorType]
-      attr_accessor policy (): ::String
-      attr_accessor duration_seconds (): ::Integer
+      attr_accessor provider_id (): ::String?
+      attr_accessor policy_arns (): ::Array[Types::PolicyDescriptorType]?
+      attr_accessor policy (): ::String?
+      attr_accessor duration_seconds (): ::Integer?
     end
 
-    class AssumeRoleWithWebIdentityOutput < ::Struct[untyped]
+    class AssumeRoleWithWebIdentityOutput
       include Hearth::Structure
-      attr_accessor credentials (): Types::Credentials
-      attr_accessor subject_from_web_identity_token (): ::String
-      attr_accessor assumed_role_user (): Types::AssumedRoleUser
-      attr_accessor packed_policy_size (): ::Integer
-      attr_accessor provider (): ::String
-      attr_accessor audience (): ::String
-      attr_accessor source_identity (): ::String
+      attr_accessor credentials (): Types::Credentials?
+      attr_accessor subject_from_web_identity_token (): ::String?
+      attr_accessor assumed_role_user (): Types::AssumedRoleUser?
+      attr_accessor packed_policy_size (): ::Integer?
+      attr_accessor provider (): ::String?
+      attr_accessor audience (): ::String?
+      attr_accessor source_identity (): ::String?
     end
 
-    class AssumedRoleUser < ::Struct[untyped]
+    class AssumedRoleUser
       include Hearth::Structure
       attr_accessor assumed_role_id (): ::String
       attr_accessor arn (): ::String
     end
 
-    class Credentials < ::Struct[untyped]
+    class Credentials
       include Hearth::Structure
       attr_accessor access_key_id (): ::String
       attr_accessor secret_access_key (): ::String
@@ -93,123 +93,123 @@ module AWS::SDK::STS
       attr_accessor expiration (): ::Time
     end
 
-    class DecodeAuthorizationMessageInput < ::Struct[untyped]
+    class DecodeAuthorizationMessageInput
       include Hearth::Structure
       attr_accessor encoded_message (): ::String
     end
 
-    class DecodeAuthorizationMessageOutput < ::Struct[untyped]
+    class DecodeAuthorizationMessageOutput
       include Hearth::Structure
-      attr_accessor decoded_message (): ::String
+      attr_accessor decoded_message (): ::String?
     end
 
-    class ExpiredTokenException < ::Struct[untyped]
+    class ExpiredTokenException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class FederatedUser < ::Struct[untyped]
+    class FederatedUser
       include Hearth::Structure
       attr_accessor federated_user_id (): ::String
       attr_accessor arn (): ::String
     end
 
-    class GetAccessKeyInfoInput < ::Struct[untyped]
+    class GetAccessKeyInfoInput
       include Hearth::Structure
       attr_accessor access_key_id (): ::String
     end
 
-    class GetAccessKeyInfoOutput < ::Struct[untyped]
+    class GetAccessKeyInfoOutput
       include Hearth::Structure
-      attr_accessor account (): ::String
+      attr_accessor account (): ::String?
     end
 
-    class GetCallerIdentityInput < ::Struct[untyped]
+    class GetCallerIdentityInput
       include Hearth::Structure
     end
 
-    class GetCallerIdentityOutput < ::Struct[untyped]
+    class GetCallerIdentityOutput
       include Hearth::Structure
-      attr_accessor user_id (): ::String
-      attr_accessor account (): ::String
-      attr_accessor arn (): ::String
+      attr_accessor user_id (): ::String?
+      attr_accessor account (): ::String?
+      attr_accessor arn (): ::String?
     end
 
-    class GetFederationTokenInput < ::Struct[untyped]
+    class GetFederationTokenInput
       include Hearth::Structure
       attr_accessor name (): ::String
-      attr_accessor policy (): ::String
-      attr_accessor policy_arns (): ::Array[Types::PolicyDescriptorType]
-      attr_accessor duration_seconds (): ::Integer
-      attr_accessor tags (): ::Array[Types::Tag]
+      attr_accessor policy (): ::String?
+      attr_accessor policy_arns (): ::Array[Types::PolicyDescriptorType]?
+      attr_accessor duration_seconds (): ::Integer?
+      attr_accessor tags (): ::Array[Types::Tag]?
     end
 
-    class GetFederationTokenOutput < ::Struct[untyped]
+    class GetFederationTokenOutput
       include Hearth::Structure
-      attr_accessor credentials (): Types::Credentials
-      attr_accessor federated_user (): Types::FederatedUser
-      attr_accessor packed_policy_size (): ::Integer
+      attr_accessor credentials (): Types::Credentials?
+      attr_accessor federated_user (): Types::FederatedUser?
+      attr_accessor packed_policy_size (): ::Integer?
     end
 
-    class GetSessionTokenInput < ::Struct[untyped]
+    class GetSessionTokenInput
       include Hearth::Structure
-      attr_accessor duration_seconds (): ::Integer
-      attr_accessor serial_number (): ::String
-      attr_accessor token_code (): ::String
+      attr_accessor duration_seconds (): ::Integer?
+      attr_accessor serial_number (): ::String?
+      attr_accessor token_code (): ::String?
     end
 
-    class GetSessionTokenOutput < ::Struct[untyped]
+    class GetSessionTokenOutput
       include Hearth::Structure
-      attr_accessor credentials (): Types::Credentials
+      attr_accessor credentials (): Types::Credentials?
     end
 
-    class IDPCommunicationErrorException < ::Struct[untyped]
+    class IDPCommunicationErrorException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class IDPRejectedClaimException < ::Struct[untyped]
+    class IDPRejectedClaimException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class InvalidAuthorizationMessageException < ::Struct[untyped]
+    class InvalidAuthorizationMessageException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class InvalidIdentityTokenException < ::Struct[untyped]
+    class InvalidIdentityTokenException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class MalformedPolicyDocumentException < ::Struct[untyped]
+    class MalformedPolicyDocumentException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class PackedPolicyTooLargeException < ::Struct[untyped]
+    class PackedPolicyTooLargeException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class PolicyDescriptorType < ::Struct[untyped]
+    class PolicyDescriptorType
       include Hearth::Structure
-      attr_accessor arn (): ::String
+      attr_accessor arn (): ::String?
     end
 
-    class ProvidedContext < ::Struct[untyped]
+    class ProvidedContext
       include Hearth::Structure
-      attr_accessor provider_arn (): ::String
-      attr_accessor context_assertion (): ::String
+      attr_accessor provider_arn (): ::String?
+      attr_accessor context_assertion (): ::String?
     end
 
-    class RegionDisabledException < ::Struct[untyped]
+    class RegionDisabledException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class Tag < ::Struct[untyped]
+    class Tag
       include Hearth::Structure
       attr_accessor key (): ::String
       attr_accessor value (): ::String

@@ -51,7 +51,7 @@ module AWS::SDK::Core
 
         # Handle response checksum
         if @request_validation_mode_member &&
-           input[@request_validation_mode_member] == 'ENABLED'
+           input.send(@request_validation_mode_member) == 'ENABLED'
           response_checksum(context)
         end
 
@@ -81,7 +81,7 @@ module AWS::SDK::Core
 
       def request_checksum_digest(input)
         if @request_algorithm_member
-          checksum_algorithm = input[@request_algorithm_member]
+          checksum_algorithm = input.send(@request_algorithm_member)
         end
 
         if checksum_algorithm

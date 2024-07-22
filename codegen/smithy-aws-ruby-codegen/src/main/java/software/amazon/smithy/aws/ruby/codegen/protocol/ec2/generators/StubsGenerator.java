@@ -17,9 +17,7 @@ package software.amazon.smithy.aws.ruby.codegen.protocol.ec2.generators;
 
 import java.util.Optional;
 import java.util.stream.Stream;
-
 import software.amazon.smithy.aws.traits.protocols.AwsQueryErrorTrait;
-import software.amazon.smithy.codegen.core.Symbol;
 import software.amazon.smithy.model.shapes.BlobShape;
 import software.amazon.smithy.model.shapes.DoubleShape;
 import software.amazon.smithy.model.shapes.FloatShape;
@@ -59,8 +57,7 @@ public class StubsGenerator extends StubsGeneratorBase {
 
         serializeMembers.forEach((member) -> {
             Shape target = model.expectShape(member.getTarget());
-            String symbolName = ":" + symbolProvider.toMemberName(member);
-            String inputGetter = "stub[" + symbolName + "]";
+            String inputGetter = "stub." + symbolProvider.toMemberName(member);
 
             if (member.hasTrait(XmlAttributeTrait.class)) {
                 String attributeName = member.getMemberName();
@@ -193,7 +190,7 @@ public class StubsGenerator extends StubsGeneratorBase {
                 .openBlock("def self.stub(http_resp, stub:)")
                 .write("data = {}")
                 .call(() -> renderStatusCodeStubber(errorShape))
-                .write("xml = $T.new('Error')", Hearth.XML_NODE )
+                .write("xml = $T.new('Error')", Hearth.XML_NODE)
                 .write("xml << $T.new('Code', '$L')", Hearth.XML_NODE, errorCode(errorShape))
                 .call(() -> renderMemberBuilders(errorShape))
                 .write("http_resp.body = "
@@ -221,7 +218,7 @@ public class StubsGenerator extends StubsGeneratorBase {
             }
         }
 
-        this.writer.write("http_resp.status = $1L", new Object[]{statusCode});
+        this.writer.write("http_resp.status = $1L", new Object[] {statusCode});
     }
 
     private void writeXmlNamespaceForShape(Shape shape, String dataSetter) {
@@ -388,7 +385,8 @@ public class StubsGenerator extends StubsGeneratorBase {
         private final boolean checkRequired;
         private final String attributeName;
 
-        AttributeMemberSerializer(MemberShape memberShape, String inputGetter, boolean checkRequired, String attributeName) {
+        AttributeMemberSerializer(MemberShape memberShape, String inputGetter, boolean checkRequired,
+                                  String attributeName) {
             this.inputGetter = inputGetter;
             this.memberShape = memberShape;
             this.checkRequired = checkRequired;

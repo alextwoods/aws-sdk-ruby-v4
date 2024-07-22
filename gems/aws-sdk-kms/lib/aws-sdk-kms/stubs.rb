@@ -49,11 +49,11 @@ module AWS::SDK::KMS
       def self.stub(stub)
         stub ||= Types::AliasListEntry.new
         data = {}
-        data['AliasName'] = stub[:alias_name] unless stub[:alias_name].nil?
-        data['AliasArn'] = stub[:alias_arn] unless stub[:alias_arn].nil?
-        data['TargetKeyId'] = stub[:target_key_id] unless stub[:target_key_id].nil?
-        data['CreationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date]).to_i unless stub[:creation_date].nil?
-        data['LastUpdatedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_date]).to_i unless stub[:last_updated_date].nil?
+        data['AliasName'] = stub.alias_name unless stub.alias_name.nil?
+        data['AliasArn'] = stub.alias_arn unless stub.alias_arn.nil?
+        data['TargetKeyId'] = stub.target_key_id unless stub.target_key_id.nil?
+        data['CreationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub.creation_date).to_i unless stub.creation_date.nil?
+        data['LastUpdatedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub.last_updated_date).to_i unless stub.last_updated_date.nil?
         data
       end
     end
@@ -77,7 +77,7 @@ module AWS::SDK::KMS
         http_resp.status = 409
         data = {}
         data['__type'] = 'AlreadyExistsException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -99,7 +99,7 @@ module AWS::SDK::KMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['KeyId'] = stub[:key_id] unless stub[:key_id].nil?
+        data['KeyId'] = stub.key_id unless stub.key_id.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -124,7 +124,7 @@ module AWS::SDK::KMS
         http_resp.status = 400
         data = {}
         data['__type'] = 'CloudHsmClusterInUseException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -148,7 +148,7 @@ module AWS::SDK::KMS
         http_resp.status = 400
         data = {}
         data['__type'] = 'CloudHsmClusterInvalidConfigurationException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -172,7 +172,7 @@ module AWS::SDK::KMS
         http_resp.status = 400
         data = {}
         data['__type'] = 'CloudHsmClusterNotActiveException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -196,7 +196,7 @@ module AWS::SDK::KMS
         http_resp.status = 400
         data = {}
         data['__type'] = 'CloudHsmClusterNotFoundException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -220,7 +220,7 @@ module AWS::SDK::KMS
         http_resp.status = 400
         data = {}
         data['__type'] = 'CloudHsmClusterNotRelatedException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -284,7 +284,7 @@ module AWS::SDK::KMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['CustomKeyStoreId'] = stub[:custom_key_store_id] unless stub[:custom_key_store_id].nil?
+        data['CustomKeyStoreId'] = stub.custom_key_store_id unless stub.custom_key_store_id.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -308,8 +308,8 @@ module AWS::SDK::KMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['GrantToken'] = stub[:grant_token] unless stub[:grant_token].nil?
-        data['GrantId'] = stub[:grant_id] unless stub[:grant_id].nil?
+        data['GrantToken'] = stub.grant_token unless stub.grant_token.nil?
+        data['GrantId'] = stub.grant_id unless stub.grant_id.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -332,7 +332,7 @@ module AWS::SDK::KMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['KeyMetadata'] = KeyMetadata.stub(stub[:key_metadata]) unless stub[:key_metadata].nil?
+        data['KeyMetadata'] = KeyMetadata.stub(stub.key_metadata) unless stub.key_metadata.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -357,7 +357,7 @@ module AWS::SDK::KMS
         http_resp.status = 400
         data = {}
         data['__type'] = 'CustomKeyStoreHasCMKsException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -381,7 +381,7 @@ module AWS::SDK::KMS
         http_resp.status = 400
         data = {}
         data['__type'] = 'CustomKeyStoreInvalidStateException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -405,7 +405,7 @@ module AWS::SDK::KMS
         http_resp.status = 400
         data = {}
         data['__type'] = 'CustomKeyStoreNameInUseException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -429,7 +429,7 @@ module AWS::SDK::KMS
         http_resp.status = 400
         data = {}
         data['__type'] = 'CustomKeyStoreNotFoundException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -473,15 +473,15 @@ module AWS::SDK::KMS
       def self.stub(stub)
         stub ||= Types::CustomKeyStoresListEntry.new
         data = {}
-        data['CustomKeyStoreId'] = stub[:custom_key_store_id] unless stub[:custom_key_store_id].nil?
-        data['CustomKeyStoreName'] = stub[:custom_key_store_name] unless stub[:custom_key_store_name].nil?
-        data['CloudHsmClusterId'] = stub[:cloud_hsm_cluster_id] unless stub[:cloud_hsm_cluster_id].nil?
-        data['TrustAnchorCertificate'] = stub[:trust_anchor_certificate] unless stub[:trust_anchor_certificate].nil?
-        data['ConnectionState'] = stub[:connection_state] unless stub[:connection_state].nil?
-        data['ConnectionErrorCode'] = stub[:connection_error_code] unless stub[:connection_error_code].nil?
-        data['CreationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date]).to_i unless stub[:creation_date].nil?
-        data['CustomKeyStoreType'] = stub[:custom_key_store_type] unless stub[:custom_key_store_type].nil?
-        data['XksProxyConfiguration'] = XksProxyConfigurationType.stub(stub[:xks_proxy_configuration]) unless stub[:xks_proxy_configuration].nil?
+        data['CustomKeyStoreId'] = stub.custom_key_store_id unless stub.custom_key_store_id.nil?
+        data['CustomKeyStoreName'] = stub.custom_key_store_name unless stub.custom_key_store_name.nil?
+        data['CloudHsmClusterId'] = stub.cloud_hsm_cluster_id unless stub.cloud_hsm_cluster_id.nil?
+        data['TrustAnchorCertificate'] = stub.trust_anchor_certificate unless stub.trust_anchor_certificate.nil?
+        data['ConnectionState'] = stub.connection_state unless stub.connection_state.nil?
+        data['ConnectionErrorCode'] = stub.connection_error_code unless stub.connection_error_code.nil?
+        data['CreationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub.creation_date).to_i unless stub.creation_date.nil?
+        data['CustomKeyStoreType'] = stub.custom_key_store_type unless stub.custom_key_store_type.nil?
+        data['XksProxyConfiguration'] = XksProxyConfigurationType.stub(stub.xks_proxy_configuration) unless stub.xks_proxy_configuration.nil?
         data
       end
     end
@@ -506,10 +506,10 @@ module AWS::SDK::KMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['KeyId'] = stub[:key_id] unless stub[:key_id].nil?
-        data['Plaintext'] = ::Base64::strict_encode64(stub[:plaintext]) unless stub[:plaintext].nil?
-        data['EncryptionAlgorithm'] = stub[:encryption_algorithm] unless stub[:encryption_algorithm].nil?
-        data['CiphertextForRecipient'] = ::Base64::strict_encode64(stub[:ciphertext_for_recipient]) unless stub[:ciphertext_for_recipient].nil?
+        data['KeyId'] = stub.key_id unless stub.key_id.nil?
+        data['Plaintext'] = ::Base64::strict_encode64(stub.plaintext) unless stub.plaintext.nil?
+        data['EncryptionAlgorithm'] = stub.encryption_algorithm unless stub.encryption_algorithm.nil?
+        data['CiphertextForRecipient'] = ::Base64::strict_encode64(stub.ciphertext_for_recipient) unless stub.ciphertext_for_recipient.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -597,7 +597,7 @@ module AWS::SDK::KMS
         http_resp.status = 503
         data = {}
         data['__type'] = 'DependencyTimeoutException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -621,9 +621,9 @@ module AWS::SDK::KMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['CustomKeyStores'] = CustomKeyStoresList.stub(stub[:custom_key_stores]) unless stub[:custom_key_stores].nil?
-        data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        data['Truncated'] = stub[:truncated] unless stub[:truncated].nil?
+        data['CustomKeyStores'] = CustomKeyStoresList.stub(stub.custom_key_stores) unless stub.custom_key_stores.nil?
+        data['NextMarker'] = stub.next_marker unless stub.next_marker.nil?
+        data['Truncated'] = stub.truncated unless stub.truncated.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -646,7 +646,7 @@ module AWS::SDK::KMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['KeyMetadata'] = KeyMetadata.stub(stub[:key_metadata]) unless stub[:key_metadata].nil?
+        data['KeyMetadata'] = KeyMetadata.stub(stub.key_metadata) unless stub.key_metadata.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -713,7 +713,7 @@ module AWS::SDK::KMS
         http_resp.status = 409
         data = {}
         data['__type'] = 'DisabledException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -758,7 +758,7 @@ module AWS::SDK::KMS
         http_resp.status = 412
         data = {}
         data['__type'] = 'DryRunOperationException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -824,9 +824,9 @@ module AWS::SDK::KMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['CiphertextBlob'] = ::Base64::strict_encode64(stub[:ciphertext_blob]) unless stub[:ciphertext_blob].nil?
-        data['KeyId'] = stub[:key_id] unless stub[:key_id].nil?
-        data['EncryptionAlgorithm'] = stub[:encryption_algorithm] unless stub[:encryption_algorithm].nil?
+        data['CiphertextBlob'] = ::Base64::strict_encode64(stub.ciphertext_blob) unless stub.ciphertext_blob.nil?
+        data['KeyId'] = stub.key_id unless stub.key_id.nil?
+        data['EncryptionAlgorithm'] = stub.encryption_algorithm unless stub.encryption_algorithm.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -856,7 +856,7 @@ module AWS::SDK::KMS
         return nil if visited.include?('EncryptionContextType')
         visited = visited + ['EncryptionContextType']
         {
-          key: 'value'
+          'key' => 'value'
         }
       end
 
@@ -889,7 +889,7 @@ module AWS::SDK::KMS
         http_resp.status = 400
         data = {}
         data['__type'] = 'ExpiredImportTokenException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -914,10 +914,10 @@ module AWS::SDK::KMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['CiphertextBlob'] = ::Base64::strict_encode64(stub[:ciphertext_blob]) unless stub[:ciphertext_blob].nil?
-        data['Plaintext'] = ::Base64::strict_encode64(stub[:plaintext]) unless stub[:plaintext].nil?
-        data['KeyId'] = stub[:key_id] unless stub[:key_id].nil?
-        data['CiphertextForRecipient'] = ::Base64::strict_encode64(stub[:ciphertext_for_recipient]) unless stub[:ciphertext_for_recipient].nil?
+        data['CiphertextBlob'] = ::Base64::strict_encode64(stub.ciphertext_blob) unless stub.ciphertext_blob.nil?
+        data['Plaintext'] = ::Base64::strict_encode64(stub.plaintext) unless stub.plaintext.nil?
+        data['KeyId'] = stub.key_id unless stub.key_id.nil?
+        data['CiphertextForRecipient'] = ::Base64::strict_encode64(stub.ciphertext_for_recipient) unless stub.ciphertext_for_recipient.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -945,12 +945,12 @@ module AWS::SDK::KMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['PrivateKeyCiphertextBlob'] = ::Base64::strict_encode64(stub[:private_key_ciphertext_blob]) unless stub[:private_key_ciphertext_blob].nil?
-        data['PrivateKeyPlaintext'] = ::Base64::strict_encode64(stub[:private_key_plaintext]) unless stub[:private_key_plaintext].nil?
-        data['PublicKey'] = ::Base64::strict_encode64(stub[:public_key]) unless stub[:public_key].nil?
-        data['KeyId'] = stub[:key_id] unless stub[:key_id].nil?
-        data['KeyPairSpec'] = stub[:key_pair_spec] unless stub[:key_pair_spec].nil?
-        data['CiphertextForRecipient'] = ::Base64::strict_encode64(stub[:ciphertext_for_recipient]) unless stub[:ciphertext_for_recipient].nil?
+        data['PrivateKeyCiphertextBlob'] = ::Base64::strict_encode64(stub.private_key_ciphertext_blob) unless stub.private_key_ciphertext_blob.nil?
+        data['PrivateKeyPlaintext'] = ::Base64::strict_encode64(stub.private_key_plaintext) unless stub.private_key_plaintext.nil?
+        data['PublicKey'] = ::Base64::strict_encode64(stub.public_key) unless stub.public_key.nil?
+        data['KeyId'] = stub.key_id unless stub.key_id.nil?
+        data['KeyPairSpec'] = stub.key_pair_spec unless stub.key_pair_spec.nil?
+        data['CiphertextForRecipient'] = ::Base64::strict_encode64(stub.ciphertext_for_recipient) unless stub.ciphertext_for_recipient.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -976,10 +976,10 @@ module AWS::SDK::KMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['PrivateKeyCiphertextBlob'] = ::Base64::strict_encode64(stub[:private_key_ciphertext_blob]) unless stub[:private_key_ciphertext_blob].nil?
-        data['PublicKey'] = ::Base64::strict_encode64(stub[:public_key]) unless stub[:public_key].nil?
-        data['KeyId'] = stub[:key_id] unless stub[:key_id].nil?
-        data['KeyPairSpec'] = stub[:key_pair_spec] unless stub[:key_pair_spec].nil?
+        data['PrivateKeyCiphertextBlob'] = ::Base64::strict_encode64(stub.private_key_ciphertext_blob) unless stub.private_key_ciphertext_blob.nil?
+        data['PublicKey'] = ::Base64::strict_encode64(stub.public_key) unless stub.public_key.nil?
+        data['KeyId'] = stub.key_id unless stub.key_id.nil?
+        data['KeyPairSpec'] = stub.key_pair_spec unless stub.key_pair_spec.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -1003,8 +1003,8 @@ module AWS::SDK::KMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['CiphertextBlob'] = ::Base64::strict_encode64(stub[:ciphertext_blob]) unless stub[:ciphertext_blob].nil?
-        data['KeyId'] = stub[:key_id] unless stub[:key_id].nil?
+        data['CiphertextBlob'] = ::Base64::strict_encode64(stub.ciphertext_blob) unless stub.ciphertext_blob.nil?
+        data['KeyId'] = stub.key_id unless stub.key_id.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -1029,9 +1029,9 @@ module AWS::SDK::KMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Mac'] = ::Base64::strict_encode64(stub[:mac]) unless stub[:mac].nil?
-        data['MacAlgorithm'] = stub[:mac_algorithm] unless stub[:mac_algorithm].nil?
-        data['KeyId'] = stub[:key_id] unless stub[:key_id].nil?
+        data['Mac'] = ::Base64::strict_encode64(stub.mac) unless stub.mac.nil?
+        data['MacAlgorithm'] = stub.mac_algorithm unless stub.mac_algorithm.nil?
+        data['KeyId'] = stub.key_id unless stub.key_id.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -1055,8 +1055,8 @@ module AWS::SDK::KMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Plaintext'] = ::Base64::strict_encode64(stub[:plaintext]) unless stub[:plaintext].nil?
-        data['CiphertextForRecipient'] = ::Base64::strict_encode64(stub[:ciphertext_for_recipient]) unless stub[:ciphertext_for_recipient].nil?
+        data['Plaintext'] = ::Base64::strict_encode64(stub.plaintext) unless stub.plaintext.nil?
+        data['CiphertextForRecipient'] = ::Base64::strict_encode64(stub.ciphertext_for_recipient) unless stub.ciphertext_for_recipient.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -1079,7 +1079,7 @@ module AWS::SDK::KMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Policy'] = stub[:policy] unless stub[:policy].nil?
+        data['Policy'] = stub.policy unless stub.policy.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -1102,7 +1102,7 @@ module AWS::SDK::KMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['KeyRotationEnabled'] = stub[:key_rotation_enabled] unless stub[:key_rotation_enabled].nil?
+        data['KeyRotationEnabled'] = stub.key_rotation_enabled unless stub.key_rotation_enabled.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -1128,10 +1128,10 @@ module AWS::SDK::KMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['KeyId'] = stub[:key_id] unless stub[:key_id].nil?
-        data['ImportToken'] = ::Base64::strict_encode64(stub[:import_token]) unless stub[:import_token].nil?
-        data['PublicKey'] = ::Base64::strict_encode64(stub[:public_key]) unless stub[:public_key].nil?
-        data['ParametersValidTo'] = Hearth::TimeHelper.to_epoch_seconds(stub[:parameters_valid_to]).to_i unless stub[:parameters_valid_to].nil?
+        data['KeyId'] = stub.key_id unless stub.key_id.nil?
+        data['ImportToken'] = ::Base64::strict_encode64(stub.import_token) unless stub.import_token.nil?
+        data['PublicKey'] = ::Base64::strict_encode64(stub.public_key) unless stub.public_key.nil?
+        data['ParametersValidTo'] = Hearth::TimeHelper.to_epoch_seconds(stub.parameters_valid_to).to_i unless stub.parameters_valid_to.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -1160,13 +1160,13 @@ module AWS::SDK::KMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['KeyId'] = stub[:key_id] unless stub[:key_id].nil?
-        data['PublicKey'] = ::Base64::strict_encode64(stub[:public_key]) unless stub[:public_key].nil?
-        data['CustomerMasterKeySpec'] = stub[:customer_master_key_spec] unless stub[:customer_master_key_spec].nil?
-        data['KeySpec'] = stub[:key_spec] unless stub[:key_spec].nil?
-        data['KeyUsage'] = stub[:key_usage] unless stub[:key_usage].nil?
-        data['EncryptionAlgorithms'] = EncryptionAlgorithmSpecList.stub(stub[:encryption_algorithms]) unless stub[:encryption_algorithms].nil?
-        data['SigningAlgorithms'] = SigningAlgorithmSpecList.stub(stub[:signing_algorithms]) unless stub[:signing_algorithms].nil?
+        data['KeyId'] = stub.key_id unless stub.key_id.nil?
+        data['PublicKey'] = ::Base64::strict_encode64(stub.public_key) unless stub.public_key.nil?
+        data['CustomerMasterKeySpec'] = stub.customer_master_key_spec unless stub.customer_master_key_spec.nil?
+        data['KeySpec'] = stub.key_spec unless stub.key_spec.nil?
+        data['KeyUsage'] = stub.key_usage unless stub.key_usage.nil?
+        data['EncryptionAlgorithms'] = EncryptionAlgorithmSpecList.stub(stub.encryption_algorithms) unless stub.encryption_algorithms.nil?
+        data['SigningAlgorithms'] = SigningAlgorithmSpecList.stub(stub.signing_algorithms) unless stub.signing_algorithms.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -1185,8 +1185,8 @@ module AWS::SDK::KMS
       def self.stub(stub)
         stub ||= Types::GrantConstraints.new
         data = {}
-        data['EncryptionContextSubset'] = EncryptionContextType.stub(stub[:encryption_context_subset]) unless stub[:encryption_context_subset].nil?
-        data['EncryptionContextEquals'] = EncryptionContextType.stub(stub[:encryption_context_equals]) unless stub[:encryption_context_equals].nil?
+        data['EncryptionContextSubset'] = EncryptionContextType.stub(stub.encryption_context_subset) unless stub.encryption_context_subset.nil?
+        data['EncryptionContextEquals'] = EncryptionContextType.stub(stub.encryption_context_equals) unless stub.encryption_context_equals.nil?
         data
       end
     end
@@ -1230,15 +1230,15 @@ module AWS::SDK::KMS
       def self.stub(stub)
         stub ||= Types::GrantListEntry.new
         data = {}
-        data['KeyId'] = stub[:key_id] unless stub[:key_id].nil?
-        data['GrantId'] = stub[:grant_id] unless stub[:grant_id].nil?
-        data['Name'] = stub[:name] unless stub[:name].nil?
-        data['CreationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date]).to_i unless stub[:creation_date].nil?
-        data['GranteePrincipal'] = stub[:grantee_principal] unless stub[:grantee_principal].nil?
-        data['RetiringPrincipal'] = stub[:retiring_principal] unless stub[:retiring_principal].nil?
-        data['IssuingAccount'] = stub[:issuing_account] unless stub[:issuing_account].nil?
-        data['Operations'] = GrantOperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        data['Constraints'] = GrantConstraints.stub(stub[:constraints]) unless stub[:constraints].nil?
+        data['KeyId'] = stub.key_id unless stub.key_id.nil?
+        data['GrantId'] = stub.grant_id unless stub.grant_id.nil?
+        data['Name'] = stub.name unless stub.name.nil?
+        data['CreationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub.creation_date).to_i unless stub.creation_date.nil?
+        data['GranteePrincipal'] = stub.grantee_principal unless stub.grantee_principal.nil?
+        data['RetiringPrincipal'] = stub.retiring_principal unless stub.retiring_principal.nil?
+        data['IssuingAccount'] = stub.issuing_account unless stub.issuing_account.nil?
+        data['Operations'] = GrantOperationList.stub(stub.operations) unless stub.operations.nil?
+        data['Constraints'] = GrantConstraints.stub(stub.constraints) unless stub.constraints.nil?
         data
       end
     end
@@ -1302,7 +1302,7 @@ module AWS::SDK::KMS
         http_resp.status = 400
         data = {}
         data['__type'] = 'IncorrectKeyException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1326,7 +1326,7 @@ module AWS::SDK::KMS
         http_resp.status = 400
         data = {}
         data['__type'] = 'IncorrectKeyMaterialException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1350,7 +1350,7 @@ module AWS::SDK::KMS
         http_resp.status = 400
         data = {}
         data['__type'] = 'IncorrectTrustAnchorException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1374,7 +1374,7 @@ module AWS::SDK::KMS
         http_resp.status = 400
         data = {}
         data['__type'] = 'InvalidAliasNameException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1398,7 +1398,7 @@ module AWS::SDK::KMS
         http_resp.status = 400
         data = {}
         data['__type'] = 'InvalidArnException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1422,7 +1422,7 @@ module AWS::SDK::KMS
         http_resp.status = 400
         data = {}
         data['__type'] = 'InvalidCiphertextException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1446,7 +1446,7 @@ module AWS::SDK::KMS
         http_resp.status = 400
         data = {}
         data['__type'] = 'InvalidGrantIdException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1470,7 +1470,7 @@ module AWS::SDK::KMS
         http_resp.status = 400
         data = {}
         data['__type'] = 'InvalidGrantTokenException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1494,7 +1494,7 @@ module AWS::SDK::KMS
         http_resp.status = 400
         data = {}
         data['__type'] = 'InvalidImportTokenException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1518,7 +1518,7 @@ module AWS::SDK::KMS
         http_resp.status = 400
         data = {}
         data['__type'] = 'InvalidKeyUsageException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1542,7 +1542,7 @@ module AWS::SDK::KMS
         http_resp.status = 400
         data = {}
         data['__type'] = 'InvalidMarkerException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1566,7 +1566,7 @@ module AWS::SDK::KMS
         http_resp.status = 500
         data = {}
         data['__type'] = 'KMSInternalException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1590,7 +1590,7 @@ module AWS::SDK::KMS
         http_resp.status = 400
         data = {}
         data['__type'] = 'KMSInvalidMacException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1614,7 +1614,7 @@ module AWS::SDK::KMS
         http_resp.status = 400
         data = {}
         data['__type'] = 'KMSInvalidSignatureException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1638,7 +1638,7 @@ module AWS::SDK::KMS
         http_resp.status = 409
         data = {}
         data['__type'] = 'KMSInvalidStateException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1675,8 +1675,8 @@ module AWS::SDK::KMS
       def self.stub(stub)
         stub ||= Types::KeyListEntry.new
         data = {}
-        data['KeyId'] = stub[:key_id] unless stub[:key_id].nil?
-        data['KeyArn'] = stub[:key_arn] unless stub[:key_arn].nil?
+        data['KeyId'] = stub.key_id unless stub.key_id.nil?
+        data['KeyArn'] = stub.key_arn unless stub.key_arn.nil?
         data
       end
     end
@@ -1716,30 +1716,30 @@ module AWS::SDK::KMS
       def self.stub(stub)
         stub ||= Types::KeyMetadata.new
         data = {}
-        data['AWSAccountId'] = stub[:aws_account_id] unless stub[:aws_account_id].nil?
-        data['KeyId'] = stub[:key_id] unless stub[:key_id].nil?
-        data['Arn'] = stub[:arn] unless stub[:arn].nil?
-        data['CreationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date]).to_i unless stub[:creation_date].nil?
-        data['Enabled'] = stub[:enabled] unless stub[:enabled].nil?
-        data['Description'] = stub[:description] unless stub[:description].nil?
-        data['KeyUsage'] = stub[:key_usage] unless stub[:key_usage].nil?
-        data['KeyState'] = stub[:key_state] unless stub[:key_state].nil?
-        data['DeletionDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:deletion_date]).to_i unless stub[:deletion_date].nil?
-        data['ValidTo'] = Hearth::TimeHelper.to_epoch_seconds(stub[:valid_to]).to_i unless stub[:valid_to].nil?
-        data['Origin'] = stub[:origin] unless stub[:origin].nil?
-        data['CustomKeyStoreId'] = stub[:custom_key_store_id] unless stub[:custom_key_store_id].nil?
-        data['CloudHsmClusterId'] = stub[:cloud_hsm_cluster_id] unless stub[:cloud_hsm_cluster_id].nil?
-        data['ExpirationModel'] = stub[:expiration_model] unless stub[:expiration_model].nil?
-        data['KeyManager'] = stub[:key_manager] unless stub[:key_manager].nil?
-        data['CustomerMasterKeySpec'] = stub[:customer_master_key_spec] unless stub[:customer_master_key_spec].nil?
-        data['KeySpec'] = stub[:key_spec] unless stub[:key_spec].nil?
-        data['EncryptionAlgorithms'] = EncryptionAlgorithmSpecList.stub(stub[:encryption_algorithms]) unless stub[:encryption_algorithms].nil?
-        data['SigningAlgorithms'] = SigningAlgorithmSpecList.stub(stub[:signing_algorithms]) unless stub[:signing_algorithms].nil?
-        data['MultiRegion'] = stub[:multi_region] unless stub[:multi_region].nil?
-        data['MultiRegionConfiguration'] = MultiRegionConfiguration.stub(stub[:multi_region_configuration]) unless stub[:multi_region_configuration].nil?
-        data['PendingDeletionWindowInDays'] = stub[:pending_deletion_window_in_days] unless stub[:pending_deletion_window_in_days].nil?
-        data['MacAlgorithms'] = MacAlgorithmSpecList.stub(stub[:mac_algorithms]) unless stub[:mac_algorithms].nil?
-        data['XksKeyConfiguration'] = XksKeyConfigurationType.stub(stub[:xks_key_configuration]) unless stub[:xks_key_configuration].nil?
+        data['AWSAccountId'] = stub.aws_account_id unless stub.aws_account_id.nil?
+        data['KeyId'] = stub.key_id unless stub.key_id.nil?
+        data['Arn'] = stub.arn unless stub.arn.nil?
+        data['CreationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub.creation_date).to_i unless stub.creation_date.nil?
+        data['Enabled'] = stub.enabled unless stub.enabled.nil?
+        data['Description'] = stub.description unless stub.description.nil?
+        data['KeyUsage'] = stub.key_usage unless stub.key_usage.nil?
+        data['KeyState'] = stub.key_state unless stub.key_state.nil?
+        data['DeletionDate'] = Hearth::TimeHelper.to_epoch_seconds(stub.deletion_date).to_i unless stub.deletion_date.nil?
+        data['ValidTo'] = Hearth::TimeHelper.to_epoch_seconds(stub.valid_to).to_i unless stub.valid_to.nil?
+        data['Origin'] = stub.origin unless stub.origin.nil?
+        data['CustomKeyStoreId'] = stub.custom_key_store_id unless stub.custom_key_store_id.nil?
+        data['CloudHsmClusterId'] = stub.cloud_hsm_cluster_id unless stub.cloud_hsm_cluster_id.nil?
+        data['ExpirationModel'] = stub.expiration_model unless stub.expiration_model.nil?
+        data['KeyManager'] = stub.key_manager unless stub.key_manager.nil?
+        data['CustomerMasterKeySpec'] = stub.customer_master_key_spec unless stub.customer_master_key_spec.nil?
+        data['KeySpec'] = stub.key_spec unless stub.key_spec.nil?
+        data['EncryptionAlgorithms'] = EncryptionAlgorithmSpecList.stub(stub.encryption_algorithms) unless stub.encryption_algorithms.nil?
+        data['SigningAlgorithms'] = SigningAlgorithmSpecList.stub(stub.signing_algorithms) unless stub.signing_algorithms.nil?
+        data['MultiRegion'] = stub.multi_region unless stub.multi_region.nil?
+        data['MultiRegionConfiguration'] = MultiRegionConfiguration.stub(stub.multi_region_configuration) unless stub.multi_region_configuration.nil?
+        data['PendingDeletionWindowInDays'] = stub.pending_deletion_window_in_days unless stub.pending_deletion_window_in_days.nil?
+        data['MacAlgorithms'] = MacAlgorithmSpecList.stub(stub.mac_algorithms) unless stub.mac_algorithms.nil?
+        data['XksKeyConfiguration'] = XksKeyConfigurationType.stub(stub.xks_key_configuration) unless stub.xks_key_configuration.nil?
         data
       end
     end
@@ -1763,7 +1763,7 @@ module AWS::SDK::KMS
         http_resp.status = 500
         data = {}
         data['__type'] = 'KeyUnavailableException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1787,7 +1787,7 @@ module AWS::SDK::KMS
         http_resp.status = 400
         data = {}
         data['__type'] = 'LimitExceededException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1811,9 +1811,9 @@ module AWS::SDK::KMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Aliases'] = AliasList.stub(stub[:aliases]) unless stub[:aliases].nil?
-        data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        data['Truncated'] = stub[:truncated] unless stub[:truncated].nil?
+        data['Aliases'] = AliasList.stub(stub.aliases) unless stub.aliases.nil?
+        data['NextMarker'] = stub.next_marker unless stub.next_marker.nil?
+        data['Truncated'] = stub.truncated unless stub.truncated.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -1838,9 +1838,9 @@ module AWS::SDK::KMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Grants'] = GrantList.stub(stub[:grants]) unless stub[:grants].nil?
-        data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        data['Truncated'] = stub[:truncated] unless stub[:truncated].nil?
+        data['Grants'] = GrantList.stub(stub.grants) unless stub.grants.nil?
+        data['NextMarker'] = stub.next_marker unless stub.next_marker.nil?
+        data['Truncated'] = stub.truncated unless stub.truncated.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -1865,9 +1865,9 @@ module AWS::SDK::KMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['PolicyNames'] = PolicyNameList.stub(stub[:policy_names]) unless stub[:policy_names].nil?
-        data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        data['Truncated'] = stub[:truncated] unless stub[:truncated].nil?
+        data['PolicyNames'] = PolicyNameList.stub(stub.policy_names) unless stub.policy_names.nil?
+        data['NextMarker'] = stub.next_marker unless stub.next_marker.nil?
+        data['Truncated'] = stub.truncated unless stub.truncated.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -1892,9 +1892,9 @@ module AWS::SDK::KMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Keys'] = KeyList.stub(stub[:keys]) unless stub[:keys].nil?
-        data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        data['Truncated'] = stub[:truncated] unless stub[:truncated].nil?
+        data['Keys'] = KeyList.stub(stub.keys) unless stub.keys.nil?
+        data['NextMarker'] = stub.next_marker unless stub.next_marker.nil?
+        data['Truncated'] = stub.truncated unless stub.truncated.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -1919,9 +1919,9 @@ module AWS::SDK::KMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        data['Truncated'] = stub[:truncated] unless stub[:truncated].nil?
+        data['Tags'] = TagList.stub(stub.tags) unless stub.tags.nil?
+        data['NextMarker'] = stub.next_marker unless stub.next_marker.nil?
+        data['Truncated'] = stub.truncated unless stub.truncated.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -1946,9 +1946,9 @@ module AWS::SDK::KMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Grants'] = GrantList.stub(stub[:grants]) unless stub[:grants].nil?
-        data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        data['Truncated'] = stub[:truncated] unless stub[:truncated].nil?
+        data['Grants'] = GrantList.stub(stub.grants) unless stub.grants.nil?
+        data['NextMarker'] = stub.next_marker unless stub.next_marker.nil?
+        data['Truncated'] = stub.truncated unless stub.truncated.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -1992,7 +1992,7 @@ module AWS::SDK::KMS
         http_resp.status = 400
         data = {}
         data['__type'] = 'MalformedPolicyDocumentException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -2011,9 +2011,9 @@ module AWS::SDK::KMS
       def self.stub(stub)
         stub ||= Types::MultiRegionConfiguration.new
         data = {}
-        data['MultiRegionKeyType'] = stub[:multi_region_key_type] unless stub[:multi_region_key_type].nil?
-        data['PrimaryKey'] = MultiRegionKey.stub(stub[:primary_key]) unless stub[:primary_key].nil?
-        data['ReplicaKeys'] = MultiRegionKeyList.stub(stub[:replica_keys]) unless stub[:replica_keys].nil?
+        data['MultiRegionKeyType'] = stub.multi_region_key_type unless stub.multi_region_key_type.nil?
+        data['PrimaryKey'] = MultiRegionKey.stub(stub.primary_key) unless stub.primary_key.nil?
+        data['ReplicaKeys'] = MultiRegionKeyList.stub(stub.replica_keys) unless stub.replica_keys.nil?
         data
       end
     end
@@ -2031,8 +2031,8 @@ module AWS::SDK::KMS
       def self.stub(stub)
         stub ||= Types::MultiRegionKey.new
         data = {}
-        data['Arn'] = stub[:arn] unless stub[:arn].nil?
-        data['Region'] = stub[:region] unless stub[:region].nil?
+        data['Arn'] = stub.arn unless stub.arn.nil?
+        data['Region'] = stub.region unless stub.region.nil?
         data
       end
     end
@@ -2075,7 +2075,7 @@ module AWS::SDK::KMS
         http_resp.status = 404
         data = {}
         data['__type'] = 'NotFoundException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -2141,11 +2141,11 @@ module AWS::SDK::KMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['CiphertextBlob'] = ::Base64::strict_encode64(stub[:ciphertext_blob]) unless stub[:ciphertext_blob].nil?
-        data['SourceKeyId'] = stub[:source_key_id] unless stub[:source_key_id].nil?
-        data['KeyId'] = stub[:key_id] unless stub[:key_id].nil?
-        data['SourceEncryptionAlgorithm'] = stub[:source_encryption_algorithm] unless stub[:source_encryption_algorithm].nil?
-        data['DestinationEncryptionAlgorithm'] = stub[:destination_encryption_algorithm] unless stub[:destination_encryption_algorithm].nil?
+        data['CiphertextBlob'] = ::Base64::strict_encode64(stub.ciphertext_blob) unless stub.ciphertext_blob.nil?
+        data['SourceKeyId'] = stub.source_key_id unless stub.source_key_id.nil?
+        data['KeyId'] = stub.key_id unless stub.key_id.nil?
+        data['SourceEncryptionAlgorithm'] = stub.source_encryption_algorithm unless stub.source_encryption_algorithm.nil?
+        data['DestinationEncryptionAlgorithm'] = stub.destination_encryption_algorithm unless stub.destination_encryption_algorithm.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -2170,9 +2170,9 @@ module AWS::SDK::KMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ReplicaKeyMetadata'] = KeyMetadata.stub(stub[:replica_key_metadata]) unless stub[:replica_key_metadata].nil?
-        data['ReplicaPolicy'] = stub[:replica_policy] unless stub[:replica_policy].nil?
-        data['ReplicaTags'] = TagList.stub(stub[:replica_tags]) unless stub[:replica_tags].nil?
+        data['ReplicaKeyMetadata'] = KeyMetadata.stub(stub.replica_key_metadata) unless stub.replica_key_metadata.nil?
+        data['ReplicaPolicy'] = stub.replica_policy unless stub.replica_policy.nil?
+        data['ReplicaTags'] = TagList.stub(stub.replica_tags) unless stub.replica_tags.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -2240,10 +2240,10 @@ module AWS::SDK::KMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['KeyId'] = stub[:key_id] unless stub[:key_id].nil?
-        data['DeletionDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:deletion_date]).to_i unless stub[:deletion_date].nil?
-        data['KeyState'] = stub[:key_state] unless stub[:key_state].nil?
-        data['PendingWindowInDays'] = stub[:pending_window_in_days] unless stub[:pending_window_in_days].nil?
+        data['KeyId'] = stub.key_id unless stub.key_id.nil?
+        data['DeletionDate'] = Hearth::TimeHelper.to_epoch_seconds(stub.deletion_date).to_i unless stub.deletion_date.nil?
+        data['KeyState'] = stub.key_state unless stub.key_state.nil?
+        data['PendingWindowInDays'] = stub.pending_window_in_days unless stub.pending_window_in_days.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -2268,9 +2268,9 @@ module AWS::SDK::KMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['KeyId'] = stub[:key_id] unless stub[:key_id].nil?
-        data['Signature'] = ::Base64::strict_encode64(stub[:signature]) unless stub[:signature].nil?
-        data['SigningAlgorithm'] = stub[:signing_algorithm] unless stub[:signing_algorithm].nil?
+        data['KeyId'] = stub.key_id unless stub.key_id.nil?
+        data['Signature'] = ::Base64::strict_encode64(stub.signature) unless stub.signature.nil?
+        data['SigningAlgorithm'] = stub.signing_algorithm unless stub.signing_algorithm.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -2308,8 +2308,8 @@ module AWS::SDK::KMS
       def self.stub(stub)
         stub ||= Types::Tag.new
         data = {}
-        data['TagKey'] = stub[:tag_key] unless stub[:tag_key].nil?
-        data['TagValue'] = stub[:tag_value] unless stub[:tag_value].nil?
+        data['TagKey'] = stub.tag_key unless stub.tag_key.nil?
+        data['TagValue'] = stub.tag_value unless stub.tag_value.nil?
         data
       end
     end
@@ -2333,7 +2333,7 @@ module AWS::SDK::KMS
         http_resp.status = 400
         data = {}
         data['__type'] = 'TagException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -2397,7 +2397,7 @@ module AWS::SDK::KMS
         http_resp.status = 400
         data = {}
         data['__type'] = 'UnsupportedOperationException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -2526,9 +2526,9 @@ module AWS::SDK::KMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['KeyId'] = stub[:key_id] unless stub[:key_id].nil?
-        data['SignatureValid'] = stub[:signature_valid] unless stub[:signature_valid].nil?
-        data['SigningAlgorithm'] = stub[:signing_algorithm] unless stub[:signing_algorithm].nil?
+        data['KeyId'] = stub.key_id unless stub.key_id.nil?
+        data['SignatureValid'] = stub.signature_valid unless stub.signature_valid.nil?
+        data['SigningAlgorithm'] = stub.signing_algorithm unless stub.signing_algorithm.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -2553,9 +2553,9 @@ module AWS::SDK::KMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['KeyId'] = stub[:key_id] unless stub[:key_id].nil?
-        data['MacValid'] = stub[:mac_valid] unless stub[:mac_valid].nil?
-        data['MacAlgorithm'] = stub[:mac_algorithm] unless stub[:mac_algorithm].nil?
+        data['KeyId'] = stub.key_id unless stub.key_id.nil?
+        data['MacValid'] = stub.mac_valid unless stub.mac_valid.nil?
+        data['MacAlgorithm'] = stub.mac_algorithm unless stub.mac_algorithm.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -2580,7 +2580,7 @@ module AWS::SDK::KMS
         http_resp.status = 400
         data = {}
         data['__type'] = 'XksKeyAlreadyInUseException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -2597,7 +2597,7 @@ module AWS::SDK::KMS
       def self.stub(stub)
         stub ||= Types::XksKeyConfigurationType.new
         data = {}
-        data['Id'] = stub[:id] unless stub[:id].nil?
+        data['Id'] = stub.id unless stub.id.nil?
         data
       end
     end
@@ -2621,7 +2621,7 @@ module AWS::SDK::KMS
         http_resp.status = 400
         data = {}
         data['__type'] = 'XksKeyInvalidConfigurationException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -2645,7 +2645,7 @@ module AWS::SDK::KMS
         http_resp.status = 400
         data = {}
         data['__type'] = 'XksKeyNotFoundException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -2666,11 +2666,11 @@ module AWS::SDK::KMS
       def self.stub(stub)
         stub ||= Types::XksProxyConfigurationType.new
         data = {}
-        data['Connectivity'] = stub[:connectivity] unless stub[:connectivity].nil?
-        data['AccessKeyId'] = stub[:access_key_id] unless stub[:access_key_id].nil?
-        data['UriEndpoint'] = stub[:uri_endpoint] unless stub[:uri_endpoint].nil?
-        data['UriPath'] = stub[:uri_path] unless stub[:uri_path].nil?
-        data['VpcEndpointServiceName'] = stub[:vpc_endpoint_service_name] unless stub[:vpc_endpoint_service_name].nil?
+        data['Connectivity'] = stub.connectivity unless stub.connectivity.nil?
+        data['AccessKeyId'] = stub.access_key_id unless stub.access_key_id.nil?
+        data['UriEndpoint'] = stub.uri_endpoint unless stub.uri_endpoint.nil?
+        data['UriPath'] = stub.uri_path unless stub.uri_path.nil?
+        data['VpcEndpointServiceName'] = stub.vpc_endpoint_service_name unless stub.vpc_endpoint_service_name.nil?
         data
       end
     end
@@ -2694,7 +2694,7 @@ module AWS::SDK::KMS
         http_resp.status = 400
         data = {}
         data['__type'] = 'XksProxyIncorrectAuthenticationCredentialException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -2718,7 +2718,7 @@ module AWS::SDK::KMS
         http_resp.status = 400
         data = {}
         data['__type'] = 'XksProxyInvalidConfigurationException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -2742,7 +2742,7 @@ module AWS::SDK::KMS
         http_resp.status = 400
         data = {}
         data['__type'] = 'XksProxyInvalidResponseException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -2766,7 +2766,7 @@ module AWS::SDK::KMS
         http_resp.status = 400
         data = {}
         data['__type'] = 'XksProxyUriEndpointInUseException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -2790,7 +2790,7 @@ module AWS::SDK::KMS
         http_resp.status = 400
         data = {}
         data['__type'] = 'XksProxyUriInUseException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -2814,7 +2814,7 @@ module AWS::SDK::KMS
         http_resp.status = 400
         data = {}
         data['__type'] = 'XksProxyUriUnreachableException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -2838,7 +2838,7 @@ module AWS::SDK::KMS
         http_resp.status = 400
         data = {}
         data['__type'] = 'XksProxyVpcEndpointServiceInUseException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -2862,7 +2862,7 @@ module AWS::SDK::KMS
         http_resp.status = 400
         data = {}
         data['__type'] = 'XksProxyVpcEndpointServiceInvalidConfigurationException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -2886,7 +2886,7 @@ module AWS::SDK::KMS
         http_resp.status = 400
         data = {}
         data['__type'] = 'XksProxyVpcEndpointServiceNotFoundException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end

@@ -48,15 +48,18 @@ module AWS::SDK::KMS
     #   <p>Date and time that the alias was most recently associated with a KMS key in the account
     #         and Region. Formatted as Unix time.</p>
     #   @return [Time]
-    AliasListEntry = ::Struct.new(
-      :alias_name,
-      :alias_arn,
-      :target_key_id,
-      :creation_date,
-      :last_updated_date,
-      keyword_init: true
-    ) do
+    class AliasListEntry
       include Hearth::Structure
+
+      MEMBERS = %i[
+        alias_name
+        alias_arn
+        target_key_id
+        creation_date
+        last_updated_date
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The request was rejected because it attempted to create a resource that already
@@ -66,11 +69,14 @@ module AWS::SDK::KMS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    AlreadyExistsException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class AlreadyExistsException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -92,11 +98,14 @@ module AWS::SDK::KMS
     #            </ul>
     #            <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
     #   @return [String]
-    CancelKeyDeletionInput = ::Struct.new(
-      :key_id,
-      keyword_init: true
-    ) do
+    class CancelKeyDeletionInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key_id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -105,11 +114,14 @@ module AWS::SDK::KMS
     # @!attribute key_id
     #   <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key whose deletion is canceled.</p>
     #   @return [String]
-    CancelKeyDeletionOutput = ::Struct.new(
-      :key_id,
-      keyword_init: true
-    ) do
+    class CancelKeyDeletionOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key_id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The request was rejected because the specified CloudHSM cluster is already associated with an
@@ -123,11 +135,14 @@ module AWS::SDK::KMS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    CloudHsmClusterInUseException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class CloudHsmClusterInUseException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The request was rejected because the associated CloudHSM cluster did not meet the
@@ -167,11 +182,14 @@ module AWS::SDK::KMS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    CloudHsmClusterInvalidConfigurationException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class CloudHsmClusterInvalidConfigurationException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The request was rejected because the CloudHSM cluster associated with the CloudHSM key store is
@@ -183,11 +201,14 @@ module AWS::SDK::KMS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    CloudHsmClusterNotActiveException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class CloudHsmClusterNotActiveException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The request was rejected because KMS cannot find the CloudHSM cluster with the specified
@@ -197,11 +218,14 @@ module AWS::SDK::KMS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    CloudHsmClusterNotFoundException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class CloudHsmClusterNotFoundException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The request was rejected because the specified CloudHSM cluster has a different cluster
@@ -217,11 +241,14 @@ module AWS::SDK::KMS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    CloudHsmClusterNotRelatedException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class CloudHsmClusterNotRelatedException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -231,20 +258,24 @@ module AWS::SDK::KMS
     #   <p>Enter the key store ID of the custom key store that you want to connect.
     #         To find the ID of a custom key store, use the <a>DescribeCustomKeyStores</a> operation.</p>
     #   @return [String]
-    ConnectCustomKeyStoreInput = ::Struct.new(
-      :custom_key_store_id,
-      keyword_init: true
-    ) do
+    class ConnectCustomKeyStoreInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        custom_key_store_id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    ConnectCustomKeyStoreOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class ConnectCustomKeyStoreOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for ConnectionErrorCodeType
@@ -338,21 +369,25 @@ module AWS::SDK::KMS
     #            </ul>
     #            <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
     #   @return [String]
-    CreateAliasInput = ::Struct.new(
-      :alias_name,
-      :target_key_id,
-      keyword_init: true
-    ) do
+    class CreateAliasInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        alias_name
+        target_key_id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    CreateAliasOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class CreateAliasOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -516,23 +551,26 @@ module AWS::SDK::KMS
     #         your corporate data center.</p>
     #   Enum, one of: ["PUBLIC_ENDPOINT", "VPC_ENDPOINT_SERVICE"]
     #   @return [String]
-    CreateCustomKeyStoreInput = ::Struct.new(
-      :custom_key_store_name,
-      :cloud_hsm_cluster_id,
-      :trust_anchor_certificate,
-      :key_store_password,
-      :custom_key_store_type,
-      :xks_proxy_uri_endpoint,
-      :xks_proxy_uri_path,
-      :xks_proxy_vpc_endpoint_service_name,
-      :xks_proxy_authentication_credential,
-      :xks_proxy_connectivity,
-      keyword_init: true
-    ) do
+    class CreateCustomKeyStoreInput
       include Hearth::Structure
 
+      MEMBERS = %i[
+        custom_key_store_name
+        cloud_hsm_cluster_id
+        trust_anchor_certificate
+        key_store_password
+        custom_key_store_type
+        xks_proxy_uri_endpoint
+        xks_proxy_uri_path
+        xks_proxy_vpc_endpoint_service_name
+        xks_proxy_authentication_credential
+        xks_proxy_connectivity
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::KMS::Types::CreateCustomKeyStoreInput "\
+        "#<AWS::SDK::KMS::Types::CreateCustomKeyStoreInput "\
           "custom_key_store_name=#{custom_key_store_name || 'nil'}, "\
           "cloud_hsm_cluster_id=#{cloud_hsm_cluster_id || 'nil'}, "\
           "trust_anchor_certificate=#{trust_anchor_certificate || 'nil'}, "\
@@ -552,11 +590,14 @@ module AWS::SDK::KMS
     # @!attribute custom_key_store_id
     #   <p>A unique identifier for the new custom key store.</p>
     #   @return [String]
-    CreateCustomKeyStoreOutput = ::Struct.new(
-      :custom_key_store_id,
-      keyword_init: true
-    ) do
+    class CreateCustomKeyStoreOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        custom_key_store_id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -671,18 +712,21 @@ module AWS::SDK::KMS
     #   <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
     #            <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
     #   @return [Boolean]
-    CreateGrantInput = ::Struct.new(
-      :key_id,
-      :grantee_principal,
-      :retiring_principal,
-      :operations,
-      :constraints,
-      :grant_tokens,
-      :name,
-      :dry_run,
-      keyword_init: true
-    ) do
+    class CreateGrantInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key_id
+        grantee_principal
+        retiring_principal
+        operations
+        constraints
+        grant_tokens
+        name
+        dry_run
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -698,12 +742,15 @@ module AWS::SDK::KMS
     #   <p>The unique identifier for the grant.</p>
     #            <p>You can use the <code>GrantId</code> in a <a>ListGrants</a>, <a>RetireGrant</a>, or <a>RevokeGrant</a> operation.</p>
     #   @return [String]
-    CreateGrantOutput = ::Struct.new(
-      :grant_token,
-      :grant_id,
-      keyword_init: true
-    ) do
+    class CreateGrantOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        grant_token
+        grant_id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1009,21 +1056,24 @@ module AWS::SDK::KMS
     #         details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html#concept-double-encryption">Double
     #           encryption</a> in the <i>Key Management Service Developer Guide</i>.</p>
     #   @return [String]
-    CreateKeyInput = ::Struct.new(
-      :policy,
-      :description,
-      :key_usage,
-      :customer_master_key_spec,
-      :key_spec,
-      :origin,
-      :custom_key_store_id,
-      :bypass_policy_lockout_safety_check,
-      :tags,
-      :multi_region,
-      :xks_key_id,
-      keyword_init: true
-    ) do
+    class CreateKeyInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        policy
+        description
+        key_usage
+        customer_master_key_spec
+        key_spec
+        origin
+        custom_key_store_id
+        bypass_policy_lockout_safety_check
+        tags
+        multi_region
+        xks_key_id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1032,11 +1082,14 @@ module AWS::SDK::KMS
     # @!attribute key_metadata
     #   <p>Metadata associated with the KMS key.</p>
     #   @return [KeyMetadata]
-    CreateKeyOutput = ::Struct.new(
-      :key_metadata,
-      keyword_init: true
-    ) do
+    class CreateKeyOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key_metadata
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The request was rejected because the custom key store contains KMS keys. After verifying
@@ -1048,11 +1101,14 @@ module AWS::SDK::KMS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    CustomKeyStoreHasCMKsException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class CustomKeyStoreHasCMKsException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The request was rejected because of the <code>ConnectionState</code> of the custom key
@@ -1094,11 +1150,14 @@ module AWS::SDK::KMS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    CustomKeyStoreInvalidStateException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class CustomKeyStoreInvalidStateException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The request was rejected because the specified custom key store name is already assigned
@@ -1109,11 +1168,14 @@ module AWS::SDK::KMS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    CustomKeyStoreNameInUseException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class CustomKeyStoreNameInUseException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The request was rejected because KMS cannot find a custom key store with the specified
@@ -1123,11 +1185,14 @@ module AWS::SDK::KMS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    CustomKeyStoreNotFoundException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class CustomKeyStoreNotFoundException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for CustomKeyStoreType
@@ -1392,19 +1457,22 @@ module AWS::SDK::KMS
     #            <p>This field appears only when the <code>CustomKeyStoreType</code> is
     #           <code>EXTERNAL_KEY_STORE</code>.</p>
     #   @return [XksProxyConfigurationType]
-    CustomKeyStoresListEntry = ::Struct.new(
-      :custom_key_store_id,
-      :custom_key_store_name,
-      :cloud_hsm_cluster_id,
-      :trust_anchor_certificate,
-      :connection_state,
-      :connection_error_code,
-      :creation_date,
-      :custom_key_store_type,
-      :xks_proxy_configuration,
-      keyword_init: true
-    ) do
+    class CustomKeyStoresListEntry
       include Hearth::Structure
+
+      MEMBERS = %i[
+        custom_key_store_id
+        custom_key_store_name
+        cloud_hsm_cluster_id
+        trust_anchor_certificate
+        connection_state
+        connection_error_code
+        creation_date
+        custom_key_store_type
+        xks_proxy_configuration
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for CustomerMasterKeySpec
@@ -1547,17 +1615,20 @@ module AWS::SDK::KMS
     #   <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
     #            <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
     #   @return [Boolean]
-    DecryptInput = ::Struct.new(
-      :ciphertext_blob,
-      :encryption_context,
-      :grant_tokens,
-      :key_id,
-      :encryption_algorithm,
-      :recipient,
-      :dry_run,
-      keyword_init: true
-    ) do
+    class DecryptInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        ciphertext_blob
+        encryption_context
+        grant_tokens
+        key_id
+        encryption_algorithm
+        recipient
+        dry_run
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1584,17 +1655,20 @@ module AWS::SDK::KMS
     #         the request includes a valid attestation document from an Amazon Web Services Nitro enclave.
     #         For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
     #   @return [String]
-    DecryptOutput = ::Struct.new(
-      :key_id,
-      :plaintext,
-      :encryption_algorithm,
-      :ciphertext_for_recipient,
-      keyword_init: true
-    ) do
+    class DecryptOutput
       include Hearth::Structure
 
+      MEMBERS = %i[
+        key_id
+        plaintext
+        encryption_algorithm
+        ciphertext_for_recipient
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::KMS::Types::DecryptOutput "\
+        "#<AWS::SDK::KMS::Types::DecryptOutput "\
           "key_id=#{key_id || 'nil'}, "\
           "plaintext=\"[SENSITIVE]\", "\
           "encryption_algorithm=#{encryption_algorithm || 'nil'}, "\
@@ -1609,20 +1683,24 @@ module AWS::SDK::KMS
     #   <p>The alias to be deleted. The alias name must begin with <code>alias/</code> followed by
     #         the alias name, such as <code>alias/ExampleAlias</code>.</p>
     #   @return [String]
-    DeleteAliasInput = ::Struct.new(
-      :alias_name,
-      keyword_init: true
-    ) do
+    class DeleteAliasInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        alias_name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    DeleteAliasOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class DeleteAliasOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1631,20 +1709,24 @@ module AWS::SDK::KMS
     # @!attribute custom_key_store_id
     #   <p>Enter the ID of the custom key store you want to delete. To find the ID of a custom key store, use the <a>DescribeCustomKeyStores</a> operation.</p>
     #   @return [String]
-    DeleteCustomKeyStoreInput = ::Struct.new(
-      :custom_key_store_id,
-      keyword_init: true
-    ) do
+    class DeleteCustomKeyStoreInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        custom_key_store_id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    DeleteCustomKeyStoreOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class DeleteCustomKeyStoreOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1667,20 +1749,24 @@ module AWS::SDK::KMS
     #            </ul>
     #            <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
     #   @return [String]
-    DeleteImportedKeyMaterialInput = ::Struct.new(
-      :key_id,
-      keyword_init: true
-    ) do
+    class DeleteImportedKeyMaterialInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key_id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    DeleteImportedKeyMaterialOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class DeleteImportedKeyMaterialOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The system timed out while trying to fulfill the request. You can retry the
@@ -1690,11 +1776,14 @@ module AWS::SDK::KMS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    DependencyTimeoutException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class DependencyTimeoutException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1728,14 +1817,17 @@ module AWS::SDK::KMS
     #       truncated results. Set it to the value of <code>NextMarker</code> from the truncated response
     #       you just received.</p>
     #   @return [String]
-    DescribeCustomKeyStoresInput = ::Struct.new(
-      :custom_key_store_id,
-      :custom_key_store_name,
-      :limit,
-      :marker,
-      keyword_init: true
-    ) do
+    class DescribeCustomKeyStoresInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        custom_key_store_id
+        custom_key_store_name
+        limit
+        marker
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1756,13 +1848,16 @@ module AWS::SDK::KMS
     #       the <code>NextMarker</code> element in thisresponse to the <code>Marker</code> parameter in a
     #       subsequent request.</p>
     #   @return [Boolean]
-    DescribeCustomKeyStoresOutput = ::Struct.new(
-      :custom_key_stores,
-      :next_marker,
-      :truncated,
-      keyword_init: true
-    ) do
+    class DescribeCustomKeyStoresOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        custom_key_stores
+        next_marker
+        truncated
+      ].freeze
+
+      attr_accessor(*MEMBERS)
 
       private
 
@@ -1809,12 +1904,15 @@ module AWS::SDK::KMS
     #            <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token">Using a grant token</a> in the
     #       <i>Key Management Service Developer Guide</i>.</p>
     #   @return [Array<String>]
-    DescribeKeyInput = ::Struct.new(
-      :key_id,
-      :grant_tokens,
-      keyword_init: true
-    ) do
+    class DescribeKeyInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key_id
+        grant_tokens
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1823,11 +1921,14 @@ module AWS::SDK::KMS
     # @!attribute key_metadata
     #   <p>Metadata associated with the key.</p>
     #   @return [KeyMetadata]
-    DescribeKeyOutput = ::Struct.new(
-      :key_metadata,
-      keyword_init: true
-    ) do
+    class DescribeKeyOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key_metadata
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1849,20 +1950,24 @@ module AWS::SDK::KMS
     #            </ul>
     #            <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
     #   @return [String]
-    DisableKeyInput = ::Struct.new(
-      :key_id,
-      keyword_init: true
-    ) do
+    class DisableKeyInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key_id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    DisableKeyOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class DisableKeyOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1887,20 +1992,24 @@ module AWS::SDK::KMS
     #            </ul>
     #            <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
     #   @return [String]
-    DisableKeyRotationInput = ::Struct.new(
-      :key_id,
-      keyword_init: true
-    ) do
+    class DisableKeyRotationInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key_id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    DisableKeyRotationOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class DisableKeyRotationOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The request was rejected because the specified KMS key is not enabled.</p>
@@ -1909,11 +2018,14 @@ module AWS::SDK::KMS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    DisabledException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class DisabledException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1922,20 +2034,24 @@ module AWS::SDK::KMS
     # @!attribute custom_key_store_id
     #   <p>Enter the ID of the custom key store you want to disconnect. To find the ID of a custom key store, use the <a>DescribeCustomKeyStores</a> operation.</p>
     #   @return [String]
-    DisconnectCustomKeyStoreInput = ::Struct.new(
-      :custom_key_store_id,
-      keyword_init: true
-    ) do
+    class DisconnectCustomKeyStoreInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        custom_key_store_id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    DisconnectCustomKeyStoreOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class DisconnectCustomKeyStoreOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p> The request was rejected because the DryRun parameter was specified. </p>
@@ -1944,11 +2060,14 @@ module AWS::SDK::KMS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    DryRunOperationException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class DryRunOperationException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1970,20 +2089,24 @@ module AWS::SDK::KMS
     #            </ul>
     #            <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
     #   @return [String]
-    EnableKeyInput = ::Struct.new(
-      :key_id,
-      keyword_init: true
-    ) do
+    class EnableKeyInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key_id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    EnableKeyOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class EnableKeyOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2005,20 +2128,24 @@ module AWS::SDK::KMS
     #            </ul>
     #            <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
     #   @return [String]
-    EnableKeyRotationInput = ::Struct.new(
-      :key_id,
-      keyword_init: true
-    ) do
+    class EnableKeyRotationInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key_id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    EnableKeyRotationOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class EnableKeyRotationOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2088,19 +2215,22 @@ module AWS::SDK::KMS
     #   <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
     #            <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
     #   @return [Boolean]
-    EncryptInput = ::Struct.new(
-      :key_id,
-      :plaintext,
-      :encryption_context,
-      :grant_tokens,
-      :encryption_algorithm,
-      :dry_run,
-      keyword_init: true
-    ) do
+    class EncryptInput
       include Hearth::Structure
 
+      MEMBERS = %i[
+        key_id
+        plaintext
+        encryption_context
+        grant_tokens
+        encryption_algorithm
+        dry_run
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::KMS::Types::EncryptInput "\
+        "#<AWS::SDK::KMS::Types::EncryptInput "\
           "key_id=#{key_id || 'nil'}, "\
           "plaintext=\"[SENSITIVE]\", "\
           "encryption_context=#{encryption_context || 'nil'}, "\
@@ -2125,13 +2255,16 @@ module AWS::SDK::KMS
     #   <p>The encryption algorithm that was used to encrypt the plaintext.</p>
     #   Enum, one of: ["SYMMETRIC_DEFAULT", "RSAES_OAEP_SHA_1", "RSAES_OAEP_SHA_256", "SM2PKE"]
     #   @return [String]
-    EncryptOutput = ::Struct.new(
-      :ciphertext_blob,
-      :key_id,
-      :encryption_algorithm,
-      keyword_init: true
-    ) do
+    class EncryptOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        ciphertext_blob
+        key_id
+        encryption_algorithm
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for EncryptionAlgorithmSpec
@@ -2159,11 +2292,14 @@ module AWS::SDK::KMS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    ExpiredImportTokenException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class ExpiredImportTokenException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2250,17 +2386,20 @@ module AWS::SDK::KMS
     #   <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
     #            <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
     #   @return [Boolean]
-    GenerateDataKeyInput = ::Struct.new(
-      :key_id,
-      :encryption_context,
-      :number_of_bytes,
-      :key_spec,
-      :grant_tokens,
-      :recipient,
-      :dry_run,
-      keyword_init: true
-    ) do
+    class GenerateDataKeyInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key_id
+        encryption_context
+        number_of_bytes
+        key_spec
+        grant_tokens
+        recipient
+        dry_run
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2288,17 +2427,20 @@ module AWS::SDK::KMS
     #         the request includes a valid attestation document from an Amazon Web Services Nitro enclave.
     #         For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
     #   @return [String]
-    GenerateDataKeyOutput = ::Struct.new(
-      :ciphertext_blob,
-      :plaintext,
-      :key_id,
-      :ciphertext_for_recipient,
-      keyword_init: true
-    ) do
+    class GenerateDataKeyOutput
       include Hearth::Structure
 
+      MEMBERS = %i[
+        ciphertext_blob
+        plaintext
+        key_id
+        ciphertext_for_recipient
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::KMS::Types::GenerateDataKeyOutput "\
+        "#<AWS::SDK::KMS::Types::GenerateDataKeyOutput "\
           "ciphertext_blob=#{ciphertext_blob || 'nil'}, "\
           "plaintext=\"[SENSITIVE]\", "\
           "key_id=#{key_id || 'nil'}, "\
@@ -2381,16 +2523,19 @@ module AWS::SDK::KMS
     #   <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
     #            <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
     #   @return [Boolean]
-    GenerateDataKeyPairInput = ::Struct.new(
-      :encryption_context,
-      :key_id,
-      :key_pair_spec,
-      :grant_tokens,
-      :recipient,
-      :dry_run,
-      keyword_init: true
-    ) do
+    class GenerateDataKeyPairInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        encryption_context
+        key_id
+        key_pair_spec
+        grant_tokens
+        recipient
+        dry_run
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2426,19 +2571,22 @@ module AWS::SDK::KMS
     #         the request includes a valid attestation document from an Amazon Web Services Nitro enclave.
     #         For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
     #   @return [String]
-    GenerateDataKeyPairOutput = ::Struct.new(
-      :private_key_ciphertext_blob,
-      :private_key_plaintext,
-      :public_key,
-      :key_id,
-      :key_pair_spec,
-      :ciphertext_for_recipient,
-      keyword_init: true
-    ) do
+    class GenerateDataKeyPairOutput
       include Hearth::Structure
 
+      MEMBERS = %i[
+        private_key_ciphertext_blob
+        private_key_plaintext
+        public_key
+        key_id
+        key_pair_spec
+        ciphertext_for_recipient
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::KMS::Types::GenerateDataKeyPairOutput "\
+        "#<AWS::SDK::KMS::Types::GenerateDataKeyPairOutput "\
           "private_key_ciphertext_blob=#{private_key_ciphertext_blob || 'nil'}, "\
           "private_key_plaintext=\"[SENSITIVE]\", "\
           "public_key=#{public_key || 'nil'}, "\
@@ -2507,15 +2655,18 @@ module AWS::SDK::KMS
     #   <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
     #            <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
     #   @return [Boolean]
-    GenerateDataKeyPairWithoutPlaintextInput = ::Struct.new(
-      :encryption_context,
-      :key_id,
-      :key_pair_spec,
-      :grant_tokens,
-      :dry_run,
-      keyword_init: true
-    ) do
+    class GenerateDataKeyPairWithoutPlaintextInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        encryption_context
+        key_id
+        key_pair_spec
+        grant_tokens
+        dry_run
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2537,14 +2688,17 @@ module AWS::SDK::KMS
     #   <p>The type of data key pair that was generated.</p>
     #   Enum, one of: ["RSA_2048", "RSA_3072", "RSA_4096", "ECC_NIST_P256", "ECC_NIST_P384", "ECC_NIST_P521", "ECC_SECG_P256K1", "SM2"]
     #   @return [String]
-    GenerateDataKeyPairWithoutPlaintextOutput = ::Struct.new(
-      :private_key_ciphertext_blob,
-      :public_key,
-      :key_id,
-      :key_pair_spec,
-      keyword_init: true
-    ) do
+    class GenerateDataKeyPairWithoutPlaintextOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        private_key_ciphertext_blob
+        public_key
+        key_id
+        key_pair_spec
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2611,16 +2765,19 @@ module AWS::SDK::KMS
     #   <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
     #            <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
     #   @return [Boolean]
-    GenerateDataKeyWithoutPlaintextInput = ::Struct.new(
-      :key_id,
-      :encryption_context,
-      :key_spec,
-      :number_of_bytes,
-      :grant_tokens,
-      :dry_run,
-      keyword_init: true
-    ) do
+    class GenerateDataKeyWithoutPlaintextInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key_id
+        encryption_context
+        key_spec
+        number_of_bytes
+        grant_tokens
+        dry_run
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2633,12 +2790,15 @@ module AWS::SDK::KMS
     # @!attribute key_id
     #   <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key that encrypted the data key.</p>
     #   @return [String]
-    GenerateDataKeyWithoutPlaintextOutput = ::Struct.new(
-      :ciphertext_blob,
-      :key_id,
-      keyword_init: true
-    ) do
+    class GenerateDataKeyWithoutPlaintextOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        ciphertext_blob
+        key_id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2677,18 +2837,21 @@ module AWS::SDK::KMS
     #   <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
     #            <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
     #   @return [Boolean]
-    GenerateMacInput = ::Struct.new(
-      :message,
-      :key_id,
-      :mac_algorithm,
-      :grant_tokens,
-      :dry_run,
-      keyword_init: true
-    ) do
+    class GenerateMacInput
       include Hearth::Structure
 
+      MEMBERS = %i[
+        message
+        key_id
+        mac_algorithm
+        grant_tokens
+        dry_run
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::KMS::Types::GenerateMacInput "\
+        "#<AWS::SDK::KMS::Types::GenerateMacInput "\
           "message=\"[SENSITIVE]\", "\
           "key_id=#{key_id || 'nil'}, "\
           "mac_algorithm=#{mac_algorithm || 'nil'}, "\
@@ -2714,13 +2877,16 @@ module AWS::SDK::KMS
     # @!attribute key_id
     #   <p>The HMAC KMS key used in the operation.</p>
     #   @return [String]
-    GenerateMacOutput = ::Struct.new(
-      :mac,
-      :mac_algorithm,
-      :key_id,
-      keyword_init: true
-    ) do
+    class GenerateMacOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        mac
+        mac_algorithm
+        key_id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2751,13 +2917,16 @@ module AWS::SDK::KMS
     #         the response is null or empty.</p>
     #            <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
     #   @return [RecipientInfo]
-    GenerateRandomInput = ::Struct.new(
-      :number_of_bytes,
-      :custom_key_store_id,
-      :recipient,
-      keyword_init: true
-    ) do
+    class GenerateRandomInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        number_of_bytes
+        custom_key_store_id
+        recipient
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2776,15 +2945,18 @@ module AWS::SDK::KMS
     #         the request includes a valid attestation document from an Amazon Web Services Nitro enclave.
     #         For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
     #   @return [String]
-    GenerateRandomOutput = ::Struct.new(
-      :plaintext,
-      :ciphertext_for_recipient,
-      keyword_init: true
-    ) do
+    class GenerateRandomOutput
       include Hearth::Structure
 
+      MEMBERS = %i[
+        plaintext
+        ciphertext_for_recipient
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::KMS::Types::GenerateRandomOutput "\
+        "#<AWS::SDK::KMS::Types::GenerateRandomOutput "\
           "plaintext=\"[SENSITIVE]\", "\
           "ciphertext_for_recipient=#{ciphertext_for_recipient || 'nil'}>"
       end
@@ -2814,12 +2986,15 @@ module AWS::SDK::KMS
     #   <p>Specifies the name of the key policy. The only valid name is <code>default</code>. To get
     #         the names of key policies, use <a>ListKeyPolicies</a>.</p>
     #   @return [String]
-    GetKeyPolicyInput = ::Struct.new(
-      :key_id,
-      :policy_name,
-      keyword_init: true
-    ) do
+    class GetKeyPolicyInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key_id
+        policy_name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2828,11 +3003,14 @@ module AWS::SDK::KMS
     # @!attribute policy
     #   <p>A key policy document in JSON format.</p>
     #   @return [String]
-    GetKeyPolicyOutput = ::Struct.new(
-      :policy,
-      keyword_init: true
-    ) do
+    class GetKeyPolicyOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        policy
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2855,11 +3033,14 @@ module AWS::SDK::KMS
     #            </ul>
     #            <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
     #   @return [String]
-    GetKeyRotationStatusInput = ::Struct.new(
-      :key_id,
-      keyword_init: true
-    ) do
+    class GetKeyRotationStatusInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key_id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2868,11 +3049,14 @@ module AWS::SDK::KMS
     # @!attribute key_rotation_enabled
     #   <p>A Boolean value that specifies whether key rotation is enabled.</p>
     #   @return [Boolean]
-    GetKeyRotationStatusOutput = ::Struct.new(
-      :key_rotation_enabled,
-      keyword_init: true
-    ) do
+    class GetKeyRotationStatusOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key_rotation_enabled
+      ].freeze
+
+      attr_accessor(*MEMBERS)
 
       private
 
@@ -2956,13 +3140,16 @@ module AWS::SDK::KMS
     #         Instead, use an RSA_AES wrapping algorithm or choose a longer RSA public key.</p>
     #   Enum, one of: ["RSA_2048", "RSA_3072", "RSA_4096"]
     #   @return [String]
-    GetParametersForImportInput = ::Struct.new(
-      :key_id,
-      :wrapping_algorithm,
-      :wrapping_key_spec,
-      keyword_init: true
-    ) do
+    class GetParametersForImportInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key_id
+        wrapping_algorithm
+        wrapping_key_spec
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2987,17 +3174,20 @@ module AWS::SDK::KMS
     #         you cannot use them to make an <a>ImportKeyMaterial</a> request and you must send
     #         another <code>GetParametersForImport</code> request to get new ones.</p>
     #   @return [Time]
-    GetParametersForImportOutput = ::Struct.new(
-      :key_id,
-      :import_token,
-      :public_key,
-      :parameters_valid_to,
-      keyword_init: true
-    ) do
+    class GetParametersForImportOutput
       include Hearth::Structure
 
+      MEMBERS = %i[
+        key_id
+        import_token
+        public_key
+        parameters_valid_to
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::KMS::Types::GetParametersForImportOutput "\
+        "#<AWS::SDK::KMS::Types::GetParametersForImportOutput "\
           "key_id=#{key_id || 'nil'}, "\
           "import_token=#{import_token || 'nil'}, "\
           "public_key=\"[SENSITIVE]\", "\
@@ -3038,12 +3228,15 @@ module AWS::SDK::KMS
     #            <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token">Using a grant token</a> in the
     #       <i>Key Management Service Developer Guide</i>.</p>
     #   @return [Array<String>]
-    GetPublicKeyInput = ::Struct.new(
-      :key_id,
-      :grant_tokens,
-      keyword_init: true
-    ) do
+    class GetPublicKeyInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key_id
+        grant_tokens
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3098,17 +3291,20 @@ module AWS::SDK::KMS
     #            <p>This field appears in the response only when the <code>KeyUsage</code> of the public key
     #         is <code>SIGN_VERIFY</code>.</p>
     #   @return [Array<String>]
-    GetPublicKeyOutput = ::Struct.new(
-      :key_id,
-      :public_key,
-      :customer_master_key_spec,
-      :key_spec,
-      :key_usage,
-      :encryption_algorithms,
-      :signing_algorithms,
-      keyword_init: true
-    ) do
+    class GetPublicKeyOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key_id
+        public_key
+        customer_master_key_spec
+        key_spec
+        key_usage
+        encryption_algorithms
+        signing_algorithms
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Use this structure to allow <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a> in the grant only when the operation request
@@ -3145,12 +3341,15 @@ module AWS::SDK::KMS
     #         request. The grant allows the operation only when the encryption context in the request is the
     #         same as the encryption context specified in this constraint.</p>
     #   @return [Hash<String, String>]
-    GrantConstraints = ::Struct.new(
-      :encryption_context_subset,
-      :encryption_context_equals,
-      keyword_init: true
-    ) do
+    class GrantConstraints
       include Hearth::Structure
+
+      MEMBERS = %i[
+        encryption_context_subset
+        encryption_context_equals
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Contains information about a grant.</p>
@@ -3198,19 +3397,22 @@ module AWS::SDK::KMS
     #   <p>A list of key-value pairs that must be present in the encryption context of certain
     #         subsequent operations that the grant allows.</p>
     #   @return [GrantConstraints]
-    GrantListEntry = ::Struct.new(
-      :key_id,
-      :grant_id,
-      :name,
-      :creation_date,
-      :grantee_principal,
-      :retiring_principal,
-      :issuing_account,
-      :operations,
-      :constraints,
-      keyword_init: true
-    ) do
+    class GrantListEntry
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key_id
+        grant_id
+        name
+        creation_date
+        grantee_principal
+        retiring_principal
+        issuing_account
+        operations
+        constraints
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for GrantOperation
@@ -3312,24 +3514,28 @@ module AWS::SDK::KMS
     #         material.</p>
     #   Enum, one of: ["KEY_MATERIAL_EXPIRES", "KEY_MATERIAL_DOES_NOT_EXPIRE"]
     #   @return [String]
-    ImportKeyMaterialInput = ::Struct.new(
-      :key_id,
-      :import_token,
-      :encrypted_key_material,
-      :valid_to,
-      :expiration_model,
-      keyword_init: true
-    ) do
+    class ImportKeyMaterialInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key_id
+        import_token
+        encrypted_key_material
+        valid_to
+        expiration_model
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    ImportKeyMaterialOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class ImportKeyMaterialOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The request was rejected because the specified KMS key cannot decrypt the data. The
@@ -3341,11 +3547,14 @@ module AWS::SDK::KMS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    IncorrectKeyException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class IncorrectKeyException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The request was rejected because the key material in the request is, expired, invalid, or
@@ -3355,11 +3564,14 @@ module AWS::SDK::KMS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    IncorrectKeyMaterialException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class IncorrectKeyMaterialException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The request was rejected because the trust anchor certificate in the request to create an
@@ -3371,11 +3583,14 @@ module AWS::SDK::KMS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    IncorrectTrustAnchorException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class IncorrectTrustAnchorException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The request was rejected because the specified alias name is not valid.</p>
@@ -3384,11 +3599,14 @@ module AWS::SDK::KMS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    InvalidAliasNameException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class InvalidAliasNameException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The request was rejected because a specified ARN, or an ARN in a key policy, is not
@@ -3398,11 +3616,14 @@ module AWS::SDK::KMS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    InvalidArnException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class InvalidArnException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>From the <a>Decrypt</a> or <a>ReEncrypt</a> operation, the request
@@ -3416,11 +3637,14 @@ module AWS::SDK::KMS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    InvalidCiphertextException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class InvalidCiphertextException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The request was rejected because the specified <code>GrantId</code> is not valid.</p>
@@ -3429,11 +3653,14 @@ module AWS::SDK::KMS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    InvalidGrantIdException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class InvalidGrantIdException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The request was rejected because the specified grant token is not valid.</p>
@@ -3442,11 +3669,14 @@ module AWS::SDK::KMS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    InvalidGrantTokenException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class InvalidGrantTokenException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The request was rejected because the provided import token is invalid or is associated
@@ -3456,11 +3686,14 @@ module AWS::SDK::KMS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    InvalidImportTokenException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class InvalidImportTokenException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The request was rejected for one of the following reasons: </p>
@@ -3487,11 +3720,14 @@ module AWS::SDK::KMS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    InvalidKeyUsageException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class InvalidKeyUsageException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The request was rejected because the marker that specifies where pagination should next
@@ -3501,11 +3737,14 @@ module AWS::SDK::KMS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    InvalidMarkerException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class InvalidMarkerException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The request was rejected because an internal exception occurred. The request can be
@@ -3515,11 +3754,14 @@ module AWS::SDK::KMS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    KMSInternalException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class KMSInternalException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The request was rejected because the HMAC verification failed. HMAC verification fails
@@ -3530,11 +3772,14 @@ module AWS::SDK::KMS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    KMSInvalidMacException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class KMSInvalidMacException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The request was rejected because the signature verification failed. Signature verification
@@ -3545,11 +3790,14 @@ module AWS::SDK::KMS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    KMSInvalidSignatureException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class KMSInvalidSignatureException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The request was rejected because the state of the specified resource is not valid for this
@@ -3575,11 +3823,14 @@ module AWS::SDK::KMS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    KMSInvalidStateException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class KMSInvalidStateException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for KeyEncryptionMechanism
@@ -3598,12 +3849,15 @@ module AWS::SDK::KMS
     # @!attribute key_arn
     #   <p>ARN of the key.</p>
     #   @return [String]
-    KeyListEntry = ::Struct.new(
-      :key_id,
-      :key_arn,
-      keyword_init: true
-    ) do
+    class KeyListEntry
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key_id
+        key_arn
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for KeyManagerType
@@ -3792,34 +4046,37 @@ module AWS::SDK::KMS
     #            <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html#concept-external-key">External key</a> in the
     #         <i>Key Management Service Developer Guide</i>.</p>
     #   @return [XksKeyConfigurationType]
-    KeyMetadata = ::Struct.new(
-      :aws_account_id,
-      :key_id,
-      :arn,
-      :creation_date,
-      :enabled,
-      :description,
-      :key_usage,
-      :key_state,
-      :deletion_date,
-      :valid_to,
-      :origin,
-      :custom_key_store_id,
-      :cloud_hsm_cluster_id,
-      :expiration_model,
-      :key_manager,
-      :customer_master_key_spec,
-      :key_spec,
-      :encryption_algorithms,
-      :signing_algorithms,
-      :multi_region,
-      :multi_region_configuration,
-      :pending_deletion_window_in_days,
-      :mac_algorithms,
-      :xks_key_configuration,
-      keyword_init: true
-    ) do
+    class KeyMetadata
       include Hearth::Structure
+
+      MEMBERS = %i[
+        aws_account_id
+        key_id
+        arn
+        creation_date
+        enabled
+        description
+        key_usage
+        key_state
+        deletion_date
+        valid_to
+        origin
+        custom_key_store_id
+        cloud_hsm_cluster_id
+        expiration_model
+        key_manager
+        customer_master_key_spec
+        key_spec
+        encryption_algorithms
+        signing_algorithms
+        multi_region
+        multi_region_configuration
+        pending_deletion_window_in_days
+        mac_algorithms
+        xks_key_configuration
+      ].freeze
+
+      attr_accessor(*MEMBERS)
 
       private
 
@@ -3885,11 +4142,14 @@ module AWS::SDK::KMS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    KeyUnavailableException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class KeyUnavailableException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for KeyUsageType
@@ -3908,11 +4168,14 @@ module AWS::SDK::KMS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    LimitExceededException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class LimitExceededException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3951,13 +4214,16 @@ module AWS::SDK::KMS
     #       truncated results. Set it to the value of <code>NextMarker</code> from the truncated response
     #       you just received.</p>
     #   @return [String]
-    ListAliasesInput = ::Struct.new(
-      :key_id,
-      :limit,
-      :marker,
-      keyword_init: true
-    ) do
+    class ListAliasesInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key_id
+        limit
+        marker
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3978,13 +4244,16 @@ module AWS::SDK::KMS
     #       the <code>NextMarker</code> element in thisresponse to the <code>Marker</code> parameter in a
     #       subsequent request.</p>
     #   @return [Boolean]
-    ListAliasesOutput = ::Struct.new(
-      :aliases,
-      :next_marker,
-      :truncated,
-      keyword_init: true
-    ) do
+    class ListAliasesOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        aliases
+        next_marker
+        truncated
+      ].freeze
+
+      attr_accessor(*MEMBERS)
 
       private
 
@@ -4039,15 +4308,18 @@ module AWS::SDK::KMS
     #   <p>Returns only grants where the specified principal is the grantee principal for the
     #         grant.</p>
     #   @return [String]
-    ListGrantsInput = ::Struct.new(
-      :limit,
-      :marker,
-      :key_id,
-      :grant_id,
-      :grantee_principal,
-      keyword_init: true
-    ) do
+    class ListGrantsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        limit
+        marker
+        key_id
+        grant_id
+        grantee_principal
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -4068,13 +4340,16 @@ module AWS::SDK::KMS
     #       the <code>NextMarker</code> element in thisresponse to the <code>Marker</code> parameter in a
     #       subsequent request.</p>
     #   @return [Boolean]
-    ListGrantsOutput = ::Struct.new(
-      :grants,
-      :next_marker,
-      :truncated,
-      keyword_init: true
-    ) do
+    class ListGrantsOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        grants
+        next_marker
+        truncated
+      ].freeze
+
+      attr_accessor(*MEMBERS)
 
       private
 
@@ -4119,13 +4394,16 @@ module AWS::SDK::KMS
     #       truncated results. Set it to the value of <code>NextMarker</code> from the truncated response
     #       you just received.</p>
     #   @return [String]
-    ListKeyPoliciesInput = ::Struct.new(
-      :key_id,
-      :limit,
-      :marker,
-      keyword_init: true
-    ) do
+    class ListKeyPoliciesInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key_id
+        limit
+        marker
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -4146,13 +4424,16 @@ module AWS::SDK::KMS
     #       the <code>NextMarker</code> element in thisresponse to the <code>Marker</code> parameter in a
     #       subsequent request.</p>
     #   @return [Boolean]
-    ListKeyPoliciesOutput = ::Struct.new(
-      :policy_names,
-      :next_marker,
-      :truncated,
-      keyword_init: true
-    ) do
+    class ListKeyPoliciesOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        policy_names
+        next_marker
+        truncated
+      ].freeze
+
+      attr_accessor(*MEMBERS)
 
       private
 
@@ -4179,12 +4460,15 @@ module AWS::SDK::KMS
     #       truncated results. Set it to the value of <code>NextMarker</code> from the truncated response
     #       you just received.</p>
     #   @return [String]
-    ListKeysInput = ::Struct.new(
-      :limit,
-      :marker,
-      keyword_init: true
-    ) do
+    class ListKeysInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        limit
+        marker
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -4205,13 +4489,16 @@ module AWS::SDK::KMS
     #       the <code>NextMarker</code> element in thisresponse to the <code>Marker</code> parameter in a
     #       subsequent request.</p>
     #   @return [Boolean]
-    ListKeysOutput = ::Struct.new(
-      :keys,
-      :next_marker,
-      :truncated,
-      keyword_init: true
-    ) do
+    class ListKeysOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        keys
+        next_marker
+        truncated
+      ].freeze
+
+      attr_accessor(*MEMBERS)
 
       private
 
@@ -4257,13 +4544,16 @@ module AWS::SDK::KMS
     #            <p>Do not attempt to construct this value. Use only the value of <code>NextMarker</code> from
     #         the truncated response you just received.</p>
     #   @return [String]
-    ListResourceTagsInput = ::Struct.new(
-      :key_id,
-      :limit,
-      :marker,
-      keyword_init: true
-    ) do
+    class ListResourceTagsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key_id
+        limit
+        marker
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -4288,13 +4578,16 @@ module AWS::SDK::KMS
     #       the <code>NextMarker</code> element in thisresponse to the <code>Marker</code> parameter in a
     #       subsequent request.</p>
     #   @return [Boolean]
-    ListResourceTagsOutput = ::Struct.new(
-      :tags,
-      :next_marker,
-      :truncated,
-      keyword_init: true
-    ) do
+    class ListResourceTagsOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        tags
+        next_marker
+        truncated
+      ].freeze
+
+      attr_accessor(*MEMBERS)
 
       private
 
@@ -4332,13 +4625,16 @@ module AWS::SDK::KMS
     #                  <i>Identity and Access Management User Guide</i>
     #               </i>.</p>
     #   @return [String]
-    ListRetirableGrantsInput = ::Struct.new(
-      :limit,
-      :marker,
-      :retiring_principal,
-      keyword_init: true
-    ) do
+    class ListRetirableGrantsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        limit
+        marker
+        retiring_principal
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -4359,13 +4655,16 @@ module AWS::SDK::KMS
     #       the <code>NextMarker</code> element in thisresponse to the <code>Marker</code> parameter in a
     #       subsequent request.</p>
     #   @return [Boolean]
-    ListRetirableGrantsOutput = ::Struct.new(
-      :grants,
-      :next_marker,
-      :truncated,
-      keyword_init: true
-    ) do
+    class ListRetirableGrantsOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        grants
+        next_marker
+        truncated
+      ].freeze
+
+      attr_accessor(*MEMBERS)
 
       private
 
@@ -4394,11 +4693,14 @@ module AWS::SDK::KMS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    MalformedPolicyDocumentException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class MalformedPolicyDocumentException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for MessageType
@@ -4430,13 +4732,16 @@ module AWS::SDK::KMS
     #   <p>displays the key ARNs and Regions of all replica keys. This field includes the current KMS
     #         key if it is a replica key.</p>
     #   @return [Array<MultiRegionKey>]
-    MultiRegionConfiguration = ::Struct.new(
-      :multi_region_key_type,
-      :primary_key,
-      :replica_keys,
-      keyword_init: true
-    ) do
+    class MultiRegionConfiguration
       include Hearth::Structure
+
+      MEMBERS = %i[
+        multi_region_key_type
+        primary_key
+        replica_keys
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Describes the primary or replica key in a multi-Region key.</p>
@@ -4450,12 +4755,15 @@ module AWS::SDK::KMS
     # @!attribute region
     #   <p>Displays the Amazon Web Services Region of a primary or replica key in a multi-Region key.</p>
     #   @return [String]
-    MultiRegionKey = ::Struct.new(
-      :arn,
-      :region,
-      keyword_init: true
-    ) do
+    class MultiRegionKey
       include Hearth::Structure
+
+      MEMBERS = %i[
+        arn
+        region
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for MultiRegionKeyType
@@ -4472,11 +4780,14 @@ module AWS::SDK::KMS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    NotFoundException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class NotFoundException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for OriginType
@@ -4562,23 +4873,27 @@ module AWS::SDK::KMS
     #         request from making a subsequent <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_PutKeyPolicy.html">PutKeyPolicy</a>
     #         request on the KMS key.</p>
     #   @return [Boolean]
-    PutKeyPolicyInput = ::Struct.new(
-      :key_id,
-      :policy_name,
-      :policy,
-      :bypass_policy_lockout_safety_check,
-      keyword_init: true
-    ) do
+    class PutKeyPolicyInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key_id
+        policy_name
+        policy
+        bypass_policy_lockout_safety_check
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    PutKeyPolicyOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class PutKeyPolicyOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -4704,19 +5019,22 @@ module AWS::SDK::KMS
     #   <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
     #            <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
     #   @return [Boolean]
-    ReEncryptInput = ::Struct.new(
-      :ciphertext_blob,
-      :source_encryption_context,
-      :source_key_id,
-      :destination_key_id,
-      :destination_encryption_context,
-      :source_encryption_algorithm,
-      :destination_encryption_algorithm,
-      :grant_tokens,
-      :dry_run,
-      keyword_init: true
-    ) do
+    class ReEncryptInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        ciphertext_blob
+        source_encryption_context
+        source_key_id
+        destination_key_id
+        destination_encryption_context
+        source_encryption_algorithm
+        destination_encryption_algorithm
+        grant_tokens
+        dry_run
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -4744,15 +5062,18 @@ module AWS::SDK::KMS
     #   <p>The encryption algorithm that was used to reencrypt the data.</p>
     #   Enum, one of: ["SYMMETRIC_DEFAULT", "RSAES_OAEP_SHA_1", "RSAES_OAEP_SHA_256", "SM2PKE"]
     #   @return [String]
-    ReEncryptOutput = ::Struct.new(
-      :ciphertext_blob,
-      :source_key_id,
-      :key_id,
-      :source_encryption_algorithm,
-      :destination_encryption_algorithm,
-      keyword_init: true
-    ) do
+    class ReEncryptOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        ciphertext_blob
+        source_key_id
+        key_id
+        source_encryption_algorithm
+        destination_encryption_algorithm
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Contains information about the party that receives the response from the API
@@ -4773,12 +5094,15 @@ module AWS::SDK::KMS
     #   <p>The attestation document for an Amazon Web Services Nitro Enclave. This document includes the enclave's
     #         public key.</p>
     #   @return [String]
-    RecipientInfo = ::Struct.new(
-      :key_encryption_algorithm,
-      :attestation_document,
-      keyword_init: true
-    ) do
+    class RecipientInfo
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key_encryption_algorithm
+        attestation_document
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -4910,16 +5234,19 @@ module AWS::SDK::KMS
     #                 report with usage and costs aggregated by tags. Tags can also be used to control access to a KMS key. For details,
     #                 see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html">Tagging Keys</a>.</p>
     #   @return [Array<Tag>]
-    ReplicateKeyInput = ::Struct.new(
-      :key_id,
-      :replica_region,
-      :policy,
-      :bypass_policy_lockout_safety_check,
-      :description,
-      :tags,
-      keyword_init: true
-    ) do
+    class ReplicateKeyInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key_id
+        replica_region
+        policy
+        bypass_policy_lockout_safety_check
+        description
+        tags
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -4940,13 +5267,16 @@ module AWS::SDK::KMS
     #   <p>The tags on the new replica key. The value is a list of tag key and tag value
     #         pairs.</p>
     #   @return [Array<Tag>]
-    ReplicateKeyOutput = ::Struct.new(
-      :replica_key_metadata,
-      :replica_policy,
-      :replica_tags,
-      keyword_init: true
-    ) do
+    class ReplicateKeyOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        replica_key_metadata
+        replica_policy
+        replica_tags
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -4981,23 +5311,27 @@ module AWS::SDK::KMS
     #   <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
     #            <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
     #   @return [Boolean]
-    RetireGrantInput = ::Struct.new(
-      :grant_token,
-      :key_id,
-      :grant_id,
-      :dry_run,
-      keyword_init: true
-    ) do
+    class RetireGrantInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        grant_token
+        key_id
+        grant_id
+        dry_run
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    RetireGrantOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class RetireGrantOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -5031,22 +5365,26 @@ module AWS::SDK::KMS
     #   <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
     #            <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
     #   @return [Boolean]
-    RevokeGrantInput = ::Struct.new(
-      :key_id,
-      :grant_id,
-      :dry_run,
-      keyword_init: true
-    ) do
+    class RevokeGrantInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key_id
+        grant_id
+        dry_run
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    RevokeGrantOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class RevokeGrantOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -5082,12 +5420,15 @@ module AWS::SDK::KMS
     #         constrain the values that principals can specify in the <code>PendingWindowInDays</code>
     #         parameter.</p>
     #   @return [Integer]
-    ScheduleKeyDeletionInput = ::Struct.new(
-      :key_id,
-      :pending_window_in_days,
-      keyword_init: true
-    ) do
+    class ScheduleKeyDeletionInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key_id
+        pending_window_in_days
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -5117,14 +5458,17 @@ module AWS::SDK::KMS
     #         the last of its replica keys is deleted. Otherwise, the waiting period begins
     #         immediately.</p>
     #   @return [Integer]
-    ScheduleKeyDeletionOutput = ::Struct.new(
-      :key_id,
-      :deletion_date,
-      :key_state,
-      :pending_window_in_days,
-      keyword_init: true
-    ) do
+    class ScheduleKeyDeletionOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key_id
+        deletion_date
+        key_state
+        pending_window_in_days
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -5220,19 +5564,22 @@ module AWS::SDK::KMS
     #   <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
     #            <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
     #   @return [Boolean]
-    SignInput = ::Struct.new(
-      :key_id,
-      :message,
-      :message_type,
-      :grant_tokens,
-      :signing_algorithm,
-      :dry_run,
-      keyword_init: true
-    ) do
+    class SignInput
       include Hearth::Structure
 
+      MEMBERS = %i[
+        key_id
+        message
+        message_type
+        grant_tokens
+        signing_algorithm
+        dry_run
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::KMS::Types::SignInput "\
+        "#<AWS::SDK::KMS::Types::SignInput "\
           "key_id=#{key_id || 'nil'}, "\
           "message=\"[SENSITIVE]\", "\
           "message_type=#{message_type || 'nil'}, "\
@@ -5272,13 +5619,16 @@ module AWS::SDK::KMS
     #   <p>The signing algorithm that was used to sign the message.</p>
     #   Enum, one of: ["RSASSA_PSS_SHA_256", "RSASSA_PSS_SHA_384", "RSASSA_PSS_SHA_512", "RSASSA_PKCS1_V1_5_SHA_256", "RSASSA_PKCS1_V1_5_SHA_384", "RSASSA_PKCS1_V1_5_SHA_512", "ECDSA_SHA_256", "ECDSA_SHA_384", "ECDSA_SHA_512", "SM2DSA"]
     #   @return [String]
-    SignOutput = ::Struct.new(
-      :key_id,
-      :signature,
-      :signing_algorithm,
-      keyword_init: true
-    ) do
+    class SignOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key_id
+        signature
+        signing_algorithm
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for SigningAlgorithmSpec
@@ -5321,12 +5671,15 @@ module AWS::SDK::KMS
     # @!attribute tag_value
     #   <p>The value of the tag.</p>
     #   @return [String]
-    Tag = ::Struct.new(
-      :tag_key,
-      :tag_value,
-      keyword_init: true
-    ) do
+    class Tag
       include Hearth::Structure
+
+      MEMBERS = %i[
+        tag_key
+        tag_value
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The request was rejected because one or more tags are not valid.</p>
@@ -5335,11 +5688,14 @@ module AWS::SDK::KMS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    TagException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class TagException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -5372,21 +5728,25 @@ module AWS::SDK::KMS
     #         existing tag key with a different tag value, KMS replaces the current tag value with the
     #         specified one.</p>
     #   @return [Array<Tag>]
-    TagResourceInput = ::Struct.new(
-      :key_id,
-      :tags,
-      keyword_init: true
-    ) do
+    class TagResourceInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key_id
+        tags
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    TagResourceOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class TagResourceOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The request was rejected because a specified parameter is not supported or a specified
@@ -5396,11 +5756,14 @@ module AWS::SDK::KMS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    UnsupportedOperationException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class UnsupportedOperationException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -5426,21 +5789,25 @@ module AWS::SDK::KMS
     # @!attribute tag_keys
     #   <p>One or more tag keys. Specify only the tag keys, not the tag values.</p>
     #   @return [Array<String>]
-    UntagResourceInput = ::Struct.new(
-      :key_id,
-      :tag_keys,
-      keyword_init: true
-    ) do
+    class UntagResourceInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key_id
+        tag_keys
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    UntagResourceOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class UntagResourceOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -5476,21 +5843,25 @@ module AWS::SDK::KMS
     #            <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
     #            <p>To verify that the alias is mapped to the correct KMS key, use <a>ListAliases</a>.</p>
     #   @return [String]
-    UpdateAliasInput = ::Struct.new(
-      :alias_name,
-      :target_key_id,
-      keyword_init: true
-    ) do
+    class UpdateAliasInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        alias_name
+        target_key_id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    UpdateAliasOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class UpdateAliasOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -5596,22 +5967,25 @@ module AWS::SDK::KMS
     #            <p>To change this value, the external key store must be disconnected.</p>
     #   Enum, one of: ["PUBLIC_ENDPOINT", "VPC_ENDPOINT_SERVICE"]
     #   @return [String]
-    UpdateCustomKeyStoreInput = ::Struct.new(
-      :custom_key_store_id,
-      :new_custom_key_store_name,
-      :key_store_password,
-      :cloud_hsm_cluster_id,
-      :xks_proxy_uri_endpoint,
-      :xks_proxy_uri_path,
-      :xks_proxy_vpc_endpoint_service_name,
-      :xks_proxy_authentication_credential,
-      :xks_proxy_connectivity,
-      keyword_init: true
-    ) do
+    class UpdateCustomKeyStoreInput
       include Hearth::Structure
 
+      MEMBERS = %i[
+        custom_key_store_id
+        new_custom_key_store_name
+        key_store_password
+        cloud_hsm_cluster_id
+        xks_proxy_uri_endpoint
+        xks_proxy_uri_path
+        xks_proxy_vpc_endpoint_service_name
+        xks_proxy_authentication_credential
+        xks_proxy_connectivity
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::KMS::Types::UpdateCustomKeyStoreInput "\
+        "#<AWS::SDK::KMS::Types::UpdateCustomKeyStoreInput "\
           "custom_key_store_id=#{custom_key_store_id || 'nil'}, "\
           "new_custom_key_store_name=#{new_custom_key_store_name || 'nil'}, "\
           "key_store_password=\"[SENSITIVE]\", "\
@@ -5626,11 +6000,12 @@ module AWS::SDK::KMS
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    UpdateCustomKeyStoreOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class UpdateCustomKeyStoreOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -5659,21 +6034,25 @@ module AWS::SDK::KMS
     #               <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
     #            </important>
     #   @return [String]
-    UpdateKeyDescriptionInput = ::Struct.new(
-      :key_id,
-      :description,
-      keyword_init: true
-    ) do
+    class UpdateKeyDescriptionInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key_id
+        description
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    UpdateKeyDescriptionOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class UpdateKeyDescriptionOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -5704,21 +6083,25 @@ module AWS::SDK::KMS
     #            <p>When the operation completes, the multi-Region key in this Region will be the primary
     #         key.</p>
     #   @return [String]
-    UpdatePrimaryRegionInput = ::Struct.new(
-      :key_id,
-      :primary_region,
-      keyword_init: true
-    ) do
+    class UpdatePrimaryRegionInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key_id
+        primary_region
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    UpdatePrimaryRegionOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class UpdatePrimaryRegionOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -5819,20 +6202,23 @@ module AWS::SDK::KMS
     #   <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
     #            <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
     #   @return [Boolean]
-    VerifyInput = ::Struct.new(
-      :key_id,
-      :message,
-      :message_type,
-      :signature,
-      :signing_algorithm,
-      :grant_tokens,
-      :dry_run,
-      keyword_init: true
-    ) do
+    class VerifyInput
       include Hearth::Structure
 
+      MEMBERS = %i[
+        key_id
+        message
+        message_type
+        signature
+        signing_algorithm
+        grant_tokens
+        dry_run
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::KMS::Types::VerifyInput "\
+        "#<AWS::SDK::KMS::Types::VerifyInput "\
           "key_id=#{key_id || 'nil'}, "\
           "message=\"[SENSITIVE]\", "\
           "message_type=#{message_type || 'nil'}, "\
@@ -5884,19 +6270,22 @@ module AWS::SDK::KMS
     #   <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
     #            <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
     #   @return [Boolean]
-    VerifyMacInput = ::Struct.new(
-      :message,
-      :key_id,
-      :mac_algorithm,
-      :mac,
-      :grant_tokens,
-      :dry_run,
-      keyword_init: true
-    ) do
+    class VerifyMacInput
       include Hearth::Structure
 
+      MEMBERS = %i[
+        message
+        key_id
+        mac_algorithm
+        mac
+        grant_tokens
+        dry_run
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::KMS::Types::VerifyMacInput "\
+        "#<AWS::SDK::KMS::Types::VerifyMacInput "\
           "message=\"[SENSITIVE]\", "\
           "key_id=#{key_id || 'nil'}, "\
           "mac_algorithm=#{mac_algorithm || 'nil'}, "\
@@ -5927,13 +6316,16 @@ module AWS::SDK::KMS
     #   <p>The MAC algorithm used in the verification.</p>
     #   Enum, one of: ["HMAC_SHA_224", "HMAC_SHA_256", "HMAC_SHA_384", "HMAC_SHA_512"]
     #   @return [String]
-    VerifyMacOutput = ::Struct.new(
-      :key_id,
-      :mac_valid,
-      :mac_algorithm,
-      keyword_init: true
-    ) do
+    class VerifyMacOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key_id
+        mac_valid
+        mac_algorithm
+      ].freeze
+
+      attr_accessor(*MEMBERS)
 
       private
 
@@ -5963,13 +6355,16 @@ module AWS::SDK::KMS
     #   <p>The signing algorithm that was used to verify the signature.</p>
     #   Enum, one of: ["RSASSA_PSS_SHA_256", "RSASSA_PSS_SHA_384", "RSASSA_PSS_SHA_512", "RSASSA_PKCS1_V1_5_SHA_256", "RSASSA_PKCS1_V1_5_SHA_384", "RSASSA_PKCS1_V1_5_SHA_512", "ECDSA_SHA_256", "ECDSA_SHA_384", "ECDSA_SHA_512", "SM2DSA"]
     #   @return [String]
-    VerifyOutput = ::Struct.new(
-      :key_id,
-      :signature_valid,
-      :signing_algorithm,
-      keyword_init: true
-    ) do
+    class VerifyOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key_id
+        signature_valid
+        signing_algorithm
+      ].freeze
+
+      attr_accessor(*MEMBERS)
 
       private
 
@@ -5997,11 +6392,14 @@ module AWS::SDK::KMS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    XksKeyAlreadyInUseException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class XksKeyAlreadyInUseException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Information about the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html#concept-external-key">external key </a>that is
@@ -6020,11 +6418,14 @@ module AWS::SDK::KMS
     #   <p>The ID of the external key in its external key manager. This is the ID that the external
     #         key store proxy uses to identify the external key.</p>
     #   @return [String]
-    XksKeyConfigurationType = ::Struct.new(
-      :id,
-      keyword_init: true
-    ) do
+    class XksKeyConfigurationType
       include Hearth::Structure
+
+      MEMBERS = %i[
+        id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The request was rejected because the external key specified by the <code>XksKeyId</code>
@@ -6036,11 +6437,14 @@ module AWS::SDK::KMS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    XksKeyInvalidConfigurationException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class XksKeyInvalidConfigurationException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The request was rejected because the external key store proxy could not find the external
@@ -6055,11 +6459,14 @@ module AWS::SDK::KMS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    XksKeyNotFoundException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class XksKeyNotFoundException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>KMS uses the authentication credential to sign requests that it sends to the external
@@ -6077,15 +6484,18 @@ module AWS::SDK::KMS
     #   <p>A secret string of 43-64 characters. Valid characters are a-z, A-Z, 0-9, /, +, and
     #         =.</p>
     #   @return [String]
-    XksProxyAuthenticationCredentialType = ::Struct.new(
-      :access_key_id,
-      :raw_secret_access_key,
-      keyword_init: true
-    ) do
+    class XksProxyAuthenticationCredentialType
       include Hearth::Structure
 
+      MEMBERS = %i[
+        access_key_id
+        raw_secret_access_key
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::KMS::Types::XksProxyAuthenticationCredentialType "\
+        "#<AWS::SDK::KMS::Types::XksProxyAuthenticationCredentialType "\
           "access_key_id=\"[SENSITIVE]\", "\
           "raw_secret_access_key=\"[SENSITIVE]\">"
       end
@@ -6125,18 +6535,21 @@ module AWS::SDK::KMS
     #         field appears only when the external key store proxy uses an Amazon VPC endpoint service to
     #         communicate with KMS.</p>
     #   @return [String]
-    XksProxyConfigurationType = ::Struct.new(
-      :connectivity,
-      :access_key_id,
-      :uri_endpoint,
-      :uri_path,
-      :vpc_endpoint_service_name,
-      keyword_init: true
-    ) do
+    class XksProxyConfigurationType
       include Hearth::Structure
 
+      MEMBERS = %i[
+        connectivity
+        access_key_id
+        uri_endpoint
+        uri_path
+        vpc_endpoint_service_name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::KMS::Types::XksProxyConfigurationType "\
+        "#<AWS::SDK::KMS::Types::XksProxyConfigurationType "\
           "connectivity=#{connectivity || 'nil'}, "\
           "access_key_id=\"[SENSITIVE]\", "\
           "uri_endpoint=#{uri_endpoint || 'nil'}, "\
@@ -6161,11 +6574,14 @@ module AWS::SDK::KMS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    XksProxyIncorrectAuthenticationCredentialException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class XksProxyIncorrectAuthenticationCredentialException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The request was rejected because the external key store proxy is not configured correctly.
@@ -6175,11 +6591,14 @@ module AWS::SDK::KMS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    XksProxyInvalidConfigurationException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class XksProxyInvalidConfigurationException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p></p>
@@ -6191,11 +6610,14 @@ module AWS::SDK::KMS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    XksProxyInvalidResponseException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class XksProxyInvalidResponseException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The request was rejected because the <code>XksProxyUriEndpoint</code> is already
@@ -6206,11 +6628,14 @@ module AWS::SDK::KMS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    XksProxyUriEndpointInUseException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class XksProxyUriEndpointInUseException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The request was rejected because the concatenation of the <code>XksProxyUriEndpoint</code>
@@ -6222,11 +6647,14 @@ module AWS::SDK::KMS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    XksProxyUriInUseException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class XksProxyUriInUseException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>KMS was unable to reach the specified <code>XksProxyUriPath</code>. The path must be
@@ -6239,11 +6667,14 @@ module AWS::SDK::KMS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    XksProxyUriUnreachableException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class XksProxyUriUnreachableException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The request was rejected because the specified Amazon VPC endpoint service is already
@@ -6254,11 +6685,14 @@ module AWS::SDK::KMS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    XksProxyVpcEndpointServiceInUseException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class XksProxyVpcEndpointServiceInUseException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The request was rejected because the Amazon VPC endpoint service configuration does not fulfill
@@ -6271,11 +6705,14 @@ module AWS::SDK::KMS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    XksProxyVpcEndpointServiceInvalidConfigurationException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class XksProxyVpcEndpointServiceInvalidConfigurationException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The request was rejected because KMS could not find the specified VPC endpoint service.
@@ -6288,11 +6725,14 @@ module AWS::SDK::KMS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    XksProxyVpcEndpointServiceNotFoundException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class XksProxyVpcEndpointServiceNotFoundException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
   end

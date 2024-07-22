@@ -25,13 +25,13 @@ import software.amazon.smithy.ruby.codegen.config.ConfigProviderChain;
 public final class AWSConfig {
 
     private static final String REGION_DOCUMENTATION = """
-                The AWS region to connect to. The configured `:region` is
-                used to determine the service `:endpoint`. When not provided,
-                a default `:region` is searched for in the following locations:
-                                
-                * `ENV['AWS_REGION']`
-                * `~/.aws/credentials` and `~/.aws/config`
-                """;
+            The AWS region to connect to. The configured `:region` is
+            used to determine the service `:endpoint`. When not provided,
+            a default `:region` is searched for in the following locations:
+                            
+            * `ENV['AWS_REGION']`
+            * `~/.aws/credentials` and `~/.aws/config`
+            """;
     public static final ClientConfig REGION = ClientConfig.builder()
             .name("region")
             .documentationRbsAndValidationType("String")
@@ -85,5 +85,6 @@ public final class AWSConfig {
                     .build())
             .build();
 
-    private AWSConfig() { }
+    private AWSConfig() {
+    }
 }

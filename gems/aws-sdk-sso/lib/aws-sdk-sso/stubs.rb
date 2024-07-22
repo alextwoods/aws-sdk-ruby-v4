@@ -27,9 +27,9 @@ module AWS::SDK::SSO
       def self.stub(stub)
         stub ||= Types::AccountInfo.new
         data = {}
-        data['accountId'] = stub[:account_id] unless stub[:account_id].nil?
-        data['accountName'] = stub[:account_name] unless stub[:account_name].nil?
-        data['emailAddress'] = stub[:email_address] unless stub[:email_address].nil?
+        data['accountId'] = stub.account_id unless stub.account_id.nil?
+        data['accountName'] = stub.account_name unless stub.account_name.nil?
+        data['emailAddress'] = stub.email_address unless stub.email_address.nil?
         data
       end
     end
@@ -72,7 +72,7 @@ module AWS::SDK::SSO
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['roleCredentials'] = RoleCredentials.stub(stub[:role_credentials]) unless stub[:role_credentials].nil?
+        data['roleCredentials'] = RoleCredentials.stub(stub.role_credentials) unless stub.role_credentials.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -97,7 +97,7 @@ module AWS::SDK::SSO
         http_resp.status = 400
         http_resp.headers['X-Amzn-Errortype'] = 'InvalidRequestException'
         http_resp.headers['Content-Type'] = 'application/json'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -122,8 +122,8 @@ module AWS::SDK::SSO
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['roleList'] = RoleListType.stub(stub[:role_list]) unless stub[:role_list].nil?
+        data['nextToken'] = stub.next_token unless stub.next_token.nil?
+        data['roleList'] = RoleListType.stub(stub.role_list) unless stub.role_list.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -148,8 +148,8 @@ module AWS::SDK::SSO
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['accountList'] = AccountListType.stub(stub[:account_list]) unless stub[:account_list].nil?
+        data['nextToken'] = stub.next_token unless stub.next_token.nil?
+        data['accountList'] = AccountListType.stub(stub.account_list) unless stub.account_list.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -194,7 +194,7 @@ module AWS::SDK::SSO
         http_resp.status = 404
         http_resp.headers['X-Amzn-Errortype'] = 'ResourceNotFoundException'
         http_resp.headers['Content-Type'] = 'application/json'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -214,10 +214,10 @@ module AWS::SDK::SSO
       def self.stub(stub)
         stub ||= Types::RoleCredentials.new
         data = {}
-        data['accessKeyId'] = stub[:access_key_id] unless stub[:access_key_id].nil?
-        data['secretAccessKey'] = stub[:secret_access_key] unless stub[:secret_access_key].nil?
-        data['sessionToken'] = stub[:session_token] unless stub[:session_token].nil?
-        data['expiration'] = stub[:expiration] unless stub[:expiration].nil?
+        data['accessKeyId'] = stub.access_key_id unless stub.access_key_id.nil?
+        data['secretAccessKey'] = stub.secret_access_key unless stub.secret_access_key.nil?
+        data['sessionToken'] = stub.session_token unless stub.session_token.nil?
+        data['expiration'] = stub.expiration unless stub.expiration.nil?
         data
       end
     end
@@ -235,8 +235,8 @@ module AWS::SDK::SSO
       def self.stub(stub)
         stub ||= Types::RoleInfo.new
         data = {}
-        data['roleName'] = stub[:role_name] unless stub[:role_name].nil?
-        data['accountId'] = stub[:account_id] unless stub[:account_id].nil?
+        data['roleName'] = stub.role_name unless stub.role_name.nil?
+        data['accountId'] = stub.account_id unless stub.account_id.nil?
         data
       end
     end
@@ -280,7 +280,7 @@ module AWS::SDK::SSO
         http_resp.status = 429
         http_resp.headers['X-Amzn-Errortype'] = 'TooManyRequestsException'
         http_resp.headers['Content-Type'] = 'application/json'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -305,7 +305,7 @@ module AWS::SDK::SSO
         http_resp.status = 401
         http_resp.headers['X-Amzn-Errortype'] = 'UnauthorizedException'
         http_resp.headers['Content-Type'] = 'application/json'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
