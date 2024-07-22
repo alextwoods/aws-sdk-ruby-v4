@@ -673,14 +673,13 @@ module AWS::SigV4
 
         context 'signing algorithm' do
           it 'allows for signing algorithm override' do
-            # non-default SigV4A isn't supported here
-            expect do
-              subject.presign_url(
+            presigned_url = subject.presign_url(
                 request: request,
                 credentials: credentials,
                 signing_algorithm: signing_algorithm
               )
-            end.to raise_error(ArgumentError, /aws-crt/)
+            expect(presigned_url.metadata[:canonical_request])
+              .to include('X-Amz-Algorithm=AWS4-ECDSA-P256-SHA256')
           end
 
           it 'raises when not sigv4, sigv4a, or sigv4-s3express' do
