@@ -133,7 +133,7 @@ module AWS::SDK::LexRuntimeV2
         ?request_attributes: ::String,
         request_content_type: ::String,
         ?response_content_type: ::String,
-        ?input_stream: ::String
+        ?input_stream: (Hearth::_ReadableIO | Hearth::_WritableIO)
       ) ?{ (::String) -> Hearth::BlockIO } -> Hearth::Output[Types::RecognizeUtteranceOutput]
 
     def start_conversation: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  ?{ (::String) -> Hearth::BlockIO } -> Hearth::Output[Types::StartConversationOutput] |

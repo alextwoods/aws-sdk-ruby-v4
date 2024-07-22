@@ -33,7 +33,7 @@ module AWS::SDK::Kinesis
         http_resp.status = 400
         data = {}
         data['__type'] = 'AccessDeniedException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -73,9 +73,9 @@ module AWS::SDK::Kinesis
       def self.stub(stub)
         stub ||= Types::ChildShard.new
         data = {}
-        data['ShardId'] = stub[:shard_id] unless stub[:shard_id].nil?
-        data['ParentShards'] = ShardIdList.stub(stub[:parent_shards]) unless stub[:parent_shards].nil?
-        data['HashKeyRange'] = HashKeyRange.stub(stub[:hash_key_range]) unless stub[:hash_key_range].nil?
+        data['ShardId'] = stub.shard_id unless stub.shard_id.nil?
+        data['ParentShards'] = ShardIdList.stub(stub.parent_shards) unless stub.parent_shards.nil?
+        data['HashKeyRange'] = HashKeyRange.stub(stub.hash_key_range) unless stub.hash_key_range.nil?
         data
       end
     end
@@ -114,10 +114,10 @@ module AWS::SDK::Kinesis
       def self.stub(stub)
         stub ||= Types::Consumer.new
         data = {}
-        data['ConsumerName'] = stub[:consumer_name] unless stub[:consumer_name].nil?
-        data['ConsumerARN'] = stub[:consumer_arn] unless stub[:consumer_arn].nil?
-        data['ConsumerStatus'] = stub[:consumer_status] unless stub[:consumer_status].nil?
-        data['ConsumerCreationTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:consumer_creation_timestamp]).to_i unless stub[:consumer_creation_timestamp].nil?
+        data['ConsumerName'] = stub.consumer_name unless stub.consumer_name.nil?
+        data['ConsumerARN'] = stub.consumer_arn unless stub.consumer_arn.nil?
+        data['ConsumerStatus'] = stub.consumer_status unless stub.consumer_status.nil?
+        data['ConsumerCreationTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub.consumer_creation_timestamp).to_i unless stub.consumer_creation_timestamp.nil?
         data
       end
     end
@@ -138,11 +138,11 @@ module AWS::SDK::Kinesis
       def self.stub(stub)
         stub ||= Types::ConsumerDescription.new
         data = {}
-        data['ConsumerName'] = stub[:consumer_name] unless stub[:consumer_name].nil?
-        data['ConsumerARN'] = stub[:consumer_arn] unless stub[:consumer_arn].nil?
-        data['ConsumerStatus'] = stub[:consumer_status] unless stub[:consumer_status].nil?
-        data['ConsumerCreationTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:consumer_creation_timestamp]).to_i unless stub[:consumer_creation_timestamp].nil?
-        data['StreamARN'] = stub[:stream_arn] unless stub[:stream_arn].nil?
+        data['ConsumerName'] = stub.consumer_name unless stub.consumer_name.nil?
+        data['ConsumerARN'] = stub.consumer_arn unless stub.consumer_arn.nil?
+        data['ConsumerStatus'] = stub.consumer_status unless stub.consumer_status.nil?
+        data['ConsumerCreationTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub.consumer_creation_timestamp).to_i unless stub.consumer_creation_timestamp.nil?
+        data['StreamARN'] = stub.stream_arn unless stub.stream_arn.nil?
         data
       end
     end
@@ -291,10 +291,10 @@ module AWS::SDK::Kinesis
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ShardLimit'] = stub[:shard_limit] unless stub[:shard_limit].nil?
-        data['OpenShardCount'] = stub[:open_shard_count] unless stub[:open_shard_count].nil?
-        data['OnDemandStreamCount'] = stub[:on_demand_stream_count] unless stub[:on_demand_stream_count].nil?
-        data['OnDemandStreamCountLimit'] = stub[:on_demand_stream_count_limit] unless stub[:on_demand_stream_count_limit].nil?
+        data['ShardLimit'] = stub.shard_limit unless stub.shard_limit.nil?
+        data['OpenShardCount'] = stub.open_shard_count unless stub.open_shard_count.nil?
+        data['OnDemandStreamCount'] = stub.on_demand_stream_count unless stub.on_demand_stream_count.nil?
+        data['OnDemandStreamCountLimit'] = stub.on_demand_stream_count_limit unless stub.on_demand_stream_count_limit.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -317,7 +317,7 @@ module AWS::SDK::Kinesis
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['StreamDescription'] = StreamDescription.stub(stub[:stream_description]) unless stub[:stream_description].nil?
+        data['StreamDescription'] = StreamDescription.stub(stub.stream_description) unless stub.stream_description.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -340,7 +340,7 @@ module AWS::SDK::Kinesis
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ConsumerDescription'] = ConsumerDescription.stub(stub[:consumer_description]) unless stub[:consumer_description].nil?
+        data['ConsumerDescription'] = ConsumerDescription.stub(stub.consumer_description) unless stub.consumer_description.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -363,7 +363,7 @@ module AWS::SDK::Kinesis
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['StreamDescriptionSummary'] = StreamDescriptionSummary.stub(stub[:stream_description_summary]) unless stub[:stream_description_summary].nil?
+        data['StreamDescriptionSummary'] = StreamDescriptionSummary.stub(stub.stream_description_summary) unless stub.stream_description_summary.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -389,10 +389,10 @@ module AWS::SDK::Kinesis
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['StreamName'] = stub[:stream_name] unless stub[:stream_name].nil?
-        data['CurrentShardLevelMetrics'] = MetricsNameList.stub(stub[:current_shard_level_metrics]) unless stub[:current_shard_level_metrics].nil?
-        data['DesiredShardLevelMetrics'] = MetricsNameList.stub(stub[:desired_shard_level_metrics]) unless stub[:desired_shard_level_metrics].nil?
-        data['StreamARN'] = stub[:stream_arn] unless stub[:stream_arn].nil?
+        data['StreamName'] = stub.stream_name unless stub.stream_name.nil?
+        data['CurrentShardLevelMetrics'] = MetricsNameList.stub(stub.current_shard_level_metrics) unless stub.current_shard_level_metrics.nil?
+        data['DesiredShardLevelMetrics'] = MetricsNameList.stub(stub.desired_shard_level_metrics) unless stub.desired_shard_level_metrics.nil?
+        data['StreamARN'] = stub.stream_arn unless stub.stream_arn.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -418,10 +418,10 @@ module AWS::SDK::Kinesis
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['StreamName'] = stub[:stream_name] unless stub[:stream_name].nil?
-        data['CurrentShardLevelMetrics'] = MetricsNameList.stub(stub[:current_shard_level_metrics]) unless stub[:current_shard_level_metrics].nil?
-        data['DesiredShardLevelMetrics'] = MetricsNameList.stub(stub[:desired_shard_level_metrics]) unless stub[:desired_shard_level_metrics].nil?
-        data['StreamARN'] = stub[:stream_arn] unless stub[:stream_arn].nil?
+        data['StreamName'] = stub.stream_name unless stub.stream_name.nil?
+        data['CurrentShardLevelMetrics'] = MetricsNameList.stub(stub.current_shard_level_metrics) unless stub.current_shard_level_metrics.nil?
+        data['DesiredShardLevelMetrics'] = MetricsNameList.stub(stub.desired_shard_level_metrics) unless stub.desired_shard_level_metrics.nil?
+        data['StreamARN'] = stub.stream_arn unless stub.stream_arn.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -439,7 +439,7 @@ module AWS::SDK::Kinesis
       def self.stub(stub)
         stub ||= Types::EnhancedMetrics.new
         data = {}
-        data['ShardLevelMetrics'] = MetricsNameList.stub(stub[:shard_level_metrics]) unless stub[:shard_level_metrics].nil?
+        data['ShardLevelMetrics'] = MetricsNameList.stub(stub.shard_level_metrics) unless stub.shard_level_metrics.nil?
         data
       end
     end
@@ -482,7 +482,7 @@ module AWS::SDK::Kinesis
         http_resp.status = 400
         data = {}
         data['__type'] = 'ExpiredIteratorException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -506,7 +506,7 @@ module AWS::SDK::Kinesis
         http_resp.status = 400
         data = {}
         data['__type'] = 'ExpiredNextTokenException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -531,10 +531,10 @@ module AWS::SDK::Kinesis
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Records'] = RecordList.stub(stub[:records]) unless stub[:records].nil?
-        data['NextShardIterator'] = stub[:next_shard_iterator] unless stub[:next_shard_iterator].nil?
-        data['MillisBehindLatest'] = stub[:millis_behind_latest] unless stub[:millis_behind_latest].nil?
-        data['ChildShards'] = ChildShardList.stub(stub[:child_shards]) unless stub[:child_shards].nil?
+        data['Records'] = RecordList.stub(stub.records) unless stub.records.nil?
+        data['NextShardIterator'] = stub.next_shard_iterator unless stub.next_shard_iterator.nil?
+        data['MillisBehindLatest'] = stub.millis_behind_latest unless stub.millis_behind_latest.nil?
+        data['ChildShards'] = ChildShardList.stub(stub.child_shards) unless stub.child_shards.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -557,7 +557,7 @@ module AWS::SDK::Kinesis
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Policy'] = stub[:policy] unless stub[:policy].nil?
+        data['Policy'] = stub.policy unless stub.policy.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -580,7 +580,7 @@ module AWS::SDK::Kinesis
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ShardIterator'] = stub[:shard_iterator] unless stub[:shard_iterator].nil?
+        data['ShardIterator'] = stub.shard_iterator unless stub.shard_iterator.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -599,8 +599,8 @@ module AWS::SDK::Kinesis
       def self.stub(stub)
         stub ||= Types::HashKeyRange.new
         data = {}
-        data['StartingHashKey'] = stub[:starting_hash_key] unless stub[:starting_hash_key].nil?
-        data['EndingHashKey'] = stub[:ending_hash_key] unless stub[:ending_hash_key].nil?
+        data['StartingHashKey'] = stub.starting_hash_key unless stub.starting_hash_key.nil?
+        data['EndingHashKey'] = stub.ending_hash_key unless stub.ending_hash_key.nil?
         data
       end
     end
@@ -645,7 +645,7 @@ module AWS::SDK::Kinesis
         http_resp.status = 500
         data = {}
         data['__type'] = 'InternalFailureException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -669,7 +669,7 @@ module AWS::SDK::Kinesis
         http_resp.status = 400
         data = {}
         data['__type'] = 'InvalidArgumentException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -693,7 +693,7 @@ module AWS::SDK::Kinesis
         http_resp.status = 400
         data = {}
         data['__type'] = 'KMSAccessDeniedException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -717,7 +717,7 @@ module AWS::SDK::Kinesis
         http_resp.status = 400
         data = {}
         data['__type'] = 'KMSDisabledException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -741,7 +741,7 @@ module AWS::SDK::Kinesis
         http_resp.status = 400
         data = {}
         data['__type'] = 'KMSInvalidStateException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -765,7 +765,7 @@ module AWS::SDK::Kinesis
         http_resp.status = 400
         data = {}
         data['__type'] = 'KMSNotFoundException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -789,7 +789,7 @@ module AWS::SDK::Kinesis
         http_resp.status = 400
         data = {}
         data['__type'] = 'KMSOptInRequired'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -813,7 +813,7 @@ module AWS::SDK::Kinesis
         http_resp.status = 400
         data = {}
         data['__type'] = 'KMSThrottlingException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -837,7 +837,7 @@ module AWS::SDK::Kinesis
         http_resp.status = 400
         data = {}
         data['__type'] = 'LimitExceededException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -860,8 +860,8 @@ module AWS::SDK::Kinesis
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Shards'] = ShardList.stub(stub[:shards]) unless stub[:shards].nil?
-        data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
+        data['Shards'] = ShardList.stub(stub.shards) unless stub.shards.nil?
+        data['NextToken'] = stub.next_token unless stub.next_token.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -885,8 +885,8 @@ module AWS::SDK::Kinesis
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Consumers'] = ConsumerList.stub(stub[:consumers]) unless stub[:consumers].nil?
-        data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
+        data['Consumers'] = ConsumerList.stub(stub.consumers) unless stub.consumers.nil?
+        data['NextToken'] = stub.next_token unless stub.next_token.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -912,10 +912,10 @@ module AWS::SDK::Kinesis
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['StreamNames'] = StreamNameList.stub(stub[:stream_names]) unless stub[:stream_names].nil?
-        data['HasMoreStreams'] = stub[:has_more_streams] unless stub[:has_more_streams].nil?
-        data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['StreamSummaries'] = StreamSummaryList.stub(stub[:stream_summaries]) unless stub[:stream_summaries].nil?
+        data['StreamNames'] = StreamNameList.stub(stub.stream_names) unless stub.stream_names.nil?
+        data['HasMoreStreams'] = stub.has_more_streams unless stub.has_more_streams.nil?
+        data['NextToken'] = stub.next_token unless stub.next_token.nil?
+        data['StreamSummaries'] = StreamSummaryList.stub(stub.stream_summaries) unless stub.stream_summaries.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -939,8 +939,8 @@ module AWS::SDK::Kinesis
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        data['HasMoreTags'] = stub[:has_more_tags] unless stub[:has_more_tags].nil?
+        data['Tags'] = TagList.stub(stub.tags) unless stub.tags.nil?
+        data['HasMoreTags'] = stub.has_more_tags unless stub.has_more_tags.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -1005,7 +1005,7 @@ module AWS::SDK::Kinesis
         http_resp.status = 400
         data = {}
         data['__type'] = 'ProvisionedThroughputExceededException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1029,9 +1029,9 @@ module AWS::SDK::Kinesis
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ShardId'] = stub[:shard_id] unless stub[:shard_id].nil?
-        data['SequenceNumber'] = stub[:sequence_number] unless stub[:sequence_number].nil?
-        data['EncryptionType'] = stub[:encryption_type] unless stub[:encryption_type].nil?
+        data['ShardId'] = stub.shard_id unless stub.shard_id.nil?
+        data['SequenceNumber'] = stub.sequence_number unless stub.sequence_number.nil?
+        data['EncryptionType'] = stub.encryption_type unless stub.encryption_type.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -1056,9 +1056,9 @@ module AWS::SDK::Kinesis
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FailedRecordCount'] = stub[:failed_record_count] unless stub[:failed_record_count].nil?
-        data['Records'] = PutRecordsResultEntryList.stub(stub[:records]) unless stub[:records].nil?
-        data['EncryptionType'] = stub[:encryption_type] unless stub[:encryption_type].nil?
+        data['FailedRecordCount'] = stub.failed_record_count unless stub.failed_record_count.nil?
+        data['Records'] = PutRecordsResultEntryList.stub(stub.records) unless stub.records.nil?
+        data['EncryptionType'] = stub.encryption_type unless stub.encryption_type.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -1079,10 +1079,10 @@ module AWS::SDK::Kinesis
       def self.stub(stub)
         stub ||= Types::PutRecordsResultEntry.new
         data = {}
-        data['SequenceNumber'] = stub[:sequence_number] unless stub[:sequence_number].nil?
-        data['ShardId'] = stub[:shard_id] unless stub[:shard_id].nil?
-        data['ErrorCode'] = stub[:error_code] unless stub[:error_code].nil?
-        data['ErrorMessage'] = stub[:error_message] unless stub[:error_message].nil?
+        data['SequenceNumber'] = stub.sequence_number unless stub.sequence_number.nil?
+        data['ShardId'] = stub.shard_id unless stub.shard_id.nil?
+        data['ErrorCode'] = stub.error_code unless stub.error_code.nil?
+        data['ErrorMessage'] = stub.error_message unless stub.error_message.nil?
         data
       end
     end
@@ -1143,11 +1143,11 @@ module AWS::SDK::Kinesis
       def self.stub(stub)
         stub ||= Types::Record.new
         data = {}
-        data['SequenceNumber'] = stub[:sequence_number] unless stub[:sequence_number].nil?
-        data['ApproximateArrivalTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:approximate_arrival_timestamp]).to_i unless stub[:approximate_arrival_timestamp].nil?
-        data['Data'] = ::Base64::strict_encode64(stub[:data]) unless stub[:data].nil?
-        data['PartitionKey'] = stub[:partition_key] unless stub[:partition_key].nil?
-        data['EncryptionType'] = stub[:encryption_type] unless stub[:encryption_type].nil?
+        data['SequenceNumber'] = stub.sequence_number unless stub.sequence_number.nil?
+        data['ApproximateArrivalTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub.approximate_arrival_timestamp).to_i unless stub.approximate_arrival_timestamp.nil?
+        data['Data'] = ::Base64::strict_encode64(stub.data) unless stub.data.nil?
+        data['PartitionKey'] = stub.partition_key unless stub.partition_key.nil?
+        data['EncryptionType'] = stub.encryption_type unless stub.encryption_type.nil?
         data
       end
     end
@@ -1188,7 +1188,7 @@ module AWS::SDK::Kinesis
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Consumer'] = Consumer.stub(stub[:consumer]) unless stub[:consumer].nil?
+        data['Consumer'] = Consumer.stub(stub.consumer) unless stub.consumer.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -1234,7 +1234,7 @@ module AWS::SDK::Kinesis
         http_resp.status = 400
         data = {}
         data['__type'] = 'ResourceInUseException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1258,7 +1258,7 @@ module AWS::SDK::Kinesis
         http_resp.status = 400
         data = {}
         data['__type'] = 'ResourceNotFoundException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1276,8 +1276,8 @@ module AWS::SDK::Kinesis
       def self.stub(stub)
         stub ||= Types::SequenceNumberRange.new
         data = {}
-        data['StartingSequenceNumber'] = stub[:starting_sequence_number] unless stub[:starting_sequence_number].nil?
-        data['EndingSequenceNumber'] = stub[:ending_sequence_number] unless stub[:ending_sequence_number].nil?
+        data['StartingSequenceNumber'] = stub.starting_sequence_number unless stub.starting_sequence_number.nil?
+        data['EndingSequenceNumber'] = stub.ending_sequence_number unless stub.ending_sequence_number.nil?
         data
       end
     end
@@ -1298,11 +1298,11 @@ module AWS::SDK::Kinesis
       def self.stub(stub)
         stub ||= Types::Shard.new
         data = {}
-        data['ShardId'] = stub[:shard_id] unless stub[:shard_id].nil?
-        data['ParentShardId'] = stub[:parent_shard_id] unless stub[:parent_shard_id].nil?
-        data['AdjacentParentShardId'] = stub[:adjacent_parent_shard_id] unless stub[:adjacent_parent_shard_id].nil?
-        data['HashKeyRange'] = HashKeyRange.stub(stub[:hash_key_range]) unless stub[:hash_key_range].nil?
-        data['SequenceNumberRange'] = SequenceNumberRange.stub(stub[:sequence_number_range]) unless stub[:sequence_number_range].nil?
+        data['ShardId'] = stub.shard_id unless stub.shard_id.nil?
+        data['ParentShardId'] = stub.parent_shard_id unless stub.parent_shard_id.nil?
+        data['AdjacentParentShardId'] = stub.adjacent_parent_shard_id unless stub.adjacent_parent_shard_id.nil?
+        data['HashKeyRange'] = HashKeyRange.stub(stub.hash_key_range) unless stub.hash_key_range.nil?
+        data['SequenceNumberRange'] = SequenceNumberRange.stub(stub.sequence_number_range) unless stub.sequence_number_range.nil?
         data
       end
     end
@@ -1430,17 +1430,17 @@ module AWS::SDK::Kinesis
       def self.stub(stub)
         stub ||= Types::StreamDescription.new
         data = {}
-        data['StreamName'] = stub[:stream_name] unless stub[:stream_name].nil?
-        data['StreamARN'] = stub[:stream_arn] unless stub[:stream_arn].nil?
-        data['StreamStatus'] = stub[:stream_status] unless stub[:stream_status].nil?
-        data['StreamModeDetails'] = StreamModeDetails.stub(stub[:stream_mode_details]) unless stub[:stream_mode_details].nil?
-        data['Shards'] = ShardList.stub(stub[:shards]) unless stub[:shards].nil?
-        data['HasMoreShards'] = stub[:has_more_shards] unless stub[:has_more_shards].nil?
-        data['RetentionPeriodHours'] = stub[:retention_period_hours] unless stub[:retention_period_hours].nil?
-        data['StreamCreationTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:stream_creation_timestamp]).to_i unless stub[:stream_creation_timestamp].nil?
-        data['EnhancedMonitoring'] = EnhancedMonitoringList.stub(stub[:enhanced_monitoring]) unless stub[:enhanced_monitoring].nil?
-        data['EncryptionType'] = stub[:encryption_type] unless stub[:encryption_type].nil?
-        data['KeyId'] = stub[:key_id] unless stub[:key_id].nil?
+        data['StreamName'] = stub.stream_name unless stub.stream_name.nil?
+        data['StreamARN'] = stub.stream_arn unless stub.stream_arn.nil?
+        data['StreamStatus'] = stub.stream_status unless stub.stream_status.nil?
+        data['StreamModeDetails'] = StreamModeDetails.stub(stub.stream_mode_details) unless stub.stream_mode_details.nil?
+        data['Shards'] = ShardList.stub(stub.shards) unless stub.shards.nil?
+        data['HasMoreShards'] = stub.has_more_shards unless stub.has_more_shards.nil?
+        data['RetentionPeriodHours'] = stub.retention_period_hours unless stub.retention_period_hours.nil?
+        data['StreamCreationTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub.stream_creation_timestamp).to_i unless stub.stream_creation_timestamp.nil?
+        data['EnhancedMonitoring'] = EnhancedMonitoringList.stub(stub.enhanced_monitoring) unless stub.enhanced_monitoring.nil?
+        data['EncryptionType'] = stub.encryption_type unless stub.encryption_type.nil?
+        data['KeyId'] = stub.key_id unless stub.key_id.nil?
         data
       end
     end
@@ -1467,17 +1467,17 @@ module AWS::SDK::Kinesis
       def self.stub(stub)
         stub ||= Types::StreamDescriptionSummary.new
         data = {}
-        data['StreamName'] = stub[:stream_name] unless stub[:stream_name].nil?
-        data['StreamARN'] = stub[:stream_arn] unless stub[:stream_arn].nil?
-        data['StreamStatus'] = stub[:stream_status] unless stub[:stream_status].nil?
-        data['StreamModeDetails'] = StreamModeDetails.stub(stub[:stream_mode_details]) unless stub[:stream_mode_details].nil?
-        data['RetentionPeriodHours'] = stub[:retention_period_hours] unless stub[:retention_period_hours].nil?
-        data['StreamCreationTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:stream_creation_timestamp]).to_i unless stub[:stream_creation_timestamp].nil?
-        data['EnhancedMonitoring'] = EnhancedMonitoringList.stub(stub[:enhanced_monitoring]) unless stub[:enhanced_monitoring].nil?
-        data['EncryptionType'] = stub[:encryption_type] unless stub[:encryption_type].nil?
-        data['KeyId'] = stub[:key_id] unless stub[:key_id].nil?
-        data['OpenShardCount'] = stub[:open_shard_count] unless stub[:open_shard_count].nil?
-        data['ConsumerCount'] = stub[:consumer_count] unless stub[:consumer_count].nil?
+        data['StreamName'] = stub.stream_name unless stub.stream_name.nil?
+        data['StreamARN'] = stub.stream_arn unless stub.stream_arn.nil?
+        data['StreamStatus'] = stub.stream_status unless stub.stream_status.nil?
+        data['StreamModeDetails'] = StreamModeDetails.stub(stub.stream_mode_details) unless stub.stream_mode_details.nil?
+        data['RetentionPeriodHours'] = stub.retention_period_hours unless stub.retention_period_hours.nil?
+        data['StreamCreationTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub.stream_creation_timestamp).to_i unless stub.stream_creation_timestamp.nil?
+        data['EnhancedMonitoring'] = EnhancedMonitoringList.stub(stub.enhanced_monitoring) unless stub.enhanced_monitoring.nil?
+        data['EncryptionType'] = stub.encryption_type unless stub.encryption_type.nil?
+        data['KeyId'] = stub.key_id unless stub.key_id.nil?
+        data['OpenShardCount'] = stub.open_shard_count unless stub.open_shard_count.nil?
+        data['ConsumerCount'] = stub.consumer_count unless stub.consumer_count.nil?
         data
       end
     end
@@ -1494,7 +1494,7 @@ module AWS::SDK::Kinesis
       def self.stub(stub)
         stub ||= Types::StreamModeDetails.new
         data = {}
-        data['StreamMode'] = stub[:stream_mode] unless stub[:stream_mode].nil?
+        data['StreamMode'] = stub.stream_mode unless stub.stream_mode.nil?
         data
       end
     end
@@ -1534,11 +1534,11 @@ module AWS::SDK::Kinesis
       def self.stub(stub)
         stub ||= Types::StreamSummary.new
         data = {}
-        data['StreamName'] = stub[:stream_name] unless stub[:stream_name].nil?
-        data['StreamARN'] = stub[:stream_arn] unless stub[:stream_arn].nil?
-        data['StreamStatus'] = stub[:stream_status] unless stub[:stream_status].nil?
-        data['StreamModeDetails'] = StreamModeDetails.stub(stub[:stream_mode_details]) unless stub[:stream_mode_details].nil?
-        data['StreamCreationTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:stream_creation_timestamp]).to_i unless stub[:stream_creation_timestamp].nil?
+        data['StreamName'] = stub.stream_name unless stub.stream_name.nil?
+        data['StreamARN'] = stub.stream_arn unless stub.stream_arn.nil?
+        data['StreamStatus'] = stub.stream_status unless stub.stream_status.nil?
+        data['StreamModeDetails'] = StreamModeDetails.stub(stub.stream_mode_details) unless stub.stream_mode_details.nil?
+        data['StreamCreationTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub.stream_creation_timestamp).to_i unless stub.stream_creation_timestamp.nil?
         data
       end
     end
@@ -1579,7 +1579,7 @@ module AWS::SDK::Kinesis
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['EventStream'] = SubscribeToShardEventStream.stub(stub[:event_stream]) unless stub[:event_stream].nil?
+        data['EventStream'] = SubscribeToShardEventStream.stub(stub.event_stream) unless stub.event_stream.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -1600,10 +1600,10 @@ module AWS::SDK::Kinesis
       def self.stub(stub)
         stub ||= Types::SubscribeToShardEvent.new
         data = {}
-        data['Records'] = RecordList.stub(stub[:records]) unless stub[:records].nil?
-        data['ContinuationSequenceNumber'] = stub[:continuation_sequence_number] unless stub[:continuation_sequence_number].nil?
-        data['MillisBehindLatest'] = stub[:millis_behind_latest] unless stub[:millis_behind_latest].nil?
-        data['ChildShards'] = ChildShardList.stub(stub[:child_shards]) unless stub[:child_shards].nil?
+        data['Records'] = RecordList.stub(stub.records) unless stub.records.nil?
+        data['ContinuationSequenceNumber'] = stub.continuation_sequence_number unless stub.continuation_sequence_number.nil?
+        data['MillisBehindLatest'] = stub.millis_behind_latest unless stub.millis_behind_latest.nil?
+        data['ChildShards'] = ChildShardList.stub(stub.child_shards) unless stub.child_shards.nil?
         data
       end
     end
@@ -1662,8 +1662,8 @@ module AWS::SDK::Kinesis
       def self.stub(stub)
         stub ||= Types::Tag.new
         data = {}
-        data['Key'] = stub[:key] unless stub[:key].nil?
-        data['Value'] = stub[:value] unless stub[:value].nil?
+        data['Key'] = stub.key unless stub.key.nil?
+        data['Value'] = stub.value unless stub.value.nil?
         data
       end
     end
@@ -1707,10 +1707,10 @@ module AWS::SDK::Kinesis
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['StreamName'] = stub[:stream_name] unless stub[:stream_name].nil?
-        data['CurrentShardCount'] = stub[:current_shard_count] unless stub[:current_shard_count].nil?
-        data['TargetShardCount'] = stub[:target_shard_count] unless stub[:target_shard_count].nil?
-        data['StreamARN'] = stub[:stream_arn] unless stub[:stream_arn].nil?
+        data['StreamName'] = stub.stream_name unless stub.stream_name.nil?
+        data['CurrentShardCount'] = stub.current_shard_count unless stub.current_shard_count.nil?
+        data['TargetShardCount'] = stub.target_shard_count unless stub.target_shard_count.nil?
+        data['StreamARN'] = stub.stream_arn unless stub.stream_arn.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -1756,7 +1756,7 @@ module AWS::SDK::Kinesis
         http_resp.status = 400
         data = {}
         data['__type'] = 'ValidationException'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end

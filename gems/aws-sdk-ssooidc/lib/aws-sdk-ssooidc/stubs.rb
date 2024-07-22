@@ -34,8 +34,8 @@ module AWS::SDK::SSOOIDC
         http_resp.status = 400
         http_resp.headers['X-Amzn-Errortype'] = 'AccessDeniedException'
         http_resp.headers['Content-Type'] = 'application/json'
-        data['error'] = stub[:error] unless stub[:error].nil?
-        data['error_description'] = stub[:error_description] unless stub[:error_description].nil?
+        data['error'] = stub.error unless stub.error.nil?
+        data['error_description'] = stub.error_description unless stub.error_description.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -61,8 +61,8 @@ module AWS::SDK::SSOOIDC
         http_resp.status = 400
         http_resp.headers['X-Amzn-Errortype'] = 'AuthorizationPendingException'
         http_resp.headers['Content-Type'] = 'application/json'
-        data['error'] = stub[:error] unless stub[:error].nil?
-        data['error_description'] = stub[:error_description] unless stub[:error_description].nil?
+        data['error'] = stub.error unless stub.error.nil?
+        data['error_description'] = stub.error_description unless stub.error_description.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -90,11 +90,11 @@ module AWS::SDK::SSOOIDC
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['accessToken'] = stub[:access_token] unless stub[:access_token].nil?
-        data['tokenType'] = stub[:token_type] unless stub[:token_type].nil?
-        data['expiresIn'] = stub[:expires_in] unless stub[:expires_in].nil?
-        data['refreshToken'] = stub[:refresh_token] unless stub[:refresh_token].nil?
-        data['idToken'] = stub[:id_token] unless stub[:id_token].nil?
+        data['accessToken'] = stub.access_token unless stub.access_token.nil?
+        data['tokenType'] = stub.token_type unless stub.token_type.nil?
+        data['expiresIn'] = stub.expires_in unless stub.expires_in.nil?
+        data['refreshToken'] = stub.refresh_token unless stub.refresh_token.nil?
+        data['idToken'] = stub.id_token unless stub.id_token.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -124,13 +124,13 @@ module AWS::SDK::SSOOIDC
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['accessToken'] = stub[:access_token] unless stub[:access_token].nil?
-        data['tokenType'] = stub[:token_type] unless stub[:token_type].nil?
-        data['expiresIn'] = stub[:expires_in] unless stub[:expires_in].nil?
-        data['refreshToken'] = stub[:refresh_token] unless stub[:refresh_token].nil?
-        data['idToken'] = stub[:id_token] unless stub[:id_token].nil?
-        data['issuedTokenType'] = stub[:issued_token_type] unless stub[:issued_token_type].nil?
-        data['scope'] = Scopes.stub(stub[:scope]) unless stub[:scope].nil?
+        data['accessToken'] = stub.access_token unless stub.access_token.nil?
+        data['tokenType'] = stub.token_type unless stub.token_type.nil?
+        data['expiresIn'] = stub.expires_in unless stub.expires_in.nil?
+        data['refreshToken'] = stub.refresh_token unless stub.refresh_token.nil?
+        data['idToken'] = stub.id_token unless stub.id_token.nil?
+        data['issuedTokenType'] = stub.issued_token_type unless stub.issued_token_type.nil?
+        data['scope'] = Scopes.stub(stub.scope) unless stub.scope.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -156,8 +156,8 @@ module AWS::SDK::SSOOIDC
         http_resp.status = 400
         http_resp.headers['X-Amzn-Errortype'] = 'ExpiredTokenException'
         http_resp.headers['Content-Type'] = 'application/json'
-        data['error'] = stub[:error] unless stub[:error].nil?
-        data['error_description'] = stub[:error_description] unless stub[:error_description].nil?
+        data['error'] = stub.error unless stub.error.nil?
+        data['error_description'] = stub.error_description unless stub.error_description.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -183,8 +183,8 @@ module AWS::SDK::SSOOIDC
         http_resp.status = 500
         http_resp.headers['X-Amzn-Errortype'] = 'InternalServerException'
         http_resp.headers['Content-Type'] = 'application/json'
-        data['error'] = stub[:error] unless stub[:error].nil?
-        data['error_description'] = stub[:error_description] unless stub[:error_description].nil?
+        data['error'] = stub.error unless stub.error.nil?
+        data['error_description'] = stub.error_description unless stub.error_description.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -210,8 +210,8 @@ module AWS::SDK::SSOOIDC
         http_resp.status = 401
         http_resp.headers['X-Amzn-Errortype'] = 'InvalidClientException'
         http_resp.headers['Content-Type'] = 'application/json'
-        data['error'] = stub[:error] unless stub[:error].nil?
-        data['error_description'] = stub[:error_description] unless stub[:error_description].nil?
+        data['error'] = stub.error unless stub.error.nil?
+        data['error_description'] = stub.error_description unless stub.error_description.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -237,8 +237,8 @@ module AWS::SDK::SSOOIDC
         http_resp.status = 400
         http_resp.headers['X-Amzn-Errortype'] = 'InvalidClientMetadataException'
         http_resp.headers['Content-Type'] = 'application/json'
-        data['error'] = stub[:error] unless stub[:error].nil?
-        data['error_description'] = stub[:error_description] unless stub[:error_description].nil?
+        data['error'] = stub.error unless stub.error.nil?
+        data['error_description'] = stub.error_description unless stub.error_description.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -264,8 +264,8 @@ module AWS::SDK::SSOOIDC
         http_resp.status = 400
         http_resp.headers['X-Amzn-Errortype'] = 'InvalidGrantException'
         http_resp.headers['Content-Type'] = 'application/json'
-        data['error'] = stub[:error] unless stub[:error].nil?
-        data['error_description'] = stub[:error_description] unless stub[:error_description].nil?
+        data['error'] = stub.error unless stub.error.nil?
+        data['error_description'] = stub.error_description unless stub.error_description.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -291,8 +291,8 @@ module AWS::SDK::SSOOIDC
         http_resp.status = 400
         http_resp.headers['X-Amzn-Errortype'] = 'InvalidRedirectUriException'
         http_resp.headers['Content-Type'] = 'application/json'
-        data['error'] = stub[:error] unless stub[:error].nil?
-        data['error_description'] = stub[:error_description] unless stub[:error_description].nil?
+        data['error'] = stub.error unless stub.error.nil?
+        data['error_description'] = stub.error_description unless stub.error_description.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -318,8 +318,8 @@ module AWS::SDK::SSOOIDC
         http_resp.status = 400
         http_resp.headers['X-Amzn-Errortype'] = 'InvalidRequestException'
         http_resp.headers['Content-Type'] = 'application/json'
-        data['error'] = stub[:error] unless stub[:error].nil?
-        data['error_description'] = stub[:error_description] unless stub[:error_description].nil?
+        data['error'] = stub.error unless stub.error.nil?
+        data['error_description'] = stub.error_description unless stub.error_description.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -347,10 +347,10 @@ module AWS::SDK::SSOOIDC
         http_resp.status = 400
         http_resp.headers['X-Amzn-Errortype'] = 'InvalidRequestRegionException'
         http_resp.headers['Content-Type'] = 'application/json'
-        data['error'] = stub[:error] unless stub[:error].nil?
-        data['error_description'] = stub[:error_description] unless stub[:error_description].nil?
-        data['endpoint'] = stub[:endpoint] unless stub[:endpoint].nil?
-        data['region'] = stub[:region] unless stub[:region].nil?
+        data['error'] = stub.error unless stub.error.nil?
+        data['error_description'] = stub.error_description unless stub.error_description.nil?
+        data['endpoint'] = stub.endpoint unless stub.endpoint.nil?
+        data['region'] = stub.region unless stub.region.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -376,8 +376,8 @@ module AWS::SDK::SSOOIDC
         http_resp.status = 400
         http_resp.headers['X-Amzn-Errortype'] = 'InvalidScopeException'
         http_resp.headers['Content-Type'] = 'application/json'
-        data['error'] = stub[:error] unless stub[:error].nil?
-        data['error_description'] = stub[:error_description] unless stub[:error_description].nil?
+        data['error'] = stub.error unless stub.error.nil?
+        data['error_description'] = stub.error_description unless stub.error_description.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -406,12 +406,12 @@ module AWS::SDK::SSOOIDC
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['clientId'] = stub[:client_id] unless stub[:client_id].nil?
-        data['clientSecret'] = stub[:client_secret] unless stub[:client_secret].nil?
-        data['clientIdIssuedAt'] = stub[:client_id_issued_at] unless stub[:client_id_issued_at].nil?
-        data['clientSecretExpiresAt'] = stub[:client_secret_expires_at] unless stub[:client_secret_expires_at].nil?
-        data['authorizationEndpoint'] = stub[:authorization_endpoint] unless stub[:authorization_endpoint].nil?
-        data['tokenEndpoint'] = stub[:token_endpoint] unless stub[:token_endpoint].nil?
+        data['clientId'] = stub.client_id unless stub.client_id.nil?
+        data['clientSecret'] = stub.client_secret unless stub.client_secret.nil?
+        data['clientIdIssuedAt'] = stub.client_id_issued_at unless stub.client_id_issued_at.nil?
+        data['clientSecretExpiresAt'] = stub.client_secret_expires_at unless stub.client_secret_expires_at.nil?
+        data['authorizationEndpoint'] = stub.authorization_endpoint unless stub.authorization_endpoint.nil?
+        data['tokenEndpoint'] = stub.token_endpoint unless stub.token_endpoint.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -456,8 +456,8 @@ module AWS::SDK::SSOOIDC
         http_resp.status = 400
         http_resp.headers['X-Amzn-Errortype'] = 'SlowDownException'
         http_resp.headers['Content-Type'] = 'application/json'
-        data['error'] = stub[:error] unless stub[:error].nil?
-        data['error_description'] = stub[:error_description] unless stub[:error_description].nil?
+        data['error'] = stub.error unless stub.error.nil?
+        data['error_description'] = stub.error_description unless stub.error_description.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -486,12 +486,12 @@ module AWS::SDK::SSOOIDC
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['deviceCode'] = stub[:device_code] unless stub[:device_code].nil?
-        data['userCode'] = stub[:user_code] unless stub[:user_code].nil?
-        data['verificationUri'] = stub[:verification_uri] unless stub[:verification_uri].nil?
-        data['verificationUriComplete'] = stub[:verification_uri_complete] unless stub[:verification_uri_complete].nil?
-        data['expiresIn'] = stub[:expires_in] unless stub[:expires_in].nil?
-        data['interval'] = stub[:interval] unless stub[:interval].nil?
+        data['deviceCode'] = stub.device_code unless stub.device_code.nil?
+        data['userCode'] = stub.user_code unless stub.user_code.nil?
+        data['verificationUri'] = stub.verification_uri unless stub.verification_uri.nil?
+        data['verificationUriComplete'] = stub.verification_uri_complete unless stub.verification_uri_complete.nil?
+        data['expiresIn'] = stub.expires_in unless stub.expires_in.nil?
+        data['interval'] = stub.interval unless stub.interval.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -517,8 +517,8 @@ module AWS::SDK::SSOOIDC
         http_resp.status = 400
         http_resp.headers['X-Amzn-Errortype'] = 'UnauthorizedClientException'
         http_resp.headers['Content-Type'] = 'application/json'
-        data['error'] = stub[:error] unless stub[:error].nil?
-        data['error_description'] = stub[:error_description] unless stub[:error_description].nil?
+        data['error'] = stub.error unless stub.error.nil?
+        data['error_description'] = stub.error_description unless stub.error_description.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -544,8 +544,8 @@ module AWS::SDK::SSOOIDC
         http_resp.status = 400
         http_resp.headers['X-Amzn-Errortype'] = 'UnsupportedGrantTypeException'
         http_resp.headers['Content-Type'] = 'application/json'
-        data['error'] = stub[:error] unless stub[:error].nil?
-        data['error_description'] = stub[:error_description] unless stub[:error_description].nil?
+        data['error'] = stub.error unless stub.error.nil?
+        data['error_description'] = stub.error_description unless stub.error_description.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end

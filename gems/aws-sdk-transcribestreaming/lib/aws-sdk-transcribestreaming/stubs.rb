@@ -27,9 +27,9 @@ module AWS::SDK::TranscribeStreaming
       def self.stub(stub)
         stub ||= Types::Alternative.new
         data = {}
-        data['Transcript'] = stub[:transcript] unless stub[:transcript].nil?
-        data['Items'] = ItemList.stub(stub[:items]) unless stub[:items].nil?
-        data['Entities'] = EntityList.stub(stub[:entities]) unless stub[:entities].nil?
+        data['Transcript'] = stub.transcript unless stub.transcript.nil?
+        data['Items'] = ItemList.stub(stub.items) unless stub.items.nil?
+        data['Entities'] = EntityList.stub(stub.entities) unless stub.entities.nil?
         data
       end
     end
@@ -73,7 +73,7 @@ module AWS::SDK::TranscribeStreaming
         http_resp.status = 400
         http_resp.headers['X-Amzn-Errortype'] = 'BadRequestException'
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Message'] = stub[:message] unless stub[:message].nil?
+        data['Message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -95,12 +95,12 @@ module AWS::SDK::TranscribeStreaming
       def self.stub(stub)
         stub ||= Types::CallAnalyticsEntity.new
         data = {}
-        data['BeginOffsetMillis'] = stub[:begin_offset_millis] unless stub[:begin_offset_millis].nil?
-        data['EndOffsetMillis'] = stub[:end_offset_millis] unless stub[:end_offset_millis].nil?
-        data['Category'] = stub[:category] unless stub[:category].nil?
-        data['Type'] = stub[:type] unless stub[:type].nil?
-        data['Content'] = stub[:content] unless stub[:content].nil?
-        data['Confidence'] = Hearth::NumberHelper.serialize(stub[:confidence])
+        data['BeginOffsetMillis'] = stub.begin_offset_millis unless stub.begin_offset_millis.nil?
+        data['EndOffsetMillis'] = stub.end_offset_millis unless stub.end_offset_millis.nil?
+        data['Category'] = stub.category unless stub.category.nil?
+        data['Type'] = stub.type unless stub.type.nil?
+        data['Content'] = stub.content unless stub.content.nil?
+        data['Confidence'] = Hearth::NumberHelper.serialize(stub.confidence)
         data
       end
     end
@@ -142,13 +142,13 @@ module AWS::SDK::TranscribeStreaming
       def self.stub(stub)
         stub ||= Types::CallAnalyticsItem.new
         data = {}
-        data['BeginOffsetMillis'] = stub[:begin_offset_millis] unless stub[:begin_offset_millis].nil?
-        data['EndOffsetMillis'] = stub[:end_offset_millis] unless stub[:end_offset_millis].nil?
-        data['Type'] = stub[:type] unless stub[:type].nil?
-        data['Content'] = stub[:content] unless stub[:content].nil?
-        data['Confidence'] = Hearth::NumberHelper.serialize(stub[:confidence])
-        data['VocabularyFilterMatch'] = stub[:vocabulary_filter_match] unless stub[:vocabulary_filter_match].nil?
-        data['Stable'] = stub[:stable] unless stub[:stable].nil?
+        data['BeginOffsetMillis'] = stub.begin_offset_millis unless stub.begin_offset_millis.nil?
+        data['EndOffsetMillis'] = stub.end_offset_millis unless stub.end_offset_millis.nil?
+        data['Type'] = stub.type unless stub.type.nil?
+        data['Content'] = stub.content unless stub.content.nil?
+        data['Confidence'] = Hearth::NumberHelper.serialize(stub.confidence)
+        data['VocabularyFilterMatch'] = stub.vocabulary_filter_match unless stub.vocabulary_filter_match.nil?
+        data['Stable'] = stub.stable unless stub.stable.nil?
         data
       end
     end
@@ -220,8 +220,8 @@ module AWS::SDK::TranscribeStreaming
       def self.stub(stub)
         stub ||= Types::CategoryEvent.new
         data = {}
-        data['MatchedCategories'] = StringList.stub(stub[:matched_categories]) unless stub[:matched_categories].nil?
-        data['MatchedDetails'] = MatchedCategoryDetails.stub(stub[:matched_details]) unless stub[:matched_details].nil?
+        data['MatchedCategories'] = StringList.stub(stub.matched_categories) unless stub.matched_categories.nil?
+        data['MatchedDetails'] = MatchedCategoryDetails.stub(stub.matched_details) unless stub.matched_details.nil?
         data
       end
     end
@@ -239,8 +239,8 @@ module AWS::SDK::TranscribeStreaming
       def self.stub(stub)
         stub ||= Types::CharacterOffsets.new
         data = {}
-        data['Begin'] = stub[:begin] unless stub[:begin].nil?
-        data['End'] = stub[:end] unless stub[:end].nil?
+        data['Begin'] = stub.begin unless stub.begin.nil?
+        data['End'] = stub.end unless stub.end.nil?
         data
       end
     end
@@ -265,7 +265,7 @@ module AWS::SDK::TranscribeStreaming
         http_resp.status = 409
         http_resp.headers['X-Amzn-Errortype'] = 'ConflictException'
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Message'] = stub[:message] unless stub[:message].nil?
+        data['Message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -287,12 +287,12 @@ module AWS::SDK::TranscribeStreaming
       def self.stub(stub)
         stub ||= Types::Entity.new
         data = {}
-        data['StartTime'] = Hearth::NumberHelper.serialize(stub[:start_time])
-        data['EndTime'] = Hearth::NumberHelper.serialize(stub[:end_time])
-        data['Category'] = stub[:category] unless stub[:category].nil?
-        data['Type'] = stub[:type] unless stub[:type].nil?
-        data['Content'] = stub[:content] unless stub[:content].nil?
-        data['Confidence'] = Hearth::NumberHelper.serialize(stub[:confidence])
+        data['StartTime'] = Hearth::NumberHelper.serialize(stub.start_time)
+        data['EndTime'] = Hearth::NumberHelper.serialize(stub.end_time)
+        data['Category'] = stub.category unless stub.category.nil?
+        data['Type'] = stub.type unless stub.type.nil?
+        data['Content'] = stub.content unless stub.content.nil?
+        data['Confidence'] = Hearth::NumberHelper.serialize(stub.confidence)
         data
       end
     end
@@ -336,7 +336,7 @@ module AWS::SDK::TranscribeStreaming
         http_resp.status = 500
         http_resp.headers['X-Amzn-Errortype'] = 'InternalFailureException'
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Message'] = stub[:message] unless stub[:message].nil?
+        data['Message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -353,7 +353,7 @@ module AWS::SDK::TranscribeStreaming
       def self.stub(stub)
         stub ||= Types::IssueDetected.new
         data = {}
-        data['CharacterOffsets'] = CharacterOffsets.stub(stub[:character_offsets]) unless stub[:character_offsets].nil?
+        data['CharacterOffsets'] = CharacterOffsets.stub(stub.character_offsets) unless stub.character_offsets.nil?
         data
       end
     end
@@ -396,14 +396,14 @@ module AWS::SDK::TranscribeStreaming
       def self.stub(stub)
         stub ||= Types::Item.new
         data = {}
-        data['StartTime'] = Hearth::NumberHelper.serialize(stub[:start_time])
-        data['EndTime'] = Hearth::NumberHelper.serialize(stub[:end_time])
-        data['Type'] = stub[:type] unless stub[:type].nil?
-        data['Content'] = stub[:content] unless stub[:content].nil?
-        data['VocabularyFilterMatch'] = stub[:vocabulary_filter_match] unless stub[:vocabulary_filter_match].nil?
-        data['Speaker'] = stub[:speaker] unless stub[:speaker].nil?
-        data['Confidence'] = Hearth::NumberHelper.serialize(stub[:confidence])
-        data['Stable'] = stub[:stable] unless stub[:stable].nil?
+        data['StartTime'] = Hearth::NumberHelper.serialize(stub.start_time)
+        data['EndTime'] = Hearth::NumberHelper.serialize(stub.end_time)
+        data['Type'] = stub.type unless stub.type.nil?
+        data['Content'] = stub.content unless stub.content.nil?
+        data['VocabularyFilterMatch'] = stub.vocabulary_filter_match unless stub.vocabulary_filter_match.nil?
+        data['Speaker'] = stub.speaker unless stub.speaker.nil?
+        data['Confidence'] = Hearth::NumberHelper.serialize(stub.confidence)
+        data['Stable'] = stub.stable unless stub.stable.nil?
         data
       end
     end
@@ -459,8 +459,8 @@ module AWS::SDK::TranscribeStreaming
       def self.stub(stub)
         stub ||= Types::LanguageWithScore.new
         data = {}
-        data['LanguageCode'] = stub[:language_code] unless stub[:language_code].nil?
-        data['Score'] = Hearth::NumberHelper.serialize(stub[:score])
+        data['LanguageCode'] = stub.language_code unless stub.language_code.nil?
+        data['Score'] = Hearth::NumberHelper.serialize(stub.score)
         data
       end
     end
@@ -485,7 +485,7 @@ module AWS::SDK::TranscribeStreaming
         http_resp.status = 429
         http_resp.headers['X-Amzn-Errortype'] = 'LimitExceededException'
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Message'] = stub[:message] unless stub[:message].nil?
+        data['Message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -495,7 +495,7 @@ module AWS::SDK::TranscribeStreaming
         return nil if visited.include?('MatchedCategoryDetails')
         visited = visited + ['MatchedCategoryDetails']
         {
-          key: PointsOfInterest.default(visited)
+          'key' => PointsOfInterest.default(visited)
         }
       end
 
@@ -523,9 +523,9 @@ module AWS::SDK::TranscribeStreaming
       def self.stub(stub)
         stub ||= Types::MedicalAlternative.new
         data = {}
-        data['Transcript'] = stub[:transcript] unless stub[:transcript].nil?
-        data['Items'] = MedicalItemList.stub(stub[:items]) unless stub[:items].nil?
-        data['Entities'] = MedicalEntityList.stub(stub[:entities]) unless stub[:entities].nil?
+        data['Transcript'] = stub.transcript unless stub.transcript.nil?
+        data['Items'] = MedicalItemList.stub(stub.items) unless stub.items.nil?
+        data['Entities'] = MedicalEntityList.stub(stub.entities) unless stub.entities.nil?
         data
       end
     end
@@ -565,11 +565,11 @@ module AWS::SDK::TranscribeStreaming
       def self.stub(stub)
         stub ||= Types::MedicalEntity.new
         data = {}
-        data['StartTime'] = Hearth::NumberHelper.serialize(stub[:start_time])
-        data['EndTime'] = Hearth::NumberHelper.serialize(stub[:end_time])
-        data['Category'] = stub[:category] unless stub[:category].nil?
-        data['Content'] = stub[:content] unless stub[:content].nil?
-        data['Confidence'] = Hearth::NumberHelper.serialize(stub[:confidence])
+        data['StartTime'] = Hearth::NumberHelper.serialize(stub.start_time)
+        data['EndTime'] = Hearth::NumberHelper.serialize(stub.end_time)
+        data['Category'] = stub.category unless stub.category.nil?
+        data['Content'] = stub.content unless stub.content.nil?
+        data['Confidence'] = Hearth::NumberHelper.serialize(stub.confidence)
         data
       end
     end
@@ -610,12 +610,12 @@ module AWS::SDK::TranscribeStreaming
       def self.stub(stub)
         stub ||= Types::MedicalItem.new
         data = {}
-        data['StartTime'] = Hearth::NumberHelper.serialize(stub[:start_time])
-        data['EndTime'] = Hearth::NumberHelper.serialize(stub[:end_time])
-        data['Type'] = stub[:type] unless stub[:type].nil?
-        data['Content'] = stub[:content] unless stub[:content].nil?
-        data['Confidence'] = Hearth::NumberHelper.serialize(stub[:confidence])
-        data['Speaker'] = stub[:speaker] unless stub[:speaker].nil?
+        data['StartTime'] = Hearth::NumberHelper.serialize(stub.start_time)
+        data['EndTime'] = Hearth::NumberHelper.serialize(stub.end_time)
+        data['Type'] = stub.type unless stub.type.nil?
+        data['Content'] = stub.content unless stub.content.nil?
+        data['Confidence'] = Hearth::NumberHelper.serialize(stub.confidence)
+        data['Speaker'] = stub.speaker unless stub.speaker.nil?
         data
       end
     end
@@ -656,12 +656,12 @@ module AWS::SDK::TranscribeStreaming
       def self.stub(stub)
         stub ||= Types::MedicalResult.new
         data = {}
-        data['ResultId'] = stub[:result_id] unless stub[:result_id].nil?
-        data['StartTime'] = Hearth::NumberHelper.serialize(stub[:start_time])
-        data['EndTime'] = Hearth::NumberHelper.serialize(stub[:end_time])
-        data['IsPartial'] = stub[:is_partial] unless stub[:is_partial].nil?
-        data['Alternatives'] = MedicalAlternativeList.stub(stub[:alternatives]) unless stub[:alternatives].nil?
-        data['ChannelId'] = stub[:channel_id] unless stub[:channel_id].nil?
+        data['ResultId'] = stub.result_id unless stub.result_id.nil?
+        data['StartTime'] = Hearth::NumberHelper.serialize(stub.start_time)
+        data['EndTime'] = Hearth::NumberHelper.serialize(stub.end_time)
+        data['IsPartial'] = stub.is_partial unless stub.is_partial.nil?
+        data['Alternatives'] = MedicalAlternativeList.stub(stub.alternatives) unless stub.alternatives.nil?
+        data['ChannelId'] = stub.channel_id unless stub.channel_id.nil?
         data
       end
     end
@@ -697,7 +697,7 @@ module AWS::SDK::TranscribeStreaming
       def self.stub(stub)
         stub ||= Types::MedicalTranscript.new
         data = {}
-        data['Results'] = MedicalResultList.stub(stub[:results]) unless stub[:results].nil?
+        data['Results'] = MedicalResultList.stub(stub.results) unless stub.results.nil?
         data
       end
     end
@@ -714,7 +714,7 @@ module AWS::SDK::TranscribeStreaming
       def self.stub(stub)
         stub ||= Types::MedicalTranscriptEvent.new
         data = {}
-        data['Transcript'] = MedicalTranscript.stub(stub[:transcript]) unless stub[:transcript].nil?
+        data['Transcript'] = MedicalTranscript.stub(stub.transcript) unless stub.transcript.nil?
         data
       end
     end
@@ -764,7 +764,7 @@ module AWS::SDK::TranscribeStreaming
       def self.stub(stub)
         stub ||= Types::PointsOfInterest.new
         data = {}
-        data['TimestampRanges'] = TimestampRanges.stub(stub[:timestamp_ranges]) unless stub[:timestamp_ranges].nil?
+        data['TimestampRanges'] = TimestampRanges.stub(stub.timestamp_ranges) unless stub.timestamp_ranges.nil?
         data
       end
     end
@@ -788,14 +788,14 @@ module AWS::SDK::TranscribeStreaming
       def self.stub(stub)
         stub ||= Types::Result.new
         data = {}
-        data['ResultId'] = stub[:result_id] unless stub[:result_id].nil?
-        data['StartTime'] = Hearth::NumberHelper.serialize(stub[:start_time])
-        data['EndTime'] = Hearth::NumberHelper.serialize(stub[:end_time])
-        data['IsPartial'] = stub[:is_partial] unless stub[:is_partial].nil?
-        data['Alternatives'] = AlternativeList.stub(stub[:alternatives]) unless stub[:alternatives].nil?
-        data['ChannelId'] = stub[:channel_id] unless stub[:channel_id].nil?
-        data['LanguageCode'] = stub[:language_code] unless stub[:language_code].nil?
-        data['LanguageIdentification'] = LanguageIdentification.stub(stub[:language_identification]) unless stub[:language_identification].nil?
+        data['ResultId'] = stub.result_id unless stub.result_id.nil?
+        data['StartTime'] = Hearth::NumberHelper.serialize(stub.start_time)
+        data['EndTime'] = Hearth::NumberHelper.serialize(stub.end_time)
+        data['IsPartial'] = stub.is_partial unless stub.is_partial.nil?
+        data['Alternatives'] = AlternativeList.stub(stub.alternatives) unless stub.alternatives.nil?
+        data['ChannelId'] = stub.channel_id unless stub.channel_id.nil?
+        data['LanguageCode'] = stub.language_code unless stub.language_code.nil?
+        data['LanguageIdentification'] = LanguageIdentification.stub(stub.language_identification) unless stub.language_identification.nil?
         data
       end
     end
@@ -839,7 +839,7 @@ module AWS::SDK::TranscribeStreaming
         http_resp.status = 503
         http_resp.headers['X-Amzn-Errortype'] = 'ServiceUnavailableException'
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Message'] = stub[:message] unless stub[:message].nil?
+        data['Message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -876,21 +876,21 @@ module AWS::SDK::TranscribeStreaming
       def self.stub(http_resp, stub:)
         data = {}
         http_resp.status = 200
-        http_resp.headers['x-amzn-request-id'] = stub[:request_id] unless stub[:request_id].nil? || stub[:request_id].empty?
-        http_resp.headers['x-amzn-transcribe-language-code'] = stub[:language_code] unless stub[:language_code].nil? || stub[:language_code].empty?
-        http_resp.headers['x-amzn-transcribe-sample-rate'] = stub[:media_sample_rate_hertz].to_s unless stub[:media_sample_rate_hertz].nil?
-        http_resp.headers['x-amzn-transcribe-media-encoding'] = stub[:media_encoding] unless stub[:media_encoding].nil? || stub[:media_encoding].empty?
-        http_resp.headers['x-amzn-transcribe-vocabulary-name'] = stub[:vocabulary_name] unless stub[:vocabulary_name].nil? || stub[:vocabulary_name].empty?
-        http_resp.headers['x-amzn-transcribe-session-id'] = stub[:session_id] unless stub[:session_id].nil? || stub[:session_id].empty?
-        http_resp.headers['x-amzn-transcribe-vocabulary-filter-name'] = stub[:vocabulary_filter_name] unless stub[:vocabulary_filter_name].nil? || stub[:vocabulary_filter_name].empty?
-        http_resp.headers['x-amzn-transcribe-vocabulary-filter-method'] = stub[:vocabulary_filter_method] unless stub[:vocabulary_filter_method].nil? || stub[:vocabulary_filter_method].empty?
-        http_resp.headers['x-amzn-transcribe-language-model-name'] = stub[:language_model_name] unless stub[:language_model_name].nil? || stub[:language_model_name].empty?
-        http_resp.headers['x-amzn-transcribe-enable-partial-results-stabilization'] = stub[:enable_partial_results_stabilization].to_s unless stub[:enable_partial_results_stabilization].nil?
-        http_resp.headers['x-amzn-transcribe-partial-results-stability'] = stub[:partial_results_stability] unless stub[:partial_results_stability].nil? || stub[:partial_results_stability].empty?
-        http_resp.headers['x-amzn-transcribe-content-identification-type'] = stub[:content_identification_type] unless stub[:content_identification_type].nil? || stub[:content_identification_type].empty?
-        http_resp.headers['x-amzn-transcribe-content-redaction-type'] = stub[:content_redaction_type] unless stub[:content_redaction_type].nil? || stub[:content_redaction_type].empty?
-        http_resp.headers['x-amzn-transcribe-pii-entity-types'] = stub[:pii_entity_types] unless stub[:pii_entity_types].nil? || stub[:pii_entity_types].empty?
-        IO.copy_stream(stub[:call_analytics_transcript_result_stream], http_resp.body)
+        http_resp.headers['x-amzn-request-id'] = stub.request_id unless stub.request_id.nil? || stub.request_id.empty?
+        http_resp.headers['x-amzn-transcribe-language-code'] = stub.language_code unless stub.language_code.nil? || stub.language_code.empty?
+        http_resp.headers['x-amzn-transcribe-sample-rate'] = stub.media_sample_rate_hertz.to_s unless stub.media_sample_rate_hertz.nil?
+        http_resp.headers['x-amzn-transcribe-media-encoding'] = stub.media_encoding unless stub.media_encoding.nil? || stub.media_encoding.empty?
+        http_resp.headers['x-amzn-transcribe-vocabulary-name'] = stub.vocabulary_name unless stub.vocabulary_name.nil? || stub.vocabulary_name.empty?
+        http_resp.headers['x-amzn-transcribe-session-id'] = stub.session_id unless stub.session_id.nil? || stub.session_id.empty?
+        http_resp.headers['x-amzn-transcribe-vocabulary-filter-name'] = stub.vocabulary_filter_name unless stub.vocabulary_filter_name.nil? || stub.vocabulary_filter_name.empty?
+        http_resp.headers['x-amzn-transcribe-vocabulary-filter-method'] = stub.vocabulary_filter_method unless stub.vocabulary_filter_method.nil? || stub.vocabulary_filter_method.empty?
+        http_resp.headers['x-amzn-transcribe-language-model-name'] = stub.language_model_name unless stub.language_model_name.nil? || stub.language_model_name.empty?
+        http_resp.headers['x-amzn-transcribe-enable-partial-results-stabilization'] = stub.enable_partial_results_stabilization.to_s unless stub.enable_partial_results_stabilization.nil?
+        http_resp.headers['x-amzn-transcribe-partial-results-stability'] = stub.partial_results_stability unless stub.partial_results_stability.nil? || stub.partial_results_stability.empty?
+        http_resp.headers['x-amzn-transcribe-content-identification-type'] = stub.content_identification_type unless stub.content_identification_type.nil? || stub.content_identification_type.empty?
+        http_resp.headers['x-amzn-transcribe-content-redaction-type'] = stub.content_redaction_type unless stub.content_redaction_type.nil? || stub.content_redaction_type.empty?
+        http_resp.headers['x-amzn-transcribe-pii-entity-types'] = stub.pii_entity_types unless stub.pii_entity_types.nil? || stub.pii_entity_types.empty?
+        IO.copy_stream(stub.call_analytics_transcript_result_stream, http_resp.body)
       end
     end
 
@@ -924,19 +924,19 @@ module AWS::SDK::TranscribeStreaming
       def self.stub(http_resp, stub:)
         data = {}
         http_resp.status = 200
-        http_resp.headers['x-amzn-request-id'] = stub[:request_id] unless stub[:request_id].nil? || stub[:request_id].empty?
-        http_resp.headers['x-amzn-transcribe-language-code'] = stub[:language_code] unless stub[:language_code].nil? || stub[:language_code].empty?
-        http_resp.headers['x-amzn-transcribe-sample-rate'] = stub[:media_sample_rate_hertz].to_s unless stub[:media_sample_rate_hertz].nil?
-        http_resp.headers['x-amzn-transcribe-media-encoding'] = stub[:media_encoding] unless stub[:media_encoding].nil? || stub[:media_encoding].empty?
-        http_resp.headers['x-amzn-transcribe-vocabulary-name'] = stub[:vocabulary_name] unless stub[:vocabulary_name].nil? || stub[:vocabulary_name].empty?
-        http_resp.headers['x-amzn-transcribe-specialty'] = stub[:specialty] unless stub[:specialty].nil? || stub[:specialty].empty?
-        http_resp.headers['x-amzn-transcribe-type'] = stub[:type] unless stub[:type].nil? || stub[:type].empty?
-        http_resp.headers['x-amzn-transcribe-show-speaker-label'] = stub[:show_speaker_label].to_s unless stub[:show_speaker_label].nil?
-        http_resp.headers['x-amzn-transcribe-session-id'] = stub[:session_id] unless stub[:session_id].nil? || stub[:session_id].empty?
-        http_resp.headers['x-amzn-transcribe-enable-channel-identification'] = stub[:enable_channel_identification].to_s unless stub[:enable_channel_identification].nil?
-        http_resp.headers['x-amzn-transcribe-number-of-channels'] = stub[:number_of_channels].to_s unless stub[:number_of_channels].nil?
-        http_resp.headers['x-amzn-transcribe-content-identification-type'] = stub[:content_identification_type] unless stub[:content_identification_type].nil? || stub[:content_identification_type].empty?
-        IO.copy_stream(stub[:transcript_result_stream], http_resp.body)
+        http_resp.headers['x-amzn-request-id'] = stub.request_id unless stub.request_id.nil? || stub.request_id.empty?
+        http_resp.headers['x-amzn-transcribe-language-code'] = stub.language_code unless stub.language_code.nil? || stub.language_code.empty?
+        http_resp.headers['x-amzn-transcribe-sample-rate'] = stub.media_sample_rate_hertz.to_s unless stub.media_sample_rate_hertz.nil?
+        http_resp.headers['x-amzn-transcribe-media-encoding'] = stub.media_encoding unless stub.media_encoding.nil? || stub.media_encoding.empty?
+        http_resp.headers['x-amzn-transcribe-vocabulary-name'] = stub.vocabulary_name unless stub.vocabulary_name.nil? || stub.vocabulary_name.empty?
+        http_resp.headers['x-amzn-transcribe-specialty'] = stub.specialty unless stub.specialty.nil? || stub.specialty.empty?
+        http_resp.headers['x-amzn-transcribe-type'] = stub.type unless stub.type.nil? || stub.type.empty?
+        http_resp.headers['x-amzn-transcribe-show-speaker-label'] = stub.show_speaker_label.to_s unless stub.show_speaker_label.nil?
+        http_resp.headers['x-amzn-transcribe-session-id'] = stub.session_id unless stub.session_id.nil? || stub.session_id.empty?
+        http_resp.headers['x-amzn-transcribe-enable-channel-identification'] = stub.enable_channel_identification.to_s unless stub.enable_channel_identification.nil?
+        http_resp.headers['x-amzn-transcribe-number-of-channels'] = stub.number_of_channels.to_s unless stub.number_of_channels.nil?
+        http_resp.headers['x-amzn-transcribe-content-identification-type'] = stub.content_identification_type unless stub.content_identification_type.nil? || stub.content_identification_type.empty?
+        IO.copy_stream(stub.transcript_result_stream, http_resp.body)
       end
     end
 
@@ -981,30 +981,30 @@ module AWS::SDK::TranscribeStreaming
       def self.stub(http_resp, stub:)
         data = {}
         http_resp.status = 200
-        http_resp.headers['x-amzn-request-id'] = stub[:request_id] unless stub[:request_id].nil? || stub[:request_id].empty?
-        http_resp.headers['x-amzn-transcribe-language-code'] = stub[:language_code] unless stub[:language_code].nil? || stub[:language_code].empty?
-        http_resp.headers['x-amzn-transcribe-sample-rate'] = stub[:media_sample_rate_hertz].to_s unless stub[:media_sample_rate_hertz].nil?
-        http_resp.headers['x-amzn-transcribe-media-encoding'] = stub[:media_encoding] unless stub[:media_encoding].nil? || stub[:media_encoding].empty?
-        http_resp.headers['x-amzn-transcribe-vocabulary-name'] = stub[:vocabulary_name] unless stub[:vocabulary_name].nil? || stub[:vocabulary_name].empty?
-        http_resp.headers['x-amzn-transcribe-session-id'] = stub[:session_id] unless stub[:session_id].nil? || stub[:session_id].empty?
-        http_resp.headers['x-amzn-transcribe-vocabulary-filter-name'] = stub[:vocabulary_filter_name] unless stub[:vocabulary_filter_name].nil? || stub[:vocabulary_filter_name].empty?
-        http_resp.headers['x-amzn-transcribe-vocabulary-filter-method'] = stub[:vocabulary_filter_method] unless stub[:vocabulary_filter_method].nil? || stub[:vocabulary_filter_method].empty?
-        http_resp.headers['x-amzn-transcribe-show-speaker-label'] = stub[:show_speaker_label].to_s unless stub[:show_speaker_label].nil?
-        http_resp.headers['x-amzn-transcribe-enable-channel-identification'] = stub[:enable_channel_identification].to_s unless stub[:enable_channel_identification].nil?
-        http_resp.headers['x-amzn-transcribe-number-of-channels'] = stub[:number_of_channels].to_s unless stub[:number_of_channels].nil?
-        http_resp.headers['x-amzn-transcribe-enable-partial-results-stabilization'] = stub[:enable_partial_results_stabilization].to_s unless stub[:enable_partial_results_stabilization].nil?
-        http_resp.headers['x-amzn-transcribe-partial-results-stability'] = stub[:partial_results_stability] unless stub[:partial_results_stability].nil? || stub[:partial_results_stability].empty?
-        http_resp.headers['x-amzn-transcribe-content-identification-type'] = stub[:content_identification_type] unless stub[:content_identification_type].nil? || stub[:content_identification_type].empty?
-        http_resp.headers['x-amzn-transcribe-content-redaction-type'] = stub[:content_redaction_type] unless stub[:content_redaction_type].nil? || stub[:content_redaction_type].empty?
-        http_resp.headers['x-amzn-transcribe-pii-entity-types'] = stub[:pii_entity_types] unless stub[:pii_entity_types].nil? || stub[:pii_entity_types].empty?
-        http_resp.headers['x-amzn-transcribe-language-model-name'] = stub[:language_model_name] unless stub[:language_model_name].nil? || stub[:language_model_name].empty?
-        http_resp.headers['x-amzn-transcribe-identify-language'] = stub[:identify_language].to_s unless stub[:identify_language].nil?
-        http_resp.headers['x-amzn-transcribe-language-options'] = stub[:language_options] unless stub[:language_options].nil? || stub[:language_options].empty?
-        http_resp.headers['x-amzn-transcribe-preferred-language'] = stub[:preferred_language] unless stub[:preferred_language].nil? || stub[:preferred_language].empty?
-        http_resp.headers['x-amzn-transcribe-identify-multiple-languages'] = stub[:identify_multiple_languages].to_s unless stub[:identify_multiple_languages].nil?
-        http_resp.headers['x-amzn-transcribe-vocabulary-names'] = stub[:vocabulary_names] unless stub[:vocabulary_names].nil? || stub[:vocabulary_names].empty?
-        http_resp.headers['x-amzn-transcribe-vocabulary-filter-names'] = stub[:vocabulary_filter_names] unless stub[:vocabulary_filter_names].nil? || stub[:vocabulary_filter_names].empty?
-        IO.copy_stream(stub[:transcript_result_stream], http_resp.body)
+        http_resp.headers['x-amzn-request-id'] = stub.request_id unless stub.request_id.nil? || stub.request_id.empty?
+        http_resp.headers['x-amzn-transcribe-language-code'] = stub.language_code unless stub.language_code.nil? || stub.language_code.empty?
+        http_resp.headers['x-amzn-transcribe-sample-rate'] = stub.media_sample_rate_hertz.to_s unless stub.media_sample_rate_hertz.nil?
+        http_resp.headers['x-amzn-transcribe-media-encoding'] = stub.media_encoding unless stub.media_encoding.nil? || stub.media_encoding.empty?
+        http_resp.headers['x-amzn-transcribe-vocabulary-name'] = stub.vocabulary_name unless stub.vocabulary_name.nil? || stub.vocabulary_name.empty?
+        http_resp.headers['x-amzn-transcribe-session-id'] = stub.session_id unless stub.session_id.nil? || stub.session_id.empty?
+        http_resp.headers['x-amzn-transcribe-vocabulary-filter-name'] = stub.vocabulary_filter_name unless stub.vocabulary_filter_name.nil? || stub.vocabulary_filter_name.empty?
+        http_resp.headers['x-amzn-transcribe-vocabulary-filter-method'] = stub.vocabulary_filter_method unless stub.vocabulary_filter_method.nil? || stub.vocabulary_filter_method.empty?
+        http_resp.headers['x-amzn-transcribe-show-speaker-label'] = stub.show_speaker_label.to_s unless stub.show_speaker_label.nil?
+        http_resp.headers['x-amzn-transcribe-enable-channel-identification'] = stub.enable_channel_identification.to_s unless stub.enable_channel_identification.nil?
+        http_resp.headers['x-amzn-transcribe-number-of-channels'] = stub.number_of_channels.to_s unless stub.number_of_channels.nil?
+        http_resp.headers['x-amzn-transcribe-enable-partial-results-stabilization'] = stub.enable_partial_results_stabilization.to_s unless stub.enable_partial_results_stabilization.nil?
+        http_resp.headers['x-amzn-transcribe-partial-results-stability'] = stub.partial_results_stability unless stub.partial_results_stability.nil? || stub.partial_results_stability.empty?
+        http_resp.headers['x-amzn-transcribe-content-identification-type'] = stub.content_identification_type unless stub.content_identification_type.nil? || stub.content_identification_type.empty?
+        http_resp.headers['x-amzn-transcribe-content-redaction-type'] = stub.content_redaction_type unless stub.content_redaction_type.nil? || stub.content_redaction_type.empty?
+        http_resp.headers['x-amzn-transcribe-pii-entity-types'] = stub.pii_entity_types unless stub.pii_entity_types.nil? || stub.pii_entity_types.empty?
+        http_resp.headers['x-amzn-transcribe-language-model-name'] = stub.language_model_name unless stub.language_model_name.nil? || stub.language_model_name.empty?
+        http_resp.headers['x-amzn-transcribe-identify-language'] = stub.identify_language.to_s unless stub.identify_language.nil?
+        http_resp.headers['x-amzn-transcribe-language-options'] = stub.language_options unless stub.language_options.nil? || stub.language_options.empty?
+        http_resp.headers['x-amzn-transcribe-preferred-language'] = stub.preferred_language unless stub.preferred_language.nil? || stub.preferred_language.empty?
+        http_resp.headers['x-amzn-transcribe-identify-multiple-languages'] = stub.identify_multiple_languages.to_s unless stub.identify_multiple_languages.nil?
+        http_resp.headers['x-amzn-transcribe-vocabulary-names'] = stub.vocabulary_names unless stub.vocabulary_names.nil? || stub.vocabulary_names.empty?
+        http_resp.headers['x-amzn-transcribe-vocabulary-filter-names'] = stub.vocabulary_filter_names unless stub.vocabulary_filter_names.nil? || stub.vocabulary_filter_names.empty?
+        IO.copy_stream(stub.transcript_result_stream, http_resp.body)
       end
     end
 
@@ -1040,8 +1040,8 @@ module AWS::SDK::TranscribeStreaming
       def self.stub(stub)
         stub ||= Types::TimestampRange.new
         data = {}
-        data['BeginOffsetMillis'] = stub[:begin_offset_millis] unless stub[:begin_offset_millis].nil?
-        data['EndOffsetMillis'] = stub[:end_offset_millis] unless stub[:end_offset_millis].nil?
+        data['BeginOffsetMillis'] = stub.begin_offset_millis unless stub.begin_offset_millis.nil?
+        data['EndOffsetMillis'] = stub.end_offset_millis unless stub.end_offset_millis.nil?
         data
       end
     end
@@ -1077,7 +1077,7 @@ module AWS::SDK::TranscribeStreaming
       def self.stub(stub)
         stub ||= Types::Transcript.new
         data = {}
-        data['Results'] = ResultList.stub(stub[:results]) unless stub[:results].nil?
+        data['Results'] = ResultList.stub(stub.results) unless stub.results.nil?
         data
       end
     end
@@ -1094,7 +1094,7 @@ module AWS::SDK::TranscribeStreaming
       def self.stub(stub)
         stub ||= Types::TranscriptEvent.new
         data = {}
-        data['Transcript'] = Transcript.stub(stub[:transcript]) unless stub[:transcript].nil?
+        data['Transcript'] = Transcript.stub(stub.transcript) unless stub.transcript.nil?
         data
       end
     end
@@ -1153,16 +1153,16 @@ module AWS::SDK::TranscribeStreaming
       def self.stub(stub)
         stub ||= Types::UtteranceEvent.new
         data = {}
-        data['UtteranceId'] = stub[:utterance_id] unless stub[:utterance_id].nil?
-        data['IsPartial'] = stub[:is_partial] unless stub[:is_partial].nil?
-        data['ParticipantRole'] = stub[:participant_role] unless stub[:participant_role].nil?
-        data['BeginOffsetMillis'] = stub[:begin_offset_millis] unless stub[:begin_offset_millis].nil?
-        data['EndOffsetMillis'] = stub[:end_offset_millis] unless stub[:end_offset_millis].nil?
-        data['Transcript'] = stub[:transcript] unless stub[:transcript].nil?
-        data['Items'] = CallAnalyticsItemList.stub(stub[:items]) unless stub[:items].nil?
-        data['Entities'] = CallAnalyticsEntityList.stub(stub[:entities]) unless stub[:entities].nil?
-        data['Sentiment'] = stub[:sentiment] unless stub[:sentiment].nil?
-        data['IssuesDetected'] = IssuesDetected.stub(stub[:issues_detected]) unless stub[:issues_detected].nil?
+        data['UtteranceId'] = stub.utterance_id unless stub.utterance_id.nil?
+        data['IsPartial'] = stub.is_partial unless stub.is_partial.nil?
+        data['ParticipantRole'] = stub.participant_role unless stub.participant_role.nil?
+        data['BeginOffsetMillis'] = stub.begin_offset_millis unless stub.begin_offset_millis.nil?
+        data['EndOffsetMillis'] = stub.end_offset_millis unless stub.end_offset_millis.nil?
+        data['Transcript'] = stub.transcript unless stub.transcript.nil?
+        data['Items'] = CallAnalyticsItemList.stub(stub.items) unless stub.items.nil?
+        data['Entities'] = CallAnalyticsEntityList.stub(stub.entities) unless stub.entities.nil?
+        data['Sentiment'] = stub.sentiment unless stub.sentiment.nil?
+        data['IssuesDetected'] = IssuesDetected.stub(stub.issues_detected) unless stub.issues_detected.nil?
         data
       end
     end

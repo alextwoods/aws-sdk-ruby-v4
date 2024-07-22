@@ -143,7 +143,7 @@ module AWS::SDK::LexRuntimeV2
     #   resp.data.interpretations[0].intent.slots['key'].value.resolved_values #=> Array<String>
     #   resp.data.interpretations[0].intent.slots['key'].value.resolved_values[0] #=> String
     #   resp.data.interpretations[0].intent.slots['key'].shape #=> String, one of ["Scalar", "List", "Composite"]
-    #   resp.data.interpretations[0].intent.slots['key'].member_values #=> Array<Slot>
+    #   resp.data.interpretations[0].intent.slots['key'].values #=> Array<Slot>
     #   resp.data.interpretations[0].intent.slots['key'].sub_slots #=> Hash<String, Slot>
     #   resp.data.interpretations[0].intent.state #=> String, one of ["Failed", "Fulfilled", "InProgress", "ReadyForFulfillment", "Waiting", "FulfillmentInProgress"]
     #   resp.data.interpretations[0].intent.confirmation_state #=> String, one of ["Confirmed", "Denied", "None"]
@@ -295,7 +295,7 @@ module AWS::SDK::LexRuntimeV2
     #   resp.data.session_state #=> String
     #   resp.data.request_attributes #=> String
     #   resp.data.session_id #=> String
-    #   resp.data.audio_stream #=> String
+    #   resp.data.audio_stream #=> IO
     def put_session(params = {}, options = {}, &block)
       response_body = output_stream(options, &block)
       config = operation_config(options)
@@ -451,7 +451,7 @@ module AWS::SDK::LexRuntimeV2
     #   resp.data.session_state.intent.slots['key'].value.resolved_values #=> Array<String>
     #   resp.data.session_state.intent.slots['key'].value.resolved_values[0] #=> String
     #   resp.data.session_state.intent.slots['key'].shape #=> String, one of ["Scalar", "List", "Composite"]
-    #   resp.data.session_state.intent.slots['key'].member_values #=> Array<Slot>
+    #   resp.data.session_state.intent.slots['key'].values #=> Array<Slot>
     #   resp.data.session_state.intent.slots['key'].sub_slots #=> Hash<String, Slot>
     #   resp.data.session_state.intent.state #=> String, one of ["Failed", "Fulfilled", "InProgress", "ReadyForFulfillment", "Waiting", "FulfillmentInProgress"]
     #   resp.data.session_state.intent.confirmation_state #=> String, one of ["Confirmed", "Denied", "None"]
@@ -605,7 +605,7 @@ module AWS::SDK::LexRuntimeV2
     #   resp.data.request_attributes #=> String
     #   resp.data.session_id #=> String
     #   resp.data.input_transcript #=> String
-    #   resp.data.audio_stream #=> String
+    #   resp.data.audio_stream #=> IO
     #   resp.data.recognized_bot_member #=> String
     def recognize_utterance(params = {}, options = {}, &block)
       response_body = output_stream(options, &block)
@@ -842,7 +842,7 @@ module AWS::SDK::LexRuntimeV2
     #   resp.data.response_event_stream.intent_result_event.interpretations[0].intent.slots['key'].value.resolved_values #=> Array<String>
     #   resp.data.response_event_stream.intent_result_event.interpretations[0].intent.slots['key'].value.resolved_values[0] #=> String
     #   resp.data.response_event_stream.intent_result_event.interpretations[0].intent.slots['key'].shape #=> String, one of ["Scalar", "List", "Composite"]
-    #   resp.data.response_event_stream.intent_result_event.interpretations[0].intent.slots['key'].member_values #=> Array<Slot>
+    #   resp.data.response_event_stream.intent_result_event.interpretations[0].intent.slots['key'].values #=> Array<Slot>
     #   resp.data.response_event_stream.intent_result_event.interpretations[0].intent.slots['key'].sub_slots #=> Hash<String, Slot>
     #   resp.data.response_event_stream.intent_result_event.interpretations[0].intent.state #=> String, one of ["Failed", "Fulfilled", "InProgress", "ReadyForFulfillment", "Waiting", "FulfillmentInProgress"]
     #   resp.data.response_event_stream.intent_result_event.interpretations[0].intent.confirmation_state #=> String, one of ["Confirmed", "Denied", "None"]

@@ -217,7 +217,7 @@ module AWS::SDK::CodeCatalyst
         ?project_name: ::String,
         ?filters: ::Array[{
           key: ::String,
-          member_values: ::Array[::String],
+          values: ::Array[::String],
           comparison_operator: ::String
         }],
         ?next_token: ::String,
@@ -243,7 +243,7 @@ module AWS::SDK::CodeCatalyst
         ?max_results: ::Integer,
         ?filters: ::Array[{
           key: ::String,
-          member_values: ::Array[::String],
+          values: ::Array[::String],
           comparison_operator: ::String
         }]
       ) -> Hearth::Output[Types::ListProjectsOutput]
@@ -281,7 +281,7 @@ module AWS::SDK::CodeCatalyst
         project_name: ::String,
         ?next_token: ::String,
         ?max_results: ::Integer,
-        ?member_sort_by: ::Array[{
+        ?sort_by: ::Array[{
 
         }]
       ) -> Hearth::Output[Types::ListWorkflowRunsOutput]
@@ -293,7 +293,7 @@ module AWS::SDK::CodeCatalyst
         project_name: ::String,
         ?next_token: ::String,
         ?max_results: ::Integer,
-        ?member_sort_by: ::Array[{
+        ?sort_by: ::Array[{
 
         }]
       ) -> Hearth::Output[Types::ListWorkflowsOutput]

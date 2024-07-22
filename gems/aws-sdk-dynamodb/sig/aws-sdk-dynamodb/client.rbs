@@ -494,7 +494,7 @@ module AWS::SDK::DynamoDB
       (
         table_name: ::String,
         ?index_name: ::String,
-        ?member_select: ("ALL_ATTRIBUTES" | "ALL_PROJECTED_ATTRIBUTES" | "SPECIFIC_ATTRIBUTES" | "COUNT"),
+        ?select: ("ALL_ATTRIBUTES" | "ALL_PROJECTED_ATTRIBUTES" | "SPECIFIC_ATTRIBUTES" | "COUNT"),
         ?attributes_to_get: ::Array[::String],
         ?limit: ::Integer,
         ?consistent_read: bool,
@@ -605,7 +605,7 @@ module AWS::SDK::DynamoDB
         ?index_name: ::String,
         ?attributes_to_get: ::Array[::String],
         ?limit: ::Integer,
-        ?member_select: ("ALL_ATTRIBUTES" | "ALL_PROJECTED_ATTRIBUTES" | "SPECIFIC_ATTRIBUTES" | "COUNT"),
+        ?select: ("ALL_ATTRIBUTES" | "ALL_PROJECTED_ATTRIBUTES" | "SPECIFIC_ATTRIBUTES" | "COUNT"),
         ?scan_filter: ::Hash[::String, {
           attribute_value_list: ::Array[Types::AttributeValue],
           comparison_operator: ::String

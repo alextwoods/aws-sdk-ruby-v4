@@ -48,16 +48,19 @@ module AWS::SDK::CloudWatch
     # @!attribute history_data
     #   <p>Data about the alarm, in JSON format.</p>
     #   @return [String]
-    AlarmHistoryItem = ::Struct.new(
-      :alarm_name,
-      :alarm_type,
-      :timestamp,
-      :history_item_type,
-      :history_summary,
-      :history_data,
-      keyword_init: true
-    ) do
+    class AlarmHistoryItem
       include Hearth::Structure
+
+      MEMBERS = %i[
+        alarm_name
+        alarm_type
+        timestamp
+        history_item_type
+        history_summary
+        history_data
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for AlarmType
@@ -117,18 +120,21 @@ module AWS::SDK::CloudWatch
     # @!attribute metric_math_anomaly_detector
     #   <p>The CloudWatch metric math expression for this anomaly detector.</p>
     #   @return [MetricMathAnomalyDetector]
-    AnomalyDetector = ::Struct.new(
-      :namespace,
-      :metric_name,
-      :dimensions,
-      :stat,
-      :configuration,
-      :state_value,
-      :single_metric_anomaly_detector,
-      :metric_math_anomaly_detector,
-      keyword_init: true
-    ) do
+    class AnomalyDetector
       include Hearth::Structure
+
+      MEMBERS = %i[
+        namespace
+        metric_name
+        dimensions
+        stat
+        configuration
+        state_value
+        single_metric_anomaly_detector
+        metric_math_anomaly_detector
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The configuration specifies details about how the anomaly detection model is to be trained,
@@ -150,12 +156,15 @@ module AWS::SDK::CloudWatch
     #            <p>To specify a time zone, use the name of the time zone as specified in the standard tz database. For more information,
     #   			see <a href="https://en.wikipedia.org/wiki/Tz_database">tz database</a>.</p>
     #   @return [String]
-    AnomalyDetectorConfiguration = ::Struct.new(
-      :excluded_time_ranges,
-      :metric_timezone,
-      keyword_init: true
-    ) do
+    class AnomalyDetectorConfiguration
       include Hearth::Structure
+
+      MEMBERS = %i[
+        excluded_time_ranges
+        metric_timezone
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for AnomalyDetectorStateValue
@@ -343,29 +352,32 @@ module AWS::SDK::CloudWatch
     #   			</p>
     #            </important>
     #   @return [Integer]
-    CompositeAlarm = ::Struct.new(
-      :actions_enabled,
-      :alarm_actions,
-      :alarm_arn,
-      :alarm_configuration_updated_timestamp,
-      :alarm_description,
-      :alarm_name,
-      :alarm_rule,
-      :insufficient_data_actions,
-      :ok_actions,
-      :state_reason,
-      :state_reason_data,
-      :state_updated_timestamp,
-      :state_value,
-      :state_transitioned_timestamp,
-      :actions_suppressed_by,
-      :actions_suppressed_reason,
-      :actions_suppressor,
-      :actions_suppressor_wait_period,
-      :actions_suppressor_extension_period,
-      keyword_init: true
-    ) do
+    class CompositeAlarm
       include Hearth::Structure
+
+      MEMBERS = %i[
+        actions_enabled
+        alarm_actions
+        alarm_arn
+        alarm_configuration_updated_timestamp
+        alarm_description
+        alarm_name
+        alarm_rule
+        insufficient_data_actions
+        ok_actions
+        state_reason
+        state_reason_data
+        state_updated_timestamp
+        state_value
+        state_transitioned_timestamp
+        actions_suppressed_by
+        actions_suppressed_reason
+        actions_suppressor
+        actions_suppressor_wait_period
+        actions_suppressor_extension_period
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>More than one process tried to modify a resource at the same time.</p>
@@ -374,11 +386,14 @@ module AWS::SDK::CloudWatch
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    ConcurrentModificationException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class ConcurrentModificationException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents a specific dashboard.</p>
@@ -387,7 +402,7 @@ module AWS::SDK::CloudWatch
     #   @option params [String] :dashboard_name
     #   @option params [String] :dashboard_arn
     #   @option params [Time] :last_modified
-    #   @option params [Integer] :member_size
+    #   @option params [Integer] :size
     # @!attribute dashboard_name
     #   <p>The name of the dashboard.</p>
     #   @return [String]
@@ -398,17 +413,20 @@ module AWS::SDK::CloudWatch
     #   <p>The time stamp of when the dashboard was last modified, either by an API call or
     #   			through the console. This number is expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.</p>
     #   @return [Time]
-    # @!attribute member_size
+    # @!attribute size
     #   <p>The size of the dashboard, in bytes.</p>
     #   @return [Integer]
-    DashboardEntry = ::Struct.new(
-      :dashboard_name,
-      :dashboard_arn,
-      :last_modified,
-      :member_size,
-      keyword_init: true
-    ) do
+    class DashboardEntry
       include Hearth::Structure
+
+      MEMBERS = %i[
+        dashboard_name
+        dashboard_arn
+        last_modified
+        size
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Some part of the dashboard data is invalid.</p>
@@ -420,12 +438,15 @@ module AWS::SDK::CloudWatch
     #   @return [String]
     # @!attribute dashboard_validation_messages
     #   @return [Array<DashboardValidationMessage>]
-    DashboardInvalidInputError = ::Struct.new(
-      :message,
-      :dashboard_validation_messages,
-      keyword_init: true
-    ) do
+    class DashboardInvalidInputError
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+        dashboard_validation_messages
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The specified dashboard does not exist.</p>
@@ -434,11 +455,14 @@ module AWS::SDK::CloudWatch
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    DashboardNotFoundError = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class DashboardNotFoundError
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>An error or warning for the operation.</p>
@@ -452,12 +476,15 @@ module AWS::SDK::CloudWatch
     # @!attribute message
     #   <p>A message describing the error or warning.</p>
     #   @return [String]
-    DashboardValidationMessage = ::Struct.new(
-      :data_path,
-      :message,
-      keyword_init: true
-    ) do
+    class DashboardValidationMessage
       include Hearth::Structure
+
+      MEMBERS = %i[
+        data_path
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Encapsulates the statistical data that CloudWatch computes from metric data.</p>
@@ -466,7 +493,7 @@ module AWS::SDK::CloudWatch
     #   @option params [Time] :timestamp
     #   @option params [Float] :sample_count
     #   @option params [Float] :average
-    #   @option params [Float] :member_sum
+    #   @option params [Float] :sum
     #   @option params [Float] :minimum
     #   @option params [Float] :maximum
     #   @option params [String] :unit
@@ -481,7 +508,7 @@ module AWS::SDK::CloudWatch
     # @!attribute average
     #   <p>The average of the metric values that correspond to the data point.</p>
     #   @return [Float]
-    # @!attribute member_sum
+    # @!attribute sum
     #   <p>The sum of the metric values for the data point.</p>
     #   @return [Float]
     # @!attribute minimum
@@ -497,18 +524,21 @@ module AWS::SDK::CloudWatch
     # @!attribute extended_statistics
     #   <p>The percentile statistic for the data point.</p>
     #   @return [Hash<String, Float>]
-    Datapoint = ::Struct.new(
-      :timestamp,
-      :sample_count,
-      :average,
-      :member_sum,
-      :minimum,
-      :maximum,
-      :unit,
-      :extended_statistics,
-      keyword_init: true
-    ) do
+    class Datapoint
       include Hearth::Structure
+
+      MEMBERS = %i[
+        timestamp
+        sample_count
+        average
+        sum
+        minimum
+        maximum
+        unit
+        extended_statistics
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -517,20 +547,24 @@ module AWS::SDK::CloudWatch
     # @!attribute alarm_names
     #   <p>The alarms to be deleted. Do not enclose the alarm names in quote marks.</p>
     #   @return [Array<String>]
-    DeleteAlarmsInput = ::Struct.new(
-      :alarm_names,
-      keyword_init: true
-    ) do
+    class DeleteAlarmsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        alarm_names
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    DeleteAlarmsOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class DeleteAlarmsOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -624,25 +658,29 @@ module AWS::SDK::CloudWatch
     #            <p>Instead, specify the metric math anomaly detector attributes as part of the
     #   			<code>MetricMathAnomalyDetector</code> property.</p>
     #   @return [MetricMathAnomalyDetector]
-    DeleteAnomalyDetectorInput = ::Struct.new(
-      :namespace,
-      :metric_name,
-      :dimensions,
-      :stat,
-      :single_metric_anomaly_detector,
-      :metric_math_anomaly_detector,
-      keyword_init: true
-    ) do
+    class DeleteAnomalyDetectorInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        namespace
+        metric_name
+        dimensions
+        stat
+        single_metric_anomaly_detector
+        metric_math_anomaly_detector
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    DeleteAnomalyDetectorOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class DeleteAnomalyDetectorOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -651,20 +689,24 @@ module AWS::SDK::CloudWatch
     # @!attribute dashboard_names
     #   <p>The dashboards to be deleted. This parameter is required.</p>
     #   @return [Array<String>]
-    DeleteDashboardsInput = ::Struct.new(
-      :dashboard_names,
-      keyword_init: true
-    ) do
+    class DeleteDashboardsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        dashboard_names
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    DeleteDashboardsOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class DeleteDashboardsOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -673,11 +715,14 @@ module AWS::SDK::CloudWatch
     # @!attribute rule_names
     #   <p>An array of the rule names to delete. If you need to find out the names of your rules, use <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeInsightRules.html">DescribeInsightRules</a>.</p>
     #   @return [Array<String>]
-    DeleteInsightRulesInput = ::Struct.new(
-      :rule_names,
-      keyword_init: true
-    ) do
+    class DeleteInsightRulesInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        rule_names
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -686,11 +731,14 @@ module AWS::SDK::CloudWatch
     # @!attribute failures
     #   <p>An array listing the rules that could not be deleted. You cannot delete built-in rules.</p>
     #   @return [Array<PartialFailure>]
-    DeleteInsightRulesOutput = ::Struct.new(
-      :failures,
-      keyword_init: true
-    ) do
+    class DeleteInsightRulesOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        failures
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -699,20 +747,24 @@ module AWS::SDK::CloudWatch
     # @!attribute name
     #   <p>The name of the metric stream to delete.</p>
     #   @return [String]
-    DeleteMetricStreamInput = ::Struct.new(
-      :name,
-      keyword_init: true
-    ) do
+    class DeleteMetricStreamInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    DeleteMetricStreamOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class DeleteMetricStreamOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -754,18 +806,21 @@ module AWS::SDK::CloudWatch
     #   		event history returned first, and specify <code>TimestampAscending</code> to have the oldest history returned first.</p>
     #   Enum, one of: ["TimestampDescending", "TimestampAscending"]
     #   @return [String]
-    DescribeAlarmHistoryInput = ::Struct.new(
-      :alarm_name,
-      :alarm_types,
-      :history_item_type,
-      :start_date,
-      :end_date,
-      :max_records,
-      :next_token,
-      :scan_by,
-      keyword_init: true
-    ) do
+    class DescribeAlarmHistoryInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        alarm_name
+        alarm_types
+        history_item_type
+        start_date
+        end_date
+        max_records
+        next_token
+        scan_by
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -778,12 +833,15 @@ module AWS::SDK::CloudWatch
     # @!attribute next_token
     #   <p>The token that marks the start of the next batch of returned results.</p>
     #   @return [String]
-    DescribeAlarmHistoryOutput = ::Struct.new(
-      :alarm_history_items,
-      :next_token,
-      keyword_init: true
-    ) do
+    class DescribeAlarmHistoryOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        alarm_history_items
+        next_token
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -821,17 +879,20 @@ module AWS::SDK::CloudWatch
     #   <p>The unit for the metric.</p>
     #   Enum, one of: ["Seconds", "Microseconds", "Milliseconds", "Bytes", "Kilobytes", "Megabytes", "Gigabytes", "Terabytes", "Bits", "Kilobits", "Megabits", "Gigabits", "Terabits", "Percent", "Count", "Bytes/Second", "Kilobytes/Second", "Megabytes/Second", "Gigabytes/Second", "Terabytes/Second", "Bits/Second", "Kilobits/Second", "Megabits/Second", "Gigabits/Second", "Terabits/Second", "Count/Second", "None"]
     #   @return [String]
-    DescribeAlarmsForMetricInput = ::Struct.new(
-      :metric_name,
-      :namespace,
-      :statistic,
-      :extended_statistic,
-      :dimensions,
-      :period,
-      :unit,
-      keyword_init: true
-    ) do
+    class DescribeAlarmsForMetricInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        metric_name
+        namespace
+        statistic
+        extended_statistic
+        dimensions
+        period
+        unit
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -840,11 +901,14 @@ module AWS::SDK::CloudWatch
     # @!attribute metric_alarms
     #   <p>The information for each alarm with the specified metric.</p>
     #   @return [Array<MetricAlarm>]
-    DescribeAlarmsForMetricOutput = ::Struct.new(
-      :metric_alarms,
-      keyword_init: true
-    ) do
+    class DescribeAlarmsForMetricOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        metric_alarms
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -927,19 +991,22 @@ module AWS::SDK::CloudWatch
     #   <p>The token returned by a previous call to indicate that there is more data
     #   			available.</p>
     #   @return [String]
-    DescribeAlarmsInput = ::Struct.new(
-      :alarm_names,
-      :alarm_name_prefix,
-      :alarm_types,
-      :children_of_alarm_name,
-      :parents_of_alarm_name,
-      :state_value,
-      :action_prefix,
-      :max_records,
-      :next_token,
-      keyword_init: true
-    ) do
+    class DescribeAlarmsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        alarm_names
+        alarm_name_prefix
+        alarm_types
+        children_of_alarm_name
+        parents_of_alarm_name
+        state_value
+        action_prefix
+        max_records
+        next_token
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -956,13 +1023,16 @@ module AWS::SDK::CloudWatch
     # @!attribute next_token
     #   <p>The token that marks the start of the next batch of returned results.</p>
     #   @return [String]
-    DescribeAlarmsOutput = ::Struct.new(
-      :composite_alarms,
-      :metric_alarms,
-      :next_token,
-      keyword_init: true
-    ) do
+    class DescribeAlarmsOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        composite_alarms
+        metric_alarms
+        next_token
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1000,16 +1070,19 @@ module AWS::SDK::CloudWatch
     #   <p>The anomaly detector types to request when using <code>DescribeAnomalyDetectorsInput</code>.
     #   			If empty, defaults to <code>SINGLE_METRIC</code>.</p>
     #   @return [Array<String>]
-    DescribeAnomalyDetectorsInput = ::Struct.new(
-      :next_token,
-      :max_results,
-      :namespace,
-      :metric_name,
-      :dimensions,
-      :anomaly_detector_types,
-      keyword_init: true
-    ) do
+    class DescribeAnomalyDetectorsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        next_token
+        max_results
+        namespace
+        metric_name
+        dimensions
+        anomaly_detector_types
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1023,12 +1096,15 @@ module AWS::SDK::CloudWatch
     #   <p>A token that you can use in a subsequent operation to
     #   		retrieve the next set of results.</p>
     #   @return [String]
-    DescribeAnomalyDetectorsOutput = ::Struct.new(
-      :anomaly_detectors,
-      :next_token,
-      keyword_init: true
-    ) do
+    class DescribeAnomalyDetectorsOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        anomaly_detectors
+        next_token
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1042,12 +1118,15 @@ module AWS::SDK::CloudWatch
     #   <p>The maximum number of results to return in one operation. If you omit this
     #   		parameter, the default of 500 is used.</p>
     #   @return [Integer]
-    DescribeInsightRulesInput = ::Struct.new(
-      :next_token,
-      :max_results,
-      keyword_init: true
-    ) do
+    class DescribeInsightRulesInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        next_token
+        max_results
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1060,12 +1139,15 @@ module AWS::SDK::CloudWatch
     # @!attribute insight_rules
     #   <p>The rules returned by the operation.</p>
     #   @return [Array<InsightRule>]
-    DescribeInsightRulesOutput = ::Struct.new(
-      :next_token,
-      :insight_rules,
-      keyword_init: true
-    ) do
+    class DescribeInsightRulesOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        next_token
+        insight_rules
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>A dimension is a name/value pair that is part of the identity of a metric. Because dimensions are part of the unique
@@ -1089,12 +1171,15 @@ module AWS::SDK::CloudWatch
     #   			at least one non-whitespace character. ASCII
     #   			control characters are not supported as part of dimension values.</p>
     #   @return [String]
-    Dimension = ::Struct.new(
-      :name,
-      :value,
-      keyword_init: true
-    ) do
+    class Dimension
       include Hearth::Structure
+
+      MEMBERS = %i[
+        name
+        value
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents filters for a dimension.</p>
@@ -1108,12 +1193,15 @@ module AWS::SDK::CloudWatch
     # @!attribute value
     #   <p>The value of the dimension to be matched.</p>
     #   @return [String]
-    DimensionFilter = ::Struct.new(
-      :name,
-      :value,
-      keyword_init: true
-    ) do
+    class DimensionFilter
       include Hearth::Structure
+
+      MEMBERS = %i[
+        name
+        value
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1122,20 +1210,24 @@ module AWS::SDK::CloudWatch
     # @!attribute alarm_names
     #   <p>The names of the alarms.</p>
     #   @return [Array<String>]
-    DisableAlarmActionsInput = ::Struct.new(
-      :alarm_names,
-      keyword_init: true
-    ) do
+    class DisableAlarmActionsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        alarm_names
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    DisableAlarmActionsOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class DisableAlarmActionsOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1144,11 +1236,14 @@ module AWS::SDK::CloudWatch
     # @!attribute rule_names
     #   <p>An array of the rule names to disable. If you need to find out the names of your rules, use <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeInsightRules.html">DescribeInsightRules</a>.</p>
     #   @return [Array<String>]
-    DisableInsightRulesInput = ::Struct.new(
-      :rule_names,
-      keyword_init: true
-    ) do
+    class DisableInsightRulesInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        rule_names
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1157,11 +1252,14 @@ module AWS::SDK::CloudWatch
     # @!attribute failures
     #   <p>An array listing the rules that could not be disabled. You cannot disable built-in rules.</p>
     #   @return [Array<PartialFailure>]
-    DisableInsightRulesOutput = ::Struct.new(
-      :failures,
-      keyword_init: true
-    ) do
+    class DisableInsightRulesOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        failures
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1170,20 +1268,24 @@ module AWS::SDK::CloudWatch
     # @!attribute alarm_names
     #   <p>The names of the alarms.</p>
     #   @return [Array<String>]
-    EnableAlarmActionsInput = ::Struct.new(
-      :alarm_names,
-      keyword_init: true
-    ) do
+    class EnableAlarmActionsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        alarm_names
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    EnableAlarmActionsOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class EnableAlarmActionsOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1192,11 +1294,14 @@ module AWS::SDK::CloudWatch
     # @!attribute rule_names
     #   <p>An array of the rule names to enable. If you need to find out the names of your rules, use <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeInsightRules.html">DescribeInsightRules</a>.</p>
     #   @return [Array<String>]
-    EnableInsightRulesInput = ::Struct.new(
-      :rule_names,
-      keyword_init: true
-    ) do
+    class EnableInsightRulesInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        rule_names
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1205,11 +1310,14 @@ module AWS::SDK::CloudWatch
     # @!attribute failures
     #   <p>An array listing the rules that could not be enabled. You cannot disable or enable built-in rules.</p>
     #   @return [Array<PartialFailure>]
-    EnableInsightRulesOutput = ::Struct.new(
-      :failures,
-      keyword_init: true
-    ) do
+    class EnableInsightRulesOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        failures
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for EvaluationState
@@ -1223,11 +1331,14 @@ module AWS::SDK::CloudWatch
     # @!attribute dashboard_name
     #   <p>The name of the dashboard to be described.</p>
     #   @return [String]
-    GetDashboardInput = ::Struct.new(
-      :dashboard_name,
-      keyword_init: true
-    ) do
+    class GetDashboardInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        dashboard_name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1246,13 +1357,16 @@ module AWS::SDK::CloudWatch
     # @!attribute dashboard_name
     #   <p>The name of the dashboard.</p>
     #   @return [String]
-    GetDashboardOutput = ::Struct.new(
-      :dashboard_arn,
-      :dashboard_body,
-      :dashboard_name,
-      keyword_init: true
-    ) do
+    class GetDashboardOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        dashboard_arn
+        dashboard_body
+        dashboard_name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1324,17 +1438,20 @@ module AWS::SDK::CloudWatch
     # @!attribute order_by
     #   <p>Determines what statistic to use to rank the contributors. Valid values are <code>Sum</code> and <code>Maximum</code>.</p>
     #   @return [String]
-    GetInsightRuleReportInput = ::Struct.new(
-      :rule_name,
-      :start_time,
-      :end_time,
-      :period,
-      :max_contributor_count,
-      :metrics,
-      :order_by,
-      keyword_init: true
-    ) do
+    class GetInsightRuleReportInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        rule_name
+        start_time
+        end_time
+        period
+        max_contributor_count
+        metrics
+        order_by
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1365,16 +1482,19 @@ module AWS::SDK::CloudWatch
     # @!attribute metric_datapoints
     #   <p>A time series of metric data points that matches the time period in the rule request.</p>
     #   @return [Array<InsightRuleMetricDatapoint>]
-    GetInsightRuleReportOutput = ::Struct.new(
-      :key_labels,
-      :aggregation_statistic,
-      :aggregate_value,
-      :approximate_unique_count,
-      :contributors,
-      :metric_datapoints,
-      keyword_init: true
-    ) do
+    class GetInsightRuleReportOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key_labels
+        aggregation_statistic
+        aggregate_value
+        approximate_unique_count
+        contributors
+        metric_datapoints
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1453,17 +1573,20 @@ module AWS::SDK::CloudWatch
     #   			correct time
     #   			for your time zone. </p>
     #   @return [LabelOptions]
-    GetMetricDataInput = ::Struct.new(
-      :metric_data_queries,
-      :start_time,
-      :end_time,
-      :next_token,
-      :scan_by,
-      :max_datapoints,
-      :label_options,
-      keyword_init: true
-    ) do
+    class GetMetricDataInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        metric_data_queries
+        start_time
+        end_time
+        next_token
+        scan_by
+        max_datapoints
+        label_options
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1485,13 +1608,16 @@ module AWS::SDK::CloudWatch
     #            <p>A message appears here only if it is related to the global <code>GetMetricData</code> operation. Any message
     #   			about a specific metric returned by the operation appears in the <code>MetricDataResult</code> object returned for that metric.</p>
     #   @return [Array<MessageData>]
-    GetMetricDataOutput = ::Struct.new(
-      :metric_data_results,
-      :next_token,
-      :messages,
-      keyword_init: true
-    ) do
+    class GetMetricDataOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        metric_data_results
+        next_token
+        messages
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1589,19 +1715,22 @@ module AWS::SDK::CloudWatch
     #   			If you specify a unit that does not match the data collected, the results of the operation are null. CloudWatch does not perform unit conversions.</p>
     #   Enum, one of: ["Seconds", "Microseconds", "Milliseconds", "Bytes", "Kilobytes", "Megabytes", "Gigabytes", "Terabytes", "Bits", "Kilobits", "Megabits", "Gigabits", "Terabits", "Percent", "Count", "Bytes/Second", "Kilobytes/Second", "Megabytes/Second", "Gigabytes/Second", "Terabytes/Second", "Bits/Second", "Kilobits/Second", "Megabits/Second", "Gigabits/Second", "Terabits/Second", "Count/Second", "None"]
     #   @return [String]
-    GetMetricStatisticsInput = ::Struct.new(
-      :namespace,
-      :metric_name,
-      :dimensions,
-      :start_time,
-      :end_time,
-      :period,
-      :statistics,
-      :extended_statistics,
-      :unit,
-      keyword_init: true
-    ) do
+    class GetMetricStatisticsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        namespace
+        metric_name
+        dimensions
+        start_time
+        end_time
+        period
+        statistics
+        extended_statistics
+        unit
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1614,12 +1743,15 @@ module AWS::SDK::CloudWatch
     # @!attribute datapoints
     #   <p>The data points for the specified metric.</p>
     #   @return [Array<Datapoint>]
-    GetMetricStatisticsOutput = ::Struct.new(
-      :label,
-      :datapoints,
-      keyword_init: true
-    ) do
+    class GetMetricStatisticsOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        label
+        datapoints
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1628,11 +1760,14 @@ module AWS::SDK::CloudWatch
     # @!attribute name
     #   <p>The name of the metric stream to retrieve information about.</p>
     #   @return [String]
-    GetMetricStreamInput = ::Struct.new(
-      :name,
-      keyword_init: true
-    ) do
+    class GetMetricStreamInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1699,22 +1834,25 @@ module AWS::SDK::CloudWatch
     #   <p>If this is <code>true</code> and this metric stream is in a monitoring account, then the stream includes
     #   			metrics from source accounts that the monitoring account is linked to.</p>
     #   @return [Boolean]
-    GetMetricStreamOutput = ::Struct.new(
-      :arn,
-      :name,
-      :include_filters,
-      :exclude_filters,
-      :firehose_arn,
-      :role_arn,
-      :state,
-      :creation_date,
-      :last_update_date,
-      :output_format,
-      :statistics_configurations,
-      :include_linked_accounts_metrics,
-      keyword_init: true
-    ) do
+    class GetMetricStreamOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        arn
+        name
+        include_filters
+        exclude_filters
+        firehose_arn
+        role_arn
+        state
+        creation_date
+        last_update_date
+        output_format
+        statistics_configurations
+        include_linked_accounts_metrics
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1771,12 +1909,15 @@ module AWS::SDK::CloudWatch
     #   			<code>image/png</code>, the HTTP response has a content-type set to <code>image/png</code>,
     #   			and the body of the response is a PNG image. </p>
     #   @return [String]
-    GetMetricWidgetImageInput = ::Struct.new(
-      :metric_widget,
-      :output_format,
-      keyword_init: true
-    ) do
+    class GetMetricWidgetImageInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        metric_widget
+        output_format
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1785,11 +1926,14 @@ module AWS::SDK::CloudWatch
     # @!attribute metric_widget_image
     #   <p>The image of the graph, in the output format specified. The output is base64-encoded.</p>
     #   @return [String]
-    GetMetricWidgetImageOutput = ::Struct.new(
-      :metric_widget_image,
-      keyword_init: true
-    ) do
+    class GetMetricWidgetImageOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        metric_widget_image
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for HistoryItemType
@@ -1836,15 +1980,18 @@ module AWS::SDK::CloudWatch
     #   			An optional built-in rule that Amazon Web Services manages.
     #   		</p>
     #   @return [Boolean]
-    InsightRule = ::Struct.new(
-      :name,
-      :state,
-      :schema,
-      :definition,
-      :managed_rule,
-      keyword_init: true
-    ) do
+    class InsightRule
       include Hearth::Structure
+
+      MEMBERS = %i[
+        name
+        state
+        schema
+        definition
+        managed_rule
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>One of the unique contributors found by a Contributor Insights rule. If the rule contains multiple keys, then
@@ -1865,13 +2012,16 @@ module AWS::SDK::CloudWatch
     # @!attribute datapoints
     #   <p>An array of the data points where this contributor is present. Only the data points when this contributor appeared are included in the array.</p>
     #   @return [Array<InsightRuleContributorDatapoint>]
-    InsightRuleContributor = ::Struct.new(
-      :keys,
-      :approximate_aggregate_value,
-      :datapoints,
-      keyword_init: true
-    ) do
+    class InsightRuleContributor
       include Hearth::Structure
+
+      MEMBERS = %i[
+        keys
+        approximate_aggregate_value
+        datapoints
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>One data point related to one contributor.</p>
@@ -1887,12 +2037,15 @@ module AWS::SDK::CloudWatch
     # @!attribute approximate_value
     #   <p>The approximate value that this contributor added during this timestamp.</p>
     #   @return [Float]
-    InsightRuleContributorDatapoint = ::Struct.new(
-      :timestamp,
-      :approximate_value,
-      keyword_init: true
-    ) do
+    class InsightRuleContributorDatapoint
       include Hearth::Structure
+
+      MEMBERS = %i[
+        timestamp
+        approximate_value
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>One data point from the metric time series returned in a Contributor Insights rule report.</p>
@@ -1904,7 +2057,7 @@ module AWS::SDK::CloudWatch
     #   @option params [Float] :max_contributor_value
     #   @option params [Float] :sample_count
     #   @option params [Float] :average
-    #   @option params [Float] :member_sum
+    #   @option params [Float] :sum
     #   @option params [Float] :minimum
     #   @option params [Float] :maximum
     # @!attribute timestamp
@@ -1928,7 +2081,7 @@ module AWS::SDK::CloudWatch
     #   <p>The average value from all contributors during the time period represented by that data point.</p>
     #            <p>This statistic is returned only if you included it in the <code>Metrics</code> array in your request.</p>
     #   @return [Float]
-    # @!attribute member_sum
+    # @!attribute sum
     #   <p>The sum of the values from all contributors during the time period represented by that data point.</p>
     #            <p>This statistic is returned only if you included it in the <code>Metrics</code> array in your request.</p>
     #   @return [Float]
@@ -1940,18 +2093,21 @@ module AWS::SDK::CloudWatch
     #   <p>The maximum value from a single occurence from a single contributor during the time period represented by that data point.</p>
     #            <p>This statistic is returned only if you included it in the <code>Metrics</code> array in your request.</p>
     #   @return [Float]
-    InsightRuleMetricDatapoint = ::Struct.new(
-      :timestamp,
-      :unique_contributors,
-      :max_contributor_value,
-      :sample_count,
-      :average,
-      :member_sum,
-      :minimum,
-      :maximum,
-      keyword_init: true
-    ) do
+    class InsightRuleMetricDatapoint
       include Hearth::Structure
+
+      MEMBERS = %i[
+        timestamp
+        unique_contributors
+        max_contributor_value
+        sample_count
+        average
+        sum
+        minimum
+        maximum
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Request processing has failed due to some unknown error, exception, or failure.</p>
@@ -1961,11 +2117,14 @@ module AWS::SDK::CloudWatch
     # @!attribute message
     #   <p></p>
     #   @return [String]
-    InternalServiceFault = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class InternalServiceFault
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Data was not syntactically valid JSON.</p>
@@ -1975,11 +2134,14 @@ module AWS::SDK::CloudWatch
     # @!attribute message
     #   <p></p>
     #   @return [String]
-    InvalidFormatFault = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class InvalidFormatFault
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The next token specified is invalid.</p>
@@ -1989,11 +2151,14 @@ module AWS::SDK::CloudWatch
     # @!attribute message
     #   <p></p>
     #   @return [String]
-    InvalidNextToken = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class InvalidNextToken
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Parameters were used together that cannot be used together.</p>
@@ -2003,11 +2168,14 @@ module AWS::SDK::CloudWatch
     # @!attribute message
     #   <p></p>
     #   @return [String]
-    InvalidParameterCombinationException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class InvalidParameterCombinationException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The value of an input parameter is bad or out-of-range.</p>
@@ -2017,11 +2185,14 @@ module AWS::SDK::CloudWatch
     # @!attribute message
     #   <p></p>
     #   @return [String]
-    InvalidParameterValueException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class InvalidParameterValueException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>This structure includes the <code>Timezone</code> parameter, which you can use
@@ -2041,11 +2212,14 @@ module AWS::SDK::CloudWatch
     #   			the final two digits are the number of minutes. For example, +0130 indicates a time zone that is 1 hour
     #   			and 30 minutes ahead of UTC. The default is +0000. </p>
     #   @return [String]
-    LabelOptions = ::Struct.new(
-      :timezone,
-      keyword_init: true
-    ) do
+    class LabelOptions
       include Hearth::Structure
+
+      MEMBERS = %i[
+        timezone
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The operation exceeded one or more limits.</p>
@@ -2054,11 +2228,14 @@ module AWS::SDK::CloudWatch
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    LimitExceededException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class LimitExceededException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The quota for alarms for this customer has already been reached.</p>
@@ -2068,11 +2245,14 @@ module AWS::SDK::CloudWatch
     # @!attribute message
     #   <p></p>
     #   @return [String]
-    LimitExceededFault = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class LimitExceededFault
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2089,12 +2269,15 @@ module AWS::SDK::CloudWatch
     # @!attribute next_token
     #   <p>The token returned by a previous call to indicate that there is more data available.</p>
     #   @return [String]
-    ListDashboardsInput = ::Struct.new(
-      :dashboard_name_prefix,
-      :next_token,
-      keyword_init: true
-    ) do
+    class ListDashboardsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        dashboard_name_prefix
+        next_token
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2107,12 +2290,15 @@ module AWS::SDK::CloudWatch
     # @!attribute next_token
     #   <p>The token that marks the start of the next batch of returned results.</p>
     #   @return [String]
-    ListDashboardsOutput = ::Struct.new(
-      :dashboard_entries,
-      :next_token,
-      keyword_init: true
-    ) do
+    class ListDashboardsOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        dashboard_entries
+        next_token
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2148,13 +2334,16 @@ module AWS::SDK::CloudWatch
     #   			The default number is <code>100</code>.
     #   		</p>
     #   @return [Integer]
-    ListManagedInsightRulesInput = ::Struct.new(
-      :resource_arn,
-      :next_token,
-      :max_results,
-      keyword_init: true
-    ) do
+    class ListManagedInsightRulesInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        resource_arn
+        next_token
+        max_results
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2178,12 +2367,15 @@ module AWS::SDK::CloudWatch
     #   			by the previous operation.
     #   		</p>
     #   @return [String]
-    ListManagedInsightRulesOutput = ::Struct.new(
-      :managed_rules,
-      :next_token,
-      keyword_init: true
-    ) do
+    class ListManagedInsightRulesOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        managed_rules
+        next_token
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2196,31 +2388,37 @@ module AWS::SDK::CloudWatch
     # @!attribute max_results
     #   <p>The maximum number of results to return in one operation.</p>
     #   @return [Integer]
-    ListMetricStreamsInput = ::Struct.new(
-      :next_token,
-      :max_results,
-      keyword_init: true
-    ) do
+    class ListMetricStreamsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        next_token
+        max_results
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [String] :next_token
-    #   @option params [Array<MetricStreamEntry>] :member_entries
+    #   @option params [Array<MetricStreamEntry>] :entries
     # @!attribute next_token
     #   <p>The token that marks the start of the next batch of returned results. You can use this
     #   		token in a subsequent operation to get the next batch of results.</p>
     #   @return [String]
-    # @!attribute member_entries
+    # @!attribute entries
     #   <p>The array of metric stream information.</p>
     #   @return [Array<MetricStreamEntry>]
-    ListMetricStreamsOutput = ::Struct.new(
-      :next_token,
-      :member_entries,
-      keyword_init: true
-    ) do
+    class ListMetricStreamsOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        next_token
+        entries
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2268,17 +2466,20 @@ module AWS::SDK::CloudWatch
     #   			To do so, specify that source account ID in this field, and also
     #   		specify <code>true</code> for <code>IncludeLinkedAccounts</code>.</p>
     #   @return [String]
-    ListMetricsInput = ::Struct.new(
-      :namespace,
-      :metric_name,
-      :dimensions,
-      :next_token,
-      :recently_active,
-      :include_linked_accounts,
-      :owning_account,
-      keyword_init: true
-    ) do
+    class ListMetricsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        namespace
+        metric_name
+        dimensions
+        next_token
+        recently_active
+        include_linked_accounts
+        owning_account
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2298,13 +2499,16 @@ module AWS::SDK::CloudWatch
     #   		are from.</p>
     #            <p>This field is a 1:1 mapping between each metric that is returned and the ID of the owning account.</p>
     #   @return [Array<String>]
-    ListMetricsOutput = ::Struct.new(
-      :metrics,
-      :next_token,
-      :owning_accounts,
-      keyword_init: true
-    ) do
+    class ListMetricsOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        metrics
+        next_token
+        owning_accounts
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2324,11 +2528,14 @@ module AWS::SDK::CloudWatch
     #   				Types Defined by Amazon CloudWatch</a> in the <i>Amazon Web Services General
     #   			Reference</i>.</p>
     #   @return [String]
-    ListTagsForResourceInput = ::Struct.new(
-      :resource_arn,
-      keyword_init: true
-    ) do
+    class ListTagsForResourceInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        resource_arn
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2337,11 +2544,14 @@ module AWS::SDK::CloudWatch
     # @!attribute tags
     #   <p>The list of tag keys and values associated with the resource you specified.</p>
     #   @return [Array<Tag>]
-    ListTagsForResourceOutput = ::Struct.new(
-      :tags,
-      keyword_init: true
-    ) do
+    class ListTagsForResourceOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        tags
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>
@@ -2400,13 +2610,16 @@ module AWS::SDK::CloudWatch
     #   			use <code>TagResource</code>.
     #   		</p>
     #   @return [Array<Tag>]
-    ManagedRule = ::Struct.new(
-      :template_name,
-      :resource_arn,
-      :tags,
-      keyword_init: true
-    ) do
+    class ManagedRule
       include Hearth::Structure
+
+      MEMBERS = %i[
+        template_name
+        resource_arn
+        tags
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>
@@ -2447,13 +2660,16 @@ module AWS::SDK::CloudWatch
     #   			about the related Amazon Web Services resource.
     #   		</p>
     #   @return [ManagedRuleState]
-    ManagedRuleDescription = ::Struct.new(
-      :template_name,
-      :resource_arn,
-      :rule_state,
-      keyword_init: true
-    ) do
+    class ManagedRuleDescription
       include Hearth::Structure
+
+      MEMBERS = %i[
+        template_name
+        resource_arn
+        rule_state
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>
@@ -2477,12 +2693,15 @@ module AWS::SDK::CloudWatch
     #   			Indicates whether the rule is enabled or disabled.
     #   		</p>
     #   @return [String]
-    ManagedRuleState = ::Struct.new(
-      :rule_name,
-      :state,
-      keyword_init: true
-    ) do
+    class ManagedRuleState
       include Hearth::Structure
+
+      MEMBERS = %i[
+        rule_name
+        state
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>A message returned by the <code>GetMetricData</code>API, including a code and a description.</p>
@@ -2500,12 +2719,15 @@ module AWS::SDK::CloudWatch
     # @!attribute value
     #   <p>The message text.</p>
     #   @return [String]
-    MessageData = ::Struct.new(
-      :code,
-      :value,
-      keyword_init: true
-    ) do
+    class MessageData
       include Hearth::Structure
+
+      MEMBERS = %i[
+        code
+        value
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents a specific metric.</p>
@@ -2523,13 +2745,16 @@ module AWS::SDK::CloudWatch
     # @!attribute dimensions
     #   <p>The dimensions for the metric.</p>
     #   @return [Array<Dimension>]
-    Metric = ::Struct.new(
-      :namespace,
-      :metric_name,
-      :dimensions,
-      keyword_init: true
-    ) do
+    class Metric
       include Hearth::Structure
+
+      MEMBERS = %i[
+        namespace
+        metric_name
+        dimensions
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The details about a metric alarm.</p>
@@ -2684,39 +2909,42 @@ module AWS::SDK::CloudWatch
     # @!attribute state_transitioned_timestamp
     #   <p>The date and time that the alarm's <code>StateValue</code> most recently changed.</p>
     #   @return [Time]
-    MetricAlarm = ::Struct.new(
-      :alarm_name,
-      :alarm_arn,
-      :alarm_description,
-      :alarm_configuration_updated_timestamp,
-      :actions_enabled,
-      :ok_actions,
-      :alarm_actions,
-      :insufficient_data_actions,
-      :state_value,
-      :state_reason,
-      :state_reason_data,
-      :state_updated_timestamp,
-      :metric_name,
-      :namespace,
-      :statistic,
-      :extended_statistic,
-      :dimensions,
-      :period,
-      :unit,
-      :evaluation_periods,
-      :datapoints_to_alarm,
-      :threshold,
-      :comparison_operator,
-      :treat_missing_data,
-      :evaluate_low_sample_count_percentile,
-      :metrics,
-      :threshold_metric_id,
-      :evaluation_state,
-      :state_transitioned_timestamp,
-      keyword_init: true
-    ) do
+    class MetricAlarm
       include Hearth::Structure
+
+      MEMBERS = %i[
+        alarm_name
+        alarm_arn
+        alarm_description
+        alarm_configuration_updated_timestamp
+        actions_enabled
+        ok_actions
+        alarm_actions
+        insufficient_data_actions
+        state_value
+        state_reason
+        state_reason_data
+        state_updated_timestamp
+        metric_name
+        namespace
+        statistic
+        extended_statistic
+        dimensions
+        period
+        unit
+        evaluation_periods
+        datapoints_to_alarm
+        threshold
+        comparison_operator
+        treat_missing_data
+        evaluate_low_sample_count_percentile
+        metrics
+        threshold_metric_id
+        evaluation_state
+        state_transitioned_timestamp
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>This structure is used in both <code>GetMetricData</code> and <code>PutMetricAlarm</code>. The supported
@@ -2807,17 +3035,20 @@ module AWS::SDK::CloudWatch
     #            <p>If you are performing a <code>PutMetricAlarm</code> operation, use this to specify
     #   			which account contains the metric that the alarm is watching.</p>
     #   @return [String]
-    MetricDataQuery = ::Struct.new(
-      :id,
-      :metric_stat,
-      :expression,
-      :label,
-      :return_data,
-      :period,
-      :account_id,
-      keyword_init: true
-    ) do
+    class MetricDataQuery
       include Hearth::Structure
+
+      MEMBERS = %i[
+        id
+        metric_stat
+        expression
+        label
+        return_data
+        period
+        account_id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>A <code>GetMetricData</code> call returns an array of <code>MetricDataResult</code>
@@ -2828,7 +3059,7 @@ module AWS::SDK::CloudWatch
     #   @option params [String] :id
     #   @option params [String] :label
     #   @option params [Array<Time>] :timestamps
-    #   @option params [Array<Float>] :member_values
+    #   @option params [Array<Float>] :values
     #   @option params [String] :status_code
     #   @option params [Array<MessageData>] :messages
     # @!attribute id
@@ -2842,7 +3073,7 @@ module AWS::SDK::CloudWatch
     #   			timestamps always matches the number of values and the value for Timestamps[x] is
     #   			Values[x].</p>
     #   @return [Array<Time>]
-    # @!attribute member_values
+    # @!attribute values
     #   <p>The data points for the metric corresponding to <code>Timestamps</code>. The number of
     #   			values always matches the number of timestamps and the timestamp for Values[x] is
     #   			Timestamps[x].</p>
@@ -2858,16 +3089,19 @@ module AWS::SDK::CloudWatch
     # @!attribute messages
     #   <p>A list of messages with additional information about the data returned.</p>
     #   @return [Array<MessageData>]
-    MetricDataResult = ::Struct.new(
-      :id,
-      :label,
-      :timestamps,
-      :member_values,
-      :status_code,
-      :messages,
-      keyword_init: true
-    ) do
+    class MetricDataResult
       include Hearth::Structure
+
+      MEMBERS = %i[
+        id
+        label
+        timestamps
+        values
+        status_code
+        messages
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Encapsulates the information sent to either create a metric or add new values
@@ -2879,7 +3113,7 @@ module AWS::SDK::CloudWatch
     #   @option params [Time] :timestamp
     #   @option params [Float] :value
     #   @option params [StatisticSet] :statistic_values
-    #   @option params [Array<Float>] :member_values
+    #   @option params [Array<Float>] :values
     #   @option params [Array<Float>] :counts
     #   @option params [String] :unit
     #   @option params [Integer] :storage_resolution
@@ -2901,7 +3135,7 @@ module AWS::SDK::CloudWatch
     # @!attribute statistic_values
     #   <p>The statistical values for the metric.</p>
     #   @return [StatisticSet]
-    # @!attribute member_values
+    # @!attribute values
     #   <p>Array of numbers representing the values for the metric during the period. Each unique value is listed just once
     #   		in this array, and the corresponding number in the <code>Counts</code> array specifies the number of times that value occurred during the period.
     #   		You can include up to 150 unique values in each <code>PutMetricData</code> action that specifies a <code>Values</code> array.</p>
@@ -2932,19 +3166,22 @@ module AWS::SDK::CloudWatch
     #   		</p>
     #            <p>This field is optional, if you do not specify it the default of 60 is used.</p>
     #   @return [Integer]
-    MetricDatum = ::Struct.new(
-      :metric_name,
-      :dimensions,
-      :timestamp,
-      :value,
-      :statistic_values,
-      :member_values,
-      :counts,
-      :unit,
-      :storage_resolution,
-      keyword_init: true
-    ) do
+    class MetricDatum
       include Hearth::Structure
+
+      MEMBERS = %i[
+        metric_name
+        dimensions
+        timestamp
+        value
+        statistic_values
+        values
+        counts
+        unit
+        storage_resolution
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Indicates the CloudWatch math expression that provides the time series the anomaly detector
@@ -2967,11 +3204,14 @@ module AWS::SDK::CloudWatch
     #   			The designated expression must return
     #   			a single time series.</p>
     #   @return [Array<MetricDataQuery>]
-    MetricMathAnomalyDetector = ::Struct.new(
-      :metric_data_queries,
-      keyword_init: true
-    ) do
+    class MetricMathAnomalyDetector
       include Hearth::Structure
+
+      MEMBERS = %i[
+        metric_data_queries
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>This structure defines the metric to be returned, along with the statistics, period, and units.</p>
@@ -3013,14 +3253,17 @@ module AWS::SDK::CloudWatch
     #   			If you specify a unit that does not match the data collected, the results of the operation are null. CloudWatch does not perform unit conversions.</p>
     #   Enum, one of: ["Seconds", "Microseconds", "Milliseconds", "Bytes", "Kilobytes", "Megabytes", "Gigabytes", "Terabytes", "Bits", "Kilobits", "Megabits", "Gigabits", "Terabits", "Percent", "Count", "Bytes/Second", "Kilobytes/Second", "Megabytes/Second", "Gigabytes/Second", "Terabytes/Second", "Bits/Second", "Kilobits/Second", "Megabits/Second", "Gigabits/Second", "Terabits/Second", "Count/Second", "None"]
     #   @return [String]
-    MetricStat = ::Struct.new(
-      :metric,
-      :period,
-      :stat,
-      :unit,
-      keyword_init: true
-    ) do
+    class MetricStat
       include Hearth::Structure
+
+      MEMBERS = %i[
+        metric
+        period
+        stat
+        unit
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>This structure contains the configuration information about one metric stream.</p>
@@ -3057,17 +3300,20 @@ module AWS::SDK::CloudWatch
     #   			and <code>opentelemetry0.7</code>.</p>
     #   Enum, one of: ["json", "opentelemetry0.7", "opentelemetry1.0"]
     #   @return [String]
-    MetricStreamEntry = ::Struct.new(
-      :arn,
-      :creation_date,
-      :last_update_date,
-      :name,
-      :firehose_arn,
-      :state,
-      :output_format,
-      keyword_init: true
-    ) do
+    class MetricStreamEntry
       include Hearth::Structure
+
+      MEMBERS = %i[
+        arn
+        creation_date
+        last_update_date
+        name
+        firehose_arn
+        state
+        output_format
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>This structure contains a metric namespace and optionally, a list of metric names,
@@ -3093,12 +3339,15 @@ module AWS::SDK::CloudWatch
     #            <p>Each metric name can contain only ASCII printable characters (ASCII range 32 through 126).
     #   			Each metric name must contain at least one non-whitespace character.</p>
     #   @return [Array<String>]
-    MetricStreamFilter = ::Struct.new(
-      :namespace,
-      :metric_names,
-      keyword_init: true
-    ) do
+    class MetricStreamFilter
       include Hearth::Structure
+
+      MEMBERS = %i[
+        namespace
+        metric_names
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for MetricStreamOutputFormat
@@ -3140,12 +3389,15 @@ module AWS::SDK::CloudWatch
     #   			<code>tm98, </code>
     #               <code>wm90</code>, <code>PR(:300)</code>, and so on.</p>
     #   @return [Array<String>]
-    MetricStreamStatisticsConfiguration = ::Struct.new(
-      :include_metrics,
-      :additional_statistics,
-      keyword_init: true
-    ) do
+    class MetricStreamStatisticsConfiguration
       include Hearth::Structure
+
+      MEMBERS = %i[
+        include_metrics
+        additional_statistics
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>This object contains the information for one metric that is to be streamed with
@@ -3160,12 +3412,15 @@ module AWS::SDK::CloudWatch
     # @!attribute metric_name
     #   <p>The name of the metric.</p>
     #   @return [String]
-    MetricStreamStatisticsMetric = ::Struct.new(
-      :namespace,
-      :metric_name,
-      keyword_init: true
-    ) do
+    class MetricStreamStatisticsMetric
       include Hearth::Structure
+
+      MEMBERS = %i[
+        namespace
+        metric_name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>An input parameter that is required is missing.</p>
@@ -3175,11 +3430,14 @@ module AWS::SDK::CloudWatch
     # @!attribute message
     #   <p></p>
     #   @return [String]
-    MissingRequiredParameterException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class MissingRequiredParameterException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>This array is empty if the API operation was successful for all the rules specified in the request. If the operation could
@@ -3202,14 +3460,17 @@ module AWS::SDK::CloudWatch
     # @!attribute failure_description
     #   <p>A description of the error.</p>
     #   @return [String]
-    PartialFailure = ::Struct.new(
-      :failure_resource,
-      :exception_type,
-      :failure_code,
-      :failure_description,
-      keyword_init: true
-    ) do
+    class PartialFailure
       include Hearth::Structure
+
+      MEMBERS = %i[
+        failure_resource
+        exception_type
+        failure_code
+        failure_description
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3314,26 +3575,30 @@ module AWS::SDK::CloudWatch
     #            <p>Instead, specify the metric math anomaly detector attributes
     #   			as part of the property <code>MetricMathAnomalyDetector</code>.</p>
     #   @return [MetricMathAnomalyDetector]
-    PutAnomalyDetectorInput = ::Struct.new(
-      :namespace,
-      :metric_name,
-      :dimensions,
-      :stat,
-      :configuration,
-      :single_metric_anomaly_detector,
-      :metric_math_anomaly_detector,
-      keyword_init: true
-    ) do
+    class PutAnomalyDetectorInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        namespace
+        metric_name
+        dimensions
+        stat
+        configuration
+        single_metric_anomaly_detector
+        metric_math_anomaly_detector
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    PutAnomalyDetectorOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class PutAnomalyDetectorOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3499,30 +3764,34 @@ module AWS::SDK::CloudWatch
     #   			</p>
     #            </important>
     #   @return [Integer]
-    PutCompositeAlarmInput = ::Struct.new(
-      :actions_enabled,
-      :alarm_actions,
-      :alarm_description,
-      :alarm_name,
-      :alarm_rule,
-      :insufficient_data_actions,
-      :ok_actions,
-      :tags,
-      :actions_suppressor,
-      :actions_suppressor_wait_period,
-      :actions_suppressor_extension_period,
-      keyword_init: true
-    ) do
+    class PutCompositeAlarmInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        actions_enabled
+        alarm_actions
+        alarm_description
+        alarm_name
+        alarm_rule
+        insufficient_data_actions
+        ok_actions
+        tags
+        actions_suppressor
+        actions_suppressor_wait_period
+        actions_suppressor_extension_period
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    PutCompositeAlarmOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class PutCompositeAlarmOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3540,12 +3809,15 @@ module AWS::SDK::CloudWatch
     #            <p>For more information about the syntax,
     #   			see  <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html">Dashboard Body Structure and Syntax</a>.</p>
     #   @return [String]
-    PutDashboardInput = ::Struct.new(
-      :dashboard_name,
-      :dashboard_body,
-      keyword_init: true
-    ) do
+    class PutDashboardInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        dashboard_name
+        dashboard_body
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3558,11 +3830,14 @@ module AWS::SDK::CloudWatch
     #   			might not render.</p>
     #            <p>If this result includes error messages, the input was not valid and the operation failed.</p>
     #   @return [Array<DashboardValidationMessage>]
-    PutDashboardOutput = ::Struct.new(
-      :dashboard_validation_messages,
-      keyword_init: true
-    ) do
+    class PutDashboardOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        dashboard_validation_messages
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3595,23 +3870,27 @@ module AWS::SDK::CloudWatch
     #   		you specify in this parameter are ignored. To change the tags of an existing rule, use
     #   			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_TagResource.html">TagResource</a>.</p>
     #   @return [Array<Tag>]
-    PutInsightRuleInput = ::Struct.new(
-      :rule_name,
-      :rule_state,
-      :rule_definition,
-      :tags,
-      keyword_init: true
-    ) do
+    class PutInsightRuleInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        rule_name
+        rule_state
+        rule_definition
+        tags
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    PutInsightRuleOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class PutInsightRuleOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3624,11 +3903,14 @@ module AWS::SDK::CloudWatch
     #   			to enable.
     #   		</p>
     #   @return [Array<ManagedRule>]
-    PutManagedInsightRulesInput = ::Struct.new(
-      :managed_rules,
-      keyword_init: true
-    ) do
+    class PutManagedInsightRulesInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        managed_rules
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3641,11 +3923,14 @@ module AWS::SDK::CloudWatch
     #   			that could not be enabled.
     #   		</p>
     #   @return [Array<PartialFailure>]
-    PutManagedInsightRulesOutput = ::Struct.new(
-      :failures,
-      keyword_init: true
-    ) do
+    class PutManagedInsightRulesOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        failures
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -4152,41 +4437,45 @@ module AWS::SDK::CloudWatch
     #   		Model Alarm</b> example on this page.</p>
     #            <p>If your alarm uses this parameter, it cannot have Auto Scaling actions.</p>
     #   @return [String]
-    PutMetricAlarmInput = ::Struct.new(
-      :alarm_name,
-      :alarm_description,
-      :actions_enabled,
-      :ok_actions,
-      :alarm_actions,
-      :insufficient_data_actions,
-      :metric_name,
-      :namespace,
-      :statistic,
-      :extended_statistic,
-      :dimensions,
-      :period,
-      :unit,
-      :evaluation_periods,
-      :datapoints_to_alarm,
-      :threshold,
-      :comparison_operator,
-      :treat_missing_data,
-      :evaluate_low_sample_count_percentile,
-      :metrics,
-      :tags,
-      :threshold_metric_id,
-      keyword_init: true
-    ) do
+    class PutMetricAlarmInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        alarm_name
+        alarm_description
+        actions_enabled
+        ok_actions
+        alarm_actions
+        insufficient_data_actions
+        metric_name
+        namespace
+        statistic
+        extended_statistic
+        dimensions
+        period
+        unit
+        evaluation_periods
+        datapoints_to_alarm
+        threshold
+        comparison_operator
+        treat_missing_data
+        evaluate_low_sample_count_percentile
+        metrics
+        tags
+        threshold_metric_id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    PutMetricAlarmOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class PutMetricAlarmOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -4203,21 +4492,25 @@ module AWS::SDK::CloudWatch
     # @!attribute metric_data
     #   <p>The data for the metric. The array can include no more than 1000 metrics per call.</p>
     #   @return [Array<MetricDatum>]
-    PutMetricDataInput = ::Struct.new(
-      :namespace,
-      :metric_data,
-      keyword_init: true
-    ) do
+    class PutMetricDataInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        namespace
+        metric_data
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    PutMetricDataOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class PutMetricDataOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -4304,19 +4597,22 @@ module AWS::SDK::CloudWatch
     #   <p>If you are creating a metric stream in a monitoring account,
     #   			specify <code>true</code> to include metrics from source accounts in the metric stream.</p>
     #   @return [Boolean]
-    PutMetricStreamInput = ::Struct.new(
-      :name,
-      :include_filters,
-      :exclude_filters,
-      :firehose_arn,
-      :role_arn,
-      :output_format,
-      :tags,
-      :statistics_configurations,
-      :include_linked_accounts_metrics,
-      keyword_init: true
-    ) do
+    class PutMetricStreamInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        name
+        include_filters
+        exclude_filters
+        firehose_arn
+        role_arn
+        output_format
+        tags
+        statistics_configurations
+        include_linked_accounts_metrics
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -4325,11 +4621,14 @@ module AWS::SDK::CloudWatch
     # @!attribute arn
     #   <p>The ARN of the metric stream.</p>
     #   @return [String]
-    PutMetricStreamOutput = ::Struct.new(
-      :arn,
-      keyword_init: true
-    ) do
+    class PutMetricStreamOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        arn
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Specifies one range of days or times to exclude from use for training an
@@ -4346,12 +4645,15 @@ module AWS::SDK::CloudWatch
     #   <p>The end time of the range to exclude. The format is <code>yyyy-MM-dd'T'HH:mm:ss</code>. For example,
     #   			<code>2019-07-01T23:59:59</code>.</p>
     #   @return [Time]
-    Range = ::Struct.new(
-      :start_time,
-      :end_time,
-      keyword_init: true
-    ) do
+    class Range
       include Hearth::Structure
+
+      MEMBERS = %i[
+        start_time
+        end_time
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for RecentlyActive
@@ -4366,11 +4668,14 @@ module AWS::SDK::CloudWatch
     # @!attribute message
     #   <p></p>
     #   @return [String]
-    ResourceNotFound = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class ResourceNotFound
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The named resource does not exist.</p>
@@ -4385,13 +4690,16 @@ module AWS::SDK::CloudWatch
     #   @return [String]
     # @!attribute message
     #   @return [String]
-    ResourceNotFoundException = ::Struct.new(
-      :resource_type,
-      :resource_id,
-      :message,
-      keyword_init: true
-    ) do
+    class ResourceNotFoundException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        resource_type
+        resource_id
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for ScanBy
@@ -4422,23 +4730,27 @@ module AWS::SDK::CloudWatch
     #            <p>For SNS or EC2 alarm actions, this is just informational. But for EC2 Auto Scaling or application Auto Scaling
     #   		alarm actions, the Auto Scaling policy uses the information in this field to take the correct action.</p>
     #   @return [String]
-    SetAlarmStateInput = ::Struct.new(
-      :alarm_name,
-      :state_value,
-      :state_reason,
-      :state_reason_data,
-      keyword_init: true
-    ) do
+    class SetAlarmStateInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        alarm_name
+        state_value
+        state_reason
+        state_reason_data
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    SetAlarmStateOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class SetAlarmStateOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Designates the CloudWatch metric and statistic that provides the time series the anomaly detector
@@ -4461,14 +4773,17 @@ module AWS::SDK::CloudWatch
     # @!attribute stat
     #   <p>The statistic to use for the metric and anomaly detection model.</p>
     #   @return [String]
-    SingleMetricAnomalyDetector = ::Struct.new(
-      :namespace,
-      :metric_name,
-      :dimensions,
-      :stat,
-      keyword_init: true
-    ) do
+    class SingleMetricAnomalyDetector
       include Hearth::Structure
+
+      MEMBERS = %i[
+        namespace
+        metric_name
+        dimensions
+        stat
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for StandardUnit
@@ -4537,20 +4852,24 @@ module AWS::SDK::CloudWatch
     #   		permission to access all of the metric streams that you list here, then none of the streams that you list
     #   		in the operation will start streaming.</p>
     #   @return [Array<String>]
-    StartMetricStreamsInput = ::Struct.new(
-      :names,
-      keyword_init: true
-    ) do
+    class StartMetricStreamsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        names
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    StartMetricStreamsOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class StartMetricStreamsOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for StateValue
@@ -4579,13 +4898,13 @@ module AWS::SDK::CloudWatch
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [Float] :sample_count
-    #   @option params [Float] :member_sum
+    #   @option params [Float] :sum
     #   @option params [Float] :minimum
     #   @option params [Float] :maximum
     # @!attribute sample_count
     #   <p>The number of samples used for the statistic set.</p>
     #   @return [Float]
-    # @!attribute member_sum
+    # @!attribute sum
     #   <p>The sum of values for the sample set.</p>
     #   @return [Float]
     # @!attribute minimum
@@ -4594,14 +4913,17 @@ module AWS::SDK::CloudWatch
     # @!attribute maximum
     #   <p>The maximum value of the sample set.</p>
     #   @return [Float]
-    StatisticSet = ::Struct.new(
-      :sample_count,
-      :member_sum,
-      :minimum,
-      :maximum,
-      keyword_init: true
-    ) do
+    class StatisticSet
       include Hearth::Structure
+
+      MEMBERS = %i[
+        sample_count
+        sum
+        minimum
+        maximum
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for StatusCode
@@ -4624,20 +4946,24 @@ module AWS::SDK::CloudWatch
     #   			permission to access all of the metric streams that you list here, then none of the streams that you list
     #   			in the operation will stop streaming.</p>
     #   @return [Array<String>]
-    StopMetricStreamsInput = ::Struct.new(
-      :names,
-      keyword_init: true
-    ) do
+    class StopMetricStreamsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        names
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    StopMetricStreamsOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class StopMetricStreamsOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>A key-value pair associated with a CloudWatch resource.</p>
@@ -4652,12 +4978,15 @@ module AWS::SDK::CloudWatch
     # @!attribute value
     #   <p>The value for the specified tag key.</p>
     #   @return [String]
-    Tag = ::Struct.new(
-      :key,
-      :value,
-      keyword_init: true
-    ) do
+    class Tag
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key
+        value
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -4681,21 +5010,25 @@ module AWS::SDK::CloudWatch
     # @!attribute tags
     #   <p>The list of key-value pairs to associate with the alarm.</p>
     #   @return [Array<Tag>]
-    TagResourceInput = ::Struct.new(
-      :resource_arn,
-      :tags,
-      keyword_init: true
-    ) do
+    class TagResourceInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        resource_arn
+        tags
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    TagResourceOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class TagResourceOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -4719,21 +5052,25 @@ module AWS::SDK::CloudWatch
     # @!attribute tag_keys
     #   <p>The list of tag keys to remove from the resource.</p>
     #   @return [Array<String>]
-    UntagResourceInput = ::Struct.new(
-      :resource_arn,
-      :tag_keys,
-      keyword_init: true
-    ) do
+    class UntagResourceInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        resource_arn
+        tag_keys
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    UntagResourceOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class UntagResourceOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
   end

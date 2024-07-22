@@ -15,11 +15,9 @@
 
 package software.amazon.smithy.aws.ruby.codegen.customizations;
 
-import java.security.Provider;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import software.amazon.smithy.aws.ruby.codegen.AWSConfig;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.knowledge.OperationIndex;
 import software.amazon.smithy.model.shapes.BlobShape;
@@ -40,9 +38,6 @@ import software.amazon.smithy.ruby.codegen.rulesengine.BuiltInBinding;
 import software.amazon.smithy.ruby.codegen.rulesengine.FunctionBinding;
 import software.amazon.smithy.rulesengine.aws.language.functions.AwsBuiltIns;
 import software.amazon.smithy.rulesengine.aws.language.functions.IsVirtualHostableS3Bucket;
-import software.amazon.smithy.rulesengine.language.evaluation.value.Value;
-import software.amazon.smithy.rulesengine.language.syntax.parameters.Parameter;
-import software.amazon.smithy.rulesengine.language.syntax.parameters.ParameterType;
 import software.amazon.smithy.rulesengine.traits.ClientContextParamsTrait;
 
 public class S3Customizations implements RubyIntegration {
@@ -125,8 +120,8 @@ public class S3Customizations implements RubyIntegration {
     @Override
     public List<ClientConfig> getAdditionalClientConfig(GenerationContext context) {
         String disableExpressSessionAuthDocs = """
-            When set to `true`, the client will not use the express session auth.
-            """;
+                When set to `true`, the client will not use the express session auth.
+                """;
         ClientConfig disableExpressSessionAuth = ClientConfig.builder()
                 .name("disable_express_session_auth")
                 .documentationRbsAndValidationType("Boolean")

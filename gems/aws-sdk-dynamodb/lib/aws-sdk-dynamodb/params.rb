@@ -2603,7 +2603,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.table_name = params[:table_name] unless params[:table_name].nil?
         type.index_name = params[:index_name] unless params[:index_name].nil?
-        type.member_select = params[:member_select] unless params[:member_select].nil?
+        type.select = params[:select] unless params[:select].nil?
         type.attributes_to_get = AttributeNameList.build(params[:attributes_to_get], context: "#{context}[:attributes_to_get]") unless params[:attributes_to_get].nil?
         type.limit = params[:limit] unless params[:limit].nil?
         type.consistent_read = params[:consistent_read] unless params[:consistent_read].nil?
@@ -2628,7 +2628,7 @@ module AWS::SDK::DynamoDB
         type = Types::QueryOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.items = ItemList.build(params[:items], context: "#{context}[:items]") unless params[:items].nil?
-        type.member_count = params[:member_count] unless params[:member_count].nil?
+        type.count = params[:count] unless params[:count].nil?
         type.scanned_count = params[:scanned_count] unless params[:scanned_count].nil?
         type.last_evaluated_key = Key.build(params[:last_evaluated_key], context: "#{context}[:last_evaluated_key]") unless params[:last_evaluated_key].nil?
         type.consumed_capacity = ConsumedCapacity.build(params[:consumed_capacity], context: "#{context}[:consumed_capacity]") unless params[:consumed_capacity].nil?
@@ -3136,7 +3136,7 @@ module AWS::SDK::DynamoDB
         type.index_name = params[:index_name] unless params[:index_name].nil?
         type.attributes_to_get = AttributeNameList.build(params[:attributes_to_get], context: "#{context}[:attributes_to_get]") unless params[:attributes_to_get].nil?
         type.limit = params[:limit] unless params[:limit].nil?
-        type.member_select = params[:member_select] unless params[:member_select].nil?
+        type.select = params[:select] unless params[:select].nil?
         type.scan_filter = FilterConditionMap.build(params[:scan_filter], context: "#{context}[:scan_filter]") unless params[:scan_filter].nil?
         type.conditional_operator = params[:conditional_operator] unless params[:conditional_operator].nil?
         type.exclusive_start_key = Key.build(params[:exclusive_start_key], context: "#{context}[:exclusive_start_key]") unless params[:exclusive_start_key].nil?
@@ -3158,7 +3158,7 @@ module AWS::SDK::DynamoDB
         type = Types::ScanOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.items = ItemList.build(params[:items], context: "#{context}[:items]") unless params[:items].nil?
-        type.member_count = params[:member_count] unless params[:member_count].nil?
+        type.count = params[:count] unless params[:count].nil?
         type.scanned_count = params[:scanned_count] unless params[:scanned_count].nil?
         type.last_evaluated_key = Key.build(params[:last_evaluated_key], context: "#{context}[:last_evaluated_key]") unless params[:last_evaluated_key].nil?
         type.consumed_capacity = ConsumedCapacity.build(params[:consumed_capacity], context: "#{context}[:consumed_capacity]") unless params[:consumed_capacity].nil?

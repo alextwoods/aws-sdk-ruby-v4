@@ -34,7 +34,7 @@ module AWS::SDK::LexRuntimeV2
         http_resp.status = 403
         http_resp.headers['X-Amzn-Errortype'] = 'AccessDeniedException'
         http_resp.headers['Content-Type'] = 'application/json'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -53,9 +53,9 @@ module AWS::SDK::LexRuntimeV2
       def self.stub(stub)
         stub ||= Types::ActiveContext.new
         data = {}
-        data['name'] = stub[:name] unless stub[:name].nil?
-        data['timeToLive'] = ActiveContextTimeToLive.stub(stub[:time_to_live]) unless stub[:time_to_live].nil?
-        data['contextAttributes'] = ActiveContextParametersMap.stub(stub[:context_attributes]) unless stub[:context_attributes].nil?
+        data['name'] = stub.name unless stub.name.nil?
+        data['timeToLive'] = ActiveContextTimeToLive.stub(stub.time_to_live) unless stub.time_to_live.nil?
+        data['contextAttributes'] = ActiveContextParametersMap.stub(stub.context_attributes) unless stub.context_attributes.nil?
         data
       end
     end
@@ -65,7 +65,7 @@ module AWS::SDK::LexRuntimeV2
         return nil if visited.include?('ActiveContextParametersMap')
         visited = visited + ['ActiveContextParametersMap']
         {
-          key: 'value'
+          'key' => 'value'
         }
       end
 
@@ -92,8 +92,8 @@ module AWS::SDK::LexRuntimeV2
       def self.stub(stub)
         stub ||= Types::ActiveContextTimeToLive.new
         data = {}
-        data['timeToLiveInSeconds'] = stub[:time_to_live_in_seconds] unless stub[:time_to_live_in_seconds].nil?
-        data['turnsToLive'] = stub[:turns_to_live] unless stub[:turns_to_live].nil?
+        data['timeToLiveInSeconds'] = stub.time_to_live_in_seconds unless stub.time_to_live_in_seconds.nil?
+        data['turnsToLive'] = stub.turns_to_live unless stub.turns_to_live.nil?
         data
       end
     end
@@ -131,9 +131,9 @@ module AWS::SDK::LexRuntimeV2
       def self.stub(stub)
         stub ||= Types::AudioResponseEvent.new
         data = {}
-        data['audioChunk'] = ::Base64::strict_encode64(stub[:audio_chunk]) unless stub[:audio_chunk].nil?
-        data['contentType'] = stub[:content_type] unless stub[:content_type].nil?
-        data['eventId'] = stub[:event_id] unless stub[:event_id].nil?
+        data['audioChunk'] = ::Base64::strict_encode64(stub.audio_chunk) unless stub.audio_chunk.nil?
+        data['contentType'] = stub.content_type unless stub.content_type.nil?
+        data['eventId'] = stub.event_id unless stub.event_id.nil?
         data
       end
     end
@@ -158,7 +158,7 @@ module AWS::SDK::LexRuntimeV2
         http_resp.status = 502
         http_resp.headers['X-Amzn-Errortype'] = 'BadGatewayException'
         http_resp.headers['Content-Type'] = 'application/json'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -176,8 +176,8 @@ module AWS::SDK::LexRuntimeV2
       def self.stub(stub)
         stub ||= Types::Button.new
         data = {}
-        data['text'] = stub[:text] unless stub[:text].nil?
-        data['value'] = stub[:value] unless stub[:value].nil?
+        data['text'] = stub.text unless stub.text.nil?
+        data['value'] = stub.value unless stub.value.nil?
         data
       end
     end
@@ -213,7 +213,7 @@ module AWS::SDK::LexRuntimeV2
       def self.stub(stub)
         stub ||= Types::ConfidenceScore.new
         data = {}
-        data['score'] = Hearth::NumberHelper.serialize(stub[:score])
+        data['score'] = Hearth::NumberHelper.serialize(stub.score)
         data
       end
     end
@@ -238,7 +238,7 @@ module AWS::SDK::LexRuntimeV2
         http_resp.status = 409
         http_resp.headers['X-Amzn-Errortype'] = 'ConflictException'
         http_resp.headers['Content-Type'] = 'application/json'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -265,10 +265,10 @@ module AWS::SDK::LexRuntimeV2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['botId'] = stub[:bot_id] unless stub[:bot_id].nil?
-        data['botAliasId'] = stub[:bot_alias_id] unless stub[:bot_alias_id].nil?
-        data['localeId'] = stub[:locale_id] unless stub[:locale_id].nil?
-        data['sessionId'] = stub[:session_id] unless stub[:session_id].nil?
+        data['botId'] = stub.bot_id unless stub.bot_id.nil?
+        data['botAliasId'] = stub.bot_alias_id unless stub.bot_alias_id.nil?
+        data['localeId'] = stub.locale_id unless stub.locale_id.nil?
+        data['sessionId'] = stub.session_id unless stub.session_id.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -293,7 +293,7 @@ module AWS::SDK::LexRuntimeV2
         http_resp.status = 424
         http_resp.headers['X-Amzn-Errortype'] = 'DependencyFailedException'
         http_resp.headers['Content-Type'] = 'application/json'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -313,10 +313,10 @@ module AWS::SDK::LexRuntimeV2
       def self.stub(stub)
         stub ||= Types::DialogAction.new
         data = {}
-        data['type'] = stub[:type] unless stub[:type].nil?
-        data['slotToElicit'] = stub[:slot_to_elicit] unless stub[:slot_to_elicit].nil?
-        data['slotElicitationStyle'] = stub[:slot_elicitation_style] unless stub[:slot_elicitation_style].nil?
-        data['subSlotToElicit'] = ElicitSubSlot.stub(stub[:sub_slot_to_elicit]) unless stub[:sub_slot_to_elicit].nil?
+        data['type'] = stub.type unless stub.type.nil?
+        data['slotToElicit'] = stub.slot_to_elicit unless stub.slot_to_elicit.nil?
+        data['slotElicitationStyle'] = stub.slot_elicitation_style unless stub.slot_elicitation_style.nil?
+        data['subSlotToElicit'] = ElicitSubSlot.stub(stub.sub_slot_to_elicit) unless stub.sub_slot_to_elicit.nil?
         data
       end
     end
@@ -334,8 +334,8 @@ module AWS::SDK::LexRuntimeV2
       def self.stub(stub)
         stub ||= Types::ElicitSubSlot.new
         data = {}
-        data['name'] = stub[:name] unless stub[:name].nil?
-        data['subSlotToElicit'] = ElicitSubSlot.stub(stub[:sub_slot_to_elicit]) unless stub[:sub_slot_to_elicit].nil?
+        data['name'] = stub.name unless stub.name.nil?
+        data['subSlotToElicit'] = ElicitSubSlot.stub(stub.sub_slot_to_elicit) unless stub.sub_slot_to_elicit.nil?
         data
       end
     end
@@ -362,10 +362,10 @@ module AWS::SDK::LexRuntimeV2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['sessionId'] = stub[:session_id] unless stub[:session_id].nil?
-        data['messages'] = Messages.stub(stub[:messages]) unless stub[:messages].nil?
-        data['interpretations'] = Interpretations.stub(stub[:interpretations]) unless stub[:interpretations].nil?
-        data['sessionState'] = SessionState.stub(stub[:session_state]) unless stub[:session_state].nil?
+        data['sessionId'] = stub.session_id unless stub.session_id.nil?
+        data['messages'] = Messages.stub(stub.messages) unless stub.messages.nil?
+        data['interpretations'] = Interpretations.stub(stub.interpretations) unless stub.interpretations.nil?
+        data['sessionState'] = SessionState.stub(stub.session_state) unless stub.session_state.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -382,7 +382,7 @@ module AWS::SDK::LexRuntimeV2
       def self.stub(stub)
         stub ||= Types::HeartbeatEvent.new
         data = {}
-        data['eventId'] = stub[:event_id] unless stub[:event_id].nil?
+        data['eventId'] = stub.event_id unless stub.event_id.nil?
         data
       end
     end
@@ -402,10 +402,10 @@ module AWS::SDK::LexRuntimeV2
       def self.stub(stub)
         stub ||= Types::ImageResponseCard.new
         data = {}
-        data['title'] = stub[:title] unless stub[:title].nil?
-        data['subtitle'] = stub[:subtitle] unless stub[:subtitle].nil?
-        data['imageUrl'] = stub[:image_url] unless stub[:image_url].nil?
-        data['buttons'] = ButtonsList.stub(stub[:buttons]) unless stub[:buttons].nil?
+        data['title'] = stub.title unless stub.title.nil?
+        data['subtitle'] = stub.subtitle unless stub.subtitle.nil?
+        data['imageUrl'] = stub.image_url unless stub.image_url.nil?
+        data['buttons'] = ButtonsList.stub(stub.buttons) unless stub.buttons.nil?
         data
       end
     end
@@ -425,10 +425,10 @@ module AWS::SDK::LexRuntimeV2
       def self.stub(stub)
         stub ||= Types::Intent.new
         data = {}
-        data['name'] = stub[:name] unless stub[:name].nil?
-        data['slots'] = Slots.stub(stub[:slots]) unless stub[:slots].nil?
-        data['state'] = stub[:state] unless stub[:state].nil?
-        data['confirmationState'] = stub[:confirmation_state] unless stub[:confirmation_state].nil?
+        data['name'] = stub.name unless stub.name.nil?
+        data['slots'] = Slots.stub(stub.slots) unless stub.slots.nil?
+        data['state'] = stub.state unless stub.state.nil?
+        data['confirmationState'] = stub.confirmation_state unless stub.confirmation_state.nil?
         data
       end
     end
@@ -451,13 +451,13 @@ module AWS::SDK::LexRuntimeV2
       def self.stub(stub)
         stub ||= Types::IntentResultEvent.new
         data = {}
-        data['inputMode'] = stub[:input_mode] unless stub[:input_mode].nil?
-        data['interpretations'] = Interpretations.stub(stub[:interpretations]) unless stub[:interpretations].nil?
-        data['sessionState'] = SessionState.stub(stub[:session_state]) unless stub[:session_state].nil?
-        data['requestAttributes'] = StringMap.stub(stub[:request_attributes]) unless stub[:request_attributes].nil?
-        data['sessionId'] = stub[:session_id] unless stub[:session_id].nil?
-        data['eventId'] = stub[:event_id] unless stub[:event_id].nil?
-        data['recognizedBotMember'] = RecognizedBotMember.stub(stub[:recognized_bot_member]) unless stub[:recognized_bot_member].nil?
+        data['inputMode'] = stub.input_mode unless stub.input_mode.nil?
+        data['interpretations'] = Interpretations.stub(stub.interpretations) unless stub.interpretations.nil?
+        data['sessionState'] = SessionState.stub(stub.session_state) unless stub.session_state.nil?
+        data['requestAttributes'] = StringMap.stub(stub.request_attributes) unless stub.request_attributes.nil?
+        data['sessionId'] = stub.session_id unless stub.session_id.nil?
+        data['eventId'] = stub.event_id unless stub.event_id.nil?
+        data['recognizedBotMember'] = RecognizedBotMember.stub(stub.recognized_bot_member) unless stub.recognized_bot_member.nil?
         data
       end
     end
@@ -482,7 +482,7 @@ module AWS::SDK::LexRuntimeV2
         http_resp.status = 500
         http_resp.headers['X-Amzn-Errortype'] = 'InternalServerException'
         http_resp.headers['Content-Type'] = 'application/json'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -502,10 +502,10 @@ module AWS::SDK::LexRuntimeV2
       def self.stub(stub)
         stub ||= Types::Interpretation.new
         data = {}
-        data['nluConfidence'] = ConfidenceScore.stub(stub[:nlu_confidence]) unless stub[:nlu_confidence].nil?
-        data['sentimentResponse'] = SentimentResponse.stub(stub[:sentiment_response]) unless stub[:sentiment_response].nil?
-        data['intent'] = Intent.stub(stub[:intent]) unless stub[:intent].nil?
-        data['interpretationSource'] = stub[:interpretation_source] unless stub[:interpretation_source].nil?
+        data['nluConfidence'] = ConfidenceScore.stub(stub.nlu_confidence) unless stub.nlu_confidence.nil?
+        data['sentimentResponse'] = SentimentResponse.stub(stub.sentiment_response) unless stub.sentiment_response.nil?
+        data['intent'] = Intent.stub(stub.intent) unless stub.intent.nil?
+        data['interpretationSource'] = stub.interpretation_source unless stub.interpretation_source.nil?
         data
       end
     end
@@ -543,9 +543,9 @@ module AWS::SDK::LexRuntimeV2
       def self.stub(stub)
         stub ||= Types::Message.new
         data = {}
-        data['content'] = stub[:content] unless stub[:content].nil?
-        data['contentType'] = stub[:content_type] unless stub[:content_type].nil?
-        data['imageResponseCard'] = ImageResponseCard.stub(stub[:image_response_card]) unless stub[:image_response_card].nil?
+        data['content'] = stub.content unless stub.content.nil?
+        data['contentType'] = stub.content_type unless stub.content_type.nil?
+        data['imageResponseCard'] = ImageResponseCard.stub(stub.image_response_card) unless stub.image_response_card.nil?
         data
       end
     end
@@ -583,9 +583,9 @@ module AWS::SDK::LexRuntimeV2
       def self.stub(stub)
         stub ||= Types::PlaybackInterruptionEvent.new
         data = {}
-        data['eventReason'] = stub[:event_reason] unless stub[:event_reason].nil?
-        data['causedByEventId'] = stub[:caused_by_event_id] unless stub[:caused_by_event_id].nil?
-        data['eventId'] = stub[:event_id] unless stub[:event_id].nil?
+        data['eventReason'] = stub.event_reason unless stub.event_reason.nil?
+        data['causedByEventId'] = stub.caused_by_event_id unless stub.caused_by_event_id.nil?
+        data['eventId'] = stub.event_id unless stub.event_id.nil?
         data
       end
     end
@@ -613,12 +613,12 @@ module AWS::SDK::LexRuntimeV2
       def self.stub(http_resp, stub:)
         data = {}
         http_resp.status = 200
-        http_resp.headers['Content-Type'] = stub[:content_type] unless stub[:content_type].nil? || stub[:content_type].empty?
-        http_resp.headers['x-amz-lex-messages'] = stub[:messages] unless stub[:messages].nil? || stub[:messages].empty?
-        http_resp.headers['x-amz-lex-session-state'] = stub[:session_state] unless stub[:session_state].nil? || stub[:session_state].empty?
-        http_resp.headers['x-amz-lex-request-attributes'] = stub[:request_attributes] unless stub[:request_attributes].nil? || stub[:request_attributes].empty?
-        http_resp.headers['x-amz-lex-session-id'] = stub[:session_id] unless stub[:session_id].nil? || stub[:session_id].empty?
-        IO.copy_stream(stub[:audio_stream], http_resp.body)
+        http_resp.headers['Content-Type'] = stub.content_type unless stub.content_type.nil? || stub.content_type.empty?
+        http_resp.headers['x-amz-lex-messages'] = stub.messages unless stub.messages.nil? || stub.messages.empty?
+        http_resp.headers['x-amz-lex-session-state'] = stub.session_state unless stub.session_state.nil? || stub.session_state.empty?
+        http_resp.headers['x-amz-lex-request-attributes'] = stub.request_attributes unless stub.request_attributes.nil? || stub.request_attributes.empty?
+        http_resp.headers['x-amz-lex-session-id'] = stub.session_id unless stub.session_id.nil? || stub.session_id.empty?
+        IO.copy_stream(stub.audio_stream, http_resp.body)
       end
     end
 
@@ -646,12 +646,12 @@ module AWS::SDK::LexRuntimeV2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['messages'] = Messages.stub(stub[:messages]) unless stub[:messages].nil?
-        data['sessionState'] = SessionState.stub(stub[:session_state]) unless stub[:session_state].nil?
-        data['interpretations'] = Interpretations.stub(stub[:interpretations]) unless stub[:interpretations].nil?
-        data['requestAttributes'] = StringMap.stub(stub[:request_attributes]) unless stub[:request_attributes].nil?
-        data['sessionId'] = stub[:session_id] unless stub[:session_id].nil?
-        data['recognizedBotMember'] = RecognizedBotMember.stub(stub[:recognized_bot_member]) unless stub[:recognized_bot_member].nil?
+        data['messages'] = Messages.stub(stub.messages) unless stub.messages.nil?
+        data['sessionState'] = SessionState.stub(stub.session_state) unless stub.session_state.nil?
+        data['interpretations'] = Interpretations.stub(stub.interpretations) unless stub.interpretations.nil?
+        data['requestAttributes'] = StringMap.stub(stub.request_attributes) unless stub.request_attributes.nil?
+        data['sessionId'] = stub.session_id unless stub.session_id.nil?
+        data['recognizedBotMember'] = RecognizedBotMember.stub(stub.recognized_bot_member) unless stub.recognized_bot_member.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -683,16 +683,16 @@ module AWS::SDK::LexRuntimeV2
       def self.stub(http_resp, stub:)
         data = {}
         http_resp.status = 200
-        http_resp.headers['x-amz-lex-input-mode'] = stub[:input_mode] unless stub[:input_mode].nil? || stub[:input_mode].empty?
-        http_resp.headers['Content-Type'] = stub[:content_type] unless stub[:content_type].nil? || stub[:content_type].empty?
-        http_resp.headers['x-amz-lex-messages'] = stub[:messages] unless stub[:messages].nil? || stub[:messages].empty?
-        http_resp.headers['x-amz-lex-interpretations'] = stub[:interpretations] unless stub[:interpretations].nil? || stub[:interpretations].empty?
-        http_resp.headers['x-amz-lex-session-state'] = stub[:session_state] unless stub[:session_state].nil? || stub[:session_state].empty?
-        http_resp.headers['x-amz-lex-request-attributes'] = stub[:request_attributes] unless stub[:request_attributes].nil? || stub[:request_attributes].empty?
-        http_resp.headers['x-amz-lex-session-id'] = stub[:session_id] unless stub[:session_id].nil? || stub[:session_id].empty?
-        http_resp.headers['x-amz-lex-input-transcript'] = stub[:input_transcript] unless stub[:input_transcript].nil? || stub[:input_transcript].empty?
-        http_resp.headers['x-amz-lex-recognized-bot-member'] = stub[:recognized_bot_member] unless stub[:recognized_bot_member].nil? || stub[:recognized_bot_member].empty?
-        IO.copy_stream(stub[:audio_stream], http_resp.body)
+        http_resp.headers['x-amz-lex-input-mode'] = stub.input_mode unless stub.input_mode.nil? || stub.input_mode.empty?
+        http_resp.headers['Content-Type'] = stub.content_type unless stub.content_type.nil? || stub.content_type.empty?
+        http_resp.headers['x-amz-lex-messages'] = stub.messages unless stub.messages.nil? || stub.messages.empty?
+        http_resp.headers['x-amz-lex-interpretations'] = stub.interpretations unless stub.interpretations.nil? || stub.interpretations.empty?
+        http_resp.headers['x-amz-lex-session-state'] = stub.session_state unless stub.session_state.nil? || stub.session_state.empty?
+        http_resp.headers['x-amz-lex-request-attributes'] = stub.request_attributes unless stub.request_attributes.nil? || stub.request_attributes.empty?
+        http_resp.headers['x-amz-lex-session-id'] = stub.session_id unless stub.session_id.nil? || stub.session_id.empty?
+        http_resp.headers['x-amz-lex-input-transcript'] = stub.input_transcript unless stub.input_transcript.nil? || stub.input_transcript.empty?
+        http_resp.headers['x-amz-lex-recognized-bot-member'] = stub.recognized_bot_member unless stub.recognized_bot_member.nil? || stub.recognized_bot_member.empty?
+        IO.copy_stream(stub.audio_stream, http_resp.body)
       end
     end
 
@@ -709,8 +709,8 @@ module AWS::SDK::LexRuntimeV2
       def self.stub(stub)
         stub ||= Types::RecognizedBotMember.new
         data = {}
-        data['botId'] = stub[:bot_id] unless stub[:bot_id].nil?
-        data['botName'] = stub[:bot_name] unless stub[:bot_name].nil?
+        data['botId'] = stub.bot_id unless stub.bot_id.nil?
+        data['botName'] = stub.bot_name unless stub.bot_name.nil?
         data
       end
     end
@@ -735,7 +735,7 @@ module AWS::SDK::LexRuntimeV2
         http_resp.status = 404
         http_resp.headers['X-Amzn-Errortype'] = 'ResourceNotFoundException'
         http_resp.headers['Content-Type'] = 'application/json'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -753,8 +753,8 @@ module AWS::SDK::LexRuntimeV2
       def self.stub(stub)
         stub ||= Types::RuntimeHintDetails.new
         data = {}
-        data['runtimeHintValues'] = RuntimeHintValuesList.stub(stub[:runtime_hint_values]) unless stub[:runtime_hint_values].nil?
-        data['subSlotHints'] = SlotHintsSlotMap.stub(stub[:sub_slot_hints]) unless stub[:sub_slot_hints].nil?
+        data['runtimeHintValues'] = RuntimeHintValuesList.stub(stub.runtime_hint_values) unless stub.runtime_hint_values.nil?
+        data['subSlotHints'] = SlotHintsSlotMap.stub(stub.sub_slot_hints) unless stub.sub_slot_hints.nil?
         data
       end
     end
@@ -771,7 +771,7 @@ module AWS::SDK::LexRuntimeV2
       def self.stub(stub)
         stub ||= Types::RuntimeHintValue.new
         data = {}
-        data['phrase'] = stub[:phrase] unless stub[:phrase].nil?
+        data['phrase'] = stub.phrase unless stub.phrase.nil?
         data
       end
     end
@@ -807,7 +807,7 @@ module AWS::SDK::LexRuntimeV2
       def self.stub(stub)
         stub ||= Types::RuntimeHints.new
         data = {}
-        data['slotHints'] = SlotHintsIntentMap.stub(stub[:slot_hints]) unless stub[:slot_hints].nil?
+        data['slotHints'] = SlotHintsIntentMap.stub(stub.slot_hints) unless stub.slot_hints.nil?
         data
       end
     end
@@ -825,8 +825,8 @@ module AWS::SDK::LexRuntimeV2
       def self.stub(stub)
         stub ||= Types::SentimentResponse.new
         data = {}
-        data['sentiment'] = stub[:sentiment] unless stub[:sentiment].nil?
-        data['sentimentScore'] = SentimentScore.stub(stub[:sentiment_score]) unless stub[:sentiment_score].nil?
+        data['sentiment'] = stub.sentiment unless stub.sentiment.nil?
+        data['sentimentScore'] = SentimentScore.stub(stub.sentiment_score) unless stub.sentiment_score.nil?
         data
       end
     end
@@ -846,10 +846,10 @@ module AWS::SDK::LexRuntimeV2
       def self.stub(stub)
         stub ||= Types::SentimentScore.new
         data = {}
-        data['positive'] = Hearth::NumberHelper.serialize(stub[:positive])
-        data['negative'] = Hearth::NumberHelper.serialize(stub[:negative])
-        data['neutral'] = Hearth::NumberHelper.serialize(stub[:neutral])
-        data['mixed'] = Hearth::NumberHelper.serialize(stub[:mixed])
+        data['positive'] = Hearth::NumberHelper.serialize(stub.positive)
+        data['negative'] = Hearth::NumberHelper.serialize(stub.negative)
+        data['neutral'] = Hearth::NumberHelper.serialize(stub.neutral)
+        data['mixed'] = Hearth::NumberHelper.serialize(stub.mixed)
         data
       end
     end
@@ -871,12 +871,12 @@ module AWS::SDK::LexRuntimeV2
       def self.stub(stub)
         stub ||= Types::SessionState.new
         data = {}
-        data['dialogAction'] = DialogAction.stub(stub[:dialog_action]) unless stub[:dialog_action].nil?
-        data['intent'] = Intent.stub(stub[:intent]) unless stub[:intent].nil?
-        data['activeContexts'] = ActiveContextsList.stub(stub[:active_contexts]) unless stub[:active_contexts].nil?
-        data['sessionAttributes'] = StringMap.stub(stub[:session_attributes]) unless stub[:session_attributes].nil?
-        data['originatingRequestId'] = stub[:originating_request_id] unless stub[:originating_request_id].nil?
-        data['runtimeHints'] = RuntimeHints.stub(stub[:runtime_hints]) unless stub[:runtime_hints].nil?
+        data['dialogAction'] = DialogAction.stub(stub.dialog_action) unless stub.dialog_action.nil?
+        data['intent'] = Intent.stub(stub.intent) unless stub.intent.nil?
+        data['activeContexts'] = ActiveContextsList.stub(stub.active_contexts) unless stub.active_contexts.nil?
+        data['sessionAttributes'] = StringMap.stub(stub.session_attributes) unless stub.session_attributes.nil?
+        data['originatingRequestId'] = stub.originating_request_id unless stub.originating_request_id.nil?
+        data['runtimeHints'] = RuntimeHints.stub(stub.runtime_hints) unless stub.runtime_hints.nil?
         data
       end
     end
@@ -888,7 +888,7 @@ module AWS::SDK::LexRuntimeV2
         {
           value: Value.default(visited),
           shape: 'shape',
-          member_values: Values.default(visited),
+          values: Values.default(visited),
           sub_slots: Slots.default(visited),
         }
       end
@@ -896,10 +896,10 @@ module AWS::SDK::LexRuntimeV2
       def self.stub(stub)
         stub ||= Types::Slot.new
         data = {}
-        data['value'] = Value.stub(stub[:value]) unless stub[:value].nil?
-        data['shape'] = stub[:shape] unless stub[:shape].nil?
-        data['values'] = Values.stub(stub[:member_values]) unless stub[:member_values].nil?
-        data['subSlots'] = Slots.stub(stub[:sub_slots]) unless stub[:sub_slots].nil?
+        data['value'] = Value.stub(stub.value) unless stub.value.nil?
+        data['shape'] = stub.shape unless stub.shape.nil?
+        data['values'] = Values.stub(stub.values) unless stub.values.nil?
+        data['subSlots'] = Slots.stub(stub.sub_slots) unless stub.sub_slots.nil?
         data
       end
     end
@@ -909,7 +909,7 @@ module AWS::SDK::LexRuntimeV2
         return nil if visited.include?('SlotHintsIntentMap')
         visited = visited + ['SlotHintsIntentMap']
         {
-          key: SlotHintsSlotMap.default(visited)
+          'key' => SlotHintsSlotMap.default(visited)
         }
       end
 
@@ -928,7 +928,7 @@ module AWS::SDK::LexRuntimeV2
         return nil if visited.include?('SlotHintsSlotMap')
         visited = visited + ['SlotHintsSlotMap']
         {
-          key: RuntimeHintDetails.default(visited)
+          'key' => RuntimeHintDetails.default(visited)
         }
       end
 
@@ -947,7 +947,7 @@ module AWS::SDK::LexRuntimeV2
         return nil if visited.include?('Slots')
         visited = visited + ['Slots']
         {
-          key: Slot.default(visited)
+          'key' => Slot.default(visited)
         }
       end
 
@@ -979,7 +979,7 @@ module AWS::SDK::LexRuntimeV2
       def self.stub(http_resp, stub:)
         data = {}
         http_resp.status = 200
-        IO.copy_stream(stub[:response_event_stream], http_resp.body)
+        IO.copy_stream(stub.response_event_stream, http_resp.body)
       end
     end
 
@@ -1056,7 +1056,7 @@ module AWS::SDK::LexRuntimeV2
         return nil if visited.include?('StringMap')
         visited = visited + ['StringMap']
         {
-          key: 'value'
+          'key' => 'value'
         }
       end
 
@@ -1083,8 +1083,8 @@ module AWS::SDK::LexRuntimeV2
       def self.stub(stub)
         stub ||= Types::TextResponseEvent.new
         data = {}
-        data['messages'] = Messages.stub(stub[:messages]) unless stub[:messages].nil?
-        data['eventId'] = stub[:event_id] unless stub[:event_id].nil?
+        data['messages'] = Messages.stub(stub.messages) unless stub.messages.nil?
+        data['eventId'] = stub.event_id unless stub.event_id.nil?
         data
       end
     end
@@ -1109,7 +1109,7 @@ module AWS::SDK::LexRuntimeV2
         http_resp.status = 429
         http_resp.headers['X-Amzn-Errortype'] = 'ThrottlingException'
         http_resp.headers['Content-Type'] = 'application/json'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1127,8 +1127,8 @@ module AWS::SDK::LexRuntimeV2
       def self.stub(stub)
         stub ||= Types::TranscriptEvent.new
         data = {}
-        data['transcript'] = stub[:transcript] unless stub[:transcript].nil?
-        data['eventId'] = stub[:event_id] unless stub[:event_id].nil?
+        data['transcript'] = stub.transcript unless stub.transcript.nil?
+        data['eventId'] = stub.event_id unless stub.event_id.nil?
         data
       end
     end
@@ -1153,7 +1153,7 @@ module AWS::SDK::LexRuntimeV2
         http_resp.status = 400
         http_resp.headers['X-Amzn-Errortype'] = 'ValidationException'
         http_resp.headers['Content-Type'] = 'application/json'
-        data['message'] = stub[:message] unless stub[:message].nil?
+        data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1172,9 +1172,9 @@ module AWS::SDK::LexRuntimeV2
       def self.stub(stub)
         stub ||= Types::Value.new
         data = {}
-        data['originalValue'] = stub[:original_value] unless stub[:original_value].nil?
-        data['interpretedValue'] = stub[:interpreted_value] unless stub[:interpreted_value].nil?
-        data['resolvedValues'] = StringList.stub(stub[:resolved_values]) unless stub[:resolved_values].nil?
+        data['originalValue'] = stub.original_value unless stub.original_value.nil?
+        data['interpretedValue'] = stub.interpreted_value unless stub.interpreted_value.nil?
+        data['resolvedValues'] = StringList.stub(stub.resolved_values) unless stub.resolved_values.nil?
         data
       end
     end

@@ -22,61 +22,61 @@ module AWS::SDK::KMS
       RSA_AES_KEY_WRAP_SHA_256: ::String
     end
 
-    class AliasListEntry < ::Struct[untyped]
+    class AliasListEntry
       include Hearth::Structure
-      attr_accessor alias_name (): ::String
-      attr_accessor alias_arn (): ::String
-      attr_accessor target_key_id (): ::String
-      attr_accessor creation_date (): ::Time
-      attr_accessor last_updated_date (): ::Time
+      attr_accessor alias_name (): ::String?
+      attr_accessor alias_arn (): ::String?
+      attr_accessor target_key_id (): ::String?
+      attr_accessor creation_date (): ::Time?
+      attr_accessor last_updated_date (): ::Time?
     end
 
-    class AlreadyExistsException < ::Struct[untyped]
+    class AlreadyExistsException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class CancelKeyDeletionInput < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor key_id (): ::String
-    end
-
-    class CancelKeyDeletionOutput < ::Struct[untyped]
+    class CancelKeyDeletionInput
       include Hearth::Structure
       attr_accessor key_id (): ::String
     end
 
-    class CloudHsmClusterInUseException < ::Struct[untyped]
+    class CancelKeyDeletionOutput
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor key_id (): ::String?
     end
 
-    class CloudHsmClusterInvalidConfigurationException < ::Struct[untyped]
+    class CloudHsmClusterInUseException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class CloudHsmClusterNotActiveException < ::Struct[untyped]
+    class CloudHsmClusterInvalidConfigurationException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class CloudHsmClusterNotFoundException < ::Struct[untyped]
+    class CloudHsmClusterNotActiveException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class CloudHsmClusterNotRelatedException < ::Struct[untyped]
+    class CloudHsmClusterNotFoundException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class ConnectCustomKeyStoreInput < ::Struct[untyped]
+    class CloudHsmClusterNotRelatedException
+      include Hearth::Structure
+      attr_accessor message (): ::String?
+    end
+
+    class ConnectCustomKeyStoreInput
       include Hearth::Structure
       attr_accessor custom_key_store_id (): ::String
     end
 
-    class ConnectCustomKeyStoreOutput < ::Struct[untyped]
+    class ConnectCustomKeyStoreOutput
       include Hearth::Structure
     end
 
@@ -130,91 +130,91 @@ module AWS::SDK::KMS
       DISCONNECTING: ::String
     end
 
-    class CreateAliasInput < ::Struct[untyped]
+    class CreateAliasInput
       include Hearth::Structure
       attr_accessor alias_name (): ::String
       attr_accessor target_key_id (): ::String
     end
 
-    class CreateAliasOutput < ::Struct[untyped]
+    class CreateAliasOutput
       include Hearth::Structure
     end
 
-    class CreateCustomKeyStoreInput < ::Struct[untyped]
+    class CreateCustomKeyStoreInput
       include Hearth::Structure
       attr_accessor custom_key_store_name (): ::String
-      attr_accessor cloud_hsm_cluster_id (): ::String
-      attr_accessor trust_anchor_certificate (): ::String
-      attr_accessor key_store_password (): ::String
-      attr_accessor custom_key_store_type (): ::String
-      attr_accessor xks_proxy_uri_endpoint (): ::String
-      attr_accessor xks_proxy_uri_path (): ::String
-      attr_accessor xks_proxy_vpc_endpoint_service_name (): ::String
-      attr_accessor xks_proxy_authentication_credential (): Types::XksProxyAuthenticationCredentialType
-      attr_accessor xks_proxy_connectivity (): ::String
+      attr_accessor cloud_hsm_cluster_id (): ::String?
+      attr_accessor trust_anchor_certificate (): ::String?
+      attr_accessor key_store_password (): ::String?
+      attr_accessor custom_key_store_type (): ::String?
+      attr_accessor xks_proxy_uri_endpoint (): ::String?
+      attr_accessor xks_proxy_uri_path (): ::String?
+      attr_accessor xks_proxy_vpc_endpoint_service_name (): ::String?
+      attr_accessor xks_proxy_authentication_credential (): Types::XksProxyAuthenticationCredentialType?
+      attr_accessor xks_proxy_connectivity (): ::String?
     end
 
-    class CreateCustomKeyStoreOutput < ::Struct[untyped]
+    class CreateCustomKeyStoreOutput
       include Hearth::Structure
-      attr_accessor custom_key_store_id (): ::String
+      attr_accessor custom_key_store_id (): ::String?
     end
 
-    class CreateGrantInput < ::Struct[untyped]
+    class CreateGrantInput
       include Hearth::Structure
       attr_accessor key_id (): ::String
       attr_accessor grantee_principal (): ::String
-      attr_accessor retiring_principal (): ::String
+      attr_accessor retiring_principal (): ::String?
       attr_accessor operations (): ::Array[::String]
-      attr_accessor constraints (): Types::GrantConstraints
-      attr_accessor grant_tokens (): ::Array[::String]
-      attr_accessor name (): ::String
-      attr_accessor dry_run (): bool
+      attr_accessor constraints (): Types::GrantConstraints?
+      attr_accessor grant_tokens (): ::Array[::String]?
+      attr_accessor name (): ::String?
+      attr_accessor dry_run (): bool?
     end
 
-    class CreateGrantOutput < ::Struct[untyped]
+    class CreateGrantOutput
       include Hearth::Structure
-      attr_accessor grant_token (): ::String
-      attr_accessor grant_id (): ::String
+      attr_accessor grant_token (): ::String?
+      attr_accessor grant_id (): ::String?
     end
 
-    class CreateKeyInput < ::Struct[untyped]
+    class CreateKeyInput
       include Hearth::Structure
-      attr_accessor policy (): ::String
-      attr_accessor description (): ::String
-      attr_accessor key_usage (): ::String
-      attr_accessor customer_master_key_spec (): ::String
-      attr_accessor key_spec (): ::String
-      attr_accessor origin (): ::String
-      attr_accessor custom_key_store_id (): ::String
-      attr_accessor bypass_policy_lockout_safety_check (): bool
-      attr_accessor tags (): ::Array[Types::Tag]
-      attr_accessor multi_region (): bool
-      attr_accessor xks_key_id (): ::String
+      attr_accessor policy (): ::String?
+      attr_accessor description (): ::String?
+      attr_accessor key_usage (): ::String?
+      attr_accessor customer_master_key_spec (): ::String?
+      attr_accessor key_spec (): ::String?
+      attr_accessor origin (): ::String?
+      attr_accessor custom_key_store_id (): ::String?
+      attr_accessor bypass_policy_lockout_safety_check (): bool?
+      attr_accessor tags (): ::Array[Types::Tag]?
+      attr_accessor multi_region (): bool?
+      attr_accessor xks_key_id (): ::String?
     end
 
-    class CreateKeyOutput < ::Struct[untyped]
+    class CreateKeyOutput
       include Hearth::Structure
-      attr_accessor key_metadata (): Types::KeyMetadata
+      attr_accessor key_metadata (): Types::KeyMetadata?
     end
 
-    class CustomKeyStoreHasCMKsException < ::Struct[untyped]
+    class CustomKeyStoreHasCMKsException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class CustomKeyStoreInvalidStateException < ::Struct[untyped]
+    class CustomKeyStoreInvalidStateException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class CustomKeyStoreNameInUseException < ::Struct[untyped]
+    class CustomKeyStoreNameInUseException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class CustomKeyStoreNotFoundException < ::Struct[untyped]
+    class CustomKeyStoreNotFoundException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
     module CustomKeyStoreType
@@ -223,17 +223,17 @@ module AWS::SDK::KMS
       EXTERNAL_KEY_STORE: ::String
     end
 
-    class CustomKeyStoresListEntry < ::Struct[untyped]
+    class CustomKeyStoresListEntry
       include Hearth::Structure
-      attr_accessor custom_key_store_id (): ::String
-      attr_accessor custom_key_store_name (): ::String
-      attr_accessor cloud_hsm_cluster_id (): ::String
-      attr_accessor trust_anchor_certificate (): ::String
-      attr_accessor connection_state (): ::String
-      attr_accessor connection_error_code (): ::String
-      attr_accessor creation_date (): ::Time
-      attr_accessor custom_key_store_type (): ::String
-      attr_accessor xks_proxy_configuration (): Types::XksProxyConfigurationType
+      attr_accessor custom_key_store_id (): ::String?
+      attr_accessor custom_key_store_name (): ::String?
+      attr_accessor cloud_hsm_cluster_id (): ::String?
+      attr_accessor trust_anchor_certificate (): ::String?
+      attr_accessor connection_state (): ::String?
+      attr_accessor connection_error_code (): ::String?
+      attr_accessor creation_date (): ::Time?
+      attr_accessor custom_key_store_type (): ::String?
+      attr_accessor xks_proxy_configuration (): Types::XksProxyConfigurationType?
     end
 
     module CustomerMasterKeySpec
@@ -288,153 +288,153 @@ module AWS::SDK::KMS
       AES_128: ::String
     end
 
-    class DecryptInput < ::Struct[untyped]
+    class DecryptInput
       include Hearth::Structure
       attr_accessor ciphertext_blob (): ::String
-      attr_accessor encryption_context (): ::Hash[::String, ::String]
-      attr_accessor grant_tokens (): ::Array[::String]
-      attr_accessor key_id (): ::String
-      attr_accessor encryption_algorithm (): ::String
-      attr_accessor recipient (): Types::RecipientInfo
-      attr_accessor dry_run (): bool
+      attr_accessor encryption_context (): ::Hash[::String, ::String]?
+      attr_accessor grant_tokens (): ::Array[::String]?
+      attr_accessor key_id (): ::String?
+      attr_accessor encryption_algorithm (): ::String?
+      attr_accessor recipient (): Types::RecipientInfo?
+      attr_accessor dry_run (): bool?
     end
 
-    class DecryptOutput < ::Struct[untyped]
+    class DecryptOutput
       include Hearth::Structure
-      attr_accessor key_id (): ::String
-      attr_accessor plaintext (): ::String
-      attr_accessor encryption_algorithm (): ::String
-      attr_accessor ciphertext_for_recipient (): ::String
+      attr_accessor key_id (): ::String?
+      attr_accessor plaintext (): ::String?
+      attr_accessor encryption_algorithm (): ::String?
+      attr_accessor ciphertext_for_recipient (): ::String?
     end
 
-    class DeleteAliasInput < ::Struct[untyped]
+    class DeleteAliasInput
       include Hearth::Structure
       attr_accessor alias_name (): ::String
     end
 
-    class DeleteAliasOutput < ::Struct[untyped]
+    class DeleteAliasOutput
       include Hearth::Structure
     end
 
-    class DeleteCustomKeyStoreInput < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor custom_key_store_id (): ::String
-    end
-
-    class DeleteCustomKeyStoreOutput < ::Struct[untyped]
-      include Hearth::Structure
-    end
-
-    class DeleteImportedKeyMaterialInput < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor key_id (): ::String
-    end
-
-    class DeleteImportedKeyMaterialOutput < ::Struct[untyped]
-      include Hearth::Structure
-    end
-
-    class DependencyTimeoutException < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor message (): ::String
-    end
-
-    class DescribeCustomKeyStoresInput < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor custom_key_store_id (): ::String
-      attr_accessor custom_key_store_name (): ::String
-      attr_accessor limit (): ::Integer
-      attr_accessor marker (): ::String
-    end
-
-    class DescribeCustomKeyStoresOutput < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor custom_key_stores (): ::Array[Types::CustomKeyStoresListEntry]
-      attr_accessor next_marker (): ::String
-      attr_accessor truncated (): bool
-    end
-
-    class DescribeKeyInput < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor key_id (): ::String
-      attr_accessor grant_tokens (): ::Array[::String]
-    end
-
-    class DescribeKeyOutput < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor key_metadata (): Types::KeyMetadata
-    end
-
-    class DisableKeyInput < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor key_id (): ::String
-    end
-
-    class DisableKeyOutput < ::Struct[untyped]
-      include Hearth::Structure
-    end
-
-    class DisableKeyRotationInput < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor key_id (): ::String
-    end
-
-    class DisableKeyRotationOutput < ::Struct[untyped]
-      include Hearth::Structure
-    end
-
-    class DisabledException < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor message (): ::String
-    end
-
-    class DisconnectCustomKeyStoreInput < ::Struct[untyped]
+    class DeleteCustomKeyStoreInput
       include Hearth::Structure
       attr_accessor custom_key_store_id (): ::String
     end
 
-    class DisconnectCustomKeyStoreOutput < ::Struct[untyped]
+    class DeleteCustomKeyStoreOutput
       include Hearth::Structure
     end
 
-    class DryRunOperationException < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor message (): ::String
-    end
-
-    class EnableKeyInput < ::Struct[untyped]
+    class DeleteImportedKeyMaterialInput
       include Hearth::Structure
       attr_accessor key_id (): ::String
     end
 
-    class EnableKeyOutput < ::Struct[untyped]
+    class DeleteImportedKeyMaterialOutput
       include Hearth::Structure
     end
 
-    class EnableKeyRotationInput < ::Struct[untyped]
+    class DependencyTimeoutException
+      include Hearth::Structure
+      attr_accessor message (): ::String?
+    end
+
+    class DescribeCustomKeyStoresInput
+      include Hearth::Structure
+      attr_accessor custom_key_store_id (): ::String?
+      attr_accessor custom_key_store_name (): ::String?
+      attr_accessor limit (): ::Integer?
+      attr_accessor marker (): ::String?
+    end
+
+    class DescribeCustomKeyStoresOutput
+      include Hearth::Structure
+      attr_accessor custom_key_stores (): ::Array[Types::CustomKeyStoresListEntry]?
+      attr_accessor next_marker (): ::String?
+      attr_accessor truncated (): bool?
+    end
+
+    class DescribeKeyInput
+      include Hearth::Structure
+      attr_accessor key_id (): ::String
+      attr_accessor grant_tokens (): ::Array[::String]?
+    end
+
+    class DescribeKeyOutput
+      include Hearth::Structure
+      attr_accessor key_metadata (): Types::KeyMetadata?
+    end
+
+    class DisableKeyInput
       include Hearth::Structure
       attr_accessor key_id (): ::String
     end
 
-    class EnableKeyRotationOutput < ::Struct[untyped]
+    class DisableKeyOutput
       include Hearth::Structure
     end
 
-    class EncryptInput < ::Struct[untyped]
+    class DisableKeyRotationInput
+      include Hearth::Structure
+      attr_accessor key_id (): ::String
+    end
+
+    class DisableKeyRotationOutput
+      include Hearth::Structure
+    end
+
+    class DisabledException
+      include Hearth::Structure
+      attr_accessor message (): ::String?
+    end
+
+    class DisconnectCustomKeyStoreInput
+      include Hearth::Structure
+      attr_accessor custom_key_store_id (): ::String
+    end
+
+    class DisconnectCustomKeyStoreOutput
+      include Hearth::Structure
+    end
+
+    class DryRunOperationException
+      include Hearth::Structure
+      attr_accessor message (): ::String?
+    end
+
+    class EnableKeyInput
+      include Hearth::Structure
+      attr_accessor key_id (): ::String
+    end
+
+    class EnableKeyOutput
+      include Hearth::Structure
+    end
+
+    class EnableKeyRotationInput
+      include Hearth::Structure
+      attr_accessor key_id (): ::String
+    end
+
+    class EnableKeyRotationOutput
+      include Hearth::Structure
+    end
+
+    class EncryptInput
       include Hearth::Structure
       attr_accessor key_id (): ::String
       attr_accessor plaintext (): ::String
-      attr_accessor encryption_context (): ::Hash[::String, ::String]
-      attr_accessor grant_tokens (): ::Array[::String]
-      attr_accessor encryption_algorithm (): ::String
-      attr_accessor dry_run (): bool
+      attr_accessor encryption_context (): ::Hash[::String, ::String]?
+      attr_accessor grant_tokens (): ::Array[::String]?
+      attr_accessor encryption_algorithm (): ::String?
+      attr_accessor dry_run (): bool?
     end
 
-    class EncryptOutput < ::Struct[untyped]
+    class EncryptOutput
       include Hearth::Structure
-      attr_accessor ciphertext_blob (): ::String
-      attr_accessor key_id (): ::String
-      attr_accessor encryption_algorithm (): ::String
+      attr_accessor ciphertext_blob (): ::String?
+      attr_accessor key_id (): ::String?
+      attr_accessor encryption_algorithm (): ::String?
     end
 
     module EncryptionAlgorithmSpec
@@ -453,182 +453,182 @@ module AWS::SDK::KMS
       KEY_MATERIAL_DOES_NOT_EXPIRE: ::String
     end
 
-    class ExpiredImportTokenException < ::Struct[untyped]
+    class ExpiredImportTokenException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class GenerateDataKeyInput < ::Struct[untyped]
+    class GenerateDataKeyInput
       include Hearth::Structure
       attr_accessor key_id (): ::String
-      attr_accessor encryption_context (): ::Hash[::String, ::String]
-      attr_accessor number_of_bytes (): ::Integer
-      attr_accessor key_spec (): ::String
-      attr_accessor grant_tokens (): ::Array[::String]
-      attr_accessor recipient (): Types::RecipientInfo
-      attr_accessor dry_run (): bool
+      attr_accessor encryption_context (): ::Hash[::String, ::String]?
+      attr_accessor number_of_bytes (): ::Integer?
+      attr_accessor key_spec (): ::String?
+      attr_accessor grant_tokens (): ::Array[::String]?
+      attr_accessor recipient (): Types::RecipientInfo?
+      attr_accessor dry_run (): bool?
     end
 
-    class GenerateDataKeyOutput < ::Struct[untyped]
+    class GenerateDataKeyOutput
       include Hearth::Structure
-      attr_accessor ciphertext_blob (): ::String
-      attr_accessor plaintext (): ::String
-      attr_accessor key_id (): ::String
-      attr_accessor ciphertext_for_recipient (): ::String
+      attr_accessor ciphertext_blob (): ::String?
+      attr_accessor plaintext (): ::String?
+      attr_accessor key_id (): ::String?
+      attr_accessor ciphertext_for_recipient (): ::String?
     end
 
-    class GenerateDataKeyPairInput < ::Struct[untyped]
+    class GenerateDataKeyPairInput
       include Hearth::Structure
-      attr_accessor encryption_context (): ::Hash[::String, ::String]
-      attr_accessor key_id (): ::String
-      attr_accessor key_pair_spec (): ::String
-      attr_accessor grant_tokens (): ::Array[::String]
-      attr_accessor recipient (): Types::RecipientInfo
-      attr_accessor dry_run (): bool
-    end
-
-    class GenerateDataKeyPairOutput < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor private_key_ciphertext_blob (): ::String
-      attr_accessor private_key_plaintext (): ::String
-      attr_accessor public_key (): ::String
+      attr_accessor encryption_context (): ::Hash[::String, ::String]?
       attr_accessor key_id (): ::String
       attr_accessor key_pair_spec (): ::String
-      attr_accessor ciphertext_for_recipient (): ::String
+      attr_accessor grant_tokens (): ::Array[::String]?
+      attr_accessor recipient (): Types::RecipientInfo?
+      attr_accessor dry_run (): bool?
     end
 
-    class GenerateDataKeyPairWithoutPlaintextInput < ::Struct[untyped]
+    class GenerateDataKeyPairOutput
       include Hearth::Structure
-      attr_accessor encryption_context (): ::Hash[::String, ::String]
+      attr_accessor private_key_ciphertext_blob (): ::String?
+      attr_accessor private_key_plaintext (): ::String?
+      attr_accessor public_key (): ::String?
+      attr_accessor key_id (): ::String?
+      attr_accessor key_pair_spec (): ::String?
+      attr_accessor ciphertext_for_recipient (): ::String?
+    end
+
+    class GenerateDataKeyPairWithoutPlaintextInput
+      include Hearth::Structure
+      attr_accessor encryption_context (): ::Hash[::String, ::String]?
       attr_accessor key_id (): ::String
       attr_accessor key_pair_spec (): ::String
-      attr_accessor grant_tokens (): ::Array[::String]
-      attr_accessor dry_run (): bool
+      attr_accessor grant_tokens (): ::Array[::String]?
+      attr_accessor dry_run (): bool?
     end
 
-    class GenerateDataKeyPairWithoutPlaintextOutput < ::Struct[untyped]
+    class GenerateDataKeyPairWithoutPlaintextOutput
       include Hearth::Structure
-      attr_accessor private_key_ciphertext_blob (): ::String
-      attr_accessor public_key (): ::String
-      attr_accessor key_id (): ::String
-      attr_accessor key_pair_spec (): ::String
+      attr_accessor private_key_ciphertext_blob (): ::String?
+      attr_accessor public_key (): ::String?
+      attr_accessor key_id (): ::String?
+      attr_accessor key_pair_spec (): ::String?
     end
 
-    class GenerateDataKeyWithoutPlaintextInput < ::Struct[untyped]
+    class GenerateDataKeyWithoutPlaintextInput
       include Hearth::Structure
       attr_accessor key_id (): ::String
-      attr_accessor encryption_context (): ::Hash[::String, ::String]
-      attr_accessor key_spec (): ::String
-      attr_accessor number_of_bytes (): ::Integer
-      attr_accessor grant_tokens (): ::Array[::String]
-      attr_accessor dry_run (): bool
+      attr_accessor encryption_context (): ::Hash[::String, ::String]?
+      attr_accessor key_spec (): ::String?
+      attr_accessor number_of_bytes (): ::Integer?
+      attr_accessor grant_tokens (): ::Array[::String]?
+      attr_accessor dry_run (): bool?
     end
 
-    class GenerateDataKeyWithoutPlaintextOutput < ::Struct[untyped]
+    class GenerateDataKeyWithoutPlaintextOutput
       include Hearth::Structure
-      attr_accessor ciphertext_blob (): ::String
-      attr_accessor key_id (): ::String
+      attr_accessor ciphertext_blob (): ::String?
+      attr_accessor key_id (): ::String?
     end
 
-    class GenerateMacInput < ::Struct[untyped]
+    class GenerateMacInput
       include Hearth::Structure
       attr_accessor message (): ::String
       attr_accessor key_id (): ::String
       attr_accessor mac_algorithm (): ::String
-      attr_accessor grant_tokens (): ::Array[::String]
-      attr_accessor dry_run (): bool
+      attr_accessor grant_tokens (): ::Array[::String]?
+      attr_accessor dry_run (): bool?
     end
 
-    class GenerateMacOutput < ::Struct[untyped]
+    class GenerateMacOutput
       include Hearth::Structure
-      attr_accessor mac (): ::String
-      attr_accessor mac_algorithm (): ::String
-      attr_accessor key_id (): ::String
+      attr_accessor mac (): ::String?
+      attr_accessor mac_algorithm (): ::String?
+      attr_accessor key_id (): ::String?
     end
 
-    class GenerateRandomInput < ::Struct[untyped]
+    class GenerateRandomInput
       include Hearth::Structure
-      attr_accessor number_of_bytes (): ::Integer
-      attr_accessor custom_key_store_id (): ::String
-      attr_accessor recipient (): Types::RecipientInfo
+      attr_accessor number_of_bytes (): ::Integer?
+      attr_accessor custom_key_store_id (): ::String?
+      attr_accessor recipient (): Types::RecipientInfo?
     end
 
-    class GenerateRandomOutput < ::Struct[untyped]
+    class GenerateRandomOutput
       include Hearth::Structure
-      attr_accessor plaintext (): ::String
-      attr_accessor ciphertext_for_recipient (): ::String
+      attr_accessor plaintext (): ::String?
+      attr_accessor ciphertext_for_recipient (): ::String?
     end
 
-    class GetKeyPolicyInput < ::Struct[untyped]
+    class GetKeyPolicyInput
       include Hearth::Structure
       attr_accessor key_id (): ::String
       attr_accessor policy_name (): ::String
     end
 
-    class GetKeyPolicyOutput < ::Struct[untyped]
+    class GetKeyPolicyOutput
       include Hearth::Structure
-      attr_accessor policy (): ::String
+      attr_accessor policy (): ::String?
     end
 
-    class GetKeyRotationStatusInput < ::Struct[untyped]
+    class GetKeyRotationStatusInput
       include Hearth::Structure
       attr_accessor key_id (): ::String
     end
 
-    class GetKeyRotationStatusOutput < ::Struct[untyped]
+    class GetKeyRotationStatusOutput
       include Hearth::Structure
-      attr_accessor key_rotation_enabled (): bool
+      attr_accessor key_rotation_enabled (): bool?
     end
 
-    class GetParametersForImportInput < ::Struct[untyped]
+    class GetParametersForImportInput
       include Hearth::Structure
       attr_accessor key_id (): ::String
       attr_accessor wrapping_algorithm (): ::String
       attr_accessor wrapping_key_spec (): ::String
     end
 
-    class GetParametersForImportOutput < ::Struct[untyped]
+    class GetParametersForImportOutput
       include Hearth::Structure
-      attr_accessor key_id (): ::String
-      attr_accessor import_token (): ::String
-      attr_accessor public_key (): ::String
-      attr_accessor parameters_valid_to (): ::Time
+      attr_accessor key_id (): ::String?
+      attr_accessor import_token (): ::String?
+      attr_accessor public_key (): ::String?
+      attr_accessor parameters_valid_to (): ::Time?
     end
 
-    class GetPublicKeyInput < ::Struct[untyped]
+    class GetPublicKeyInput
       include Hearth::Structure
       attr_accessor key_id (): ::String
-      attr_accessor grant_tokens (): ::Array[::String]
+      attr_accessor grant_tokens (): ::Array[::String]?
     end
 
-    class GetPublicKeyOutput < ::Struct[untyped]
+    class GetPublicKeyOutput
       include Hearth::Structure
-      attr_accessor key_id (): ::String
-      attr_accessor public_key (): ::String
-      attr_accessor customer_master_key_spec (): ::String
-      attr_accessor key_spec (): ::String
-      attr_accessor key_usage (): ::String
-      attr_accessor encryption_algorithms (): ::Array[::String]
-      attr_accessor signing_algorithms (): ::Array[::String]
+      attr_accessor key_id (): ::String?
+      attr_accessor public_key (): ::String?
+      attr_accessor customer_master_key_spec (): ::String?
+      attr_accessor key_spec (): ::String?
+      attr_accessor key_usage (): ::String?
+      attr_accessor encryption_algorithms (): ::Array[::String]?
+      attr_accessor signing_algorithms (): ::Array[::String]?
     end
 
-    class GrantConstraints < ::Struct[untyped]
+    class GrantConstraints
       include Hearth::Structure
-      attr_accessor encryption_context_subset (): ::Hash[::String, ::String]
-      attr_accessor encryption_context_equals (): ::Hash[::String, ::String]
+      attr_accessor encryption_context_subset (): ::Hash[::String, ::String]?
+      attr_accessor encryption_context_equals (): ::Hash[::String, ::String]?
     end
 
-    class GrantListEntry < ::Struct[untyped]
+    class GrantListEntry
       include Hearth::Structure
-      attr_accessor key_id (): ::String
-      attr_accessor grant_id (): ::String
-      attr_accessor name (): ::String
-      attr_accessor creation_date (): ::Time
-      attr_accessor grantee_principal (): ::String
-      attr_accessor retiring_principal (): ::String
-      attr_accessor issuing_account (): ::String
-      attr_accessor operations (): ::Array[::String]
-      attr_accessor constraints (): Types::GrantConstraints
+      attr_accessor key_id (): ::String?
+      attr_accessor grant_id (): ::String?
+      attr_accessor name (): ::String?
+      attr_accessor creation_date (): ::Time?
+      attr_accessor grantee_principal (): ::String?
+      attr_accessor retiring_principal (): ::String?
+      attr_accessor issuing_account (): ::String?
+      attr_accessor operations (): ::Array[::String]?
+      attr_accessor constraints (): Types::GrantConstraints?
     end
 
     module GrantOperation
@@ -665,102 +665,102 @@ module AWS::SDK::KMS
       VERIFY_MAC: ::String
     end
 
-    class ImportKeyMaterialInput < ::Struct[untyped]
+    class ImportKeyMaterialInput
       include Hearth::Structure
       attr_accessor key_id (): ::String
       attr_accessor import_token (): ::String
       attr_accessor encrypted_key_material (): ::String
-      attr_accessor valid_to (): ::Time
-      attr_accessor expiration_model (): ::String
+      attr_accessor valid_to (): ::Time?
+      attr_accessor expiration_model (): ::String?
     end
 
-    class ImportKeyMaterialOutput < ::Struct[untyped]
+    class ImportKeyMaterialOutput
       include Hearth::Structure
     end
 
-    class IncorrectKeyException < ::Struct[untyped]
+    class IncorrectKeyException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class IncorrectKeyMaterialException < ::Struct[untyped]
+    class IncorrectKeyMaterialException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class IncorrectTrustAnchorException < ::Struct[untyped]
+    class IncorrectTrustAnchorException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class InvalidAliasNameException < ::Struct[untyped]
+    class InvalidAliasNameException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class InvalidArnException < ::Struct[untyped]
+    class InvalidArnException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class InvalidCiphertextException < ::Struct[untyped]
+    class InvalidCiphertextException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class InvalidGrantIdException < ::Struct[untyped]
+    class InvalidGrantIdException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class InvalidGrantTokenException < ::Struct[untyped]
+    class InvalidGrantTokenException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class InvalidImportTokenException < ::Struct[untyped]
+    class InvalidImportTokenException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class InvalidKeyUsageException < ::Struct[untyped]
+    class InvalidKeyUsageException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class InvalidMarkerException < ::Struct[untyped]
+    class InvalidMarkerException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class KMSInternalException < ::Struct[untyped]
+    class KMSInternalException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class KMSInvalidMacException < ::Struct[untyped]
+    class KMSInvalidMacException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class KMSInvalidSignatureException < ::Struct[untyped]
+    class KMSInvalidSignatureException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class KMSInvalidStateException < ::Struct[untyped]
+    class KMSInvalidStateException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
     module KeyEncryptionMechanism
       RSAES_OAEP_SHA_256: ::String
     end
 
-    class KeyListEntry < ::Struct[untyped]
+    class KeyListEntry
       include Hearth::Structure
-      attr_accessor key_id (): ::String
-      attr_accessor key_arn (): ::String
+      attr_accessor key_id (): ::String?
+      attr_accessor key_arn (): ::String?
     end
 
     module KeyManagerType
@@ -769,32 +769,32 @@ module AWS::SDK::KMS
       CUSTOMER: ::String
     end
 
-    class KeyMetadata < ::Struct[untyped]
+    class KeyMetadata
       include Hearth::Structure
-      attr_accessor aws_account_id (): ::String
+      attr_accessor aws_account_id (): ::String?
       attr_accessor key_id (): ::String
-      attr_accessor arn (): ::String
-      attr_accessor creation_date (): ::Time
-      attr_accessor enabled (): bool
-      attr_accessor description (): ::String
-      attr_accessor key_usage (): ::String
-      attr_accessor key_state (): ::String
-      attr_accessor deletion_date (): ::Time
-      attr_accessor valid_to (): ::Time
-      attr_accessor origin (): ::String
-      attr_accessor custom_key_store_id (): ::String
-      attr_accessor cloud_hsm_cluster_id (): ::String
-      attr_accessor expiration_model (): ::String
-      attr_accessor key_manager (): ::String
-      attr_accessor customer_master_key_spec (): ::String
-      attr_accessor key_spec (): ::String
-      attr_accessor encryption_algorithms (): ::Array[::String]
-      attr_accessor signing_algorithms (): ::Array[::String]
-      attr_accessor multi_region (): bool
-      attr_accessor multi_region_configuration (): Types::MultiRegionConfiguration
-      attr_accessor pending_deletion_window_in_days (): ::Integer
-      attr_accessor mac_algorithms (): ::Array[::String]
-      attr_accessor xks_key_configuration (): Types::XksKeyConfigurationType
+      attr_accessor arn (): ::String?
+      attr_accessor creation_date (): ::Time?
+      attr_accessor enabled (): bool?
+      attr_accessor description (): ::String?
+      attr_accessor key_usage (): ::String?
+      attr_accessor key_state (): ::String?
+      attr_accessor deletion_date (): ::Time?
+      attr_accessor valid_to (): ::Time?
+      attr_accessor origin (): ::String?
+      attr_accessor custom_key_store_id (): ::String?
+      attr_accessor cloud_hsm_cluster_id (): ::String?
+      attr_accessor expiration_model (): ::String?
+      attr_accessor key_manager (): ::String?
+      attr_accessor customer_master_key_spec (): ::String?
+      attr_accessor key_spec (): ::String?
+      attr_accessor encryption_algorithms (): ::Array[::String]?
+      attr_accessor signing_algorithms (): ::Array[::String]?
+      attr_accessor multi_region (): bool?
+      attr_accessor multi_region_configuration (): Types::MultiRegionConfiguration?
+      attr_accessor pending_deletion_window_in_days (): ::Integer?
+      attr_accessor mac_algorithms (): ::Array[::String]?
+      attr_accessor xks_key_configuration (): Types::XksKeyConfigurationType?
     end
 
     module KeySpec
@@ -843,9 +843,9 @@ module AWS::SDK::KMS
       UPDATING: ::String
     end
 
-    class KeyUnavailableException < ::Struct[untyped]
+    class KeyUnavailableException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
     module KeyUsageType
@@ -856,94 +856,94 @@ module AWS::SDK::KMS
       GENERATE_VERIFY_MAC: ::String
     end
 
-    class LimitExceededException < ::Struct[untyped]
+    class LimitExceededException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class ListAliasesInput < ::Struct[untyped]
+    class ListAliasesInput
+      include Hearth::Structure
+      attr_accessor key_id (): ::String?
+      attr_accessor limit (): ::Integer?
+      attr_accessor marker (): ::String?
+    end
+
+    class ListAliasesOutput
+      include Hearth::Structure
+      attr_accessor aliases (): ::Array[Types::AliasListEntry]?
+      attr_accessor next_marker (): ::String?
+      attr_accessor truncated (): bool?
+    end
+
+    class ListGrantsInput
+      include Hearth::Structure
+      attr_accessor limit (): ::Integer?
+      attr_accessor marker (): ::String?
+      attr_accessor key_id (): ::String
+      attr_accessor grant_id (): ::String?
+      attr_accessor grantee_principal (): ::String?
+    end
+
+    class ListGrantsOutput
+      include Hearth::Structure
+      attr_accessor grants (): ::Array[Types::GrantListEntry]?
+      attr_accessor next_marker (): ::String?
+      attr_accessor truncated (): bool?
+    end
+
+    class ListKeyPoliciesInput
       include Hearth::Structure
       attr_accessor key_id (): ::String
-      attr_accessor limit (): ::Integer
-      attr_accessor marker (): ::String
+      attr_accessor limit (): ::Integer?
+      attr_accessor marker (): ::String?
     end
 
-    class ListAliasesOutput < ::Struct[untyped]
+    class ListKeyPoliciesOutput
       include Hearth::Structure
-      attr_accessor aliases (): ::Array[Types::AliasListEntry]
-      attr_accessor next_marker (): ::String
-      attr_accessor truncated (): bool
+      attr_accessor policy_names (): ::Array[::String]?
+      attr_accessor next_marker (): ::String?
+      attr_accessor truncated (): bool?
     end
 
-    class ListGrantsInput < ::Struct[untyped]
+    class ListKeysInput
       include Hearth::Structure
-      attr_accessor limit (): ::Integer
-      attr_accessor marker (): ::String
-      attr_accessor key_id (): ::String
-      attr_accessor grant_id (): ::String
-      attr_accessor grantee_principal (): ::String
+      attr_accessor limit (): ::Integer?
+      attr_accessor marker (): ::String?
     end
 
-    class ListGrantsOutput < ::Struct[untyped]
+    class ListKeysOutput
       include Hearth::Structure
-      attr_accessor grants (): ::Array[Types::GrantListEntry]
-      attr_accessor next_marker (): ::String
-      attr_accessor truncated (): bool
+      attr_accessor keys (): ::Array[Types::KeyListEntry]?
+      attr_accessor next_marker (): ::String?
+      attr_accessor truncated (): bool?
     end
 
-    class ListKeyPoliciesInput < ::Struct[untyped]
+    class ListResourceTagsInput
       include Hearth::Structure
       attr_accessor key_id (): ::String
-      attr_accessor limit (): ::Integer
-      attr_accessor marker (): ::String
+      attr_accessor limit (): ::Integer?
+      attr_accessor marker (): ::String?
     end
 
-    class ListKeyPoliciesOutput < ::Struct[untyped]
+    class ListResourceTagsOutput
       include Hearth::Structure
-      attr_accessor policy_names (): ::Array[::String]
-      attr_accessor next_marker (): ::String
-      attr_accessor truncated (): bool
+      attr_accessor tags (): ::Array[Types::Tag]?
+      attr_accessor next_marker (): ::String?
+      attr_accessor truncated (): bool?
     end
 
-    class ListKeysInput < ::Struct[untyped]
+    class ListRetirableGrantsInput
       include Hearth::Structure
-      attr_accessor limit (): ::Integer
-      attr_accessor marker (): ::String
-    end
-
-    class ListKeysOutput < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor keys (): ::Array[Types::KeyListEntry]
-      attr_accessor next_marker (): ::String
-      attr_accessor truncated (): bool
-    end
-
-    class ListResourceTagsInput < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor key_id (): ::String
-      attr_accessor limit (): ::Integer
-      attr_accessor marker (): ::String
-    end
-
-    class ListResourceTagsOutput < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor tags (): ::Array[Types::Tag]
-      attr_accessor next_marker (): ::String
-      attr_accessor truncated (): bool
-    end
-
-    class ListRetirableGrantsInput < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor limit (): ::Integer
-      attr_accessor marker (): ::String
+      attr_accessor limit (): ::Integer?
+      attr_accessor marker (): ::String?
       attr_accessor retiring_principal (): ::String
     end
 
-    class ListRetirableGrantsOutput < ::Struct[untyped]
+    class ListRetirableGrantsOutput
       include Hearth::Structure
-      attr_accessor grants (): ::Array[Types::GrantListEntry]
-      attr_accessor next_marker (): ::String
-      attr_accessor truncated (): bool
+      attr_accessor grants (): ::Array[Types::GrantListEntry]?
+      attr_accessor next_marker (): ::String?
+      attr_accessor truncated (): bool?
     end
 
     module MacAlgorithmSpec
@@ -956,9 +956,9 @@ module AWS::SDK::KMS
       HMAC_SHA_512: ::String
     end
 
-    class MalformedPolicyDocumentException < ::Struct[untyped]
+    class MalformedPolicyDocumentException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
     module MessageType
@@ -967,17 +967,17 @@ module AWS::SDK::KMS
       DIGEST: ::String
     end
 
-    class MultiRegionConfiguration < ::Struct[untyped]
+    class MultiRegionConfiguration
       include Hearth::Structure
-      attr_accessor multi_region_key_type (): ::String
-      attr_accessor primary_key (): Types::MultiRegionKey
-      attr_accessor replica_keys (): ::Array[Types::MultiRegionKey]
+      attr_accessor multi_region_key_type (): ::String?
+      attr_accessor primary_key (): Types::MultiRegionKey?
+      attr_accessor replica_keys (): ::Array[Types::MultiRegionKey]?
     end
 
-    class MultiRegionKey < ::Struct[untyped]
+    class MultiRegionKey
       include Hearth::Structure
-      attr_accessor arn (): ::String
-      attr_accessor region (): ::String
+      attr_accessor arn (): ::String?
+      attr_accessor region (): ::String?
     end
 
     module MultiRegionKeyType
@@ -986,9 +986,9 @@ module AWS::SDK::KMS
       REPLICA: ::String
     end
 
-    class NotFoundException < ::Struct[untyped]
+    class NotFoundException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
     module OriginType
@@ -1001,115 +1001,115 @@ module AWS::SDK::KMS
       EXTERNAL_KEY_STORE: ::String
     end
 
-    class PutKeyPolicyInput < ::Struct[untyped]
+    class PutKeyPolicyInput
       include Hearth::Structure
       attr_accessor key_id (): ::String
       attr_accessor policy_name (): ::String
       attr_accessor policy (): ::String
-      attr_accessor bypass_policy_lockout_safety_check (): bool
+      attr_accessor bypass_policy_lockout_safety_check (): bool?
     end
 
-    class PutKeyPolicyOutput < ::Struct[untyped]
+    class PutKeyPolicyOutput
       include Hearth::Structure
     end
 
-    class ReEncryptInput < ::Struct[untyped]
+    class ReEncryptInput
       include Hearth::Structure
       attr_accessor ciphertext_blob (): ::String
-      attr_accessor source_encryption_context (): ::Hash[::String, ::String]
-      attr_accessor source_key_id (): ::String
+      attr_accessor source_encryption_context (): ::Hash[::String, ::String]?
+      attr_accessor source_key_id (): ::String?
       attr_accessor destination_key_id (): ::String
-      attr_accessor destination_encryption_context (): ::Hash[::String, ::String]
-      attr_accessor source_encryption_algorithm (): ::String
-      attr_accessor destination_encryption_algorithm (): ::String
-      attr_accessor grant_tokens (): ::Array[::String]
-      attr_accessor dry_run (): bool
+      attr_accessor destination_encryption_context (): ::Hash[::String, ::String]?
+      attr_accessor source_encryption_algorithm (): ::String?
+      attr_accessor destination_encryption_algorithm (): ::String?
+      attr_accessor grant_tokens (): ::Array[::String]?
+      attr_accessor dry_run (): bool?
     end
 
-    class ReEncryptOutput < ::Struct[untyped]
+    class ReEncryptOutput
       include Hearth::Structure
-      attr_accessor ciphertext_blob (): ::String
-      attr_accessor source_key_id (): ::String
-      attr_accessor key_id (): ::String
-      attr_accessor source_encryption_algorithm (): ::String
-      attr_accessor destination_encryption_algorithm (): ::String
+      attr_accessor ciphertext_blob (): ::String?
+      attr_accessor source_key_id (): ::String?
+      attr_accessor key_id (): ::String?
+      attr_accessor source_encryption_algorithm (): ::String?
+      attr_accessor destination_encryption_algorithm (): ::String?
     end
 
-    class RecipientInfo < ::Struct[untyped]
+    class RecipientInfo
       include Hearth::Structure
-      attr_accessor key_encryption_algorithm (): ::String
-      attr_accessor attestation_document (): ::String
+      attr_accessor key_encryption_algorithm (): ::String?
+      attr_accessor attestation_document (): ::String?
     end
 
-    class ReplicateKeyInput < ::Struct[untyped]
+    class ReplicateKeyInput
       include Hearth::Structure
       attr_accessor key_id (): ::String
       attr_accessor replica_region (): ::String
-      attr_accessor policy (): ::String
-      attr_accessor bypass_policy_lockout_safety_check (): bool
-      attr_accessor description (): ::String
-      attr_accessor tags (): ::Array[Types::Tag]
+      attr_accessor policy (): ::String?
+      attr_accessor bypass_policy_lockout_safety_check (): bool?
+      attr_accessor description (): ::String?
+      attr_accessor tags (): ::Array[Types::Tag]?
     end
 
-    class ReplicateKeyOutput < ::Struct[untyped]
+    class ReplicateKeyOutput
       include Hearth::Structure
-      attr_accessor replica_key_metadata (): Types::KeyMetadata
-      attr_accessor replica_policy (): ::String
-      attr_accessor replica_tags (): ::Array[Types::Tag]
+      attr_accessor replica_key_metadata (): Types::KeyMetadata?
+      attr_accessor replica_policy (): ::String?
+      attr_accessor replica_tags (): ::Array[Types::Tag]?
     end
 
-    class RetireGrantInput < ::Struct[untyped]
+    class RetireGrantInput
       include Hearth::Structure
-      attr_accessor grant_token (): ::String
+      attr_accessor grant_token (): ::String?
+      attr_accessor key_id (): ::String?
+      attr_accessor grant_id (): ::String?
+      attr_accessor dry_run (): bool?
+    end
+
+    class RetireGrantOutput
+      include Hearth::Structure
+    end
+
+    class RevokeGrantInput
+      include Hearth::Structure
       attr_accessor key_id (): ::String
       attr_accessor grant_id (): ::String
-      attr_accessor dry_run (): bool
+      attr_accessor dry_run (): bool?
     end
 
-    class RetireGrantOutput < ::Struct[untyped]
+    class RevokeGrantOutput
       include Hearth::Structure
     end
 
-    class RevokeGrantInput < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor key_id (): ::String
-      attr_accessor grant_id (): ::String
-      attr_accessor dry_run (): bool
-    end
-
-    class RevokeGrantOutput < ::Struct[untyped]
-      include Hearth::Structure
-    end
-
-    class ScheduleKeyDeletionInput < ::Struct[untyped]
+    class ScheduleKeyDeletionInput
       include Hearth::Structure
       attr_accessor key_id (): ::String
-      attr_accessor pending_window_in_days (): ::Integer
+      attr_accessor pending_window_in_days (): ::Integer?
     end
 
-    class ScheduleKeyDeletionOutput < ::Struct[untyped]
+    class ScheduleKeyDeletionOutput
       include Hearth::Structure
-      attr_accessor key_id (): ::String
-      attr_accessor deletion_date (): ::Time
-      attr_accessor key_state (): ::String
-      attr_accessor pending_window_in_days (): ::Integer
+      attr_accessor key_id (): ::String?
+      attr_accessor deletion_date (): ::Time?
+      attr_accessor key_state (): ::String?
+      attr_accessor pending_window_in_days (): ::Integer?
     end
 
-    class SignInput < ::Struct[untyped]
+    class SignInput
       include Hearth::Structure
       attr_accessor key_id (): ::String
       attr_accessor message (): ::String
-      attr_accessor message_type (): ::String
-      attr_accessor grant_tokens (): ::Array[::String]
+      attr_accessor message_type (): ::String?
+      attr_accessor grant_tokens (): ::Array[::String]?
       attr_accessor signing_algorithm (): ::String
-      attr_accessor dry_run (): bool
+      attr_accessor dry_run (): bool?
     end
 
-    class SignOutput < ::Struct[untyped]
+    class SignOutput
       include Hearth::Structure
-      attr_accessor key_id (): ::String
-      attr_accessor signature (): ::String
-      attr_accessor signing_algorithm (): ::String
+      attr_accessor key_id (): ::String?
+      attr_accessor signature (): ::String?
+      attr_accessor signing_algorithm (): ::String?
     end
 
     module SigningAlgorithmSpec
@@ -1134,122 +1134,122 @@ module AWS::SDK::KMS
       SM2_DSA: ::String
     end
 
-    class Tag < ::Struct[untyped]
+    class Tag
       include Hearth::Structure
       attr_accessor tag_key (): ::String
       attr_accessor tag_value (): ::String
     end
 
-    class TagException < ::Struct[untyped]
+    class TagException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class TagResourceInput < ::Struct[untyped]
+    class TagResourceInput
       include Hearth::Structure
       attr_accessor key_id (): ::String
       attr_accessor tags (): ::Array[Types::Tag]
     end
 
-    class TagResourceOutput < ::Struct[untyped]
+    class TagResourceOutput
       include Hearth::Structure
     end
 
-    class UnsupportedOperationException < ::Struct[untyped]
+    class UnsupportedOperationException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class UntagResourceInput < ::Struct[untyped]
+    class UntagResourceInput
       include Hearth::Structure
       attr_accessor key_id (): ::String
       attr_accessor tag_keys (): ::Array[::String]
     end
 
-    class UntagResourceOutput < ::Struct[untyped]
+    class UntagResourceOutput
       include Hearth::Structure
     end
 
-    class UpdateAliasInput < ::Struct[untyped]
+    class UpdateAliasInput
       include Hearth::Structure
       attr_accessor alias_name (): ::String
       attr_accessor target_key_id (): ::String
     end
 
-    class UpdateAliasOutput < ::Struct[untyped]
+    class UpdateAliasOutput
       include Hearth::Structure
     end
 
-    class UpdateCustomKeyStoreInput < ::Struct[untyped]
+    class UpdateCustomKeyStoreInput
       include Hearth::Structure
       attr_accessor custom_key_store_id (): ::String
-      attr_accessor new_custom_key_store_name (): ::String
-      attr_accessor key_store_password (): ::String
-      attr_accessor cloud_hsm_cluster_id (): ::String
-      attr_accessor xks_proxy_uri_endpoint (): ::String
-      attr_accessor xks_proxy_uri_path (): ::String
-      attr_accessor xks_proxy_vpc_endpoint_service_name (): ::String
-      attr_accessor xks_proxy_authentication_credential (): Types::XksProxyAuthenticationCredentialType
-      attr_accessor xks_proxy_connectivity (): ::String
+      attr_accessor new_custom_key_store_name (): ::String?
+      attr_accessor key_store_password (): ::String?
+      attr_accessor cloud_hsm_cluster_id (): ::String?
+      attr_accessor xks_proxy_uri_endpoint (): ::String?
+      attr_accessor xks_proxy_uri_path (): ::String?
+      attr_accessor xks_proxy_vpc_endpoint_service_name (): ::String?
+      attr_accessor xks_proxy_authentication_credential (): Types::XksProxyAuthenticationCredentialType?
+      attr_accessor xks_proxy_connectivity (): ::String?
     end
 
-    class UpdateCustomKeyStoreOutput < ::Struct[untyped]
+    class UpdateCustomKeyStoreOutput
       include Hearth::Structure
     end
 
-    class UpdateKeyDescriptionInput < ::Struct[untyped]
+    class UpdateKeyDescriptionInput
       include Hearth::Structure
       attr_accessor key_id (): ::String
       attr_accessor description (): ::String
     end
 
-    class UpdateKeyDescriptionOutput < ::Struct[untyped]
+    class UpdateKeyDescriptionOutput
       include Hearth::Structure
     end
 
-    class UpdatePrimaryRegionInput < ::Struct[untyped]
+    class UpdatePrimaryRegionInput
       include Hearth::Structure
       attr_accessor key_id (): ::String
       attr_accessor primary_region (): ::String
     end
 
-    class UpdatePrimaryRegionOutput < ::Struct[untyped]
+    class UpdatePrimaryRegionOutput
       include Hearth::Structure
     end
 
-    class VerifyInput < ::Struct[untyped]
+    class VerifyInput
       include Hearth::Structure
       attr_accessor key_id (): ::String
       attr_accessor message (): ::String
-      attr_accessor message_type (): ::String
+      attr_accessor message_type (): ::String?
       attr_accessor signature (): ::String
       attr_accessor signing_algorithm (): ::String
-      attr_accessor grant_tokens (): ::Array[::String]
-      attr_accessor dry_run (): bool
+      attr_accessor grant_tokens (): ::Array[::String]?
+      attr_accessor dry_run (): bool?
     end
 
-    class VerifyMacInput < ::Struct[untyped]
+    class VerifyMacInput
       include Hearth::Structure
       attr_accessor message (): ::String
       attr_accessor key_id (): ::String
       attr_accessor mac_algorithm (): ::String
       attr_accessor mac (): ::String
-      attr_accessor grant_tokens (): ::Array[::String]
-      attr_accessor dry_run (): bool
+      attr_accessor grant_tokens (): ::Array[::String]?
+      attr_accessor dry_run (): bool?
     end
 
-    class VerifyMacOutput < ::Struct[untyped]
+    class VerifyMacOutput
       include Hearth::Structure
-      attr_accessor key_id (): ::String
-      attr_accessor mac_valid (): bool
-      attr_accessor mac_algorithm (): ::String
+      attr_accessor key_id (): ::String?
+      attr_accessor mac_valid (): bool?
+      attr_accessor mac_algorithm (): ::String?
     end
 
-    class VerifyOutput < ::Struct[untyped]
+    class VerifyOutput
       include Hearth::Structure
-      attr_accessor key_id (): ::String
-      attr_accessor signature_valid (): bool
-      attr_accessor signing_algorithm (): ::String
+      attr_accessor key_id (): ::String?
+      attr_accessor signature_valid (): bool?
+      attr_accessor signing_algorithm (): ::String?
     end
 
     module WrappingKeySpec
@@ -1260,39 +1260,39 @@ module AWS::SDK::KMS
       RSA_4096: ::String
     end
 
-    class XksKeyAlreadyInUseException < ::Struct[untyped]
+    class XksKeyAlreadyInUseException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class XksKeyConfigurationType < ::Struct[untyped]
+    class XksKeyConfigurationType
       include Hearth::Structure
-      attr_accessor id (): ::String
+      attr_accessor id (): ::String?
     end
 
-    class XksKeyInvalidConfigurationException < ::Struct[untyped]
+    class XksKeyInvalidConfigurationException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class XksKeyNotFoundException < ::Struct[untyped]
+    class XksKeyNotFoundException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class XksProxyAuthenticationCredentialType < ::Struct[untyped]
+    class XksProxyAuthenticationCredentialType
       include Hearth::Structure
       attr_accessor access_key_id (): ::String
       attr_accessor raw_secret_access_key (): ::String
     end
 
-    class XksProxyConfigurationType < ::Struct[untyped]
+    class XksProxyConfigurationType
       include Hearth::Structure
-      attr_accessor connectivity (): ::String
-      attr_accessor access_key_id (): ::String
-      attr_accessor uri_endpoint (): ::String
-      attr_accessor uri_path (): ::String
-      attr_accessor vpc_endpoint_service_name (): ::String
+      attr_accessor connectivity (): ::String?
+      attr_accessor access_key_id (): ::String?
+      attr_accessor uri_endpoint (): ::String?
+      attr_accessor uri_path (): ::String?
+      attr_accessor vpc_endpoint_service_name (): ::String?
     end
 
     module XksProxyConnectivityType
@@ -1301,49 +1301,49 @@ module AWS::SDK::KMS
       VPC_ENDPOINT_SERVICE: ::String
     end
 
-    class XksProxyIncorrectAuthenticationCredentialException < ::Struct[untyped]
+    class XksProxyIncorrectAuthenticationCredentialException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class XksProxyInvalidConfigurationException < ::Struct[untyped]
+    class XksProxyInvalidConfigurationException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class XksProxyInvalidResponseException < ::Struct[untyped]
+    class XksProxyInvalidResponseException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class XksProxyUriEndpointInUseException < ::Struct[untyped]
+    class XksProxyUriEndpointInUseException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class XksProxyUriInUseException < ::Struct[untyped]
+    class XksProxyUriInUseException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class XksProxyUriUnreachableException < ::Struct[untyped]
+    class XksProxyUriUnreachableException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class XksProxyVpcEndpointServiceInUseException < ::Struct[untyped]
+    class XksProxyVpcEndpointServiceInUseException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class XksProxyVpcEndpointServiceInvalidConfigurationException < ::Struct[untyped]
+    class XksProxyVpcEndpointServiceInvalidConfigurationException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class XksProxyVpcEndpointServiceNotFoundException < ::Struct[untyped]
+    class XksProxyVpcEndpointServiceNotFoundException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
   end

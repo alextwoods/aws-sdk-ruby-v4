@@ -1138,7 +1138,7 @@ module AWS::SDK::CodeCatalyst
     #     filters: [
     #       {
     #         key: 'key', # required
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ], # required
     #         comparison_operator: 'comparisonOperator'
@@ -1285,7 +1285,7 @@ module AWS::SDK::CodeCatalyst
     #     filters: [
     #       {
     #         key: 'hasAccessTo', # required - accepts ["hasAccessTo", "name"]
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ], # required
     #         comparison_operator: 'EQ' # accepts ["EQ", "GT", "GE", "LT", "LE", "BEGINS_WITH"]
@@ -1470,7 +1470,7 @@ module AWS::SDK::CodeCatalyst
     #     project_name: 'projectName', # required
     #     next_token: 'nextToken',
     #     max_results: 1,
-    #     member_sort_by: [
+    #     sort_by: [
     #       { }
     #     ]
     #   )
@@ -1523,7 +1523,7 @@ module AWS::SDK::CodeCatalyst
     #     project_name: 'projectName', # required
     #     next_token: 'nextToken',
     #     max_results: 1,
-    #     member_sort_by: [
+    #     sort_by: [
     #       { }
     #     ]
     #   )

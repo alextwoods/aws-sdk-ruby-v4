@@ -16,11 +16,14 @@ module AWS::SDK::LexRuntimeV2
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    AccessDeniedException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class AccessDeniedException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Contains information about the contexts that a user is using in a
@@ -52,13 +55,16 @@ module AWS::SDK::LexRuntimeV2
     #            list of contexts for the session. If you specify an empty list, all
     #            contexts for the session are cleared. </p>
     #   @return [Hash<String, String>]
-    ActiveContext = ::Struct.new(
-      :name,
-      :time_to_live,
-      :context_attributes,
-      keyword_init: true
-    ) do
+    class ActiveContext
       include Hearth::Structure
+
+      MEMBERS = %i[
+        name
+        time_to_live
+        context_attributes
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The time that a context is active. You can specify the time to live
@@ -75,12 +81,15 @@ module AWS::SDK::LexRuntimeV2
     #   <p>The number of turns that the context is active. You can specify up
     #            to 20 turns. Each request and response from the bot is a turn.</p>
     #   @return [Integer]
-    ActiveContextTimeToLive = ::Struct.new(
-      :time_to_live_in_seconds,
-      :turns_to_live,
-      keyword_init: true
-    ) do
+    class ActiveContextTimeToLive
       include Hearth::Structure
+
+      MEMBERS = %i[
+        time_to_live_in_seconds
+        turns_to_live
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents a chunk of audio sent from the client application to
@@ -113,14 +122,17 @@ module AWS::SDK::LexRuntimeV2
     #   <p>A timestamp set by the client of the date and time that the event
     #            was sent to Amazon Lex V2.</p>
     #   @return [Integer]
-    AudioInputEvent = ::Struct.new(
-      :audio_chunk,
-      :content_type,
-      :event_id,
-      :client_timestamp_millis,
-      keyword_init: true
-    ) do
+    class AudioInputEvent
       include Hearth::Structure
+
+      MEMBERS = %i[
+        audio_chunk
+        content_type
+        event_id
+        client_timestamp_millis
+      ].freeze
+
+      attr_accessor(*MEMBERS)
 
       private
 
@@ -152,13 +164,16 @@ module AWS::SDK::LexRuntimeV2
     #            and incremented for each event sent by Amazon Lex V2 in the current
     #            session.</p>
     #   @return [String]
-    AudioResponseEvent = ::Struct.new(
-      :audio_chunk,
-      :content_type,
-      :event_id,
-      keyword_init: true
-    ) do
+    class AudioResponseEvent
       include Hearth::Structure
+
+      MEMBERS = %i[
+        audio_chunk
+        content_type
+        event_id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p></p>
@@ -167,11 +182,14 @@ module AWS::SDK::LexRuntimeV2
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    BadGatewayException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class BadGatewayException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>A button that appears on a response card show to the user.</p>
@@ -185,12 +203,15 @@ module AWS::SDK::LexRuntimeV2
     # @!attribute value
     #   <p>The value returned to Amazon Lex V2 when a user chooses the button.</p>
     #   @return [String]
-    Button = ::Struct.new(
-      :text,
-      :value,
-      keyword_init: true
-    ) do
+    class Button
       include Hearth::Structure
+
+      MEMBERS = %i[
+        text
+        value
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Provides a score that indicates the confidence that Amazon Lex V2 has that
@@ -203,11 +224,14 @@ module AWS::SDK::LexRuntimeV2
     #            satisfies the user's intent. Ranges between 0.00 and 1.00. Higher
     #            scores indicate higher confidence.</p>
     #   @return [Float]
-    ConfidenceScore = ::Struct.new(
-      :score,
-      keyword_init: true
-    ) do
+    class ConfidenceScore
       include Hearth::Structure
+
+      MEMBERS = %i[
+        score
+      ].freeze
+
+      attr_accessor(*MEMBERS)
 
       private
 
@@ -309,17 +333,20 @@ module AWS::SDK::LexRuntimeV2
     #   <p>A timestamp set by the client of the date and time that the event
     #            was sent to Amazon Lex V2.</p>
     #   @return [Integer]
-    ConfigurationEvent = ::Struct.new(
-      :request_attributes,
-      :response_content_type,
-      :session_state,
-      :welcome_messages,
-      :disable_playback,
-      :event_id,
-      :client_timestamp_millis,
-      keyword_init: true
-    ) do
+    class ConfigurationEvent
       include Hearth::Structure
+
+      MEMBERS = %i[
+        request_attributes
+        response_content_type
+        session_state
+        welcome_messages
+        disable_playback
+        event_id
+        client_timestamp_millis
+      ].freeze
+
+      attr_accessor(*MEMBERS)
 
       private
 
@@ -346,11 +373,14 @@ module AWS::SDK::LexRuntimeV2
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    ConflictException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class ConflictException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for ConversationMode
@@ -381,16 +411,19 @@ module AWS::SDK::LexRuntimeV2
     #   <p>A timestamp set by the client of the date and time that the event
     #            was sent to Amazon Lex V2.</p>
     #   @return [Integer]
-    DTMFInputEvent = ::Struct.new(
-      :input_character,
-      :event_id,
-      :client_timestamp_millis,
-      keyword_init: true
-    ) do
+    class DTMFInputEvent
       include Hearth::Structure
 
+      MEMBERS = %i[
+        input_character
+        event_id
+        client_timestamp_millis
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::LexRuntimeV2::Types::DTMFInputEvent "\
+        "#<AWS::SDK::LexRuntimeV2::Types::DTMFInputEvent "\
           "input_character=\"[SENSITIVE]\", "\
           "event_id=#{event_id || 'nil'}, "\
           "client_timestamp_millis=#{client_timestamp_millis || 'nil'}>"
@@ -424,14 +457,17 @@ module AWS::SDK::LexRuntimeV2
     # @!attribute session_id
     #   <p>The identifier of the session to delete.</p>
     #   @return [String]
-    DeleteSessionInput = ::Struct.new(
-      :bot_id,
-      :bot_alias_id,
-      :locale_id,
-      :session_id,
-      keyword_init: true
-    ) do
+    class DeleteSessionInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bot_id
+        bot_alias_id
+        locale_id
+        session_id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -453,14 +489,17 @@ module AWS::SDK::LexRuntimeV2
     # @!attribute session_id
     #   <p>The identifier of the deleted session.</p>
     #   @return [String]
-    DeleteSessionOutput = ::Struct.new(
-      :bot_id,
-      :bot_alias_id,
-      :locale_id,
-      :session_id,
-      keyword_init: true
-    ) do
+    class DeleteSessionOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bot_id
+        bot_alias_id
+        locale_id
+        session_id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p></p>
@@ -469,11 +508,14 @@ module AWS::SDK::LexRuntimeV2
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    DependencyFailedException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class DependencyFailedException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The next action that Amazon Lex V2 should take.</p>
@@ -541,14 +583,17 @@ module AWS::SDK::LexRuntimeV2
     #   <p>The name of the constituent sub slot of the composite slot
     #         specified in slotToElicit that should be elicited from the user.</p>
     #   @return [ElicitSubSlot]
-    DialogAction = ::Struct.new(
-      :type,
-      :slot_to_elicit,
-      :slot_elicitation_style,
-      :sub_slot_to_elicit,
-      keyword_init: true
-    ) do
+    class DialogAction
       include Hearth::Structure
+
+      MEMBERS = %i[
+        type
+        slot_to_elicit
+        slot_elicitation_style
+        sub_slot_to_elicit
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for DialogActionType
@@ -581,12 +626,15 @@ module AWS::SDK::LexRuntimeV2
     #   <p>A timestamp set by the client of the date and time that the event
     #            was sent to Amazon Lex V2.</p>
     #   @return [Integer]
-    DisconnectionEvent = ::Struct.new(
-      :event_id,
-      :client_timestamp_millis,
-      keyword_init: true
-    ) do
+    class DisconnectionEvent
       include Hearth::Structure
+
+      MEMBERS = %i[
+        event_id
+        client_timestamp_millis
+      ].freeze
+
+      attr_accessor(*MEMBERS)
 
       private
 
@@ -608,12 +656,15 @@ module AWS::SDK::LexRuntimeV2
     # @!attribute sub_slot_to_elicit
     #   <p>The field is not supported.</p>
     #   @return [ElicitSubSlot]
-    ElicitSubSlot = ::Struct.new(
-      :name,
-      :sub_slot_to_elicit,
-      keyword_init: true
-    ) do
+    class ElicitSubSlot
       include Hearth::Structure
+
+      MEMBERS = %i[
+        name
+        sub_slot_to_elicit
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -635,14 +686,17 @@ module AWS::SDK::LexRuntimeV2
     # @!attribute session_id
     #   <p>The identifier of the session to return.</p>
     #   @return [String]
-    GetSessionInput = ::Struct.new(
-      :bot_id,
-      :bot_alias_id,
-      :locale_id,
-      :session_id,
-      keyword_init: true
-    ) do
+    class GetSessionInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bot_id
+        bot_alias_id
+        locale_id
+        session_id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -674,14 +728,17 @@ module AWS::SDK::LexRuntimeV2
     #            <p>You can use this to determine the progress of the conversation and
     #            what the next action might be.</p>
     #   @return [SessionState]
-    GetSessionOutput = ::Struct.new(
-      :session_id,
-      :messages,
-      :interpretations,
-      :session_state,
-      keyword_init: true
-    ) do
+    class GetSessionOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        session_id
+        messages
+        interpretations
+        session_state
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Event that Amazon Lex V2 sends to indicate that the stream is still open
@@ -695,11 +752,14 @@ module AWS::SDK::LexRuntimeV2
     #            and incremented for each event sent by Amazon Lex V2 in the current
     #            session.</p>
     #   @return [String]
-    HeartbeatEvent = ::Struct.new(
-      :event_id,
-      keyword_init: true
-    ) do
+    class HeartbeatEvent
       include Hearth::Structure
+
+      MEMBERS = %i[
+        event_id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>A card that is shown to the user by a messaging platform. You define
@@ -731,14 +791,17 @@ module AWS::SDK::LexRuntimeV2
     #               arrangement of the buttons is determined by the platform that displays
     #               the button.</p>
     #   @return [Array<Button>]
-    ImageResponseCard = ::Struct.new(
-      :title,
-      :subtitle,
-      :image_url,
-      :buttons,
-      keyword_init: true
-    ) do
+    class ImageResponseCard
       include Hearth::Structure
+
+      MEMBERS = %i[
+        title
+        subtitle
+        image_url
+        buttons
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for InputMode
@@ -799,14 +862,17 @@ module AWS::SDK::LexRuntimeV2
     #   <p>Indicates whether the intent has been <code>Confirmed</code>, <code>Denied</code>, or <code>None</code> if the confirmation stage has not yet been reached.</p>
     #   Enum, one of: ["Confirmed", "Denied", "None"]
     #   @return [String]
-    Intent = ::Struct.new(
-      :name,
-      :slots,
-      :state,
-      :confirmation_state,
-      keyword_init: true
-    ) do
+    class Intent
       include Hearth::Structure
+
+      MEMBERS = %i[
+        name
+        slots
+        state
+        confirmation_state
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Contains the current state of the conversation between the client
@@ -850,17 +916,20 @@ module AWS::SDK::LexRuntimeV2
     # @!attribute recognized_bot_member
     #   <p>The bot member that is processing the intent.</p>
     #   @return [RecognizedBotMember]
-    IntentResultEvent = ::Struct.new(
-      :input_mode,
-      :interpretations,
-      :session_state,
-      :request_attributes,
-      :session_id,
-      :event_id,
-      :recognized_bot_member,
-      keyword_init: true
-    ) do
+    class IntentResultEvent
       include Hearth::Structure
+
+      MEMBERS = %i[
+        input_mode
+        interpretations
+        session_state
+        request_attributes
+        session_id
+        event_id
+        recognized_bot_member
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for IntentState
@@ -884,11 +953,14 @@ module AWS::SDK::LexRuntimeV2
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    InternalServerException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class InternalServerException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>An object containing information about an intent that Amazon Lex V2 determined might satisfy the user's utterance.
@@ -921,14 +993,17 @@ module AWS::SDK::LexRuntimeV2
     #   <p>Specifies the service that interpreted the input.</p>
     #   Enum, one of: ["Bedrock", "Lex"]
     #   @return [String]
-    Interpretation = ::Struct.new(
-      :nlu_confidence,
-      :sentiment_response,
-      :intent,
-      :interpretation_source,
-      keyword_init: true
-    ) do
+    class Interpretation
       include Hearth::Structure
+
+      MEMBERS = %i[
+        nlu_confidence
+        sentiment_response
+        intent
+        interpretation_source
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for InterpretationSource
@@ -957,16 +1032,19 @@ module AWS::SDK::LexRuntimeV2
     #            <p>When you use a response card, the response from the user is
     #               constrained to the text associated with a button on the card.</p>
     #   @return [ImageResponseCard]
-    Message = ::Struct.new(
-      :content,
-      :content_type,
-      :image_response_card,
-      keyword_init: true
-    ) do
+    class Message
       include Hearth::Structure
 
+      MEMBERS = %i[
+        content
+        content_type
+        image_response_card
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::LexRuntimeV2::Types::Message "\
+        "#<AWS::SDK::LexRuntimeV2::Types::Message "\
           "content=\"[SENSITIVE]\", "\
           "content_type=#{content_type || 'nil'}, "\
           "image_response_card=#{image_response_card || 'nil'}>"
@@ -999,12 +1077,15 @@ module AWS::SDK::LexRuntimeV2
     #   <p>A timestamp set by the client of the date and time that the event
     #            was sent to Amazon Lex V2.</p>
     #   @return [Integer]
-    PlaybackCompletionEvent = ::Struct.new(
-      :event_id,
-      :client_timestamp_millis,
-      keyword_init: true
-    ) do
+    class PlaybackCompletionEvent
       include Hearth::Structure
+
+      MEMBERS = %i[
+        event_id
+        client_timestamp_millis
+      ].freeze
+
+      attr_accessor(*MEMBERS)
 
       private
 
@@ -1040,13 +1121,16 @@ module AWS::SDK::LexRuntimeV2
     #            and incremented for each event sent by Amazon Lex V2 in the current
     #            session.</p>
     #   @return [String]
-    PlaybackInterruptionEvent = ::Struct.new(
-      :event_reason,
-      :caused_by_event_id,
-      :event_id,
-      keyword_init: true
-    ) do
+    class PlaybackInterruptionEvent
       include Hearth::Structure
+
+      MEMBERS = %i[
+        event_reason
+        caused_by_event_id
+        event_id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for PlaybackInterruptionReason
@@ -1108,18 +1192,21 @@ module AWS::SDK::LexRuntimeV2
     #               </li>
     #            </ul>
     #   @return [String]
-    PutSessionInput = ::Struct.new(
-      :bot_id,
-      :bot_alias_id,
-      :locale_id,
-      :session_id,
-      :messages,
-      :session_state,
-      :request_attributes,
-      :response_content_type,
-      keyword_init: true
-    ) do
+    class PutSessionInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bot_id
+        bot_alias_id
+        locale_id
+        session_id
+        messages
+        session_state
+        request_attributes
+        response_content_type
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1129,7 +1216,7 @@ module AWS::SDK::LexRuntimeV2
     #   @option params [String] :session_state
     #   @option params [String] :request_attributes
     #   @option params [String] :session_id
-    #   @option params [String] :audio_stream
+    #   @option params [IO] :audio_stream
     # @!attribute content_type
     #   <p>The type of response. Same as the type specified in the
     #               <code>responseContentType</code> field in the request.</p>
@@ -1156,23 +1243,26 @@ module AWS::SDK::LexRuntimeV2
     # @!attribute audio_stream
     #   <p>If the requested content type was audio, the audio version of the
     #            message to convey to the user.</p>
-    #   @return [String]
-    PutSessionOutput = ::Struct.new(
-      :content_type,
-      :messages,
-      :session_state,
-      :request_attributes,
-      :session_id,
-      :audio_stream,
-      keyword_init: true
-    ) do
+    #   @return [IO]
+    class PutSessionOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        content_type
+        messages
+        session_state
+        request_attributes
+        session_id
+        audio_stream
+      ].freeze
+
+      attr_accessor(*MEMBERS)
 
       private
 
       def _defaults
         {
-          audio_stream: ""
+          audio_stream: StringIO.new("")
         }
       end
     end
@@ -1213,20 +1303,23 @@ module AWS::SDK::LexRuntimeV2
     #            attributes. Don't create any request attributes with the prefix
     #               <code>x-amz-lex:</code>.</p>
     #   @return [Hash<String, String>]
-    RecognizeTextInput = ::Struct.new(
-      :bot_id,
-      :bot_alias_id,
-      :locale_id,
-      :session_id,
-      :text,
-      :session_state,
-      :request_attributes,
-      keyword_init: true
-    ) do
+    class RecognizeTextInput
       include Hearth::Structure
 
+      MEMBERS = %i[
+        bot_id
+        bot_alias_id
+        locale_id
+        session_id
+        text
+        session_state
+        request_attributes
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::LexRuntimeV2::Types::RecognizeTextInput "\
+        "#<AWS::SDK::LexRuntimeV2::Types::RecognizeTextInput "\
           "bot_id=#{bot_id || 'nil'}, "\
           "bot_alias_id=#{bot_alias_id || 'nil'}, "\
           "locale_id=#{locale_id || 'nil'}, "\
@@ -1273,16 +1366,19 @@ module AWS::SDK::LexRuntimeV2
     # @!attribute recognized_bot_member
     #   <p>The bot member that recognized the text.</p>
     #   @return [RecognizedBotMember]
-    RecognizeTextOutput = ::Struct.new(
-      :messages,
-      :session_state,
-      :interpretations,
-      :request_attributes,
-      :session_id,
-      :recognized_bot_member,
-      keyword_init: true
-    ) do
+    class RecognizeTextOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        messages
+        session_state
+        interpretations
+        request_attributes
+        session_id
+        recognized_bot_member
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1295,7 +1391,7 @@ module AWS::SDK::LexRuntimeV2
     #   @option params [String] :request_attributes
     #   @option params [String] :request_content_type
     #   @option params [String] :response_content_type
-    #   @option params [String] :input_stream
+    #   @option params [IO] :input_stream
     # @!attribute bot_id
     #   <p>The identifier of the bot that should receive the request.</p>
     #   @return [String]
@@ -1410,23 +1506,26 @@ module AWS::SDK::LexRuntimeV2
     # @!attribute input_stream
     #   <p>User input in PCM or Opus audio format or text format as described
     #            in the <code>requestContentType</code> parameter.</p>
-    #   @return [String]
-    RecognizeUtteranceInput = ::Struct.new(
-      :bot_id,
-      :bot_alias_id,
-      :locale_id,
-      :session_id,
-      :session_state,
-      :request_attributes,
-      :request_content_type,
-      :response_content_type,
-      :input_stream,
-      keyword_init: true
-    ) do
+    #   @return [IO]
+    class RecognizeUtteranceInput
       include Hearth::Structure
 
+      MEMBERS = %i[
+        bot_id
+        bot_alias_id
+        locale_id
+        session_id
+        session_state
+        request_attributes
+        request_content_type
+        response_content_type
+        input_stream
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::LexRuntimeV2::Types::RecognizeUtteranceInput "\
+        "#<AWS::SDK::LexRuntimeV2::Types::RecognizeUtteranceInput "\
           "bot_id=#{bot_id || 'nil'}, "\
           "bot_alias_id=#{bot_alias_id || 'nil'}, "\
           "locale_id=#{locale_id || 'nil'}, "\
@@ -1449,7 +1548,7 @@ module AWS::SDK::LexRuntimeV2
     #   @option params [String] :request_attributes
     #   @option params [String] :session_id
     #   @option params [String] :input_transcript
-    #   @option params [String] :audio_stream
+    #   @option params [IO] :audio_stream
     #   @option params [String] :recognized_bot_member
     # @!attribute input_mode
     #   <p>Indicates whether the input mode to the operation was text, speech, or from a touch-tone keypad.
@@ -1522,30 +1621,33 @@ module AWS::SDK::LexRuntimeV2
     #            Lambda function successfully fulfilled the intent, and sent a message
     #            to convey to the user. Then Amazon Lex V2 sends that message in the
     #            response.</p>
-    #   @return [String]
+    #   @return [IO]
     # @!attribute recognized_bot_member
     #   <p>The bot member that recognized the utterance.</p>
     #   @return [String]
-    RecognizeUtteranceOutput = ::Struct.new(
-      :input_mode,
-      :content_type,
-      :messages,
-      :interpretations,
-      :session_state,
-      :request_attributes,
-      :session_id,
-      :input_transcript,
-      :audio_stream,
-      :recognized_bot_member,
-      keyword_init: true
-    ) do
+    class RecognizeUtteranceOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        input_mode
+        content_type
+        messages
+        interpretations
+        session_state
+        request_attributes
+        session_id
+        input_transcript
+        audio_stream
+        recognized_bot_member
+      ].freeze
+
+      attr_accessor(*MEMBERS)
 
       private
 
       def _defaults
         {
-          audio_stream: ""
+          audio_stream: StringIO.new("")
         }
       end
     end
@@ -1561,12 +1663,15 @@ module AWS::SDK::LexRuntimeV2
     # @!attribute bot_name
     #   <p>The name of the bot member that processes the request.</p>
     #   @return [String]
-    RecognizedBotMember = ::Struct.new(
-      :bot_id,
-      :bot_name,
-      keyword_init: true
-    ) do
+    class RecognizedBotMember
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bot_id
+        bot_name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p></p>
@@ -1575,11 +1680,14 @@ module AWS::SDK::LexRuntimeV2
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    ResourceNotFoundException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class ResourceNotFoundException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Provides an array of phrases that should be given preference when
@@ -1599,12 +1707,15 @@ module AWS::SDK::LexRuntimeV2
     #         a mechanism to add granular sub slot phrases. Only sub slot hints are supported for composite slots.
     #         The intent name, composite slot name and the constituent sub slot names must exist.</p>
     #   @return [Hash<String, RuntimeHintDetails>]
-    RuntimeHintDetails = ::Struct.new(
-      :runtime_hint_values,
-      :sub_slot_hints,
-      keyword_init: true
-    ) do
+    class RuntimeHintDetails
       include Hearth::Structure
+
+      MEMBERS = %i[
+        runtime_hint_values
+        sub_slot_hints
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Provides the phrase that Amazon Lex V2 should look for in the user's input
@@ -1616,11 +1727,14 @@ module AWS::SDK::LexRuntimeV2
     #   <p>The phrase that Amazon Lex V2 should look for in the user's input to the
     #            bot.</p>
     #   @return [String]
-    RuntimeHintValue = ::Struct.new(
-      :phrase,
-      keyword_init: true
-    ) do
+    class RuntimeHintValue
       include Hearth::Structure
+
+      MEMBERS = %i[
+        phrase
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>You can provide Amazon Lex V2 with hints to the phrases that a customer is
@@ -1644,11 +1758,14 @@ module AWS::SDK::LexRuntimeV2
     #               accuracy</a>.</p>
     #            <p>The intent name and slot name must exist.</p>
     #   @return [Hash<String, Hash<String, RuntimeHintDetails>>]
-    RuntimeHints = ::Struct.new(
-      :slot_hints,
-      keyword_init: true
-    ) do
+    class RuntimeHints
       include Hearth::Structure
+
+      MEMBERS = %i[
+        slot_hints
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Provides information about the sentiment expressed in a user's
@@ -1671,12 +1788,15 @@ module AWS::SDK::LexRuntimeV2
     # @!attribute sentiment_score
     #   <p>The individual sentiment responses for the utterance.</p>
     #   @return [SentimentScore]
-    SentimentResponse = ::Struct.new(
-      :sentiment,
-      :sentiment_score,
-      keyword_init: true
-    ) do
+    class SentimentResponse
       include Hearth::Structure
+
+      MEMBERS = %i[
+        sentiment
+        sentiment_score
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The individual sentiment responses for the utterance.</p>
@@ -1702,14 +1822,17 @@ module AWS::SDK::LexRuntimeV2
     #   <p>The level of confidence that Amazon Comprehend has in the accuracy
     #            of its detection of the <code>MIXED</code> sentiment.</p>
     #   @return [Float]
-    SentimentScore = ::Struct.new(
-      :positive,
-      :negative,
-      :neutral,
-      :mixed,
-      keyword_init: true
-    ) do
+    class SentimentScore
       include Hearth::Structure
+
+      MEMBERS = %i[
+        positive
+        negative
+        neutral
+        mixed
+      ].freeze
+
+      attr_accessor(*MEMBERS)
 
       private
 
@@ -1767,16 +1890,19 @@ module AWS::SDK::LexRuntimeV2
     #   <p>Hints for phrases that a customer is likely to use for a slot. Amazon Lex V2
     #            uses the hints to help determine the correct value of a slot.</p>
     #   @return [RuntimeHints]
-    SessionState = ::Struct.new(
-      :dialog_action,
-      :intent,
-      :active_contexts,
-      :session_attributes,
-      :originating_request_id,
-      :runtime_hints,
-      keyword_init: true
-    ) do
+    class SessionState
       include Hearth::Structure
+
+      MEMBERS = %i[
+        dialog_action
+        intent
+        active_contexts
+        session_attributes
+        originating_request_id
+        runtime_hints
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for Shape
@@ -1793,7 +1919,7 @@ module AWS::SDK::LexRuntimeV2
     #   @param [Hash] params
     #   @option params [Value] :value
     #   @option params [String] :shape
-    #   @option params [Array<Slot>] :member_values
+    #   @option params [Array<Slot>] :values
     #   @option params [Hash<String, Slot>] :sub_slots
     # @!attribute value
     #   <p>The current value of the slot.</p>
@@ -1805,7 +1931,7 @@ module AWS::SDK::LexRuntimeV2
     #               <code>value</code> field contains a single value.</p>
     #   Enum, one of: ["Scalar", "List", "Composite"]
     #   @return [String]
-    # @!attribute member_values
+    # @!attribute values
     #   <p>A list of one or more values that the user provided for the slot.
     #            For example, if a for a slot that elicits pizza toppings, the values
     #            might be "pepperoni" and "pineapple." </p>
@@ -1813,14 +1939,17 @@ module AWS::SDK::LexRuntimeV2
     # @!attribute sub_slots
     #   <p>The constituent sub slots of a composite slot.</p>
     #   @return [Hash<String, Slot>]
-    Slot = ::Struct.new(
-      :value,
-      :shape,
-      :member_values,
-      :sub_slots,
-      keyword_init: true
-    ) do
+    class Slot
       include Hearth::Structure
+
+      MEMBERS = %i[
+        value
+        shape
+        values
+        sub_slots
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1856,16 +1985,19 @@ module AWS::SDK::LexRuntimeV2
     #   <p>Represents the stream of events to Amazon Lex V2 from your application. The
     #            events are encoded as HTTP/2 data frames.</p>
     #   @return [StartConversationRequestEventStream]
-    StartConversationInput = ::Struct.new(
-      :bot_id,
-      :bot_alias_id,
-      :locale_id,
-      :session_id,
-      :conversation_mode,
-      :request_event_stream,
-      keyword_init: true
-    ) do
+    class StartConversationInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bot_id
+        bot_alias_id
+        locale_id
+        session_id
+        conversation_mode
+        request_event_stream
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1875,11 +2007,14 @@ module AWS::SDK::LexRuntimeV2
     #   <p>Represents the stream of events from Amazon Lex V2 to your application. The
     #            events are encoded as HTTP/2 data frames.</p>
     #   @return [StartConversationResponseEventStream]
-    StartConversationOutput = ::Struct.new(
-      :response_event_stream,
-      keyword_init: true
-    ) do
+    class StartConversationOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        response_event_stream
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents a stream of events between your application and
@@ -2208,16 +2343,19 @@ module AWS::SDK::LexRuntimeV2
     #   <p>A timestamp set by the client of the date and time that the event
     #            was sent to Amazon Lex V2.</p>
     #   @return [Integer]
-    TextInputEvent = ::Struct.new(
-      :text,
-      :event_id,
-      :client_timestamp_millis,
-      keyword_init: true
-    ) do
+    class TextInputEvent
       include Hearth::Structure
 
+      MEMBERS = %i[
+        text
+        event_id
+        client_timestamp_millis
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::LexRuntimeV2::Types::TextInputEvent "\
+        "#<AWS::SDK::LexRuntimeV2::Types::TextInputEvent "\
           "text=\"[SENSITIVE]\", "\
           "event_id=#{event_id || 'nil'}, "\
           "client_timestamp_millis=#{client_timestamp_millis || 'nil'}>"
@@ -2249,12 +2387,15 @@ module AWS::SDK::LexRuntimeV2
     #            and incremented for each event sent by Amazon Lex V2 in the current
     #            session.</p>
     #   @return [String]
-    TextResponseEvent = ::Struct.new(
-      :messages,
-      :event_id,
-      keyword_init: true
-    ) do
+    class TextResponseEvent
       include Hearth::Structure
+
+      MEMBERS = %i[
+        messages
+        event_id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p></p>
@@ -2263,11 +2404,14 @@ module AWS::SDK::LexRuntimeV2
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    ThrottlingException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class ThrottlingException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Event sent from Amazon Lex V2 to your client application that contains a
@@ -2285,12 +2429,15 @@ module AWS::SDK::LexRuntimeV2
     #            and incremented for each event sent by Amazon Lex V2 in the current
     #            session.</p>
     #   @return [String]
-    TranscriptEvent = ::Struct.new(
-      :transcript,
-      :event_id,
-      keyword_init: true
-    ) do
+    class TranscriptEvent
       include Hearth::Structure
+
+      MEMBERS = %i[
+        transcript
+        event_id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p></p>
@@ -2299,11 +2446,14 @@ module AWS::SDK::LexRuntimeV2
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    ValidationException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class ValidationException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Information about the value provided for a slot and Amazon Lex V2's interpretation.</p>
@@ -2321,13 +2471,16 @@ module AWS::SDK::LexRuntimeV2
     # @!attribute resolved_values
     #   <p>A list of values that Amazon Lex V2 determines are possible resolutions for the user input. The first value matches the <code>interpretedValue</code>.</p>
     #   @return [Array<String>]
-    Value = ::Struct.new(
-      :original_value,
-      :interpreted_value,
-      :resolved_values,
-      keyword_init: true
-    ) do
+    class Value
       include Hearth::Structure
+
+      MEMBERS = %i[
+        original_value
+        interpreted_value
+        resolved_values
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
   end

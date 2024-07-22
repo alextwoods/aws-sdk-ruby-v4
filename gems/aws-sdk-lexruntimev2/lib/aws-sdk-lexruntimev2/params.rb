@@ -621,7 +621,7 @@ module AWS::SDK::LexRuntimeV2
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.value = Value.build(params[:value], context: "#{context}[:value]") unless params[:value].nil?
         type.shape = params[:shape] unless params[:shape].nil?
-        type.member_values = Values.build(params[:member_values], context: "#{context}[:member_values]") unless params[:member_values].nil?
+        type.values = Values.build(params[:values], context: "#{context}[:values]") unless params[:values].nil?
         type.sub_slots = Slots.build(params[:sub_slots], context: "#{context}[:sub_slots]") unless params[:sub_slots].nil?
         type
       end

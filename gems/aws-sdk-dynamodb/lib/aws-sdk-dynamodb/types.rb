@@ -43,13 +43,16 @@ module AWS::SDK::DynamoDB
     #               applicable in the archival reason. If you wish to restore this backup to the same table
     #               name, you will need to delete the original table.</p>
     #   @return [String]
-    ArchivalSummary = ::Struct.new(
-      :archival_date_time,
-      :archival_reason,
-      :archival_backup_arn,
-      keyword_init: true
-    ) do
+    class ArchivalSummary
       include Hearth::Structure
+
+      MEMBERS = %i[
+        archival_date_time
+        archival_reason
+        archival_backup_arn
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for AttributeAction
@@ -88,12 +91,15 @@ module AWS::SDK::DynamoDB
     #            </ul>
     #   Enum, one of: ["S", "N", "B"]
     #   @return [String]
-    AttributeDefinition = ::Struct.new(
-      :attribute_name,
-      :attribute_type,
-      keyword_init: true
-    ) do
+    class AttributeDefinition
       include Hearth::Structure
+
+      MEMBERS = %i[
+        attribute_name
+        attribute_type
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the data for an attribute.</p>
@@ -380,12 +386,15 @@ module AWS::SDK::DynamoDB
     #            </ul>
     #   Enum, one of: ["ADD", "PUT", "DELETE"]
     #   @return [String]
-    AttributeValueUpdate = ::Struct.new(
-      :value,
-      :action,
-      keyword_init: true
-    ) do
+    class AttributeValueUpdate
       include Hearth::Structure
+
+      MEMBERS = %i[
+        value
+        action
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the properties of the scaling policy.</p>
@@ -399,12 +408,15 @@ module AWS::SDK::DynamoDB
     # @!attribute target_tracking_scaling_policy_configuration
     #   <p>Represents a target tracking scaling policy configuration.</p>
     #   @return [AutoScalingTargetTrackingScalingPolicyConfigurationDescription]
-    AutoScalingPolicyDescription = ::Struct.new(
-      :policy_name,
-      :target_tracking_scaling_policy_configuration,
-      keyword_init: true
-    ) do
+    class AutoScalingPolicyDescription
       include Hearth::Structure
+
+      MEMBERS = %i[
+        policy_name
+        target_tracking_scaling_policy_configuration
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the auto scaling policy to be modified.</p>
@@ -418,12 +430,15 @@ module AWS::SDK::DynamoDB
     # @!attribute target_tracking_scaling_policy_configuration
     #   <p>Represents a target tracking scaling policy configuration.</p>
     #   @return [AutoScalingTargetTrackingScalingPolicyConfigurationUpdate]
-    AutoScalingPolicyUpdate = ::Struct.new(
-      :policy_name,
-      :target_tracking_scaling_policy_configuration,
-      keyword_init: true
-    ) do
+    class AutoScalingPolicyUpdate
       include Hearth::Structure
+
+      MEMBERS = %i[
+        policy_name
+        target_tracking_scaling_policy_configuration
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the auto scaling settings for a global table or global secondary
@@ -452,15 +467,18 @@ module AWS::SDK::DynamoDB
     # @!attribute scaling_policies
     #   <p>Information about the scaling policies.</p>
     #   @return [Array<AutoScalingPolicyDescription>]
-    AutoScalingSettingsDescription = ::Struct.new(
-      :minimum_units,
-      :maximum_units,
-      :auto_scaling_disabled,
-      :auto_scaling_role_arn,
-      :scaling_policies,
-      keyword_init: true
-    ) do
+    class AutoScalingSettingsDescription
       include Hearth::Structure
+
+      MEMBERS = %i[
+        minimum_units
+        maximum_units
+        auto_scaling_disabled
+        auto_scaling_role_arn
+        scaling_policies
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the auto scaling settings to be modified for a global table or global
@@ -490,15 +508,18 @@ module AWS::SDK::DynamoDB
     #   <p>The scaling policy to apply for scaling target global table or global secondary index
     #               capacity units.</p>
     #   @return [AutoScalingPolicyUpdate]
-    AutoScalingSettingsUpdate = ::Struct.new(
-      :minimum_units,
-      :maximum_units,
-      :auto_scaling_disabled,
-      :auto_scaling_role_arn,
-      :scaling_policy_update,
-      keyword_init: true
-    ) do
+    class AutoScalingSettingsUpdate
       include Hearth::Structure
+
+      MEMBERS = %i[
+        minimum_units
+        maximum_units
+        auto_scaling_disabled
+        auto_scaling_role_arn
+        scaling_policy_update
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the properties of a target tracking scaling policy.</p>
@@ -533,14 +554,17 @@ module AWS::SDK::DynamoDB
     #   <p>The target value for the metric. The range is 8.515920e-109 to 1.174271e+108 (Base 10)
     #               or 2e-360 to 2e360 (Base 2).</p>
     #   @return [Float]
-    AutoScalingTargetTrackingScalingPolicyConfigurationDescription = ::Struct.new(
-      :disable_scale_in,
-      :scale_in_cooldown,
-      :scale_out_cooldown,
-      :target_value,
-      keyword_init: true
-    ) do
+    class AutoScalingTargetTrackingScalingPolicyConfigurationDescription
       include Hearth::Structure
+
+      MEMBERS = %i[
+        disable_scale_in
+        scale_in_cooldown
+        scale_out_cooldown
+        target_value
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the settings of a target tracking scaling policy that will be
@@ -576,14 +600,17 @@ module AWS::SDK::DynamoDB
     #   <p>The target value for the metric. The range is 8.515920e-109 to 1.174271e+108 (Base 10)
     #               or 2e-360 to 2e360 (Base 2).</p>
     #   @return [Float]
-    AutoScalingTargetTrackingScalingPolicyConfigurationUpdate = ::Struct.new(
-      :disable_scale_in,
-      :scale_in_cooldown,
-      :scale_out_cooldown,
-      :target_value,
-      keyword_init: true
-    ) do
+    class AutoScalingTargetTrackingScalingPolicyConfigurationUpdate
       include Hearth::Structure
+
+      MEMBERS = %i[
+        disable_scale_in
+        scale_in_cooldown
+        scale_out_cooldown
+        target_value
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Contains the description of the backup created for the table.</p>
@@ -602,13 +629,16 @@ module AWS::SDK::DynamoDB
     #   <p>Contains the details of the features enabled on the table when the backup was created.
     #               For example, LSIs, GSIs, streams, TTL.</p>
     #   @return [SourceTableFeatureDetails]
-    BackupDescription = ::Struct.new(
-      :backup_details,
-      :source_table_details,
-      :source_table_feature_details,
-      keyword_init: true
-    ) do
+    class BackupDescription
       include Hearth::Structure
+
+      MEMBERS = %i[
+        backup_details
+        source_table_details
+        source_table_feature_details
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Contains the details of the backup created for the table.</p>
@@ -665,17 +695,20 @@ module AWS::SDK::DynamoDB
     #               expire. This <code>SYSTEM</code> on-demand backup expires automatically 35 days after
     #               its creation.</p>
     #   @return [Time]
-    BackupDetails = ::Struct.new(
-      :backup_arn,
-      :backup_name,
-      :backup_size_bytes,
-      :backup_status,
-      :backup_type,
-      :backup_creation_date_time,
-      :backup_expiry_date_time,
-      keyword_init: true
-    ) do
+    class BackupDetails
       include Hearth::Structure
+
+      MEMBERS = %i[
+        backup_arn
+        backup_name
+        backup_size_bytes
+        backup_status
+        backup_type
+        backup_creation_date_time
+        backup_expiry_date_time
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>There is another ongoing conflicting backup control plane operation on the table.
@@ -685,11 +718,14 @@ module AWS::SDK::DynamoDB
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    BackupInUseException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class BackupInUseException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Backup not found for the given BackupARN. </p>
@@ -698,11 +734,14 @@ module AWS::SDK::DynamoDB
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    BackupNotFoundException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class BackupNotFoundException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for BackupStatus
@@ -779,20 +818,23 @@ module AWS::SDK::DynamoDB
     # @!attribute backup_size_bytes
     #   <p>Size of the backup in bytes.</p>
     #   @return [Integer]
-    BackupSummary = ::Struct.new(
-      :table_name,
-      :table_id,
-      :table_arn,
-      :backup_arn,
-      :backup_name,
-      :backup_creation_date_time,
-      :backup_expiry_date_time,
-      :backup_status,
-      :backup_type,
-      :backup_size_bytes,
-      keyword_init: true
-    ) do
+    class BackupSummary
       include Hearth::Structure
+
+      MEMBERS = %i[
+        table_name
+        table_id
+        table_arn
+        backup_arn
+        backup_name
+        backup_creation_date_time
+        backup_expiry_date_time
+        backup_status
+        backup_type
+        backup_size_bytes
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for BackupType
@@ -850,12 +892,15 @@ module AWS::SDK::DynamoDB
     #            </ul>
     #   Enum, one of: ["INDEXES", "TOTAL", "NONE"]
     #   @return [String]
-    BatchExecuteStatementInput = ::Struct.new(
-      :statements,
-      :return_consumed_capacity,
-      keyword_init: true
-    ) do
+    class BatchExecuteStatementInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        statements
+        return_consumed_capacity
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -870,12 +915,15 @@ module AWS::SDK::DynamoDB
     #   <p>The capacity units consumed by the entire operation. The values of the list are
     #               ordered according to the ordering of the statements.</p>
     #   @return [Array<ConsumedCapacity>]
-    BatchExecuteStatementOutput = ::Struct.new(
-      :responses,
-      :consumed_capacity,
-      keyword_init: true
-    ) do
+    class BatchExecuteStatementOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        responses
+        consumed_capacity
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the input of a <code>BatchGetItem</code> operation.</p>
@@ -1012,12 +1060,15 @@ module AWS::SDK::DynamoDB
     #            </ul>
     #   Enum, one of: ["INDEXES", "TOTAL", "NONE"]
     #   @return [String]
-    BatchGetItemInput = ::Struct.new(
-      :request_items,
-      :return_consumed_capacity,
-      keyword_init: true
-    ) do
+    class BatchGetItemInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        request_items
+        return_consumed_capacity
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the output of a <code>BatchGetItem</code> operation.</p>
@@ -1076,13 +1127,16 @@ module AWS::SDK::DynamoDB
     #               </li>
     #            </ul>
     #   @return [Array<ConsumedCapacity>]
-    BatchGetItemOutput = ::Struct.new(
-      :responses,
-      :unprocessed_keys,
-      :consumed_capacity,
-      keyword_init: true
-    ) do
+    class BatchGetItemOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        responses
+        unprocessed_keys
+        consumed_capacity
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p> An error associated with a statement in a PartiQL batch that was run. </p>
@@ -1101,13 +1155,16 @@ module AWS::SDK::DynamoDB
     # @!attribute item
     #   <p>The item which caused the condition check to fail. This will be set if ReturnValuesOnConditionCheckFailure is specified as <code>ALL_OLD</code>.</p>
     #   @return [Hash<String, AttributeValue>]
-    BatchStatementError = ::Struct.new(
-      :code,
-      :message,
-      :item,
-      keyword_init: true
-    ) do
+    class BatchStatementError
       include Hearth::Structure
+
+      MEMBERS = %i[
+        code
+        message
+        item
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for BatchStatementErrorCodeEnum
@@ -1159,14 +1216,17 @@ module AWS::SDK::DynamoDB
     #               units are consumed.</p>
     #   Enum, one of: ["ALL_OLD", "NONE"]
     #   @return [String]
-    BatchStatementRequest = ::Struct.new(
-      :statement,
-      :parameters,
-      :consistent_read,
-      :return_values_on_condition_check_failure,
-      keyword_init: true
-    ) do
+    class BatchStatementRequest
       include Hearth::Structure
+
+      MEMBERS = %i[
+        statement
+        parameters
+        consistent_read
+        return_values_on_condition_check_failure
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p> A PartiQL batch statement response.. </p>
@@ -1184,13 +1244,16 @@ module AWS::SDK::DynamoDB
     # @!attribute item
     #   <p> A DynamoDB item associated with a BatchStatementResponse </p>
     #   @return [Hash<String, AttributeValue>]
-    BatchStatementResponse = ::Struct.new(
-      :error,
-      :table_name,
-      :item,
-      keyword_init: true
-    ) do
+    class BatchStatementResponse
       include Hearth::Structure
+
+      MEMBERS = %i[
+        error
+        table_name
+        item
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the input of a <code>BatchWriteItem</code> operation.</p>
@@ -1279,13 +1342,16 @@ module AWS::SDK::DynamoDB
     #               default), no statistics are returned.</p>
     #   Enum, one of: ["SIZE", "NONE"]
     #   @return [String]
-    BatchWriteItemInput = ::Struct.new(
-      :request_items,
-      :return_consumed_capacity,
-      :return_item_collection_metrics,
-      keyword_init: true
-    ) do
+    class BatchWriteItemInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        request_items
+        return_consumed_capacity
+        return_item_collection_metrics
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the output of a <code>BatchWriteItem</code> operation.</p>
@@ -1382,13 +1448,16 @@ module AWS::SDK::DynamoDB
     #               </li>
     #            </ul>
     #   @return [Array<ConsumedCapacity>]
-    BatchWriteItemOutput = ::Struct.new(
-      :unprocessed_items,
-      :item_collection_metrics,
-      :consumed_capacity,
-      keyword_init: true
-    ) do
+    class BatchWriteItemOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        unprocessed_items
+        item_collection_metrics
+        consumed_capacity
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for BillingMode
@@ -1432,12 +1501,15 @@ module AWS::SDK::DynamoDB
     #   <p>Represents the time when <code>PAY_PER_REQUEST</code> was last set as the read/write
     #               capacity mode.</p>
     #   @return [Time]
-    BillingModeSummary = ::Struct.new(
-      :billing_mode,
-      :last_update_to_pay_per_request_date_time,
-      keyword_init: true
-    ) do
+    class BillingModeSummary
       include Hearth::Structure
+
+      MEMBERS = %i[
+        billing_mode
+        last_update_to_pay_per_request_date_time
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>An ordered list of errors for each item in the request which caused the transaction to
@@ -1458,13 +1530,16 @@ module AWS::SDK::DynamoDB
     # @!attribute message
     #   <p>Cancellation reason message description.</p>
     #   @return [String]
-    CancellationReason = ::Struct.new(
-      :item,
-      :code,
-      :message,
-      keyword_init: true
-    ) do
+    class CancellationReason
       include Hearth::Structure
+
+      MEMBERS = %i[
+        item
+        code
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the amount of provisioned throughput capacity consumed on a table or an
@@ -1483,13 +1558,16 @@ module AWS::SDK::DynamoDB
     # @!attribute capacity_units
     #   <p>The total number of capacity units consumed on a table or an index.</p>
     #   @return [Float]
-    Capacity = ::Struct.new(
-      :read_capacity_units,
-      :write_capacity_units,
-      :capacity_units,
-      keyword_init: true
-    ) do
+    class Capacity
       include Hearth::Structure
+
+      MEMBERS = %i[
+        read_capacity_units
+        write_capacity_units
+        capacity_units
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for ComparisonOperator
@@ -1745,12 +1823,15 @@ module AWS::SDK::DynamoDB
     #                   Guide</i>.</p>
     #   Enum, one of: ["EQ", "NE", "IN", "LE", "LT", "GE", "GT", "BETWEEN", "NOT_NULL", "NULL", "CONTAINS", "NOT_CONTAINS", "BEGINS_WITH"]
     #   @return [String]
-    Condition = ::Struct.new(
-      :attribute_value_list,
-      :comparison_operator,
-      keyword_init: true
-    ) do
+    class Condition
       include Hearth::Structure
+
+      MEMBERS = %i[
+        attribute_value_list
+        comparison_operator
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents a request to perform a check that an item exists or to check the condition
@@ -1790,16 +1871,19 @@ module AWS::SDK::DynamoDB
     #               ALL_OLD.</p>
     #   Enum, one of: ["ALL_OLD", "NONE"]
     #   @return [String]
-    ConditionCheck = ::Struct.new(
-      :key,
-      :table_name,
-      :condition_expression,
-      :expression_attribute_names,
-      :expression_attribute_values,
-      :return_values_on_condition_check_failure,
-      keyword_init: true
-    ) do
+    class ConditionCheck
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key
+        table_name
+        condition_expression
+        expression_attribute_names
+        expression_attribute_values
+        return_values_on_condition_check_failure
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>A condition specified in the operation could not be evaluated.</p>
@@ -1813,12 +1897,15 @@ module AWS::SDK::DynamoDB
     # @!attribute item
     #   <p>Item which caused the <code>ConditionalCheckFailedException</code>.</p>
     #   @return [Hash<String, AttributeValue>]
-    ConditionalCheckFailedException = ::Struct.new(
-      :message,
-      :item,
-      keyword_init: true
-    ) do
+    class ConditionalCheckFailedException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+        item
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for ConditionalOperator
@@ -1865,17 +1952,20 @@ module AWS::SDK::DynamoDB
     #   <p>The amount of throughput consumed on each global index affected by the
     #               operation.</p>
     #   @return [Hash<String, Capacity>]
-    ConsumedCapacity = ::Struct.new(
-      :table_name,
-      :capacity_units,
-      :read_capacity_units,
-      :write_capacity_units,
-      :table,
-      :local_secondary_indexes,
-      :global_secondary_indexes,
-      keyword_init: true
-    ) do
+    class ConsumedCapacity
       include Hearth::Structure
+
+      MEMBERS = %i[
+        table_name
+        capacity_units
+        read_capacity_units
+        write_capacity_units
+        table
+        local_secondary_indexes
+        global_secondary_indexes
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the continuous backups and point in time recovery settings on the
@@ -1893,12 +1983,15 @@ module AWS::SDK::DynamoDB
     # @!attribute point_in_time_recovery_description
     #   <p>The description of the point in time recovery settings applied to the table.</p>
     #   @return [PointInTimeRecoveryDescription]
-    ContinuousBackupsDescription = ::Struct.new(
-      :continuous_backups_status,
-      :point_in_time_recovery_description,
-      keyword_init: true
-    ) do
+    class ContinuousBackupsDescription
       include Hearth::Structure
+
+      MEMBERS = %i[
+        continuous_backups_status
+        point_in_time_recovery_description
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for ContinuousBackupsStatus
@@ -1914,11 +2007,14 @@ module AWS::SDK::DynamoDB
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    ContinuousBackupsUnavailableException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class ContinuousBackupsUnavailableException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for ContributorInsightsAction
@@ -1958,13 +2054,16 @@ module AWS::SDK::DynamoDB
     #               if applicable.</p>
     #   Enum, one of: ["ENABLING", "ENABLED", "DISABLING", "DISABLED", "FAILED"]
     #   @return [String]
-    ContributorInsightsSummary = ::Struct.new(
-      :table_name,
-      :index_name,
-      :contributor_insights_status,
-      keyword_init: true
-    ) do
+    class ContributorInsightsSummary
       include Hearth::Structure
+
+      MEMBERS = %i[
+        table_name
+        index_name
+        contributor_insights_status
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1977,12 +2076,15 @@ module AWS::SDK::DynamoDB
     # @!attribute backup_name
     #   <p>Specified name for the backup.</p>
     #   @return [String]
-    CreateBackupInput = ::Struct.new(
-      :table_name,
-      :backup_name,
-      keyword_init: true
-    ) do
+    class CreateBackupInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        table_name
+        backup_name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1991,11 +2093,14 @@ module AWS::SDK::DynamoDB
     # @!attribute backup_details
     #   <p>Contains the details of the backup created for the table.</p>
     #   @return [BackupDetails]
-    CreateBackupOutput = ::Struct.new(
-      :backup_details,
-      keyword_init: true
-    ) do
+    class CreateBackupOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        backup_details
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents a new global secondary index to be added to an existing table.</p>
@@ -2023,14 +2128,17 @@ module AWS::SDK::DynamoDB
     #                   Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer
     #                   Guide</i>.</p>
     #   @return [ProvisionedThroughput]
-    CreateGlobalSecondaryIndexAction = ::Struct.new(
-      :index_name,
-      :key_schema,
-      :projection,
-      :provisioned_throughput,
-      keyword_init: true
-    ) do
+    class CreateGlobalSecondaryIndexAction
       include Hearth::Structure
+
+      MEMBERS = %i[
+        index_name
+        key_schema
+        projection
+        provisioned_throughput
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2043,12 +2151,15 @@ module AWS::SDK::DynamoDB
     # @!attribute replication_group
     #   <p>The Regions where the global table needs to be created.</p>
     #   @return [Array<Replica>]
-    CreateGlobalTableInput = ::Struct.new(
-      :global_table_name,
-      :replication_group,
-      keyword_init: true
-    ) do
+    class CreateGlobalTableInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        global_table_name
+        replication_group
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2057,11 +2168,14 @@ module AWS::SDK::DynamoDB
     # @!attribute global_table_description
     #   <p>Contains the details of the global table.</p>
     #   @return [GlobalTableDescription]
-    CreateGlobalTableOutput = ::Struct.new(
-      :global_table_description,
-      keyword_init: true
-    ) do
+    class CreateGlobalTableOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        global_table_description
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents a replica to be added.</p>
@@ -2071,11 +2185,14 @@ module AWS::SDK::DynamoDB
     # @!attribute region_name
     #   <p>The Region of the replica to be added.</p>
     #   @return [String]
-    CreateReplicaAction = ::Struct.new(
-      :region_name,
-      keyword_init: true
-    ) do
+    class CreateReplicaAction
       include Hearth::Structure
+
+      MEMBERS = %i[
+        region_name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents a replica to be created.</p>
@@ -2108,15 +2225,18 @@ module AWS::SDK::DynamoDB
     #               class.</p>
     #   Enum, one of: ["STANDARD", "STANDARD_INFREQUENT_ACCESS"]
     #   @return [String]
-    CreateReplicationGroupMemberAction = ::Struct.new(
-      :region_name,
-      :kms_master_key_id,
-      :provisioned_throughput_override,
-      :global_secondary_indexes,
-      :table_class_override,
-      keyword_init: true
-    ) do
+    class CreateReplicationGroupMemberAction
       include Hearth::Structure
+
+      MEMBERS = %i[
+        region_name
+        kms_master_key_id
+        provisioned_throughput_override
+        global_secondary_indexes
+        table_class_override
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the input of a <code>CreateTable</code> operation.</p>
@@ -2388,22 +2508,25 @@ module AWS::SDK::DynamoDB
     # @!attribute deletion_protection_enabled
     #   <p>Indicates whether deletion protection is to be enabled (true) or disabled (false) on the table.</p>
     #   @return [Boolean]
-    CreateTableInput = ::Struct.new(
-      :attribute_definitions,
-      :table_name,
-      :key_schema,
-      :local_secondary_indexes,
-      :global_secondary_indexes,
-      :billing_mode,
-      :provisioned_throughput,
-      :stream_specification,
-      :sse_specification,
-      :tags,
-      :table_class,
-      :deletion_protection_enabled,
-      keyword_init: true
-    ) do
+    class CreateTableInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        attribute_definitions
+        table_name
+        key_schema
+        local_secondary_indexes
+        global_secondary_indexes
+        billing_mode
+        provisioned_throughput
+        stream_specification
+        sse_specification
+        tags
+        table_class
+        deletion_protection_enabled
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the output of a <code>CreateTable</code> operation.</p>
@@ -2413,11 +2536,14 @@ module AWS::SDK::DynamoDB
     # @!attribute table_description
     #   <p>Represents the properties of the table.</p>
     #   @return [TableDescription]
-    CreateTableOutput = ::Struct.new(
-      :table_description,
-      keyword_init: true
-    ) do
+    class CreateTableOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        table_description
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p> Processing options for the CSV file being imported. </p>
@@ -2434,12 +2560,15 @@ module AWS::SDK::DynamoDB
     #               data instead of the header. If this field is not specified the the first line of each
     #               CSV file is treated as the header. </p>
     #   @return [Array<String>]
-    CsvOptions = ::Struct.new(
-      :delimiter,
-      :header_list,
-      keyword_init: true
-    ) do
+    class CsvOptions
       include Hearth::Structure
+
+      MEMBERS = %i[
+        delimiter
+        header_list
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents a request to perform a <code>DeleteItem</code> operation.</p>
@@ -2475,16 +2604,19 @@ module AWS::SDK::DynamoDB
     #               ALL_OLD.</p>
     #   Enum, one of: ["ALL_OLD", "NONE"]
     #   @return [String]
-    Delete = ::Struct.new(
-      :key,
-      :table_name,
-      :condition_expression,
-      :expression_attribute_names,
-      :expression_attribute_values,
-      :return_values_on_condition_check_failure,
-      keyword_init: true
-    ) do
+    class Delete
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key
+        table_name
+        condition_expression
+        expression_attribute_names
+        expression_attribute_values
+        return_values_on_condition_check_failure
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2493,11 +2625,14 @@ module AWS::SDK::DynamoDB
     # @!attribute backup_arn
     #   <p>The ARN associated with the backup.</p>
     #   @return [String]
-    DeleteBackupInput = ::Struct.new(
-      :backup_arn,
-      keyword_init: true
-    ) do
+    class DeleteBackupInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        backup_arn
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2506,11 +2641,14 @@ module AWS::SDK::DynamoDB
     # @!attribute backup_description
     #   <p>Contains the description of the backup created for the table.</p>
     #   @return [BackupDescription]
-    DeleteBackupOutput = ::Struct.new(
-      :backup_description,
-      keyword_init: true
-    ) do
+    class DeleteBackupOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        backup_description
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents a global secondary index to be deleted from an existing table.</p>
@@ -2520,11 +2658,14 @@ module AWS::SDK::DynamoDB
     # @!attribute index_name
     #   <p>The name of the global secondary index to be deleted.</p>
     #   @return [String]
-    DeleteGlobalSecondaryIndexAction = ::Struct.new(
-      :index_name,
-      keyword_init: true
-    ) do
+    class DeleteGlobalSecondaryIndexAction
       include Hearth::Structure
+
+      MEMBERS = %i[
+        index_name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the input of a <code>DeleteItem</code> operation.</p>
@@ -2730,21 +2871,24 @@ module AWS::SDK::DynamoDB
     #               units are consumed.</p>
     #   Enum, one of: ["ALL_OLD", "NONE"]
     #   @return [String]
-    DeleteItemInput = ::Struct.new(
-      :table_name,
-      :key,
-      :expected,
-      :conditional_operator,
-      :return_values,
-      :return_consumed_capacity,
-      :return_item_collection_metrics,
-      :condition_expression,
-      :expression_attribute_names,
-      :expression_attribute_values,
-      :return_values_on_condition_check_failure,
-      keyword_init: true
-    ) do
+    class DeleteItemInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        table_name
+        key
+        expected
+        conditional_operator
+        return_values
+        return_consumed_capacity
+        return_item_collection_metrics
+        condition_expression
+        expression_attribute_names
+        expression_attribute_values
+        return_values_on_condition_check_failure
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the output of a <code>DeleteItem</code> operation.</p>
@@ -2793,13 +2937,16 @@ module AWS::SDK::DynamoDB
     #               </li>
     #            </ul>
     #   @return [ItemCollectionMetrics]
-    DeleteItemOutput = ::Struct.new(
-      :attributes,
-      :consumed_capacity,
-      :item_collection_metrics,
-      keyword_init: true
-    ) do
+    class DeleteItemOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        attributes
+        consumed_capacity
+        item_collection_metrics
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents a replica to be removed.</p>
@@ -2809,11 +2956,14 @@ module AWS::SDK::DynamoDB
     # @!attribute region_name
     #   <p>The Region of the replica to be removed.</p>
     #   @return [String]
-    DeleteReplicaAction = ::Struct.new(
-      :region_name,
-      keyword_init: true
-    ) do
+    class DeleteReplicaAction
       include Hearth::Structure
+
+      MEMBERS = %i[
+        region_name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents a replica to be deleted.</p>
@@ -2823,11 +2973,14 @@ module AWS::SDK::DynamoDB
     # @!attribute region_name
     #   <p>The Region where the replica exists.</p>
     #   @return [String]
-    DeleteReplicationGroupMemberAction = ::Struct.new(
-      :region_name,
-      keyword_init: true
-    ) do
+    class DeleteReplicationGroupMemberAction
       include Hearth::Structure
+
+      MEMBERS = %i[
+        region_name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents a request to perform a <code>DeleteItem</code> operation on an item.</p>
@@ -2839,11 +2992,14 @@ module AWS::SDK::DynamoDB
     #               to delete. All of the table's primary key attributes must be specified, and their data
     #               types must match those of the table's key schema.</p>
     #   @return [Hash<String, AttributeValue>]
-    DeleteRequest = ::Struct.new(
-      :key,
-      keyword_init: true
-    ) do
+    class DeleteRequest
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the input of a <code>DeleteTable</code> operation.</p>
@@ -2853,11 +3009,14 @@ module AWS::SDK::DynamoDB
     # @!attribute table_name
     #   <p>The name of the table to delete.</p>
     #   @return [String]
-    DeleteTableInput = ::Struct.new(
-      :table_name,
-      keyword_init: true
-    ) do
+    class DeleteTableInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        table_name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the output of a <code>DeleteTable</code> operation.</p>
@@ -2867,11 +3026,14 @@ module AWS::SDK::DynamoDB
     # @!attribute table_description
     #   <p>Represents the properties of a table.</p>
     #   @return [TableDescription]
-    DeleteTableOutput = ::Struct.new(
-      :table_description,
-      keyword_init: true
-    ) do
+    class DeleteTableOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        table_description
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2880,11 +3042,14 @@ module AWS::SDK::DynamoDB
     # @!attribute backup_arn
     #   <p>The Amazon Resource Name (ARN) associated with the backup.</p>
     #   @return [String]
-    DescribeBackupInput = ::Struct.new(
-      :backup_arn,
-      keyword_init: true
-    ) do
+    class DescribeBackupInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        backup_arn
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2893,11 +3058,14 @@ module AWS::SDK::DynamoDB
     # @!attribute backup_description
     #   <p>Contains the description of the backup created for the table.</p>
     #   @return [BackupDescription]
-    DescribeBackupOutput = ::Struct.new(
-      :backup_description,
-      keyword_init: true
-    ) do
+    class DescribeBackupOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        backup_description
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2907,11 +3075,14 @@ module AWS::SDK::DynamoDB
     #   <p>Name of the table for which the customer wants to check the continuous backups and
     #               point in time recovery settings.</p>
     #   @return [String]
-    DescribeContinuousBackupsInput = ::Struct.new(
-      :table_name,
-      keyword_init: true
-    ) do
+    class DescribeContinuousBackupsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        table_name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2921,11 +3092,14 @@ module AWS::SDK::DynamoDB
     #   <p>Represents the continuous backups and point in time recovery settings on the
     #               table.</p>
     #   @return [ContinuousBackupsDescription]
-    DescribeContinuousBackupsOutput = ::Struct.new(
-      :continuous_backups_description,
-      keyword_init: true
-    ) do
+    class DescribeContinuousBackupsOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        continuous_backups_description
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2938,12 +3112,15 @@ module AWS::SDK::DynamoDB
     # @!attribute index_name
     #   <p>The name of the global secondary index to describe, if applicable.</p>
     #   @return [String]
-    DescribeContributorInsightsInput = ::Struct.new(
-      :table_name,
-      :index_name,
-      keyword_init: true
-    ) do
+    class DescribeContributorInsightsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        table_name
+        index_name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2993,25 +3170,29 @@ module AWS::SDK::DynamoDB
     #               </li>
     #            </ul>
     #   @return [FailureException]
-    DescribeContributorInsightsOutput = ::Struct.new(
-      :table_name,
-      :index_name,
-      :contributor_insights_rule_list,
-      :contributor_insights_status,
-      :last_update_date_time,
-      :failure_exception,
-      keyword_init: true
-    ) do
+    class DescribeContributorInsightsOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        table_name
+        index_name
+        contributor_insights_rule_list
+        contributor_insights_status
+        last_update_date_time
+        failure_exception
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    DescribeEndpointsInput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class DescribeEndpointsInput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3020,11 +3201,14 @@ module AWS::SDK::DynamoDB
     # @!attribute endpoints
     #   <p>List of endpoints.</p>
     #   @return [Array<Endpoint>]
-    DescribeEndpointsOutput = ::Struct.new(
-      :endpoints,
-      keyword_init: true
-    ) do
+    class DescribeEndpointsOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        endpoints
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3033,11 +3217,14 @@ module AWS::SDK::DynamoDB
     # @!attribute export_arn
     #   <p>The Amazon Resource Name (ARN) associated with the export.</p>
     #   @return [String]
-    DescribeExportInput = ::Struct.new(
-      :export_arn,
-      keyword_init: true
-    ) do
+    class DescribeExportInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        export_arn
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3046,11 +3233,14 @@ module AWS::SDK::DynamoDB
     # @!attribute export_description
     #   <p>Represents the properties of the export.</p>
     #   @return [ExportDescription]
-    DescribeExportOutput = ::Struct.new(
-      :export_description,
-      keyword_init: true
-    ) do
+    class DescribeExportOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        export_description
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3059,11 +3249,14 @@ module AWS::SDK::DynamoDB
     # @!attribute global_table_name
     #   <p>The name of the global table.</p>
     #   @return [String]
-    DescribeGlobalTableInput = ::Struct.new(
-      :global_table_name,
-      keyword_init: true
-    ) do
+    class DescribeGlobalTableInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        global_table_name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3072,11 +3265,14 @@ module AWS::SDK::DynamoDB
     # @!attribute global_table_description
     #   <p>Contains the details of the global table.</p>
     #   @return [GlobalTableDescription]
-    DescribeGlobalTableOutput = ::Struct.new(
-      :global_table_description,
-      keyword_init: true
-    ) do
+    class DescribeGlobalTableOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        global_table_description
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3085,11 +3281,14 @@ module AWS::SDK::DynamoDB
     # @!attribute global_table_name
     #   <p>The name of the global table to describe.</p>
     #   @return [String]
-    DescribeGlobalTableSettingsInput = ::Struct.new(
-      :global_table_name,
-      keyword_init: true
-    ) do
+    class DescribeGlobalTableSettingsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        global_table_name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3102,12 +3301,15 @@ module AWS::SDK::DynamoDB
     # @!attribute replica_settings
     #   <p>The Region-specific settings for the global table.</p>
     #   @return [Array<ReplicaSettingsDescription>]
-    DescribeGlobalTableSettingsOutput = ::Struct.new(
-      :global_table_name,
-      :replica_settings,
-      keyword_init: true
-    ) do
+    class DescribeGlobalTableSettingsOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        global_table_name
+        replica_settings
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3116,11 +3318,14 @@ module AWS::SDK::DynamoDB
     # @!attribute import_arn
     #   <p> The Amazon Resource Name (ARN) associated with the table you're importing to. </p>
     #   @return [String]
-    DescribeImportInput = ::Struct.new(
-      :import_arn,
-      keyword_init: true
-    ) do
+    class DescribeImportInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        import_arn
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3131,11 +3336,14 @@ module AWS::SDK::DynamoDB
     #               import. The import parameters include import status, how many items were processed, and
     #               how many errors were encountered. </p>
     #   @return [ImportTableDescription]
-    DescribeImportOutput = ::Struct.new(
-      :import_table_description,
-      keyword_init: true
-    ) do
+    class DescribeImportOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        import_table_description
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3144,11 +3352,14 @@ module AWS::SDK::DynamoDB
     # @!attribute table_name
     #   <p>The name of the table being described.</p>
     #   @return [String]
-    DescribeKinesisStreamingDestinationInput = ::Struct.new(
-      :table_name,
-      keyword_init: true
-    ) do
+    class DescribeKinesisStreamingDestinationInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        table_name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3161,23 +3372,27 @@ module AWS::SDK::DynamoDB
     # @!attribute kinesis_data_stream_destinations
     #   <p>The list of replica structures for the table being described.</p>
     #   @return [Array<KinesisDataStreamDestination>]
-    DescribeKinesisStreamingDestinationOutput = ::Struct.new(
-      :table_name,
-      :kinesis_data_stream_destinations,
-      keyword_init: true
-    ) do
+    class DescribeKinesisStreamingDestinationOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        table_name
+        kinesis_data_stream_destinations
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the input of a <code>DescribeLimits</code> operation. Has no
     #             content.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    DescribeLimitsInput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class DescribeLimitsInput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the output of a <code>DescribeLimits</code> operation.</p>
@@ -3205,14 +3420,17 @@ module AWS::SDK::DynamoDB
     #               table that you are creating in this Region, including the write capacity units
     #               provisioned for its global secondary indexes (GSIs).</p>
     #   @return [Integer]
-    DescribeLimitsOutput = ::Struct.new(
-      :account_max_read_capacity_units,
-      :account_max_write_capacity_units,
-      :table_max_read_capacity_units,
-      :table_max_write_capacity_units,
-      keyword_init: true
-    ) do
+    class DescribeLimitsOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        account_max_read_capacity_units
+        account_max_write_capacity_units
+        table_max_read_capacity_units
+        table_max_write_capacity_units
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the input of a <code>DescribeTable</code> operation.</p>
@@ -3222,11 +3440,14 @@ module AWS::SDK::DynamoDB
     # @!attribute table_name
     #   <p>The name of the table to describe.</p>
     #   @return [String]
-    DescribeTableInput = ::Struct.new(
-      :table_name,
-      keyword_init: true
-    ) do
+    class DescribeTableInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        table_name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the output of a <code>DescribeTable</code> operation.</p>
@@ -3236,11 +3457,14 @@ module AWS::SDK::DynamoDB
     # @!attribute table
     #   <p>The properties of the table.</p>
     #   @return [TableDescription]
-    DescribeTableOutput = ::Struct.new(
-      :table,
-      keyword_init: true
-    ) do
+    class DescribeTableOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        table
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3249,11 +3473,14 @@ module AWS::SDK::DynamoDB
     # @!attribute table_name
     #   <p>The name of the table.</p>
     #   @return [String]
-    DescribeTableReplicaAutoScalingInput = ::Struct.new(
-      :table_name,
-      keyword_init: true
-    ) do
+    class DescribeTableReplicaAutoScalingInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        table_name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3262,11 +3489,14 @@ module AWS::SDK::DynamoDB
     # @!attribute table_auto_scaling_description
     #   <p>Represents the auto scaling properties of the table.</p>
     #   @return [TableAutoScalingDescription]
-    DescribeTableReplicaAutoScalingOutput = ::Struct.new(
-      :table_auto_scaling_description,
-      keyword_init: true
-    ) do
+    class DescribeTableReplicaAutoScalingOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        table_auto_scaling_description
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3275,11 +3505,14 @@ module AWS::SDK::DynamoDB
     # @!attribute table_name
     #   <p>The name of the table to be described.</p>
     #   @return [String]
-    DescribeTimeToLiveInput = ::Struct.new(
-      :table_name,
-      keyword_init: true
-    ) do
+    class DescribeTimeToLiveInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        table_name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3288,11 +3521,14 @@ module AWS::SDK::DynamoDB
     # @!attribute time_to_live_description
     #   <p></p>
     #   @return [TimeToLiveDescription]
-    DescribeTimeToLiveOutput = ::Struct.new(
-      :time_to_live_description,
-      keyword_init: true
-    ) do
+    class DescribeTimeToLiveOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        time_to_live_description
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for DestinationStatus
@@ -3324,13 +3560,16 @@ module AWS::SDK::DynamoDB
     # @!attribute enable_kinesis_streaming_configuration
     #   <p>The source for the Kinesis streaming information that is being enabled.</p>
     #   @return [EnableKinesisStreamingConfiguration]
-    DisableKinesisStreamingDestinationInput = ::Struct.new(
-      :table_name,
-      :stream_arn,
-      :enable_kinesis_streaming_configuration,
-      keyword_init: true
-    ) do
+    class DisableKinesisStreamingDestinationInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        table_name
+        stream_arn
+        enable_kinesis_streaming_configuration
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3352,14 +3591,17 @@ module AWS::SDK::DynamoDB
     # @!attribute enable_kinesis_streaming_configuration
     #   <p>The destination for the Kinesis streaming information that is being enabled.</p>
     #   @return [EnableKinesisStreamingConfiguration]
-    DisableKinesisStreamingDestinationOutput = ::Struct.new(
-      :table_name,
-      :stream_arn,
-      :destination_status,
-      :enable_kinesis_streaming_configuration,
-      keyword_init: true
-    ) do
+    class DisableKinesisStreamingDestinationOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        table_name
+        stream_arn
+        destination_status
+        enable_kinesis_streaming_configuration
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p> There was an attempt to insert an item with the same primary key as an item that
@@ -3369,11 +3611,14 @@ module AWS::SDK::DynamoDB
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    DuplicateItemException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class DuplicateItemException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Enables setting the configuration for Kinesis Streaming.</p>
@@ -3384,11 +3629,14 @@ module AWS::SDK::DynamoDB
     #   <p>Toggle for the precision of Kinesis data stream timestamp. The values are either <code>MILLISECOND</code> or <code>MICROSECOND</code>.</p>
     #   Enum, one of: ["MILLISECOND", "MICROSECOND"]
     #   @return [String]
-    EnableKinesisStreamingConfiguration = ::Struct.new(
-      :approximate_creation_date_time_precision,
-      keyword_init: true
-    ) do
+    class EnableKinesisStreamingConfiguration
       include Hearth::Structure
+
+      MEMBERS = %i[
+        approximate_creation_date_time_precision
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3405,13 +3653,16 @@ module AWS::SDK::DynamoDB
     # @!attribute enable_kinesis_streaming_configuration
     #   <p>The source for the Kinesis streaming information that is being enabled.</p>
     #   @return [EnableKinesisStreamingConfiguration]
-    EnableKinesisStreamingDestinationInput = ::Struct.new(
-      :table_name,
-      :stream_arn,
-      :enable_kinesis_streaming_configuration,
-      keyword_init: true
-    ) do
+    class EnableKinesisStreamingDestinationInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        table_name
+        stream_arn
+        enable_kinesis_streaming_configuration
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3433,14 +3684,17 @@ module AWS::SDK::DynamoDB
     # @!attribute enable_kinesis_streaming_configuration
     #   <p>The destination for the Kinesis streaming information that is being enabled.</p>
     #   @return [EnableKinesisStreamingConfiguration]
-    EnableKinesisStreamingDestinationOutput = ::Struct.new(
-      :table_name,
-      :stream_arn,
-      :destination_status,
-      :enable_kinesis_streaming_configuration,
-      keyword_init: true
-    ) do
+    class EnableKinesisStreamingDestinationOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        table_name
+        stream_arn
+        destination_status
+        enable_kinesis_streaming_configuration
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>An endpoint information details.</p>
@@ -3454,12 +3708,15 @@ module AWS::SDK::DynamoDB
     # @!attribute cache_period_in_minutes
     #   <p>Endpoint cache time to live (TTL) value.</p>
     #   @return [Integer]
-    Endpoint = ::Struct.new(
-      :address,
-      :cache_period_in_minutes,
-      keyword_init: true
-    ) do
+    class Endpoint
       include Hearth::Structure
+
+      MEMBERS = %i[
+        address
+        cache_period_in_minutes
+      ].freeze
+
+      attr_accessor(*MEMBERS)
 
       private
 
@@ -3539,17 +3796,20 @@ module AWS::SDK::DynamoDB
     #               units are consumed.</p>
     #   Enum, one of: ["ALL_OLD", "NONE"]
     #   @return [String]
-    ExecuteStatementInput = ::Struct.new(
-      :statement,
-      :parameters,
-      :consistent_read,
-      :next_token,
-      :return_consumed_capacity,
-      :limit,
-      :return_values_on_condition_check_failure,
-      keyword_init: true
-    ) do
+    class ExecuteStatementInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        statement
+        parameters
+        consistent_read
+        next_token
+        return_consumed_capacity
+        limit
+        return_values_on_condition_check_failure
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3584,14 +3844,17 @@ module AWS::SDK::DynamoDB
     #               is more data in the result set. The only way to know when you have reached the end of
     #               the result set is when <code>LastEvaluatedKey</code> is empty. </p>
     #   @return [Hash<String, AttributeValue>]
-    ExecuteStatementOutput = ::Struct.new(
-      :items,
-      :next_token,
-      :consumed_capacity,
-      :last_evaluated_key,
-      keyword_init: true
-    ) do
+    class ExecuteStatementOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        items
+        next_token
+        consumed_capacity
+        last_evaluated_key
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3611,13 +3874,16 @@ module AWS::SDK::DynamoDB
     #               consumption that is returned in the response. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_TransactGetItems.html">TransactGetItems</a> and <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_TransactWriteItems.html">TransactWriteItems</a>.</p>
     #   Enum, one of: ["INDEXES", "TOTAL", "NONE"]
     #   @return [String]
-    ExecuteTransactionInput = ::Struct.new(
-      :transact_statements,
-      :client_request_token,
-      :return_consumed_capacity,
-      keyword_init: true
-    ) do
+    class ExecuteTransactionInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        transact_statements
+        client_request_token
+        return_consumed_capacity
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3631,12 +3897,15 @@ module AWS::SDK::DynamoDB
     #   <p>The capacity units consumed by the entire operation. The values of the list are
     #               ordered according to the ordering of the statements.</p>
     #   @return [Array<ConsumedCapacity>]
-    ExecuteTransactionOutput = ::Struct.new(
-      :responses,
-      :consumed_capacity,
-      keyword_init: true
-    ) do
+    class ExecuteTransactionOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        responses
+        consumed_capacity
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents a condition to be compared with an attribute value. This condition can be
@@ -3914,14 +4183,17 @@ module AWS::SDK::DynamoDB
     #            <p>For information on specifying data types in JSON, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataFormat.html">JSON Data Format</a>
     #               in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     #   @return [Array<AttributeValue>]
-    ExpectedAttributeValue = ::Struct.new(
-      :value,
-      :exists,
-      :comparison_operator,
-      :attribute_value_list,
-      keyword_init: true
-    ) do
+    class ExpectedAttributeValue
       include Hearth::Structure
+
+      MEMBERS = %i[
+        value
+        exists
+        comparison_operator
+        attribute_value_list
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>There was a conflict when writing to the specified S3 bucket.</p>
@@ -3930,11 +4202,14 @@ module AWS::SDK::DynamoDB
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    ExportConflictException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class ExportConflictException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the properties of the exported table.</p>
@@ -4048,31 +4323,34 @@ module AWS::SDK::DynamoDB
     # @!attribute incremental_export_specification
     #   <p>Optional object containing the parameters specific to an incremental export.</p>
     #   @return [IncrementalExportSpecification]
-    ExportDescription = ::Struct.new(
-      :export_arn,
-      :export_status,
-      :start_time,
-      :end_time,
-      :export_manifest,
-      :table_arn,
-      :table_id,
-      :export_time,
-      :client_token,
-      :s3_bucket,
-      :s3_bucket_owner,
-      :s3_prefix,
-      :s3_sse_algorithm,
-      :s3_sse_kms_key_id,
-      :failure_code,
-      :failure_message,
-      :export_format,
-      :billed_size_bytes,
-      :item_count,
-      :export_type,
-      :incremental_export_specification,
-      keyword_init: true
-    ) do
+    class ExportDescription
       include Hearth::Structure
+
+      MEMBERS = %i[
+        export_arn
+        export_status
+        start_time
+        end_time
+        export_manifest
+        table_arn
+        table_id
+        export_time
+        client_token
+        s3_bucket
+        s3_bucket_owner
+        s3_prefix
+        s3_sse_algorithm
+        s3_sse_kms_key_id
+        failure_code
+        failure_message
+        export_format
+        billed_size_bytes
+        item_count
+        export_type
+        incremental_export_specification
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for ExportFormat
@@ -4088,11 +4366,14 @@ module AWS::SDK::DynamoDB
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    ExportNotFoundException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class ExportNotFoundException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for ExportStatus
@@ -4122,13 +4403,16 @@ module AWS::SDK::DynamoDB
     #   <p>The type of export that was performed. Valid values are <code>FULL_EXPORT</code> or <code>INCREMENTAL_EXPORT</code>.</p>
     #   Enum, one of: ["FULL_EXPORT", "INCREMENTAL_EXPORT"]
     #   @return [String]
-    ExportSummary = ::Struct.new(
-      :export_arn,
-      :export_status,
-      :export_type,
-      keyword_init: true
-    ) do
+    class ExportSummary
       include Hearth::Structure
+
+      MEMBERS = %i[
+        export_arn
+        export_status
+        export_type
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -4208,21 +4492,24 @@ module AWS::SDK::DynamoDB
     # @!attribute incremental_export_specification
     #   <p>Optional object containing the parameters specific to an incremental export.</p>
     #   @return [IncrementalExportSpecification]
-    ExportTableToPointInTimeInput = ::Struct.new(
-      :table_arn,
-      :export_time,
-      :client_token,
-      :s3_bucket,
-      :s3_bucket_owner,
-      :s3_prefix,
-      :s3_sse_algorithm,
-      :s3_sse_kms_key_id,
-      :export_format,
-      :export_type,
-      :incremental_export_specification,
-      keyword_init: true
-    ) do
+    class ExportTableToPointInTimeInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        table_arn
+        export_time
+        client_token
+        s3_bucket
+        s3_bucket_owner
+        s3_prefix
+        s3_sse_algorithm
+        s3_sse_kms_key_id
+        export_format
+        export_type
+        incremental_export_specification
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -4231,11 +4518,14 @@ module AWS::SDK::DynamoDB
     # @!attribute export_description
     #   <p>Contains a description of the table export.</p>
     #   @return [ExportDescription]
-    ExportTableToPointInTimeOutput = ::Struct.new(
-      :export_description,
-      keyword_init: true
-    ) do
+    class ExportTableToPointInTimeOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        export_description
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for ExportType
@@ -4263,12 +4553,15 @@ module AWS::SDK::DynamoDB
     # @!attribute exception_description
     #   <p>Description of the failure.</p>
     #   @return [String]
-    FailureException = ::Struct.new(
-      :exception_name,
-      :exception_description,
-      keyword_init: true
-    ) do
+    class FailureException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        exception_name
+        exception_description
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Specifies an item and related attribute values to retrieve in a
@@ -4296,14 +4589,17 @@ module AWS::SDK::DynamoDB
     #   <p>One or more substitution tokens for attribute names in the ProjectionExpression
     #               parameter.</p>
     #   @return [Hash<String, String>]
-    Get = ::Struct.new(
-      :key,
-      :table_name,
-      :projection_expression,
-      :expression_attribute_names,
-      keyword_init: true
-    ) do
+    class Get
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key
+        table_name
+        projection_expression
+        expression_attribute_names
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the input of a <code>GetItem</code> operation.</p>
@@ -4427,17 +4723,20 @@ module AWS::SDK::DynamoDB
     #            <p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer
     #                   Guide</i>.</p>
     #   @return [Hash<String, String>]
-    GetItemInput = ::Struct.new(
-      :table_name,
-      :key,
-      :attributes_to_get,
-      :consistent_read,
-      :return_consumed_capacity,
-      :projection_expression,
-      :expression_attribute_names,
-      keyword_init: true
-    ) do
+    class GetItemInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        table_name
+        key
+        attributes_to_get
+        consistent_read
+        return_consumed_capacity
+        projection_expression
+        expression_attribute_names
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the output of a <code>GetItem</code> operation.</p>
@@ -4457,12 +4756,15 @@ module AWS::SDK::DynamoDB
     #               information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html#ItemSizeCalculations.Reads">Provisioned Throughput</a> in the <i>Amazon DynamoDB Developer
     #                   Guide</i>.</p>
     #   @return [ConsumedCapacity]
-    GetItemOutput = ::Struct.new(
-      :item,
-      :consumed_capacity,
-      keyword_init: true
-    ) do
+    class GetItemOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        item
+        consumed_capacity
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the properties of a global secondary index.</p>
@@ -4512,14 +4814,17 @@ module AWS::SDK::DynamoDB
     #                   Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer
     #                   Guide</i>.</p>
     #   @return [ProvisionedThroughput]
-    GlobalSecondaryIndex = ::Struct.new(
-      :index_name,
-      :key_schema,
-      :projection,
-      :provisioned_throughput,
-      keyword_init: true
-    ) do
+    class GlobalSecondaryIndex
       include Hearth::Structure
+
+      MEMBERS = %i[
+        index_name
+        key_schema
+        projection
+        provisioned_throughput
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the auto scaling settings of a global secondary index for a global table
@@ -4535,12 +4840,15 @@ module AWS::SDK::DynamoDB
     #   <p>Represents the auto scaling settings to be modified for a global table or global
     #               secondary index.</p>
     #   @return [AutoScalingSettingsUpdate]
-    GlobalSecondaryIndexAutoScalingUpdate = ::Struct.new(
-      :index_name,
-      :provisioned_write_capacity_auto_scaling_update,
-      keyword_init: true
-    ) do
+    class GlobalSecondaryIndexAutoScalingUpdate
       include Hearth::Structure
+
+      MEMBERS = %i[
+        index_name
+        provisioned_write_capacity_auto_scaling_update
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the properties of a global secondary index.</p>
@@ -4644,19 +4952,22 @@ module AWS::SDK::DynamoDB
     # @!attribute index_arn
     #   <p>The Amazon Resource Name (ARN) that uniquely identifies the index.</p>
     #   @return [String]
-    GlobalSecondaryIndexDescription = ::Struct.new(
-      :index_name,
-      :key_schema,
-      :projection,
-      :index_status,
-      :backfilling,
-      :provisioned_throughput,
-      :index_size_bytes,
-      :item_count,
-      :index_arn,
-      keyword_init: true
-    ) do
+    class GlobalSecondaryIndexDescription
       include Hearth::Structure
+
+      MEMBERS = %i[
+        index_name
+        key_schema
+        projection
+        index_status
+        backfilling
+        provisioned_throughput
+        index_size_bytes
+        item_count
+        index_arn
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the properties of a global secondary index for the table when the backup
@@ -4702,14 +5013,17 @@ module AWS::SDK::DynamoDB
     #   <p>Represents the provisioned throughput settings for the specified global secondary
     #               index. </p>
     #   @return [ProvisionedThroughput]
-    GlobalSecondaryIndexInfo = ::Struct.new(
-      :index_name,
-      :key_schema,
-      :projection,
-      :provisioned_throughput,
-      keyword_init: true
-    ) do
+    class GlobalSecondaryIndexInfo
       include Hearth::Structure
+
+      MEMBERS = %i[
+        index_name
+        key_schema
+        projection
+        provisioned_throughput
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents one of the following:</p>
@@ -4769,13 +5083,16 @@ module AWS::SDK::DynamoDB
     # @!attribute delete
     #   <p>The name of an existing global secondary index to be removed.</p>
     #   @return [DeleteGlobalSecondaryIndexAction]
-    GlobalSecondaryIndexUpdate = ::Struct.new(
-      :update,
-      :create,
-      :delete,
-      keyword_init: true
-    ) do
+    class GlobalSecondaryIndexUpdate
       include Hearth::Structure
+
+      MEMBERS = %i[
+        update
+        create
+        delete
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the properties of a global table.</p>
@@ -4789,12 +5106,15 @@ module AWS::SDK::DynamoDB
     # @!attribute replication_group
     #   <p>The Regions where the global table has replicas.</p>
     #   @return [Array<Replica>]
-    GlobalTable = ::Struct.new(
-      :global_table_name,
-      :replication_group,
-      keyword_init: true
-    ) do
+    class GlobalTable
       include Hearth::Structure
+
+      MEMBERS = %i[
+        global_table_name
+        replication_group
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The specified global table already exists.</p>
@@ -4803,11 +5123,14 @@ module AWS::SDK::DynamoDB
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    GlobalTableAlreadyExistsException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class GlobalTableAlreadyExistsException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Contains details about the global table.</p>
@@ -4852,15 +5175,18 @@ module AWS::SDK::DynamoDB
     # @!attribute global_table_name
     #   <p>The global table name.</p>
     #   @return [String]
-    GlobalTableDescription = ::Struct.new(
-      :replication_group,
-      :global_table_arn,
-      :creation_date_time,
-      :global_table_status,
-      :global_table_name,
-      keyword_init: true
-    ) do
+    class GlobalTableDescription
       include Hearth::Structure
+
+      MEMBERS = %i[
+        replication_group
+        global_table_arn
+        creation_date_time
+        global_table_status
+        global_table_name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the settings of a global secondary index for a global table that will be
@@ -4883,13 +5209,16 @@ module AWS::SDK::DynamoDB
     #   <p>Auto scaling settings for managing a global secondary index's write capacity
     #               units.</p>
     #   @return [AutoScalingSettingsUpdate]
-    GlobalTableGlobalSecondaryIndexSettingsUpdate = ::Struct.new(
-      :index_name,
-      :provisioned_write_capacity_units,
-      :provisioned_write_capacity_auto_scaling_settings_update,
-      keyword_init: true
-    ) do
+    class GlobalTableGlobalSecondaryIndexSettingsUpdate
       include Hearth::Structure
+
+      MEMBERS = %i[
+        index_name
+        provisioned_write_capacity_units
+        provisioned_write_capacity_auto_scaling_settings_update
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The specified global table does not exist.</p>
@@ -4898,11 +5227,14 @@ module AWS::SDK::DynamoDB
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    GlobalTableNotFoundException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class GlobalTableNotFoundException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for GlobalTableStatus
@@ -4923,11 +5255,14 @@ module AWS::SDK::DynamoDB
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    IdempotentParameterMismatchException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class IdempotentParameterMismatchException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>
@@ -4940,11 +5275,14 @@ module AWS::SDK::DynamoDB
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    ImportConflictException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class ImportConflictException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>
@@ -4955,11 +5293,14 @@ module AWS::SDK::DynamoDB
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    ImportNotFoundException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class ImportNotFoundException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for ImportStatus
@@ -5018,18 +5359,21 @@ module AWS::SDK::DynamoDB
     #   <p> The time at which this import task ended. (Does this include the successful complete
     #               creation of the table it was imported to?) </p>
     #   @return [Time]
-    ImportSummary = ::Struct.new(
-      :import_arn,
-      :import_status,
-      :table_arn,
-      :s3_bucket_source,
-      :cloud_watch_log_group_arn,
-      :input_format,
-      :start_time,
-      :end_time,
-      keyword_init: true
-    ) do
+    class ImportSummary
       include Hearth::Structure
+
+      MEMBERS = %i[
+        import_arn
+        import_status
+        table_arn
+        s3_bucket_source
+        cloud_watch_log_group_arn
+        input_format
+        start_time
+        end_time
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p> Represents the properties of the table being imported into.
@@ -5128,29 +5472,32 @@ module AWS::SDK::DynamoDB
     #   <p> The error message corresponding to the failure that the import job ran into during
     #               execution. </p>
     #   @return [String]
-    ImportTableDescription = ::Struct.new(
-      :import_arn,
-      :import_status,
-      :table_arn,
-      :table_id,
-      :client_token,
-      :s3_bucket_source,
-      :error_count,
-      :cloud_watch_log_group_arn,
-      :input_format,
-      :input_format_options,
-      :input_compression_type,
-      :table_creation_parameters,
-      :start_time,
-      :end_time,
-      :processed_size_bytes,
-      :processed_item_count,
-      :imported_item_count,
-      :failure_code,
-      :failure_message,
-      keyword_init: true
-    ) do
+    class ImportTableDescription
       include Hearth::Structure
+
+      MEMBERS = %i[
+        import_arn
+        import_status
+        table_arn
+        table_id
+        client_token
+        s3_bucket_source
+        error_count
+        cloud_watch_log_group_arn
+        input_format
+        input_format_options
+        input_compression_type
+        table_creation_parameters
+        start_time
+        end_time
+        processed_size_bytes
+        processed_item_count
+        imported_item_count
+        failure_code
+        failure_message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
 
       private
 
@@ -5201,16 +5548,19 @@ module AWS::SDK::DynamoDB
     # @!attribute table_creation_parameters
     #   <p>Parameters for the table to import the data into. </p>
     #   @return [TableCreationParameters]
-    ImportTableInput = ::Struct.new(
-      :client_token,
-      :s3_bucket_source,
-      :input_format,
-      :input_format_options,
-      :input_compression_type,
-      :table_creation_parameters,
-      keyword_init: true
-    ) do
+    class ImportTableInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        client_token
+        s3_bucket_source
+        input_format
+        input_format_options
+        input_compression_type
+        table_creation_parameters
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -5221,11 +5571,14 @@ module AWS::SDK::DynamoDB
     #               import. The import parameters include import status, how many items were processed, and
     #               how many errors were encountered. </p>
     #   @return [ImportTableDescription]
-    ImportTableOutput = ::Struct.new(
-      :import_table_description,
-      keyword_init: true
-    ) do
+    class ImportTableOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        import_table_description
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Optional object containing the parameters specific to an incremental export.</p>
@@ -5244,13 +5597,16 @@ module AWS::SDK::DynamoDB
     #   <p>The view type that was chosen for the export. Valid values are <code>NEW_AND_OLD_IMAGES</code> and <code>NEW_IMAGES</code>. The default value is <code>NEW_AND_OLD_IMAGES</code>.</p>
     #   Enum, one of: ["NEW_IMAGE", "NEW_AND_OLD_IMAGES"]
     #   @return [String]
-    IncrementalExportSpecification = ::Struct.new(
-      :export_from_time,
-      :export_to_time,
-      :export_view_type,
-      keyword_init: true
-    ) do
+    class IncrementalExportSpecification
       include Hearth::Structure
+
+      MEMBERS = %i[
+        export_from_time
+        export_to_time
+        export_view_type
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The operation tried to access a nonexistent index.</p>
@@ -5259,11 +5615,14 @@ module AWS::SDK::DynamoDB
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    IndexNotFoundException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class IndexNotFoundException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for IndexStatus
@@ -5304,11 +5663,14 @@ module AWS::SDK::DynamoDB
     #   <p> The options for imported source files in CSV format. The values are Delimiter and
     #               HeaderList. </p>
     #   @return [CsvOptions]
-    InputFormatOptions = ::Struct.new(
-      :csv,
-      keyword_init: true
-    ) do
+    class InputFormatOptions
       include Hearth::Structure
+
+      MEMBERS = %i[
+        csv
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>An error occurred on the server side.</p>
@@ -5318,11 +5680,14 @@ module AWS::SDK::DynamoDB
     # @!attribute message
     #   <p>The server encountered an internal error trying to fulfill the request.</p>
     #   @return [String]
-    InternalServerError = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class InternalServerError
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -5330,11 +5695,14 @@ module AWS::SDK::DynamoDB
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    InvalidEndpointException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class InvalidEndpointException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The specified <code>ExportTime</code> is outside of the point in time recovery
@@ -5344,11 +5712,14 @@ module AWS::SDK::DynamoDB
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    InvalidExportTimeException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class InvalidExportTimeException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>An invalid restore time was specified. RestoreDateTime must be between
@@ -5358,11 +5729,14 @@ module AWS::SDK::DynamoDB
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    InvalidRestoreTimeException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class InvalidRestoreTimeException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Information about item collections, if any, that were affected by the operation.
@@ -5386,12 +5760,15 @@ module AWS::SDK::DynamoDB
     #            <p>The estimate is subject to change over time; therefore, do not rely on the precision
     #               or accuracy of the estimate.</p>
     #   @return [Array<Float>]
-    ItemCollectionMetrics = ::Struct.new(
-      :item_collection_key,
-      :size_estimate_range_gb,
-      keyword_init: true
-    ) do
+    class ItemCollectionMetrics
       include Hearth::Structure
+
+      MEMBERS = %i[
+        item_collection_key
+        size_estimate_range_gb
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>An item collection is too large. This exception is only returned for tables that
@@ -5403,11 +5780,14 @@ module AWS::SDK::DynamoDB
     #   <p>The total size of an item collection has exceeded the maximum limit of 10
     #               gigabytes.</p>
     #   @return [String]
-    ItemCollectionSizeLimitExceededException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class ItemCollectionSizeLimitExceededException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Details for the requested item.</p>
@@ -5417,11 +5797,14 @@ module AWS::SDK::DynamoDB
     # @!attribute item
     #   <p>Map of attribute data consisting of the data type and attribute value.</p>
     #   @return [Hash<String, AttributeValue>]
-    ItemResponse = ::Struct.new(
-      :item,
-      keyword_init: true
-    ) do
+    class ItemResponse
       include Hearth::Structure
+
+      MEMBERS = %i[
+        item
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents <i>a single element</i> of a key schema. A key schema
@@ -5465,12 +5848,15 @@ module AWS::SDK::DynamoDB
     #            </note>
     #   Enum, one of: ["HASH", "RANGE"]
     #   @return [String]
-    KeySchemaElement = ::Struct.new(
-      :attribute_name,
-      :key_type,
-      keyword_init: true
-    ) do
+    class KeySchemaElement
       include Hearth::Structure
+
+      MEMBERS = %i[
+        attribute_name
+        key_type
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for KeyType
@@ -5569,15 +5955,18 @@ module AWS::SDK::DynamoDB
     #            <p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Accessing Item Attributes</a> in the <i>Amazon DynamoDB Developer
     #                   Guide</i>.</p>
     #   @return [Hash<String, String>]
-    KeysAndAttributes = ::Struct.new(
-      :keys,
-      :attributes_to_get,
-      :consistent_read,
-      :projection_expression,
-      :expression_attribute_names,
-      keyword_init: true
-    ) do
+    class KeysAndAttributes
       include Hearth::Structure
+
+      MEMBERS = %i[
+        keys
+        attributes_to_get
+        consistent_read
+        projection_expression
+        expression_attribute_names
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Describes a Kinesis data stream destination.</p>
@@ -5601,14 +5990,17 @@ module AWS::SDK::DynamoDB
     #   <p>The precision of the Kinesis data stream timestamp. The values are either <code>MILLISECOND</code> or <code>MICROSECOND</code>.</p>
     #   Enum, one of: ["MILLISECOND", "MICROSECOND"]
     #   @return [String]
-    KinesisDataStreamDestination = ::Struct.new(
-      :stream_arn,
-      :destination_status,
-      :destination_status_description,
-      :approximate_creation_date_time_precision,
-      keyword_init: true
-    ) do
+    class KinesisDataStreamDestination
       include Hearth::Structure
+
+      MEMBERS = %i[
+        stream_arn
+        destination_status
+        destination_status_description
+        approximate_creation_date_time_precision
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>There is no limit to the number of daily on-demand backups that can be taken. </p>
@@ -5631,11 +6023,14 @@ module AWS::SDK::DynamoDB
     # @!attribute message
     #   <p>Too many operations for a given subscriber.</p>
     #   @return [String]
-    LimitExceededException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class LimitExceededException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -5688,16 +6083,19 @@ module AWS::SDK::DynamoDB
     #            </ul>
     #   Enum, one of: ["USER", "SYSTEM", "AWS_BACKUP", "ALL"]
     #   @return [String]
-    ListBackupsInput = ::Struct.new(
-      :table_name,
-      :limit,
-      :time_range_lower_bound,
-      :time_range_upper_bound,
-      :exclusive_start_backup_arn,
-      :backup_type,
-      keyword_init: true
-    ) do
+    class ListBackupsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        table_name
+        limit
+        time_range_lower_bound
+        time_range_upper_bound
+        exclusive_start_backup_arn
+        backup_type
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -5718,12 +6116,15 @@ module AWS::SDK::DynamoDB
     #               that there is more data to be returned. All results are guaranteed to have been returned
     #               if and only if no value for <code>LastEvaluatedBackupArn</code> is returned. </p>
     #   @return [String]
-    ListBackupsOutput = ::Struct.new(
-      :backup_summaries,
-      :last_evaluated_backup_arn,
-      keyword_init: true
-    ) do
+    class ListBackupsOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        backup_summaries
+        last_evaluated_backup_arn
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -5740,13 +6141,16 @@ module AWS::SDK::DynamoDB
     # @!attribute max_results
     #   <p>Maximum number of results to return per page.</p>
     #   @return [Integer]
-    ListContributorInsightsInput = ::Struct.new(
-      :table_name,
-      :next_token,
-      :max_results,
-      keyword_init: true
-    ) do
+    class ListContributorInsightsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        table_name
+        next_token
+        max_results
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -5759,12 +6163,15 @@ module AWS::SDK::DynamoDB
     # @!attribute next_token
     #   <p>A token to go to the next page if there is one.</p>
     #   @return [String]
-    ListContributorInsightsOutput = ::Struct.new(
-      :contributor_insights_summaries,
-      :next_token,
-      keyword_init: true
-    ) do
+    class ListContributorInsightsOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        contributor_insights_summaries
+        next_token
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -5783,13 +6190,16 @@ module AWS::SDK::DynamoDB
     #               call to <code>ListExports</code>. When provided in this manner, the API fetches the next
     #               page of results.</p>
     #   @return [String]
-    ListExportsInput = ::Struct.new(
-      :table_arn,
-      :max_results,
-      :next_token,
-      keyword_init: true
-    ) do
+    class ListExportsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        table_arn
+        max_results
+        next_token
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -5804,12 +6214,15 @@ module AWS::SDK::DynamoDB
     #               them, call <code>ListExports</code> again, with <code>NextToken</code> set to this
     #               value.</p>
     #   @return [String]
-    ListExportsOutput = ::Struct.new(
-      :export_summaries,
-      :next_token,
-      keyword_init: true
-    ) do
+    class ListExportsOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        export_summaries
+        next_token
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -5831,13 +6244,16 @@ module AWS::SDK::DynamoDB
     # @!attribute region_name
     #   <p>Lists the global tables in a specific Region.</p>
     #   @return [String]
-    ListGlobalTablesInput = ::Struct.new(
-      :exclusive_start_global_table_name,
-      :limit,
-      :region_name,
-      keyword_init: true
-    ) do
+    class ListGlobalTablesInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        exclusive_start_global_table_name
+        limit
+        region_name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -5850,12 +6266,15 @@ module AWS::SDK::DynamoDB
     # @!attribute last_evaluated_global_table_name
     #   <p>Last evaluated global table name.</p>
     #   @return [String]
-    ListGlobalTablesOutput = ::Struct.new(
-      :global_tables,
-      :last_evaluated_global_table_name,
-      keyword_init: true
-    ) do
+    class ListGlobalTablesOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        global_tables
+        last_evaluated_global_table_name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -5875,13 +6294,16 @@ module AWS::SDK::DynamoDB
     #               call to <code>ListImports</code>. When provided in this manner, the API fetches the next
     #               page of results. </p>
     #   @return [String]
-    ListImportsInput = ::Struct.new(
-      :table_arn,
-      :page_size,
-      :next_token,
-      keyword_init: true
-    ) do
+    class ListImportsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        table_arn
+        page_size
+        next_token
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -5896,12 +6318,15 @@ module AWS::SDK::DynamoDB
     #               them, call <code>ListImports</code> again, with <code>NextToken</code> set to this
     #               value. </p>
     #   @return [String]
-    ListImportsOutput = ::Struct.new(
-      :import_summary_list,
-      :next_token,
-      keyword_init: true
-    ) do
+    class ListImportsOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        import_summary_list
+        next_token
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the input of a <code>ListTables</code> operation.</p>
@@ -5918,12 +6343,15 @@ module AWS::SDK::DynamoDB
     #   <p>A maximum number of table names to return. If this parameter is not specified, the
     #               limit is 100.</p>
     #   @return [Integer]
-    ListTablesInput = ::Struct.new(
-      :exclusive_start_table_name,
-      :limit,
-      keyword_init: true
-    ) do
+    class ListTablesInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        exclusive_start_table_name
+        limit
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the output of a <code>ListTables</code> operation.</p>
@@ -5945,12 +6373,15 @@ module AWS::SDK::DynamoDB
     #            <p>If you do not receive a <code>LastEvaluatedTableName</code> value in the response,
     #               this means that there are no more table names to be retrieved.</p>
     #   @return [String]
-    ListTablesOutput = ::Struct.new(
-      :table_names,
-      :last_evaluated_table_name,
-      keyword_init: true
-    ) do
+    class ListTablesOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        table_names
+        last_evaluated_table_name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -5966,12 +6397,15 @@ module AWS::SDK::DynamoDB
     #               call to ListTagOfResource. When provided in this manner, this API fetches the next page
     #               of results.</p>
     #   @return [String]
-    ListTagsOfResourceInput = ::Struct.new(
-      :resource_arn,
-      :next_token,
-      keyword_init: true
-    ) do
+    class ListTagsOfResourceInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        resource_arn
+        next_token
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -5985,12 +6419,15 @@ module AWS::SDK::DynamoDB
     #   <p>If this value is returned, there are additional results to be displayed. To retrieve
     #               them, call ListTagsOfResource again, with NextToken set to this value.</p>
     #   @return [String]
-    ListTagsOfResourceOutput = ::Struct.new(
-      :tags,
-      :next_token,
-      keyword_init: true
-    ) do
+    class ListTagsOfResourceOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        tags
+        next_token
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the properties of a local secondary index.</p>
@@ -6032,13 +6469,16 @@ module AWS::SDK::DynamoDB
     #               secondary index. These are in addition to the primary key attributes and index key
     #               attributes, which are automatically projected. </p>
     #   @return [Projection]
-    LocalSecondaryIndex = ::Struct.new(
-      :index_name,
-      :key_schema,
-      :projection,
-      keyword_init: true
-    ) do
+    class LocalSecondaryIndex
       include Hearth::Structure
+
+      MEMBERS = %i[
+        index_name
+        key_schema
+        projection
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the properties of a local secondary index.</p>
@@ -6095,16 +6535,19 @@ module AWS::SDK::DynamoDB
     # @!attribute index_arn
     #   <p>The Amazon Resource Name (ARN) that uniquely identifies the index.</p>
     #   @return [String]
-    LocalSecondaryIndexDescription = ::Struct.new(
-      :index_name,
-      :key_schema,
-      :projection,
-      :index_size_bytes,
-      :item_count,
-      :index_arn,
-      keyword_init: true
-    ) do
+    class LocalSecondaryIndexDescription
       include Hearth::Structure
+
+      MEMBERS = %i[
+        index_name
+        key_schema
+        projection
+        index_size_bytes
+        item_count
+        index_arn
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the properties of a local secondary index for the table when the backup was
@@ -6146,13 +6589,16 @@ module AWS::SDK::DynamoDB
     #               secondary index. These are in addition to the primary key attributes and index key
     #               attributes, which are automatically projected. </p>
     #   @return [Projection]
-    LocalSecondaryIndexInfo = ::Struct.new(
-      :index_name,
-      :key_schema,
-      :projection,
-      keyword_init: true
-    ) do
+    class LocalSecondaryIndexInfo
       include Hearth::Structure
+
+      MEMBERS = %i[
+        index_name
+        key_schema
+        projection
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p> Represents a PartiQL statement that uses parameters. </p>
@@ -6175,13 +6621,16 @@ module AWS::SDK::DynamoDB
     #               units are consumed.</p>
     #   Enum, one of: ["ALL_OLD", "NONE"]
     #   @return [String]
-    ParameterizedStatement = ::Struct.new(
-      :statement,
-      :parameters,
-      :return_values_on_condition_check_failure,
-      keyword_init: true
-    ) do
+    class ParameterizedStatement
       include Hearth::Structure
+
+      MEMBERS = %i[
+        statement
+        parameters
+        return_values_on_condition_check_failure
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The description of the point in time settings applied to the table.</p>
@@ -6213,13 +6662,16 @@ module AWS::SDK::DynamoDB
     #               <code>LatestRestorableDateTime</code> is typically 5 minutes before the current time.
     #           </p>
     #   @return [Time]
-    PointInTimeRecoveryDescription = ::Struct.new(
-      :point_in_time_recovery_status,
-      :earliest_restorable_date_time,
-      :latest_restorable_date_time,
-      keyword_init: true
-    ) do
+    class PointInTimeRecoveryDescription
       include Hearth::Structure
+
+      MEMBERS = %i[
+        point_in_time_recovery_status
+        earliest_restorable_date_time
+        latest_restorable_date_time
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the settings used to enable point in time recovery.</p>
@@ -6230,11 +6682,14 @@ module AWS::SDK::DynamoDB
     #   <p>Indicates whether point in time recovery is enabled (true) or disabled (false) on the
     #               table.</p>
     #   @return [Boolean]
-    PointInTimeRecoverySpecification = ::Struct.new(
-      :point_in_time_recovery_enabled,
-      keyword_init: true
-    ) do
+    class PointInTimeRecoverySpecification
       include Hearth::Structure
+
+      MEMBERS = %i[
+        point_in_time_recovery_enabled
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for PointInTimeRecoveryStatus
@@ -6250,11 +6705,14 @@ module AWS::SDK::DynamoDB
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    PointInTimeRecoveryUnavailableException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class PointInTimeRecoveryUnavailableException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents attributes that are copied (projected) from the table into an index. These
@@ -6293,12 +6751,15 @@ module AWS::SDK::DynamoDB
     #               attribute into two different indexes, this counts as two distinct attributes when
     #               determining the total.</p>
     #   @return [Array<String>]
-    Projection = ::Struct.new(
-      :projection_type,
-      :non_key_attributes,
-      keyword_init: true
-    ) do
+    class Projection
       include Hearth::Structure
+
+      MEMBERS = %i[
+        projection_type
+        non_key_attributes
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for ProjectionType
@@ -6333,12 +6794,15 @@ module AWS::SDK::DynamoDB
     #            <p>If read/write capacity mode is <code>PAY_PER_REQUEST</code> the value is set to
     #               0.</p>
     #   @return [Integer]
-    ProvisionedThroughput = ::Struct.new(
-      :read_capacity_units,
-      :write_capacity_units,
-      keyword_init: true
-    ) do
+    class ProvisionedThroughput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        read_capacity_units
+        write_capacity_units
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the provisioned throughput settings for the table, consisting of read and
@@ -6373,15 +6837,18 @@ module AWS::SDK::DynamoDB
     #   <p>The maximum number of writes consumed per second before DynamoDB returns a
     #                   <code>ThrottlingException</code>.</p>
     #   @return [Integer]
-    ProvisionedThroughputDescription = ::Struct.new(
-      :last_increase_date_time,
-      :last_decrease_date_time,
-      :number_of_decreases_today,
-      :read_capacity_units,
-      :write_capacity_units,
-      keyword_init: true
-    ) do
+    class ProvisionedThroughputDescription
       include Hearth::Structure
+
+      MEMBERS = %i[
+        last_increase_date_time
+        last_decrease_date_time
+        number_of_decreases_today
+        read_capacity_units
+        write_capacity_units
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Your request rate is too high. The Amazon Web Services SDKs for DynamoDB
@@ -6394,11 +6861,14 @@ module AWS::SDK::DynamoDB
     # @!attribute message
     #   <p>You exceeded your maximum allowed provisioned throughput.</p>
     #   @return [String]
-    ProvisionedThroughputExceededException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class ProvisionedThroughputExceededException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Replica-specific provisioned throughput settings. If not specified, uses the source
@@ -6410,11 +6880,14 @@ module AWS::SDK::DynamoDB
     #   <p>Replica-specific read capacity units. If not specified, uses the source table's read
     #               capacity settings.</p>
     #   @return [Integer]
-    ProvisionedThroughputOverride = ::Struct.new(
-      :read_capacity_units,
-      keyword_init: true
-    ) do
+    class ProvisionedThroughputOverride
       include Hearth::Structure
+
+      MEMBERS = %i[
+        read_capacity_units
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents a request to perform a <code>PutItem</code> operation.</p>
@@ -6453,16 +6926,19 @@ module AWS::SDK::DynamoDB
     #               ALL_OLD.</p>
     #   Enum, one of: ["ALL_OLD", "NONE"]
     #   @return [String]
-    Put = ::Struct.new(
-      :item,
-      :table_name,
-      :condition_expression,
-      :expression_attribute_names,
-      :expression_attribute_values,
-      :return_values_on_condition_check_failure,
-      keyword_init: true
-    ) do
+    class Put
       include Hearth::Structure
+
+      MEMBERS = %i[
+        item
+        table_name
+        condition_expression
+        expression_attribute_names
+        expression_attribute_values
+        return_values_on_condition_check_failure
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the input of a <code>PutItem</code> operation.</p>
@@ -6682,21 +7158,24 @@ module AWS::SDK::DynamoDB
     #               units are consumed.</p>
     #   Enum, one of: ["ALL_OLD", "NONE"]
     #   @return [String]
-    PutItemInput = ::Struct.new(
-      :table_name,
-      :item,
-      :expected,
-      :return_values,
-      :return_consumed_capacity,
-      :return_item_collection_metrics,
-      :conditional_operator,
-      :condition_expression,
-      :expression_attribute_names,
-      :expression_attribute_values,
-      :return_values_on_condition_check_failure,
-      keyword_init: true
-    ) do
+    class PutItemInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        table_name
+        item
+        expected
+        return_values
+        return_consumed_capacity
+        return_item_collection_metrics
+        conditional_operator
+        condition_expression
+        expression_attribute_names
+        expression_attribute_values
+        return_values_on_condition_check_failure
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the output of a <code>PutItem</code> operation.</p>
@@ -6744,13 +7223,16 @@ module AWS::SDK::DynamoDB
     #               </li>
     #            </ul>
     #   @return [ItemCollectionMetrics]
-    PutItemOutput = ::Struct.new(
-      :attributes,
-      :consumed_capacity,
-      :item_collection_metrics,
-      keyword_init: true
-    ) do
+    class PutItemOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        attributes
+        consumed_capacity
+        item_collection_metrics
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents a request to perform a <code>PutItem</code> operation on an item.</p>
@@ -6764,11 +7246,14 @@ module AWS::SDK::DynamoDB
     #               attributes are present in the item that are part of an index key schema for the table,
     #               their types must match the index key schema.</p>
     #   @return [Hash<String, AttributeValue>]
-    PutRequest = ::Struct.new(
-      :item,
-      keyword_init: true
-    ) do
+    class PutRequest
       include Hearth::Structure
+
+      MEMBERS = %i[
+        item
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the input of a <code>Query</code> operation.</p>
@@ -6776,7 +7261,7 @@ module AWS::SDK::DynamoDB
     #   @param [Hash] params
     #   @option params [String] :table_name
     #   @option params [String] :index_name
-    #   @option params [String] :member_select
+    #   @option params [String] :select
     #   @option params [Array<String>] :attributes_to_get
     #   @option params [Integer] :limit
     #   @option params [Boolean] :consistent_read
@@ -6800,7 +7285,7 @@ module AWS::SDK::DynamoDB
     #               you must also provide <code>TableName.</code>
     #            </p>
     #   @return [String]
-    # @!attribute member_select
+    # @!attribute select
     #   <p>The attributes to be returned in the result. You can retrieve all item attributes,
     #               specific item attributes, the count of matching items, or in the case of an index, some
     #               or all of the attributes projected into the index.</p>
@@ -7155,34 +7640,37 @@ module AWS::SDK::DynamoDB
     #            <p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Specifying Conditions</a> in the <i>Amazon DynamoDB Developer
     #                   Guide</i>.</p>
     #   @return [Hash<String, AttributeValue>]
-    QueryInput = ::Struct.new(
-      :table_name,
-      :index_name,
-      :member_select,
-      :attributes_to_get,
-      :limit,
-      :consistent_read,
-      :key_conditions,
-      :query_filter,
-      :conditional_operator,
-      :scan_index_forward,
-      :exclusive_start_key,
-      :return_consumed_capacity,
-      :projection_expression,
-      :filter_expression,
-      :key_condition_expression,
-      :expression_attribute_names,
-      :expression_attribute_values,
-      keyword_init: true
-    ) do
+    class QueryInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        table_name
+        index_name
+        select
+        attributes_to_get
+        limit
+        consistent_read
+        key_conditions
+        query_filter
+        conditional_operator
+        scan_index_forward
+        exclusive_start_key
+        return_consumed_capacity
+        projection_expression
+        filter_expression
+        key_condition_expression
+        expression_attribute_names
+        expression_attribute_values
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the output of a <code>Query</code> operation.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [Array<Hash<String, AttributeValue>>] :items
-    #   @option params [Integer] :member_count (0)
+    #   @option params [Integer] :count (0)
     #   @option params [Integer] :scanned_count (0)
     #   @option params [Hash<String, AttributeValue>] :last_evaluated_key
     #   @option params [ConsumedCapacity] :consumed_capacity
@@ -7190,7 +7678,7 @@ module AWS::SDK::DynamoDB
     #   <p>An array of item attributes that match the query criteria. Each element in this array
     #               consists of an attribute name and the value for that attribute.</p>
     #   @return [Array<Hash<String, AttributeValue>>]
-    # @!attribute member_count
+    # @!attribute count
     #   <p>The number of items in the response.</p>
     #            <p>If you used a <code>QueryFilter</code> in the request, then <code>Count</code> is the
     #               number of items returned after the filter was applied, and <code>ScannedCount</code> is
@@ -7225,21 +7713,24 @@ module AWS::SDK::DynamoDB
     #               information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html">Provisioned Throughput</a> in the <i>Amazon DynamoDB Developer
     #                   Guide</i>.</p>
     #   @return [ConsumedCapacity]
-    QueryOutput = ::Struct.new(
-      :items,
-      :member_count,
-      :scanned_count,
-      :last_evaluated_key,
-      :consumed_capacity,
-      keyword_init: true
-    ) do
+    class QueryOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        items
+        count
+        scanned_count
+        last_evaluated_key
+        consumed_capacity
+      ].freeze
+
+      attr_accessor(*MEMBERS)
 
       private
 
       def _defaults
         {
-          member_count: 0,
+          count: 0,
           scanned_count: 0
         }
       end
@@ -7252,11 +7743,14 @@ module AWS::SDK::DynamoDB
     # @!attribute region_name
     #   <p>The Region where the replica needs to be created.</p>
     #   @return [String]
-    Replica = ::Struct.new(
-      :region_name,
-      keyword_init: true
-    ) do
+    class Replica
       include Hearth::Structure
+
+      MEMBERS = %i[
+        region_name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The specified replica is already part of the global table.</p>
@@ -7265,11 +7759,14 @@ module AWS::SDK::DynamoDB
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    ReplicaAlreadyExistsException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class ReplicaAlreadyExistsException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the auto scaling settings of the replica.</p>
@@ -7316,15 +7813,18 @@ module AWS::SDK::DynamoDB
     #            </ul>
     #   Enum, one of: ["CREATING", "CREATION_FAILED", "UPDATING", "DELETING", "ACTIVE", "REGION_DISABLED", "INACCESSIBLE_ENCRYPTION_CREDENTIALS"]
     #   @return [String]
-    ReplicaAutoScalingDescription = ::Struct.new(
-      :region_name,
-      :global_secondary_indexes,
-      :replica_provisioned_read_capacity_auto_scaling_settings,
-      :replica_provisioned_write_capacity_auto_scaling_settings,
-      :replica_status,
-      keyword_init: true
-    ) do
+    class ReplicaAutoScalingDescription
       include Hearth::Structure
+
+      MEMBERS = %i[
+        region_name
+        global_secondary_indexes
+        replica_provisioned_read_capacity_auto_scaling_settings
+        replica_provisioned_write_capacity_auto_scaling_settings
+        replica_status
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the auto scaling settings of a replica that will be modified.</p>
@@ -7344,13 +7844,16 @@ module AWS::SDK::DynamoDB
     #   <p>Represents the auto scaling settings to be modified for a global table or global
     #               secondary index.</p>
     #   @return [AutoScalingSettingsUpdate]
-    ReplicaAutoScalingUpdate = ::Struct.new(
-      :region_name,
-      :replica_global_secondary_index_updates,
-      :replica_provisioned_read_capacity_auto_scaling_update,
-      keyword_init: true
-    ) do
+    class ReplicaAutoScalingUpdate
       include Hearth::Structure
+
+      MEMBERS = %i[
+        region_name
+        replica_global_secondary_index_updates
+        replica_provisioned_read_capacity_auto_scaling_update
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Contains the details of the replica.</p>
@@ -7436,19 +7939,22 @@ module AWS::SDK::DynamoDB
     # @!attribute replica_table_class_summary
     #   <p>Contains details of the table class.</p>
     #   @return [TableClassSummary]
-    ReplicaDescription = ::Struct.new(
-      :region_name,
-      :replica_status,
-      :replica_status_description,
-      :replica_status_percent_progress,
-      :kms_master_key_id,
-      :provisioned_throughput_override,
-      :global_secondary_indexes,
-      :replica_inaccessible_date_time,
-      :replica_table_class_summary,
-      keyword_init: true
-    ) do
+    class ReplicaDescription
       include Hearth::Structure
+
+      MEMBERS = %i[
+        region_name
+        replica_status
+        replica_status_description
+        replica_status_percent_progress
+        kms_master_key_id
+        provisioned_throughput_override
+        global_secondary_indexes
+        replica_inaccessible_date_time
+        replica_table_class_summary
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the properties of a replica global secondary index.</p>
@@ -7463,12 +7969,15 @@ module AWS::SDK::DynamoDB
     #   <p>Replica table GSI-specific provisioned throughput. If not specified, uses the source
     #               table GSI's read capacity settings.</p>
     #   @return [ProvisionedThroughputOverride]
-    ReplicaGlobalSecondaryIndex = ::Struct.new(
-      :index_name,
-      :provisioned_throughput_override,
-      keyword_init: true
-    ) do
+    class ReplicaGlobalSecondaryIndex
       include Hearth::Structure
+
+      MEMBERS = %i[
+        index_name
+        provisioned_throughput_override
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the auto scaling configuration for a replica global secondary index.</p>
@@ -7514,14 +8023,17 @@ module AWS::SDK::DynamoDB
     #   <p>Represents the auto scaling settings for a global table or global secondary
     #               index.</p>
     #   @return [AutoScalingSettingsDescription]
-    ReplicaGlobalSecondaryIndexAutoScalingDescription = ::Struct.new(
-      :index_name,
-      :index_status,
-      :provisioned_read_capacity_auto_scaling_settings,
-      :provisioned_write_capacity_auto_scaling_settings,
-      keyword_init: true
-    ) do
+    class ReplicaGlobalSecondaryIndexAutoScalingDescription
       include Hearth::Structure
+
+      MEMBERS = %i[
+        index_name
+        index_status
+        provisioned_read_capacity_auto_scaling_settings
+        provisioned_write_capacity_auto_scaling_settings
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the auto scaling settings of a global secondary index for a replica that
@@ -7537,12 +8049,15 @@ module AWS::SDK::DynamoDB
     #   <p>Represents the auto scaling settings to be modified for a global table or global
     #               secondary index.</p>
     #   @return [AutoScalingSettingsUpdate]
-    ReplicaGlobalSecondaryIndexAutoScalingUpdate = ::Struct.new(
-      :index_name,
-      :provisioned_read_capacity_auto_scaling_update,
-      keyword_init: true
-    ) do
+    class ReplicaGlobalSecondaryIndexAutoScalingUpdate
       include Hearth::Structure
+
+      MEMBERS = %i[
+        index_name
+        provisioned_read_capacity_auto_scaling_update
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the properties of a replica global secondary index.</p>
@@ -7556,12 +8071,15 @@ module AWS::SDK::DynamoDB
     # @!attribute provisioned_throughput_override
     #   <p>If not described, uses the source table GSI's read capacity settings.</p>
     #   @return [ProvisionedThroughputOverride]
-    ReplicaGlobalSecondaryIndexDescription = ::Struct.new(
-      :index_name,
-      :provisioned_throughput_override,
-      keyword_init: true
-    ) do
+    class ReplicaGlobalSecondaryIndexDescription
       include Hearth::Structure
+
+      MEMBERS = %i[
+        index_name
+        provisioned_throughput_override
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the properties of a global secondary index.</p>
@@ -7615,16 +8133,19 @@ module AWS::SDK::DynamoDB
     #   <p>Auto scaling settings for a global secondary index replica's write capacity
     #               units.</p>
     #   @return [AutoScalingSettingsDescription]
-    ReplicaGlobalSecondaryIndexSettingsDescription = ::Struct.new(
-      :index_name,
-      :index_status,
-      :provisioned_read_capacity_units,
-      :provisioned_read_capacity_auto_scaling_settings,
-      :provisioned_write_capacity_units,
-      :provisioned_write_capacity_auto_scaling_settings,
-      keyword_init: true
-    ) do
+    class ReplicaGlobalSecondaryIndexSettingsDescription
       include Hearth::Structure
+
+      MEMBERS = %i[
+        index_name
+        index_status
+        provisioned_read_capacity_units
+        provisioned_read_capacity_auto_scaling_settings
+        provisioned_write_capacity_units
+        provisioned_write_capacity_auto_scaling_settings
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the settings of a global secondary index for a global table that will be
@@ -7646,13 +8167,16 @@ module AWS::SDK::DynamoDB
     #   <p>Auto scaling settings for managing a global secondary index replica's read capacity
     #               units.</p>
     #   @return [AutoScalingSettingsUpdate]
-    ReplicaGlobalSecondaryIndexSettingsUpdate = ::Struct.new(
-      :index_name,
-      :provisioned_read_capacity_units,
-      :provisioned_read_capacity_auto_scaling_settings_update,
-      keyword_init: true
-    ) do
+    class ReplicaGlobalSecondaryIndexSettingsUpdate
       include Hearth::Structure
+
+      MEMBERS = %i[
+        index_name
+        provisioned_read_capacity_units
+        provisioned_read_capacity_auto_scaling_settings_update
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The specified replica is no longer part of the global table.</p>
@@ -7661,11 +8185,14 @@ module AWS::SDK::DynamoDB
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    ReplicaNotFoundException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class ReplicaNotFoundException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the properties of a replica.</p>
@@ -7730,19 +8257,22 @@ module AWS::SDK::DynamoDB
     # @!attribute replica_table_class_summary
     #   <p>Contains details of the table class.</p>
     #   @return [TableClassSummary]
-    ReplicaSettingsDescription = ::Struct.new(
-      :region_name,
-      :replica_status,
-      :replica_billing_mode_summary,
-      :replica_provisioned_read_capacity_units,
-      :replica_provisioned_read_capacity_auto_scaling_settings,
-      :replica_provisioned_write_capacity_units,
-      :replica_provisioned_write_capacity_auto_scaling_settings,
-      :replica_global_secondary_index_settings,
-      :replica_table_class_summary,
-      keyword_init: true
-    ) do
+    class ReplicaSettingsDescription
       include Hearth::Structure
+
+      MEMBERS = %i[
+        region_name
+        replica_status
+        replica_billing_mode_summary
+        replica_provisioned_read_capacity_units
+        replica_provisioned_read_capacity_auto_scaling_settings
+        replica_provisioned_write_capacity_units
+        replica_provisioned_write_capacity_auto_scaling_settings
+        replica_global_secondary_index_settings
+        replica_table_class_summary
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the settings for a global table in a Region that will be modified.</p>
@@ -7774,15 +8304,18 @@ module AWS::SDK::DynamoDB
     #               class.</p>
     #   Enum, one of: ["STANDARD", "STANDARD_INFREQUENT_ACCESS"]
     #   @return [String]
-    ReplicaSettingsUpdate = ::Struct.new(
-      :region_name,
-      :replica_provisioned_read_capacity_units,
-      :replica_provisioned_read_capacity_auto_scaling_settings_update,
-      :replica_global_secondary_index_settings_update,
-      :replica_table_class,
-      keyword_init: true
-    ) do
+    class ReplicaSettingsUpdate
       include Hearth::Structure
+
+      MEMBERS = %i[
+        region_name
+        replica_provisioned_read_capacity_units
+        replica_provisioned_read_capacity_auto_scaling_settings_update
+        replica_global_secondary_index_settings_update
+        replica_table_class
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for ReplicaStatus
@@ -7824,12 +8357,15 @@ module AWS::SDK::DynamoDB
     # @!attribute delete
     #   <p>The name of the existing replica to be removed.</p>
     #   @return [DeleteReplicaAction]
-    ReplicaUpdate = ::Struct.new(
-      :create,
-      :delete,
-      keyword_init: true
-    ) do
+    class ReplicaUpdate
       include Hearth::Structure
+
+      MEMBERS = %i[
+        create
+        delete
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents one of the following:</p>
@@ -7868,13 +8404,16 @@ module AWS::SDK::DynamoDB
     # @!attribute delete
     #   <p>The parameters required for deleting a replica for the table.</p>
     #   @return [DeleteReplicationGroupMemberAction]
-    ReplicationGroupUpdate = ::Struct.new(
-      :create,
-      :update,
-      :delete,
-      keyword_init: true
-    ) do
+    class ReplicationGroupUpdate
       include Hearth::Structure
+
+      MEMBERS = %i[
+        create
+        update
+        delete
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Throughput exceeds the current throughput quota for your account. Please contact
@@ -7885,11 +8424,14 @@ module AWS::SDK::DynamoDB
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    RequestLimitExceeded = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class RequestLimitExceeded
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The operation conflicts with the resource's availability. For example, you
@@ -7901,11 +8443,14 @@ module AWS::SDK::DynamoDB
     # @!attribute message
     #   <p>The resource which is being attempted to be changed is in use.</p>
     #   @return [String]
-    ResourceInUseException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class ResourceInUseException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The operation tried to access a nonexistent table or index. The resource might not
@@ -7916,11 +8461,14 @@ module AWS::SDK::DynamoDB
     # @!attribute message
     #   <p>The resource which is being requested does not exist.</p>
     #   @return [String]
-    ResourceNotFoundException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class ResourceNotFoundException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Contains details for the restore.</p>
@@ -7942,14 +8490,17 @@ module AWS::SDK::DynamoDB
     # @!attribute restore_in_progress
     #   <p>Indicates if a restore is in progress or not.</p>
     #   @return [Boolean]
-    RestoreSummary = ::Struct.new(
-      :source_backup_arn,
-      :source_table_arn,
-      :restore_date_time,
-      :restore_in_progress,
-      keyword_init: true
-    ) do
+    class RestoreSummary
       include Hearth::Structure
+
+      MEMBERS = %i[
+        source_backup_arn
+        source_table_arn
+        restore_date_time
+        restore_in_progress
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -7987,17 +8538,20 @@ module AWS::SDK::DynamoDB
     # @!attribute sse_specification_override
     #   <p>The new server-side encryption settings for the restored table.</p>
     #   @return [SSESpecification]
-    RestoreTableFromBackupInput = ::Struct.new(
-      :target_table_name,
-      :backup_arn,
-      :billing_mode_override,
-      :global_secondary_index_override,
-      :local_secondary_index_override,
-      :provisioned_throughput_override,
-      :sse_specification_override,
-      keyword_init: true
-    ) do
+    class RestoreTableFromBackupInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        target_table_name
+        backup_arn
+        billing_mode_override
+        global_secondary_index_override
+        local_secondary_index_override
+        provisioned_throughput_override
+        sse_specification_override
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -8006,11 +8560,14 @@ module AWS::SDK::DynamoDB
     # @!attribute table_description
     #   <p>The description of the table created from an existing backup.</p>
     #   @return [TableDescription]
-    RestoreTableFromBackupOutput = ::Struct.new(
-      :table_description,
-      keyword_init: true
-    ) do
+    class RestoreTableFromBackupOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        table_description
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -8062,20 +8619,23 @@ module AWS::SDK::DynamoDB
     # @!attribute sse_specification_override
     #   <p>The new server-side encryption settings for the restored table.</p>
     #   @return [SSESpecification]
-    RestoreTableToPointInTimeInput = ::Struct.new(
-      :source_table_arn,
-      :source_table_name,
-      :target_table_name,
-      :use_latest_restorable_time,
-      :restore_date_time,
-      :billing_mode_override,
-      :global_secondary_index_override,
-      :local_secondary_index_override,
-      :provisioned_throughput_override,
-      :sse_specification_override,
-      keyword_init: true
-    ) do
+    class RestoreTableToPointInTimeInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        source_table_arn
+        source_table_name
+        target_table_name
+        use_latest_restorable_time
+        restore_date_time
+        billing_mode_override
+        global_secondary_index_override
+        local_secondary_index_override
+        provisioned_throughput_override
+        sse_specification_override
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -8084,11 +8644,14 @@ module AWS::SDK::DynamoDB
     # @!attribute table_description
     #   <p>Represents the properties of a table.</p>
     #   @return [TableDescription]
-    RestoreTableToPointInTimeOutput = ::Struct.new(
-      :table_description,
-      keyword_init: true
-    ) do
+    class RestoreTableToPointInTimeOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        table_description
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for ReturnConsumedCapacity
@@ -8168,13 +8731,16 @@ module AWS::SDK::DynamoDB
     # @!attribute s3_key_prefix
     #   <p> The key prefix shared by all S3 Objects that are being imported. </p>
     #   @return [String]
-    S3BucketSource = ::Struct.new(
-      :s3_bucket_owner,
-      :s3_bucket,
-      :s3_key_prefix,
-      keyword_init: true
-    ) do
+    class S3BucketSource
       include Hearth::Structure
+
+      MEMBERS = %i[
+        s3_bucket_owner
+        s3_bucket
+        s3_key_prefix
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for S3SseAlgorithm
@@ -8226,14 +8792,17 @@ module AWS::SDK::DynamoDB
     #               be cleared when DynamoDB detects that the table's KMS key is accessible
     #               again. DynamoDB will initiate the table archival process when table's KMS key remains inaccessible for more than seven days from this date.</p>
     #   @return [Time]
-    SSEDescription = ::Struct.new(
-      :status,
-      :sse_type,
-      :kms_master_key_arn,
-      :inaccessible_encryption_date_time,
-      keyword_init: true
-    ) do
+    class SSEDescription
       include Hearth::Structure
+
+      MEMBERS = %i[
+        status
+        sse_type
+        kms_master_key_arn
+        inaccessible_encryption_date_time
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the settings used to enable server-side encryption.</p>
@@ -8265,13 +8834,16 @@ module AWS::SDK::DynamoDB
     #               Note that you should only provide this parameter if the key is different from the
     #               default DynamoDB key <code>alias/aws/dynamodb</code>.</p>
     #   @return [String]
-    SSESpecification = ::Struct.new(
-      :enabled,
-      :sse_type,
-      :kms_master_key_id,
-      keyword_init: true
-    ) do
+    class SSESpecification
       include Hearth::Structure
+
+      MEMBERS = %i[
+        enabled
+        sse_type
+        kms_master_key_id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for SSEStatus
@@ -8310,7 +8882,7 @@ module AWS::SDK::DynamoDB
     #   @option params [String] :index_name
     #   @option params [Array<String>] :attributes_to_get
     #   @option params [Integer] :limit
-    #   @option params [String] :member_select
+    #   @option params [String] :select
     #   @option params [Hash<String, Condition>] :scan_filter
     #   @option params [String] :conditional_operator
     #   @option params [Hash<String, AttributeValue>] :exclusive_start_key
@@ -8347,7 +8919,7 @@ module AWS::SDK::DynamoDB
     #               operation to continue the operation. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html">Working with Queries</a> in the <i>Amazon DynamoDB Developer
     #                   Guide</i>.</p>
     #   @return [Integer]
-    # @!attribute member_select
+    # @!attribute select
     #   <p>The attributes to be returned in the result. You can retrieve all item attributes,
     #               specific item attributes, the count of matching items, or in the case of an index, some
     #               or all of the attributes projected into the index.</p>
@@ -8595,33 +9167,36 @@ module AWS::SDK::DynamoDB
     #               indexes. If you scan a global secondary index with <code>ConsistentRead</code> set to
     #               true, you will receive a <code>ValidationException</code>.</p>
     #   @return [Boolean]
-    ScanInput = ::Struct.new(
-      :table_name,
-      :index_name,
-      :attributes_to_get,
-      :limit,
-      :member_select,
-      :scan_filter,
-      :conditional_operator,
-      :exclusive_start_key,
-      :return_consumed_capacity,
-      :total_segments,
-      :segment,
-      :projection_expression,
-      :filter_expression,
-      :expression_attribute_names,
-      :expression_attribute_values,
-      :consistent_read,
-      keyword_init: true
-    ) do
+    class ScanInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        table_name
+        index_name
+        attributes_to_get
+        limit
+        select
+        scan_filter
+        conditional_operator
+        exclusive_start_key
+        return_consumed_capacity
+        total_segments
+        segment
+        projection_expression
+        filter_expression
+        expression_attribute_names
+        expression_attribute_values
+        consistent_read
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the output of a <code>Scan</code> operation.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [Array<Hash<String, AttributeValue>>] :items
-    #   @option params [Integer] :member_count (0)
+    #   @option params [Integer] :count (0)
     #   @option params [Integer] :scanned_count (0)
     #   @option params [Hash<String, AttributeValue>] :last_evaluated_key
     #   @option params [ConsumedCapacity] :consumed_capacity
@@ -8629,7 +9204,7 @@ module AWS::SDK::DynamoDB
     #   <p>An array of item attributes that match the scan criteria. Each element in this array
     #               consists of an attribute name and the value for that attribute.</p>
     #   @return [Array<Hash<String, AttributeValue>>]
-    # @!attribute member_count
+    # @!attribute count
     #   <p>The number of items in the response.</p>
     #            <p>If you set <code>ScanFilter</code> in the request, then <code>Count</code> is the
     #               number of items returned after the filter was applied, and <code>ScannedCount</code> is
@@ -8665,21 +9240,24 @@ module AWS::SDK::DynamoDB
     #               <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html#ItemSizeCalculations.Reads">Provisioned Throughput</a>
     #               in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     #   @return [ConsumedCapacity]
-    ScanOutput = ::Struct.new(
-      :items,
-      :member_count,
-      :scanned_count,
-      :last_evaluated_key,
-      :consumed_capacity,
-      keyword_init: true
-    ) do
+    class ScanOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        items
+        count
+        scanned_count
+        last_evaluated_key
+        consumed_capacity
+      ].freeze
+
+      attr_accessor(*MEMBERS)
 
       private
 
       def _defaults
         {
-          member_count: 0,
+          count: 0,
           scanned_count: 0
         }
       end
@@ -8751,19 +9329,22 @@ module AWS::SDK::DynamoDB
     #            </ul>
     #   Enum, one of: ["PROVISIONED", "PAY_PER_REQUEST"]
     #   @return [String]
-    SourceTableDetails = ::Struct.new(
-      :table_name,
-      :table_id,
-      :table_arn,
-      :table_size_bytes,
-      :key_schema,
-      :table_creation_date_time,
-      :provisioned_throughput,
-      :item_count,
-      :billing_mode,
-      keyword_init: true
-    ) do
+    class SourceTableDetails
       include Hearth::Structure
+
+      MEMBERS = %i[
+        table_name
+        table_id
+        table_arn
+        table_size_bytes
+        key_schema
+        table_creation_date_time
+        provisioned_throughput
+        item_count
+        billing_mode
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Contains the details of the features enabled on the table when the backup was created.
@@ -8795,15 +9376,18 @@ module AWS::SDK::DynamoDB
     #   <p>The description of the server-side encryption status on the table when the backup was
     #               created.</p>
     #   @return [SSEDescription]
-    SourceTableFeatureDetails = ::Struct.new(
-      :local_secondary_indexes,
-      :global_secondary_indexes,
-      :stream_description,
-      :time_to_live_description,
-      :sse_description,
-      keyword_init: true
-    ) do
+    class SourceTableFeatureDetails
       include Hearth::Structure
+
+      MEMBERS = %i[
+        local_secondary_indexes
+        global_secondary_indexes
+        stream_description
+        time_to_live_description
+        sse_description
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the DynamoDB Streams configuration for a table in DynamoDB.</p>
@@ -8843,12 +9427,15 @@ module AWS::SDK::DynamoDB
     #            </ul>
     #   Enum, one of: ["NEW_IMAGE", "OLD_IMAGE", "NEW_AND_OLD_IMAGES", "KEYS_ONLY"]
     #   @return [String]
-    StreamSpecification = ::Struct.new(
-      :stream_enabled,
-      :stream_view_type,
-      keyword_init: true
-    ) do
+    class StreamSpecification
       include Hearth::Structure
+
+      MEMBERS = %i[
+        stream_enabled
+        stream_view_type
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for StreamViewType
@@ -8868,11 +9455,14 @@ module AWS::SDK::DynamoDB
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    TableAlreadyExistsException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class TableAlreadyExistsException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the auto scaling configuration for a global table.</p>
@@ -8909,13 +9499,16 @@ module AWS::SDK::DynamoDB
     # @!attribute replicas
     #   <p>Represents replicas of the global table.</p>
     #   @return [Array<ReplicaAutoScalingDescription>]
-    TableAutoScalingDescription = ::Struct.new(
-      :table_name,
-      :table_status,
-      :replicas,
-      keyword_init: true
-    ) do
+    class TableAutoScalingDescription
       include Hearth::Structure
+
+      MEMBERS = %i[
+        table_name
+        table_status
+        replicas
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for TableClass
@@ -8938,12 +9531,15 @@ module AWS::SDK::DynamoDB
     # @!attribute last_update_date_time
     #   <p>The date and time at which the table class was last updated.</p>
     #   @return [Time]
-    TableClassSummary = ::Struct.new(
-      :table_class,
-      :last_update_date_time,
-      keyword_init: true
-    ) do
+    class TableClassSummary
       include Hearth::Structure
+
+      MEMBERS = %i[
+        table_class
+        last_update_date_time
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p> The parameters for the table created as part of the import operation. </p>
@@ -8985,17 +9581,20 @@ module AWS::SDK::DynamoDB
     #   <p> The Global Secondary Indexes (GSI) of the table to be created as part of the import
     #               operation. </p>
     #   @return [Array<GlobalSecondaryIndex>]
-    TableCreationParameters = ::Struct.new(
-      :table_name,
-      :attribute_definitions,
-      :key_schema,
-      :billing_mode,
-      :provisioned_throughput,
-      :sse_specification,
-      :global_secondary_indexes,
-      keyword_init: true
-    ) do
+    class TableCreationParameters
       include Hearth::Structure
+
+      MEMBERS = %i[
+        table_name
+        attribute_definitions
+        key_schema
+        billing_mode
+        provisioned_throughput
+        sse_specification
+        global_secondary_indexes
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the properties of a table.</p>
@@ -9379,33 +9978,36 @@ module AWS::SDK::DynamoDB
     # @!attribute deletion_protection_enabled
     #   <p>Indicates whether deletion protection is enabled (true) or disabled (false) on the table.</p>
     #   @return [Boolean]
-    TableDescription = ::Struct.new(
-      :attribute_definitions,
-      :table_name,
-      :key_schema,
-      :table_status,
-      :creation_date_time,
-      :provisioned_throughput,
-      :table_size_bytes,
-      :item_count,
-      :table_arn,
-      :table_id,
-      :billing_mode_summary,
-      :local_secondary_indexes,
-      :global_secondary_indexes,
-      :stream_specification,
-      :latest_stream_label,
-      :latest_stream_arn,
-      :global_table_version,
-      :replicas,
-      :restore_summary,
-      :sse_description,
-      :archival_summary,
-      :table_class_summary,
-      :deletion_protection_enabled,
-      keyword_init: true
-    ) do
+    class TableDescription
       include Hearth::Structure
+
+      MEMBERS = %i[
+        attribute_definitions
+        table_name
+        key_schema
+        table_status
+        creation_date_time
+        provisioned_throughput
+        table_size_bytes
+        item_count
+        table_arn
+        table_id
+        billing_mode_summary
+        local_secondary_indexes
+        global_secondary_indexes
+        stream_specification
+        latest_stream_label
+        latest_stream_arn
+        global_table_version
+        replicas
+        restore_summary
+        sse_description
+        archival_summary
+        table_class_summary
+        deletion_protection_enabled
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>A target table with the specified name is either being created or deleted.
@@ -9415,11 +10017,14 @@ module AWS::SDK::DynamoDB
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    TableInUseException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class TableInUseException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>A source table with the name <code>TableName</code> does not currently exist within
@@ -9429,11 +10034,14 @@ module AWS::SDK::DynamoDB
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    TableNotFoundException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class TableNotFoundException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for TableStatus
@@ -9475,12 +10083,15 @@ module AWS::SDK::DynamoDB
     # @!attribute value
     #   <p>The value of the tag. Tag values are case-sensitive and can be null.</p>
     #   @return [String]
-    Tag = ::Struct.new(
-      :key,
-      :value,
-      keyword_init: true
-    ) do
+    class Tag
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key
+        value
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -9494,21 +10105,25 @@ module AWS::SDK::DynamoDB
     # @!attribute tags
     #   <p>The tags to be assigned to the Amazon DynamoDB resource.</p>
     #   @return [Array<Tag>]
-    TagResourceInput = ::Struct.new(
-      :resource_arn,
-      :tags,
-      keyword_init: true
-    ) do
+    class TagResourceInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        resource_arn
+        tags
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    TagResourceOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class TagResourceOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The description of the Time to Live (TTL) status on the specified table. </p>
@@ -9523,12 +10138,15 @@ module AWS::SDK::DynamoDB
     # @!attribute attribute_name
     #   <p> The name of the TTL attribute for items in the table.</p>
     #   @return [String]
-    TimeToLiveDescription = ::Struct.new(
-      :time_to_live_status,
-      :attribute_name,
-      keyword_init: true
-    ) do
+    class TimeToLiveDescription
       include Hearth::Structure
+
+      MEMBERS = %i[
+        time_to_live_status
+        attribute_name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the settings used to enable or disable Time to Live (TTL) for the specified
@@ -9544,12 +10162,15 @@ module AWS::SDK::DynamoDB
     #   <p>The name of the TTL attribute used to store the expiration time for items in the
     #               table.</p>
     #   @return [String]
-    TimeToLiveSpecification = ::Struct.new(
-      :enabled,
-      :attribute_name,
-      keyword_init: true
-    ) do
+    class TimeToLiveSpecification
       include Hearth::Structure
+
+      MEMBERS = %i[
+        enabled
+        attribute_name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for TimeToLiveStatus
@@ -9572,11 +10193,14 @@ module AWS::SDK::DynamoDB
     #               the table that contains the item, and optionally the specific attributes of the item to
     #               retrieve.</p>
     #   @return [Get]
-    TransactGetItem = ::Struct.new(
-      :get,
-      keyword_init: true
-    ) do
+    class TransactGetItem
       include Hearth::Structure
+
+      MEMBERS = %i[
+        get
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -9593,12 +10217,15 @@ module AWS::SDK::DynamoDB
     #               value is valid.</p>
     #   Enum, one of: ["INDEXES", "TOTAL", "NONE"]
     #   @return [String]
-    TransactGetItemsInput = ::Struct.new(
-      :transact_items,
-      :return_consumed_capacity,
-      keyword_init: true
-    ) do
+    class TransactGetItemsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        transact_items
+        return_consumed_capacity
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -9622,12 +10249,15 @@ module AWS::SDK::DynamoDB
     #                   <code>ItemResponse</code> object is Null, or if the requested item has no projected
     #               attributes, the corresponding <code>ItemResponse</code> object is an empty Map. </p>
     #   @return [Array<ItemResponse>]
-    TransactGetItemsOutput = ::Struct.new(
-      :consumed_capacity,
-      :responses,
-      keyword_init: true
-    ) do
+    class TransactGetItemsOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        consumed_capacity
+        responses
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>A list of requests that can perform update, put, delete, or check operations on
@@ -9650,14 +10280,17 @@ module AWS::SDK::DynamoDB
     # @!attribute update
     #   <p>A request to perform an <code>UpdateItem</code> operation.</p>
     #   @return [Update]
-    TransactWriteItem = ::Struct.new(
-      :condition_check,
-      :put,
-      :delete,
-      :update,
-      keyword_init: true
-    ) do
+    class TransactWriteItem
       include Hearth::Structure
+
+      MEMBERS = %i[
+        condition_check
+        put
+        delete
+        update
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -9727,14 +10360,17 @@ module AWS::SDK::DynamoDB
     #               within the 10-minute idempotency window, DynamoDB returns an
     #                   <code>IdempotentParameterMismatch</code> exception.</p>
     #   @return [String]
-    TransactWriteItemsInput = ::Struct.new(
-      :transact_items,
-      :return_consumed_capacity,
-      :return_item_collection_metrics,
-      :client_request_token,
-      keyword_init: true
-    ) do
+    class TransactWriteItemsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        transact_items
+        return_consumed_capacity
+        return_item_collection_metrics
+        client_request_token
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -9752,12 +10388,15 @@ module AWS::SDK::DynamoDB
     #                   <code>UpdateItem</code>, <code>PutItem</code>, or <code>DeleteItem</code>
     #               operations. </p>
     #   @return [Hash<String, Array<ItemCollectionMetrics>>]
-    TransactWriteItemsOutput = ::Struct.new(
-      :consumed_capacity,
-      :item_collection_metrics,
-      keyword_init: true
-    ) do
+    class TransactWriteItemsOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        consumed_capacity
+        item_collection_metrics
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The entire transaction request was canceled.</p>
@@ -10007,12 +10646,15 @@ module AWS::SDK::DynamoDB
     # @!attribute cancellation_reasons
     #   <p>A list of cancellation reasons.</p>
     #   @return [Array<CancellationReason>]
-    TransactionCanceledException = ::Struct.new(
-      :message,
-      :cancellation_reasons,
-      keyword_init: true
-    ) do
+    class TransactionCanceledException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+        cancellation_reasons
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Operation was rejected because there is an ongoing transaction for the
@@ -10022,11 +10664,14 @@ module AWS::SDK::DynamoDB
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    TransactionConflictException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class TransactionConflictException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The transaction with the given request token is already in progress.</p>
@@ -10097,11 +10742,14 @@ module AWS::SDK::DynamoDB
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    TransactionInProgressException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class TransactionInProgressException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -10116,21 +10764,25 @@ module AWS::SDK::DynamoDB
     #   <p>A list of tag keys. Existing tags of the resource whose keys are members of this list
     #               will be removed from the DynamoDB resource.</p>
     #   @return [Array<String>]
-    UntagResourceInput = ::Struct.new(
-      :resource_arn,
-      :tag_keys,
-      keyword_init: true
-    ) do
+    class UntagResourceInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        resource_arn
+        tag_keys
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    UntagResourceOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class UntagResourceOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents a request to perform an <code>UpdateItem</code> operation.</p>
@@ -10171,17 +10823,20 @@ module AWS::SDK::DynamoDB
     #               ALL_OLD.</p>
     #   Enum, one of: ["ALL_OLD", "NONE"]
     #   @return [String]
-    Update = ::Struct.new(
-      :key,
-      :update_expression,
-      :table_name,
-      :condition_expression,
-      :expression_attribute_names,
-      :expression_attribute_values,
-      :return_values_on_condition_check_failure,
-      keyword_init: true
-    ) do
+    class Update
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key
+        update_expression
+        table_name
+        condition_expression
+        expression_attribute_names
+        expression_attribute_values
+        return_values_on_condition_check_failure
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -10194,12 +10849,15 @@ module AWS::SDK::DynamoDB
     # @!attribute point_in_time_recovery_specification
     #   <p>Represents the settings used to enable point in time recovery.</p>
     #   @return [PointInTimeRecoverySpecification]
-    UpdateContinuousBackupsInput = ::Struct.new(
-      :table_name,
-      :point_in_time_recovery_specification,
-      keyword_init: true
-    ) do
+    class UpdateContinuousBackupsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        table_name
+        point_in_time_recovery_specification
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -10209,11 +10867,14 @@ module AWS::SDK::DynamoDB
     #   <p>Represents the continuous backups and point in time recovery settings on the
     #               table.</p>
     #   @return [ContinuousBackupsDescription]
-    UpdateContinuousBackupsOutput = ::Struct.new(
-      :continuous_backups_description,
-      keyword_init: true
-    ) do
+    class UpdateContinuousBackupsOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        continuous_backups_description
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -10231,13 +10892,16 @@ module AWS::SDK::DynamoDB
     #   <p>Represents the contributor insights action.</p>
     #   Enum, one of: ["ENABLE", "DISABLE"]
     #   @return [String]
-    UpdateContributorInsightsInput = ::Struct.new(
-      :table_name,
-      :index_name,
-      :contributor_insights_action,
-      keyword_init: true
-    ) do
+    class UpdateContributorInsightsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        table_name
+        index_name
+        contributor_insights_action
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -10255,13 +10919,16 @@ module AWS::SDK::DynamoDB
     #   <p>The status of contributor insights</p>
     #   Enum, one of: ["ENABLING", "ENABLED", "DISABLING", "DISABLED", "FAILED"]
     #   @return [String]
-    UpdateContributorInsightsOutput = ::Struct.new(
-      :table_name,
-      :index_name,
-      :contributor_insights_status,
-      keyword_init: true
-    ) do
+    class UpdateContributorInsightsOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        table_name
+        index_name
+        contributor_insights_status
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the new provisioned throughput settings to be applied to a global secondary
@@ -10280,12 +10947,15 @@ module AWS::SDK::DynamoDB
     #                   Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer
     #                   Guide</i>.</p>
     #   @return [ProvisionedThroughput]
-    UpdateGlobalSecondaryIndexAction = ::Struct.new(
-      :index_name,
-      :provisioned_throughput,
-      keyword_init: true
-    ) do
+    class UpdateGlobalSecondaryIndexAction
       include Hearth::Structure
+
+      MEMBERS = %i[
+        index_name
+        provisioned_throughput
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -10298,12 +10968,15 @@ module AWS::SDK::DynamoDB
     # @!attribute replica_updates
     #   <p>A list of Regions that should be added or removed from the global table.</p>
     #   @return [Array<ReplicaUpdate>]
-    UpdateGlobalTableInput = ::Struct.new(
-      :global_table_name,
-      :replica_updates,
-      keyword_init: true
-    ) do
+    class UpdateGlobalTableInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        global_table_name
+        replica_updates
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -10312,11 +10985,14 @@ module AWS::SDK::DynamoDB
     # @!attribute global_table_description
     #   <p>Contains the details of the global table.</p>
     #   @return [GlobalTableDescription]
-    UpdateGlobalTableOutput = ::Struct.new(
-      :global_table_description,
-      keyword_init: true
-    ) do
+    class UpdateGlobalTableOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        global_table_description
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -10365,16 +11041,19 @@ module AWS::SDK::DynamoDB
     # @!attribute replica_settings_update
     #   <p>Represents the settings for a global table in a Region that will be modified.</p>
     #   @return [Array<ReplicaSettingsUpdate>]
-    UpdateGlobalTableSettingsInput = ::Struct.new(
-      :global_table_name,
-      :global_table_billing_mode,
-      :global_table_provisioned_write_capacity_units,
-      :global_table_provisioned_write_capacity_auto_scaling_settings_update,
-      :global_table_global_secondary_index_settings_update,
-      :replica_settings_update,
-      keyword_init: true
-    ) do
+    class UpdateGlobalTableSettingsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        global_table_name
+        global_table_billing_mode
+        global_table_provisioned_write_capacity_units
+        global_table_provisioned_write_capacity_auto_scaling_settings_update
+        global_table_global_secondary_index_settings_update
+        replica_settings_update
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -10387,12 +11066,15 @@ module AWS::SDK::DynamoDB
     # @!attribute replica_settings
     #   <p>The Region-specific settings for the global table.</p>
     #   @return [Array<ReplicaSettingsDescription>]
-    UpdateGlobalTableSettingsOutput = ::Struct.new(
-      :global_table_name,
-      :replica_settings,
-      keyword_init: true
-    ) do
+    class UpdateGlobalTableSettingsOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        global_table_name
+        replica_settings
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the input of an <code>UpdateItem</code> operation.</p>
@@ -10722,23 +11404,26 @@ module AWS::SDK::DynamoDB
     #               units are consumed.</p>
     #   Enum, one of: ["ALL_OLD", "NONE"]
     #   @return [String]
-    UpdateItemInput = ::Struct.new(
-      :table_name,
-      :key,
-      :attribute_updates,
-      :expected,
-      :conditional_operator,
-      :return_values,
-      :return_consumed_capacity,
-      :return_item_collection_metrics,
-      :update_expression,
-      :condition_expression,
-      :expression_attribute_names,
-      :expression_attribute_values,
-      :return_values_on_condition_check_failure,
-      keyword_init: true
-    ) do
+    class UpdateItemInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        table_name
+        key
+        attribute_updates
+        expected
+        conditional_operator
+        return_values
+        return_consumed_capacity
+        return_item_collection_metrics
+        update_expression
+        condition_expression
+        expression_attribute_names
+        expression_attribute_values
+        return_values_on_condition_check_failure
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the output of an <code>UpdateItem</code> operation.</p>
@@ -10788,13 +11473,16 @@ module AWS::SDK::DynamoDB
     #               </li>
     #            </ul>
     #   @return [ItemCollectionMetrics]
-    UpdateItemOutput = ::Struct.new(
-      :attributes,
-      :consumed_capacity,
-      :item_collection_metrics,
-      keyword_init: true
-    ) do
+    class UpdateItemOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        attributes
+        consumed_capacity
+        item_collection_metrics
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Enables updating the configuration for Kinesis Streaming.</p>
@@ -10805,11 +11493,14 @@ module AWS::SDK::DynamoDB
     #   <p>Enables updating the precision of Kinesis data stream timestamp. </p>
     #   Enum, one of: ["MILLISECOND", "MICROSECOND"]
     #   @return [String]
-    UpdateKinesisStreamingConfiguration = ::Struct.new(
-      :approximate_creation_date_time_precision,
-      keyword_init: true
-    ) do
+    class UpdateKinesisStreamingConfiguration
       include Hearth::Structure
+
+      MEMBERS = %i[
+        approximate_creation_date_time_precision
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -10826,13 +11517,16 @@ module AWS::SDK::DynamoDB
     # @!attribute update_kinesis_streaming_configuration
     #   <p>The command to update the Kinesis stream configuration.</p>
     #   @return [UpdateKinesisStreamingConfiguration]
-    UpdateKinesisStreamingDestinationInput = ::Struct.new(
-      :table_name,
-      :stream_arn,
-      :update_kinesis_streaming_configuration,
-      keyword_init: true
-    ) do
+    class UpdateKinesisStreamingDestinationInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        table_name
+        stream_arn
+        update_kinesis_streaming_configuration
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -10854,14 +11548,17 @@ module AWS::SDK::DynamoDB
     # @!attribute update_kinesis_streaming_configuration
     #   <p>The command to update the Kinesis streaming destination configuration.</p>
     #   @return [UpdateKinesisStreamingConfiguration]
-    UpdateKinesisStreamingDestinationOutput = ::Struct.new(
-      :table_name,
-      :stream_arn,
-      :destination_status,
-      :update_kinesis_streaming_configuration,
-      keyword_init: true
-    ) do
+    class UpdateKinesisStreamingDestinationOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        table_name
+        stream_arn
+        destination_status
+        update_kinesis_streaming_configuration
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents a replica to be modified.</p>
@@ -10893,15 +11590,18 @@ module AWS::SDK::DynamoDB
     #               class.</p>
     #   Enum, one of: ["STANDARD", "STANDARD_INFREQUENT_ACCESS"]
     #   @return [String]
-    UpdateReplicationGroupMemberAction = ::Struct.new(
-      :region_name,
-      :kms_master_key_id,
-      :provisioned_throughput_override,
-      :global_secondary_indexes,
-      :table_class_override,
-      keyword_init: true
-    ) do
+    class UpdateReplicationGroupMemberAction
       include Hearth::Structure
+
+      MEMBERS = %i[
+        region_name
+        kms_master_key_id
+        provisioned_throughput_override
+        global_secondary_indexes
+        table_class_override
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the input of an <code>UpdateTable</code> operation.</p>
@@ -11000,20 +11700,23 @@ module AWS::SDK::DynamoDB
     # @!attribute deletion_protection_enabled
     #   <p>Indicates whether deletion protection is to be enabled (true) or disabled (false) on the table.</p>
     #   @return [Boolean]
-    UpdateTableInput = ::Struct.new(
-      :attribute_definitions,
-      :table_name,
-      :billing_mode,
-      :provisioned_throughput,
-      :global_secondary_index_updates,
-      :stream_specification,
-      :sse_specification,
-      :replica_updates,
-      :table_class,
-      :deletion_protection_enabled,
-      keyword_init: true
-    ) do
+    class UpdateTableInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        attribute_definitions
+        table_name
+        billing_mode
+        provisioned_throughput
+        global_secondary_index_updates
+        stream_specification
+        sse_specification
+        replica_updates
+        table_class
+        deletion_protection_enabled
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the output of an <code>UpdateTable</code> operation.</p>
@@ -11023,11 +11726,14 @@ module AWS::SDK::DynamoDB
     # @!attribute table_description
     #   <p>Represents the properties of the table.</p>
     #   @return [TableDescription]
-    UpdateTableOutput = ::Struct.new(
-      :table_description,
-      keyword_init: true
-    ) do
+    class UpdateTableOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        table_description
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -11051,14 +11757,17 @@ module AWS::SDK::DynamoDB
     #   <p>Represents the auto scaling settings of replicas of the table that will be
     #               modified.</p>
     #   @return [Array<ReplicaAutoScalingUpdate>]
-    UpdateTableReplicaAutoScalingInput = ::Struct.new(
-      :global_secondary_index_updates,
-      :table_name,
-      :provisioned_write_capacity_auto_scaling_update,
-      :replica_updates,
-      keyword_init: true
-    ) do
+    class UpdateTableReplicaAutoScalingInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        global_secondary_index_updates
+        table_name
+        provisioned_write_capacity_auto_scaling_update
+        replica_updates
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -11067,11 +11776,14 @@ module AWS::SDK::DynamoDB
     # @!attribute table_auto_scaling_description
     #   <p>Returns information about the auto scaling settings of a table with replicas.</p>
     #   @return [TableAutoScalingDescription]
-    UpdateTableReplicaAutoScalingOutput = ::Struct.new(
-      :table_auto_scaling_description,
-      keyword_init: true
-    ) do
+    class UpdateTableReplicaAutoScalingOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        table_auto_scaling_description
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the input of an <code>UpdateTimeToLive</code> operation.</p>
@@ -11086,12 +11798,15 @@ module AWS::SDK::DynamoDB
     #   <p>Represents the settings used to enable or disable Time to Live for the specified
     #               table.</p>
     #   @return [TimeToLiveSpecification]
-    UpdateTimeToLiveInput = ::Struct.new(
-      :table_name,
-      :time_to_live_specification,
-      keyword_init: true
-    ) do
+    class UpdateTimeToLiveInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        table_name
+        time_to_live_specification
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -11100,11 +11815,14 @@ module AWS::SDK::DynamoDB
     # @!attribute time_to_live_specification
     #   <p>Represents the output of an <code>UpdateTimeToLive</code> operation.</p>
     #   @return [TimeToLiveSpecification]
-    UpdateTimeToLiveOutput = ::Struct.new(
-      :time_to_live_specification,
-      keyword_init: true
-    ) do
+    class UpdateTimeToLiveOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        time_to_live_specification
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents an operation to perform - either <code>DeleteItem</code> or
@@ -11121,12 +11839,15 @@ module AWS::SDK::DynamoDB
     # @!attribute delete_request
     #   <p>A request to perform a <code>DeleteItem</code> operation.</p>
     #   @return [DeleteRequest]
-    WriteRequest = ::Struct.new(
-      :put_request,
-      :delete_request,
-      keyword_init: true
-    ) do
+    class WriteRequest
       include Hearth::Structure
+
+      MEMBERS = %i[
+        put_request
+        delete_request
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
   end

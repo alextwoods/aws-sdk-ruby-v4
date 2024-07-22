@@ -15,9 +15,19 @@
 
 package software.amazon.smithy.aws.ruby.codegen.protocol.json10.generators;
 
-import java.util.Optional;
 import java.util.stream.Stream;
-import software.amazon.smithy.model.shapes.*;
+import software.amazon.smithy.model.shapes.BlobShape;
+import software.amazon.smithy.model.shapes.DoubleShape;
+import software.amazon.smithy.model.shapes.FloatShape;
+import software.amazon.smithy.model.shapes.ListShape;
+import software.amazon.smithy.model.shapes.MapShape;
+import software.amazon.smithy.model.shapes.MemberShape;
+import software.amazon.smithy.model.shapes.OperationShape;
+import software.amazon.smithy.model.shapes.Shape;
+import software.amazon.smithy.model.shapes.ShapeVisitor;
+import software.amazon.smithy.model.shapes.StructureShape;
+import software.amazon.smithy.model.shapes.TimestampShape;
+import software.amazon.smithy.model.shapes.UnionShape;
 import software.amazon.smithy.model.traits.JsonNameTrait;
 import software.amazon.smithy.model.traits.SparseTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait;
@@ -118,7 +128,7 @@ public class ParserGenerator extends ParserGeneratorBase {
                     Shape memberTarget =
                             model.expectShape(s.getMember().getTarget());
                     memberTarget
-                            .accept(new MemberDeserializer(s.getMember(),"", "value", !s.hasTrait(SparseTrait.class)));
+                            .accept(new MemberDeserializer(s.getMember(), "", "value", !s.hasTrait(SparseTrait.class)));
                 })
                 .closeBlock("end")
                 .closeBlock("end");

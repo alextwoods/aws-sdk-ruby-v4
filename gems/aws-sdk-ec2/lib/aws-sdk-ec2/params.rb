@@ -18,8 +18,8 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(params, ::Hash, Types::AcceleratorCount, context: context)
         type = Types::AcceleratorCount.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.member_min = params[:member_min] unless params[:member_min].nil?
-        type.member_max = params[:member_max] unless params[:member_max].nil?
+        type.min = params[:min] unless params[:min].nil?
+        type.max = params[:max] unless params[:max].nil?
         type
       end
     end
@@ -29,8 +29,8 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(params, ::Hash, Types::AcceleratorCountRequest, context: context)
         type = Types::AcceleratorCountRequest.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.member_min = params[:member_min] unless params[:member_min].nil?
-        type.member_max = params[:member_max] unless params[:member_max].nil?
+        type.min = params[:min] unless params[:min].nil?
+        type.max = params[:max] unless params[:max].nil?
         type
       end
     end
@@ -62,8 +62,8 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(params, ::Hash, Types::AcceleratorTotalMemoryMiB, context: context)
         type = Types::AcceleratorTotalMemoryMiB.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.member_min = params[:member_min] unless params[:member_min].nil?
-        type.member_max = params[:member_max] unless params[:member_max].nil?
+        type.min = params[:min] unless params[:min].nil?
+        type.max = params[:max] unless params[:max].nil?
         type
       end
     end
@@ -73,8 +73,8 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(params, ::Hash, Types::AcceleratorTotalMemoryMiBRequest, context: context)
         type = Types::AcceleratorTotalMemoryMiBRequest.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.member_min = params[:member_min] unless params[:member_min].nil?
-        type.member_max = params[:member_max] unless params[:member_max].nil?
+        type.min = params[:min] unless params[:min].nil?
+        type.max = params[:max] unless params[:max].nil?
         type
       end
     end
@@ -1939,8 +1939,8 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(params, ::Hash, Types::BaselineEbsBandwidthMbps, context: context)
         type = Types::BaselineEbsBandwidthMbps.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.member_min = params[:member_min] unless params[:member_min].nil?
-        type.member_max = params[:member_max] unless params[:member_max].nil?
+        type.min = params[:min] unless params[:min].nil?
+        type.max = params[:max] unless params[:max].nil?
         type
       end
     end
@@ -1950,8 +1950,8 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(params, ::Hash, Types::BaselineEbsBandwidthMbpsRequest, context: context)
         type = Types::BaselineEbsBandwidthMbpsRequest.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.member_min = params[:member_min] unless params[:member_min].nil?
-        type.member_max = params[:member_max] unless params[:member_max].nil?
+        type.min = params[:min] unless params[:min].nil?
+        type.max = params[:max] unless params[:max].nil?
         type
       end
     end
@@ -2453,7 +2453,7 @@ module AWS::SDK::EC2
         type = Types::CapacityAllocation.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.allocation_type = params[:allocation_type] unless params[:allocation_type].nil?
-        type.member_count = params[:member_count] unless params[:member_count].nil?
+        type.count = params[:count] unless params[:count].nil?
         type
       end
     end
@@ -4422,7 +4422,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.dry_run = params[:dry_run] unless params[:dry_run].nil?
         type.prefix_list_name = params[:prefix_list_name] unless params[:prefix_list_name].nil?
-        type.member_entries = AddPrefixListEntries.build(params[:member_entries], context: "#{context}[:member_entries]") unless params[:member_entries].nil?
+        type.entries = AddPrefixListEntries.build(params[:entries], context: "#{context}[:entries]") unless params[:entries].nil?
         type.max_entries = params[:max_entries] unless params[:max_entries].nil?
         type.tag_specifications = TagSpecificationList.build(params[:tag_specifications], context: "#{context}[:tag_specifications]") unless params[:tag_specifications].nil?
         type.address_family = params[:address_family] unless params[:address_family].nil?
@@ -5638,7 +5638,7 @@ module AWS::SDK::EC2
         type.iops = params[:iops] unless params[:iops].nil?
         type.kms_key_id = params[:kms_key_id] unless params[:kms_key_id].nil?
         type.outpost_arn = params[:outpost_arn] unless params[:outpost_arn].nil?
-        type.member_size = params[:member_size] unless params[:member_size].nil?
+        type.size = params[:size] unless params[:size].nil?
         type.snapshot_id = params[:snapshot_id] unless params[:snapshot_id].nil?
         type.volume_type = params[:volume_type] unless params[:volume_type].nil?
         type.dry_run = params[:dry_run] unless params[:dry_run].nil?
@@ -5661,7 +5661,7 @@ module AWS::SDK::EC2
         type.encrypted = params[:encrypted] unless params[:encrypted].nil?
         type.kms_key_id = params[:kms_key_id] unless params[:kms_key_id].nil?
         type.outpost_arn = params[:outpost_arn] unless params[:outpost_arn].nil?
-        type.member_size = params[:member_size] unless params[:member_size].nil?
+        type.size = params[:size] unless params[:size].nil?
         type.snapshot_id = params[:snapshot_id] unless params[:snapshot_id].nil?
         type.state = params[:state] unless params[:state].nil?
         type.volume_id = params[:volume_id] unless params[:volume_id].nil?
@@ -8839,7 +8839,7 @@ module AWS::SDK::EC2
         type = Types::DescribeFlowLogsInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.dry_run = params[:dry_run] unless params[:dry_run].nil?
-        type.member_filter = FilterList.build(params[:member_filter], context: "#{context}[:member_filter]") unless params[:member_filter].nil?
+        type.filter = FilterList.build(params[:filter], context: "#{context}[:filter]") unless params[:filter].nil?
         type.flow_log_ids = FlowLogIdList.build(params[:flow_log_ids], context: "#{context}[:flow_log_ids]") unless params[:flow_log_ids].nil?
         type.max_results = params[:max_results] unless params[:max_results].nil?
         type.next_token = params[:next_token] unless params[:next_token].nil?
@@ -8911,7 +8911,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeHostReservationOfferingsInput, context: context)
         type = Types::DescribeHostReservationOfferingsInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.member_filter = FilterList.build(params[:member_filter], context: "#{context}[:member_filter]") unless params[:member_filter].nil?
+        type.filter = FilterList.build(params[:filter], context: "#{context}[:filter]") unless params[:filter].nil?
         type.max_duration = params[:max_duration] unless params[:max_duration].nil?
         type.max_results = params[:max_results] unless params[:max_results].nil?
         type.min_duration = params[:min_duration] unless params[:min_duration].nil?
@@ -8937,7 +8937,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeHostReservationsInput, context: context)
         type = Types::DescribeHostReservationsInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.member_filter = FilterList.build(params[:member_filter], context: "#{context}[:member_filter]") unless params[:member_filter].nil?
+        type.filter = FilterList.build(params[:filter], context: "#{context}[:filter]") unless params[:filter].nil?
         type.host_reservation_id_set = HostReservationIdSet.build(params[:host_reservation_id_set], context: "#{context}[:host_reservation_id_set]") unless params[:host_reservation_id_set].nil?
         type.max_results = params[:max_results] unless params[:max_results].nil?
         type.next_token = params[:next_token] unless params[:next_token].nil?
@@ -8961,7 +8961,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeHostsInput, context: context)
         type = Types::DescribeHostsInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.member_filter = FilterList.build(params[:member_filter], context: "#{context}[:member_filter]") unless params[:member_filter].nil?
+        type.filter = FilterList.build(params[:filter], context: "#{context}[:filter]") unless params[:filter].nil?
         type.host_ids = RequestHostIdList.build(params[:host_ids], context: "#{context}[:host_ids]") unless params[:host_ids].nil?
         type.max_results = params[:max_results] unless params[:max_results].nil?
         type.next_token = params[:next_token] unless params[:next_token].nil?
@@ -9949,7 +9949,7 @@ module AWS::SDK::EC2
         type = Types::DescribeNatGatewaysInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.dry_run = params[:dry_run] unless params[:dry_run].nil?
-        type.member_filter = FilterList.build(params[:member_filter], context: "#{context}[:member_filter]") unless params[:member_filter].nil?
+        type.filter = FilterList.build(params[:filter], context: "#{context}[:filter]") unless params[:filter].nil?
         type.max_results = params[:max_results] unless params[:max_results].nil?
         type.nat_gateway_ids = NatGatewayIdStringList.build(params[:nat_gateway_ids], context: "#{context}[:nat_gateway_ids]") unless params[:nat_gateway_ids].nil?
         type.next_token = params[:next_token] unless params[:next_token].nil?
@@ -11970,7 +11970,7 @@ module AWS::SDK::EC2
         type = Types::DhcpConfiguration.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.key = params[:key] unless params[:key].nil?
-        type.member_values = DhcpConfigurationValueList.build(params[:member_values], context: "#{context}[:member_values]") unless params[:member_values].nil?
+        type.values = DhcpConfigurationValueList.build(params[:values], context: "#{context}[:values]") unless params[:values].nil?
         type
       end
     end
@@ -12812,7 +12812,7 @@ module AWS::SDK::EC2
         type.checksum = params[:checksum] unless params[:checksum].nil?
         type.format = params[:format] unless params[:format].nil?
         type.import_manifest_url = params[:import_manifest_url] unless params[:import_manifest_url].nil?
-        type.member_size = params[:member_size] unless params[:member_size].nil?
+        type.size = params[:size] unless params[:size].nil?
         type
       end
     end
@@ -12846,7 +12846,7 @@ module AWS::SDK::EC2
         type = Types::DiskImageVolumeDescription.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.id = params[:id] unless params[:id].nil?
-        type.member_size = params[:member_size] unless params[:member_size].nil?
+        type.size = params[:size] unless params[:size].nil?
         type
       end
     end
@@ -12857,7 +12857,7 @@ module AWS::SDK::EC2
         type = Types::DiskInfo.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.size_in_gb = params[:size_in_gb] unless params[:size_in_gb].nil?
-        type.member_count = params[:member_count] unless params[:member_count].nil?
+        type.count = params[:count] unless params[:count].nil?
         type.type = params[:type] unless params[:type].nil?
         type
       end
@@ -13211,7 +13211,7 @@ module AWS::SDK::EC2
         type = Types::ElasticInferenceAccelerator.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.type = params[:type] unless params[:type].nil?
-        type.member_count = params[:member_count] unless params[:member_count].nil?
+        type.count = params[:count] unless params[:count].nil?
         type
       end
     end
@@ -14255,7 +14255,7 @@ module AWS::SDK::EC2
         type = Types::Filter.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.name = params[:name] unless params[:name].nil?
-        type.member_values = ValueStringList.build(params[:member_values], context: "#{context}[:member_values]") unless params[:member_values].nil?
+        type.values = ValueStringList.build(params[:values], context: "#{context}[:values]") unless params[:values].nil?
         type
       end
     end
@@ -14632,7 +14632,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.name = params[:name] unless params[:name].nil?
         type.manufacturer = params[:manufacturer] unless params[:manufacturer].nil?
-        type.member_count = params[:member_count] unless params[:member_count].nil?
+        type.count = params[:count] unless params[:count].nil?
         type.memory_info = FpgaDeviceMemoryInfo.build(params[:memory_info], context: "#{context}[:memory_info]") unless params[:memory_info].nil?
         type
       end
@@ -15369,7 +15369,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetManagedPrefixListEntriesOutput, context: context)
         type = Types::GetManagedPrefixListEntriesOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.member_entries = PrefixListEntrySet.build(params[:member_entries], context: "#{context}[:member_entries]") unless params[:member_entries].nil?
+        type.entries = PrefixListEntrySet.build(params[:entries], context: "#{context}[:entries]") unless params[:entries].nil?
         type.next_token = params[:next_token] unless params[:next_token].nil?
         type
       end
@@ -15893,7 +15893,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.name = params[:name] unless params[:name].nil?
         type.manufacturer = params[:manufacturer] unless params[:manufacturer].nil?
-        type.member_count = params[:member_count] unless params[:member_count].nil?
+        type.count = params[:count] unless params[:count].nil?
         type.memory_info = GpuDeviceMemoryInfo.build(params[:memory_info], context: "#{context}[:memory_info]") unless params[:memory_info].nil?
         type
       end
@@ -16172,7 +16172,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(params, ::Hash, Types::HostReservation, context: context)
         type = Types::HostReservation.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.member_count = params[:member_count] unless params[:member_count].nil?
+        type.count = params[:count] unless params[:count].nil?
         type.currency_code = params[:currency_code] unless params[:currency_code].nil?
         type.duration = params[:duration] unless params[:duration].nil?
         type.end = params[:end] unless params[:end].nil?
@@ -16851,7 +16851,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(params, ::Hash, Types::InferenceDeviceInfo, context: context)
         type = Types::InferenceDeviceInfo.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.member_count = params[:member_count] unless params[:member_count].nil?
+        type.count = params[:count] unless params[:count].nil?
         type.name = params[:name] unless params[:name].nil?
         type.manufacturer = params[:manufacturer] unless params[:manufacturer].nil?
         type.memory_info = InferenceDeviceMemoryInfo.build(params[:memory_info], context: "#{context}[:memory_info]") unless params[:memory_info].nil?
@@ -19325,7 +19325,7 @@ module AWS::SDK::EC2
         type = Types::LaunchTemplateElasticInferenceAccelerator.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.type = params[:type] unless params[:type].nil?
-        type.member_count = params[:member_count] unless params[:member_count].nil?
+        type.count = params[:count] unless params[:count].nil?
         type
       end
     end
@@ -19347,7 +19347,7 @@ module AWS::SDK::EC2
         type = Types::LaunchTemplateElasticInferenceAcceleratorResponse.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.type = params[:type] unless params[:type].nil?
-        type.member_count = params[:member_count] unless params[:member_count].nil?
+        type.count = params[:count] unless params[:count].nil?
         type
       end
     end
@@ -20431,8 +20431,8 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(params, ::Hash, Types::MemoryGiBPerVCpu, context: context)
         type = Types::MemoryGiBPerVCpu.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.member_min = params[:member_min]&.to_f unless params[:member_min].nil?
-        type.member_max = params[:member_max]&.to_f unless params[:member_max].nil?
+        type.min = params[:min]&.to_f unless params[:min].nil?
+        type.max = params[:max]&.to_f unless params[:max].nil?
         type
       end
     end
@@ -20442,8 +20442,8 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(params, ::Hash, Types::MemoryGiBPerVCpuRequest, context: context)
         type = Types::MemoryGiBPerVCpuRequest.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.member_min = params[:member_min]&.to_f unless params[:member_min].nil?
-        type.member_max = params[:member_max]&.to_f unless params[:member_max].nil?
+        type.min = params[:min]&.to_f unless params[:min].nil?
+        type.max = params[:max]&.to_f unless params[:max].nil?
         type
       end
     end
@@ -20463,8 +20463,8 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(params, ::Hash, Types::MemoryMiB, context: context)
         type = Types::MemoryMiB.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.member_min = params[:member_min] unless params[:member_min].nil?
-        type.member_max = params[:member_max] unless params[:member_max].nil?
+        type.min = params[:min] unless params[:min].nil?
+        type.max = params[:max] unless params[:max].nil?
         type
       end
     end
@@ -20474,8 +20474,8 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(params, ::Hash, Types::MemoryMiBRequest, context: context)
         type = Types::MemoryMiBRequest.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.member_min = params[:member_min] unless params[:member_min].nil?
-        type.member_max = params[:member_max] unless params[:member_max].nil?
+        type.min = params[:min] unless params[:min].nil?
+        type.max = params[:max] unless params[:max].nil?
         type
       end
     end
@@ -21878,7 +21878,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.dry_run = params[:dry_run] unless params[:dry_run].nil?
         type.volume_id = params[:volume_id] unless params[:volume_id].nil?
-        type.member_size = params[:member_size] unless params[:member_size].nil?
+        type.size = params[:size] unless params[:size].nil?
         type.volume_type = params[:volume_type] unless params[:volume_type].nil?
         type.iops = params[:iops] unless params[:iops].nil?
         type.throughput = params[:throughput] unless params[:throughput].nil?
@@ -22396,7 +22396,7 @@ module AWS::SDK::EC2
         type = Types::NetworkAcl.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.associations = NetworkAclAssociationList.build(params[:associations], context: "#{context}[:associations]") unless params[:associations].nil?
-        type.member_entries = NetworkAclEntryList.build(params[:member_entries], context: "#{context}[:member_entries]") unless params[:member_entries].nil?
+        type.entries = NetworkAclEntryList.build(params[:entries], context: "#{context}[:entries]") unless params[:entries].nil?
         type.is_default = params[:is_default] unless params[:is_default].nil?
         type.network_acl_id = params[:network_acl_id] unless params[:network_acl_id].nil?
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
@@ -22484,8 +22484,8 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(params, ::Hash, Types::NetworkBandwidthGbps, context: context)
         type = Types::NetworkBandwidthGbps.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.member_min = params[:member_min]&.to_f unless params[:member_min].nil?
-        type.member_max = params[:member_max]&.to_f unless params[:member_max].nil?
+        type.min = params[:min]&.to_f unless params[:min].nil?
+        type.max = params[:max]&.to_f unless params[:max].nil?
         type
       end
     end
@@ -22495,8 +22495,8 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(params, ::Hash, Types::NetworkBandwidthGbpsRequest, context: context)
         type = Types::NetworkBandwidthGbpsRequest.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.member_min = params[:member_min]&.to_f unless params[:member_min].nil?
-        type.member_max = params[:member_max]&.to_f unless params[:member_max].nil?
+        type.min = params[:min]&.to_f unless params[:min].nil?
+        type.max = params[:max]&.to_f unless params[:max].nil?
         type
       end
     end
@@ -22816,8 +22816,8 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(params, ::Hash, Types::NetworkInterfaceCount, context: context)
         type = Types::NetworkInterfaceCount.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.member_min = params[:member_min] unless params[:member_min].nil?
-        type.member_max = params[:member_max] unless params[:member_max].nil?
+        type.min = params[:min] unless params[:min].nil?
+        type.max = params[:max] unless params[:max].nil?
         type
       end
     end
@@ -22827,8 +22827,8 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(params, ::Hash, Types::NetworkInterfaceCountRequest, context: context)
         type = Types::NetworkInterfaceCountRequest.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.member_min = params[:member_min] unless params[:member_min].nil?
-        type.member_max = params[:member_max] unless params[:member_max].nil?
+        type.min = params[:min] unless params[:min].nil?
+        type.max = params[:max] unless params[:max].nil?
         type
       end
     end
@@ -22977,7 +22977,7 @@ module AWS::SDK::EC2
         type = Types::NewDhcpConfiguration.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.key = params[:key] unless params[:key].nil?
-        type.member_values = ValueStringList.build(params[:member_values], context: "#{context}[:member_values]") unless params[:member_values].nil?
+        type.values = ValueStringList.build(params[:values], context: "#{context}[:values]") unless params[:values].nil?
         type
       end
     end
@@ -23853,7 +23853,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(params, ::Hash, Types::PricingDetail, context: context)
         type = Types::PricingDetail.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.member_count = params[:member_count] unless params[:member_count].nil?
+        type.count = params[:count] unless params[:count].nil?
         type.price = params[:price]&.to_f unless params[:price].nil?
         type
       end
@@ -28587,8 +28587,8 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(params, ::Hash, Types::TotalLocalStorageGB, context: context)
         type = Types::TotalLocalStorageGB.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.member_min = params[:member_min]&.to_f unless params[:member_min].nil?
-        type.member_max = params[:member_max]&.to_f unless params[:member_max].nil?
+        type.min = params[:min]&.to_f unless params[:min].nil?
+        type.max = params[:max]&.to_f unless params[:max].nil?
         type
       end
     end
@@ -28598,8 +28598,8 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(params, ::Hash, Types::TotalLocalStorageGBRequest, context: context)
         type = Types::TotalLocalStorageGBRequest.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.member_min = params[:member_min]&.to_f unless params[:member_min].nil?
-        type.member_max = params[:member_max]&.to_f unless params[:member_max].nil?
+        type.min = params[:min]&.to_f unless params[:min].nil?
+        type.max = params[:max]&.to_f unless params[:max].nil?
         type
       end
     end
@@ -30159,8 +30159,8 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(params, ::Hash, Types::VCpuCountRange, context: context)
         type = Types::VCpuCountRange.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.member_min = params[:member_min] unless params[:member_min].nil?
-        type.member_max = params[:member_max] unless params[:member_max].nil?
+        type.min = params[:min] unless params[:min].nil?
+        type.max = params[:max] unless params[:max].nil?
         type
       end
     end
@@ -30170,8 +30170,8 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(params, ::Hash, Types::VCpuCountRangeRequest, context: context)
         type = Types::VCpuCountRangeRequest.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.member_min = params[:member_min] unless params[:member_min].nil?
-        type.member_max = params[:member_max] unless params[:member_max].nil?
+        type.min = params[:min] unless params[:min].nil?
+        type.max = params[:max] unless params[:max].nil?
         type
       end
     end
@@ -30692,7 +30692,7 @@ module AWS::SDK::EC2
         type.encrypted = params[:encrypted] unless params[:encrypted].nil?
         type.kms_key_id = params[:kms_key_id] unless params[:kms_key_id].nil?
         type.outpost_arn = params[:outpost_arn] unless params[:outpost_arn].nil?
-        type.member_size = params[:member_size] unless params[:member_size].nil?
+        type.size = params[:size] unless params[:size].nil?
         type.snapshot_id = params[:snapshot_id] unless params[:snapshot_id].nil?
         type.state = params[:state] unless params[:state].nil?
         type.volume_id = params[:volume_id] unless params[:volume_id].nil?
@@ -30740,7 +30740,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(params, ::Hash, Types::VolumeDetail, context: context)
         type = Types::VolumeDetail.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.member_size = params[:member_size] unless params[:member_size].nil?
+        type.size = params[:size] unless params[:size].nil?
         type
       end
     end

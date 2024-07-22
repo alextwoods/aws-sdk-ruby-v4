@@ -10,64 +10,64 @@
 module AWS::SDK::LexRuntimeV2
   module Types
 
-    class AccessDeniedException < ::Struct[untyped]
+    class AccessDeniedException
       include Hearth::Structure
       attr_accessor message (): ::String
     end
 
-    class ActiveContext < ::Struct[untyped]
+    class ActiveContext
       include Hearth::Structure
       attr_accessor name (): ::String
       attr_accessor time_to_live (): Types::ActiveContextTimeToLive
       attr_accessor context_attributes (): ::Hash[::String, ::String]
     end
 
-    class ActiveContextTimeToLive < ::Struct[untyped]
+    class ActiveContextTimeToLive
       include Hearth::Structure
       attr_accessor time_to_live_in_seconds (): ::Integer
       attr_accessor turns_to_live (): ::Integer
     end
 
-    class AudioInputEvent < ::Struct[untyped]
+    class AudioInputEvent
       include Hearth::Structure
-      attr_accessor audio_chunk (): ::String
+      attr_accessor audio_chunk (): ::String?
       attr_accessor content_type (): ::String
-      attr_accessor event_id (): ::String
-      attr_accessor client_timestamp_millis (): ::Integer
+      attr_accessor event_id (): ::String?
+      attr_accessor client_timestamp_millis (): ::Integer?
     end
 
-    class AudioResponseEvent < ::Struct[untyped]
+    class AudioResponseEvent
       include Hearth::Structure
-      attr_accessor audio_chunk (): ::String
-      attr_accessor content_type (): ::String
-      attr_accessor event_id (): ::String
+      attr_accessor audio_chunk (): ::String?
+      attr_accessor content_type (): ::String?
+      attr_accessor event_id (): ::String?
     end
 
-    class BadGatewayException < ::Struct[untyped]
+    class BadGatewayException
       include Hearth::Structure
       attr_accessor message (): ::String
     end
 
-    class Button < ::Struct[untyped]
+    class Button
       include Hearth::Structure
       attr_accessor text (): ::String
       attr_accessor value (): ::String
     end
 
-    class ConfidenceScore < ::Struct[untyped]
+    class ConfidenceScore
       include Hearth::Structure
-      attr_accessor score (): ::Float
+      attr_accessor score (): ::Float?
     end
 
-    class ConfigurationEvent < ::Struct[untyped]
+    class ConfigurationEvent
       include Hearth::Structure
-      attr_accessor request_attributes (): ::Hash[::String, ::String]
+      attr_accessor request_attributes (): ::Hash[::String, ::String]?
       attr_accessor response_content_type (): ::String
-      attr_accessor session_state (): Types::SessionState
-      attr_accessor welcome_messages (): ::Array[Types::Message]
-      attr_accessor disable_playback (): bool
-      attr_accessor event_id (): ::String
-      attr_accessor client_timestamp_millis (): ::Integer
+      attr_accessor session_state (): Types::SessionState?
+      attr_accessor welcome_messages (): ::Array[Types::Message]?
+      attr_accessor disable_playback (): bool?
+      attr_accessor event_id (): ::String?
+      attr_accessor client_timestamp_millis (): ::Integer?
     end
 
     module ConfirmationState
@@ -78,7 +78,7 @@ module AWS::SDK::LexRuntimeV2
       NONE: ::String
     end
 
-    class ConflictException < ::Struct[untyped]
+    class ConflictException
       include Hearth::Structure
       attr_accessor message (): ::String
     end
@@ -89,14 +89,14 @@ module AWS::SDK::LexRuntimeV2
       TEXT: ::String
     end
 
-    class DTMFInputEvent < ::Struct[untyped]
+    class DTMFInputEvent
       include Hearth::Structure
       attr_accessor input_character (): ::String
-      attr_accessor event_id (): ::String
-      attr_accessor client_timestamp_millis (): ::Integer
+      attr_accessor event_id (): ::String?
+      attr_accessor client_timestamp_millis (): ::Integer?
     end
 
-    class DeleteSessionInput < ::Struct[untyped]
+    class DeleteSessionInput
       include Hearth::Structure
       attr_accessor bot_id (): ::String
       attr_accessor bot_alias_id (): ::String
@@ -104,25 +104,25 @@ module AWS::SDK::LexRuntimeV2
       attr_accessor session_id (): ::String
     end
 
-    class DeleteSessionOutput < ::Struct[untyped]
+    class DeleteSessionOutput
       include Hearth::Structure
-      attr_accessor bot_id (): ::String
-      attr_accessor bot_alias_id (): ::String
-      attr_accessor locale_id (): ::String
-      attr_accessor session_id (): ::String
+      attr_accessor bot_id (): ::String?
+      attr_accessor bot_alias_id (): ::String?
+      attr_accessor locale_id (): ::String?
+      attr_accessor session_id (): ::String?
     end
 
-    class DependencyFailedException < ::Struct[untyped]
+    class DependencyFailedException
       include Hearth::Structure
       attr_accessor message (): ::String
     end
 
-    class DialogAction < ::Struct[untyped]
+    class DialogAction
       include Hearth::Structure
       attr_accessor type (): ::String
-      attr_accessor slot_to_elicit (): ::String
-      attr_accessor slot_elicitation_style (): ::String
-      attr_accessor sub_slot_to_elicit (): Types::ElicitSubSlot
+      attr_accessor slot_to_elicit (): ::String?
+      attr_accessor slot_elicitation_style (): ::String?
+      attr_accessor sub_slot_to_elicit (): Types::ElicitSubSlot?
     end
 
     module DialogActionType
@@ -139,19 +139,19 @@ module AWS::SDK::LexRuntimeV2
       NONE: ::String
     end
 
-    class DisconnectionEvent < ::Struct[untyped]
+    class DisconnectionEvent
       include Hearth::Structure
-      attr_accessor event_id (): ::String
-      attr_accessor client_timestamp_millis (): ::Integer
+      attr_accessor event_id (): ::String?
+      attr_accessor client_timestamp_millis (): ::Integer?
     end
 
-    class ElicitSubSlot < ::Struct[untyped]
+    class ElicitSubSlot
       include Hearth::Structure
       attr_accessor name (): ::String
-      attr_accessor sub_slot_to_elicit (): Types::ElicitSubSlot
+      attr_accessor sub_slot_to_elicit (): Types::ElicitSubSlot?
     end
 
-    class GetSessionInput < ::Struct[untyped]
+    class GetSessionInput
       include Hearth::Structure
       attr_accessor bot_id (): ::String
       attr_accessor bot_alias_id (): ::String
@@ -159,25 +159,25 @@ module AWS::SDK::LexRuntimeV2
       attr_accessor session_id (): ::String
     end
 
-    class GetSessionOutput < ::Struct[untyped]
+    class GetSessionOutput
       include Hearth::Structure
-      attr_accessor session_id (): ::String
-      attr_accessor messages (): ::Array[Types::Message]
-      attr_accessor interpretations (): ::Array[Types::Interpretation]
-      attr_accessor session_state (): Types::SessionState
+      attr_accessor session_id (): ::String?
+      attr_accessor messages (): ::Array[Types::Message]?
+      attr_accessor interpretations (): ::Array[Types::Interpretation]?
+      attr_accessor session_state (): Types::SessionState?
     end
 
-    class HeartbeatEvent < ::Struct[untyped]
+    class HeartbeatEvent
       include Hearth::Structure
-      attr_accessor event_id (): ::String
+      attr_accessor event_id (): ::String?
     end
 
-    class ImageResponseCard < ::Struct[untyped]
+    class ImageResponseCard
       include Hearth::Structure
       attr_accessor title (): ::String
-      attr_accessor subtitle (): ::String
-      attr_accessor image_url (): ::String
-      attr_accessor buttons (): ::Array[Types::Button]
+      attr_accessor subtitle (): ::String?
+      attr_accessor image_url (): ::String?
+      attr_accessor buttons (): ::Array[Types::Button]?
     end
 
     module InputMode
@@ -188,23 +188,23 @@ module AWS::SDK::LexRuntimeV2
       DTMF: ::String
     end
 
-    class Intent < ::Struct[untyped]
+    class Intent
       include Hearth::Structure
       attr_accessor name (): ::String
-      attr_accessor slots (): ::Hash[::String, Types::Slot]
-      attr_accessor state (): ::String
-      attr_accessor confirmation_state (): ::String
+      attr_accessor slots (): ::Hash[::String, Types::Slot]?
+      attr_accessor state (): ::String?
+      attr_accessor confirmation_state (): ::String?
     end
 
-    class IntentResultEvent < ::Struct[untyped]
+    class IntentResultEvent
       include Hearth::Structure
-      attr_accessor input_mode (): ::String
-      attr_accessor interpretations (): ::Array[Types::Interpretation]
-      attr_accessor session_state (): Types::SessionState
-      attr_accessor request_attributes (): ::Hash[::String, ::String]
-      attr_accessor session_id (): ::String
-      attr_accessor event_id (): ::String
-      attr_accessor recognized_bot_member (): Types::RecognizedBotMember
+      attr_accessor input_mode (): ::String?
+      attr_accessor interpretations (): ::Array[Types::Interpretation]?
+      attr_accessor session_state (): Types::SessionState?
+      attr_accessor request_attributes (): ::Hash[::String, ::String]?
+      attr_accessor session_id (): ::String?
+      attr_accessor event_id (): ::String?
+      attr_accessor recognized_bot_member (): Types::RecognizedBotMember?
     end
 
     module IntentState
@@ -221,17 +221,17 @@ module AWS::SDK::LexRuntimeV2
       FULFILLMENT_IN_PROGRESS: ::String
     end
 
-    class InternalServerException < ::Struct[untyped]
+    class InternalServerException
       include Hearth::Structure
       attr_accessor message (): ::String
     end
 
-    class Interpretation < ::Struct[untyped]
+    class Interpretation
       include Hearth::Structure
-      attr_accessor nlu_confidence (): Types::ConfidenceScore
-      attr_accessor sentiment_response (): Types::SentimentResponse
-      attr_accessor intent (): Types::Intent
-      attr_accessor interpretation_source (): ::String
+      attr_accessor nlu_confidence (): Types::ConfidenceScore?
+      attr_accessor sentiment_response (): Types::SentimentResponse?
+      attr_accessor intent (): Types::Intent?
+      attr_accessor interpretation_source (): ::String?
     end
 
     module InterpretationSource
@@ -240,11 +240,11 @@ module AWS::SDK::LexRuntimeV2
       LEX: ::String
     end
 
-    class Message < ::Struct[untyped]
+    class Message
       include Hearth::Structure
-      attr_accessor content (): ::String
+      attr_accessor content (): ::String?
       attr_accessor content_type (): ::String
-      attr_accessor image_response_card (): Types::ImageResponseCard
+      attr_accessor image_response_card (): Types::ImageResponseCard?
     end
 
     module MessageContentType
@@ -257,17 +257,17 @@ module AWS::SDK::LexRuntimeV2
       SSML: ::String
     end
 
-    class PlaybackCompletionEvent < ::Struct[untyped]
+    class PlaybackCompletionEvent
       include Hearth::Structure
-      attr_accessor event_id (): ::String
-      attr_accessor client_timestamp_millis (): ::Integer
+      attr_accessor event_id (): ::String?
+      attr_accessor client_timestamp_millis (): ::Integer?
     end
 
-    class PlaybackInterruptionEvent < ::Struct[untyped]
+    class PlaybackInterruptionEvent
       include Hearth::Structure
-      attr_accessor event_reason (): ::String
-      attr_accessor caused_by_event_id (): ::String
-      attr_accessor event_id (): ::String
+      attr_accessor event_reason (): ::String?
+      attr_accessor caused_by_event_id (): ::String?
+      attr_accessor event_id (): ::String?
     end
 
     module PlaybackInterruptionReason
@@ -278,115 +278,115 @@ module AWS::SDK::LexRuntimeV2
       VOICE_START_DETECTED: ::String
     end
 
-    class PutSessionInput < ::Struct[untyped]
+    class PutSessionInput
       include Hearth::Structure
       attr_accessor bot_id (): ::String
       attr_accessor bot_alias_id (): ::String
       attr_accessor locale_id (): ::String
       attr_accessor session_id (): ::String
-      attr_accessor messages (): ::Array[Types::Message]
+      attr_accessor messages (): ::Array[Types::Message]?
       attr_accessor session_state (): Types::SessionState
-      attr_accessor request_attributes (): ::Hash[::String, ::String]
-      attr_accessor response_content_type (): ::String
+      attr_accessor request_attributes (): ::Hash[::String, ::String]?
+      attr_accessor response_content_type (): ::String?
     end
 
-    class PutSessionOutput < ::Struct[untyped]
+    class PutSessionOutput
       include Hearth::Structure
-      attr_accessor content_type (): ::String
-      attr_accessor messages (): ::String
-      attr_accessor session_state (): ::String
-      attr_accessor request_attributes (): ::String
-      attr_accessor session_id (): ::String
-      attr_accessor audio_stream (): ::String
+      attr_accessor content_type (): ::String?
+      attr_accessor messages (): ::String?
+      attr_accessor session_state (): ::String?
+      attr_accessor request_attributes (): ::String?
+      attr_accessor session_id (): ::String?
+      attr_accessor audio_stream (): (Hearth::_ReadableIO | Hearth::_WritableIO)?
     end
 
-    class RecognizeTextInput < ::Struct[untyped]
+    class RecognizeTextInput
       include Hearth::Structure
       attr_accessor bot_id (): ::String
       attr_accessor bot_alias_id (): ::String
       attr_accessor locale_id (): ::String
       attr_accessor session_id (): ::String
       attr_accessor text (): ::String
-      attr_accessor session_state (): Types::SessionState
-      attr_accessor request_attributes (): ::Hash[::String, ::String]
+      attr_accessor session_state (): Types::SessionState?
+      attr_accessor request_attributes (): ::Hash[::String, ::String]?
     end
 
-    class RecognizeTextOutput < ::Struct[untyped]
+    class RecognizeTextOutput
       include Hearth::Structure
-      attr_accessor messages (): ::Array[Types::Message]
-      attr_accessor session_state (): Types::SessionState
-      attr_accessor interpretations (): ::Array[Types::Interpretation]
-      attr_accessor request_attributes (): ::Hash[::String, ::String]
-      attr_accessor session_id (): ::String
-      attr_accessor recognized_bot_member (): Types::RecognizedBotMember
+      attr_accessor messages (): ::Array[Types::Message]?
+      attr_accessor session_state (): Types::SessionState?
+      attr_accessor interpretations (): ::Array[Types::Interpretation]?
+      attr_accessor request_attributes (): ::Hash[::String, ::String]?
+      attr_accessor session_id (): ::String?
+      attr_accessor recognized_bot_member (): Types::RecognizedBotMember?
     end
 
-    class RecognizeUtteranceInput < ::Struct[untyped]
+    class RecognizeUtteranceInput
       include Hearth::Structure
       attr_accessor bot_id (): ::String
       attr_accessor bot_alias_id (): ::String
       attr_accessor locale_id (): ::String
       attr_accessor session_id (): ::String
-      attr_accessor session_state (): ::String
-      attr_accessor request_attributes (): ::String
+      attr_accessor session_state (): ::String?
+      attr_accessor request_attributes (): ::String?
       attr_accessor request_content_type (): ::String
-      attr_accessor response_content_type (): ::String
-      attr_accessor input_stream (): ::String
+      attr_accessor response_content_type (): ::String?
+      attr_accessor input_stream (): (Hearth::_ReadableIO | Hearth::_WritableIO)?
     end
 
-    class RecognizeUtteranceOutput < ::Struct[untyped]
+    class RecognizeUtteranceOutput
       include Hearth::Structure
-      attr_accessor input_mode (): ::String
-      attr_accessor content_type (): ::String
-      attr_accessor messages (): ::String
-      attr_accessor interpretations (): ::String
-      attr_accessor session_state (): ::String
-      attr_accessor request_attributes (): ::String
-      attr_accessor session_id (): ::String
-      attr_accessor input_transcript (): ::String
-      attr_accessor audio_stream (): ::String
-      attr_accessor recognized_bot_member (): ::String
+      attr_accessor input_mode (): ::String?
+      attr_accessor content_type (): ::String?
+      attr_accessor messages (): ::String?
+      attr_accessor interpretations (): ::String?
+      attr_accessor session_state (): ::String?
+      attr_accessor request_attributes (): ::String?
+      attr_accessor session_id (): ::String?
+      attr_accessor input_transcript (): ::String?
+      attr_accessor audio_stream (): (Hearth::_ReadableIO | Hearth::_WritableIO)?
+      attr_accessor recognized_bot_member (): ::String?
     end
 
-    class RecognizedBotMember < ::Struct[untyped]
+    class RecognizedBotMember
       include Hearth::Structure
       attr_accessor bot_id (): ::String
-      attr_accessor bot_name (): ::String
+      attr_accessor bot_name (): ::String?
     end
 
-    class ResourceNotFoundException < ::Struct[untyped]
+    class ResourceNotFoundException
       include Hearth::Structure
       attr_accessor message (): ::String
     end
 
-    class RuntimeHintDetails < ::Struct[untyped]
+    class RuntimeHintDetails
       include Hearth::Structure
-      attr_accessor runtime_hint_values (): ::Array[Types::RuntimeHintValue]
-      attr_accessor sub_slot_hints (): ::Hash[::String, Types::RuntimeHintDetails]
+      attr_accessor runtime_hint_values (): ::Array[Types::RuntimeHintValue]?
+      attr_accessor sub_slot_hints (): ::Hash[::String, Types::RuntimeHintDetails]?
     end
 
-    class RuntimeHintValue < ::Struct[untyped]
+    class RuntimeHintValue
       include Hearth::Structure
       attr_accessor phrase (): ::String
     end
 
-    class RuntimeHints < ::Struct[untyped]
+    class RuntimeHints
       include Hearth::Structure
-      attr_accessor slot_hints (): ::Hash[::String, ::Hash[::String, Types::RuntimeHintDetails]]
+      attr_accessor slot_hints (): ::Hash[::String, ::Hash[::String, Types::RuntimeHintDetails]]?
     end
 
-    class SentimentResponse < ::Struct[untyped]
+    class SentimentResponse
       include Hearth::Structure
-      attr_accessor sentiment (): ::String
-      attr_accessor sentiment_score (): Types::SentimentScore
+      attr_accessor sentiment (): ::String?
+      attr_accessor sentiment_score (): Types::SentimentScore?
     end
 
-    class SentimentScore < ::Struct[untyped]
+    class SentimentScore
       include Hearth::Structure
-      attr_accessor positive (): ::Float
-      attr_accessor negative (): ::Float
-      attr_accessor neutral (): ::Float
-      attr_accessor mixed (): ::Float
+      attr_accessor positive (): ::Float?
+      attr_accessor negative (): ::Float?
+      attr_accessor neutral (): ::Float?
+      attr_accessor mixed (): ::Float?
     end
 
     module SentimentType
@@ -399,14 +399,14 @@ module AWS::SDK::LexRuntimeV2
       POSITIVE: ::String
     end
 
-    class SessionState < ::Struct[untyped]
+    class SessionState
       include Hearth::Structure
-      attr_accessor dialog_action (): Types::DialogAction
-      attr_accessor intent (): Types::Intent
-      attr_accessor active_contexts (): ::Array[Types::ActiveContext]
-      attr_accessor session_attributes (): ::Hash[::String, ::String]
-      attr_accessor originating_request_id (): ::String
-      attr_accessor runtime_hints (): Types::RuntimeHints
+      attr_accessor dialog_action (): Types::DialogAction?
+      attr_accessor intent (): Types::Intent?
+      attr_accessor active_contexts (): ::Array[Types::ActiveContext]?
+      attr_accessor session_attributes (): ::Hash[::String, ::String]?
+      attr_accessor originating_request_id (): ::String?
+      attr_accessor runtime_hints (): Types::RuntimeHints?
     end
 
     module Shape
@@ -417,27 +417,27 @@ module AWS::SDK::LexRuntimeV2
       COMPOSITE: ::String
     end
 
-    class Slot < ::Struct[untyped]
+    class Slot
       include Hearth::Structure
-      attr_accessor value (): Types::Value
-      attr_accessor shape (): ::String
-      attr_accessor member_values (): ::Array[Types::Slot]
-      attr_accessor sub_slots (): ::Hash[::String, Types::Slot]
+      attr_accessor value (): Types::Value?
+      attr_accessor shape (): ::String?
+      attr_accessor values (): ::Array[Types::Slot]?
+      attr_accessor sub_slots (): ::Hash[::String, Types::Slot]?
     end
 
-    class StartConversationInput < ::Struct[untyped]
+    class StartConversationInput
       include Hearth::Structure
       attr_accessor bot_id (): ::String
       attr_accessor bot_alias_id (): ::String
       attr_accessor locale_id (): ::String
       attr_accessor session_id (): ::String
-      attr_accessor conversation_mode (): ::String
+      attr_accessor conversation_mode (): ::String?
       attr_accessor request_event_stream (): Types::StartConversationRequestEventStream
     end
 
-    class StartConversationOutput < ::Struct[untyped]
+    class StartConversationOutput
       include Hearth::Structure
-      attr_accessor response_event_stream (): Types::StartConversationResponseEventStream
+      attr_accessor response_event_stream (): Types::StartConversationResponseEventStream?
     end
 
     class StartConversationRequestEventStream < Hearth::Union
@@ -562,40 +562,40 @@ module AWS::SDK::LexRuntimeV2
       SPELL_BY_WORD: ::String
     end
 
-    class TextInputEvent < ::Struct[untyped]
+    class TextInputEvent
       include Hearth::Structure
       attr_accessor text (): ::String
-      attr_accessor event_id (): ::String
-      attr_accessor client_timestamp_millis (): ::Integer
+      attr_accessor event_id (): ::String?
+      attr_accessor client_timestamp_millis (): ::Integer?
     end
 
-    class TextResponseEvent < ::Struct[untyped]
+    class TextResponseEvent
       include Hearth::Structure
-      attr_accessor messages (): ::Array[Types::Message]
-      attr_accessor event_id (): ::String
+      attr_accessor messages (): ::Array[Types::Message]?
+      attr_accessor event_id (): ::String?
     end
 
-    class ThrottlingException < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor message (): ::String
-    end
-
-    class TranscriptEvent < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor transcript (): ::String
-      attr_accessor event_id (): ::String
-    end
-
-    class ValidationException < ::Struct[untyped]
+    class ThrottlingException
       include Hearth::Structure
       attr_accessor message (): ::String
     end
 
-    class Value < ::Struct[untyped]
+    class TranscriptEvent
       include Hearth::Structure
-      attr_accessor original_value (): ::String
+      attr_accessor transcript (): ::String?
+      attr_accessor event_id (): ::String?
+    end
+
+    class ValidationException
+      include Hearth::Structure
+      attr_accessor message (): ::String
+    end
+
+    class Value
+      include Hearth::Structure
+      attr_accessor original_value (): ::String?
       attr_accessor interpreted_value (): ::String
-      attr_accessor resolved_values (): ::Array[::String]
+      attr_accessor resolved_values (): ::Array[::String]?
     end
 
   end

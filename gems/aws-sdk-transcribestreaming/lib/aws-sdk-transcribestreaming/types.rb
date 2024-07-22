@@ -27,13 +27,16 @@ module AWS::SDK::TranscribeStreaming
     #   <p>Contains entities identified as personally identifiable information (PII) in your transcription
     #         output.</p>
     #   @return [Array<Entity>]
-    Alternative = ::Struct.new(
-      :transcript,
-      :items,
-      :entities,
-      keyword_init: true
-    ) do
+    class Alternative
       include Hearth::Structure
+
+      MEMBERS = %i[
+        transcript
+        items
+        entities
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>A wrapper for your audio chunks. Your audio stream consists of one or more audio
@@ -46,11 +49,14 @@ module AWS::SDK::TranscribeStreaming
     #   <p>An audio blob that contains the next part of the audio that you want to transcribe. The
     #         maximum audio chunk size is 32 KB.</p>
     #   @return [String]
-    AudioEvent = ::Struct.new(
-      :audio_chunk,
-      keyword_init: true
-    ) do
+    class AudioEvent
       include Hearth::Structure
+
+      MEMBERS = %i[
+        audio_chunk
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>An encoded stream of audio blobs. Audio streams are encoded as either HTTP/2 or WebSocket
@@ -105,11 +111,14 @@ module AWS::SDK::TranscribeStreaming
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    BadRequestException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class BadRequestException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Contains entities identified as personally identifiable information (PII) in your
@@ -145,16 +154,19 @@ module AWS::SDK::TranscribeStreaming
     #         probability that the identified entity correctly matches the entity spoken in your
     #         media.</p>
     #   @return [Float]
-    CallAnalyticsEntity = ::Struct.new(
-      :begin_offset_millis,
-      :end_offset_millis,
-      :category,
-      :type,
-      :content,
-      :confidence,
-      keyword_init: true
-    ) do
+    class CallAnalyticsEntity
       include Hearth::Structure
+
+      MEMBERS = %i[
+        begin_offset_millis
+        end_offset_millis
+        category
+        type
+        content
+        confidence
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>A word, phrase, or punctuation mark in your Call Analytics transcription output, along with various
@@ -196,17 +208,20 @@ module AWS::SDK::TranscribeStreaming
     #         item is stable (<code>true</code>) or if it may change when the segment is complete
     #         (<code>false</code>).</p>
     #   @return [Boolean]
-    CallAnalyticsItem = ::Struct.new(
-      :begin_offset_millis,
-      :end_offset_millis,
-      :type,
-      :content,
-      :confidence,
-      :vocabulary_filter_match,
-      :stable,
-      keyword_init: true
-    ) do
+    class CallAnalyticsItem
       include Hearth::Structure
+
+      MEMBERS = %i[
+        begin_offset_millis
+        end_offset_millis
+        type
+        content
+        confidence
+        vocabulary_filter_match
+        stable
+      ].freeze
+
+      attr_accessor(*MEMBERS)
 
       private
 
@@ -353,12 +368,15 @@ module AWS::SDK::TranscribeStreaming
     # @!attribute matched_details
     #   <p>Contains information about the matched categories, including category names and timestamps.</p>
     #   @return [Hash<String, PointsOfInterest>]
-    CategoryEvent = ::Struct.new(
-      :matched_categories,
-      :matched_details,
-      keyword_init: true
-    ) do
+    class CategoryEvent
       include Hearth::Structure
+
+      MEMBERS = %i[
+        matched_categories
+        matched_details
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Makes it possible to specify which speaker is on which audio channel. For example, if your
@@ -377,12 +395,15 @@ module AWS::SDK::TranscribeStreaming
     #         specifying both participants.</p>
     #   Enum, one of: ["AGENT", "CUSTOMER"]
     #   @return [String]
-    ChannelDefinition = ::Struct.new(
-      :channel_id,
-      :participant_role,
-      keyword_init: true
-    ) do
+    class ChannelDefinition
       include Hearth::Structure
+
+      MEMBERS = %i[
+        channel_id
+        participant_role
+      ].freeze
+
+      attr_accessor(*MEMBERS)
 
       private
 
@@ -407,12 +428,15 @@ module AWS::SDK::TranscribeStreaming
     #   <p>Provides the character count of the last character where a match is identified. For example, the last
     #         character associated with an issue or a category match in a segment transcript.</p>
     #   @return [Integer]
-    CharacterOffsets = ::Struct.new(
-      :begin,
-      :end,
-      keyword_init: true
-    ) do
+    class CharacterOffsets
       include Hearth::Structure
+
+      MEMBERS = %i[
+        begin
+        end
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Allows you to set audio channel definitions and post-call analytics settings.</p>
@@ -427,12 +451,15 @@ module AWS::SDK::TranscribeStreaming
     #   <p>Provides additional optional settings for your Call Analytics post-call request, including
     #         encryption and output locations for your redacted and unredacted transcript.</p>
     #   @return [PostCallAnalyticsSettings]
-    ConfigurationEvent = ::Struct.new(
-      :channel_definitions,
-      :post_call_analytics_settings,
-      keyword_init: true
-    ) do
+    class ConfigurationEvent
       include Hearth::Structure
+
+      MEMBERS = %i[
+        channel_definitions
+        post_call_analytics_settings
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>A new stream started with the same session ID. The current stream has been terminated.</p>
@@ -441,11 +468,14 @@ module AWS::SDK::TranscribeStreaming
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    ConflictException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class ConflictException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for ContentIdentificationType
@@ -498,16 +528,19 @@ module AWS::SDK::TranscribeStreaming
     #         probability that the identified entity correctly matches the entity spoken in your
     #         media.</p>
     #   @return [Float]
-    Entity = ::Struct.new(
-      :start_time,
-      :end_time,
-      :category,
-      :type,
-      :content,
-      :confidence,
-      keyword_init: true
-    ) do
+    class Entity
       include Hearth::Structure
+
+      MEMBERS = %i[
+        start_time
+        end_time
+        category
+        type
+        content
+        confidence
+      ].freeze
+
+      attr_accessor(*MEMBERS)
 
       private
 
@@ -526,11 +559,14 @@ module AWS::SDK::TranscribeStreaming
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    InternalFailureException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class InternalFailureException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Lists the issues that were identified in your audio segment.</p>
@@ -540,11 +576,14 @@ module AWS::SDK::TranscribeStreaming
     # @!attribute character_offsets
     #   <p>Provides the timestamps that identify when in an audio segment the specified issue occurs.</p>
     #   @return [CharacterOffsets]
-    IssueDetected = ::Struct.new(
-      :character_offsets,
-      keyword_init: true
-    ) do
+    class IssueDetected
       include Hearth::Structure
+
+      MEMBERS = %i[
+        character_offsets
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>A word, phrase, or punctuation mark in your transcription output, along with various associated
@@ -591,18 +630,21 @@ module AWS::SDK::TranscribeStreaming
     #         item is stable (<code>true</code>) or if it may change when the segment is complete
     #         (<code>false</code>).</p>
     #   @return [Boolean]
-    Item = ::Struct.new(
-      :start_time,
-      :end_time,
-      :type,
-      :content,
-      :vocabulary_filter_match,
-      :speaker,
-      :confidence,
-      :stable,
-      keyword_init: true
-    ) do
+    class Item
       include Hearth::Structure
+
+      MEMBERS = %i[
+        start_time
+        end_time
+        type
+        content
+        vocabulary_filter_match
+        speaker
+        confidence
+        stable
+      ].freeze
+
+      attr_accessor(*MEMBERS)
 
       private
 
@@ -668,12 +710,15 @@ module AWS::SDK::TranscribeStreaming
     #   <p>The confidence score associated with the identified language code. Confidence scores are values
     #         between zero and one; larger values indicate a higher confidence in the identified language.</p>
     #   @return [Float]
-    LanguageWithScore = ::Struct.new(
-      :language_code,
-      :score,
-      keyword_init: true
-    ) do
+    class LanguageWithScore
       include Hearth::Structure
+
+      MEMBERS = %i[
+        language_code
+        score
+      ].freeze
+
+      attr_accessor(*MEMBERS)
 
       private
 
@@ -691,11 +736,14 @@ module AWS::SDK::TranscribeStreaming
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    LimitExceededException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class LimitExceededException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for MediaEncoding
@@ -725,13 +773,16 @@ module AWS::SDK::TranscribeStreaming
     #   <p>Contains entities identified as personal health information (PHI) in your transcription
     #               output.</p>
     #   @return [Array<MedicalEntity>]
-    MedicalAlternative = ::Struct.new(
-      :transcript,
-      :items,
-      :entities,
-      keyword_init: true
-    ) do
+    class MedicalAlternative
       include Hearth::Structure
+
+      MEMBERS = %i[
+        transcript
+        items
+        entities
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for MedicalContentIdentificationType
@@ -767,15 +818,18 @@ module AWS::SDK::TranscribeStreaming
     #               probability that the identified entity correctly matches the entity spoken in your
     #               media.</p>
     #   @return [Float]
-    MedicalEntity = ::Struct.new(
-      :start_time,
-      :end_time,
-      :category,
-      :content,
-      :confidence,
-      keyword_init: true
-    ) do
+    class MedicalEntity
       include Hearth::Structure
+
+      MEMBERS = %i[
+        start_time
+        end_time
+        category
+        content
+        confidence
+      ].freeze
+
+      attr_accessor(*MEMBERS)
 
       private
 
@@ -821,16 +875,19 @@ module AWS::SDK::TranscribeStreaming
     #   <p>If speaker partitioning is enabled, <code>Speaker</code> labels the speaker of the
     #               specified item.</p>
     #   @return [String]
-    MedicalItem = ::Struct.new(
-      :start_time,
-      :end_time,
-      :type,
-      :content,
-      :confidence,
-      :speaker,
-      keyword_init: true
-    ) do
+    class MedicalItem
       include Hearth::Structure
+
+      MEMBERS = %i[
+        start_time
+        end_time
+        type
+        content
+        confidence
+        speaker
+      ].freeze
+
+      attr_accessor(*MEMBERS)
 
       private
 
@@ -878,16 +935,19 @@ module AWS::SDK::TranscribeStreaming
     # @!attribute channel_id
     #   <p>Indicates the channel identified for the <code>Result</code>.</p>
     #   @return [String]
-    MedicalResult = ::Struct.new(
-      :result_id,
-      :start_time,
-      :end_time,
-      :is_partial,
-      :alternatives,
-      :channel_id,
-      keyword_init: true
-    ) do
+    class MedicalResult
       include Hearth::Structure
+
+      MEMBERS = %i[
+        result_id
+        start_time
+        end_time
+        is_partial
+        alternatives
+        channel_id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
 
       private
 
@@ -915,11 +975,14 @@ module AWS::SDK::TranscribeStreaming
     #               alternative transcriptions, channel identification, partial result stabilization, language
     #               identification, and other transcription-related data.</p>
     #   @return [Array<MedicalResult>]
-    MedicalTranscript = ::Struct.new(
-      :results,
-      keyword_init: true
-    ) do
+    class MedicalTranscript
       include Hearth::Structure
+
+      MEMBERS = %i[
+        results
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The <code>MedicalTranscriptEvent</code> associated with a
@@ -935,11 +998,14 @@ module AWS::SDK::TranscribeStreaming
     #               include information relating to alternative transcriptions, channel identification, partial result
     #               stabilization, language identification, and other transcription-related data.</p>
     #   @return [MedicalTranscript]
-    MedicalTranscriptEvent = ::Struct.new(
-      :transcript,
-      keyword_init: true
-    ) do
+    class MedicalTranscriptEvent
       include Hearth::Structure
+
+      MEMBERS = %i[
+        transcript
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Contains detailed information about your streaming session.</p>
@@ -1058,11 +1124,14 @@ module AWS::SDK::TranscribeStreaming
     # @!attribute timestamp_ranges
     #   <p>Contains the timestamp ranges (start time through end time) of matched categories and rules.</p>
     #   @return [Array<TimestampRange>]
-    PointsOfInterest = ::Struct.new(
-      :timestamp_ranges,
-      keyword_init: true
-    ) do
+    class PointsOfInterest
       include Hearth::Structure
+
+      MEMBERS = %i[
+        timestamp_ranges
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Allows you to specify additional settings for your streaming Call Analytics
@@ -1153,14 +1222,17 @@ module AWS::SDK::TranscribeStreaming
     #            <p>Note that the user making the  request must
     #         have permission to use the specified KMS key.</p>
     #   @return [String]
-    PostCallAnalyticsSettings = ::Struct.new(
-      :output_location,
-      :data_access_role_arn,
-      :content_redaction_output,
-      :output_encryption_kms_key_id,
-      keyword_init: true
-    ) do
+    class PostCallAnalyticsSettings
       include Hearth::Structure
+
+      MEMBERS = %i[
+        output_location
+        data_access_role_arn
+        content_redaction_output
+        output_encryption_kms_key_id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The <code>Result</code> associated with a
@@ -1209,18 +1281,21 @@ module AWS::SDK::TranscribeStreaming
     #            <p>If you enabled channel identification and each channel of your audio contains a different language,
     #         you may have more than one result.</p>
     #   @return [Array<LanguageWithScore>]
-    Result = ::Struct.new(
-      :result_id,
-      :start_time,
-      :end_time,
-      :is_partial,
-      :alternatives,
-      :channel_id,
-      :language_code,
-      :language_identification,
-      keyword_init: true
-    ) do
+    class Result
       include Hearth::Structure
+
+      MEMBERS = %i[
+        result_id
+        start_time
+        end_time
+        is_partial
+        alternatives
+        channel_id
+        language_code
+        language_identification
+      ].freeze
+
+      attr_accessor(*MEMBERS)
 
       private
 
@@ -1250,11 +1325,14 @@ module AWS::SDK::TranscribeStreaming
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    ServiceUnavailableException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class ServiceUnavailableException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for Specialty
@@ -1408,24 +1486,27 @@ module AWS::SDK::TranscribeStreaming
     #         <code>ADDRESS</code>, <code>NAME</code>, <code>PHONE</code>,
     #         <code>SSN</code>, or <code>ALL</code>.</p>
     #   @return [String]
-    StartCallAnalyticsStreamTranscriptionInput = ::Struct.new(
-      :language_code,
-      :media_sample_rate_hertz,
-      :media_encoding,
-      :vocabulary_name,
-      :session_id,
-      :audio_stream,
-      :vocabulary_filter_name,
-      :vocabulary_filter_method,
-      :language_model_name,
-      :enable_partial_results_stabilization,
-      :partial_results_stability,
-      :content_identification_type,
-      :content_redaction_type,
-      :pii_entity_types,
-      keyword_init: true
-    ) do
+    class StartCallAnalyticsStreamTranscriptionInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        language_code
+        media_sample_rate_hertz
+        media_encoding
+        vocabulary_name
+        session_id
+        audio_stream
+        vocabulary_filter_name
+        vocabulary_filter_method
+        language_model_name
+        enable_partial_results_stabilization
+        partial_results_stability
+        content_identification_type
+        content_redaction_type
+        pii_entity_types
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1498,25 +1579,28 @@ module AWS::SDK::TranscribeStreaming
     # @!attribute pii_entity_types
     #   <p>Lists the PII entity types you specified in your Call Analytics request.</p>
     #   @return [String]
-    StartCallAnalyticsStreamTranscriptionOutput = ::Struct.new(
-      :request_id,
-      :language_code,
-      :media_sample_rate_hertz,
-      :media_encoding,
-      :vocabulary_name,
-      :session_id,
-      :call_analytics_transcript_result_stream,
-      :vocabulary_filter_name,
-      :vocabulary_filter_method,
-      :language_model_name,
-      :enable_partial_results_stabilization,
-      :partial_results_stability,
-      :content_identification_type,
-      :content_redaction_type,
-      :pii_entity_types,
-      keyword_init: true
-    ) do
+    class StartCallAnalyticsStreamTranscriptionOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        request_id
+        language_code
+        media_sample_rate_hertz
+        media_encoding
+        vocabulary_name
+        session_id
+        call_analytics_transcript_result_stream
+        vocabulary_filter_name
+        vocabulary_filter_method
+        language_model_name
+        enable_partial_results_stabilization
+        partial_results_stability
+        content_identification_type
+        content_redaction_type
+        pii_entity_types
+      ].freeze
+
+      attr_accessor(*MEMBERS)
 
       private
 
@@ -1620,22 +1704,25 @@ module AWS::SDK::TranscribeStreaming
     #               transcription</a>.</p>
     #   Enum, one of: ["PHI"]
     #   @return [String]
-    StartMedicalStreamTranscriptionInput = ::Struct.new(
-      :language_code,
-      :media_sample_rate_hertz,
-      :media_encoding,
-      :vocabulary_name,
-      :specialty,
-      :type,
-      :show_speaker_label,
-      :session_id,
-      :audio_stream,
-      :enable_channel_identification,
-      :number_of_channels,
-      :content_identification_type,
-      keyword_init: true
-    ) do
+    class StartMedicalStreamTranscriptionInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        language_code
+        media_sample_rate_hertz
+        media_encoding
+        vocabulary_name
+        specialty
+        type
+        show_speaker_label
+        session_id
+        audio_stream
+        enable_channel_identification
+        number_of_channels
+        content_identification_type
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1698,23 +1785,26 @@ module AWS::SDK::TranscribeStreaming
     #   <p>Shows whether content identification was enabled for your transcription.</p>
     #   Enum, one of: ["PHI"]
     #   @return [String]
-    StartMedicalStreamTranscriptionOutput = ::Struct.new(
-      :request_id,
-      :language_code,
-      :media_sample_rate_hertz,
-      :media_encoding,
-      :vocabulary_name,
-      :specialty,
-      :type,
-      :show_speaker_label,
-      :session_id,
-      :transcript_result_stream,
-      :enable_channel_identification,
-      :number_of_channels,
-      :content_identification_type,
-      keyword_init: true
-    ) do
+    class StartMedicalStreamTranscriptionOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        request_id
+        language_code
+        media_sample_rate_hertz
+        media_encoding
+        vocabulary_name
+        specialty
+        type
+        show_speaker_label
+        session_id
+        transcript_result_stream
+        enable_channel_identification
+        number_of_channels
+        content_identification_type
+      ].freeze
+
+      attr_accessor(*MEMBERS)
 
       private
 
@@ -1972,33 +2062,36 @@ module AWS::SDK::TranscribeStreaming
     #            <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/vocabulary-filtering.html">Using vocabulary filtering with unwanted
     #         words</a>.</p>
     #   @return [String]
-    StartStreamTranscriptionInput = ::Struct.new(
-      :language_code,
-      :media_sample_rate_hertz,
-      :media_encoding,
-      :vocabulary_name,
-      :session_id,
-      :audio_stream,
-      :vocabulary_filter_name,
-      :vocabulary_filter_method,
-      :show_speaker_label,
-      :enable_channel_identification,
-      :number_of_channels,
-      :enable_partial_results_stabilization,
-      :partial_results_stability,
-      :content_identification_type,
-      :content_redaction_type,
-      :pii_entity_types,
-      :language_model_name,
-      :identify_language,
-      :language_options,
-      :preferred_language,
-      :identify_multiple_languages,
-      :vocabulary_names,
-      :vocabulary_filter_names,
-      keyword_init: true
-    ) do
+    class StartStreamTranscriptionInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        language_code
+        media_sample_rate_hertz
+        media_encoding
+        vocabulary_name
+        session_id
+        audio_stream
+        vocabulary_filter_name
+        vocabulary_filter_method
+        show_speaker_label
+        enable_channel_identification
+        number_of_channels
+        enable_partial_results_stabilization
+        partial_results_stability
+        content_identification_type
+        content_redaction_type
+        pii_entity_types
+        language_model_name
+        identify_language
+        language_options
+        preferred_language
+        identify_multiple_languages
+        vocabulary_names
+        vocabulary_filter_names
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2109,34 +2202,37 @@ module AWS::SDK::TranscribeStreaming
     #   <p>Provides the names of the custom vocabulary filters that you specified in your
     #         request.</p>
     #   @return [String]
-    StartStreamTranscriptionOutput = ::Struct.new(
-      :request_id,
-      :language_code,
-      :media_sample_rate_hertz,
-      :media_encoding,
-      :vocabulary_name,
-      :session_id,
-      :transcript_result_stream,
-      :vocabulary_filter_name,
-      :vocabulary_filter_method,
-      :show_speaker_label,
-      :enable_channel_identification,
-      :number_of_channels,
-      :enable_partial_results_stabilization,
-      :partial_results_stability,
-      :content_identification_type,
-      :content_redaction_type,
-      :pii_entity_types,
-      :language_model_name,
-      :identify_language,
-      :language_options,
-      :preferred_language,
-      :identify_multiple_languages,
-      :vocabulary_names,
-      :vocabulary_filter_names,
-      keyword_init: true
-    ) do
+    class StartStreamTranscriptionOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        request_id
+        language_code
+        media_sample_rate_hertz
+        media_encoding
+        vocabulary_name
+        session_id
+        transcript_result_stream
+        vocabulary_filter_name
+        vocabulary_filter_method
+        show_speaker_label
+        enable_channel_identification
+        number_of_channels
+        enable_partial_results_stabilization
+        partial_results_stability
+        content_identification_type
+        content_redaction_type
+        pii_entity_types
+        language_model_name
+        identify_language
+        language_options
+        preferred_language
+        identify_multiple_languages
+        vocabulary_names
+        vocabulary_filter_names
+      ].freeze
+
+      attr_accessor(*MEMBERS)
 
       private
 
@@ -2164,12 +2260,15 @@ module AWS::SDK::TranscribeStreaming
     #   <p>The time, in milliseconds, from the beginning of the audio stream to the end of the category
     #         match.</p>
     #   @return [Integer]
-    TimestampRange = ::Struct.new(
-      :begin_offset_millis,
-      :end_offset_millis,
-      keyword_init: true
-    ) do
+    class TimestampRange
       include Hearth::Structure
+
+      MEMBERS = %i[
+        begin_offset_millis
+        end_offset_millis
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The <code>Transcript</code> associated with a
@@ -2187,11 +2286,14 @@ module AWS::SDK::TranscribeStreaming
     #         transcriptions, channel identification, partial result stabilization, language identification, and other
     #         transcription-related data.</p>
     #   @return [Array<Result>]
-    Transcript = ::Struct.new(
-      :results,
-      keyword_init: true
-    ) do
+    class Transcript
       include Hearth::Structure
+
+      MEMBERS = %i[
+        results
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The <code>TranscriptEvent</code> associated with a
@@ -2207,11 +2309,14 @@ module AWS::SDK::TranscribeStreaming
     #         include information relating to alternative transcriptions, channel identification, partial
     #         result stabilization, language identification, and other transcription-related data.</p>
     #   @return [Transcript]
-    TranscriptEvent = ::Struct.new(
-      :transcript,
-      keyword_init: true
-    ) do
+    class TranscriptEvent
       include Hearth::Structure
+
+      MEMBERS = %i[
+        transcript
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Contains detailed information about your streaming session.</p>
@@ -2364,20 +2469,23 @@ module AWS::SDK::TranscribeStreaming
     # @!attribute issues_detected
     #   <p>Provides the issue that was detected in the specified segment.</p>
     #   @return [Array<IssueDetected>]
-    UtteranceEvent = ::Struct.new(
-      :utterance_id,
-      :is_partial,
-      :participant_role,
-      :begin_offset_millis,
-      :end_offset_millis,
-      :transcript,
-      :items,
-      :entities,
-      :sentiment,
-      :issues_detected,
-      keyword_init: true
-    ) do
+    class UtteranceEvent
       include Hearth::Structure
+
+      MEMBERS = %i[
+        utterance_id
+        is_partial
+        participant_role
+        begin_offset_millis
+        end_offset_millis
+        transcript
+        items
+        entities
+        sentiment
+        issues_detected
+      ].freeze
+
+      attr_accessor(*MEMBERS)
 
       private
 

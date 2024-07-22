@@ -15,6 +15,7 @@
 
 package software.amazon.smithy.aws.ruby.codegen.protocol.restjson.generators;
 
+import java.util.stream.Stream;
 import software.amazon.smithy.model.shapes.BlobShape;
 import software.amazon.smithy.model.shapes.DocumentShape;
 import software.amazon.smithy.model.shapes.DoubleShape;
@@ -43,8 +44,6 @@ import software.amazon.smithy.ruby.codegen.RubyImportContainer;
 import software.amazon.smithy.ruby.codegen.generators.RestParserGeneratorBase;
 import software.amazon.smithy.ruby.codegen.traits.NoSerializeTrait;
 import software.amazon.smithy.ruby.codegen.util.TimestampFormat;
-
-import java.util.stream.Stream;
 
 public class ParserGenerator extends RestParserGeneratorBase {
 

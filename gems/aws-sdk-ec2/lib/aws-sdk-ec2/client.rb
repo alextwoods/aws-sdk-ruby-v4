@@ -3546,7 +3546,7 @@ module AWS::SDK::EC2
     #   resp.data.capacity_reservation.capacity_allocations #=> Array<CapacityAllocation>
     #   resp.data.capacity_reservation.capacity_allocations[0] #=> Types::CapacityAllocation
     #   resp.data.capacity_reservation.capacity_allocations[0].allocation_type #=> String, one of ["used"]
-    #   resp.data.capacity_reservation.capacity_allocations[0].member_count #=> Integer
+    #   resp.data.capacity_reservation.capacity_allocations[0].count #=> Integer
     #   resp.data.capacity_reservation.reservation_type #=> String, one of ["default", "capacity-block"]
     def create_capacity_reservation(params = {}, options = {})
       response_body = ::StringIO.new
@@ -4257,7 +4257,7 @@ module AWS::SDK::EC2
     #     dhcp_configurations: [
     #       {
     #         key: 'Key',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -4281,9 +4281,9 @@ module AWS::SDK::EC2
     #   resp.data.dhcp_options.dhcp_configurations #=> Array<DhcpConfiguration>
     #   resp.data.dhcp_options.dhcp_configurations[0] #=> Types::DhcpConfiguration
     #   resp.data.dhcp_options.dhcp_configurations[0].key #=> String
-    #   resp.data.dhcp_options.dhcp_configurations[0].member_values #=> Array<AttributeValue>
-    #   resp.data.dhcp_options.dhcp_configurations[0].member_values[0] #=> Types::AttributeValue
-    #   resp.data.dhcp_options.dhcp_configurations[0].member_values[0].value #=> String
+    #   resp.data.dhcp_options.dhcp_configurations[0].values #=> Array<AttributeValue>
+    #   resp.data.dhcp_options.dhcp_configurations[0].values[0] #=> Types::AttributeValue
+    #   resp.data.dhcp_options.dhcp_configurations[0].values[0].value #=> String
     #   resp.data.dhcp_options.dhcp_options_id #=> String
     #   resp.data.dhcp_options.owner_id #=> String
     #   resp.data.dhcp_options.tags #=> Array<Tag>
@@ -4296,7 +4296,7 @@ module AWS::SDK::EC2
     #     dhcp_configurations: [
     #       {
     #         key: "domain-name-servers",
-    #         member_values: [
+    #         values: [
     #           "10.2.5.1",
     #           "10.2.5.2"
     #         ]
@@ -4309,7 +4309,7 @@ module AWS::SDK::EC2
     #     dhcp_options: {
     #       dhcp_configurations: [
     #         {
-    #           member_values: [
+    #           values: [
     #             {
     #               value: "10.2.5.2"
     #             },
@@ -4476,19 +4476,19 @@ module AWS::SDK::EC2
     #             },
     #             instance_requirements: {
     #               v_cpu_count: {
-    #                 member_min: 1, # required
-    #                 member_max: 1
+    #                 min: 1, # required
+    #                 max: 1
     #               }, # required
     #               memory_mi_b: {
-    #                 member_min: 1, # required
-    #                 member_max: 1
+    #                 min: 1, # required
+    #                 max: 1
     #               }, # required
     #               cpu_manufacturers: [
     #                 'intel' # accepts ["intel", "amd", "amazon-web-services"]
     #               ],
     #               memory_gi_b_per_v_cpu: {
-    #                 member_min: 1.0,
-    #                 member_max: 1.0
+    #                 min: 1.0,
+    #                 max: 1.0
     #               },
     #               excluded_instance_types: [
     #                 'member'
@@ -4502,27 +4502,27 @@ module AWS::SDK::EC2
     #               burstable_performance: 'included', # accepts ["included", "required", "excluded"]
     #               require_hibernate_support: false,
     #               network_interface_count: {
-    #                 member_min: 1,
-    #                 member_max: 1
+    #                 min: 1,
+    #                 max: 1
     #               },
     #               local_storage: 'included', # accepts ["included", "required", "excluded"]
     #               local_storage_types: [
     #                 'hdd' # accepts ["hdd", "ssd"]
     #               ],
     #               total_local_storage_gb: {
-    #                 member_min: 1.0,
-    #                 member_max: 1.0
+    #                 min: 1.0,
+    #                 max: 1.0
     #               },
     #               baseline_ebs_bandwidth_mbps: {
-    #                 member_min: 1,
-    #                 member_max: 1
+    #                 min: 1,
+    #                 max: 1
     #               },
     #               accelerator_types: [
     #                 'gpu' # accepts ["gpu", "fpga", "inference"]
     #               ],
     #               accelerator_count: {
-    #                 member_min: 1,
-    #                 member_max: 1
+    #                 min: 1,
+    #                 max: 1
     #               },
     #               accelerator_manufacturers: [
     #                 'amazon-web-services' # accepts ["amazon-web-services", "amd", "nvidia", "xilinx", "habana"]
@@ -4531,12 +4531,12 @@ module AWS::SDK::EC2
     #                 'a100' # accepts ["a100", "inferentia", "k520", "k80", "m60", "radeon-pro-v520", "t4", "vu9p", "v100", "a10g", "h100", "t4g"]
     #               ],
     #               accelerator_total_memory_mi_b: {
-    #                 member_min: 1,
-    #                 member_max: 1
+    #                 min: 1,
+    #                 max: 1
     #               },
     #               network_bandwidth_gbps: {
-    #                 member_min: 1.0,
-    #                 member_max: 1.0
+    #                 min: 1.0,
+    #                 max: 1.0
     #               },
     #               allowed_instance_types: [
     #                 'member'
@@ -4594,16 +4594,16 @@ module AWS::SDK::EC2
     #   resp.data.errors[0].launch_template_and_overrides.overrides.placement.group_name #=> String
     #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements #=> Types::InstanceRequirements
     #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.v_cpu_count #=> Types::VCpuCountRange
-    #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.v_cpu_count.member_min #=> Integer
-    #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.v_cpu_count.member_max #=> Integer
+    #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.v_cpu_count.min #=> Integer
+    #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.v_cpu_count.max #=> Integer
     #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.memory_mi_b #=> Types::MemoryMiB
-    #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.memory_mi_b.member_min #=> Integer
-    #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.memory_mi_b.member_max #=> Integer
+    #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.memory_mi_b.min #=> Integer
+    #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.memory_mi_b.max #=> Integer
     #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.cpu_manufacturers #=> Array<String>
     #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.cpu_manufacturers[0] #=> String, one of ["intel", "amd", "amazon-web-services"]
     #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.memory_gi_b_per_v_cpu #=> Types::MemoryGiBPerVCpu
-    #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.memory_gi_b_per_v_cpu.member_min #=> Float
-    #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.memory_gi_b_per_v_cpu.member_max #=> Float
+    #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.memory_gi_b_per_v_cpu.min #=> Float
+    #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.memory_gi_b_per_v_cpu.max #=> Float
     #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.excluded_instance_types #=> Array<String>
     #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.excluded_instance_types[0] #=> String
     #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.instance_generations #=> Array<String>
@@ -4614,32 +4614,32 @@ module AWS::SDK::EC2
     #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.burstable_performance #=> String, one of ["included", "required", "excluded"]
     #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.require_hibernate_support #=> Boolean
     #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.network_interface_count #=> Types::NetworkInterfaceCount
-    #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.network_interface_count.member_min #=> Integer
-    #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.network_interface_count.member_max #=> Integer
+    #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.network_interface_count.min #=> Integer
+    #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.network_interface_count.max #=> Integer
     #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.local_storage #=> String, one of ["included", "required", "excluded"]
     #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.local_storage_types #=> Array<String>
     #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.local_storage_types[0] #=> String, one of ["hdd", "ssd"]
     #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.total_local_storage_gb #=> Types::TotalLocalStorageGB
-    #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.total_local_storage_gb.member_min #=> Float
-    #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.total_local_storage_gb.member_max #=> Float
+    #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.total_local_storage_gb.min #=> Float
+    #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.total_local_storage_gb.max #=> Float
     #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.baseline_ebs_bandwidth_mbps #=> Types::BaselineEbsBandwidthMbps
-    #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.baseline_ebs_bandwidth_mbps.member_min #=> Integer
-    #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.baseline_ebs_bandwidth_mbps.member_max #=> Integer
+    #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.baseline_ebs_bandwidth_mbps.min #=> Integer
+    #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.baseline_ebs_bandwidth_mbps.max #=> Integer
     #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.accelerator_types #=> Array<String>
     #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.accelerator_types[0] #=> String, one of ["gpu", "fpga", "inference"]
     #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.accelerator_count #=> Types::AcceleratorCount
-    #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.accelerator_count.member_min #=> Integer
-    #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.accelerator_count.member_max #=> Integer
+    #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.accelerator_count.min #=> Integer
+    #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.accelerator_count.max #=> Integer
     #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.accelerator_manufacturers #=> Array<String>
     #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.accelerator_manufacturers[0] #=> String, one of ["amazon-web-services", "amd", "nvidia", "xilinx", "habana"]
     #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.accelerator_names #=> Array<String>
     #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.accelerator_names[0] #=> String, one of ["a100", "inferentia", "k520", "k80", "m60", "radeon-pro-v520", "t4", "vu9p", "v100", "a10g", "h100", "t4g"]
     #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.accelerator_total_memory_mi_b #=> Types::AcceleratorTotalMemoryMiB
-    #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.accelerator_total_memory_mi_b.member_min #=> Integer
-    #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.accelerator_total_memory_mi_b.member_max #=> Integer
+    #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.accelerator_total_memory_mi_b.min #=> Integer
+    #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.accelerator_total_memory_mi_b.max #=> Integer
     #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.network_bandwidth_gbps #=> Types::NetworkBandwidthGbps
-    #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.network_bandwidth_gbps.member_min #=> Float
-    #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.network_bandwidth_gbps.member_max #=> Float
+    #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.network_bandwidth_gbps.min #=> Float
+    #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.network_bandwidth_gbps.max #=> Float
     #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.allowed_instance_types #=> Array<String>
     #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.allowed_instance_types[0] #=> String
     #   resp.data.errors[0].launch_template_and_overrides.overrides.instance_requirements.max_spot_price_as_percentage_of_optimal_on_demand_price #=> Integer
@@ -5758,7 +5758,7 @@ module AWS::SDK::EC2
     #       elastic_inference_accelerators: [
     #         {
     #           type: 'Type', # required
-    #           member_count: 1
+    #           count: 1
     #         }
     #       ],
     #       security_groups: [
@@ -5809,19 +5809,19 @@ module AWS::SDK::EC2
     #       },
     #       instance_requirements: {
     #         v_cpu_count: {
-    #           member_min: 1, # required
-    #           member_max: 1
+    #           min: 1, # required
+    #           max: 1
     #         }, # required
     #         memory_mi_b: {
-    #           member_min: 1, # required
-    #           member_max: 1
+    #           min: 1, # required
+    #           max: 1
     #         }, # required
     #         cpu_manufacturers: [
     #           'intel' # accepts ["intel", "amd", "amazon-web-services"]
     #         ],
     #         memory_gi_b_per_v_cpu: {
-    #           member_min: 1.0,
-    #           member_max: 1.0
+    #           min: 1.0,
+    #           max: 1.0
     #         },
     #         excluded_instance_types: [
     #           'member'
@@ -5835,27 +5835,27 @@ module AWS::SDK::EC2
     #         burstable_performance: 'included', # accepts ["included", "required", "excluded"]
     #         require_hibernate_support: false,
     #         network_interface_count: {
-    #           member_min: 1,
-    #           member_max: 1
+    #           min: 1,
+    #           max: 1
     #         },
     #         local_storage: 'included', # accepts ["included", "required", "excluded"]
     #         local_storage_types: [
     #           'hdd' # accepts ["hdd", "ssd"]
     #         ],
     #         total_local_storage_gb: {
-    #           member_min: 1.0,
-    #           member_max: 1.0
+    #           min: 1.0,
+    #           max: 1.0
     #         },
     #         baseline_ebs_bandwidth_mbps: {
-    #           member_min: 1,
-    #           member_max: 1
+    #           min: 1,
+    #           max: 1
     #         },
     #         accelerator_types: [
     #           'gpu' # accepts ["gpu", "fpga", "inference"]
     #         ],
     #         accelerator_count: {
-    #           member_min: 1,
-    #           member_max: 1
+    #           min: 1,
+    #           max: 1
     #         },
     #         accelerator_manufacturers: [
     #           'amazon-web-services' # accepts ["amazon-web-services", "amd", "nvidia", "xilinx", "habana"]
@@ -5864,12 +5864,12 @@ module AWS::SDK::EC2
     #           'a100' # accepts ["a100", "inferentia", "k520", "k80", "m60", "radeon-pro-v520", "t4", "vu9p", "v100", "a10g", "h100", "t4g"]
     #         ],
     #         accelerator_total_memory_mi_b: {
-    #           member_min: 1,
-    #           member_max: 1
+    #           min: 1,
+    #           max: 1
     #         },
     #         network_bandwidth_gbps: {
-    #           member_min: 1.0,
-    #           member_max: 1.0
+    #           min: 1.0,
+    #           max: 1.0
     #         },
     #         allowed_instance_types: [
     #           'member'
@@ -6114,7 +6114,7 @@ module AWS::SDK::EC2
     #       elastic_inference_accelerators: [
     #         {
     #           type: 'Type', # required
-    #           member_count: 1
+    #           count: 1
     #         }
     #       ],
     #       security_groups: [
@@ -6165,19 +6165,19 @@ module AWS::SDK::EC2
     #       },
     #       instance_requirements: {
     #         v_cpu_count: {
-    #           member_min: 1, # required
-    #           member_max: 1
+    #           min: 1, # required
+    #           max: 1
     #         }, # required
     #         memory_mi_b: {
-    #           member_min: 1, # required
-    #           member_max: 1
+    #           min: 1, # required
+    #           max: 1
     #         }, # required
     #         cpu_manufacturers: [
     #           'intel' # accepts ["intel", "amd", "amazon-web-services"]
     #         ],
     #         memory_gi_b_per_v_cpu: {
-    #           member_min: 1.0,
-    #           member_max: 1.0
+    #           min: 1.0,
+    #           max: 1.0
     #         },
     #         excluded_instance_types: [
     #           'member'
@@ -6191,27 +6191,27 @@ module AWS::SDK::EC2
     #         burstable_performance: 'included', # accepts ["included", "required", "excluded"]
     #         require_hibernate_support: false,
     #         network_interface_count: {
-    #           member_min: 1,
-    #           member_max: 1
+    #           min: 1,
+    #           max: 1
     #         },
     #         local_storage: 'included', # accepts ["included", "required", "excluded"]
     #         local_storage_types: [
     #           'hdd' # accepts ["hdd", "ssd"]
     #         ],
     #         total_local_storage_gb: {
-    #           member_min: 1.0,
-    #           member_max: 1.0
+    #           min: 1.0,
+    #           max: 1.0
     #         },
     #         baseline_ebs_bandwidth_mbps: {
-    #           member_min: 1,
-    #           member_max: 1
+    #           min: 1,
+    #           max: 1
     #         },
     #         accelerator_types: [
     #           'gpu' # accepts ["gpu", "fpga", "inference"]
     #         ],
     #         accelerator_count: {
-    #           member_min: 1,
-    #           member_max: 1
+    #           min: 1,
+    #           max: 1
     #         },
     #         accelerator_manufacturers: [
     #           'amazon-web-services' # accepts ["amazon-web-services", "amd", "nvidia", "xilinx", "habana"]
@@ -6220,12 +6220,12 @@ module AWS::SDK::EC2
     #           'a100' # accepts ["a100", "inferentia", "k520", "k80", "m60", "radeon-pro-v520", "t4", "vu9p", "v100", "a10g", "h100", "t4g"]
     #         ],
     #         accelerator_total_memory_mi_b: {
-    #           member_min: 1,
-    #           member_max: 1
+    #           min: 1,
+    #           max: 1
     #         },
     #         network_bandwidth_gbps: {
-    #           member_min: 1.0,
-    #           member_max: 1.0
+    #           min: 1.0,
+    #           max: 1.0
     #         },
     #         allowed_instance_types: [
     #           'member'
@@ -6347,7 +6347,7 @@ module AWS::SDK::EC2
     #   resp.data.launch_template_version.launch_template_data.elastic_inference_accelerators #=> Array<LaunchTemplateElasticInferenceAcceleratorResponse>
     #   resp.data.launch_template_version.launch_template_data.elastic_inference_accelerators[0] #=> Types::LaunchTemplateElasticInferenceAcceleratorResponse
     #   resp.data.launch_template_version.launch_template_data.elastic_inference_accelerators[0].type #=> String
-    #   resp.data.launch_template_version.launch_template_data.elastic_inference_accelerators[0].member_count #=> Integer
+    #   resp.data.launch_template_version.launch_template_data.elastic_inference_accelerators[0].count #=> Integer
     #   resp.data.launch_template_version.launch_template_data.security_group_ids #=> Array<String>
     #   resp.data.launch_template_version.launch_template_data.security_group_ids[0] #=> String
     #   resp.data.launch_template_version.launch_template_data.security_groups #=> Array<String>
@@ -6386,16 +6386,16 @@ module AWS::SDK::EC2
     #   resp.data.launch_template_version.launch_template_data.enclave_options.enabled #=> Boolean
     #   resp.data.launch_template_version.launch_template_data.instance_requirements #=> Types::InstanceRequirements
     #   resp.data.launch_template_version.launch_template_data.instance_requirements.v_cpu_count #=> Types::VCpuCountRange
-    #   resp.data.launch_template_version.launch_template_data.instance_requirements.v_cpu_count.member_min #=> Integer
-    #   resp.data.launch_template_version.launch_template_data.instance_requirements.v_cpu_count.member_max #=> Integer
+    #   resp.data.launch_template_version.launch_template_data.instance_requirements.v_cpu_count.min #=> Integer
+    #   resp.data.launch_template_version.launch_template_data.instance_requirements.v_cpu_count.max #=> Integer
     #   resp.data.launch_template_version.launch_template_data.instance_requirements.memory_mi_b #=> Types::MemoryMiB
-    #   resp.data.launch_template_version.launch_template_data.instance_requirements.memory_mi_b.member_min #=> Integer
-    #   resp.data.launch_template_version.launch_template_data.instance_requirements.memory_mi_b.member_max #=> Integer
+    #   resp.data.launch_template_version.launch_template_data.instance_requirements.memory_mi_b.min #=> Integer
+    #   resp.data.launch_template_version.launch_template_data.instance_requirements.memory_mi_b.max #=> Integer
     #   resp.data.launch_template_version.launch_template_data.instance_requirements.cpu_manufacturers #=> Array<String>
     #   resp.data.launch_template_version.launch_template_data.instance_requirements.cpu_manufacturers[0] #=> String, one of ["intel", "amd", "amazon-web-services"]
     #   resp.data.launch_template_version.launch_template_data.instance_requirements.memory_gi_b_per_v_cpu #=> Types::MemoryGiBPerVCpu
-    #   resp.data.launch_template_version.launch_template_data.instance_requirements.memory_gi_b_per_v_cpu.member_min #=> Float
-    #   resp.data.launch_template_version.launch_template_data.instance_requirements.memory_gi_b_per_v_cpu.member_max #=> Float
+    #   resp.data.launch_template_version.launch_template_data.instance_requirements.memory_gi_b_per_v_cpu.min #=> Float
+    #   resp.data.launch_template_version.launch_template_data.instance_requirements.memory_gi_b_per_v_cpu.max #=> Float
     #   resp.data.launch_template_version.launch_template_data.instance_requirements.excluded_instance_types #=> Array<String>
     #   resp.data.launch_template_version.launch_template_data.instance_requirements.excluded_instance_types[0] #=> String
     #   resp.data.launch_template_version.launch_template_data.instance_requirements.instance_generations #=> Array<String>
@@ -6406,32 +6406,32 @@ module AWS::SDK::EC2
     #   resp.data.launch_template_version.launch_template_data.instance_requirements.burstable_performance #=> String, one of ["included", "required", "excluded"]
     #   resp.data.launch_template_version.launch_template_data.instance_requirements.require_hibernate_support #=> Boolean
     #   resp.data.launch_template_version.launch_template_data.instance_requirements.network_interface_count #=> Types::NetworkInterfaceCount
-    #   resp.data.launch_template_version.launch_template_data.instance_requirements.network_interface_count.member_min #=> Integer
-    #   resp.data.launch_template_version.launch_template_data.instance_requirements.network_interface_count.member_max #=> Integer
+    #   resp.data.launch_template_version.launch_template_data.instance_requirements.network_interface_count.min #=> Integer
+    #   resp.data.launch_template_version.launch_template_data.instance_requirements.network_interface_count.max #=> Integer
     #   resp.data.launch_template_version.launch_template_data.instance_requirements.local_storage #=> String, one of ["included", "required", "excluded"]
     #   resp.data.launch_template_version.launch_template_data.instance_requirements.local_storage_types #=> Array<String>
     #   resp.data.launch_template_version.launch_template_data.instance_requirements.local_storage_types[0] #=> String, one of ["hdd", "ssd"]
     #   resp.data.launch_template_version.launch_template_data.instance_requirements.total_local_storage_gb #=> Types::TotalLocalStorageGB
-    #   resp.data.launch_template_version.launch_template_data.instance_requirements.total_local_storage_gb.member_min #=> Float
-    #   resp.data.launch_template_version.launch_template_data.instance_requirements.total_local_storage_gb.member_max #=> Float
+    #   resp.data.launch_template_version.launch_template_data.instance_requirements.total_local_storage_gb.min #=> Float
+    #   resp.data.launch_template_version.launch_template_data.instance_requirements.total_local_storage_gb.max #=> Float
     #   resp.data.launch_template_version.launch_template_data.instance_requirements.baseline_ebs_bandwidth_mbps #=> Types::BaselineEbsBandwidthMbps
-    #   resp.data.launch_template_version.launch_template_data.instance_requirements.baseline_ebs_bandwidth_mbps.member_min #=> Integer
-    #   resp.data.launch_template_version.launch_template_data.instance_requirements.baseline_ebs_bandwidth_mbps.member_max #=> Integer
+    #   resp.data.launch_template_version.launch_template_data.instance_requirements.baseline_ebs_bandwidth_mbps.min #=> Integer
+    #   resp.data.launch_template_version.launch_template_data.instance_requirements.baseline_ebs_bandwidth_mbps.max #=> Integer
     #   resp.data.launch_template_version.launch_template_data.instance_requirements.accelerator_types #=> Array<String>
     #   resp.data.launch_template_version.launch_template_data.instance_requirements.accelerator_types[0] #=> String, one of ["gpu", "fpga", "inference"]
     #   resp.data.launch_template_version.launch_template_data.instance_requirements.accelerator_count #=> Types::AcceleratorCount
-    #   resp.data.launch_template_version.launch_template_data.instance_requirements.accelerator_count.member_min #=> Integer
-    #   resp.data.launch_template_version.launch_template_data.instance_requirements.accelerator_count.member_max #=> Integer
+    #   resp.data.launch_template_version.launch_template_data.instance_requirements.accelerator_count.min #=> Integer
+    #   resp.data.launch_template_version.launch_template_data.instance_requirements.accelerator_count.max #=> Integer
     #   resp.data.launch_template_version.launch_template_data.instance_requirements.accelerator_manufacturers #=> Array<String>
     #   resp.data.launch_template_version.launch_template_data.instance_requirements.accelerator_manufacturers[0] #=> String, one of ["amazon-web-services", "amd", "nvidia", "xilinx", "habana"]
     #   resp.data.launch_template_version.launch_template_data.instance_requirements.accelerator_names #=> Array<String>
     #   resp.data.launch_template_version.launch_template_data.instance_requirements.accelerator_names[0] #=> String, one of ["a100", "inferentia", "k520", "k80", "m60", "radeon-pro-v520", "t4", "vu9p", "v100", "a10g", "h100", "t4g"]
     #   resp.data.launch_template_version.launch_template_data.instance_requirements.accelerator_total_memory_mi_b #=> Types::AcceleratorTotalMemoryMiB
-    #   resp.data.launch_template_version.launch_template_data.instance_requirements.accelerator_total_memory_mi_b.member_min #=> Integer
-    #   resp.data.launch_template_version.launch_template_data.instance_requirements.accelerator_total_memory_mi_b.member_max #=> Integer
+    #   resp.data.launch_template_version.launch_template_data.instance_requirements.accelerator_total_memory_mi_b.min #=> Integer
+    #   resp.data.launch_template_version.launch_template_data.instance_requirements.accelerator_total_memory_mi_b.max #=> Integer
     #   resp.data.launch_template_version.launch_template_data.instance_requirements.network_bandwidth_gbps #=> Types::NetworkBandwidthGbps
-    #   resp.data.launch_template_version.launch_template_data.instance_requirements.network_bandwidth_gbps.member_min #=> Float
-    #   resp.data.launch_template_version.launch_template_data.instance_requirements.network_bandwidth_gbps.member_max #=> Float
+    #   resp.data.launch_template_version.launch_template_data.instance_requirements.network_bandwidth_gbps.min #=> Float
+    #   resp.data.launch_template_version.launch_template_data.instance_requirements.network_bandwidth_gbps.max #=> Float
     #   resp.data.launch_template_version.launch_template_data.instance_requirements.allowed_instance_types #=> Array<String>
     #   resp.data.launch_template_version.launch_template_data.instance_requirements.allowed_instance_types[0] #=> String
     #   resp.data.launch_template_version.launch_template_data.instance_requirements.max_spot_price_as_percentage_of_optimal_on_demand_price #=> Integer
@@ -6772,7 +6772,7 @@ module AWS::SDK::EC2
     #   resp = client.create_managed_prefix_list(
     #     dry_run: false,
     #     prefix_list_name: 'PrefixListName', # required
-    #     member_entries: [
+    #     entries: [
     #       {
     #         cidr: 'Cidr', # required
     #         description: 'Description'
@@ -6989,20 +6989,20 @@ module AWS::SDK::EC2
     #   resp.data.network_acl.associations[0].network_acl_association_id #=> String
     #   resp.data.network_acl.associations[0].network_acl_id #=> String
     #   resp.data.network_acl.associations[0].subnet_id #=> String
-    #   resp.data.network_acl.member_entries #=> Array<NetworkAclEntry>
-    #   resp.data.network_acl.member_entries[0] #=> Types::NetworkAclEntry
-    #   resp.data.network_acl.member_entries[0].cidr_block #=> String
-    #   resp.data.network_acl.member_entries[0].egress #=> Boolean
-    #   resp.data.network_acl.member_entries[0].icmp_type_code #=> Types::IcmpTypeCode
-    #   resp.data.network_acl.member_entries[0].icmp_type_code.code #=> Integer
-    #   resp.data.network_acl.member_entries[0].icmp_type_code.type #=> Integer
-    #   resp.data.network_acl.member_entries[0].ipv6_cidr_block #=> String
-    #   resp.data.network_acl.member_entries[0].port_range #=> Types::PortRange
-    #   resp.data.network_acl.member_entries[0].port_range.from #=> Integer
-    #   resp.data.network_acl.member_entries[0].port_range.to #=> Integer
-    #   resp.data.network_acl.member_entries[0].protocol #=> String
-    #   resp.data.network_acl.member_entries[0].rule_action #=> String, one of ["allow", "deny"]
-    #   resp.data.network_acl.member_entries[0].rule_number #=> Integer
+    #   resp.data.network_acl.entries #=> Array<NetworkAclEntry>
+    #   resp.data.network_acl.entries[0] #=> Types::NetworkAclEntry
+    #   resp.data.network_acl.entries[0].cidr_block #=> String
+    #   resp.data.network_acl.entries[0].egress #=> Boolean
+    #   resp.data.network_acl.entries[0].icmp_type_code #=> Types::IcmpTypeCode
+    #   resp.data.network_acl.entries[0].icmp_type_code.code #=> Integer
+    #   resp.data.network_acl.entries[0].icmp_type_code.type #=> Integer
+    #   resp.data.network_acl.entries[0].ipv6_cidr_block #=> String
+    #   resp.data.network_acl.entries[0].port_range #=> Types::PortRange
+    #   resp.data.network_acl.entries[0].port_range.from #=> Integer
+    #   resp.data.network_acl.entries[0].port_range.to #=> Integer
+    #   resp.data.network_acl.entries[0].protocol #=> String
+    #   resp.data.network_acl.entries[0].rule_action #=> String, one of ["allow", "deny"]
+    #   resp.data.network_acl.entries[0].rule_number #=> Integer
     #   resp.data.network_acl.is_default #=> Boolean
     #   resp.data.network_acl.network_acl_id #=> String
     #   resp.data.network_acl.tags #=> Array<Tag>
@@ -7029,7 +7029,7 @@ module AWS::SDK::EC2
     #       tags: [
     #
     #       ],
-    #       member_entries: [
+    #       entries: [
     #         {
     #           cidr_block: "0.0.0.0/0",
     #           rule_number: 32767,
@@ -10123,7 +10123,7 @@ module AWS::SDK::EC2
     #     iops: 1,
     #     kms_key_id: 'KmsKeyId',
     #     outpost_arn: 'OutpostArn',
-    #     member_size: 1,
+    #     size: 1,
     #     snapshot_id: 'SnapshotId',
     #     volume_type: 'standard', # accepts ["standard", "io1", "io2", "gp2", "sc1", "st1", "gp3"]
     #     dry_run: false,
@@ -10159,7 +10159,7 @@ module AWS::SDK::EC2
     #   resp.data.encrypted #=> Boolean
     #   resp.data.kms_key_id #=> String
     #   resp.data.outpost_arn #=> String
-    #   resp.data.member_size #=> Integer
+    #   resp.data.size #=> Integer
     #   resp.data.snapshot_id #=> String
     #   resp.data.state #=> String, one of ["creating", "available", "in-use", "deleting", "deleted", "error"]
     #   resp.data.volume_id #=> String
@@ -10177,7 +10177,7 @@ module AWS::SDK::EC2
     #   # This example creates an 80 GiB General Purpose (SSD) volume in the Availability Zone ``us-east-1a``.
     #   resp = client.create_volume({
     #     availability_zone: "us-east-1a",
-    #     member_size: 80,
+    #     size: 80,
     #     volume_type: "gp2"
     #   })
     #
@@ -10191,7 +10191,7 @@ module AWS::SDK::EC2
     #     iops: 240,
     #     snapshot_id: "",
     #     create_time: Time.parse('2016-08-29T18:52:32.724Z'),
-    #     member_size: 80
+    #     size: 80
     #   }
     # @example To create a new Provisioned IOPS (SSD) volume from a snapshot
     #   # This example creates a new Provisioned IOPS (SSD) volume with 1000 provisioned IOPS from a snapshot in the Availability Zone ``us-east-1a``.
@@ -10217,7 +10217,7 @@ module AWS::SDK::EC2
     #     iops: 1000,
     #     snapshot_id: "snap-066877671789bd71b",
     #     create_time: Time.parse('2016-08-29T18:52:32.724Z'),
-    #     member_size: 500
+    #     size: 500
     #   }
     def create_volume(params = {}, options = {})
       response_body = ::StringIO.new
@@ -15202,7 +15202,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -15406,7 +15406,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -15513,7 +15513,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -15570,7 +15570,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -15744,7 +15744,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -15823,7 +15823,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -15863,7 +15863,7 @@ module AWS::SDK::EC2
     #   resp.data.capacity_reservations[0].capacity_allocations #=> Array<CapacityAllocation>
     #   resp.data.capacity_reservations[0].capacity_allocations[0] #=> Types::CapacityAllocation
     #   resp.data.capacity_reservations[0].capacity_allocations[0].allocation_type #=> String, one of ["used"]
-    #   resp.data.capacity_reservations[0].capacity_allocations[0].member_count #=> Integer
+    #   resp.data.capacity_reservations[0].capacity_allocations[0].count #=> Integer
     #   resp.data.capacity_reservations[0].reservation_type #=> String, one of ["default", "capacity-block"]
     def describe_capacity_reservations(params = {}, options = {})
       response_body = ::StringIO.new
@@ -15902,7 +15902,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -15963,7 +15963,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -16027,7 +16027,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -16083,7 +16083,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -16153,7 +16153,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -16252,7 +16252,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -16370,7 +16370,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -16450,12 +16450,12 @@ module AWS::SDK::EC2
     #   resp.data.conversion_tasks[0].import_instance.volumes[0].image.checksum #=> String
     #   resp.data.conversion_tasks[0].import_instance.volumes[0].image.format #=> String, one of ["VMDK", "RAW", "VHD"]
     #   resp.data.conversion_tasks[0].import_instance.volumes[0].image.import_manifest_url #=> String
-    #   resp.data.conversion_tasks[0].import_instance.volumes[0].image.member_size #=> Integer
+    #   resp.data.conversion_tasks[0].import_instance.volumes[0].image.size #=> Integer
     #   resp.data.conversion_tasks[0].import_instance.volumes[0].status #=> String
     #   resp.data.conversion_tasks[0].import_instance.volumes[0].status_message #=> String
     #   resp.data.conversion_tasks[0].import_instance.volumes[0].volume #=> Types::DiskImageVolumeDescription
     #   resp.data.conversion_tasks[0].import_instance.volumes[0].volume.id #=> String
-    #   resp.data.conversion_tasks[0].import_instance.volumes[0].volume.member_size #=> Integer
+    #   resp.data.conversion_tasks[0].import_instance.volumes[0].volume.size #=> Integer
     #   resp.data.conversion_tasks[0].import_volume #=> Types::ImportVolumeTaskDetails
     #   resp.data.conversion_tasks[0].import_volume.availability_zone #=> String
     #   resp.data.conversion_tasks[0].import_volume.bytes_converted #=> Integer
@@ -16507,7 +16507,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -16588,7 +16588,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -16604,9 +16604,9 @@ module AWS::SDK::EC2
     #   resp.data.dhcp_options[0].dhcp_configurations #=> Array<DhcpConfiguration>
     #   resp.data.dhcp_options[0].dhcp_configurations[0] #=> Types::DhcpConfiguration
     #   resp.data.dhcp_options[0].dhcp_configurations[0].key #=> String
-    #   resp.data.dhcp_options[0].dhcp_configurations[0].member_values #=> Array<AttributeValue>
-    #   resp.data.dhcp_options[0].dhcp_configurations[0].member_values[0] #=> Types::AttributeValue
-    #   resp.data.dhcp_options[0].dhcp_configurations[0].member_values[0].value #=> String
+    #   resp.data.dhcp_options[0].dhcp_configurations[0].values #=> Array<AttributeValue>
+    #   resp.data.dhcp_options[0].dhcp_configurations[0].values[0] #=> Types::AttributeValue
+    #   resp.data.dhcp_options[0].dhcp_configurations[0].values[0].value #=> String
     #   resp.data.dhcp_options[0].dhcp_options_id #=> String
     #   resp.data.dhcp_options[0].owner_id #=> String
     #   resp.data.dhcp_options[0].tags #=> Array<Tag>
@@ -16628,7 +16628,7 @@ module AWS::SDK::EC2
     #       {
     #         dhcp_configurations: [
     #           {
-    #             member_values: [
+    #             values: [
     #               {
     #                 value: "10.2.5.2"
     #               },
@@ -16683,7 +16683,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -16747,7 +16747,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -16807,7 +16807,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -16873,7 +16873,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -16936,7 +16936,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -16997,7 +16997,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -17118,7 +17118,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -17175,7 +17175,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -17212,16 +17212,16 @@ module AWS::SDK::EC2
     #   resp.data.fleets[0].launch_template_configs[0].overrides[0].placement.group_name #=> String
     #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements #=> Types::InstanceRequirements
     #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.v_cpu_count #=> Types::VCpuCountRange
-    #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.v_cpu_count.member_min #=> Integer
-    #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.v_cpu_count.member_max #=> Integer
+    #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.v_cpu_count.min #=> Integer
+    #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.v_cpu_count.max #=> Integer
     #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.memory_mi_b #=> Types::MemoryMiB
-    #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.memory_mi_b.member_min #=> Integer
-    #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.memory_mi_b.member_max #=> Integer
+    #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.memory_mi_b.min #=> Integer
+    #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.memory_mi_b.max #=> Integer
     #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.cpu_manufacturers #=> Array<String>
     #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.cpu_manufacturers[0] #=> String, one of ["intel", "amd", "amazon-web-services"]
     #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.memory_gi_b_per_v_cpu #=> Types::MemoryGiBPerVCpu
-    #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.memory_gi_b_per_v_cpu.member_min #=> Float
-    #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.memory_gi_b_per_v_cpu.member_max #=> Float
+    #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.memory_gi_b_per_v_cpu.min #=> Float
+    #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.memory_gi_b_per_v_cpu.max #=> Float
     #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.excluded_instance_types #=> Array<String>
     #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.excluded_instance_types[0] #=> String
     #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.instance_generations #=> Array<String>
@@ -17232,32 +17232,32 @@ module AWS::SDK::EC2
     #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.burstable_performance #=> String, one of ["included", "required", "excluded"]
     #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.require_hibernate_support #=> Boolean
     #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.network_interface_count #=> Types::NetworkInterfaceCount
-    #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.network_interface_count.member_min #=> Integer
-    #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.network_interface_count.member_max #=> Integer
+    #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.network_interface_count.min #=> Integer
+    #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.network_interface_count.max #=> Integer
     #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.local_storage #=> String, one of ["included", "required", "excluded"]
     #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.local_storage_types #=> Array<String>
     #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.local_storage_types[0] #=> String, one of ["hdd", "ssd"]
     #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.total_local_storage_gb #=> Types::TotalLocalStorageGB
-    #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.total_local_storage_gb.member_min #=> Float
-    #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.total_local_storage_gb.member_max #=> Float
+    #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.total_local_storage_gb.min #=> Float
+    #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.total_local_storage_gb.max #=> Float
     #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.baseline_ebs_bandwidth_mbps #=> Types::BaselineEbsBandwidthMbps
-    #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.baseline_ebs_bandwidth_mbps.member_min #=> Integer
-    #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.baseline_ebs_bandwidth_mbps.member_max #=> Integer
+    #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.baseline_ebs_bandwidth_mbps.min #=> Integer
+    #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.baseline_ebs_bandwidth_mbps.max #=> Integer
     #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.accelerator_types #=> Array<String>
     #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.accelerator_types[0] #=> String, one of ["gpu", "fpga", "inference"]
     #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.accelerator_count #=> Types::AcceleratorCount
-    #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.accelerator_count.member_min #=> Integer
-    #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.accelerator_count.member_max #=> Integer
+    #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.accelerator_count.min #=> Integer
+    #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.accelerator_count.max #=> Integer
     #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.accelerator_manufacturers #=> Array<String>
     #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.accelerator_manufacturers[0] #=> String, one of ["amazon-web-services", "amd", "nvidia", "xilinx", "habana"]
     #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.accelerator_names #=> Array<String>
     #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.accelerator_names[0] #=> String, one of ["a100", "inferentia", "k520", "k80", "m60", "radeon-pro-v520", "t4", "vu9p", "v100", "a10g", "h100", "t4g"]
     #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.accelerator_total_memory_mi_b #=> Types::AcceleratorTotalMemoryMiB
-    #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.accelerator_total_memory_mi_b.member_min #=> Integer
-    #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.accelerator_total_memory_mi_b.member_max #=> Integer
+    #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.accelerator_total_memory_mi_b.min #=> Integer
+    #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.accelerator_total_memory_mi_b.max #=> Integer
     #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.network_bandwidth_gbps #=> Types::NetworkBandwidthGbps
-    #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.network_bandwidth_gbps.member_min #=> Float
-    #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.network_bandwidth_gbps.member_max #=> Float
+    #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.network_bandwidth_gbps.min #=> Float
+    #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.network_bandwidth_gbps.max #=> Float
     #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.allowed_instance_types #=> Array<String>
     #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.allowed_instance_types[0] #=> String
     #   resp.data.fleets[0].launch_template_configs[0].overrides[0].instance_requirements.max_spot_price_as_percentage_of_optimal_on_demand_price #=> Integer
@@ -17348,10 +17348,10 @@ module AWS::SDK::EC2
     # @example Request syntax with placeholder values
     #   resp = client.describe_flow_logs(
     #     dry_run: false,
-    #     member_filter: [
+    #     filter: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -17481,7 +17481,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -17560,10 +17560,10 @@ module AWS::SDK::EC2
     # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.describe_host_reservation_offerings(
-    #     member_filter: [
+    #     filter: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -17618,10 +17618,10 @@ module AWS::SDK::EC2
     # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.describe_host_reservations(
-    #     member_filter: [
+    #     filter: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -17636,7 +17636,7 @@ module AWS::SDK::EC2
     #   resp.data #=> Types::DescribeHostReservationsOutput
     #   resp.data.host_reservation_set #=> Array<HostReservation>
     #   resp.data.host_reservation_set[0] #=> Types::HostReservation
-    #   resp.data.host_reservation_set[0].member_count #=> Integer
+    #   resp.data.host_reservation_set[0].count #=> Integer
     #   resp.data.host_reservation_set[0].currency_code #=> String, one of ["USD"]
     #   resp.data.host_reservation_set[0].duration #=> Integer
     #   resp.data.host_reservation_set[0].end #=> Time
@@ -17689,10 +17689,10 @@ module AWS::SDK::EC2
     # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.describe_hosts(
-    #     member_filter: [
+    #     filter: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -17783,7 +17783,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -18075,7 +18075,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -18225,7 +18225,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -18311,7 +18311,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -18510,7 +18510,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -18595,7 +18595,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -18699,7 +18699,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -18794,7 +18794,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -18963,7 +18963,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -19018,7 +19018,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -19073,7 +19073,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -19119,7 +19119,7 @@ module AWS::SDK::EC2
     #   resp.data.instance_types[0].instance_storage_info.disks #=> Array<DiskInfo>
     #   resp.data.instance_types[0].instance_storage_info.disks[0] #=> Types::DiskInfo
     #   resp.data.instance_types[0].instance_storage_info.disks[0].size_in_gb #=> Integer
-    #   resp.data.instance_types[0].instance_storage_info.disks[0].member_count #=> Integer
+    #   resp.data.instance_types[0].instance_storage_info.disks[0].count #=> Integer
     #   resp.data.instance_types[0].instance_storage_info.disks[0].type #=> String, one of ["hdd", "ssd"]
     #   resp.data.instance_types[0].instance_storage_info.nvme_support #=> String, one of ["unsupported", "supported", "required"]
     #   resp.data.instance_types[0].instance_storage_info.encryption_support #=> String, one of ["unsupported", "required"]
@@ -19160,7 +19160,7 @@ module AWS::SDK::EC2
     #   resp.data.instance_types[0].gpu_info.gpus[0] #=> Types::GpuDeviceInfo
     #   resp.data.instance_types[0].gpu_info.gpus[0].name #=> String
     #   resp.data.instance_types[0].gpu_info.gpus[0].manufacturer #=> String
-    #   resp.data.instance_types[0].gpu_info.gpus[0].member_count #=> Integer
+    #   resp.data.instance_types[0].gpu_info.gpus[0].count #=> Integer
     #   resp.data.instance_types[0].gpu_info.gpus[0].memory_info #=> Types::GpuDeviceMemoryInfo
     #   resp.data.instance_types[0].gpu_info.gpus[0].memory_info.size_in_mi_b #=> Integer
     #   resp.data.instance_types[0].gpu_info.total_gpu_memory_in_mi_b #=> Integer
@@ -19169,7 +19169,7 @@ module AWS::SDK::EC2
     #   resp.data.instance_types[0].fpga_info.fpgas[0] #=> Types::FpgaDeviceInfo
     #   resp.data.instance_types[0].fpga_info.fpgas[0].name #=> String
     #   resp.data.instance_types[0].fpga_info.fpgas[0].manufacturer #=> String
-    #   resp.data.instance_types[0].fpga_info.fpgas[0].member_count #=> Integer
+    #   resp.data.instance_types[0].fpga_info.fpgas[0].count #=> Integer
     #   resp.data.instance_types[0].fpga_info.fpgas[0].memory_info #=> Types::FpgaDeviceMemoryInfo
     #   resp.data.instance_types[0].fpga_info.fpgas[0].memory_info.size_in_mi_b #=> Integer
     #   resp.data.instance_types[0].fpga_info.total_fpga_memory_in_mi_b #=> Integer
@@ -19179,7 +19179,7 @@ module AWS::SDK::EC2
     #   resp.data.instance_types[0].inference_accelerator_info #=> Types::InferenceAcceleratorInfo
     #   resp.data.instance_types[0].inference_accelerator_info.accelerators #=> Array<InferenceDeviceInfo>
     #   resp.data.instance_types[0].inference_accelerator_info.accelerators[0] #=> Types::InferenceDeviceInfo
-    #   resp.data.instance_types[0].inference_accelerator_info.accelerators[0].member_count #=> Integer
+    #   resp.data.instance_types[0].inference_accelerator_info.accelerators[0].count #=> Integer
     #   resp.data.instance_types[0].inference_accelerator_info.accelerators[0].name #=> String
     #   resp.data.instance_types[0].inference_accelerator_info.accelerators[0].manufacturer #=> String
     #   resp.data.instance_types[0].inference_accelerator_info.accelerators[0].memory_info #=> Types::InferenceDeviceMemoryInfo
@@ -19246,7 +19246,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -19457,7 +19457,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: "instance-type",
-    #         member_values: [
+    #         values: [
     #           "t2.micro"
     #         ]
     #       }
@@ -19472,7 +19472,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: "tag:Purpose",
-    #         member_values: [
+    #         values: [
     #           "test"
     #         ]
     #       }
@@ -19515,7 +19515,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -19548,7 +19548,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: "attachment.vpc-id",
-    #         member_values: [
+    #         values: [
     #           "vpc-a01106c2"
     #         ]
     #       }
@@ -19651,7 +19651,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -19857,7 +19857,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -19921,7 +19921,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -19995,7 +19995,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -20051,7 +20051,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -20143,7 +20143,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -20254,7 +20254,7 @@ module AWS::SDK::EC2
     #   resp.data.launch_template_versions[0].launch_template_data.elastic_inference_accelerators #=> Array<LaunchTemplateElasticInferenceAcceleratorResponse>
     #   resp.data.launch_template_versions[0].launch_template_data.elastic_inference_accelerators[0] #=> Types::LaunchTemplateElasticInferenceAcceleratorResponse
     #   resp.data.launch_template_versions[0].launch_template_data.elastic_inference_accelerators[0].type #=> String
-    #   resp.data.launch_template_versions[0].launch_template_data.elastic_inference_accelerators[0].member_count #=> Integer
+    #   resp.data.launch_template_versions[0].launch_template_data.elastic_inference_accelerators[0].count #=> Integer
     #   resp.data.launch_template_versions[0].launch_template_data.security_group_ids #=> Array<String>
     #   resp.data.launch_template_versions[0].launch_template_data.security_group_ids[0] #=> String
     #   resp.data.launch_template_versions[0].launch_template_data.security_groups #=> Array<String>
@@ -20293,16 +20293,16 @@ module AWS::SDK::EC2
     #   resp.data.launch_template_versions[0].launch_template_data.enclave_options.enabled #=> Boolean
     #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements #=> Types::InstanceRequirements
     #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.v_cpu_count #=> Types::VCpuCountRange
-    #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.v_cpu_count.member_min #=> Integer
-    #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.v_cpu_count.member_max #=> Integer
+    #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.v_cpu_count.min #=> Integer
+    #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.v_cpu_count.max #=> Integer
     #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.memory_mi_b #=> Types::MemoryMiB
-    #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.memory_mi_b.member_min #=> Integer
-    #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.memory_mi_b.member_max #=> Integer
+    #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.memory_mi_b.min #=> Integer
+    #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.memory_mi_b.max #=> Integer
     #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.cpu_manufacturers #=> Array<String>
     #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.cpu_manufacturers[0] #=> String, one of ["intel", "amd", "amazon-web-services"]
     #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.memory_gi_b_per_v_cpu #=> Types::MemoryGiBPerVCpu
-    #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.memory_gi_b_per_v_cpu.member_min #=> Float
-    #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.memory_gi_b_per_v_cpu.member_max #=> Float
+    #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.memory_gi_b_per_v_cpu.min #=> Float
+    #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.memory_gi_b_per_v_cpu.max #=> Float
     #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.excluded_instance_types #=> Array<String>
     #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.excluded_instance_types[0] #=> String
     #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.instance_generations #=> Array<String>
@@ -20313,32 +20313,32 @@ module AWS::SDK::EC2
     #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.burstable_performance #=> String, one of ["included", "required", "excluded"]
     #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.require_hibernate_support #=> Boolean
     #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.network_interface_count #=> Types::NetworkInterfaceCount
-    #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.network_interface_count.member_min #=> Integer
-    #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.network_interface_count.member_max #=> Integer
+    #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.network_interface_count.min #=> Integer
+    #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.network_interface_count.max #=> Integer
     #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.local_storage #=> String, one of ["included", "required", "excluded"]
     #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.local_storage_types #=> Array<String>
     #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.local_storage_types[0] #=> String, one of ["hdd", "ssd"]
     #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.total_local_storage_gb #=> Types::TotalLocalStorageGB
-    #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.total_local_storage_gb.member_min #=> Float
-    #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.total_local_storage_gb.member_max #=> Float
+    #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.total_local_storage_gb.min #=> Float
+    #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.total_local_storage_gb.max #=> Float
     #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.baseline_ebs_bandwidth_mbps #=> Types::BaselineEbsBandwidthMbps
-    #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.baseline_ebs_bandwidth_mbps.member_min #=> Integer
-    #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.baseline_ebs_bandwidth_mbps.member_max #=> Integer
+    #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.baseline_ebs_bandwidth_mbps.min #=> Integer
+    #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.baseline_ebs_bandwidth_mbps.max #=> Integer
     #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.accelerator_types #=> Array<String>
     #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.accelerator_types[0] #=> String, one of ["gpu", "fpga", "inference"]
     #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.accelerator_count #=> Types::AcceleratorCount
-    #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.accelerator_count.member_min #=> Integer
-    #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.accelerator_count.member_max #=> Integer
+    #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.accelerator_count.min #=> Integer
+    #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.accelerator_count.max #=> Integer
     #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.accelerator_manufacturers #=> Array<String>
     #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.accelerator_manufacturers[0] #=> String, one of ["amazon-web-services", "amd", "nvidia", "xilinx", "habana"]
     #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.accelerator_names #=> Array<String>
     #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.accelerator_names[0] #=> String, one of ["a100", "inferentia", "k520", "k80", "m60", "radeon-pro-v520", "t4", "vu9p", "v100", "a10g", "h100", "t4g"]
     #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.accelerator_total_memory_mi_b #=> Types::AcceleratorTotalMemoryMiB
-    #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.accelerator_total_memory_mi_b.member_min #=> Integer
-    #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.accelerator_total_memory_mi_b.member_max #=> Integer
+    #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.accelerator_total_memory_mi_b.min #=> Integer
+    #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.accelerator_total_memory_mi_b.max #=> Integer
     #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.network_bandwidth_gbps #=> Types::NetworkBandwidthGbps
-    #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.network_bandwidth_gbps.member_min #=> Float
-    #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.network_bandwidth_gbps.member_max #=> Float
+    #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.network_bandwidth_gbps.min #=> Float
+    #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.network_bandwidth_gbps.max #=> Float
     #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.allowed_instance_types #=> Array<String>
     #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.allowed_instance_types[0] #=> String
     #   resp.data.launch_template_versions[0].launch_template_data.instance_requirements.max_spot_price_as_percentage_of_optimal_on_demand_price #=> Integer
@@ -20449,7 +20449,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -20530,7 +20530,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -20592,7 +20592,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -20655,7 +20655,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -20720,7 +20720,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -20780,7 +20780,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -20844,7 +20844,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -20900,7 +20900,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -20962,7 +20962,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -21026,7 +21026,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -21086,10 +21086,10 @@ module AWS::SDK::EC2
     # @example Request syntax with placeholder values
     #   resp = client.describe_nat_gateways(
     #     dry_run: false,
-    #     member_filter: [
+    #     filter: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -21137,10 +21137,10 @@ module AWS::SDK::EC2
     # @example To describe a NAT gateway
     #   # This example describes the NAT gateway for the specified VPC.
     #   resp = client.describe_nat_gateways({
-    #     member_filter: [
+    #     filter: [
     #       {
     #         name: "vpc-id",
-    #         member_values: [
+    #         values: [
     #           "vpc-1a2b3c4d"
     #         ]
     #       }
@@ -21203,7 +21203,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -21224,20 +21224,20 @@ module AWS::SDK::EC2
     #   resp.data.network_acls[0].associations[0].network_acl_association_id #=> String
     #   resp.data.network_acls[0].associations[0].network_acl_id #=> String
     #   resp.data.network_acls[0].associations[0].subnet_id #=> String
-    #   resp.data.network_acls[0].member_entries #=> Array<NetworkAclEntry>
-    #   resp.data.network_acls[0].member_entries[0] #=> Types::NetworkAclEntry
-    #   resp.data.network_acls[0].member_entries[0].cidr_block #=> String
-    #   resp.data.network_acls[0].member_entries[0].egress #=> Boolean
-    #   resp.data.network_acls[0].member_entries[0].icmp_type_code #=> Types::IcmpTypeCode
-    #   resp.data.network_acls[0].member_entries[0].icmp_type_code.code #=> Integer
-    #   resp.data.network_acls[0].member_entries[0].icmp_type_code.type #=> Integer
-    #   resp.data.network_acls[0].member_entries[0].ipv6_cidr_block #=> String
-    #   resp.data.network_acls[0].member_entries[0].port_range #=> Types::PortRange
-    #   resp.data.network_acls[0].member_entries[0].port_range.from #=> Integer
-    #   resp.data.network_acls[0].member_entries[0].port_range.to #=> Integer
-    #   resp.data.network_acls[0].member_entries[0].protocol #=> String
-    #   resp.data.network_acls[0].member_entries[0].rule_action #=> String, one of ["allow", "deny"]
-    #   resp.data.network_acls[0].member_entries[0].rule_number #=> Integer
+    #   resp.data.network_acls[0].entries #=> Array<NetworkAclEntry>
+    #   resp.data.network_acls[0].entries[0] #=> Types::NetworkAclEntry
+    #   resp.data.network_acls[0].entries[0].cidr_block #=> String
+    #   resp.data.network_acls[0].entries[0].egress #=> Boolean
+    #   resp.data.network_acls[0].entries[0].icmp_type_code #=> Types::IcmpTypeCode
+    #   resp.data.network_acls[0].entries[0].icmp_type_code.code #=> Integer
+    #   resp.data.network_acls[0].entries[0].icmp_type_code.type #=> Integer
+    #   resp.data.network_acls[0].entries[0].ipv6_cidr_block #=> String
+    #   resp.data.network_acls[0].entries[0].port_range #=> Types::PortRange
+    #   resp.data.network_acls[0].entries[0].port_range.from #=> Integer
+    #   resp.data.network_acls[0].entries[0].port_range.to #=> Integer
+    #   resp.data.network_acls[0].entries[0].protocol #=> String
+    #   resp.data.network_acls[0].entries[0].rule_action #=> String, one of ["allow", "deny"]
+    #   resp.data.network_acls[0].entries[0].rule_number #=> Integer
     #   resp.data.network_acls[0].is_default #=> Boolean
     #   resp.data.network_acls[0].network_acl_id #=> String
     #   resp.data.network_acls[0].tags #=> Array<Tag>
@@ -21271,7 +21271,7 @@ module AWS::SDK::EC2
     #         tags: [
     #
     #         ],
-    #         member_entries: [
+    #         entries: [
     #           {
     #             cidr_block: "0.0.0.0/0",
     #             rule_number: 32767,
@@ -21331,7 +21331,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -21396,7 +21396,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -21458,7 +21458,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -21694,7 +21694,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -21892,7 +21892,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -21951,7 +21951,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -22135,7 +22135,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -22200,7 +22200,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -22325,7 +22325,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -22388,7 +22388,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -22496,7 +22496,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -22558,7 +22558,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -22637,7 +22637,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -22705,7 +22705,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -22777,7 +22777,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -22816,7 +22816,7 @@ module AWS::SDK::EC2
     #   resp.data.reserved_instances_offerings[0].offering_type #=> String, one of ["Heavy Utilization", "Medium Utilization", "Light Utilization", "No Upfront", "Partial Upfront", "All Upfront"]
     #   resp.data.reserved_instances_offerings[0].pricing_details #=> Array<PricingDetail>
     #   resp.data.reserved_instances_offerings[0].pricing_details[0] #=> Types::PricingDetail
-    #   resp.data.reserved_instances_offerings[0].pricing_details[0].member_count #=> Integer
+    #   resp.data.reserved_instances_offerings[0].pricing_details[0].count #=> Integer
     #   resp.data.reserved_instances_offerings[0].pricing_details[0].price #=> Float
     #   resp.data.reserved_instances_offerings[0].recurring_charges #=> Array<RecurringCharge>
     #   resp.data.reserved_instances_offerings[0].recurring_charges[0] #=> Types::RecurringCharge
@@ -22861,7 +22861,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -22991,7 +22991,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -23073,7 +23073,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -23210,7 +23210,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -23282,7 +23282,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -23354,7 +23354,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: "tag:Purpose",
-    #         member_values: [
+    #         values: [
     #           "test"
     #         ]
     #       }
@@ -23459,7 +23459,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -23564,7 +23564,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -23640,7 +23640,7 @@ module AWS::SDK::EC2
     #     ],
     #     filters: [
     #       {
-    #         member_values: [
+    #         values: [
     #           "pending"
     #         ],
     #         name: "status"
@@ -24036,16 +24036,16 @@ module AWS::SDK::EC2
     #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].tag_specifications[0].tags[0].value #=> String
     #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements #=> Types::InstanceRequirements
     #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.v_cpu_count #=> Types::VCpuCountRange
-    #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.v_cpu_count.member_min #=> Integer
-    #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.v_cpu_count.member_max #=> Integer
+    #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.v_cpu_count.min #=> Integer
+    #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.v_cpu_count.max #=> Integer
     #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.memory_mi_b #=> Types::MemoryMiB
-    #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.memory_mi_b.member_min #=> Integer
-    #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.memory_mi_b.member_max #=> Integer
+    #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.memory_mi_b.min #=> Integer
+    #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.memory_mi_b.max #=> Integer
     #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.cpu_manufacturers #=> Array<String>
     #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.cpu_manufacturers[0] #=> String, one of ["intel", "amd", "amazon-web-services"]
     #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.memory_gi_b_per_v_cpu #=> Types::MemoryGiBPerVCpu
-    #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.memory_gi_b_per_v_cpu.member_min #=> Float
-    #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.memory_gi_b_per_v_cpu.member_max #=> Float
+    #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.memory_gi_b_per_v_cpu.min #=> Float
+    #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.memory_gi_b_per_v_cpu.max #=> Float
     #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.excluded_instance_types #=> Array<String>
     #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.excluded_instance_types[0] #=> String
     #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.instance_generations #=> Array<String>
@@ -24056,32 +24056,32 @@ module AWS::SDK::EC2
     #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.burstable_performance #=> String, one of ["included", "required", "excluded"]
     #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.require_hibernate_support #=> Boolean
     #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.network_interface_count #=> Types::NetworkInterfaceCount
-    #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.network_interface_count.member_min #=> Integer
-    #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.network_interface_count.member_max #=> Integer
+    #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.network_interface_count.min #=> Integer
+    #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.network_interface_count.max #=> Integer
     #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.local_storage #=> String, one of ["included", "required", "excluded"]
     #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.local_storage_types #=> Array<String>
     #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.local_storage_types[0] #=> String, one of ["hdd", "ssd"]
     #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.total_local_storage_gb #=> Types::TotalLocalStorageGB
-    #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.total_local_storage_gb.member_min #=> Float
-    #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.total_local_storage_gb.member_max #=> Float
+    #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.total_local_storage_gb.min #=> Float
+    #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.total_local_storage_gb.max #=> Float
     #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.baseline_ebs_bandwidth_mbps #=> Types::BaselineEbsBandwidthMbps
-    #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.baseline_ebs_bandwidth_mbps.member_min #=> Integer
-    #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.baseline_ebs_bandwidth_mbps.member_max #=> Integer
+    #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.baseline_ebs_bandwidth_mbps.min #=> Integer
+    #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.baseline_ebs_bandwidth_mbps.max #=> Integer
     #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.accelerator_types #=> Array<String>
     #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.accelerator_types[0] #=> String, one of ["gpu", "fpga", "inference"]
     #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.accelerator_count #=> Types::AcceleratorCount
-    #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.accelerator_count.member_min #=> Integer
-    #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.accelerator_count.member_max #=> Integer
+    #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.accelerator_count.min #=> Integer
+    #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.accelerator_count.max #=> Integer
     #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.accelerator_manufacturers #=> Array<String>
     #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.accelerator_manufacturers[0] #=> String, one of ["amazon-web-services", "amd", "nvidia", "xilinx", "habana"]
     #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.accelerator_names #=> Array<String>
     #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.accelerator_names[0] #=> String, one of ["a100", "inferentia", "k520", "k80", "m60", "radeon-pro-v520", "t4", "vu9p", "v100", "a10g", "h100", "t4g"]
     #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.accelerator_total_memory_mi_b #=> Types::AcceleratorTotalMemoryMiB
-    #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.accelerator_total_memory_mi_b.member_min #=> Integer
-    #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.accelerator_total_memory_mi_b.member_max #=> Integer
+    #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.accelerator_total_memory_mi_b.min #=> Integer
+    #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.accelerator_total_memory_mi_b.max #=> Integer
     #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.network_bandwidth_gbps #=> Types::NetworkBandwidthGbps
-    #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.network_bandwidth_gbps.member_min #=> Float
-    #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.network_bandwidth_gbps.member_max #=> Float
+    #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.network_bandwidth_gbps.min #=> Float
+    #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.network_bandwidth_gbps.max #=> Float
     #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.allowed_instance_types #=> Array<String>
     #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.allowed_instance_types[0] #=> String
     #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_requirements.max_spot_price_as_percentage_of_optimal_on_demand_price #=> Integer
@@ -24231,7 +24231,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -24441,7 +24441,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -24616,7 +24616,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -24672,7 +24672,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -24728,7 +24728,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: "vpc-id",
-    #         member_values: [
+    #         values: [
     #           "vpc-a01106c2"
     #         ]
     #       }
@@ -24787,7 +24787,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -24810,7 +24810,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: "resource-id",
-    #         member_values: [
+    #         values: [
     #           "i-1234567890abcdef8"
     #         ]
     #       }
@@ -24872,7 +24872,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -24947,7 +24947,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -25011,7 +25011,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -25073,7 +25073,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -25139,7 +25139,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -25211,7 +25211,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -25273,7 +25273,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -25338,7 +25338,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -25408,7 +25408,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -25467,7 +25467,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -25533,7 +25533,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -25595,7 +25595,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -25664,7 +25664,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -25739,7 +25739,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -25803,7 +25803,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -25890,7 +25890,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -25956,7 +25956,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -26027,7 +26027,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -26094,7 +26094,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -26259,7 +26259,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -26344,7 +26344,7 @@ module AWS::SDK::EC2
     #   resp = client.describe_volume_status({
     #     filters: [
     #       {
-    #         member_values: [
+    #         values: [
     #           "impaired"
     #         ],
     #         name: "volume-status.status"
@@ -26395,7 +26395,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -26426,7 +26426,7 @@ module AWS::SDK::EC2
     #   resp.data.volumes[0].encrypted #=> Boolean
     #   resp.data.volumes[0].kms_key_id #=> String
     #   resp.data.volumes[0].outpost_arn #=> String
-    #   resp.data.volumes[0].member_size #=> Integer
+    #   resp.data.volumes[0].size #=> Integer
     #   resp.data.volumes[0].snapshot_id #=> String
     #   resp.data.volumes[0].state #=> String, one of ["creating", "available", "in-use", "deleting", "deleted", "error"]
     #   resp.data.volumes[0].volume_id #=> String
@@ -26464,7 +26464,7 @@ module AWS::SDK::EC2
     #         state: "in-use",
     #         snapshot_id: "snap-1234567890abcdef0",
     #         create_time: Time.parse('2013-12-18T22:35:00.084Z'),
-    #         member_size: 8
+    #         size: 8
     #       }
     #     ],
     #     next_token: ""
@@ -26474,13 +26474,13 @@ module AWS::SDK::EC2
     #   resp = client.describe_volumes({
     #     filters: [
     #       {
-    #         member_values: [
+    #         values: [
     #           "i-1234567890abcdef0"
     #         ],
     #         name: "attachment.instance-id"
     #       },
     #       {
-    #         member_values: [
+    #         values: [
     #           "true"
     #         ],
     #         name: "attachment.delete-on-termination"
@@ -26508,7 +26508,7 @@ module AWS::SDK::EC2
     #         state: "in-use",
     #         snapshot_id: "snap-1234567890abcdef0",
     #         create_time: Time.parse('2013-12-18T22:35:00.084Z'),
-    #         member_size: 8
+    #         size: 8
     #       }
     #     ]
     #   }
@@ -26556,7 +26556,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -26692,7 +26692,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -26800,7 +26800,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -26857,7 +26857,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -26926,7 +26926,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -27002,7 +27002,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -27141,7 +27141,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -27221,7 +27221,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -27297,7 +27297,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -27402,7 +27402,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -27531,7 +27531,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -30286,7 +30286,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -30534,7 +30534,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -31038,19 +31038,19 @@ module AWS::SDK::EC2
     #     ], # required
     #     instance_requirements: {
     #       v_cpu_count: {
-    #         member_min: 1, # required
-    #         member_max: 1
+    #         min: 1, # required
+    #         max: 1
     #       }, # required
     #       memory_mi_b: {
-    #         member_min: 1, # required
-    #         member_max: 1
+    #         min: 1, # required
+    #         max: 1
     #       }, # required
     #       cpu_manufacturers: [
     #         'intel' # accepts ["intel", "amd", "amazon-web-services"]
     #       ],
     #       memory_gi_b_per_v_cpu: {
-    #         member_min: 1.0,
-    #         member_max: 1.0
+    #         min: 1.0,
+    #         max: 1.0
     #       },
     #       excluded_instance_types: [
     #         'member'
@@ -31064,27 +31064,27 @@ module AWS::SDK::EC2
     #       burstable_performance: 'included', # accepts ["included", "required", "excluded"]
     #       require_hibernate_support: false,
     #       network_interface_count: {
-    #         member_min: 1,
-    #         member_max: 1
+    #         min: 1,
+    #         max: 1
     #       },
     #       local_storage: 'included', # accepts ["included", "required", "excluded"]
     #       local_storage_types: [
     #         'hdd' # accepts ["hdd", "ssd"]
     #       ],
     #       total_local_storage_gb: {
-    #         member_min: 1.0,
-    #         member_max: 1.0
+    #         min: 1.0,
+    #         max: 1.0
     #       },
     #       baseline_ebs_bandwidth_mbps: {
-    #         member_min: 1,
-    #         member_max: 1
+    #         min: 1,
+    #         max: 1
     #       },
     #       accelerator_types: [
     #         'gpu' # accepts ["gpu", "fpga", "inference"]
     #       ],
     #       accelerator_count: {
-    #         member_min: 1,
-    #         member_max: 1
+    #         min: 1,
+    #         max: 1
     #       },
     #       accelerator_manufacturers: [
     #         'amazon-web-services' # accepts ["amazon-web-services", "amd", "nvidia", "xilinx", "habana"]
@@ -31093,12 +31093,12 @@ module AWS::SDK::EC2
     #         'a100' # accepts ["a100", "inferentia", "k520", "k80", "m60", "radeon-pro-v520", "t4", "vu9p", "v100", "a10g", "h100", "t4g"]
     #       ],
     #       accelerator_total_memory_mi_b: {
-    #         member_min: 1,
-    #         member_max: 1
+    #         min: 1,
+    #         max: 1
     #       },
     #       network_bandwidth_gbps: {
-    #         member_min: 1.0,
-    #         member_max: 1.0
+    #         min: 1.0,
+    #         max: 1.0
     #       },
     #       allowed_instance_types: [
     #         'member'
@@ -31255,7 +31255,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -31312,7 +31312,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -31389,7 +31389,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -31455,7 +31455,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -31511,7 +31511,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -31566,7 +31566,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -31741,7 +31741,7 @@ module AWS::SDK::EC2
     #   resp.data.launch_template_data.elastic_inference_accelerators #=> Array<LaunchTemplateElasticInferenceAcceleratorResponse>
     #   resp.data.launch_template_data.elastic_inference_accelerators[0] #=> Types::LaunchTemplateElasticInferenceAcceleratorResponse
     #   resp.data.launch_template_data.elastic_inference_accelerators[0].type #=> String
-    #   resp.data.launch_template_data.elastic_inference_accelerators[0].member_count #=> Integer
+    #   resp.data.launch_template_data.elastic_inference_accelerators[0].count #=> Integer
     #   resp.data.launch_template_data.security_group_ids #=> Array<String>
     #   resp.data.launch_template_data.security_group_ids[0] #=> String
     #   resp.data.launch_template_data.security_groups #=> Array<String>
@@ -31780,16 +31780,16 @@ module AWS::SDK::EC2
     #   resp.data.launch_template_data.enclave_options.enabled #=> Boolean
     #   resp.data.launch_template_data.instance_requirements #=> Types::InstanceRequirements
     #   resp.data.launch_template_data.instance_requirements.v_cpu_count #=> Types::VCpuCountRange
-    #   resp.data.launch_template_data.instance_requirements.v_cpu_count.member_min #=> Integer
-    #   resp.data.launch_template_data.instance_requirements.v_cpu_count.member_max #=> Integer
+    #   resp.data.launch_template_data.instance_requirements.v_cpu_count.min #=> Integer
+    #   resp.data.launch_template_data.instance_requirements.v_cpu_count.max #=> Integer
     #   resp.data.launch_template_data.instance_requirements.memory_mi_b #=> Types::MemoryMiB
-    #   resp.data.launch_template_data.instance_requirements.memory_mi_b.member_min #=> Integer
-    #   resp.data.launch_template_data.instance_requirements.memory_mi_b.member_max #=> Integer
+    #   resp.data.launch_template_data.instance_requirements.memory_mi_b.min #=> Integer
+    #   resp.data.launch_template_data.instance_requirements.memory_mi_b.max #=> Integer
     #   resp.data.launch_template_data.instance_requirements.cpu_manufacturers #=> Array<String>
     #   resp.data.launch_template_data.instance_requirements.cpu_manufacturers[0] #=> String, one of ["intel", "amd", "amazon-web-services"]
     #   resp.data.launch_template_data.instance_requirements.memory_gi_b_per_v_cpu #=> Types::MemoryGiBPerVCpu
-    #   resp.data.launch_template_data.instance_requirements.memory_gi_b_per_v_cpu.member_min #=> Float
-    #   resp.data.launch_template_data.instance_requirements.memory_gi_b_per_v_cpu.member_max #=> Float
+    #   resp.data.launch_template_data.instance_requirements.memory_gi_b_per_v_cpu.min #=> Float
+    #   resp.data.launch_template_data.instance_requirements.memory_gi_b_per_v_cpu.max #=> Float
     #   resp.data.launch_template_data.instance_requirements.excluded_instance_types #=> Array<String>
     #   resp.data.launch_template_data.instance_requirements.excluded_instance_types[0] #=> String
     #   resp.data.launch_template_data.instance_requirements.instance_generations #=> Array<String>
@@ -31800,32 +31800,32 @@ module AWS::SDK::EC2
     #   resp.data.launch_template_data.instance_requirements.burstable_performance #=> String, one of ["included", "required", "excluded"]
     #   resp.data.launch_template_data.instance_requirements.require_hibernate_support #=> Boolean
     #   resp.data.launch_template_data.instance_requirements.network_interface_count #=> Types::NetworkInterfaceCount
-    #   resp.data.launch_template_data.instance_requirements.network_interface_count.member_min #=> Integer
-    #   resp.data.launch_template_data.instance_requirements.network_interface_count.member_max #=> Integer
+    #   resp.data.launch_template_data.instance_requirements.network_interface_count.min #=> Integer
+    #   resp.data.launch_template_data.instance_requirements.network_interface_count.max #=> Integer
     #   resp.data.launch_template_data.instance_requirements.local_storage #=> String, one of ["included", "required", "excluded"]
     #   resp.data.launch_template_data.instance_requirements.local_storage_types #=> Array<String>
     #   resp.data.launch_template_data.instance_requirements.local_storage_types[0] #=> String, one of ["hdd", "ssd"]
     #   resp.data.launch_template_data.instance_requirements.total_local_storage_gb #=> Types::TotalLocalStorageGB
-    #   resp.data.launch_template_data.instance_requirements.total_local_storage_gb.member_min #=> Float
-    #   resp.data.launch_template_data.instance_requirements.total_local_storage_gb.member_max #=> Float
+    #   resp.data.launch_template_data.instance_requirements.total_local_storage_gb.min #=> Float
+    #   resp.data.launch_template_data.instance_requirements.total_local_storage_gb.max #=> Float
     #   resp.data.launch_template_data.instance_requirements.baseline_ebs_bandwidth_mbps #=> Types::BaselineEbsBandwidthMbps
-    #   resp.data.launch_template_data.instance_requirements.baseline_ebs_bandwidth_mbps.member_min #=> Integer
-    #   resp.data.launch_template_data.instance_requirements.baseline_ebs_bandwidth_mbps.member_max #=> Integer
+    #   resp.data.launch_template_data.instance_requirements.baseline_ebs_bandwidth_mbps.min #=> Integer
+    #   resp.data.launch_template_data.instance_requirements.baseline_ebs_bandwidth_mbps.max #=> Integer
     #   resp.data.launch_template_data.instance_requirements.accelerator_types #=> Array<String>
     #   resp.data.launch_template_data.instance_requirements.accelerator_types[0] #=> String, one of ["gpu", "fpga", "inference"]
     #   resp.data.launch_template_data.instance_requirements.accelerator_count #=> Types::AcceleratorCount
-    #   resp.data.launch_template_data.instance_requirements.accelerator_count.member_min #=> Integer
-    #   resp.data.launch_template_data.instance_requirements.accelerator_count.member_max #=> Integer
+    #   resp.data.launch_template_data.instance_requirements.accelerator_count.min #=> Integer
+    #   resp.data.launch_template_data.instance_requirements.accelerator_count.max #=> Integer
     #   resp.data.launch_template_data.instance_requirements.accelerator_manufacturers #=> Array<String>
     #   resp.data.launch_template_data.instance_requirements.accelerator_manufacturers[0] #=> String, one of ["amazon-web-services", "amd", "nvidia", "xilinx", "habana"]
     #   resp.data.launch_template_data.instance_requirements.accelerator_names #=> Array<String>
     #   resp.data.launch_template_data.instance_requirements.accelerator_names[0] #=> String, one of ["a100", "inferentia", "k520", "k80", "m60", "radeon-pro-v520", "t4", "vu9p", "v100", "a10g", "h100", "t4g"]
     #   resp.data.launch_template_data.instance_requirements.accelerator_total_memory_mi_b #=> Types::AcceleratorTotalMemoryMiB
-    #   resp.data.launch_template_data.instance_requirements.accelerator_total_memory_mi_b.member_min #=> Integer
-    #   resp.data.launch_template_data.instance_requirements.accelerator_total_memory_mi_b.member_max #=> Integer
+    #   resp.data.launch_template_data.instance_requirements.accelerator_total_memory_mi_b.min #=> Integer
+    #   resp.data.launch_template_data.instance_requirements.accelerator_total_memory_mi_b.max #=> Integer
     #   resp.data.launch_template_data.instance_requirements.network_bandwidth_gbps #=> Types::NetworkBandwidthGbps
-    #   resp.data.launch_template_data.instance_requirements.network_bandwidth_gbps.member_min #=> Float
-    #   resp.data.launch_template_data.instance_requirements.network_bandwidth_gbps.member_max #=> Float
+    #   resp.data.launch_template_data.instance_requirements.network_bandwidth_gbps.min #=> Float
+    #   resp.data.launch_template_data.instance_requirements.network_bandwidth_gbps.max #=> Float
     #   resp.data.launch_template_data.instance_requirements.allowed_instance_types #=> Array<String>
     #   resp.data.launch_template_data.instance_requirements.allowed_instance_types[0] #=> String
     #   resp.data.launch_template_data.instance_requirements.max_spot_price_as_percentage_of_optimal_on_demand_price #=> Integer
@@ -31977,10 +31977,10 @@ module AWS::SDK::EC2
     #   )
     # @example Response structure
     #   resp.data #=> Types::GetManagedPrefixListEntriesOutput
-    #   resp.data.member_entries #=> Array<PrefixListEntry>
-    #   resp.data.member_entries[0] #=> Types::PrefixListEntry
-    #   resp.data.member_entries[0].cidr #=> String
-    #   resp.data.member_entries[0].description #=> String
+    #   resp.data.entries #=> Array<PrefixListEntry>
+    #   resp.data.entries[0] #=> Types::PrefixListEntry
+    #   resp.data.entries[0].cidr #=> String
+    #   resp.data.entries[0].description #=> String
     #   resp.data.next_token #=> String
     def get_managed_prefix_list_entries(params = {}, options = {})
       response_body = ::StringIO.new
@@ -32404,7 +32404,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -32559,19 +32559,19 @@ module AWS::SDK::EC2
     #       ],
     #       instance_requirements: {
     #         v_cpu_count: {
-    #           member_min: 1, # required
-    #           member_max: 1
+    #           min: 1, # required
+    #           max: 1
     #         }, # required
     #         memory_mi_b: {
-    #           member_min: 1, # required
-    #           member_max: 1
+    #           min: 1, # required
+    #           max: 1
     #         }, # required
     #         cpu_manufacturers: [
     #           'intel' # accepts ["intel", "amd", "amazon-web-services"]
     #         ],
     #         memory_gi_b_per_v_cpu: {
-    #           member_min: 1.0,
-    #           member_max: 1.0
+    #           min: 1.0,
+    #           max: 1.0
     #         },
     #         excluded_instance_types: [
     #           'member'
@@ -32585,27 +32585,27 @@ module AWS::SDK::EC2
     #         burstable_performance: 'included', # accepts ["included", "required", "excluded"]
     #         require_hibernate_support: false,
     #         network_interface_count: {
-    #           member_min: 1,
-    #           member_max: 1
+    #           min: 1,
+    #           max: 1
     #         },
     #         local_storage: 'included', # accepts ["included", "required", "excluded"]
     #         local_storage_types: [
     #           'hdd' # accepts ["hdd", "ssd"]
     #         ],
     #         total_local_storage_gb: {
-    #           member_min: 1.0,
-    #           member_max: 1.0
+    #           min: 1.0,
+    #           max: 1.0
     #         },
     #         baseline_ebs_bandwidth_mbps: {
-    #           member_min: 1,
-    #           member_max: 1
+    #           min: 1,
+    #           max: 1
     #         },
     #         accelerator_types: [
     #           'gpu' # accepts ["gpu", "fpga", "inference"]
     #         ],
     #         accelerator_count: {
-    #           member_min: 1,
-    #           member_max: 1
+    #           min: 1,
+    #           max: 1
     #         },
     #         accelerator_manufacturers: [
     #           'amazon-web-services' # accepts ["amazon-web-services", "amd", "nvidia", "xilinx", "habana"]
@@ -32614,12 +32614,12 @@ module AWS::SDK::EC2
     #           'a100' # accepts ["a100", "inferentia", "k520", "k80", "m60", "radeon-pro-v520", "t4", "vu9p", "v100", "a10g", "h100", "t4g"]
     #         ],
     #         accelerator_total_memory_mi_b: {
-    #           member_min: 1,
-    #           member_max: 1
+    #           min: 1,
+    #           max: 1
     #         },
     #         network_bandwidth_gbps: {
-    #           member_min: 1.0,
-    #           member_max: 1.0
+    #           min: 1.0,
+    #           max: 1.0
     #         },
     #         allowed_instance_types: [
     #           'member'
@@ -32673,7 +32673,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -32734,7 +32734,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -32785,7 +32785,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -32841,7 +32841,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -32895,7 +32895,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -32954,7 +32954,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -33012,7 +33012,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -33065,7 +33065,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -33516,7 +33516,7 @@ module AWS::SDK::EC2
     #           import_manifest_url: 'ImportManifestUrl' # required
     #         },
     #         volume: {
-    #           member_size: 1 # required
+    #           size: 1 # required
     #         }
     #       }
     #     ],
@@ -33570,12 +33570,12 @@ module AWS::SDK::EC2
     #   resp.data.conversion_task.import_instance.volumes[0].image.checksum #=> String
     #   resp.data.conversion_task.import_instance.volumes[0].image.format #=> String, one of ["VMDK", "RAW", "VHD"]
     #   resp.data.conversion_task.import_instance.volumes[0].image.import_manifest_url #=> String
-    #   resp.data.conversion_task.import_instance.volumes[0].image.member_size #=> Integer
+    #   resp.data.conversion_task.import_instance.volumes[0].image.size #=> Integer
     #   resp.data.conversion_task.import_instance.volumes[0].status #=> String
     #   resp.data.conversion_task.import_instance.volumes[0].status_message #=> String
     #   resp.data.conversion_task.import_instance.volumes[0].volume #=> Types::DiskImageVolumeDescription
     #   resp.data.conversion_task.import_instance.volumes[0].volume.id #=> String
-    #   resp.data.conversion_task.import_instance.volumes[0].volume.member_size #=> Integer
+    #   resp.data.conversion_task.import_instance.volumes[0].volume.size #=> Integer
     #   resp.data.conversion_task.import_volume #=> Types::ImportVolumeTaskDetails
     #   resp.data.conversion_task.import_volume.availability_zone #=> String
     #   resp.data.conversion_task.import_volume.bytes_converted #=> Integer
@@ -33782,7 +33782,7 @@ module AWS::SDK::EC2
     #       import_manifest_url: 'ImportManifestUrl' # required
     #     }, # required
     #     volume: {
-    #       member_size: 1 # required
+    #       size: 1 # required
     #     } # required
     #   )
     # @example Response structure
@@ -33803,12 +33803,12 @@ module AWS::SDK::EC2
     #   resp.data.conversion_task.import_instance.volumes[0].image.checksum #=> String
     #   resp.data.conversion_task.import_instance.volumes[0].image.format #=> String, one of ["VMDK", "RAW", "VHD"]
     #   resp.data.conversion_task.import_instance.volumes[0].image.import_manifest_url #=> String
-    #   resp.data.conversion_task.import_instance.volumes[0].image.member_size #=> Integer
+    #   resp.data.conversion_task.import_instance.volumes[0].image.size #=> Integer
     #   resp.data.conversion_task.import_instance.volumes[0].status #=> String
     #   resp.data.conversion_task.import_instance.volumes[0].status_message #=> String
     #   resp.data.conversion_task.import_instance.volumes[0].volume #=> Types::DiskImageVolumeDescription
     #   resp.data.conversion_task.import_instance.volumes[0].volume.id #=> String
-    #   resp.data.conversion_task.import_instance.volumes[0].volume.member_size #=> Integer
+    #   resp.data.conversion_task.import_instance.volumes[0].volume.size #=> Integer
     #   resp.data.conversion_task.import_volume #=> Types::ImportVolumeTaskDetails
     #   resp.data.conversion_task.import_volume.availability_zone #=> String
     #   resp.data.conversion_task.import_volume.bytes_converted #=> Integer
@@ -34406,19 +34406,19 @@ module AWS::SDK::EC2
     #             },
     #             instance_requirements: {
     #               v_cpu_count: {
-    #                 member_min: 1, # required
-    #                 member_max: 1
+    #                 min: 1, # required
+    #                 max: 1
     #               }, # required
     #               memory_mi_b: {
-    #                 member_min: 1, # required
-    #                 member_max: 1
+    #                 min: 1, # required
+    #                 max: 1
     #               }, # required
     #               cpu_manufacturers: [
     #                 'intel' # accepts ["intel", "amd", "amazon-web-services"]
     #               ],
     #               memory_gi_b_per_v_cpu: {
-    #                 member_min: 1.0,
-    #                 member_max: 1.0
+    #                 min: 1.0,
+    #                 max: 1.0
     #               },
     #               excluded_instance_types: [
     #                 'member'
@@ -34432,27 +34432,27 @@ module AWS::SDK::EC2
     #               burstable_performance: 'included', # accepts ["included", "required", "excluded"]
     #               require_hibernate_support: false,
     #               network_interface_count: {
-    #                 member_min: 1,
-    #                 member_max: 1
+    #                 min: 1,
+    #                 max: 1
     #               },
     #               local_storage: 'included', # accepts ["included", "required", "excluded"]
     #               local_storage_types: [
     #                 'hdd' # accepts ["hdd", "ssd"]
     #               ],
     #               total_local_storage_gb: {
-    #                 member_min: 1.0,
-    #                 member_max: 1.0
+    #                 min: 1.0,
+    #                 max: 1.0
     #               },
     #               baseline_ebs_bandwidth_mbps: {
-    #                 member_min: 1,
-    #                 member_max: 1
+    #                 min: 1,
+    #                 max: 1
     #               },
     #               accelerator_types: [
     #                 'gpu' # accepts ["gpu", "fpga", "inference"]
     #               ],
     #               accelerator_count: {
-    #                 member_min: 1,
-    #                 member_max: 1
+    #                 min: 1,
+    #                 max: 1
     #               },
     #               accelerator_manufacturers: [
     #                 'amazon-web-services' # accepts ["amazon-web-services", "amd", "nvidia", "xilinx", "habana"]
@@ -34461,12 +34461,12 @@ module AWS::SDK::EC2
     #                 'a100' # accepts ["a100", "inferentia", "k520", "k80", "m60", "radeon-pro-v520", "t4", "vu9p", "v100", "a10g", "h100", "t4g"]
     #               ],
     #               accelerator_total_memory_mi_b: {
-    #                 member_min: 1,
-    #                 member_max: 1
+    #                 min: 1,
+    #                 max: 1
     #               },
     #               network_bandwidth_gbps: {
-    #                 member_min: 1.0,
-    #                 member_max: 1.0
+    #                 min: 1.0,
+    #                 max: 1.0
     #               },
     #               allowed_instance_types: [
     #                 'member'
@@ -36290,19 +36290,19 @@ module AWS::SDK::EC2
     #             priority: 1.0,
     #             instance_requirements: {
     #               v_cpu_count: {
-    #                 member_min: 1,
-    #                 member_max: 1
+    #                 min: 1,
+    #                 max: 1
     #               },
     #               memory_mi_b: {
-    #                 member_min: 1,
-    #                 member_max: 1
+    #                 min: 1,
+    #                 max: 1
     #               },
     #               cpu_manufacturers: [
     #                 'intel' # accepts ["intel", "amd", "amazon-web-services"]
     #               ],
     #               memory_gi_b_per_v_cpu: {
-    #                 member_min: 1.0,
-    #                 member_max: 1.0
+    #                 min: 1.0,
+    #                 max: 1.0
     #               },
     #               excluded_instance_types: [
     #                 'member'
@@ -36316,27 +36316,27 @@ module AWS::SDK::EC2
     #               burstable_performance: 'included', # accepts ["included", "required", "excluded"]
     #               require_hibernate_support: false,
     #               network_interface_count: {
-    #                 member_min: 1,
-    #                 member_max: 1
+    #                 min: 1,
+    #                 max: 1
     #               },
     #               local_storage: 'included', # accepts ["included", "required", "excluded"]
     #               local_storage_types: [
     #                 'hdd' # accepts ["hdd", "ssd"]
     #               ],
     #               total_local_storage_gb: {
-    #                 member_min: 1.0,
-    #                 member_max: 1.0
+    #                 min: 1.0,
+    #                 max: 1.0
     #               },
     #               baseline_ebs_bandwidth_mbps: {
-    #                 member_min: 1,
-    #                 member_max: 1
+    #                 min: 1,
+    #                 max: 1
     #               },
     #               accelerator_types: [
     #                 'gpu' # accepts ["gpu", "fpga", "inference"]
     #               ],
     #               accelerator_count: {
-    #                 member_min: 1,
-    #                 member_max: 1
+    #                 min: 1,
+    #                 max: 1
     #               },
     #               accelerator_manufacturers: [
     #                 'amazon-web-services' # accepts ["amazon-web-services", "amd", "nvidia", "xilinx", "habana"]
@@ -36345,12 +36345,12 @@ module AWS::SDK::EC2
     #                 'a100' # accepts ["a100", "inferentia", "k520", "k80", "m60", "radeon-pro-v520", "t4", "vu9p", "v100", "a10g", "h100", "t4g"]
     #               ],
     #               accelerator_total_memory_mi_b: {
-    #                 member_min: 1,
-    #                 member_max: 1
+    #                 min: 1,
+    #                 max: 1
     #               },
     #               network_bandwidth_gbps: {
-    #                 member_min: 1.0,
-    #                 member_max: 1.0
+    #                 min: 1.0,
+    #                 max: 1.0
     #               },
     #               allowed_instance_types: [
     #                 'member'
@@ -37337,7 +37337,7 @@ module AWS::SDK::EC2
     #   resp = client.modify_volume(
     #     dry_run: false,
     #     volume_id: 'VolumeId', # required
-    #     member_size: 1,
+    #     size: 1,
     #     volume_type: 'standard', # accepts ["standard", "io1", "io2", "gp2", "sc1", "st1", "gp3"]
     #     iops: 1,
     #     throughput: 1,
@@ -38848,7 +38848,7 @@ module AWS::SDK::EC2
     #   resp.data.capacity_reservation.capacity_allocations #=> Array<CapacityAllocation>
     #   resp.data.capacity_reservation.capacity_allocations[0] #=> Types::CapacityAllocation
     #   resp.data.capacity_reservation.capacity_allocations[0].allocation_type #=> String, one of ["used"]
-    #   resp.data.capacity_reservation.capacity_allocations[0].member_count #=> Integer
+    #   resp.data.capacity_reservation.capacity_allocations[0].count #=> Integer
     #   resp.data.capacity_reservation.reservation_type #=> String, one of ["default", "capacity-block"]
     def purchase_capacity_block(params = {}, options = {})
       response_body = ::StringIO.new
@@ -40387,19 +40387,19 @@ module AWS::SDK::EC2
     #           ],
     #           instance_requirements: {
     #             v_cpu_count: {
-    #               member_min: 1,
-    #               member_max: 1
+    #               min: 1,
+    #               max: 1
     #             },
     #             memory_mi_b: {
-    #               member_min: 1,
-    #               member_max: 1
+    #               min: 1,
+    #               max: 1
     #             },
     #             cpu_manufacturers: [
     #               'intel' # accepts ["intel", "amd", "amazon-web-services"]
     #             ],
     #             memory_gi_b_per_v_cpu: {
-    #               member_min: 1.0,
-    #               member_max: 1.0
+    #               min: 1.0,
+    #               max: 1.0
     #             },
     #             excluded_instance_types: [
     #               'member'
@@ -40413,27 +40413,27 @@ module AWS::SDK::EC2
     #             burstable_performance: 'included', # accepts ["included", "required", "excluded"]
     #             require_hibernate_support: false,
     #             network_interface_count: {
-    #               member_min: 1,
-    #               member_max: 1
+    #               min: 1,
+    #               max: 1
     #             },
     #             local_storage: 'included', # accepts ["included", "required", "excluded"]
     #             local_storage_types: [
     #               'hdd' # accepts ["hdd", "ssd"]
     #             ],
     #             total_local_storage_gb: {
-    #               member_min: 1.0,
-    #               member_max: 1.0
+    #               min: 1.0,
+    #               max: 1.0
     #             },
     #             baseline_ebs_bandwidth_mbps: {
-    #               member_min: 1,
-    #               member_max: 1
+    #               min: 1,
+    #               max: 1
     #             },
     #             accelerator_types: [
     #               'gpu' # accepts ["gpu", "fpga", "inference"]
     #             ],
     #             accelerator_count: {
-    #               member_min: 1,
-    #               member_max: 1
+    #               min: 1,
+    #               max: 1
     #             },
     #             accelerator_manufacturers: [
     #               'amazon-web-services' # accepts ["amazon-web-services", "amd", "nvidia", "xilinx", "habana"]
@@ -40442,12 +40442,12 @@ module AWS::SDK::EC2
     #               'a100' # accepts ["a100", "inferentia", "k520", "k80", "m60", "radeon-pro-v520", "t4", "vu9p", "v100", "a10g", "h100", "t4g"]
     #             ],
     #             accelerator_total_memory_mi_b: {
-    #               member_min: 1,
-    #               member_max: 1
+    #               min: 1,
+    #               max: 1
     #             },
     #             network_bandwidth_gbps: {
-    #               member_min: 1.0,
-    #               member_max: 1.0
+    #               min: 1.0,
+    #               max: 1.0
     #             },
     #             allowed_instance_types: [
     #               'member'
@@ -41980,7 +41980,7 @@ module AWS::SDK::EC2
     #     elastic_inference_accelerators: [
     #       {
     #         type: 'Type', # required
-    #         member_count: 1
+    #         count: 1
     #       }
     #     ],
     #     tag_specifications: [
@@ -42411,7 +42411,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -42471,7 +42471,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }
@@ -42531,7 +42531,7 @@ module AWS::SDK::EC2
     #     filters: [
     #       {
     #         name: 'Name',
-    #         member_values: [
+    #         values: [
     #           'member'
     #         ]
     #       }

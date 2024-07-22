@@ -412,7 +412,7 @@ module AWS::SDK::LexRuntimeV2
         data = Types::Slot.new
         data.value = (Value.parse(map['value']) unless map['value'].nil?)
         data.shape = map['shape']
-        data.member_values = (Values.parse(map['values']) unless map['values'].nil?)
+        data.values = (Values.parse(map['values']) unless map['values'].nil?)
         data.sub_slots = (Slots.parse(map['subSlots']) unless map['subSlots'].nil?)
         return data
       end

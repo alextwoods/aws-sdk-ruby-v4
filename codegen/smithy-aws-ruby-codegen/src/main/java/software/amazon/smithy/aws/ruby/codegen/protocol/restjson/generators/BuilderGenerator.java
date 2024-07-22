@@ -15,6 +15,8 @@
 
 package software.amazon.smithy.aws.ruby.codegen.protocol.restjson.generators;
 
+import java.util.Optional;
+import java.util.stream.Stream;
 import software.amazon.smithy.codegen.core.Symbol;
 import software.amazon.smithy.model.shapes.BlobShape;
 import software.amazon.smithy.model.shapes.DocumentShape;
@@ -49,9 +51,6 @@ import software.amazon.smithy.ruby.codegen.traits.NoSerializeTrait;
 import software.amazon.smithy.ruby.codegen.util.Streaming;
 import software.amazon.smithy.ruby.codegen.util.TimestampFormat;
 
-import java.util.Optional;
-import java.util.stream.Stream;
-
 public class BuilderGenerator extends RestBuilderGeneratorBase {
 
     public BuilderGenerator(GenerationContext context) {
@@ -72,15 +71,12 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
 
         serializeMembers.forEach((member) -> {
             Shape target = model.expectShape(member.getTarget());
-
-            String symbolName = ":" + symbolProvider.toMemberName(member);
             String dataName = "'" + member.getMemberName() + "'";
             if (member.hasTrait(JsonNameTrait.class)) {
                 dataName = "'" + member.expectTrait(JsonNameTrait.class).getValue() + "'";
             }
-
             String dataSetter = "data[" + dataName + "] = ";
-            String inputGetter = input + "[" + symbolName + "]";
+            String inputGetter = input + "." + symbolProvider.toMemberName(member);
             target.accept(new MemberSerializer(member, dataSetter, inputGetter, true));
         });
     }
@@ -88,8 +84,7 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
     @Override
     protected void renderPayloadBodyBuilder(OperationShape operation, Shape inputShape, MemberShape payloadMember,
                                             Shape target) {
-        String symbolName = ":" + symbolProvider.toMemberName(payloadMember);
-        String inputGetter = "input[" + symbolName + "]";
+        String inputGetter = "input." + symbolProvider.toMemberName(payloadMember);
         if (target.hasTrait(StreamingTrait.class)) {
             renderStreamingBodyBuilder(inputShape);
         } else {

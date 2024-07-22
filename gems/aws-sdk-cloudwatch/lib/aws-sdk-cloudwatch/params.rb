@@ -210,7 +210,7 @@ module AWS::SDK::CloudWatch
         type.dashboard_name = params[:dashboard_name] unless params[:dashboard_name].nil?
         type.dashboard_arn = params[:dashboard_arn] unless params[:dashboard_arn].nil?
         type.last_modified = params[:last_modified] unless params[:last_modified].nil?
-        type.member_size = params[:member_size] unless params[:member_size].nil?
+        type.size = params[:size] unless params[:size].nil?
         type
       end
     end
@@ -277,7 +277,7 @@ module AWS::SDK::CloudWatch
         type.timestamp = params[:timestamp] unless params[:timestamp].nil?
         type.sample_count = params[:sample_count]&.to_f unless params[:sample_count].nil?
         type.average = params[:average]&.to_f unless params[:average].nil?
-        type.member_sum = params[:member_sum]&.to_f unless params[:member_sum].nil?
+        type.sum = params[:sum]&.to_f unless params[:sum].nil?
         type.minimum = params[:minimum]&.to_f unless params[:minimum].nil?
         type.maximum = params[:maximum]&.to_f unless params[:maximum].nil?
         type.unit = params[:unit] unless params[:unit].nil?
@@ -938,7 +938,7 @@ module AWS::SDK::CloudWatch
         type.max_contributor_value = params[:max_contributor_value]&.to_f unless params[:max_contributor_value].nil?
         type.sample_count = params[:sample_count]&.to_f unless params[:sample_count].nil?
         type.average = params[:average]&.to_f unless params[:average].nil?
-        type.member_sum = params[:member_sum]&.to_f unless params[:member_sum].nil?
+        type.sum = params[:sum]&.to_f unless params[:sum].nil?
         type.minimum = params[:minimum]&.to_f unless params[:minimum].nil?
         type.maximum = params[:maximum]&.to_f unless params[:maximum].nil?
         type
@@ -1131,7 +1131,7 @@ module AWS::SDK::CloudWatch
         type = Types::ListMetricStreamsOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.next_token = params[:next_token] unless params[:next_token].nil?
-        type.member_entries = MetricStreamEntries.build(params[:member_entries], context: "#{context}[:member_entries]") unless params[:member_entries].nil?
+        type.entries = MetricStreamEntries.build(params[:entries], context: "#{context}[:entries]") unless params[:entries].nil?
         type
       end
     end
@@ -1359,7 +1359,7 @@ module AWS::SDK::CloudWatch
         type.id = params[:id] unless params[:id].nil?
         type.label = params[:label] unless params[:label].nil?
         type.timestamps = Timestamps.build(params[:timestamps], context: "#{context}[:timestamps]") unless params[:timestamps].nil?
-        type.member_values = DatapointValues.build(params[:member_values], context: "#{context}[:member_values]") unless params[:member_values].nil?
+        type.values = DatapointValues.build(params[:values], context: "#{context}[:values]") unless params[:values].nil?
         type.status_code = params[:status_code] unless params[:status_code].nil?
         type.messages = MetricDataResultMessages.build(params[:messages], context: "#{context}[:messages]") unless params[:messages].nil?
         type
@@ -1398,7 +1398,7 @@ module AWS::SDK::CloudWatch
         type.timestamp = params[:timestamp] unless params[:timestamp].nil?
         type.value = params[:value]&.to_f unless params[:value].nil?
         type.statistic_values = StatisticSet.build(params[:statistic_values], context: "#{context}[:statistic_values]") unless params[:statistic_values].nil?
-        type.member_values = Values.build(params[:member_values], context: "#{context}[:member_values]") unless params[:member_values].nil?
+        type.values = Values.build(params[:values], context: "#{context}[:values]") unless params[:values].nil?
         type.counts = Counts.build(params[:counts], context: "#{context}[:counts]") unless params[:counts].nil?
         type.unit = params[:unit] unless params[:unit].nil?
         type.storage_resolution = params[:storage_resolution] unless params[:storage_resolution].nil?
@@ -1909,7 +1909,7 @@ module AWS::SDK::CloudWatch
         type = Types::StatisticSet.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.sample_count = params[:sample_count]&.to_f unless params[:sample_count].nil?
-        type.member_sum = params[:member_sum]&.to_f unless params[:member_sum].nil?
+        type.sum = params[:sum]&.to_f unless params[:sum].nil?
         type.minimum = params[:minimum]&.to_f unless params[:minimum].nil?
         type.maximum = params[:maximum]&.to_f unless params[:maximum].nil?
         type

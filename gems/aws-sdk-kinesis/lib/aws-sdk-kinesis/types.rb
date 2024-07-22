@@ -17,11 +17,14 @@ module AWS::SDK::Kinesis
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    AccessDeniedException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class AccessDeniedException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the input for <code>AddTagsToStream</code>.</p>
@@ -39,22 +42,26 @@ module AWS::SDK::Kinesis
     # @!attribute stream_arn
     #   <p>The ARN of the stream.</p>
     #   @return [String]
-    AddTagsToStreamInput = ::Struct.new(
-      :stream_name,
-      :tags,
-      :stream_arn,
-      keyword_init: true
-    ) do
+    class AddTagsToStreamInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        stream_name
+        tags
+        stream_arn
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    AddTagsToStreamOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class AddTagsToStreamOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Output parameter of the GetRecords API. The existing child shard of the current
@@ -74,13 +81,16 @@ module AWS::SDK::Kinesis
     #   <p>The range of possible hash key values for the shard, which is a set of ordered
     #               contiguous positive integers.</p>
     #   @return [HashKeyRange]
-    ChildShard = ::Struct.new(
-      :shard_id,
-      :parent_shards,
-      :hash_key_range,
-      keyword_init: true
-    ) do
+    class ChildShard
       include Hearth::Structure
+
+      MEMBERS = %i[
+        shard_id
+        parent_shards
+        hash_key_range
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>An object that represents the details of the consumer you registered. This type of
@@ -110,14 +120,17 @@ module AWS::SDK::Kinesis
     # @!attribute consumer_creation_timestamp
     #   <p></p>
     #   @return [Time]
-    Consumer = ::Struct.new(
-      :consumer_name,
-      :consumer_arn,
-      :consumer_status,
-      :consumer_creation_timestamp,
-      keyword_init: true
-    ) do
+    class Consumer
       include Hearth::Structure
+
+      MEMBERS = %i[
+        consumer_name
+        consumer_arn
+        consumer_status
+        consumer_creation_timestamp
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>An object that represents the details of a registered consumer. This type of object is
@@ -151,15 +164,18 @@ module AWS::SDK::Kinesis
     # @!attribute stream_arn
     #   <p>The ARN of the stream with which you registered the consumer.</p>
     #   @return [String]
-    ConsumerDescription = ::Struct.new(
-      :consumer_name,
-      :consumer_arn,
-      :consumer_status,
-      :consumer_creation_timestamp,
-      :stream_arn,
-      keyword_init: true
-    ) do
+    class ConsumerDescription
       include Hearth::Structure
+
+      MEMBERS = %i[
+        consumer_name
+        consumer_arn
+        consumer_status
+        consumer_creation_timestamp
+        stream_arn
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for ConsumerStatus
@@ -194,22 +210,26 @@ module AWS::SDK::Kinesis
     #                   <b>provisioned</b> capacity mode for your data
     #               streams.</p>
     #   @return [StreamModeDetails]
-    CreateStreamInput = ::Struct.new(
-      :stream_name,
-      :shard_count,
-      :stream_mode_details,
-      keyword_init: true
-    ) do
+    class CreateStreamInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        stream_name
+        shard_count
+        stream_mode_details
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    CreateStreamOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class CreateStreamOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the input for <a>DecreaseStreamRetentionPeriod</a>.</p>
@@ -228,22 +248,26 @@ module AWS::SDK::Kinesis
     # @!attribute stream_arn
     #   <p>The ARN of the stream.</p>
     #   @return [String]
-    DecreaseStreamRetentionPeriodInput = ::Struct.new(
-      :stream_name,
-      :retention_period_hours,
-      :stream_arn,
-      keyword_init: true
-    ) do
+    class DecreaseStreamRetentionPeriodInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        stream_name
+        retention_period_hours
+        stream_arn
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    DecreaseStreamRetentionPeriodOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class DecreaseStreamRetentionPeriodOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -252,20 +276,24 @@ module AWS::SDK::Kinesis
     # @!attribute resource_arn
     #   <p>The Amazon Resource Name (ARN) of the data stream or consumer.</p>
     #   @return [String]
-    DeleteResourcePolicyInput = ::Struct.new(
-      :resource_arn,
-      keyword_init: true
-    ) do
+    class DeleteResourcePolicyInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        resource_arn
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    DeleteResourcePolicyOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class DeleteResourcePolicyOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the input for <a>DeleteStream</a>.</p>
@@ -285,22 +313,26 @@ module AWS::SDK::Kinesis
     # @!attribute stream_arn
     #   <p>The ARN of the stream.</p>
     #   @return [String]
-    DeleteStreamInput = ::Struct.new(
-      :stream_name,
-      :enforce_consumer_deletion,
-      :stream_arn,
-      keyword_init: true
-    ) do
+    class DeleteStreamInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        stream_name
+        enforce_consumer_deletion
+        stream_arn
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    DeleteStreamOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class DeleteStreamOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -323,31 +355,36 @@ module AWS::SDK::Kinesis
     #               that are currently registered with a given data stream. The description of a consumer
     #               contains its ARN.</p>
     #   @return [String]
-    DeregisterStreamConsumerInput = ::Struct.new(
-      :stream_arn,
-      :consumer_name,
-      :consumer_arn,
-      keyword_init: true
-    ) do
+    class DeregisterStreamConsumerInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        stream_arn
+        consumer_name
+        consumer_arn
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    DeregisterStreamConsumerOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class DeregisterStreamConsumerOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    DescribeLimitsInput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class DescribeLimitsInput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -368,14 +405,17 @@ module AWS::SDK::Kinesis
     # @!attribute on_demand_stream_count_limit
     #   <p> The maximum number of data streams with the on-demand capacity mode. </p>
     #   @return [Integer]
-    DescribeLimitsOutput = ::Struct.new(
-      :shard_limit,
-      :open_shard_count,
-      :on_demand_stream_count,
-      :on_demand_stream_count_limit,
-      keyword_init: true
-    ) do
+    class DescribeLimitsOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        shard_limit
+        open_shard_count
+        on_demand_stream_count
+        on_demand_stream_count_limit
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -394,13 +434,16 @@ module AWS::SDK::Kinesis
     # @!attribute consumer_arn
     #   <p>The ARN returned by Kinesis Data Streams when you registered the consumer.</p>
     #   @return [String]
-    DescribeStreamConsumerInput = ::Struct.new(
-      :stream_arn,
-      :consumer_name,
-      :consumer_arn,
-      keyword_init: true
-    ) do
+    class DescribeStreamConsumerInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        stream_arn
+        consumer_name
+        consumer_arn
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -409,11 +452,14 @@ module AWS::SDK::Kinesis
     # @!attribute consumer_description
     #   <p>An object that represents the details of the consumer.</p>
     #   @return [ConsumerDescription]
-    DescribeStreamConsumerOutput = ::Struct.new(
-      :consumer_description,
-      keyword_init: true
-    ) do
+    class DescribeStreamConsumerOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        consumer_description
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the input for <code>DescribeStream</code>.</p>
@@ -441,14 +487,17 @@ module AWS::SDK::Kinesis
     # @!attribute stream_arn
     #   <p>The ARN of the stream.</p>
     #   @return [String]
-    DescribeStreamInput = ::Struct.new(
-      :stream_name,
-      :limit,
-      :exclusive_start_shard_id,
-      :stream_arn,
-      keyword_init: true
-    ) do
+    class DescribeStreamInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        stream_name
+        limit
+        exclusive_start_shard_id
+        stream_arn
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the output for <code>DescribeStream</code>.</p>
@@ -460,11 +509,14 @@ module AWS::SDK::Kinesis
     #               shard objects that comprise the stream, and whether there are more shards
     #               available.</p>
     #   @return [StreamDescription]
-    DescribeStreamOutput = ::Struct.new(
-      :stream_description,
-      keyword_init: true
-    ) do
+    class DescribeStreamOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        stream_description
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -477,12 +529,15 @@ module AWS::SDK::Kinesis
     # @!attribute stream_arn
     #   <p>The ARN of the stream.</p>
     #   @return [String]
-    DescribeStreamSummaryInput = ::Struct.new(
-      :stream_name,
-      :stream_arn,
-      keyword_init: true
-    ) do
+    class DescribeStreamSummaryInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        stream_name
+        stream_arn
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -492,11 +547,14 @@ module AWS::SDK::Kinesis
     #   <p>A <a>StreamDescriptionSummary</a> containing information about the
     #               stream.</p>
     #   @return [StreamDescriptionSummary]
-    DescribeStreamSummaryOutput = ::Struct.new(
-      :stream_description_summary,
-      keyword_init: true
-    ) do
+    class DescribeStreamSummaryOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        stream_description_summary
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the input for <a>DisableEnhancedMonitoring</a>.</p>
@@ -561,13 +619,16 @@ module AWS::SDK::Kinesis
     # @!attribute stream_arn
     #   <p>The ARN of the stream.</p>
     #   @return [String]
-    DisableEnhancedMonitoringInput = ::Struct.new(
-      :stream_name,
-      :shard_level_metrics,
-      :stream_arn,
-      keyword_init: true
-    ) do
+    class DisableEnhancedMonitoringInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        stream_name
+        shard_level_metrics
+        stream_arn
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the output for <a>EnableEnhancedMonitoring</a> and <a>DisableEnhancedMonitoring</a>.</p>
@@ -591,14 +652,17 @@ module AWS::SDK::Kinesis
     # @!attribute stream_arn
     #   <p>The ARN of the stream.</p>
     #   @return [String]
-    DisableEnhancedMonitoringOutput = ::Struct.new(
-      :stream_name,
-      :current_shard_level_metrics,
-      :desired_shard_level_metrics,
-      :stream_arn,
-      keyword_init: true
-    ) do
+    class DisableEnhancedMonitoringOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        stream_name
+        current_shard_level_metrics
+        desired_shard_level_metrics
+        stream_arn
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the input for <a>EnableEnhancedMonitoring</a>.</p>
@@ -663,13 +727,16 @@ module AWS::SDK::Kinesis
     # @!attribute stream_arn
     #   <p>The ARN of the stream.</p>
     #   @return [String]
-    EnableEnhancedMonitoringInput = ::Struct.new(
-      :stream_name,
-      :shard_level_metrics,
-      :stream_arn,
-      keyword_init: true
-    ) do
+    class EnableEnhancedMonitoringInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        stream_name
+        shard_level_metrics
+        stream_arn
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the output for <a>EnableEnhancedMonitoring</a> and <a>DisableEnhancedMonitoring</a>.</p>
@@ -693,14 +760,17 @@ module AWS::SDK::Kinesis
     # @!attribute stream_arn
     #   <p>The ARN of the stream.</p>
     #   @return [String]
-    EnableEnhancedMonitoringOutput = ::Struct.new(
-      :stream_name,
-      :current_shard_level_metrics,
-      :desired_shard_level_metrics,
-      :stream_arn,
-      keyword_init: true
-    ) do
+    class EnableEnhancedMonitoringOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        stream_name
+        current_shard_level_metrics
+        desired_shard_level_metrics
+        stream_arn
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for EncryptionType
@@ -764,11 +834,14 @@ module AWS::SDK::Kinesis
     #                   Kinesis Data Streams Service with Amazon CloudWatch</a> in the <i>Amazon
     #                   Kinesis Data Streams Developer Guide</i>.</p>
     #   @return [Array<String>]
-    EnhancedMetrics = ::Struct.new(
-      :shard_level_metrics,
-      keyword_init: true
-    ) do
+    class EnhancedMetrics
       include Hearth::Structure
+
+      MEMBERS = %i[
+        shard_level_metrics
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The provided iterator exceeds the maximum age allowed.</p>
@@ -778,11 +851,14 @@ module AWS::SDK::Kinesis
     # @!attribute message
     #   <p>A message that provides information about the error.</p>
     #   @return [String]
-    ExpiredIteratorException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class ExpiredIteratorException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The pagination token passed to the operation is expired.</p>
@@ -791,11 +867,14 @@ module AWS::SDK::Kinesis
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    ExpiredNextTokenException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class ExpiredNextTokenException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the input for <a>GetRecords</a>.</p>
@@ -817,13 +896,16 @@ module AWS::SDK::Kinesis
     # @!attribute stream_arn
     #   <p>The ARN of the stream.</p>
     #   @return [String]
-    GetRecordsInput = ::Struct.new(
-      :shard_iterator,
-      :limit,
-      :stream_arn,
-      keyword_init: true
-    ) do
+    class GetRecordsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        shard_iterator
+        limit
+        stream_arn
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the output for <a>GetRecords</a>.</p>
@@ -851,14 +933,17 @@ module AWS::SDK::Kinesis
     #   <p>The list of the current shard's child shards, returned in the <code>GetRecords</code>
     #               API's response only when the end of the current shard is reached.</p>
     #   @return [Array<ChildShard>]
-    GetRecordsOutput = ::Struct.new(
-      :records,
-      :next_shard_iterator,
-      :millis_behind_latest,
-      :child_shards,
-      keyword_init: true
-    ) do
+    class GetRecordsOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        records
+        next_shard_iterator
+        millis_behind_latest
+        child_shards
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -867,11 +952,14 @@ module AWS::SDK::Kinesis
     # @!attribute resource_arn
     #   <p>The Amazon Resource Name (ARN) of the data stream or consumer.</p>
     #   @return [String]
-    GetResourcePolicyInput = ::Struct.new(
-      :resource_arn,
-      keyword_init: true
-    ) do
+    class GetResourcePolicyInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        resource_arn
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -880,11 +968,14 @@ module AWS::SDK::Kinesis
     # @!attribute policy
     #   <p>Details of the resource policy. This is formatted as a JSON string.</p>
     #   @return [String]
-    GetResourcePolicyOutput = ::Struct.new(
-      :policy,
-      keyword_init: true
-    ) do
+    class GetResourcePolicyOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        policy
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the input for <code>GetShardIterator</code>.</p>
@@ -948,16 +1039,19 @@ module AWS::SDK::Kinesis
     # @!attribute stream_arn
     #   <p>The ARN of the stream.</p>
     #   @return [String]
-    GetShardIteratorInput = ::Struct.new(
-      :stream_name,
-      :shard_id,
-      :shard_iterator_type,
-      :starting_sequence_number,
-      :timestamp,
-      :stream_arn,
-      keyword_init: true
-    ) do
+    class GetShardIteratorInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        stream_name
+        shard_id
+        shard_iterator_type
+        starting_sequence_number
+        timestamp
+        stream_arn
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the output for <code>GetShardIterator</code>.</p>
@@ -969,11 +1063,14 @@ module AWS::SDK::Kinesis
     #               shard iterator specifies this position using the sequence number of a data record in a
     #               shard.</p>
     #   @return [String]
-    GetShardIteratorOutput = ::Struct.new(
-      :shard_iterator,
-      keyword_init: true
-    ) do
+    class GetShardIteratorOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        shard_iterator
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The range of possible hash key values for the shard, which is a set of ordered
@@ -988,12 +1085,15 @@ module AWS::SDK::Kinesis
     # @!attribute ending_hash_key
     #   <p>The ending hash key of the hash key range.</p>
     #   @return [String]
-    HashKeyRange = ::Struct.new(
-      :starting_hash_key,
-      :ending_hash_key,
-      keyword_init: true
-    ) do
+    class HashKeyRange
       include Hearth::Structure
+
+      MEMBERS = %i[
+        starting_hash_key
+        ending_hash_key
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the input for <a>IncreaseStreamRetentionPeriod</a>.</p>
@@ -1012,22 +1112,26 @@ module AWS::SDK::Kinesis
     # @!attribute stream_arn
     #   <p>The ARN of the stream.</p>
     #   @return [String]
-    IncreaseStreamRetentionPeriodInput = ::Struct.new(
-      :stream_name,
-      :retention_period_hours,
-      :stream_arn,
-      keyword_init: true
-    ) do
+    class IncreaseStreamRetentionPeriodInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        stream_name
+        retention_period_hours
+        stream_arn
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    IncreaseStreamRetentionPeriodOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class IncreaseStreamRetentionPeriodOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The processing of the request failed because of an unknown error, exception, or
@@ -1037,11 +1141,14 @@ module AWS::SDK::Kinesis
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    InternalFailureException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class InternalFailureException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>A specified parameter exceeds its restrictions, is not supported, or can't be used.
@@ -1052,11 +1159,14 @@ module AWS::SDK::Kinesis
     # @!attribute message
     #   <p>A message that provides information about the error.</p>
     #   @return [String]
-    InvalidArgumentException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class InvalidArgumentException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The ciphertext references a key that doesn't exist or that you don't have access
@@ -1067,11 +1177,14 @@ module AWS::SDK::Kinesis
     # @!attribute message
     #   <p>A message that provides information about the error.</p>
     #   @return [String]
-    KMSAccessDeniedException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class KMSAccessDeniedException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The request was rejected because the specified customer master key (CMK) isn't
@@ -1082,11 +1195,14 @@ module AWS::SDK::Kinesis
     # @!attribute message
     #   <p>A message that provides information about the error.</p>
     #   @return [String]
-    KMSDisabledException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class KMSDisabledException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The request was rejected because the state of the specified resource isn't valid for
@@ -1099,11 +1215,14 @@ module AWS::SDK::Kinesis
     # @!attribute message
     #   <p>A message that provides information about the error.</p>
     #   @return [String]
-    KMSInvalidStateException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class KMSInvalidStateException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The request was rejected because the specified entity or resource can't be
@@ -1114,11 +1233,14 @@ module AWS::SDK::Kinesis
     # @!attribute message
     #   <p>A message that provides information about the error.</p>
     #   @return [String]
-    KMSNotFoundException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class KMSNotFoundException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The Amazon Web Services access key ID needs a subscription for the service.</p>
@@ -1128,11 +1250,14 @@ module AWS::SDK::Kinesis
     # @!attribute message
     #   <p>A message that provides information about the error.</p>
     #   @return [String]
-    KMSOptInRequired = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class KMSOptInRequired
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The request was denied due to request throttling. For more information about
@@ -1145,11 +1270,14 @@ module AWS::SDK::Kinesis
     # @!attribute message
     #   <p>A message that provides information about the error.</p>
     #   @return [String]
-    KMSThrottlingException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class KMSThrottlingException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The requested resource exceeds the maximum number allowed, or the number of concurrent
@@ -1160,11 +1288,14 @@ module AWS::SDK::Kinesis
     # @!attribute message
     #   <p>A message that provides information about the error.</p>
     #   @return [String]
-    LimitExceededException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class LimitExceededException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1252,17 +1383,20 @@ module AWS::SDK::Kinesis
     # @!attribute stream_arn
     #   <p>The ARN of the stream.</p>
     #   @return [String]
-    ListShardsInput = ::Struct.new(
-      :stream_name,
-      :next_token,
-      :exclusive_start_shard_id,
-      :max_results,
-      :stream_creation_timestamp,
-      :shard_filter,
-      :stream_arn,
-      keyword_init: true
-    ) do
+    class ListShardsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        stream_name
+        next_token
+        exclusive_start_shard_id
+        max_results
+        stream_creation_timestamp
+        shard_filter
+        stream_arn
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1290,12 +1424,15 @@ module AWS::SDK::Kinesis
     #                       <code>ListShards</code>, you get <code>ExpiredNextTokenException</code>.</p>
     #            </important>
     #   @return [String]
-    ListShardsOutput = ::Struct.new(
-      :shards,
-      :next_token,
-      keyword_init: true
-    ) do
+    class ListShardsOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        shards
+        next_token
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1346,14 +1483,17 @@ module AWS::SDK::Kinesis
     #               two streams you want to list the consumers for. </p>
     #            <p>You can't specify this parameter if you specify the NextToken parameter. </p>
     #   @return [Time]
-    ListStreamConsumersInput = ::Struct.new(
-      :stream_arn,
-      :next_token,
-      :max_results,
-      :stream_creation_timestamp,
-      keyword_init: true
-    ) do
+    class ListStreamConsumersInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        stream_arn
+        next_token
+        max_results
+        stream_creation_timestamp
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1380,12 +1520,15 @@ module AWS::SDK::Kinesis
     #                       <code>ExpiredNextTokenException</code>.</p>
     #            </important>
     #   @return [String]
-    ListStreamConsumersOutput = ::Struct.new(
-      :consumers,
-      :next_token,
-      keyword_init: true
-    ) do
+    class ListStreamConsumersOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        consumers
+        next_token
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the input for <code>ListStreams</code>.</p>
@@ -1404,13 +1547,16 @@ module AWS::SDK::Kinesis
     # @!attribute next_token
     #   <p></p>
     #   @return [String]
-    ListStreamsInput = ::Struct.new(
-      :limit,
-      :exclusive_start_stream_name,
-      :next_token,
-      keyword_init: true
-    ) do
+    class ListStreamsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        limit
+        exclusive_start_stream_name
+        next_token
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the output for <code>ListStreams</code>.</p>
@@ -1433,14 +1579,17 @@ module AWS::SDK::Kinesis
     # @!attribute stream_summaries
     #   <p></p>
     #   @return [Array<StreamSummary>]
-    ListStreamsOutput = ::Struct.new(
-      :stream_names,
-      :has_more_streams,
-      :next_token,
-      :stream_summaries,
-      keyword_init: true
-    ) do
+    class ListStreamsOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        stream_names
+        has_more_streams
+        next_token
+        stream_summaries
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the input for <code>ListTagsForStream</code>.</p>
@@ -1467,14 +1616,17 @@ module AWS::SDK::Kinesis
     # @!attribute stream_arn
     #   <p>The ARN of the stream.</p>
     #   @return [String]
-    ListTagsForStreamInput = ::Struct.new(
-      :stream_name,
-      :exclusive_start_tag_key,
-      :limit,
-      :stream_arn,
-      keyword_init: true
-    ) do
+    class ListTagsForStreamInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        stream_name
+        exclusive_start_tag_key
+        limit
+        stream_arn
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the output for <code>ListTagsForStream</code>.</p>
@@ -1491,12 +1643,15 @@ module AWS::SDK::Kinesis
     #   <p>If set to <code>true</code>, more tags are available. To request additional tags, set
     #                   <code>ExclusiveStartTagKey</code> to the key of the last tag returned.</p>
     #   @return [Boolean]
-    ListTagsForStreamOutput = ::Struct.new(
-      :tags,
-      :has_more_tags,
-      keyword_init: true
-    ) do
+    class ListTagsForStreamOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        tags
+        has_more_tags
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the input for <code>MergeShards</code>.</p>
@@ -1518,23 +1673,27 @@ module AWS::SDK::Kinesis
     # @!attribute stream_arn
     #   <p>The ARN of the stream.</p>
     #   @return [String]
-    MergeShardsInput = ::Struct.new(
-      :stream_name,
-      :shard_to_merge,
-      :adjacent_shard_to_merge,
-      :stream_arn,
-      keyword_init: true
-    ) do
+    class MergeShardsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        stream_name
+        shard_to_merge
+        adjacent_shard_to_merge
+        stream_arn
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    MergeShardsOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class MergeShardsOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for MetricsName
@@ -1567,11 +1726,14 @@ module AWS::SDK::Kinesis
     # @!attribute message
     #   <p>A message that provides information about the error.</p>
     #   @return [String]
-    ProvisionedThroughputExceededException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class ProvisionedThroughputExceededException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the input for <code>PutRecord</code>.</p>
@@ -1615,16 +1777,19 @@ module AWS::SDK::Kinesis
     # @!attribute stream_arn
     #   <p>The ARN of the stream.</p>
     #   @return [String]
-    PutRecordInput = ::Struct.new(
-      :stream_name,
-      :data,
-      :partition_key,
-      :explicit_hash_key,
-      :sequence_number_for_ordering,
-      :stream_arn,
-      keyword_init: true
-    ) do
+    class PutRecordInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        stream_name
+        data
+        partition_key
+        explicit_hash_key
+        sequence_number_for_ordering
+        stream_arn
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the output for <code>PutRecord</code>.</p>
@@ -1657,13 +1822,16 @@ module AWS::SDK::Kinesis
     #            </ul>
     #   Enum, one of: ["NONE", "KMS"]
     #   @return [String]
-    PutRecordOutput = ::Struct.new(
-      :shard_id,
-      :sequence_number,
-      :encryption_type,
-      keyword_init: true
-    ) do
+    class PutRecordOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        shard_id
+        sequence_number
+        encryption_type
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>A <code>PutRecords</code> request.</p>
@@ -1681,13 +1849,16 @@ module AWS::SDK::Kinesis
     # @!attribute stream_arn
     #   <p>The ARN of the stream.</p>
     #   @return [String]
-    PutRecordsInput = ::Struct.new(
-      :records,
-      :stream_name,
-      :stream_arn,
-      keyword_init: true
-    ) do
+    class PutRecordsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        records
+        stream_name
+        stream_arn
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>
@@ -1723,13 +1894,16 @@ module AWS::SDK::Kinesis
     #            </ul>
     #   Enum, one of: ["NONE", "KMS"]
     #   @return [String]
-    PutRecordsOutput = ::Struct.new(
-      :failed_record_count,
-      :records,
-      :encryption_type,
-      keyword_init: true
-    ) do
+    class PutRecordsOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        failed_record_count
+        records
+        encryption_type
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the output for <code>PutRecords</code>.</p>
@@ -1757,13 +1931,16 @@ module AWS::SDK::Kinesis
     #               data records to shards. As a result of this hashing mechanism, all data records with the
     #               same partition key map to the same shard within the stream.</p>
     #   @return [String]
-    PutRecordsRequestEntry = ::Struct.new(
-      :data,
-      :explicit_hash_key,
-      :partition_key,
-      keyword_init: true
-    ) do
+    class PutRecordsRequestEntry
       include Hearth::Structure
+
+      MEMBERS = %i[
+        data
+        explicit_hash_key
+        partition_key
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the result of an individual record from a <code>PutRecords</code> request.
@@ -1794,14 +1971,17 @@ module AWS::SDK::Kinesis
     #                   <code>InternalFailure</code> has the error message <code>"Internal Service
     #                   Failure"</code>.</p>
     #   @return [String]
-    PutRecordsResultEntry = ::Struct.new(
-      :sequence_number,
-      :shard_id,
-      :error_code,
-      :error_message,
-      keyword_init: true
-    ) do
+    class PutRecordsResultEntry
       include Hearth::Structure
+
+      MEMBERS = %i[
+        sequence_number
+        shard_id
+        error_code
+        error_message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1814,21 +1994,25 @@ module AWS::SDK::Kinesis
     # @!attribute policy
     #   <p>Details of the resource policy. It must include the identity of the principal and the actions allowed on this resource. This is formatted as a JSON string.</p>
     #   @return [String]
-    PutResourcePolicyInput = ::Struct.new(
-      :resource_arn,
-      :policy,
-      keyword_init: true
-    ) do
+    class PutResourcePolicyInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        resource_arn
+        policy
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    PutResourcePolicyOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class PutResourcePolicyOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The unit of data of the Kinesis data stream, which is composed of a sequence number, a
@@ -1871,15 +2055,18 @@ module AWS::SDK::Kinesis
     #            </ul>
     #   Enum, one of: ["NONE", "KMS"]
     #   @return [String]
-    Record = ::Struct.new(
-      :sequence_number,
-      :approximate_arrival_timestamp,
-      :data,
-      :partition_key,
-      :encryption_type,
-      keyword_init: true
-    ) do
+    class Record
       include Hearth::Structure
+
+      MEMBERS = %i[
+        sequence_number
+        approximate_arrival_timestamp
+        data
+        partition_key
+        encryption_type
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1895,12 +2082,15 @@ module AWS::SDK::Kinesis
     #   <p>For a given Kinesis data stream, each consumer must have a unique name. However,
     #               consumer names don't have to be unique across data streams.</p>
     #   @return [String]
-    RegisterStreamConsumerInput = ::Struct.new(
-      :stream_arn,
-      :consumer_name,
-      keyword_init: true
-    ) do
+    class RegisterStreamConsumerInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        stream_arn
+        consumer_name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1910,11 +2100,14 @@ module AWS::SDK::Kinesis
     #   <p>An object that represents the details of the consumer you registered. When you
     #               register a consumer, it gets an ARN that is generated by Kinesis Data Streams.</p>
     #   @return [Consumer]
-    RegisterStreamConsumerOutput = ::Struct.new(
-      :consumer,
-      keyword_init: true
-    ) do
+    class RegisterStreamConsumerOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        consumer
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the input for <code>RemoveTagsFromStream</code>.</p>
@@ -1932,22 +2125,26 @@ module AWS::SDK::Kinesis
     # @!attribute stream_arn
     #   <p>The ARN of the stream.</p>
     #   @return [String]
-    RemoveTagsFromStreamInput = ::Struct.new(
-      :stream_name,
-      :tag_keys,
-      :stream_arn,
-      keyword_init: true
-    ) do
+    class RemoveTagsFromStreamInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        stream_name
+        tag_keys
+        stream_arn
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    RemoveTagsFromStreamOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class RemoveTagsFromStreamOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The resource is not available for this operation. For successful operation, the
@@ -1958,11 +2155,14 @@ module AWS::SDK::Kinesis
     # @!attribute message
     #   <p>A message that provides information about the error.</p>
     #   @return [String]
-    ResourceInUseException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class ResourceInUseException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The requested resource could not be found. The stream might not be specified
@@ -1973,11 +2173,14 @@ module AWS::SDK::Kinesis
     # @!attribute message
     #   <p>A message that provides information about the error.</p>
     #   @return [String]
-    ResourceNotFoundException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class ResourceNotFoundException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for ScalingType
@@ -1997,12 +2200,15 @@ module AWS::SDK::Kinesis
     #   <p>The ending sequence number for the range. Shards that are in the OPEN state have an
     #               ending sequence number of <code>null</code>.</p>
     #   @return [String]
-    SequenceNumberRange = ::Struct.new(
-      :starting_sequence_number,
-      :ending_sequence_number,
-      keyword_init: true
-    ) do
+    class SequenceNumberRange
       include Hearth::Structure
+
+      MEMBERS = %i[
+        starting_sequence_number
+        ending_sequence_number
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>A uniquely identified group of data records in a Kinesis data stream.</p>
@@ -2029,15 +2235,18 @@ module AWS::SDK::Kinesis
     # @!attribute sequence_number_range
     #   <p>The range of possible sequence numbers for the shard.</p>
     #   @return [SequenceNumberRange]
-    Shard = ::Struct.new(
-      :shard_id,
-      :parent_shard_id,
-      :adjacent_parent_shard_id,
-      :hash_key_range,
-      :sequence_number_range,
-      keyword_init: true
-    ) do
+    class Shard
       include Hearth::Structure
+
+      MEMBERS = %i[
+        shard_id
+        parent_shard_id
+        adjacent_parent_shard_id
+        hash_key_range
+        sequence_number_range
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The request parameter used to filter out the response of the <code>ListShards</code>
@@ -2102,13 +2311,16 @@ module AWS::SDK::Kinesis
     #                   <code>FROM_TIMESTAMP</code> or <code>AT_TIMESTAMP</code> shard types are
     #               specified.</p>
     #   @return [Time]
-    ShardFilter = ::Struct.new(
-      :type,
-      :shard_id,
-      :timestamp,
-      keyword_init: true
-    ) do
+    class ShardFilter
       include Hearth::Structure
+
+      MEMBERS = %i[
+        type
+        shard_id
+        timestamp
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for ShardFilterType
@@ -2164,23 +2376,27 @@ module AWS::SDK::Kinesis
     # @!attribute stream_arn
     #   <p>The ARN of the stream.</p>
     #   @return [String]
-    SplitShardInput = ::Struct.new(
-      :stream_name,
-      :shard_to_split,
-      :new_starting_hash_key,
-      :stream_arn,
-      keyword_init: true
-    ) do
+    class SplitShardInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        stream_name
+        shard_to_split
+        new_starting_hash_key
+        stream_arn
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    SplitShardOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class SplitShardOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2232,23 +2448,27 @@ module AWS::SDK::Kinesis
     # @!attribute stream_arn
     #   <p>The ARN of the stream.</p>
     #   @return [String]
-    StartStreamEncryptionInput = ::Struct.new(
-      :stream_name,
-      :encryption_type,
-      :key_id,
-      :stream_arn,
-      keyword_init: true
-    ) do
+    class StartStreamEncryptionInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        stream_name
+        encryption_type
+        key_id
+        stream_arn
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    StartStreamEncryptionOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class StartStreamEncryptionOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The starting position in the data stream from which to start streaming.</p>
@@ -2290,13 +2510,16 @@ module AWS::SDK::Kinesis
     #               (later) record. If the time stamp is older than the current trim horizon, records will
     #               be streamed from the oldest untrimmed data record (<code>TRIM_HORIZON</code>).</p>
     #   @return [Time]
-    StartingPosition = ::Struct.new(
-      :type,
-      :sequence_number,
-      :timestamp,
-      keyword_init: true
-    ) do
+    class StartingPosition
       include Hearth::Structure
+
+      MEMBERS = %i[
+        type
+        sequence_number
+        timestamp
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2348,23 +2571,27 @@ module AWS::SDK::Kinesis
     # @!attribute stream_arn
     #   <p>The ARN of the stream.</p>
     #   @return [String]
-    StopStreamEncryptionInput = ::Struct.new(
-      :stream_name,
-      :encryption_type,
-      :key_id,
-      :stream_arn,
-      keyword_init: true
-    ) do
+    class StopStreamEncryptionInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        stream_name
+        encryption_type
+        key_id
+        stream_arn
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    StopStreamEncryptionOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class StopStreamEncryptionOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the output for <a>DescribeStream</a>.</p>
@@ -2487,21 +2714,24 @@ module AWS::SDK::Kinesis
     #               </li>
     #            </ul>
     #   @return [String]
-    StreamDescription = ::Struct.new(
-      :stream_name,
-      :stream_arn,
-      :stream_status,
-      :stream_mode_details,
-      :shards,
-      :has_more_shards,
-      :retention_period_hours,
-      :stream_creation_timestamp,
-      :enhanced_monitoring,
-      :encryption_type,
-      :key_id,
-      keyword_init: true
-    ) do
+    class StreamDescription
       include Hearth::Structure
+
+      MEMBERS = %i[
+        stream_name
+        stream_arn
+        stream_status
+        stream_mode_details
+        shards
+        has_more_shards
+        retention_period_hours
+        stream_creation_timestamp
+        enhanced_monitoring
+        encryption_type
+        key_id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Represents the output for <a>DescribeStreamSummary</a>
@@ -2623,21 +2853,24 @@ module AWS::SDK::Kinesis
     # @!attribute consumer_count
     #   <p>The number of enhanced fan-out consumers registered with the stream.</p>
     #   @return [Integer]
-    StreamDescriptionSummary = ::Struct.new(
-      :stream_name,
-      :stream_arn,
-      :stream_status,
-      :stream_mode_details,
-      :retention_period_hours,
-      :stream_creation_timestamp,
-      :enhanced_monitoring,
-      :encryption_type,
-      :key_id,
-      :open_shard_count,
-      :consumer_count,
-      keyword_init: true
-    ) do
+    class StreamDescriptionSummary
       include Hearth::Structure
+
+      MEMBERS = %i[
+        stream_name
+        stream_arn
+        stream_status
+        stream_mode_details
+        retention_period_hours
+        stream_creation_timestamp
+        enhanced_monitoring
+        encryption_type
+        key_id
+        open_shard_count
+        consumer_count
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for StreamMode
@@ -2657,11 +2890,14 @@ module AWS::SDK::Kinesis
     #               Kinesis Data Streams, you can choose between an <b>on-demand</b> capacity mode and a <b>provisioned</b> capacity mode for your data streams. </p>
     #   Enum, one of: ["PROVISIONED", "ON_DEMAND"]
     #   @return [String]
-    StreamModeDetails = ::Struct.new(
-      :stream_mode,
-      keyword_init: true
-    ) do
+    class StreamModeDetails
       include Hearth::Structure
+
+      MEMBERS = %i[
+        stream_mode
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for StreamStatus
@@ -2700,15 +2936,18 @@ module AWS::SDK::Kinesis
     # @!attribute stream_creation_timestamp
     #   <p>The timestamp at which the stream was created.</p>
     #   @return [Time]
-    StreamSummary = ::Struct.new(
-      :stream_name,
-      :stream_arn,
-      :stream_status,
-      :stream_mode_details,
-      :stream_creation_timestamp,
-      keyword_init: true
-    ) do
+    class StreamSummary
       include Hearth::Structure
+
+      MEMBERS = %i[
+        stream_name
+        stream_arn
+        stream_status
+        stream_mode_details
+        stream_creation_timestamp
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>After you call <a>SubscribeToShard</a>, Kinesis Data Streams sends events
@@ -2737,14 +2976,17 @@ module AWS::SDK::Kinesis
     #   <p>The list of the child shards of the current shard, returned only at the end of the
     #               current shard.</p>
     #   @return [Array<ChildShard>]
-    SubscribeToShardEvent = ::Struct.new(
-      :records,
-      :continuation_sequence_number,
-      :millis_behind_latest,
-      :child_shards,
-      keyword_init: true
-    ) do
+    class SubscribeToShardEvent
       include Hearth::Structure
+
+      MEMBERS = %i[
+        records
+        continuation_sequence_number
+        millis_behind_latest
+        child_shards
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>This is a tagged union for all of the types of events an enhanced fan-out consumer can
@@ -2904,13 +3146,16 @@ module AWS::SDK::Kinesis
     # @!attribute starting_position
     #   <p>The starting position in the data stream from which to start streaming.</p>
     #   @return [StartingPosition]
-    SubscribeToShardInput = ::Struct.new(
-      :consumer_arn,
-      :shard_id,
-      :starting_position,
-      keyword_init: true
-    ) do
+    class SubscribeToShardInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        consumer_arn
+        shard_id
+        starting_position
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2919,11 +3164,14 @@ module AWS::SDK::Kinesis
     # @!attribute event_stream
     #   <p>The event stream that your consumer can use to read records from the shard.</p>
     #   @return [SubscribeToShardEventStream]
-    SubscribeToShardOutput = ::Struct.new(
-      :event_stream,
-      keyword_init: true
-    ) do
+    class SubscribeToShardOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        event_stream
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Metadata assigned to the stream, consisting of a key-value pair.</p>
@@ -2940,12 +3188,15 @@ module AWS::SDK::Kinesis
     #               characters. Valid characters: Unicode letters, digits, white space, _ . / = + - %
     #               @</p>
     #   @return [String]
-    Tag = ::Struct.new(
-      :key,
-      :value,
-      keyword_init: true
-    ) do
+    class Tag
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key
+        value
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2986,14 +3237,17 @@ module AWS::SDK::Kinesis
     # @!attribute stream_arn
     #   <p>The ARN of the stream.</p>
     #   @return [String]
-    UpdateShardCountInput = ::Struct.new(
-      :stream_name,
-      :target_shard_count,
-      :scaling_type,
-      :stream_arn,
-      keyword_init: true
-    ) do
+    class UpdateShardCountInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        stream_name
+        target_shard_count
+        scaling_type
+        stream_arn
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3014,14 +3268,17 @@ module AWS::SDK::Kinesis
     # @!attribute stream_arn
     #   <p>The ARN of the stream.</p>
     #   @return [String]
-    UpdateShardCountOutput = ::Struct.new(
-      :stream_name,
-      :current_shard_count,
-      :target_shard_count,
-      :stream_arn,
-      keyword_init: true
-    ) do
+    class UpdateShardCountOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        stream_name
+        current_shard_count
+        target_shard_count
+        stream_arn
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3035,21 +3292,25 @@ module AWS::SDK::Kinesis
     #   <p> Specifies the capacity mode to which you want to set your data stream. Currently, in
     #               Kinesis Data Streams, you can choose between an <b>on-demand</b> capacity mode and a <b>provisioned</b> capacity mode for your data streams. </p>
     #   @return [StreamModeDetails]
-    UpdateStreamModeInput = ::Struct.new(
-      :stream_arn,
-      :stream_mode_details,
-      keyword_init: true
-    ) do
+    class UpdateStreamModeInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        stream_arn
+        stream_mode_details
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    UpdateStreamModeOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class UpdateStreamModeOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Specifies that you tried to invoke this API for a data stream with the on-demand
@@ -3060,11 +3321,14 @@ module AWS::SDK::Kinesis
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    ValidationException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class ValidationException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
   end

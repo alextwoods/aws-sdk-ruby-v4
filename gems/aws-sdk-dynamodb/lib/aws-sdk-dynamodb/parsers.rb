@@ -1601,7 +1601,7 @@ module AWS::SDK::DynamoDB
         return data if body.empty?
         map = Hearth::JSON.parse(body)
         data.items = (ItemList.parse(map['Items']) unless map['Items'].nil?)
-        data.member_count = map['Count']
+        data.count = map['Count']
         data.scanned_count = map['ScannedCount']
         data.last_evaluated_key = (Key.parse(map['LastEvaluatedKey']) unless map['LastEvaluatedKey'].nil?)
         data.consumed_capacity = (ConsumedCapacity.parse(map['ConsumedCapacity']) unless map['ConsumedCapacity'].nil?)
@@ -1881,7 +1881,7 @@ module AWS::SDK::DynamoDB
         return data if body.empty?
         map = Hearth::JSON.parse(body)
         data.items = (ItemList.parse(map['Items']) unless map['Items'].nil?)
-        data.member_count = map['Count']
+        data.count = map['Count']
         data.scanned_count = map['ScannedCount']
         data.last_evaluated_key = (Key.parse(map['LastEvaluatedKey']) unless map['LastEvaluatedKey'].nil?)
         data.consumed_capacity = (ConsumedCapacity.parse(map['ConsumedCapacity']) unless map['ConsumedCapacity'].nil?)

@@ -94,7 +94,7 @@ module AWS::SDK::S3
           data.id = (node.text || '')
         end
         xml.at('Filter') do |node|
-          data.member_filter = AnalyticsFilter.parse(node)
+          data.filter = AnalyticsFilter.parse(node)
         end
         xml.at('StorageClassAnalysis') do |node|
           data.storage_class_analysis = StorageClassAnalysis.parse(node)
@@ -1495,7 +1495,7 @@ module AWS::SDK::S3
           data.id = (node.text || '')
         end
         xml.at('Filter') do |node|
-          data.member_filter = IntelligentTieringFilter.parse(node)
+          data.filter = IntelligentTieringFilter.parse(node)
         end
         xml.at('Status') do |node|
           data.status = (node.text || '')
@@ -1560,7 +1560,7 @@ module AWS::SDK::S3
           data.is_enabled = (node.text == 'true')
         end
         xml.at('Filter') do |node|
-          data.member_filter = InventoryFilter.parse(node)
+          data.filter = InventoryFilter.parse(node)
         end
         xml.at('Id') do |node|
           data.id = (node.text || '')
@@ -1677,7 +1677,7 @@ module AWS::SDK::S3
           data.events = EventList.parse(children)
         end
         xml.at('Filter') do |node|
-          data.member_filter = NotificationConfigurationFilter.parse(node)
+          data.filter = NotificationConfigurationFilter.parse(node)
         end
         return data
       end
@@ -1722,7 +1722,7 @@ module AWS::SDK::S3
           data.prefix = (node.text || '')
         end
         xml.at('Filter') do |node|
-          data.member_filter = LifecycleRuleFilter.parse(node)
+          data.filter = LifecycleRuleFilter.parse(node)
         end
         xml.at('Status') do |node|
           data.status = (node.text || '')
@@ -2227,7 +2227,7 @@ module AWS::SDK::S3
           data.id = (node.text || '')
         end
         xml.at('Filter') do |node|
-          data.member_filter = MetricsFilter.parse(node)
+          data.filter = MetricsFilter.parse(node)
         end
         return data
       end
@@ -2417,7 +2417,7 @@ module AWS::SDK::S3
           data.checksum_algorithm = ChecksumAlgorithmList.parse(children)
         end
         xml.at('Size') do |node|
-          data.member_size = node.text&.to_i
+          data.size = node.text&.to_i
         end
         xml.at('StorageClass') do |node|
           data.storage_class = (node.text || '')
@@ -2517,7 +2517,7 @@ module AWS::SDK::S3
           data.part_number = node.text&.to_i
         end
         xml.at('Size') do |node|
-          data.member_size = node.text&.to_i
+          data.size = node.text&.to_i
         end
         xml.at('ChecksumCRC32') do |node|
           data.checksum_crc32 = (node.text || '')
@@ -2545,7 +2545,7 @@ module AWS::SDK::S3
           data.checksum_algorithm = ChecksumAlgorithmList.parse(children)
         end
         xml.at('Size') do |node|
-          data.member_size = node.text&.to_i
+          data.size = node.text&.to_i
         end
         xml.at('StorageClass') do |node|
           data.storage_class = (node.text || '')
@@ -2638,7 +2638,7 @@ module AWS::SDK::S3
           data.e_tag = (node.text || '')
         end
         xml.at('Size') do |node|
-          data.member_size = node.text&.to_i
+          data.size = node.text&.to_i
         end
         xml.at('ChecksumCRC32') do |node|
           data.checksum_crc32 = (node.text || '')
@@ -3023,7 +3023,7 @@ module AWS::SDK::S3
           data.events = EventList.parse(children)
         end
         xml.at('Filter') do |node|
-          data.member_filter = NotificationConfigurationFilter.parse(node)
+          data.filter = NotificationConfigurationFilter.parse(node)
         end
         return data
       end
@@ -3120,7 +3120,7 @@ module AWS::SDK::S3
           data.prefix = (node.text || '')
         end
         xml.at('Filter') do |node|
-          data.member_filter = ReplicationRuleFilter.parse(node)
+          data.filter = ReplicationRuleFilter.parse(node)
         end
         xml.at('Status') do |node|
           data.status = (node.text || '')
@@ -3532,7 +3532,7 @@ module AWS::SDK::S3
           data.events = EventList.parse(children)
         end
         xml.at('Filter') do |node|
-          data.member_filter = NotificationConfigurationFilter.parse(node)
+          data.filter = NotificationConfigurationFilter.parse(node)
         end
         return data
       end

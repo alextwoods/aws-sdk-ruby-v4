@@ -15,10 +15,19 @@
 
 package software.amazon.smithy.aws.ruby.codegen.protocol.json10.generators;
 
-import java.util.Optional;
 import java.util.stream.Stream;
-import software.amazon.smithy.codegen.core.Symbol;
-import software.amazon.smithy.model.shapes.*;
+import software.amazon.smithy.model.shapes.BlobShape;
+import software.amazon.smithy.model.shapes.DoubleShape;
+import software.amazon.smithy.model.shapes.FloatShape;
+import software.amazon.smithy.model.shapes.ListShape;
+import software.amazon.smithy.model.shapes.MapShape;
+import software.amazon.smithy.model.shapes.MemberShape;
+import software.amazon.smithy.model.shapes.OperationShape;
+import software.amazon.smithy.model.shapes.Shape;
+import software.amazon.smithy.model.shapes.ShapeVisitor;
+import software.amazon.smithy.model.shapes.StructureShape;
+import software.amazon.smithy.model.shapes.TimestampShape;
+import software.amazon.smithy.model.shapes.UnionShape;
 import software.amazon.smithy.model.traits.EventHeaderTrait;
 import software.amazon.smithy.model.traits.SparseTrait;
 import software.amazon.smithy.model.traits.StreamingTrait;
@@ -49,12 +58,9 @@ public class BuilderGenerator extends BuilderGeneratorBase {
 
         serializeMembers.forEach((member) -> {
             Shape target = model.expectShape(member.getTarget());
-
-            String symbolName = ":" + symbolProvider.toMemberName(member);
             String dataName = "'" + member.getMemberName() + "'";
-
             String dataSetter = "data[" + dataName + "] = ";
-            String inputGetter = input + "[" + symbolName + "]";
+            String inputGetter = input +  "." + symbolProvider.toMemberName(member);
             target.accept(new MemberSerializer(member, dataSetter, inputGetter, true));
         });
     }

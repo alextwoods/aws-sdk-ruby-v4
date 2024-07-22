@@ -10,93 +10,93 @@
 module AWS::SDK::SSO
   module Types
 
-    class AccountInfo < ::Struct[untyped]
+    class AccountInfo
       include Hearth::Structure
-      attr_accessor account_id (): ::String
-      attr_accessor account_name (): ::String
-      attr_accessor email_address (): ::String
+      attr_accessor account_id (): ::String?
+      attr_accessor account_name (): ::String?
+      attr_accessor email_address (): ::String?
     end
 
-    class GetRoleCredentialsInput < ::Struct[untyped]
+    class GetRoleCredentialsInput
       include Hearth::Structure
       attr_accessor role_name (): ::String
       attr_accessor account_id (): ::String
       attr_accessor access_token (): ::String
     end
 
-    class GetRoleCredentialsOutput < ::Struct[untyped]
+    class GetRoleCredentialsOutput
       include Hearth::Structure
-      attr_accessor role_credentials (): Types::RoleCredentials
+      attr_accessor role_credentials (): Types::RoleCredentials?
     end
 
-    class InvalidRequestException < ::Struct[untyped]
+    class InvalidRequestException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class ListAccountRolesInput < ::Struct[untyped]
+    class ListAccountRolesInput
       include Hearth::Structure
-      attr_accessor next_token (): ::String
-      attr_accessor max_results (): ::Integer
+      attr_accessor next_token (): ::String?
+      attr_accessor max_results (): ::Integer?
       attr_accessor access_token (): ::String
       attr_accessor account_id (): ::String
     end
 
-    class ListAccountRolesOutput < ::Struct[untyped]
+    class ListAccountRolesOutput
       include Hearth::Structure
-      attr_accessor next_token (): ::String
-      attr_accessor role_list (): ::Array[Types::RoleInfo]
+      attr_accessor next_token (): ::String?
+      attr_accessor role_list (): ::Array[Types::RoleInfo]?
     end
 
-    class ListAccountsInput < ::Struct[untyped]
+    class ListAccountsInput
       include Hearth::Structure
-      attr_accessor next_token (): ::String
-      attr_accessor max_results (): ::Integer
+      attr_accessor next_token (): ::String?
+      attr_accessor max_results (): ::Integer?
       attr_accessor access_token (): ::String
     end
 
-    class ListAccountsOutput < ::Struct[untyped]
+    class ListAccountsOutput
       include Hearth::Structure
-      attr_accessor next_token (): ::String
-      attr_accessor account_list (): ::Array[Types::AccountInfo]
+      attr_accessor next_token (): ::String?
+      attr_accessor account_list (): ::Array[Types::AccountInfo]?
     end
 
-    class LogoutInput < ::Struct[untyped]
+    class LogoutInput
       include Hearth::Structure
       attr_accessor access_token (): ::String
     end
 
-    class LogoutOutput < ::Struct[untyped]
+    class LogoutOutput
       include Hearth::Structure
     end
 
-    class ResourceNotFoundException < ::Struct[untyped]
+    class ResourceNotFoundException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class RoleCredentials < ::Struct[untyped]
+    class RoleCredentials
       include Hearth::Structure
-      attr_accessor access_key_id (): ::String
-      attr_accessor secret_access_key (): ::String
-      attr_accessor session_token (): ::String
-      attr_accessor expiration (): ::Integer
+      attr_accessor access_key_id (): ::String?
+      attr_accessor secret_access_key (): ::String?
+      attr_accessor session_token (): ::String?
+      attr_accessor expiration (): ::Integer?
     end
 
-    class RoleInfo < ::Struct[untyped]
+    class RoleInfo
       include Hearth::Structure
-      attr_accessor role_name (): ::String
-      attr_accessor account_id (): ::String
+      attr_accessor role_name (): ::String?
+      attr_accessor account_id (): ::String?
     end
 
-    class TooManyRequestsException < ::Struct[untyped]
+    class TooManyRequestsException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class UnauthorizedException < ::Struct[untyped]
+    class UnauthorizedException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
   end

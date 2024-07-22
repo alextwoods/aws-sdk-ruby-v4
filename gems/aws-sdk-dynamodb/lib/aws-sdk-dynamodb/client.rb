@@ -3471,7 +3471,7 @@ module AWS::SDK::DynamoDB
     #   resp = client.query(
     #     table_name: 'TableName', # required
     #     index_name: 'IndexName',
-    #     member_select: 'ALL_ATTRIBUTES', # accepts ["ALL_ATTRIBUTES", "ALL_PROJECTED_ATTRIBUTES", "SPECIFIC_ATTRIBUTES", "COUNT"]
+    #     select: 'ALL_ATTRIBUTES', # accepts ["ALL_ATTRIBUTES", "ALL_PROJECTED_ATTRIBUTES", "SPECIFIC_ATTRIBUTES", "COUNT"]
     #     attributes_to_get: [
     #       'member'
     #     ],
@@ -3529,7 +3529,7 @@ module AWS::SDK::DynamoDB
     #   resp.data.items[0]['key'].l #=> Array<AttributeValue>
     #   resp.data.items[0]['key'].null #=> Boolean
     #   resp.data.items[0]['key'].bool #=> Boolean
-    #   resp.data.member_count #=> Integer
+    #   resp.data.count #=> Integer
     #   resp.data.scanned_count #=> Integer
     #   resp.data.last_evaluated_key #=> Hash<String, AttributeValue>
     #   resp.data.consumed_capacity #=> Types::ConsumedCapacity
@@ -3558,7 +3558,7 @@ module AWS::SDK::DynamoDB
     #
     #   # resp.to_h outputs the following:
     #   {
-    #     member_count: 2,
+    #     count: 2,
     #     items: [
     #       {
     #         'SongTitle' => {
@@ -4031,7 +4031,7 @@ module AWS::SDK::DynamoDB
     #       'member'
     #     ],
     #     limit: 1,
-    #     member_select: 'ALL_ATTRIBUTES', # accepts ["ALL_ATTRIBUTES", "ALL_PROJECTED_ATTRIBUTES", "SPECIFIC_ATTRIBUTES", "COUNT"]
+    #     select: 'ALL_ATTRIBUTES', # accepts ["ALL_ATTRIBUTES", "ALL_PROJECTED_ATTRIBUTES", "SPECIFIC_ATTRIBUTES", "COUNT"]
     #     scan_filter: {
     #       'key' => {
     #         attribute_value_list: [
@@ -4085,7 +4085,7 @@ module AWS::SDK::DynamoDB
     #   resp.data.items[0]['key'].l #=> Array<AttributeValue>
     #   resp.data.items[0]['key'].null #=> Boolean
     #   resp.data.items[0]['key'].bool #=> Boolean
-    #   resp.data.member_count #=> Integer
+    #   resp.data.count #=> Integer
     #   resp.data.scanned_count #=> Integer
     #   resp.data.last_evaluated_key #=> Hash<String, AttributeValue>
     #   resp.data.consumed_capacity #=> Types::ConsumedCapacity
@@ -4118,7 +4118,7 @@ module AWS::SDK::DynamoDB
     #
     #   # resp.to_h outputs the following:
     #   {
-    #     member_count: 2,
+    #     count: 2,
     #     items: [
     #       {
     #         'SongTitle' => {
