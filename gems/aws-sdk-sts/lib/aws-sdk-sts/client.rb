@@ -9,6 +9,8 @@
 
 require 'stringio'
 
+require_relative 'plugins/global_config'
+
 module AWS::SDK::STS
   # <fullname>Security Token Service</fullname>
   #          <p>Security Token Service (STS) enables you to request temporary, limited-privilege
@@ -17,7 +19,9 @@ module AWS::SDK::STS
   class Client < Hearth::Client
 
     # @api private
-    @plugins = Hearth::PluginList.new
+    @plugins = Hearth::PluginList.new([
+      Plugins::GlobalConfig.new
+    ])
 
     # @param [Hash] options
     #   Options used to construct an instance of {Config}

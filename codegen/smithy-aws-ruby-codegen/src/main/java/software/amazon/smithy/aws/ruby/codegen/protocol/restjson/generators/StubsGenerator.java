@@ -15,17 +15,36 @@
 
 package software.amazon.smithy.aws.ruby.codegen.protocol.restjson.generators;
 
-import software.amazon.smithy.model.shapes.*;
-import software.amazon.smithy.model.traits.*;
+import java.util.Optional;
+import java.util.stream.Stream;
+import software.amazon.smithy.model.shapes.BlobShape;
+import software.amazon.smithy.model.shapes.DocumentShape;
+import software.amazon.smithy.model.shapes.DoubleShape;
+import software.amazon.smithy.model.shapes.FloatShape;
+import software.amazon.smithy.model.shapes.ListShape;
+import software.amazon.smithy.model.shapes.MapShape;
+import software.amazon.smithy.model.shapes.MemberShape;
+import software.amazon.smithy.model.shapes.Shape;
+import software.amazon.smithy.model.shapes.ShapeVisitor;
+import software.amazon.smithy.model.shapes.StringShape;
+import software.amazon.smithy.model.shapes.StructureShape;
+import software.amazon.smithy.model.shapes.TimestampShape;
+import software.amazon.smithy.model.shapes.UnionShape;
+import software.amazon.smithy.model.traits.HttpHeaderTrait;
+import software.amazon.smithy.model.traits.HttpLabelTrait;
+import software.amazon.smithy.model.traits.HttpPayloadTrait;
+import software.amazon.smithy.model.traits.HttpQueryTrait;
+import software.amazon.smithy.model.traits.JsonNameTrait;
+import software.amazon.smithy.model.traits.MediaTypeTrait;
+import software.amazon.smithy.model.traits.SparseTrait;
+import software.amazon.smithy.model.traits.StreamingTrait;
+import software.amazon.smithy.model.traits.TimestampFormatTrait;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
 import software.amazon.smithy.ruby.codegen.Hearth;
 import software.amazon.smithy.ruby.codegen.RubyImportContainer;
 import software.amazon.smithy.ruby.codegen.generators.RestStubsGeneratorBase;
 import software.amazon.smithy.ruby.codegen.traits.NoSerializeTrait;
 import software.amazon.smithy.ruby.codegen.util.TimestampFormat;
-
-import java.util.Optional;
-import java.util.stream.Stream;
 
 public class StubsGenerator extends RestStubsGeneratorBase {
 
@@ -44,13 +63,13 @@ public class StubsGenerator extends RestStubsGeneratorBase {
     @Override
     protected void renderPayloadBodyStub(Shape outputShape, MemberShape payloadMember,
                                          Shape target) {
-        String inputGetter = "stub[:" + symbolProvider.toMemberName(payloadMember) + "]";
+        String inputGetter = "stub." + symbolProvider.toMemberName(payloadMember);
         if (target.hasTrait(StreamingTrait.class)) {
             renderStreamingStub(outputShape);
         } else {
             target.accept(new PayloadMemberSerializer(payloadMember, inputGetter));
-        }    }
-
+        }
+    }
 
     @Override
     protected void renderListStubMethod(ListShape shape) {
@@ -144,8 +163,7 @@ public class StubsGenerator extends RestStubsGeneratorBase {
         if (payload.isPresent()) {
             MemberShape member = payload.get();
             Shape target = model.expectShape(member.getTarget());
-            String symbolName = ":" + symbolProvider.toMemberName(member);
-            String inputGetter = "stub[" + symbolName + "]";
+            String inputGetter = "stub." + symbolProvider.toMemberName(member);
             target.accept(new MemberSerializer(member, "data = ", inputGetter, true));
             writer.write("data ||= {}");
         } else {
@@ -157,14 +175,12 @@ public class StubsGenerator extends RestStubsGeneratorBase {
 
             serializeMembers.forEach((member) -> {
                 Shape target = model.expectShape(member.getTarget());
-
-                String symbolName = ":" + symbolProvider.toMemberName(member);
                 String dataName = "'" + member.getMemberName() + "'";
                 if (member.hasTrait(JsonNameTrait.class)) {
                     dataName = "'" + member.expectTrait(JsonNameTrait.class).getValue() + "'";
                 }
                 String dataSetter = "data[" + dataName + "] = ";
-                String inputGetter = "stub[" + symbolName + "]";
+                String inputGetter = "stub." + symbolProvider.toMemberName(member);
                 target.accept(new MemberSerializer(member, dataSetter, inputGetter, true));
             });
         }

@@ -15,8 +15,20 @@
 
 package software.amazon.smithy.aws.ruby.codegen.protocol.query.generators;
 
-import software.amazon.smithy.codegen.core.Symbol;
-import software.amazon.smithy.model.shapes.*;
+import java.util.stream.Stream;
+import software.amazon.smithy.model.shapes.BlobShape;
+import software.amazon.smithy.model.shapes.CollectionShape;
+import software.amazon.smithy.model.shapes.DoubleShape;
+import software.amazon.smithy.model.shapes.FloatShape;
+import software.amazon.smithy.model.shapes.ListShape;
+import software.amazon.smithy.model.shapes.MapShape;
+import software.amazon.smithy.model.shapes.MemberShape;
+import software.amazon.smithy.model.shapes.OperationShape;
+import software.amazon.smithy.model.shapes.Shape;
+import software.amazon.smithy.model.shapes.ShapeVisitor;
+import software.amazon.smithy.model.shapes.StructureShape;
+import software.amazon.smithy.model.shapes.TimestampShape;
+import software.amazon.smithy.model.shapes.UnionShape;
 import software.amazon.smithy.model.traits.SparseTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait;
 import software.amazon.smithy.model.traits.XmlFlattenedTrait;
@@ -27,8 +39,6 @@ import software.amazon.smithy.ruby.codegen.RubyImportContainer;
 import software.amazon.smithy.ruby.codegen.generators.BuilderGeneratorBase;
 import software.amazon.smithy.ruby.codegen.traits.NoSerializeTrait;
 import software.amazon.smithy.ruby.codegen.util.TimestampFormat;
-
-import java.util.stream.Stream;
 
 public class BuilderGenerator extends BuilderGeneratorBase {
 
@@ -59,10 +69,8 @@ public class BuilderGenerator extends BuilderGeneratorBase {
 
         serializeMembers.forEach((member) -> {
             Shape target = model.expectShape(member.getTarget());
-
             String dataName = "'" + member.getMemberName() + "'";
-            String symbolName = ":" + symbolProvider.toMemberName(member);
-            String inputGetter = "input[" + symbolName + "]";
+            String inputGetter = "input." + symbolProvider.toMemberName(member);
             target.accept(new MemberSerializer(member, dataName, inputGetter, true));
         });
     }
@@ -82,7 +90,7 @@ public class BuilderGenerator extends BuilderGeneratorBase {
                 .openBlock("input.each_with_index do |element, index|")
                 .call(() -> {
                     String dataName = "\".#{index+1}\"";
-                            Shape memberTarget = model.expectShape(shape.getMember().getTarget());
+                    Shape memberTarget = model.expectShape(shape.getMember().getTarget());
                     memberTarget.accept(
                             new MemberSerializer(shape.getMember(),
                                     dataName, "element", !shape.hasTrait(SparseTrait.class)));

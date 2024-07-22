@@ -16,11 +16,11 @@ module AWS::SDK::DynamoDB
       MICROSECOND: ::String
     end
 
-    class ArchivalSummary < ::Struct[untyped]
+    class ArchivalSummary
       include Hearth::Structure
-      attr_accessor archival_date_time (): ::Time
-      attr_accessor archival_reason (): ::String
-      attr_accessor archival_backup_arn (): ::String
+      attr_accessor archival_date_time (): ::Time?
+      attr_accessor archival_reason (): ::String?
+      attr_accessor archival_backup_arn (): ::String?
     end
 
     module AttributeAction
@@ -31,7 +31,7 @@ module AWS::SDK::DynamoDB
       DELETE: ::String
     end
 
-    class AttributeDefinition < ::Struct[untyped]
+    class AttributeDefinition
       include Hearth::Structure
       attr_accessor attribute_name (): ::String
       attr_accessor attribute_type (): ::String
@@ -94,84 +94,84 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    class AttributeValueUpdate < ::Struct[untyped]
+    class AttributeValueUpdate
       include Hearth::Structure
-      attr_accessor value (): Types::AttributeValue
-      attr_accessor action (): ::String
+      attr_accessor value (): Types::AttributeValue?
+      attr_accessor action (): ::String?
     end
 
-    class AutoScalingPolicyDescription < ::Struct[untyped]
+    class AutoScalingPolicyDescription
       include Hearth::Structure
-      attr_accessor policy_name (): ::String
-      attr_accessor target_tracking_scaling_policy_configuration (): Types::AutoScalingTargetTrackingScalingPolicyConfigurationDescription
+      attr_accessor policy_name (): ::String?
+      attr_accessor target_tracking_scaling_policy_configuration (): Types::AutoScalingTargetTrackingScalingPolicyConfigurationDescription?
     end
 
-    class AutoScalingPolicyUpdate < ::Struct[untyped]
+    class AutoScalingPolicyUpdate
       include Hearth::Structure
-      attr_accessor policy_name (): ::String
+      attr_accessor policy_name (): ::String?
       attr_accessor target_tracking_scaling_policy_configuration (): Types::AutoScalingTargetTrackingScalingPolicyConfigurationUpdate
     end
 
-    class AutoScalingSettingsDescription < ::Struct[untyped]
+    class AutoScalingSettingsDescription
       include Hearth::Structure
-      attr_accessor minimum_units (): ::Integer
-      attr_accessor maximum_units (): ::Integer
-      attr_accessor auto_scaling_disabled (): bool
-      attr_accessor auto_scaling_role_arn (): ::String
-      attr_accessor scaling_policies (): ::Array[Types::AutoScalingPolicyDescription]
+      attr_accessor minimum_units (): ::Integer?
+      attr_accessor maximum_units (): ::Integer?
+      attr_accessor auto_scaling_disabled (): bool?
+      attr_accessor auto_scaling_role_arn (): ::String?
+      attr_accessor scaling_policies (): ::Array[Types::AutoScalingPolicyDescription]?
     end
 
-    class AutoScalingSettingsUpdate < ::Struct[untyped]
+    class AutoScalingSettingsUpdate
       include Hearth::Structure
-      attr_accessor minimum_units (): ::Integer
-      attr_accessor maximum_units (): ::Integer
-      attr_accessor auto_scaling_disabled (): bool
-      attr_accessor auto_scaling_role_arn (): ::String
-      attr_accessor scaling_policy_update (): Types::AutoScalingPolicyUpdate
+      attr_accessor minimum_units (): ::Integer?
+      attr_accessor maximum_units (): ::Integer?
+      attr_accessor auto_scaling_disabled (): bool?
+      attr_accessor auto_scaling_role_arn (): ::String?
+      attr_accessor scaling_policy_update (): Types::AutoScalingPolicyUpdate?
     end
 
-    class AutoScalingTargetTrackingScalingPolicyConfigurationDescription < ::Struct[untyped]
+    class AutoScalingTargetTrackingScalingPolicyConfigurationDescription
       include Hearth::Structure
-      attr_accessor disable_scale_in (): bool
-      attr_accessor scale_in_cooldown (): ::Integer
-      attr_accessor scale_out_cooldown (): ::Integer
+      attr_accessor disable_scale_in (): bool?
+      attr_accessor scale_in_cooldown (): ::Integer?
+      attr_accessor scale_out_cooldown (): ::Integer?
       attr_accessor target_value (): ::Float
     end
 
-    class AutoScalingTargetTrackingScalingPolicyConfigurationUpdate < ::Struct[untyped]
+    class AutoScalingTargetTrackingScalingPolicyConfigurationUpdate
       include Hearth::Structure
-      attr_accessor disable_scale_in (): bool
-      attr_accessor scale_in_cooldown (): ::Integer
-      attr_accessor scale_out_cooldown (): ::Integer
+      attr_accessor disable_scale_in (): bool?
+      attr_accessor scale_in_cooldown (): ::Integer?
+      attr_accessor scale_out_cooldown (): ::Integer?
       attr_accessor target_value (): ::Float
     end
 
-    class BackupDescription < ::Struct[untyped]
+    class BackupDescription
       include Hearth::Structure
-      attr_accessor backup_details (): Types::BackupDetails
-      attr_accessor source_table_details (): Types::SourceTableDetails
-      attr_accessor source_table_feature_details (): Types::SourceTableFeatureDetails
+      attr_accessor backup_details (): Types::BackupDetails?
+      attr_accessor source_table_details (): Types::SourceTableDetails?
+      attr_accessor source_table_feature_details (): Types::SourceTableFeatureDetails?
     end
 
-    class BackupDetails < ::Struct[untyped]
+    class BackupDetails
       include Hearth::Structure
       attr_accessor backup_arn (): ::String
       attr_accessor backup_name (): ::String
-      attr_accessor backup_size_bytes (): ::Integer
+      attr_accessor backup_size_bytes (): ::Integer?
       attr_accessor backup_status (): ::String
       attr_accessor backup_type (): ::String
       attr_accessor backup_creation_date_time (): ::Time
-      attr_accessor backup_expiry_date_time (): ::Time
+      attr_accessor backup_expiry_date_time (): ::Time?
     end
 
-    class BackupInUseException < ::Struct[untyped]
+    class BackupInUseException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class BackupNotFoundException < ::Struct[untyped]
+    class BackupNotFoundException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
     module BackupStatus
@@ -182,18 +182,18 @@ module AWS::SDK::DynamoDB
       AVAILABLE: ::String
     end
 
-    class BackupSummary < ::Struct[untyped]
+    class BackupSummary
       include Hearth::Structure
-      attr_accessor table_name (): ::String
-      attr_accessor table_id (): ::String
-      attr_accessor table_arn (): ::String
-      attr_accessor backup_arn (): ::String
-      attr_accessor backup_name (): ::String
-      attr_accessor backup_creation_date_time (): ::Time
-      attr_accessor backup_expiry_date_time (): ::Time
-      attr_accessor backup_status (): ::String
-      attr_accessor backup_type (): ::String
-      attr_accessor backup_size_bytes (): ::Integer
+      attr_accessor table_name (): ::String?
+      attr_accessor table_id (): ::String?
+      attr_accessor table_arn (): ::String?
+      attr_accessor backup_arn (): ::String?
+      attr_accessor backup_name (): ::String?
+      attr_accessor backup_creation_date_time (): ::Time?
+      attr_accessor backup_expiry_date_time (): ::Time?
+      attr_accessor backup_status (): ::String?
+      attr_accessor backup_type (): ::String?
+      attr_accessor backup_size_bytes (): ::Integer?
     end
 
     module BackupType
@@ -214,36 +214,36 @@ module AWS::SDK::DynamoDB
       ALL: ::String
     end
 
-    class BatchExecuteStatementInput < ::Struct[untyped]
+    class BatchExecuteStatementInput
       include Hearth::Structure
       attr_accessor statements (): ::Array[Types::BatchStatementRequest]
-      attr_accessor return_consumed_capacity (): ::String
+      attr_accessor return_consumed_capacity (): ::String?
     end
 
-    class BatchExecuteStatementOutput < ::Struct[untyped]
+    class BatchExecuteStatementOutput
       include Hearth::Structure
-      attr_accessor responses (): ::Array[Types::BatchStatementResponse]
-      attr_accessor consumed_capacity (): ::Array[Types::ConsumedCapacity]
+      attr_accessor responses (): ::Array[Types::BatchStatementResponse]?
+      attr_accessor consumed_capacity (): ::Array[Types::ConsumedCapacity]?
     end
 
-    class BatchGetItemInput < ::Struct[untyped]
+    class BatchGetItemInput
       include Hearth::Structure
       attr_accessor request_items (): ::Hash[::String, Types::KeysAndAttributes]
-      attr_accessor return_consumed_capacity (): ::String
+      attr_accessor return_consumed_capacity (): ::String?
     end
 
-    class BatchGetItemOutput < ::Struct[untyped]
+    class BatchGetItemOutput
       include Hearth::Structure
-      attr_accessor responses (): ::Hash[::String, ::Array[::Hash[::String, Types::AttributeValue]]]
-      attr_accessor unprocessed_keys (): ::Hash[::String, Types::KeysAndAttributes]
-      attr_accessor consumed_capacity (): ::Array[Types::ConsumedCapacity]
+      attr_accessor responses (): ::Hash[::String, ::Array[::Hash[::String, Types::AttributeValue]]]?
+      attr_accessor unprocessed_keys (): ::Hash[::String, Types::KeysAndAttributes]?
+      attr_accessor consumed_capacity (): ::Array[Types::ConsumedCapacity]?
     end
 
-    class BatchStatementError < ::Struct[untyped]
+    class BatchStatementError
       include Hearth::Structure
-      attr_accessor code (): ::String
-      attr_accessor message (): ::String
-      attr_accessor item (): ::Hash[::String, Types::AttributeValue]
+      attr_accessor code (): ::String?
+      attr_accessor message (): ::String?
+      attr_accessor item (): ::Hash[::String, Types::AttributeValue]?
     end
 
     module BatchStatementErrorCodeEnum
@@ -270,33 +270,33 @@ module AWS::SDK::DynamoDB
       DUPLICATE_ITEM: ::String
     end
 
-    class BatchStatementRequest < ::Struct[untyped]
+    class BatchStatementRequest
       include Hearth::Structure
       attr_accessor statement (): ::String
-      attr_accessor parameters (): ::Array[Types::AttributeValue]
-      attr_accessor consistent_read (): bool
-      attr_accessor return_values_on_condition_check_failure (): ::String
+      attr_accessor parameters (): ::Array[Types::AttributeValue]?
+      attr_accessor consistent_read (): bool?
+      attr_accessor return_values_on_condition_check_failure (): ::String?
     end
 
-    class BatchStatementResponse < ::Struct[untyped]
+    class BatchStatementResponse
       include Hearth::Structure
-      attr_accessor error (): Types::BatchStatementError
-      attr_accessor table_name (): ::String
-      attr_accessor item (): ::Hash[::String, Types::AttributeValue]
+      attr_accessor error (): Types::BatchStatementError?
+      attr_accessor table_name (): ::String?
+      attr_accessor item (): ::Hash[::String, Types::AttributeValue]?
     end
 
-    class BatchWriteItemInput < ::Struct[untyped]
+    class BatchWriteItemInput
       include Hearth::Structure
       attr_accessor request_items (): ::Hash[::String, ::Array[Types::WriteRequest]]
-      attr_accessor return_consumed_capacity (): ::String
-      attr_accessor return_item_collection_metrics (): ::String
+      attr_accessor return_consumed_capacity (): ::String?
+      attr_accessor return_item_collection_metrics (): ::String?
     end
 
-    class BatchWriteItemOutput < ::Struct[untyped]
+    class BatchWriteItemOutput
       include Hearth::Structure
-      attr_accessor unprocessed_items (): ::Hash[::String, ::Array[Types::WriteRequest]]
-      attr_accessor item_collection_metrics (): ::Hash[::String, ::Array[Types::ItemCollectionMetrics]]
-      attr_accessor consumed_capacity (): ::Array[Types::ConsumedCapacity]
+      attr_accessor unprocessed_items (): ::Hash[::String, ::Array[Types::WriteRequest]]?
+      attr_accessor item_collection_metrics (): ::Hash[::String, ::Array[Types::ItemCollectionMetrics]]?
+      attr_accessor consumed_capacity (): ::Array[Types::ConsumedCapacity]?
     end
 
     module BillingMode
@@ -305,24 +305,24 @@ module AWS::SDK::DynamoDB
       PAY_PER_REQUEST: ::String
     end
 
-    class BillingModeSummary < ::Struct[untyped]
+    class BillingModeSummary
       include Hearth::Structure
-      attr_accessor billing_mode (): ::String
-      attr_accessor last_update_to_pay_per_request_date_time (): ::Time
+      attr_accessor billing_mode (): ::String?
+      attr_accessor last_update_to_pay_per_request_date_time (): ::Time?
     end
 
-    class CancellationReason < ::Struct[untyped]
+    class CancellationReason
       include Hearth::Structure
-      attr_accessor item (): ::Hash[::String, Types::AttributeValue]
-      attr_accessor code (): ::String
-      attr_accessor message (): ::String
+      attr_accessor item (): ::Hash[::String, Types::AttributeValue]?
+      attr_accessor code (): ::String?
+      attr_accessor message (): ::String?
     end
 
-    class Capacity < ::Struct[untyped]
+    class Capacity
       include Hearth::Structure
-      attr_accessor read_capacity_units (): ::Float
-      attr_accessor write_capacity_units (): ::Float
-      attr_accessor capacity_units (): ::Float
+      attr_accessor read_capacity_units (): ::Float?
+      attr_accessor write_capacity_units (): ::Float?
+      attr_accessor capacity_units (): ::Float?
     end
 
     module ComparisonOperator
@@ -353,26 +353,26 @@ module AWS::SDK::DynamoDB
       BEGINS_WITH: ::String
     end
 
-    class Condition < ::Struct[untyped]
+    class Condition
       include Hearth::Structure
-      attr_accessor attribute_value_list (): ::Array[Types::AttributeValue]
+      attr_accessor attribute_value_list (): ::Array[Types::AttributeValue]?
       attr_accessor comparison_operator (): ::String
     end
 
-    class ConditionCheck < ::Struct[untyped]
+    class ConditionCheck
       include Hearth::Structure
       attr_accessor key (): ::Hash[::String, Types::AttributeValue]
       attr_accessor table_name (): ::String
       attr_accessor condition_expression (): ::String
-      attr_accessor expression_attribute_names (): ::Hash[::String, ::String]
-      attr_accessor expression_attribute_values (): ::Hash[::String, Types::AttributeValue]
-      attr_accessor return_values_on_condition_check_failure (): ::String
+      attr_accessor expression_attribute_names (): ::Hash[::String, ::String]?
+      attr_accessor expression_attribute_values (): ::Hash[::String, Types::AttributeValue]?
+      attr_accessor return_values_on_condition_check_failure (): ::String?
     end
 
-    class ConditionalCheckFailedException < ::Struct[untyped]
+    class ConditionalCheckFailedException
       include Hearth::Structure
-      attr_accessor message (): ::String
-      attr_accessor item (): ::Hash[::String, Types::AttributeValue]
+      attr_accessor message (): ::String?
+      attr_accessor item (): ::Hash[::String, Types::AttributeValue]?
     end
 
     module ConditionalOperator
@@ -381,21 +381,21 @@ module AWS::SDK::DynamoDB
       OR: ::String
     end
 
-    class ConsumedCapacity < ::Struct[untyped]
+    class ConsumedCapacity
       include Hearth::Structure
-      attr_accessor table_name (): ::String
-      attr_accessor capacity_units (): ::Float
-      attr_accessor read_capacity_units (): ::Float
-      attr_accessor write_capacity_units (): ::Float
-      attr_accessor table (): Types::Capacity
-      attr_accessor local_secondary_indexes (): ::Hash[::String, Types::Capacity]
-      attr_accessor global_secondary_indexes (): ::Hash[::String, Types::Capacity]
+      attr_accessor table_name (): ::String?
+      attr_accessor capacity_units (): ::Float?
+      attr_accessor read_capacity_units (): ::Float?
+      attr_accessor write_capacity_units (): ::Float?
+      attr_accessor table (): Types::Capacity?
+      attr_accessor local_secondary_indexes (): ::Hash[::String, Types::Capacity]?
+      attr_accessor global_secondary_indexes (): ::Hash[::String, Types::Capacity]?
     end
 
-    class ContinuousBackupsDescription < ::Struct[untyped]
+    class ContinuousBackupsDescription
       include Hearth::Structure
       attr_accessor continuous_backups_status (): ::String
-      attr_accessor point_in_time_recovery_description (): Types::PointInTimeRecoveryDescription
+      attr_accessor point_in_time_recovery_description (): Types::PointInTimeRecoveryDescription?
     end
 
     module ContinuousBackupsStatus
@@ -404,9 +404,9 @@ module AWS::SDK::DynamoDB
       DISABLED: ::String
     end
 
-    class ContinuousBackupsUnavailableException < ::Struct[untyped]
+    class ContinuousBackupsUnavailableException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
     module ContributorInsightsAction
@@ -427,293 +427,293 @@ module AWS::SDK::DynamoDB
       FAILED: ::String
     end
 
-    class ContributorInsightsSummary < ::Struct[untyped]
+    class ContributorInsightsSummary
       include Hearth::Structure
-      attr_accessor table_name (): ::String
-      attr_accessor index_name (): ::String
-      attr_accessor contributor_insights_status (): ::String
+      attr_accessor table_name (): ::String?
+      attr_accessor index_name (): ::String?
+      attr_accessor contributor_insights_status (): ::String?
     end
 
-    class CreateBackupInput < ::Struct[untyped]
+    class CreateBackupInput
       include Hearth::Structure
       attr_accessor table_name (): ::String
       attr_accessor backup_name (): ::String
     end
 
-    class CreateBackupOutput < ::Struct[untyped]
+    class CreateBackupOutput
       include Hearth::Structure
-      attr_accessor backup_details (): Types::BackupDetails
+      attr_accessor backup_details (): Types::BackupDetails?
     end
 
-    class CreateGlobalSecondaryIndexAction < ::Struct[untyped]
+    class CreateGlobalSecondaryIndexAction
       include Hearth::Structure
       attr_accessor index_name (): ::String
       attr_accessor key_schema (): ::Array[Types::KeySchemaElement]
       attr_accessor projection (): Types::Projection
-      attr_accessor provisioned_throughput (): Types::ProvisionedThroughput
+      attr_accessor provisioned_throughput (): Types::ProvisionedThroughput?
     end
 
-    class CreateGlobalTableInput < ::Struct[untyped]
+    class CreateGlobalTableInput
       include Hearth::Structure
       attr_accessor global_table_name (): ::String
       attr_accessor replication_group (): ::Array[Types::Replica]
     end
 
-    class CreateGlobalTableOutput < ::Struct[untyped]
+    class CreateGlobalTableOutput
       include Hearth::Structure
-      attr_accessor global_table_description (): Types::GlobalTableDescription
+      attr_accessor global_table_description (): Types::GlobalTableDescription?
     end
 
-    class CreateReplicaAction < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor region_name (): ::String
-    end
-
-    class CreateReplicationGroupMemberAction < ::Struct[untyped]
+    class CreateReplicaAction
       include Hearth::Structure
       attr_accessor region_name (): ::String
-      attr_accessor kms_master_key_id (): ::String
-      attr_accessor provisioned_throughput_override (): Types::ProvisionedThroughputOverride
-      attr_accessor global_secondary_indexes (): ::Array[Types::ReplicaGlobalSecondaryIndex]
-      attr_accessor table_class_override (): ::String
     end
 
-    class CreateTableInput < ::Struct[untyped]
+    class CreateReplicationGroupMemberAction
+      include Hearth::Structure
+      attr_accessor region_name (): ::String
+      attr_accessor kms_master_key_id (): ::String?
+      attr_accessor provisioned_throughput_override (): Types::ProvisionedThroughputOverride?
+      attr_accessor global_secondary_indexes (): ::Array[Types::ReplicaGlobalSecondaryIndex]?
+      attr_accessor table_class_override (): ::String?
+    end
+
+    class CreateTableInput
       include Hearth::Structure
       attr_accessor attribute_definitions (): ::Array[Types::AttributeDefinition]
       attr_accessor table_name (): ::String
       attr_accessor key_schema (): ::Array[Types::KeySchemaElement]
-      attr_accessor local_secondary_indexes (): ::Array[Types::LocalSecondaryIndex]
-      attr_accessor global_secondary_indexes (): ::Array[Types::GlobalSecondaryIndex]
-      attr_accessor billing_mode (): ::String
-      attr_accessor provisioned_throughput (): Types::ProvisionedThroughput
-      attr_accessor stream_specification (): Types::StreamSpecification
-      attr_accessor sse_specification (): Types::SSESpecification
-      attr_accessor tags (): ::Array[Types::Tag]
-      attr_accessor table_class (): ::String
-      attr_accessor deletion_protection_enabled (): bool
+      attr_accessor local_secondary_indexes (): ::Array[Types::LocalSecondaryIndex]?
+      attr_accessor global_secondary_indexes (): ::Array[Types::GlobalSecondaryIndex]?
+      attr_accessor billing_mode (): ::String?
+      attr_accessor provisioned_throughput (): Types::ProvisionedThroughput?
+      attr_accessor stream_specification (): Types::StreamSpecification?
+      attr_accessor sse_specification (): Types::SSESpecification?
+      attr_accessor tags (): ::Array[Types::Tag]?
+      attr_accessor table_class (): ::String?
+      attr_accessor deletion_protection_enabled (): bool?
     end
 
-    class CreateTableOutput < ::Struct[untyped]
+    class CreateTableOutput
       include Hearth::Structure
-      attr_accessor table_description (): Types::TableDescription
+      attr_accessor table_description (): Types::TableDescription?
     end
 
-    class CsvOptions < ::Struct[untyped]
+    class CsvOptions
       include Hearth::Structure
-      attr_accessor delimiter (): ::String
-      attr_accessor header_list (): ::Array[::String]
+      attr_accessor delimiter (): ::String?
+      attr_accessor header_list (): ::Array[::String]?
     end
 
-    class Delete < ::Struct[untyped]
+    class Delete
       include Hearth::Structure
       attr_accessor key (): ::Hash[::String, Types::AttributeValue]
       attr_accessor table_name (): ::String
-      attr_accessor condition_expression (): ::String
-      attr_accessor expression_attribute_names (): ::Hash[::String, ::String]
-      attr_accessor expression_attribute_values (): ::Hash[::String, Types::AttributeValue]
-      attr_accessor return_values_on_condition_check_failure (): ::String
+      attr_accessor condition_expression (): ::String?
+      attr_accessor expression_attribute_names (): ::Hash[::String, ::String]?
+      attr_accessor expression_attribute_values (): ::Hash[::String, Types::AttributeValue]?
+      attr_accessor return_values_on_condition_check_failure (): ::String?
     end
 
-    class DeleteBackupInput < ::Struct[untyped]
+    class DeleteBackupInput
       include Hearth::Structure
       attr_accessor backup_arn (): ::String
     end
 
-    class DeleteBackupOutput < ::Struct[untyped]
+    class DeleteBackupOutput
       include Hearth::Structure
-      attr_accessor backup_description (): Types::BackupDescription
+      attr_accessor backup_description (): Types::BackupDescription?
     end
 
-    class DeleteGlobalSecondaryIndexAction < ::Struct[untyped]
+    class DeleteGlobalSecondaryIndexAction
       include Hearth::Structure
       attr_accessor index_name (): ::String
     end
 
-    class DeleteItemInput < ::Struct[untyped]
+    class DeleteItemInput
       include Hearth::Structure
       attr_accessor table_name (): ::String
       attr_accessor key (): ::Hash[::String, Types::AttributeValue]
-      attr_accessor expected (): ::Hash[::String, Types::ExpectedAttributeValue]
-      attr_accessor conditional_operator (): ::String
-      attr_accessor return_values (): ::String
-      attr_accessor return_consumed_capacity (): ::String
-      attr_accessor return_item_collection_metrics (): ::String
-      attr_accessor condition_expression (): ::String
-      attr_accessor expression_attribute_names (): ::Hash[::String, ::String]
-      attr_accessor expression_attribute_values (): ::Hash[::String, Types::AttributeValue]
-      attr_accessor return_values_on_condition_check_failure (): ::String
+      attr_accessor expected (): ::Hash[::String, Types::ExpectedAttributeValue]?
+      attr_accessor conditional_operator (): ::String?
+      attr_accessor return_values (): ::String?
+      attr_accessor return_consumed_capacity (): ::String?
+      attr_accessor return_item_collection_metrics (): ::String?
+      attr_accessor condition_expression (): ::String?
+      attr_accessor expression_attribute_names (): ::Hash[::String, ::String]?
+      attr_accessor expression_attribute_values (): ::Hash[::String, Types::AttributeValue]?
+      attr_accessor return_values_on_condition_check_failure (): ::String?
     end
 
-    class DeleteItemOutput < ::Struct[untyped]
+    class DeleteItemOutput
       include Hearth::Structure
-      attr_accessor attributes (): ::Hash[::String, Types::AttributeValue]
-      attr_accessor consumed_capacity (): Types::ConsumedCapacity
-      attr_accessor item_collection_metrics (): Types::ItemCollectionMetrics
+      attr_accessor attributes (): ::Hash[::String, Types::AttributeValue]?
+      attr_accessor consumed_capacity (): Types::ConsumedCapacity?
+      attr_accessor item_collection_metrics (): Types::ItemCollectionMetrics?
     end
 
-    class DeleteReplicaAction < ::Struct[untyped]
+    class DeleteReplicaAction
       include Hearth::Structure
       attr_accessor region_name (): ::String
     end
 
-    class DeleteReplicationGroupMemberAction < ::Struct[untyped]
+    class DeleteReplicationGroupMemberAction
       include Hearth::Structure
       attr_accessor region_name (): ::String
     end
 
-    class DeleteRequest < ::Struct[untyped]
+    class DeleteRequest
       include Hearth::Structure
       attr_accessor key (): ::Hash[::String, Types::AttributeValue]
     end
 
-    class DeleteTableInput < ::Struct[untyped]
+    class DeleteTableInput
       include Hearth::Structure
       attr_accessor table_name (): ::String
     end
 
-    class DeleteTableOutput < ::Struct[untyped]
+    class DeleteTableOutput
       include Hearth::Structure
-      attr_accessor table_description (): Types::TableDescription
+      attr_accessor table_description (): Types::TableDescription?
     end
 
-    class DescribeBackupInput < ::Struct[untyped]
+    class DescribeBackupInput
       include Hearth::Structure
       attr_accessor backup_arn (): ::String
     end
 
-    class DescribeBackupOutput < ::Struct[untyped]
+    class DescribeBackupOutput
       include Hearth::Structure
-      attr_accessor backup_description (): Types::BackupDescription
+      attr_accessor backup_description (): Types::BackupDescription?
     end
 
-    class DescribeContinuousBackupsInput < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor table_name (): ::String
-    end
-
-    class DescribeContinuousBackupsOutput < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor continuous_backups_description (): Types::ContinuousBackupsDescription
-    end
-
-    class DescribeContributorInsightsInput < ::Struct[untyped]
+    class DescribeContinuousBackupsInput
       include Hearth::Structure
       attr_accessor table_name (): ::String
-      attr_accessor index_name (): ::String
     end
 
-    class DescribeContributorInsightsOutput < ::Struct[untyped]
+    class DescribeContinuousBackupsOutput
+      include Hearth::Structure
+      attr_accessor continuous_backups_description (): Types::ContinuousBackupsDescription?
+    end
+
+    class DescribeContributorInsightsInput
       include Hearth::Structure
       attr_accessor table_name (): ::String
-      attr_accessor index_name (): ::String
-      attr_accessor contributor_insights_rule_list (): ::Array[::String]
-      attr_accessor contributor_insights_status (): ::String
-      attr_accessor last_update_date_time (): ::Time
-      attr_accessor failure_exception (): Types::FailureException
+      attr_accessor index_name (): ::String?
     end
 
-    class DescribeEndpointsInput < ::Struct[untyped]
+    class DescribeContributorInsightsOutput
+      include Hearth::Structure
+      attr_accessor table_name (): ::String?
+      attr_accessor index_name (): ::String?
+      attr_accessor contributor_insights_rule_list (): ::Array[::String]?
+      attr_accessor contributor_insights_status (): ::String?
+      attr_accessor last_update_date_time (): ::Time?
+      attr_accessor failure_exception (): Types::FailureException?
+    end
+
+    class DescribeEndpointsInput
       include Hearth::Structure
     end
 
-    class DescribeEndpointsOutput < ::Struct[untyped]
+    class DescribeEndpointsOutput
       include Hearth::Structure
       attr_accessor endpoints (): ::Array[Types::Endpoint]
     end
 
-    class DescribeExportInput < ::Struct[untyped]
+    class DescribeExportInput
       include Hearth::Structure
       attr_accessor export_arn (): ::String
     end
 
-    class DescribeExportOutput < ::Struct[untyped]
+    class DescribeExportOutput
       include Hearth::Structure
-      attr_accessor export_description (): Types::ExportDescription
+      attr_accessor export_description (): Types::ExportDescription?
     end
 
-    class DescribeGlobalTableInput < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor global_table_name (): ::String
-    end
-
-    class DescribeGlobalTableOutput < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor global_table_description (): Types::GlobalTableDescription
-    end
-
-    class DescribeGlobalTableSettingsInput < ::Struct[untyped]
+    class DescribeGlobalTableInput
       include Hearth::Structure
       attr_accessor global_table_name (): ::String
     end
 
-    class DescribeGlobalTableSettingsOutput < ::Struct[untyped]
+    class DescribeGlobalTableOutput
       include Hearth::Structure
-      attr_accessor global_table_name (): ::String
-      attr_accessor replica_settings (): ::Array[Types::ReplicaSettingsDescription]
+      attr_accessor global_table_description (): Types::GlobalTableDescription?
     end
 
-    class DescribeImportInput < ::Struct[untyped]
+    class DescribeGlobalTableSettingsInput
+      include Hearth::Structure
+      attr_accessor global_table_name (): ::String
+    end
+
+    class DescribeGlobalTableSettingsOutput
+      include Hearth::Structure
+      attr_accessor global_table_name (): ::String?
+      attr_accessor replica_settings (): ::Array[Types::ReplicaSettingsDescription]?
+    end
+
+    class DescribeImportInput
       include Hearth::Structure
       attr_accessor import_arn (): ::String
     end
 
-    class DescribeImportOutput < ::Struct[untyped]
+    class DescribeImportOutput
       include Hearth::Structure
       attr_accessor import_table_description (): Types::ImportTableDescription
     end
 
-    class DescribeKinesisStreamingDestinationInput < ::Struct[untyped]
+    class DescribeKinesisStreamingDestinationInput
       include Hearth::Structure
       attr_accessor table_name (): ::String
     end
 
-    class DescribeKinesisStreamingDestinationOutput < ::Struct[untyped]
+    class DescribeKinesisStreamingDestinationOutput
       include Hearth::Structure
-      attr_accessor table_name (): ::String
-      attr_accessor kinesis_data_stream_destinations (): ::Array[Types::KinesisDataStreamDestination]
+      attr_accessor table_name (): ::String?
+      attr_accessor kinesis_data_stream_destinations (): ::Array[Types::KinesisDataStreamDestination]?
     end
 
-    class DescribeLimitsInput < ::Struct[untyped]
+    class DescribeLimitsInput
       include Hearth::Structure
     end
 
-    class DescribeLimitsOutput < ::Struct[untyped]
+    class DescribeLimitsOutput
       include Hearth::Structure
-      attr_accessor account_max_read_capacity_units (): ::Integer
-      attr_accessor account_max_write_capacity_units (): ::Integer
-      attr_accessor table_max_read_capacity_units (): ::Integer
-      attr_accessor table_max_write_capacity_units (): ::Integer
+      attr_accessor account_max_read_capacity_units (): ::Integer?
+      attr_accessor account_max_write_capacity_units (): ::Integer?
+      attr_accessor table_max_read_capacity_units (): ::Integer?
+      attr_accessor table_max_write_capacity_units (): ::Integer?
     end
 
-    class DescribeTableInput < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor table_name (): ::String
-    end
-
-    class DescribeTableOutput < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor table (): Types::TableDescription
-    end
-
-    class DescribeTableReplicaAutoScalingInput < ::Struct[untyped]
+    class DescribeTableInput
       include Hearth::Structure
       attr_accessor table_name (): ::String
     end
 
-    class DescribeTableReplicaAutoScalingOutput < ::Struct[untyped]
+    class DescribeTableOutput
       include Hearth::Structure
-      attr_accessor table_auto_scaling_description (): Types::TableAutoScalingDescription
+      attr_accessor table (): Types::TableDescription?
     end
 
-    class DescribeTimeToLiveInput < ::Struct[untyped]
+    class DescribeTableReplicaAutoScalingInput
       include Hearth::Structure
       attr_accessor table_name (): ::String
     end
 
-    class DescribeTimeToLiveOutput < ::Struct[untyped]
+    class DescribeTableReplicaAutoScalingOutput
       include Hearth::Structure
-      attr_accessor time_to_live_description (): Types::TimeToLiveDescription
+      attr_accessor table_auto_scaling_description (): Types::TableAutoScalingDescription?
+    end
+
+    class DescribeTimeToLiveInput
+      include Hearth::Structure
+      attr_accessor table_name (): ::String
+    end
+
+    class DescribeTimeToLiveOutput
+      include Hearth::Structure
+      attr_accessor time_to_live_description (): Types::TimeToLiveDescription?
     end
 
     module DestinationStatus
@@ -730,120 +730,120 @@ module AWS::SDK::DynamoDB
       UPDATING: ::String
     end
 
-    class DisableKinesisStreamingDestinationInput < ::Struct[untyped]
+    class DisableKinesisStreamingDestinationInput
       include Hearth::Structure
       attr_accessor table_name (): ::String
       attr_accessor stream_arn (): ::String
-      attr_accessor enable_kinesis_streaming_configuration (): Types::EnableKinesisStreamingConfiguration
+      attr_accessor enable_kinesis_streaming_configuration (): Types::EnableKinesisStreamingConfiguration?
     end
 
-    class DisableKinesisStreamingDestinationOutput < ::Struct[untyped]
+    class DisableKinesisStreamingDestinationOutput
+      include Hearth::Structure
+      attr_accessor table_name (): ::String?
+      attr_accessor stream_arn (): ::String?
+      attr_accessor destination_status (): ::String?
+      attr_accessor enable_kinesis_streaming_configuration (): Types::EnableKinesisStreamingConfiguration?
+    end
+
+    class DuplicateItemException
+      include Hearth::Structure
+      attr_accessor message (): ::String?
+    end
+
+    class EnableKinesisStreamingConfiguration
+      include Hearth::Structure
+      attr_accessor approximate_creation_date_time_precision (): ::String?
+    end
+
+    class EnableKinesisStreamingDestinationInput
       include Hearth::Structure
       attr_accessor table_name (): ::String
       attr_accessor stream_arn (): ::String
-      attr_accessor destination_status (): ::String
-      attr_accessor enable_kinesis_streaming_configuration (): Types::EnableKinesisStreamingConfiguration
+      attr_accessor enable_kinesis_streaming_configuration (): Types::EnableKinesisStreamingConfiguration?
     end
 
-    class DuplicateItemException < ::Struct[untyped]
+    class EnableKinesisStreamingDestinationOutput
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor table_name (): ::String?
+      attr_accessor stream_arn (): ::String?
+      attr_accessor destination_status (): ::String?
+      attr_accessor enable_kinesis_streaming_configuration (): Types::EnableKinesisStreamingConfiguration?
     end
 
-    class EnableKinesisStreamingConfiguration < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor approximate_creation_date_time_precision (): ::String
-    end
-
-    class EnableKinesisStreamingDestinationInput < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor table_name (): ::String
-      attr_accessor stream_arn (): ::String
-      attr_accessor enable_kinesis_streaming_configuration (): Types::EnableKinesisStreamingConfiguration
-    end
-
-    class EnableKinesisStreamingDestinationOutput < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor table_name (): ::String
-      attr_accessor stream_arn (): ::String
-      attr_accessor destination_status (): ::String
-      attr_accessor enable_kinesis_streaming_configuration (): Types::EnableKinesisStreamingConfiguration
-    end
-
-    class Endpoint < ::Struct[untyped]
+    class Endpoint
       include Hearth::Structure
       attr_accessor address (): ::String
       attr_accessor cache_period_in_minutes (): ::Integer
     end
 
-    class ExecuteStatementInput < ::Struct[untyped]
+    class ExecuteStatementInput
       include Hearth::Structure
       attr_accessor statement (): ::String
-      attr_accessor parameters (): ::Array[Types::AttributeValue]
-      attr_accessor consistent_read (): bool
-      attr_accessor next_token (): ::String
-      attr_accessor return_consumed_capacity (): ::String
-      attr_accessor limit (): ::Integer
-      attr_accessor return_values_on_condition_check_failure (): ::String
+      attr_accessor parameters (): ::Array[Types::AttributeValue]?
+      attr_accessor consistent_read (): bool?
+      attr_accessor next_token (): ::String?
+      attr_accessor return_consumed_capacity (): ::String?
+      attr_accessor limit (): ::Integer?
+      attr_accessor return_values_on_condition_check_failure (): ::String?
     end
 
-    class ExecuteStatementOutput < ::Struct[untyped]
+    class ExecuteStatementOutput
       include Hearth::Structure
-      attr_accessor items (): ::Array[::Hash[::String, Types::AttributeValue]]
-      attr_accessor next_token (): ::String
-      attr_accessor consumed_capacity (): Types::ConsumedCapacity
-      attr_accessor last_evaluated_key (): ::Hash[::String, Types::AttributeValue]
+      attr_accessor items (): ::Array[::Hash[::String, Types::AttributeValue]]?
+      attr_accessor next_token (): ::String?
+      attr_accessor consumed_capacity (): Types::ConsumedCapacity?
+      attr_accessor last_evaluated_key (): ::Hash[::String, Types::AttributeValue]?
     end
 
-    class ExecuteTransactionInput < ::Struct[untyped]
+    class ExecuteTransactionInput
       include Hearth::Structure
       attr_accessor transact_statements (): ::Array[Types::ParameterizedStatement]
-      attr_accessor client_request_token (): ::String
-      attr_accessor return_consumed_capacity (): ::String
+      attr_accessor client_request_token (): ::String?
+      attr_accessor return_consumed_capacity (): ::String?
     end
 
-    class ExecuteTransactionOutput < ::Struct[untyped]
+    class ExecuteTransactionOutput
       include Hearth::Structure
-      attr_accessor responses (): ::Array[Types::ItemResponse]
-      attr_accessor consumed_capacity (): ::Array[Types::ConsumedCapacity]
+      attr_accessor responses (): ::Array[Types::ItemResponse]?
+      attr_accessor consumed_capacity (): ::Array[Types::ConsumedCapacity]?
     end
 
-    class ExpectedAttributeValue < ::Struct[untyped]
+    class ExpectedAttributeValue
       include Hearth::Structure
-      attr_accessor value (): Types::AttributeValue
-      attr_accessor exists (): bool
-      attr_accessor comparison_operator (): ::String
-      attr_accessor attribute_value_list (): ::Array[Types::AttributeValue]
+      attr_accessor value (): Types::AttributeValue?
+      attr_accessor exists (): bool?
+      attr_accessor comparison_operator (): ::String?
+      attr_accessor attribute_value_list (): ::Array[Types::AttributeValue]?
     end
 
-    class ExportConflictException < ::Struct[untyped]
+    class ExportConflictException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class ExportDescription < ::Struct[untyped]
+    class ExportDescription
       include Hearth::Structure
-      attr_accessor export_arn (): ::String
-      attr_accessor export_status (): ::String
-      attr_accessor start_time (): ::Time
-      attr_accessor end_time (): ::Time
-      attr_accessor export_manifest (): ::String
-      attr_accessor table_arn (): ::String
-      attr_accessor table_id (): ::String
-      attr_accessor export_time (): ::Time
-      attr_accessor client_token (): ::String
-      attr_accessor s3_bucket (): ::String
-      attr_accessor s3_bucket_owner (): ::String
-      attr_accessor s3_prefix (): ::String
-      attr_accessor s3_sse_algorithm (): ::String
-      attr_accessor s3_sse_kms_key_id (): ::String
-      attr_accessor failure_code (): ::String
-      attr_accessor failure_message (): ::String
-      attr_accessor export_format (): ::String
-      attr_accessor billed_size_bytes (): ::Integer
-      attr_accessor item_count (): ::Integer
-      attr_accessor export_type (): ::String
-      attr_accessor incremental_export_specification (): Types::IncrementalExportSpecification
+      attr_accessor export_arn (): ::String?
+      attr_accessor export_status (): ::String?
+      attr_accessor start_time (): ::Time?
+      attr_accessor end_time (): ::Time?
+      attr_accessor export_manifest (): ::String?
+      attr_accessor table_arn (): ::String?
+      attr_accessor table_id (): ::String?
+      attr_accessor export_time (): ::Time?
+      attr_accessor client_token (): ::String?
+      attr_accessor s3_bucket (): ::String?
+      attr_accessor s3_bucket_owner (): ::String?
+      attr_accessor s3_prefix (): ::String?
+      attr_accessor s3_sse_algorithm (): ::String?
+      attr_accessor s3_sse_kms_key_id (): ::String?
+      attr_accessor failure_code (): ::String?
+      attr_accessor failure_message (): ::String?
+      attr_accessor export_format (): ::String?
+      attr_accessor billed_size_bytes (): ::Integer?
+      attr_accessor item_count (): ::Integer?
+      attr_accessor export_type (): ::String?
+      attr_accessor incremental_export_specification (): Types::IncrementalExportSpecification?
     end
 
     module ExportFormat
@@ -852,9 +852,9 @@ module AWS::SDK::DynamoDB
       ION: ::String
     end
 
-    class ExportNotFoundException < ::Struct[untyped]
+    class ExportNotFoundException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
     module ExportStatus
@@ -865,31 +865,31 @@ module AWS::SDK::DynamoDB
       FAILED: ::String
     end
 
-    class ExportSummary < ::Struct[untyped]
+    class ExportSummary
       include Hearth::Structure
-      attr_accessor export_arn (): ::String
-      attr_accessor export_status (): ::String
-      attr_accessor export_type (): ::String
+      attr_accessor export_arn (): ::String?
+      attr_accessor export_status (): ::String?
+      attr_accessor export_type (): ::String?
     end
 
-    class ExportTableToPointInTimeInput < ::Struct[untyped]
+    class ExportTableToPointInTimeInput
       include Hearth::Structure
       attr_accessor table_arn (): ::String
-      attr_accessor export_time (): ::Time
-      attr_accessor client_token (): ::String
+      attr_accessor export_time (): ::Time?
+      attr_accessor client_token (): ::String?
       attr_accessor s3_bucket (): ::String
-      attr_accessor s3_bucket_owner (): ::String
-      attr_accessor s3_prefix (): ::String
-      attr_accessor s3_sse_algorithm (): ::String
-      attr_accessor s3_sse_kms_key_id (): ::String
-      attr_accessor export_format (): ::String
-      attr_accessor export_type (): ::String
-      attr_accessor incremental_export_specification (): Types::IncrementalExportSpecification
+      attr_accessor s3_bucket_owner (): ::String?
+      attr_accessor s3_prefix (): ::String?
+      attr_accessor s3_sse_algorithm (): ::String?
+      attr_accessor s3_sse_kms_key_id (): ::String?
+      attr_accessor export_format (): ::String?
+      attr_accessor export_type (): ::String?
+      attr_accessor incremental_export_specification (): Types::IncrementalExportSpecification?
     end
 
-    class ExportTableToPointInTimeOutput < ::Struct[untyped]
+    class ExportTableToPointInTimeOutput
       include Hearth::Structure
-      attr_accessor export_description (): Types::ExportDescription
+      attr_accessor export_description (): Types::ExportDescription?
     end
 
     module ExportType
@@ -904,109 +904,109 @@ module AWS::SDK::DynamoDB
       NEW_AND_OLD_IMAGES: ::String
     end
 
-    class FailureException < ::Struct[untyped]
+    class FailureException
       include Hearth::Structure
-      attr_accessor exception_name (): ::String
-      attr_accessor exception_description (): ::String
+      attr_accessor exception_name (): ::String?
+      attr_accessor exception_description (): ::String?
     end
 
-    class Get < ::Struct[untyped]
+    class Get
       include Hearth::Structure
       attr_accessor key (): ::Hash[::String, Types::AttributeValue]
       attr_accessor table_name (): ::String
-      attr_accessor projection_expression (): ::String
-      attr_accessor expression_attribute_names (): ::Hash[::String, ::String]
+      attr_accessor projection_expression (): ::String?
+      attr_accessor expression_attribute_names (): ::Hash[::String, ::String]?
     end
 
-    class GetItemInput < ::Struct[untyped]
+    class GetItemInput
       include Hearth::Structure
       attr_accessor table_name (): ::String
       attr_accessor key (): ::Hash[::String, Types::AttributeValue]
-      attr_accessor attributes_to_get (): ::Array[::String]
-      attr_accessor consistent_read (): bool
-      attr_accessor return_consumed_capacity (): ::String
-      attr_accessor projection_expression (): ::String
-      attr_accessor expression_attribute_names (): ::Hash[::String, ::String]
+      attr_accessor attributes_to_get (): ::Array[::String]?
+      attr_accessor consistent_read (): bool?
+      attr_accessor return_consumed_capacity (): ::String?
+      attr_accessor projection_expression (): ::String?
+      attr_accessor expression_attribute_names (): ::Hash[::String, ::String]?
     end
 
-    class GetItemOutput < ::Struct[untyped]
+    class GetItemOutput
       include Hearth::Structure
-      attr_accessor item (): ::Hash[::String, Types::AttributeValue]
-      attr_accessor consumed_capacity (): Types::ConsumedCapacity
+      attr_accessor item (): ::Hash[::String, Types::AttributeValue]?
+      attr_accessor consumed_capacity (): Types::ConsumedCapacity?
     end
 
-    class GlobalSecondaryIndex < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor index_name (): ::String
-      attr_accessor key_schema (): ::Array[Types::KeySchemaElement]
-      attr_accessor projection (): Types::Projection
-      attr_accessor provisioned_throughput (): Types::ProvisionedThroughput
-    end
-
-    class GlobalSecondaryIndexAutoScalingUpdate < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor index_name (): ::String
-      attr_accessor provisioned_write_capacity_auto_scaling_update (): Types::AutoScalingSettingsUpdate
-    end
-
-    class GlobalSecondaryIndexDescription < ::Struct[untyped]
+    class GlobalSecondaryIndex
       include Hearth::Structure
       attr_accessor index_name (): ::String
       attr_accessor key_schema (): ::Array[Types::KeySchemaElement]
       attr_accessor projection (): Types::Projection
-      attr_accessor index_status (): ::String
-      attr_accessor backfilling (): bool
-      attr_accessor provisioned_throughput (): Types::ProvisionedThroughputDescription
-      attr_accessor index_size_bytes (): ::Integer
-      attr_accessor item_count (): ::Integer
-      attr_accessor index_arn (): ::String
+      attr_accessor provisioned_throughput (): Types::ProvisionedThroughput?
     end
 
-    class GlobalSecondaryIndexInfo < ::Struct[untyped]
+    class GlobalSecondaryIndexAutoScalingUpdate
+      include Hearth::Structure
+      attr_accessor index_name (): ::String?
+      attr_accessor provisioned_write_capacity_auto_scaling_update (): Types::AutoScalingSettingsUpdate?
+    end
+
+    class GlobalSecondaryIndexDescription
+      include Hearth::Structure
+      attr_accessor index_name (): ::String?
+      attr_accessor key_schema (): ::Array[Types::KeySchemaElement]?
+      attr_accessor projection (): Types::Projection?
+      attr_accessor index_status (): ::String?
+      attr_accessor backfilling (): bool?
+      attr_accessor provisioned_throughput (): Types::ProvisionedThroughputDescription?
+      attr_accessor index_size_bytes (): ::Integer?
+      attr_accessor item_count (): ::Integer?
+      attr_accessor index_arn (): ::String?
+    end
+
+    class GlobalSecondaryIndexInfo
+      include Hearth::Structure
+      attr_accessor index_name (): ::String?
+      attr_accessor key_schema (): ::Array[Types::KeySchemaElement]?
+      attr_accessor projection (): Types::Projection?
+      attr_accessor provisioned_throughput (): Types::ProvisionedThroughput?
+    end
+
+    class GlobalSecondaryIndexUpdate
+      include Hearth::Structure
+      attr_accessor update (): Types::UpdateGlobalSecondaryIndexAction?
+      attr_accessor create (): Types::CreateGlobalSecondaryIndexAction?
+      attr_accessor delete (): Types::DeleteGlobalSecondaryIndexAction?
+    end
+
+    class GlobalTable
+      include Hearth::Structure
+      attr_accessor global_table_name (): ::String?
+      attr_accessor replication_group (): ::Array[Types::Replica]?
+    end
+
+    class GlobalTableAlreadyExistsException
+      include Hearth::Structure
+      attr_accessor message (): ::String?
+    end
+
+    class GlobalTableDescription
+      include Hearth::Structure
+      attr_accessor replication_group (): ::Array[Types::ReplicaDescription]?
+      attr_accessor global_table_arn (): ::String?
+      attr_accessor creation_date_time (): ::Time?
+      attr_accessor global_table_status (): ::String?
+      attr_accessor global_table_name (): ::String?
+    end
+
+    class GlobalTableGlobalSecondaryIndexSettingsUpdate
       include Hearth::Structure
       attr_accessor index_name (): ::String
-      attr_accessor key_schema (): ::Array[Types::KeySchemaElement]
-      attr_accessor projection (): Types::Projection
-      attr_accessor provisioned_throughput (): Types::ProvisionedThroughput
+      attr_accessor provisioned_write_capacity_units (): ::Integer?
+      attr_accessor provisioned_write_capacity_auto_scaling_settings_update (): Types::AutoScalingSettingsUpdate?
     end
 
-    class GlobalSecondaryIndexUpdate < ::Struct[untyped]
+    class GlobalTableNotFoundException
       include Hearth::Structure
-      attr_accessor update (): Types::UpdateGlobalSecondaryIndexAction
-      attr_accessor create (): Types::CreateGlobalSecondaryIndexAction
-      attr_accessor delete (): Types::DeleteGlobalSecondaryIndexAction
-    end
-
-    class GlobalTable < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor global_table_name (): ::String
-      attr_accessor replication_group (): ::Array[Types::Replica]
-    end
-
-    class GlobalTableAlreadyExistsException < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor message (): ::String
-    end
-
-    class GlobalTableDescription < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor replication_group (): ::Array[Types::ReplicaDescription]
-      attr_accessor global_table_arn (): ::String
-      attr_accessor creation_date_time (): ::Time
-      attr_accessor global_table_status (): ::String
-      attr_accessor global_table_name (): ::String
-    end
-
-    class GlobalTableGlobalSecondaryIndexSettingsUpdate < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor index_name (): ::String
-      attr_accessor provisioned_write_capacity_units (): ::Integer
-      attr_accessor provisioned_write_capacity_auto_scaling_settings_update (): Types::AutoScalingSettingsUpdate
-    end
-
-    class GlobalTableNotFoundException < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
     module GlobalTableStatus
@@ -1019,19 +1019,19 @@ module AWS::SDK::DynamoDB
       UPDATING: ::String
     end
 
-    class IdempotentParameterMismatchException < ::Struct[untyped]
+    class IdempotentParameterMismatchException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class ImportConflictException < ::Struct[untyped]
+    class ImportConflictException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class ImportNotFoundException < ::Struct[untyped]
+    class ImportNotFoundException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
     module ImportStatus
@@ -1046,66 +1046,66 @@ module AWS::SDK::DynamoDB
       FAILED: ::String
     end
 
-    class ImportSummary < ::Struct[untyped]
+    class ImportSummary
       include Hearth::Structure
-      attr_accessor import_arn (): ::String
-      attr_accessor import_status (): ::String
-      attr_accessor table_arn (): ::String
-      attr_accessor s3_bucket_source (): Types::S3BucketSource
-      attr_accessor cloud_watch_log_group_arn (): ::String
-      attr_accessor input_format (): ::String
-      attr_accessor start_time (): ::Time
-      attr_accessor end_time (): ::Time
+      attr_accessor import_arn (): ::String?
+      attr_accessor import_status (): ::String?
+      attr_accessor table_arn (): ::String?
+      attr_accessor s3_bucket_source (): Types::S3BucketSource?
+      attr_accessor cloud_watch_log_group_arn (): ::String?
+      attr_accessor input_format (): ::String?
+      attr_accessor start_time (): ::Time?
+      attr_accessor end_time (): ::Time?
     end
 
-    class ImportTableDescription < ::Struct[untyped]
+    class ImportTableDescription
       include Hearth::Structure
-      attr_accessor import_arn (): ::String
-      attr_accessor import_status (): ::String
-      attr_accessor table_arn (): ::String
-      attr_accessor table_id (): ::String
-      attr_accessor client_token (): ::String
+      attr_accessor import_arn (): ::String?
+      attr_accessor import_status (): ::String?
+      attr_accessor table_arn (): ::String?
+      attr_accessor table_id (): ::String?
+      attr_accessor client_token (): ::String?
+      attr_accessor s3_bucket_source (): Types::S3BucketSource?
+      attr_accessor error_count (): ::Integer?
+      attr_accessor cloud_watch_log_group_arn (): ::String?
+      attr_accessor input_format (): ::String?
+      attr_accessor input_format_options (): Types::InputFormatOptions?
+      attr_accessor input_compression_type (): ::String?
+      attr_accessor table_creation_parameters (): Types::TableCreationParameters?
+      attr_accessor start_time (): ::Time?
+      attr_accessor end_time (): ::Time?
+      attr_accessor processed_size_bytes (): ::Integer?
+      attr_accessor processed_item_count (): ::Integer?
+      attr_accessor imported_item_count (): ::Integer?
+      attr_accessor failure_code (): ::String?
+      attr_accessor failure_message (): ::String?
+    end
+
+    class ImportTableInput
+      include Hearth::Structure
+      attr_accessor client_token (): ::String?
       attr_accessor s3_bucket_source (): Types::S3BucketSource
-      attr_accessor error_count (): ::Integer
-      attr_accessor cloud_watch_log_group_arn (): ::String
       attr_accessor input_format (): ::String
-      attr_accessor input_format_options (): Types::InputFormatOptions
-      attr_accessor input_compression_type (): ::String
+      attr_accessor input_format_options (): Types::InputFormatOptions?
+      attr_accessor input_compression_type (): ::String?
       attr_accessor table_creation_parameters (): Types::TableCreationParameters
-      attr_accessor start_time (): ::Time
-      attr_accessor end_time (): ::Time
-      attr_accessor processed_size_bytes (): ::Integer
-      attr_accessor processed_item_count (): ::Integer
-      attr_accessor imported_item_count (): ::Integer
-      attr_accessor failure_code (): ::String
-      attr_accessor failure_message (): ::String
     end
 
-    class ImportTableInput < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor client_token (): ::String
-      attr_accessor s3_bucket_source (): Types::S3BucketSource
-      attr_accessor input_format (): ::String
-      attr_accessor input_format_options (): Types::InputFormatOptions
-      attr_accessor input_compression_type (): ::String
-      attr_accessor table_creation_parameters (): Types::TableCreationParameters
-    end
-
-    class ImportTableOutput < ::Struct[untyped]
+    class ImportTableOutput
       include Hearth::Structure
       attr_accessor import_table_description (): Types::ImportTableDescription
     end
 
-    class IncrementalExportSpecification < ::Struct[untyped]
+    class IncrementalExportSpecification
       include Hearth::Structure
-      attr_accessor export_from_time (): ::Time
-      attr_accessor export_to_time (): ::Time
-      attr_accessor export_view_type (): ::String
+      attr_accessor export_from_time (): ::Time?
+      attr_accessor export_to_time (): ::Time?
+      attr_accessor export_view_type (): ::String?
     end
 
-    class IndexNotFoundException < ::Struct[untyped]
+    class IndexNotFoundException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
     module IndexStatus
@@ -1134,48 +1134,48 @@ module AWS::SDK::DynamoDB
       CSV: ::String
     end
 
-    class InputFormatOptions < ::Struct[untyped]
+    class InputFormatOptions
       include Hearth::Structure
-      attr_accessor csv (): Types::CsvOptions
+      attr_accessor csv (): Types::CsvOptions?
     end
 
-    class InternalServerError < ::Struct[untyped]
+    class InternalServerError
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class InvalidEndpointException < ::Struct[untyped]
+    class InvalidEndpointException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class InvalidExportTimeException < ::Struct[untyped]
+    class InvalidExportTimeException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class InvalidRestoreTimeException < ::Struct[untyped]
+    class InvalidRestoreTimeException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class ItemCollectionMetrics < ::Struct[untyped]
+    class ItemCollectionMetrics
       include Hearth::Structure
-      attr_accessor item_collection_key (): ::Hash[::String, Types::AttributeValue]
-      attr_accessor size_estimate_range_gb (): ::Array[::Float]
+      attr_accessor item_collection_key (): ::Hash[::String, Types::AttributeValue]?
+      attr_accessor size_estimate_range_gb (): ::Array[::Float]?
     end
 
-    class ItemCollectionSizeLimitExceededException < ::Struct[untyped]
+    class ItemCollectionSizeLimitExceededException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class ItemResponse < ::Struct[untyped]
+    class ItemResponse
       include Hearth::Structure
-      attr_accessor item (): ::Hash[::String, Types::AttributeValue]
+      attr_accessor item (): ::Hash[::String, Types::AttributeValue]?
     end
 
-    class KeySchemaElement < ::Struct[untyped]
+    class KeySchemaElement
       include Hearth::Structure
       attr_accessor attribute_name (): ::String
       attr_accessor key_type (): ::String
@@ -1187,159 +1187,159 @@ module AWS::SDK::DynamoDB
       RANGE: ::String
     end
 
-    class KeysAndAttributes < ::Struct[untyped]
+    class KeysAndAttributes
       include Hearth::Structure
       attr_accessor keys (): ::Array[::Hash[::String, Types::AttributeValue]]
-      attr_accessor attributes_to_get (): ::Array[::String]
-      attr_accessor consistent_read (): bool
-      attr_accessor projection_expression (): ::String
-      attr_accessor expression_attribute_names (): ::Hash[::String, ::String]
+      attr_accessor attributes_to_get (): ::Array[::String]?
+      attr_accessor consistent_read (): bool?
+      attr_accessor projection_expression (): ::String?
+      attr_accessor expression_attribute_names (): ::Hash[::String, ::String]?
     end
 
-    class KinesisDataStreamDestination < ::Struct[untyped]
+    class KinesisDataStreamDestination
       include Hearth::Structure
-      attr_accessor stream_arn (): ::String
-      attr_accessor destination_status (): ::String
-      attr_accessor destination_status_description (): ::String
-      attr_accessor approximate_creation_date_time_precision (): ::String
+      attr_accessor stream_arn (): ::String?
+      attr_accessor destination_status (): ::String?
+      attr_accessor destination_status_description (): ::String?
+      attr_accessor approximate_creation_date_time_precision (): ::String?
     end
 
-    class LimitExceededException < ::Struct[untyped]
+    class LimitExceededException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class ListBackupsInput < ::Struct[untyped]
+    class ListBackupsInput
       include Hearth::Structure
-      attr_accessor table_name (): ::String
-      attr_accessor limit (): ::Integer
-      attr_accessor time_range_lower_bound (): ::Time
-      attr_accessor time_range_upper_bound (): ::Time
-      attr_accessor exclusive_start_backup_arn (): ::String
-      attr_accessor backup_type (): ::String
+      attr_accessor table_name (): ::String?
+      attr_accessor limit (): ::Integer?
+      attr_accessor time_range_lower_bound (): ::Time?
+      attr_accessor time_range_upper_bound (): ::Time?
+      attr_accessor exclusive_start_backup_arn (): ::String?
+      attr_accessor backup_type (): ::String?
     end
 
-    class ListBackupsOutput < ::Struct[untyped]
+    class ListBackupsOutput
       include Hearth::Structure
-      attr_accessor backup_summaries (): ::Array[Types::BackupSummary]
-      attr_accessor last_evaluated_backup_arn (): ::String
+      attr_accessor backup_summaries (): ::Array[Types::BackupSummary]?
+      attr_accessor last_evaluated_backup_arn (): ::String?
     end
 
-    class ListContributorInsightsInput < ::Struct[untyped]
+    class ListContributorInsightsInput
       include Hearth::Structure
-      attr_accessor table_name (): ::String
-      attr_accessor next_token (): ::String
-      attr_accessor max_results (): ::Integer
+      attr_accessor table_name (): ::String?
+      attr_accessor next_token (): ::String?
+      attr_accessor max_results (): ::Integer?
     end
 
-    class ListContributorInsightsOutput < ::Struct[untyped]
+    class ListContributorInsightsOutput
       include Hearth::Structure
-      attr_accessor contributor_insights_summaries (): ::Array[Types::ContributorInsightsSummary]
-      attr_accessor next_token (): ::String
+      attr_accessor contributor_insights_summaries (): ::Array[Types::ContributorInsightsSummary]?
+      attr_accessor next_token (): ::String?
     end
 
-    class ListExportsInput < ::Struct[untyped]
+    class ListExportsInput
       include Hearth::Structure
-      attr_accessor table_arn (): ::String
-      attr_accessor max_results (): ::Integer
-      attr_accessor next_token (): ::String
+      attr_accessor table_arn (): ::String?
+      attr_accessor max_results (): ::Integer?
+      attr_accessor next_token (): ::String?
     end
 
-    class ListExportsOutput < ::Struct[untyped]
+    class ListExportsOutput
       include Hearth::Structure
-      attr_accessor export_summaries (): ::Array[Types::ExportSummary]
-      attr_accessor next_token (): ::String
+      attr_accessor export_summaries (): ::Array[Types::ExportSummary]?
+      attr_accessor next_token (): ::String?
     end
 
-    class ListGlobalTablesInput < ::Struct[untyped]
+    class ListGlobalTablesInput
       include Hearth::Structure
-      attr_accessor exclusive_start_global_table_name (): ::String
-      attr_accessor limit (): ::Integer
-      attr_accessor region_name (): ::String
+      attr_accessor exclusive_start_global_table_name (): ::String?
+      attr_accessor limit (): ::Integer?
+      attr_accessor region_name (): ::String?
     end
 
-    class ListGlobalTablesOutput < ::Struct[untyped]
+    class ListGlobalTablesOutput
       include Hearth::Structure
-      attr_accessor global_tables (): ::Array[Types::GlobalTable]
-      attr_accessor last_evaluated_global_table_name (): ::String
+      attr_accessor global_tables (): ::Array[Types::GlobalTable]?
+      attr_accessor last_evaluated_global_table_name (): ::String?
     end
 
-    class ListImportsInput < ::Struct[untyped]
+    class ListImportsInput
       include Hearth::Structure
-      attr_accessor table_arn (): ::String
-      attr_accessor page_size (): ::Integer
-      attr_accessor next_token (): ::String
+      attr_accessor table_arn (): ::String?
+      attr_accessor page_size (): ::Integer?
+      attr_accessor next_token (): ::String?
     end
 
-    class ListImportsOutput < ::Struct[untyped]
+    class ListImportsOutput
       include Hearth::Structure
-      attr_accessor import_summary_list (): ::Array[Types::ImportSummary]
-      attr_accessor next_token (): ::String
+      attr_accessor import_summary_list (): ::Array[Types::ImportSummary]?
+      attr_accessor next_token (): ::String?
     end
 
-    class ListTablesInput < ::Struct[untyped]
+    class ListTablesInput
       include Hearth::Structure
-      attr_accessor exclusive_start_table_name (): ::String
-      attr_accessor limit (): ::Integer
+      attr_accessor exclusive_start_table_name (): ::String?
+      attr_accessor limit (): ::Integer?
     end
 
-    class ListTablesOutput < ::Struct[untyped]
+    class ListTablesOutput
       include Hearth::Structure
-      attr_accessor table_names (): ::Array[::String]
-      attr_accessor last_evaluated_table_name (): ::String
+      attr_accessor table_names (): ::Array[::String]?
+      attr_accessor last_evaluated_table_name (): ::String?
     end
 
-    class ListTagsOfResourceInput < ::Struct[untyped]
+    class ListTagsOfResourceInput
       include Hearth::Structure
       attr_accessor resource_arn (): ::String
-      attr_accessor next_token (): ::String
+      attr_accessor next_token (): ::String?
     end
 
-    class ListTagsOfResourceOutput < ::Struct[untyped]
+    class ListTagsOfResourceOutput
       include Hearth::Structure
-      attr_accessor tags (): ::Array[Types::Tag]
-      attr_accessor next_token (): ::String
+      attr_accessor tags (): ::Array[Types::Tag]?
+      attr_accessor next_token (): ::String?
     end
 
-    class LocalSecondaryIndex < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor index_name (): ::String
-      attr_accessor key_schema (): ::Array[Types::KeySchemaElement]
-      attr_accessor projection (): Types::Projection
-    end
-
-    class LocalSecondaryIndexDescription < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor index_name (): ::String
-      attr_accessor key_schema (): ::Array[Types::KeySchemaElement]
-      attr_accessor projection (): Types::Projection
-      attr_accessor index_size_bytes (): ::Integer
-      attr_accessor item_count (): ::Integer
-      attr_accessor index_arn (): ::String
-    end
-
-    class LocalSecondaryIndexInfo < ::Struct[untyped]
+    class LocalSecondaryIndex
       include Hearth::Structure
       attr_accessor index_name (): ::String
       attr_accessor key_schema (): ::Array[Types::KeySchemaElement]
       attr_accessor projection (): Types::Projection
     end
 
-    class ParameterizedStatement < ::Struct[untyped]
+    class LocalSecondaryIndexDescription
+      include Hearth::Structure
+      attr_accessor index_name (): ::String?
+      attr_accessor key_schema (): ::Array[Types::KeySchemaElement]?
+      attr_accessor projection (): Types::Projection?
+      attr_accessor index_size_bytes (): ::Integer?
+      attr_accessor item_count (): ::Integer?
+      attr_accessor index_arn (): ::String?
+    end
+
+    class LocalSecondaryIndexInfo
+      include Hearth::Structure
+      attr_accessor index_name (): ::String?
+      attr_accessor key_schema (): ::Array[Types::KeySchemaElement]?
+      attr_accessor projection (): Types::Projection?
+    end
+
+    class ParameterizedStatement
       include Hearth::Structure
       attr_accessor statement (): ::String
-      attr_accessor parameters (): ::Array[Types::AttributeValue]
-      attr_accessor return_values_on_condition_check_failure (): ::String
+      attr_accessor parameters (): ::Array[Types::AttributeValue]?
+      attr_accessor return_values_on_condition_check_failure (): ::String?
     end
 
-    class PointInTimeRecoveryDescription < ::Struct[untyped]
+    class PointInTimeRecoveryDescription
       include Hearth::Structure
-      attr_accessor point_in_time_recovery_status (): ::String
-      attr_accessor earliest_restorable_date_time (): ::Time
-      attr_accessor latest_restorable_date_time (): ::Time
+      attr_accessor point_in_time_recovery_status (): ::String?
+      attr_accessor earliest_restorable_date_time (): ::Time?
+      attr_accessor latest_restorable_date_time (): ::Time?
     end
 
-    class PointInTimeRecoverySpecification < ::Struct[untyped]
+    class PointInTimeRecoverySpecification
       include Hearth::Structure
       attr_accessor point_in_time_recovery_enabled (): bool
     end
@@ -1350,15 +1350,15 @@ module AWS::SDK::DynamoDB
       DISABLED: ::String
     end
 
-    class PointInTimeRecoveryUnavailableException < ::Struct[untyped]
+    class PointInTimeRecoveryUnavailableException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class Projection < ::Struct[untyped]
+    class Projection
       include Hearth::Structure
-      attr_accessor projection_type (): ::String
-      attr_accessor non_key_attributes (): ::Array[::String]
+      attr_accessor projection_type (): ::String?
+      attr_accessor non_key_attributes (): ::Array[::String]?
     end
 
     module ProjectionType
@@ -1369,205 +1369,205 @@ module AWS::SDK::DynamoDB
       INCLUDE: ::String
     end
 
-    class ProvisionedThroughput < ::Struct[untyped]
+    class ProvisionedThroughput
       include Hearth::Structure
       attr_accessor read_capacity_units (): ::Integer
       attr_accessor write_capacity_units (): ::Integer
     end
 
-    class ProvisionedThroughputDescription < ::Struct[untyped]
+    class ProvisionedThroughputDescription
       include Hearth::Structure
-      attr_accessor last_increase_date_time (): ::Time
-      attr_accessor last_decrease_date_time (): ::Time
-      attr_accessor number_of_decreases_today (): ::Integer
-      attr_accessor read_capacity_units (): ::Integer
-      attr_accessor write_capacity_units (): ::Integer
+      attr_accessor last_increase_date_time (): ::Time?
+      attr_accessor last_decrease_date_time (): ::Time?
+      attr_accessor number_of_decreases_today (): ::Integer?
+      attr_accessor read_capacity_units (): ::Integer?
+      attr_accessor write_capacity_units (): ::Integer?
     end
 
-    class ProvisionedThroughputExceededException < ::Struct[untyped]
+    class ProvisionedThroughputExceededException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class ProvisionedThroughputOverride < ::Struct[untyped]
+    class ProvisionedThroughputOverride
       include Hearth::Structure
-      attr_accessor read_capacity_units (): ::Integer
+      attr_accessor read_capacity_units (): ::Integer?
     end
 
-    class Put < ::Struct[untyped]
+    class Put
       include Hearth::Structure
       attr_accessor item (): ::Hash[::String, Types::AttributeValue]
       attr_accessor table_name (): ::String
-      attr_accessor condition_expression (): ::String
-      attr_accessor expression_attribute_names (): ::Hash[::String, ::String]
-      attr_accessor expression_attribute_values (): ::Hash[::String, Types::AttributeValue]
-      attr_accessor return_values_on_condition_check_failure (): ::String
+      attr_accessor condition_expression (): ::String?
+      attr_accessor expression_attribute_names (): ::Hash[::String, ::String]?
+      attr_accessor expression_attribute_values (): ::Hash[::String, Types::AttributeValue]?
+      attr_accessor return_values_on_condition_check_failure (): ::String?
     end
 
-    class PutItemInput < ::Struct[untyped]
+    class PutItemInput
       include Hearth::Structure
       attr_accessor table_name (): ::String
       attr_accessor item (): ::Hash[::String, Types::AttributeValue]
-      attr_accessor expected (): ::Hash[::String, Types::ExpectedAttributeValue]
-      attr_accessor return_values (): ::String
-      attr_accessor return_consumed_capacity (): ::String
-      attr_accessor return_item_collection_metrics (): ::String
-      attr_accessor conditional_operator (): ::String
-      attr_accessor condition_expression (): ::String
-      attr_accessor expression_attribute_names (): ::Hash[::String, ::String]
-      attr_accessor expression_attribute_values (): ::Hash[::String, Types::AttributeValue]
-      attr_accessor return_values_on_condition_check_failure (): ::String
+      attr_accessor expected (): ::Hash[::String, Types::ExpectedAttributeValue]?
+      attr_accessor return_values (): ::String?
+      attr_accessor return_consumed_capacity (): ::String?
+      attr_accessor return_item_collection_metrics (): ::String?
+      attr_accessor conditional_operator (): ::String?
+      attr_accessor condition_expression (): ::String?
+      attr_accessor expression_attribute_names (): ::Hash[::String, ::String]?
+      attr_accessor expression_attribute_values (): ::Hash[::String, Types::AttributeValue]?
+      attr_accessor return_values_on_condition_check_failure (): ::String?
     end
 
-    class PutItemOutput < ::Struct[untyped]
+    class PutItemOutput
       include Hearth::Structure
-      attr_accessor attributes (): ::Hash[::String, Types::AttributeValue]
-      attr_accessor consumed_capacity (): Types::ConsumedCapacity
-      attr_accessor item_collection_metrics (): Types::ItemCollectionMetrics
+      attr_accessor attributes (): ::Hash[::String, Types::AttributeValue]?
+      attr_accessor consumed_capacity (): Types::ConsumedCapacity?
+      attr_accessor item_collection_metrics (): Types::ItemCollectionMetrics?
     end
 
-    class PutRequest < ::Struct[untyped]
+    class PutRequest
       include Hearth::Structure
       attr_accessor item (): ::Hash[::String, Types::AttributeValue]
     end
 
-    class QueryInput < ::Struct[untyped]
+    class QueryInput
       include Hearth::Structure
       attr_accessor table_name (): ::String
-      attr_accessor index_name (): ::String
-      attr_accessor select (): ::String
-      attr_accessor attributes_to_get (): ::Array[::String]
-      attr_accessor limit (): ::Integer
-      attr_accessor consistent_read (): bool
-      attr_accessor key_conditions (): ::Hash[::String, Types::Condition]
-      attr_accessor query_filter (): ::Hash[::String, Types::Condition]
-      attr_accessor conditional_operator (): ::String
-      attr_accessor scan_index_forward (): bool
-      attr_accessor exclusive_start_key (): ::Hash[::String, Types::AttributeValue]
-      attr_accessor return_consumed_capacity (): ::String
-      attr_accessor projection_expression (): ::String
-      attr_accessor filter_expression (): ::String
-      attr_accessor key_condition_expression (): ::String
-      attr_accessor expression_attribute_names (): ::Hash[::String, ::String]
-      attr_accessor expression_attribute_values (): ::Hash[::String, Types::AttributeValue]
+      attr_accessor index_name (): ::String?
+      attr_accessor select (): ::String?
+      attr_accessor attributes_to_get (): ::Array[::String]?
+      attr_accessor limit (): ::Integer?
+      attr_accessor consistent_read (): bool?
+      attr_accessor key_conditions (): ::Hash[::String, Types::Condition]?
+      attr_accessor query_filter (): ::Hash[::String, Types::Condition]?
+      attr_accessor conditional_operator (): ::String?
+      attr_accessor scan_index_forward (): bool?
+      attr_accessor exclusive_start_key (): ::Hash[::String, Types::AttributeValue]?
+      attr_accessor return_consumed_capacity (): ::String?
+      attr_accessor projection_expression (): ::String?
+      attr_accessor filter_expression (): ::String?
+      attr_accessor key_condition_expression (): ::String?
+      attr_accessor expression_attribute_names (): ::Hash[::String, ::String]?
+      attr_accessor expression_attribute_values (): ::Hash[::String, Types::AttributeValue]?
     end
 
-    class QueryOutput < ::Struct[untyped]
+    class QueryOutput
       include Hearth::Structure
-      attr_accessor items (): ::Array[::Hash[::String, Types::AttributeValue]]
-      attr_accessor count (): ::Integer
-      attr_accessor scanned_count (): ::Integer
-      attr_accessor last_evaluated_key (): ::Hash[::String, Types::AttributeValue]
-      attr_accessor consumed_capacity (): Types::ConsumedCapacity
+      attr_accessor items (): ::Array[::Hash[::String, Types::AttributeValue]]?
+      attr_accessor count (): ::Integer?
+      attr_accessor scanned_count (): ::Integer?
+      attr_accessor last_evaluated_key (): ::Hash[::String, Types::AttributeValue]?
+      attr_accessor consumed_capacity (): Types::ConsumedCapacity?
     end
 
-    class Replica < ::Struct[untyped]
+    class Replica
       include Hearth::Structure
-      attr_accessor region_name (): ::String
+      attr_accessor region_name (): ::String?
     end
 
-    class ReplicaAlreadyExistsException < ::Struct[untyped]
+    class ReplicaAlreadyExistsException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class ReplicaAutoScalingDescription < ::Struct[untyped]
+    class ReplicaAutoScalingDescription
       include Hearth::Structure
-      attr_accessor region_name (): ::String
-      attr_accessor global_secondary_indexes (): ::Array[Types::ReplicaGlobalSecondaryIndexAutoScalingDescription]
-      attr_accessor replica_provisioned_read_capacity_auto_scaling_settings (): Types::AutoScalingSettingsDescription
-      attr_accessor replica_provisioned_write_capacity_auto_scaling_settings (): Types::AutoScalingSettingsDescription
-      attr_accessor replica_status (): ::String
+      attr_accessor region_name (): ::String?
+      attr_accessor global_secondary_indexes (): ::Array[Types::ReplicaGlobalSecondaryIndexAutoScalingDescription]?
+      attr_accessor replica_provisioned_read_capacity_auto_scaling_settings (): Types::AutoScalingSettingsDescription?
+      attr_accessor replica_provisioned_write_capacity_auto_scaling_settings (): Types::AutoScalingSettingsDescription?
+      attr_accessor replica_status (): ::String?
     end
 
-    class ReplicaAutoScalingUpdate < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor region_name (): ::String
-      attr_accessor replica_global_secondary_index_updates (): ::Array[Types::ReplicaGlobalSecondaryIndexAutoScalingUpdate]
-      attr_accessor replica_provisioned_read_capacity_auto_scaling_update (): Types::AutoScalingSettingsUpdate
-    end
-
-    class ReplicaDescription < ::Struct[untyped]
+    class ReplicaAutoScalingUpdate
       include Hearth::Structure
       attr_accessor region_name (): ::String
-      attr_accessor replica_status (): ::String
-      attr_accessor replica_status_description (): ::String
-      attr_accessor replica_status_percent_progress (): ::String
-      attr_accessor kms_master_key_id (): ::String
-      attr_accessor provisioned_throughput_override (): Types::ProvisionedThroughputOverride
-      attr_accessor global_secondary_indexes (): ::Array[Types::ReplicaGlobalSecondaryIndexDescription]
-      attr_accessor replica_inaccessible_date_time (): ::Time
-      attr_accessor replica_table_class_summary (): Types::TableClassSummary
+      attr_accessor replica_global_secondary_index_updates (): ::Array[Types::ReplicaGlobalSecondaryIndexAutoScalingUpdate]?
+      attr_accessor replica_provisioned_read_capacity_auto_scaling_update (): Types::AutoScalingSettingsUpdate?
     end
 
-    class ReplicaGlobalSecondaryIndex < ::Struct[untyped]
+    class ReplicaDescription
+      include Hearth::Structure
+      attr_accessor region_name (): ::String?
+      attr_accessor replica_status (): ::String?
+      attr_accessor replica_status_description (): ::String?
+      attr_accessor replica_status_percent_progress (): ::String?
+      attr_accessor kms_master_key_id (): ::String?
+      attr_accessor provisioned_throughput_override (): Types::ProvisionedThroughputOverride?
+      attr_accessor global_secondary_indexes (): ::Array[Types::ReplicaGlobalSecondaryIndexDescription]?
+      attr_accessor replica_inaccessible_date_time (): ::Time?
+      attr_accessor replica_table_class_summary (): Types::TableClassSummary?
+    end
+
+    class ReplicaGlobalSecondaryIndex
       include Hearth::Structure
       attr_accessor index_name (): ::String
-      attr_accessor provisioned_throughput_override (): Types::ProvisionedThroughputOverride
+      attr_accessor provisioned_throughput_override (): Types::ProvisionedThroughputOverride?
     end
 
-    class ReplicaGlobalSecondaryIndexAutoScalingDescription < ::Struct[untyped]
+    class ReplicaGlobalSecondaryIndexAutoScalingDescription
+      include Hearth::Structure
+      attr_accessor index_name (): ::String?
+      attr_accessor index_status (): ::String?
+      attr_accessor provisioned_read_capacity_auto_scaling_settings (): Types::AutoScalingSettingsDescription?
+      attr_accessor provisioned_write_capacity_auto_scaling_settings (): Types::AutoScalingSettingsDescription?
+    end
+
+    class ReplicaGlobalSecondaryIndexAutoScalingUpdate
+      include Hearth::Structure
+      attr_accessor index_name (): ::String?
+      attr_accessor provisioned_read_capacity_auto_scaling_update (): Types::AutoScalingSettingsUpdate?
+    end
+
+    class ReplicaGlobalSecondaryIndexDescription
+      include Hearth::Structure
+      attr_accessor index_name (): ::String?
+      attr_accessor provisioned_throughput_override (): Types::ProvisionedThroughputOverride?
+    end
+
+    class ReplicaGlobalSecondaryIndexSettingsDescription
       include Hearth::Structure
       attr_accessor index_name (): ::String
-      attr_accessor index_status (): ::String
-      attr_accessor provisioned_read_capacity_auto_scaling_settings (): Types::AutoScalingSettingsDescription
-      attr_accessor provisioned_write_capacity_auto_scaling_settings (): Types::AutoScalingSettingsDescription
+      attr_accessor index_status (): ::String?
+      attr_accessor provisioned_read_capacity_units (): ::Integer?
+      attr_accessor provisioned_read_capacity_auto_scaling_settings (): Types::AutoScalingSettingsDescription?
+      attr_accessor provisioned_write_capacity_units (): ::Integer?
+      attr_accessor provisioned_write_capacity_auto_scaling_settings (): Types::AutoScalingSettingsDescription?
     end
 
-    class ReplicaGlobalSecondaryIndexAutoScalingUpdate < ::Struct[untyped]
+    class ReplicaGlobalSecondaryIndexSettingsUpdate
       include Hearth::Structure
       attr_accessor index_name (): ::String
-      attr_accessor provisioned_read_capacity_auto_scaling_update (): Types::AutoScalingSettingsUpdate
+      attr_accessor provisioned_read_capacity_units (): ::Integer?
+      attr_accessor provisioned_read_capacity_auto_scaling_settings_update (): Types::AutoScalingSettingsUpdate?
     end
 
-    class ReplicaGlobalSecondaryIndexDescription < ::Struct[untyped]
+    class ReplicaNotFoundException
       include Hearth::Structure
-      attr_accessor index_name (): ::String
-      attr_accessor provisioned_throughput_override (): Types::ProvisionedThroughputOverride
+      attr_accessor message (): ::String?
     end
 
-    class ReplicaGlobalSecondaryIndexSettingsDescription < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor index_name (): ::String
-      attr_accessor index_status (): ::String
-      attr_accessor provisioned_read_capacity_units (): ::Integer
-      attr_accessor provisioned_read_capacity_auto_scaling_settings (): Types::AutoScalingSettingsDescription
-      attr_accessor provisioned_write_capacity_units (): ::Integer
-      attr_accessor provisioned_write_capacity_auto_scaling_settings (): Types::AutoScalingSettingsDescription
-    end
-
-    class ReplicaGlobalSecondaryIndexSettingsUpdate < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor index_name (): ::String
-      attr_accessor provisioned_read_capacity_units (): ::Integer
-      attr_accessor provisioned_read_capacity_auto_scaling_settings_update (): Types::AutoScalingSettingsUpdate
-    end
-
-    class ReplicaNotFoundException < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor message (): ::String
-    end
-
-    class ReplicaSettingsDescription < ::Struct[untyped]
+    class ReplicaSettingsDescription
       include Hearth::Structure
       attr_accessor region_name (): ::String
-      attr_accessor replica_status (): ::String
-      attr_accessor replica_billing_mode_summary (): Types::BillingModeSummary
-      attr_accessor replica_provisioned_read_capacity_units (): ::Integer
-      attr_accessor replica_provisioned_read_capacity_auto_scaling_settings (): Types::AutoScalingSettingsDescription
-      attr_accessor replica_provisioned_write_capacity_units (): ::Integer
-      attr_accessor replica_provisioned_write_capacity_auto_scaling_settings (): Types::AutoScalingSettingsDescription
-      attr_accessor replica_global_secondary_index_settings (): ::Array[Types::ReplicaGlobalSecondaryIndexSettingsDescription]
-      attr_accessor replica_table_class_summary (): Types::TableClassSummary
+      attr_accessor replica_status (): ::String?
+      attr_accessor replica_billing_mode_summary (): Types::BillingModeSummary?
+      attr_accessor replica_provisioned_read_capacity_units (): ::Integer?
+      attr_accessor replica_provisioned_read_capacity_auto_scaling_settings (): Types::AutoScalingSettingsDescription?
+      attr_accessor replica_provisioned_write_capacity_units (): ::Integer?
+      attr_accessor replica_provisioned_write_capacity_auto_scaling_settings (): Types::AutoScalingSettingsDescription?
+      attr_accessor replica_global_secondary_index_settings (): ::Array[Types::ReplicaGlobalSecondaryIndexSettingsDescription]?
+      attr_accessor replica_table_class_summary (): Types::TableClassSummary?
     end
 
-    class ReplicaSettingsUpdate < ::Struct[untyped]
+    class ReplicaSettingsUpdate
       include Hearth::Structure
       attr_accessor region_name (): ::String
-      attr_accessor replica_provisioned_read_capacity_units (): ::Integer
-      attr_accessor replica_provisioned_read_capacity_auto_scaling_settings_update (): Types::AutoScalingSettingsUpdate
-      attr_accessor replica_global_secondary_index_settings_update (): ::Array[Types::ReplicaGlobalSecondaryIndexSettingsUpdate]
-      attr_accessor replica_table_class (): ::String
+      attr_accessor replica_provisioned_read_capacity_units (): ::Integer?
+      attr_accessor replica_provisioned_read_capacity_auto_scaling_settings_update (): Types::AutoScalingSettingsUpdate?
+      attr_accessor replica_global_secondary_index_settings_update (): ::Array[Types::ReplicaGlobalSecondaryIndexSettingsUpdate]?
+      attr_accessor replica_table_class (): ::String?
     end
 
     module ReplicaStatus
@@ -1586,75 +1586,75 @@ module AWS::SDK::DynamoDB
       INACCESSIBLE_ENCRYPTION_CREDENTIALS: ::String
     end
 
-    class ReplicaUpdate < ::Struct[untyped]
+    class ReplicaUpdate
       include Hearth::Structure
-      attr_accessor create (): Types::CreateReplicaAction
-      attr_accessor delete (): Types::DeleteReplicaAction
+      attr_accessor create (): Types::CreateReplicaAction?
+      attr_accessor delete (): Types::DeleteReplicaAction?
     end
 
-    class ReplicationGroupUpdate < ::Struct[untyped]
+    class ReplicationGroupUpdate
       include Hearth::Structure
-      attr_accessor create (): Types::CreateReplicationGroupMemberAction
-      attr_accessor update (): Types::UpdateReplicationGroupMemberAction
-      attr_accessor delete (): Types::DeleteReplicationGroupMemberAction
+      attr_accessor create (): Types::CreateReplicationGroupMemberAction?
+      attr_accessor update (): Types::UpdateReplicationGroupMemberAction?
+      attr_accessor delete (): Types::DeleteReplicationGroupMemberAction?
     end
 
-    class RequestLimitExceeded < ::Struct[untyped]
+    class RequestLimitExceeded
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class ResourceInUseException < ::Struct[untyped]
+    class ResourceInUseException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class ResourceNotFoundException < ::Struct[untyped]
+    class ResourceNotFoundException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class RestoreSummary < ::Struct[untyped]
+    class RestoreSummary
       include Hearth::Structure
-      attr_accessor source_backup_arn (): ::String
-      attr_accessor source_table_arn (): ::String
+      attr_accessor source_backup_arn (): ::String?
+      attr_accessor source_table_arn (): ::String?
       attr_accessor restore_date_time (): ::Time
       attr_accessor restore_in_progress (): bool
     end
 
-    class RestoreTableFromBackupInput < ::Struct[untyped]
+    class RestoreTableFromBackupInput
       include Hearth::Structure
       attr_accessor target_table_name (): ::String
       attr_accessor backup_arn (): ::String
-      attr_accessor billing_mode_override (): ::String
-      attr_accessor global_secondary_index_override (): ::Array[Types::GlobalSecondaryIndex]
-      attr_accessor local_secondary_index_override (): ::Array[Types::LocalSecondaryIndex]
-      attr_accessor provisioned_throughput_override (): Types::ProvisionedThroughput
-      attr_accessor sse_specification_override (): Types::SSESpecification
+      attr_accessor billing_mode_override (): ::String?
+      attr_accessor global_secondary_index_override (): ::Array[Types::GlobalSecondaryIndex]?
+      attr_accessor local_secondary_index_override (): ::Array[Types::LocalSecondaryIndex]?
+      attr_accessor provisioned_throughput_override (): Types::ProvisionedThroughput?
+      attr_accessor sse_specification_override (): Types::SSESpecification?
     end
 
-    class RestoreTableFromBackupOutput < ::Struct[untyped]
+    class RestoreTableFromBackupOutput
       include Hearth::Structure
-      attr_accessor table_description (): Types::TableDescription
+      attr_accessor table_description (): Types::TableDescription?
     end
 
-    class RestoreTableToPointInTimeInput < ::Struct[untyped]
+    class RestoreTableToPointInTimeInput
       include Hearth::Structure
-      attr_accessor source_table_arn (): ::String
-      attr_accessor source_table_name (): ::String
+      attr_accessor source_table_arn (): ::String?
+      attr_accessor source_table_name (): ::String?
       attr_accessor target_table_name (): ::String
-      attr_accessor use_latest_restorable_time (): bool
-      attr_accessor restore_date_time (): ::Time
-      attr_accessor billing_mode_override (): ::String
-      attr_accessor global_secondary_index_override (): ::Array[Types::GlobalSecondaryIndex]
-      attr_accessor local_secondary_index_override (): ::Array[Types::LocalSecondaryIndex]
-      attr_accessor provisioned_throughput_override (): Types::ProvisionedThroughput
-      attr_accessor sse_specification_override (): Types::SSESpecification
+      attr_accessor use_latest_restorable_time (): bool?
+      attr_accessor restore_date_time (): ::Time?
+      attr_accessor billing_mode_override (): ::String?
+      attr_accessor global_secondary_index_override (): ::Array[Types::GlobalSecondaryIndex]?
+      attr_accessor local_secondary_index_override (): ::Array[Types::LocalSecondaryIndex]?
+      attr_accessor provisioned_throughput_override (): Types::ProvisionedThroughput?
+      attr_accessor sse_specification_override (): Types::SSESpecification?
     end
 
-    class RestoreTableToPointInTimeOutput < ::Struct[untyped]
+    class RestoreTableToPointInTimeOutput
       include Hearth::Structure
-      attr_accessor table_description (): Types::TableDescription
+      attr_accessor table_description (): Types::TableDescription?
     end
 
     module ReturnConsumedCapacity
@@ -1689,11 +1689,11 @@ module AWS::SDK::DynamoDB
       NONE: ::String
     end
 
-    class S3BucketSource < ::Struct[untyped]
+    class S3BucketSource
       include Hearth::Structure
-      attr_accessor s3_bucket_owner (): ::String
+      attr_accessor s3_bucket_owner (): ::String?
       attr_accessor s3_bucket (): ::String
-      attr_accessor s3_key_prefix (): ::String
+      attr_accessor s3_key_prefix (): ::String?
     end
 
     module S3SseAlgorithm
@@ -1702,19 +1702,19 @@ module AWS::SDK::DynamoDB
       KMS: ::String
     end
 
-    class SSEDescription < ::Struct[untyped]
+    class SSEDescription
       include Hearth::Structure
-      attr_accessor status (): ::String
-      attr_accessor sse_type (): ::String
-      attr_accessor kms_master_key_arn (): ::String
-      attr_accessor inaccessible_encryption_date_time (): ::Time
+      attr_accessor status (): ::String?
+      attr_accessor sse_type (): ::String?
+      attr_accessor kms_master_key_arn (): ::String?
+      attr_accessor inaccessible_encryption_date_time (): ::Time?
     end
 
-    class SSESpecification < ::Struct[untyped]
+    class SSESpecification
       include Hearth::Structure
-      attr_accessor enabled (): bool
-      attr_accessor sse_type (): ::String
-      attr_accessor kms_master_key_id (): ::String
+      attr_accessor enabled (): bool?
+      attr_accessor sse_type (): ::String?
+      attr_accessor kms_master_key_id (): ::String?
     end
 
     module SSEStatus
@@ -1743,33 +1743,33 @@ module AWS::SDK::DynamoDB
       B: ::String
     end
 
-    class ScanInput < ::Struct[untyped]
+    class ScanInput
       include Hearth::Structure
       attr_accessor table_name (): ::String
-      attr_accessor index_name (): ::String
-      attr_accessor attributes_to_get (): ::Array[::String]
-      attr_accessor limit (): ::Integer
-      attr_accessor select (): ::String
-      attr_accessor scan_filter (): ::Hash[::String, Types::Condition]
-      attr_accessor conditional_operator (): ::String
-      attr_accessor exclusive_start_key (): ::Hash[::String, Types::AttributeValue]
-      attr_accessor return_consumed_capacity (): ::String
-      attr_accessor total_segments (): ::Integer
-      attr_accessor segment (): ::Integer
-      attr_accessor projection_expression (): ::String
-      attr_accessor filter_expression (): ::String
-      attr_accessor expression_attribute_names (): ::Hash[::String, ::String]
-      attr_accessor expression_attribute_values (): ::Hash[::String, Types::AttributeValue]
-      attr_accessor consistent_read (): bool
+      attr_accessor index_name (): ::String?
+      attr_accessor attributes_to_get (): ::Array[::String]?
+      attr_accessor limit (): ::Integer?
+      attr_accessor select (): ::String?
+      attr_accessor scan_filter (): ::Hash[::String, Types::Condition]?
+      attr_accessor conditional_operator (): ::String?
+      attr_accessor exclusive_start_key (): ::Hash[::String, Types::AttributeValue]?
+      attr_accessor return_consumed_capacity (): ::String?
+      attr_accessor total_segments (): ::Integer?
+      attr_accessor segment (): ::Integer?
+      attr_accessor projection_expression (): ::String?
+      attr_accessor filter_expression (): ::String?
+      attr_accessor expression_attribute_names (): ::Hash[::String, ::String]?
+      attr_accessor expression_attribute_values (): ::Hash[::String, Types::AttributeValue]?
+      attr_accessor consistent_read (): bool?
     end
 
-    class ScanOutput < ::Struct[untyped]
+    class ScanOutput
       include Hearth::Structure
-      attr_accessor items (): ::Array[::Hash[::String, Types::AttributeValue]]
-      attr_accessor count (): ::Integer
-      attr_accessor scanned_count (): ::Integer
-      attr_accessor last_evaluated_key (): ::Hash[::String, Types::AttributeValue]
-      attr_accessor consumed_capacity (): Types::ConsumedCapacity
+      attr_accessor items (): ::Array[::Hash[::String, Types::AttributeValue]]?
+      attr_accessor count (): ::Integer?
+      attr_accessor scanned_count (): ::Integer?
+      attr_accessor last_evaluated_key (): ::Hash[::String, Types::AttributeValue]?
+      attr_accessor consumed_capacity (): Types::ConsumedCapacity?
     end
 
     module Select
@@ -1782,32 +1782,32 @@ module AWS::SDK::DynamoDB
       COUNT: ::String
     end
 
-    class SourceTableDetails < ::Struct[untyped]
+    class SourceTableDetails
       include Hearth::Structure
       attr_accessor table_name (): ::String
       attr_accessor table_id (): ::String
-      attr_accessor table_arn (): ::String
-      attr_accessor table_size_bytes (): ::Integer
+      attr_accessor table_arn (): ::String?
+      attr_accessor table_size_bytes (): ::Integer?
       attr_accessor key_schema (): ::Array[Types::KeySchemaElement]
       attr_accessor table_creation_date_time (): ::Time
       attr_accessor provisioned_throughput (): Types::ProvisionedThroughput
-      attr_accessor item_count (): ::Integer
-      attr_accessor billing_mode (): ::String
+      attr_accessor item_count (): ::Integer?
+      attr_accessor billing_mode (): ::String?
     end
 
-    class SourceTableFeatureDetails < ::Struct[untyped]
+    class SourceTableFeatureDetails
       include Hearth::Structure
-      attr_accessor local_secondary_indexes (): ::Array[Types::LocalSecondaryIndexInfo]
-      attr_accessor global_secondary_indexes (): ::Array[Types::GlobalSecondaryIndexInfo]
-      attr_accessor stream_description (): Types::StreamSpecification
-      attr_accessor time_to_live_description (): Types::TimeToLiveDescription
-      attr_accessor sse_description (): Types::SSEDescription
+      attr_accessor local_secondary_indexes (): ::Array[Types::LocalSecondaryIndexInfo]?
+      attr_accessor global_secondary_indexes (): ::Array[Types::GlobalSecondaryIndexInfo]?
+      attr_accessor stream_description (): Types::StreamSpecification?
+      attr_accessor time_to_live_description (): Types::TimeToLiveDescription?
+      attr_accessor sse_description (): Types::SSEDescription?
     end
 
-    class StreamSpecification < ::Struct[untyped]
+    class StreamSpecification
       include Hearth::Structure
       attr_accessor stream_enabled (): bool
-      attr_accessor stream_view_type (): ::String
+      attr_accessor stream_view_type (): ::String?
     end
 
     module StreamViewType
@@ -1820,16 +1820,16 @@ module AWS::SDK::DynamoDB
       KEYS_ONLY: ::String
     end
 
-    class TableAlreadyExistsException < ::Struct[untyped]
+    class TableAlreadyExistsException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class TableAutoScalingDescription < ::Struct[untyped]
+    class TableAutoScalingDescription
       include Hearth::Structure
-      attr_accessor table_name (): ::String
-      attr_accessor table_status (): ::String
-      attr_accessor replicas (): ::Array[Types::ReplicaAutoScalingDescription]
+      attr_accessor table_name (): ::String?
+      attr_accessor table_status (): ::String?
+      attr_accessor replicas (): ::Array[Types::ReplicaAutoScalingDescription]?
     end
 
     module TableClass
@@ -1838,58 +1838,58 @@ module AWS::SDK::DynamoDB
       STANDARD_INFREQUENT_ACCESS: ::String
     end
 
-    class TableClassSummary < ::Struct[untyped]
+    class TableClassSummary
       include Hearth::Structure
-      attr_accessor table_class (): ::String
-      attr_accessor last_update_date_time (): ::Time
+      attr_accessor table_class (): ::String?
+      attr_accessor last_update_date_time (): ::Time?
     end
 
-    class TableCreationParameters < ::Struct[untyped]
+    class TableCreationParameters
       include Hearth::Structure
       attr_accessor table_name (): ::String
       attr_accessor attribute_definitions (): ::Array[Types::AttributeDefinition]
       attr_accessor key_schema (): ::Array[Types::KeySchemaElement]
-      attr_accessor billing_mode (): ::String
-      attr_accessor provisioned_throughput (): Types::ProvisionedThroughput
-      attr_accessor sse_specification (): Types::SSESpecification
-      attr_accessor global_secondary_indexes (): ::Array[Types::GlobalSecondaryIndex]
+      attr_accessor billing_mode (): ::String?
+      attr_accessor provisioned_throughput (): Types::ProvisionedThroughput?
+      attr_accessor sse_specification (): Types::SSESpecification?
+      attr_accessor global_secondary_indexes (): ::Array[Types::GlobalSecondaryIndex]?
     end
 
-    class TableDescription < ::Struct[untyped]
+    class TableDescription
       include Hearth::Structure
-      attr_accessor attribute_definitions (): ::Array[Types::AttributeDefinition]
-      attr_accessor table_name (): ::String
-      attr_accessor key_schema (): ::Array[Types::KeySchemaElement]
-      attr_accessor table_status (): ::String
-      attr_accessor creation_date_time (): ::Time
-      attr_accessor provisioned_throughput (): Types::ProvisionedThroughputDescription
-      attr_accessor table_size_bytes (): ::Integer
-      attr_accessor item_count (): ::Integer
-      attr_accessor table_arn (): ::String
-      attr_accessor table_id (): ::String
-      attr_accessor billing_mode_summary (): Types::BillingModeSummary
-      attr_accessor local_secondary_indexes (): ::Array[Types::LocalSecondaryIndexDescription]
-      attr_accessor global_secondary_indexes (): ::Array[Types::GlobalSecondaryIndexDescription]
-      attr_accessor stream_specification (): Types::StreamSpecification
-      attr_accessor latest_stream_label (): ::String
-      attr_accessor latest_stream_arn (): ::String
-      attr_accessor global_table_version (): ::String
-      attr_accessor replicas (): ::Array[Types::ReplicaDescription]
-      attr_accessor restore_summary (): Types::RestoreSummary
-      attr_accessor sse_description (): Types::SSEDescription
-      attr_accessor archival_summary (): Types::ArchivalSummary
-      attr_accessor table_class_summary (): Types::TableClassSummary
-      attr_accessor deletion_protection_enabled (): bool
+      attr_accessor attribute_definitions (): ::Array[Types::AttributeDefinition]?
+      attr_accessor table_name (): ::String?
+      attr_accessor key_schema (): ::Array[Types::KeySchemaElement]?
+      attr_accessor table_status (): ::String?
+      attr_accessor creation_date_time (): ::Time?
+      attr_accessor provisioned_throughput (): Types::ProvisionedThroughputDescription?
+      attr_accessor table_size_bytes (): ::Integer?
+      attr_accessor item_count (): ::Integer?
+      attr_accessor table_arn (): ::String?
+      attr_accessor table_id (): ::String?
+      attr_accessor billing_mode_summary (): Types::BillingModeSummary?
+      attr_accessor local_secondary_indexes (): ::Array[Types::LocalSecondaryIndexDescription]?
+      attr_accessor global_secondary_indexes (): ::Array[Types::GlobalSecondaryIndexDescription]?
+      attr_accessor stream_specification (): Types::StreamSpecification?
+      attr_accessor latest_stream_label (): ::String?
+      attr_accessor latest_stream_arn (): ::String?
+      attr_accessor global_table_version (): ::String?
+      attr_accessor replicas (): ::Array[Types::ReplicaDescription]?
+      attr_accessor restore_summary (): Types::RestoreSummary?
+      attr_accessor sse_description (): Types::SSEDescription?
+      attr_accessor archival_summary (): Types::ArchivalSummary?
+      attr_accessor table_class_summary (): Types::TableClassSummary?
+      attr_accessor deletion_protection_enabled (): bool?
     end
 
-    class TableInUseException < ::Struct[untyped]
+    class TableInUseException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class TableNotFoundException < ::Struct[untyped]
+    class TableNotFoundException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
     module TableStatus
@@ -1908,29 +1908,29 @@ module AWS::SDK::DynamoDB
       ARCHIVED: ::String
     end
 
-    class Tag < ::Struct[untyped]
+    class Tag
       include Hearth::Structure
       attr_accessor key (): ::String
       attr_accessor value (): ::String
     end
 
-    class TagResourceInput < ::Struct[untyped]
+    class TagResourceInput
       include Hearth::Structure
       attr_accessor resource_arn (): ::String
       attr_accessor tags (): ::Array[Types::Tag]
     end
 
-    class TagResourceOutput < ::Struct[untyped]
+    class TagResourceOutput
       include Hearth::Structure
     end
 
-    class TimeToLiveDescription < ::Struct[untyped]
+    class TimeToLiveDescription
       include Hearth::Structure
-      attr_accessor time_to_live_status (): ::String
-      attr_accessor attribute_name (): ::String
+      attr_accessor time_to_live_status (): ::String?
+      attr_accessor attribute_name (): ::String?
     end
 
-    class TimeToLiveSpecification < ::Struct[untyped]
+    class TimeToLiveSpecification
       include Hearth::Structure
       attr_accessor enabled (): bool
       attr_accessor attribute_name (): ::String
@@ -1946,240 +1946,240 @@ module AWS::SDK::DynamoDB
       DISABLED: ::String
     end
 
-    class TransactGetItem < ::Struct[untyped]
+    class TransactGetItem
       include Hearth::Structure
       attr_accessor get (): Types::Get
     end
 
-    class TransactGetItemsInput < ::Struct[untyped]
+    class TransactGetItemsInput
       include Hearth::Structure
       attr_accessor transact_items (): ::Array[Types::TransactGetItem]
-      attr_accessor return_consumed_capacity (): ::String
+      attr_accessor return_consumed_capacity (): ::String?
     end
 
-    class TransactGetItemsOutput < ::Struct[untyped]
+    class TransactGetItemsOutput
       include Hearth::Structure
-      attr_accessor consumed_capacity (): ::Array[Types::ConsumedCapacity]
-      attr_accessor responses (): ::Array[Types::ItemResponse]
+      attr_accessor consumed_capacity (): ::Array[Types::ConsumedCapacity]?
+      attr_accessor responses (): ::Array[Types::ItemResponse]?
     end
 
-    class TransactWriteItem < ::Struct[untyped]
+    class TransactWriteItem
       include Hearth::Structure
-      attr_accessor condition_check (): Types::ConditionCheck
-      attr_accessor put (): Types::Put
-      attr_accessor delete (): Types::Delete
-      attr_accessor update (): Types::Update
+      attr_accessor condition_check (): Types::ConditionCheck?
+      attr_accessor put (): Types::Put?
+      attr_accessor delete (): Types::Delete?
+      attr_accessor update (): Types::Update?
     end
 
-    class TransactWriteItemsInput < ::Struct[untyped]
+    class TransactWriteItemsInput
       include Hearth::Structure
       attr_accessor transact_items (): ::Array[Types::TransactWriteItem]
-      attr_accessor return_consumed_capacity (): ::String
-      attr_accessor return_item_collection_metrics (): ::String
-      attr_accessor client_request_token (): ::String
+      attr_accessor return_consumed_capacity (): ::String?
+      attr_accessor return_item_collection_metrics (): ::String?
+      attr_accessor client_request_token (): ::String?
     end
 
-    class TransactWriteItemsOutput < ::Struct[untyped]
+    class TransactWriteItemsOutput
       include Hearth::Structure
-      attr_accessor consumed_capacity (): ::Array[Types::ConsumedCapacity]
-      attr_accessor item_collection_metrics (): ::Hash[::String, ::Array[Types::ItemCollectionMetrics]]
+      attr_accessor consumed_capacity (): ::Array[Types::ConsumedCapacity]?
+      attr_accessor item_collection_metrics (): ::Hash[::String, ::Array[Types::ItemCollectionMetrics]]?
     end
 
-    class TransactionCanceledException < ::Struct[untyped]
+    class TransactionCanceledException
       include Hearth::Structure
-      attr_accessor message (): ::String
-      attr_accessor cancellation_reasons (): ::Array[Types::CancellationReason]
+      attr_accessor message (): ::String?
+      attr_accessor cancellation_reasons (): ::Array[Types::CancellationReason]?
     end
 
-    class TransactionConflictException < ::Struct[untyped]
+    class TransactionConflictException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class TransactionInProgressException < ::Struct[untyped]
+    class TransactionInProgressException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class UntagResourceInput < ::Struct[untyped]
+    class UntagResourceInput
       include Hearth::Structure
       attr_accessor resource_arn (): ::String
       attr_accessor tag_keys (): ::Array[::String]
     end
 
-    class UntagResourceOutput < ::Struct[untyped]
+    class UntagResourceOutput
       include Hearth::Structure
     end
 
-    class Update < ::Struct[untyped]
+    class Update
       include Hearth::Structure
       attr_accessor key (): ::Hash[::String, Types::AttributeValue]
       attr_accessor update_expression (): ::String
       attr_accessor table_name (): ::String
-      attr_accessor condition_expression (): ::String
-      attr_accessor expression_attribute_names (): ::Hash[::String, ::String]
-      attr_accessor expression_attribute_values (): ::Hash[::String, Types::AttributeValue]
-      attr_accessor return_values_on_condition_check_failure (): ::String
+      attr_accessor condition_expression (): ::String?
+      attr_accessor expression_attribute_names (): ::Hash[::String, ::String]?
+      attr_accessor expression_attribute_values (): ::Hash[::String, Types::AttributeValue]?
+      attr_accessor return_values_on_condition_check_failure (): ::String?
     end
 
-    class UpdateContinuousBackupsInput < ::Struct[untyped]
+    class UpdateContinuousBackupsInput
       include Hearth::Structure
       attr_accessor table_name (): ::String
       attr_accessor point_in_time_recovery_specification (): Types::PointInTimeRecoverySpecification
     end
 
-    class UpdateContinuousBackupsOutput < ::Struct[untyped]
+    class UpdateContinuousBackupsOutput
       include Hearth::Structure
-      attr_accessor continuous_backups_description (): Types::ContinuousBackupsDescription
+      attr_accessor continuous_backups_description (): Types::ContinuousBackupsDescription?
     end
 
-    class UpdateContributorInsightsInput < ::Struct[untyped]
+    class UpdateContributorInsightsInput
       include Hearth::Structure
       attr_accessor table_name (): ::String
-      attr_accessor index_name (): ::String
+      attr_accessor index_name (): ::String?
       attr_accessor contributor_insights_action (): ::String
     end
 
-    class UpdateContributorInsightsOutput < ::Struct[untyped]
+    class UpdateContributorInsightsOutput
       include Hearth::Structure
-      attr_accessor table_name (): ::String
-      attr_accessor index_name (): ::String
-      attr_accessor contributor_insights_status (): ::String
+      attr_accessor table_name (): ::String?
+      attr_accessor index_name (): ::String?
+      attr_accessor contributor_insights_status (): ::String?
     end
 
-    class UpdateGlobalSecondaryIndexAction < ::Struct[untyped]
+    class UpdateGlobalSecondaryIndexAction
       include Hearth::Structure
       attr_accessor index_name (): ::String
       attr_accessor provisioned_throughput (): Types::ProvisionedThroughput
     end
 
-    class UpdateGlobalTableInput < ::Struct[untyped]
+    class UpdateGlobalTableInput
       include Hearth::Structure
       attr_accessor global_table_name (): ::String
       attr_accessor replica_updates (): ::Array[Types::ReplicaUpdate]
     end
 
-    class UpdateGlobalTableOutput < ::Struct[untyped]
+    class UpdateGlobalTableOutput
       include Hearth::Structure
-      attr_accessor global_table_description (): Types::GlobalTableDescription
+      attr_accessor global_table_description (): Types::GlobalTableDescription?
     end
 
-    class UpdateGlobalTableSettingsInput < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor global_table_name (): ::String
-      attr_accessor global_table_billing_mode (): ::String
-      attr_accessor global_table_provisioned_write_capacity_units (): ::Integer
-      attr_accessor global_table_provisioned_write_capacity_auto_scaling_settings_update (): Types::AutoScalingSettingsUpdate
-      attr_accessor global_table_global_secondary_index_settings_update (): ::Array[Types::GlobalTableGlobalSecondaryIndexSettingsUpdate]
-      attr_accessor replica_settings_update (): ::Array[Types::ReplicaSettingsUpdate]
-    end
-
-    class UpdateGlobalTableSettingsOutput < ::Struct[untyped]
+    class UpdateGlobalTableSettingsInput
       include Hearth::Structure
       attr_accessor global_table_name (): ::String
-      attr_accessor replica_settings (): ::Array[Types::ReplicaSettingsDescription]
+      attr_accessor global_table_billing_mode (): ::String?
+      attr_accessor global_table_provisioned_write_capacity_units (): ::Integer?
+      attr_accessor global_table_provisioned_write_capacity_auto_scaling_settings_update (): Types::AutoScalingSettingsUpdate?
+      attr_accessor global_table_global_secondary_index_settings_update (): ::Array[Types::GlobalTableGlobalSecondaryIndexSettingsUpdate]?
+      attr_accessor replica_settings_update (): ::Array[Types::ReplicaSettingsUpdate]?
     end
 
-    class UpdateItemInput < ::Struct[untyped]
+    class UpdateGlobalTableSettingsOutput
+      include Hearth::Structure
+      attr_accessor global_table_name (): ::String?
+      attr_accessor replica_settings (): ::Array[Types::ReplicaSettingsDescription]?
+    end
+
+    class UpdateItemInput
       include Hearth::Structure
       attr_accessor table_name (): ::String
       attr_accessor key (): ::Hash[::String, Types::AttributeValue]
-      attr_accessor attribute_updates (): ::Hash[::String, Types::AttributeValueUpdate]
-      attr_accessor expected (): ::Hash[::String, Types::ExpectedAttributeValue]
-      attr_accessor conditional_operator (): ::String
-      attr_accessor return_values (): ::String
-      attr_accessor return_consumed_capacity (): ::String
-      attr_accessor return_item_collection_metrics (): ::String
-      attr_accessor update_expression (): ::String
-      attr_accessor condition_expression (): ::String
-      attr_accessor expression_attribute_names (): ::Hash[::String, ::String]
-      attr_accessor expression_attribute_values (): ::Hash[::String, Types::AttributeValue]
-      attr_accessor return_values_on_condition_check_failure (): ::String
+      attr_accessor attribute_updates (): ::Hash[::String, Types::AttributeValueUpdate]?
+      attr_accessor expected (): ::Hash[::String, Types::ExpectedAttributeValue]?
+      attr_accessor conditional_operator (): ::String?
+      attr_accessor return_values (): ::String?
+      attr_accessor return_consumed_capacity (): ::String?
+      attr_accessor return_item_collection_metrics (): ::String?
+      attr_accessor update_expression (): ::String?
+      attr_accessor condition_expression (): ::String?
+      attr_accessor expression_attribute_names (): ::Hash[::String, ::String]?
+      attr_accessor expression_attribute_values (): ::Hash[::String, Types::AttributeValue]?
+      attr_accessor return_values_on_condition_check_failure (): ::String?
     end
 
-    class UpdateItemOutput < ::Struct[untyped]
+    class UpdateItemOutput
       include Hearth::Structure
-      attr_accessor attributes (): ::Hash[::String, Types::AttributeValue]
-      attr_accessor consumed_capacity (): Types::ConsumedCapacity
-      attr_accessor item_collection_metrics (): Types::ItemCollectionMetrics
+      attr_accessor attributes (): ::Hash[::String, Types::AttributeValue]?
+      attr_accessor consumed_capacity (): Types::ConsumedCapacity?
+      attr_accessor item_collection_metrics (): Types::ItemCollectionMetrics?
     end
 
-    class UpdateKinesisStreamingConfiguration < ::Struct[untyped]
+    class UpdateKinesisStreamingConfiguration
       include Hearth::Structure
-      attr_accessor approximate_creation_date_time_precision (): ::String
+      attr_accessor approximate_creation_date_time_precision (): ::String?
     end
 
-    class UpdateKinesisStreamingDestinationInput < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor table_name (): ::String
-      attr_accessor stream_arn (): ::String
-      attr_accessor update_kinesis_streaming_configuration (): Types::UpdateKinesisStreamingConfiguration
-    end
-
-    class UpdateKinesisStreamingDestinationOutput < ::Struct[untyped]
+    class UpdateKinesisStreamingDestinationInput
       include Hearth::Structure
       attr_accessor table_name (): ::String
       attr_accessor stream_arn (): ::String
-      attr_accessor destination_status (): ::String
-      attr_accessor update_kinesis_streaming_configuration (): Types::UpdateKinesisStreamingConfiguration
+      attr_accessor update_kinesis_streaming_configuration (): Types::UpdateKinesisStreamingConfiguration?
     end
 
-    class UpdateReplicationGroupMemberAction < ::Struct[untyped]
+    class UpdateKinesisStreamingDestinationOutput
+      include Hearth::Structure
+      attr_accessor table_name (): ::String?
+      attr_accessor stream_arn (): ::String?
+      attr_accessor destination_status (): ::String?
+      attr_accessor update_kinesis_streaming_configuration (): Types::UpdateKinesisStreamingConfiguration?
+    end
+
+    class UpdateReplicationGroupMemberAction
       include Hearth::Structure
       attr_accessor region_name (): ::String
-      attr_accessor kms_master_key_id (): ::String
-      attr_accessor provisioned_throughput_override (): Types::ProvisionedThroughputOverride
-      attr_accessor global_secondary_indexes (): ::Array[Types::ReplicaGlobalSecondaryIndex]
-      attr_accessor table_class_override (): ::String
+      attr_accessor kms_master_key_id (): ::String?
+      attr_accessor provisioned_throughput_override (): Types::ProvisionedThroughputOverride?
+      attr_accessor global_secondary_indexes (): ::Array[Types::ReplicaGlobalSecondaryIndex]?
+      attr_accessor table_class_override (): ::String?
     end
 
-    class UpdateTableInput < ::Struct[untyped]
+    class UpdateTableInput
       include Hearth::Structure
-      attr_accessor attribute_definitions (): ::Array[Types::AttributeDefinition]
+      attr_accessor attribute_definitions (): ::Array[Types::AttributeDefinition]?
       attr_accessor table_name (): ::String
-      attr_accessor billing_mode (): ::String
-      attr_accessor provisioned_throughput (): Types::ProvisionedThroughput
-      attr_accessor global_secondary_index_updates (): ::Array[Types::GlobalSecondaryIndexUpdate]
-      attr_accessor stream_specification (): Types::StreamSpecification
-      attr_accessor sse_specification (): Types::SSESpecification
-      attr_accessor replica_updates (): ::Array[Types::ReplicationGroupUpdate]
-      attr_accessor table_class (): ::String
-      attr_accessor deletion_protection_enabled (): bool
+      attr_accessor billing_mode (): ::String?
+      attr_accessor provisioned_throughput (): Types::ProvisionedThroughput?
+      attr_accessor global_secondary_index_updates (): ::Array[Types::GlobalSecondaryIndexUpdate]?
+      attr_accessor stream_specification (): Types::StreamSpecification?
+      attr_accessor sse_specification (): Types::SSESpecification?
+      attr_accessor replica_updates (): ::Array[Types::ReplicationGroupUpdate]?
+      attr_accessor table_class (): ::String?
+      attr_accessor deletion_protection_enabled (): bool?
     end
 
-    class UpdateTableOutput < ::Struct[untyped]
+    class UpdateTableOutput
       include Hearth::Structure
-      attr_accessor table_description (): Types::TableDescription
+      attr_accessor table_description (): Types::TableDescription?
     end
 
-    class UpdateTableReplicaAutoScalingInput < ::Struct[untyped]
+    class UpdateTableReplicaAutoScalingInput
       include Hearth::Structure
-      attr_accessor global_secondary_index_updates (): ::Array[Types::GlobalSecondaryIndexAutoScalingUpdate]
+      attr_accessor global_secondary_index_updates (): ::Array[Types::GlobalSecondaryIndexAutoScalingUpdate]?
       attr_accessor table_name (): ::String
-      attr_accessor provisioned_write_capacity_auto_scaling_update (): Types::AutoScalingSettingsUpdate
-      attr_accessor replica_updates (): ::Array[Types::ReplicaAutoScalingUpdate]
+      attr_accessor provisioned_write_capacity_auto_scaling_update (): Types::AutoScalingSettingsUpdate?
+      attr_accessor replica_updates (): ::Array[Types::ReplicaAutoScalingUpdate]?
     end
 
-    class UpdateTableReplicaAutoScalingOutput < ::Struct[untyped]
+    class UpdateTableReplicaAutoScalingOutput
       include Hearth::Structure
-      attr_accessor table_auto_scaling_description (): Types::TableAutoScalingDescription
+      attr_accessor table_auto_scaling_description (): Types::TableAutoScalingDescription?
     end
 
-    class UpdateTimeToLiveInput < ::Struct[untyped]
+    class UpdateTimeToLiveInput
       include Hearth::Structure
       attr_accessor table_name (): ::String
       attr_accessor time_to_live_specification (): Types::TimeToLiveSpecification
     end
 
-    class UpdateTimeToLiveOutput < ::Struct[untyped]
+    class UpdateTimeToLiveOutput
       include Hearth::Structure
-      attr_accessor time_to_live_specification (): Types::TimeToLiveSpecification
+      attr_accessor time_to_live_specification (): Types::TimeToLiveSpecification?
     end
 
-    class WriteRequest < ::Struct[untyped]
+    class WriteRequest
       include Hearth::Structure
-      attr_accessor put_request (): Types::PutRequest
-      attr_accessor delete_request (): Types::DeleteRequest
+      attr_accessor put_request (): Types::PutRequest?
+      attr_accessor delete_request (): Types::DeleteRequest?
     end
 
   end

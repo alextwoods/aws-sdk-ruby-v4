@@ -23,12 +23,15 @@ module AWS::SDK::SSOOIDC
     #   <p>Human-readable text providing additional information, used to assist the
     #         client developer in understanding the error that occurred.</p>
     #   @return [String]
-    AccessDeniedException = ::Struct.new(
-      :error,
-      :error_description,
-      keyword_init: true
-    ) do
+    class AccessDeniedException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        error
+        error_description
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Indicates that a request to authorize a client with an access user session token is
@@ -45,12 +48,15 @@ module AWS::SDK::SSOOIDC
     #   <p>Human-readable text providing additional information, used to assist the
     #         client developer in understanding the error that occurred.</p>
     #   @return [String]
-    AuthorizationPendingException = ::Struct.new(
-      :error,
-      :error_description,
-      keyword_init: true
-    ) do
+    class AuthorizationPendingException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        error
+        error_description
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -114,22 +120,25 @@ module AWS::SDK::SSOOIDC
     #         by the client and presented to validate the original code challenge value the client passed at
     #         authorization time.</p>
     #   @return [String]
-    CreateTokenInput = ::Struct.new(
-      :client_id,
-      :client_secret,
-      :grant_type,
-      :device_code,
-      :code,
-      :refresh_token,
-      :scope,
-      :redirect_uri,
-      :code_verifier,
-      keyword_init: true
-    ) do
+    class CreateTokenInput
       include Hearth::Structure
 
+      MEMBERS = %i[
+        client_id
+        client_secret
+        grant_type
+        device_code
+        code
+        refresh_token
+        scope
+        redirect_uri
+        code_verifier
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::SSOOIDC::Types::CreateTokenInput "\
+        "#<AWS::SDK::SSOOIDC::Types::CreateTokenInput "\
           "client_id=#{client_id || 'nil'}, "\
           "client_secret=\"[SENSITIVE]\", "\
           "grant_type=#{grant_type || 'nil'}, "\
@@ -175,18 +184,21 @@ module AWS::SDK::SSOOIDC
     #            <p>A JSON Web Token (JWT) that identifies who is associated with the issued access token.
     #         </p>
     #   @return [String]
-    CreateTokenOutput = ::Struct.new(
-      :access_token,
-      :token_type,
-      :expires_in,
-      :refresh_token,
-      :id_token,
-      keyword_init: true
-    ) do
+    class CreateTokenOutput
       include Hearth::Structure
 
+      MEMBERS = %i[
+        access_token
+        token_type
+        expires_in
+        refresh_token
+        id_token
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::SSOOIDC::Types::CreateTokenOutput "\
+        "#<AWS::SDK::SSOOIDC::Types::CreateTokenOutput "\
           "access_token=\"[SENSITIVE]\", "\
           "token_type=#{token_type || 'nil'}, "\
           "expires_in=#{expires_in || 'nil'}, "\
@@ -288,24 +300,27 @@ module AWS::SDK::SSOOIDC
     #         by the client and presented to validate the original code challenge value the client passed at
     #         authorization time.</p>
     #   @return [String]
-    CreateTokenWithIAMInput = ::Struct.new(
-      :client_id,
-      :grant_type,
-      :code,
-      :refresh_token,
-      :assertion,
-      :scope,
-      :redirect_uri,
-      :subject_token,
-      :subject_token_type,
-      :requested_token_type,
-      :code_verifier,
-      keyword_init: true
-    ) do
+    class CreateTokenWithIAMInput
       include Hearth::Structure
 
+      MEMBERS = %i[
+        client_id
+        grant_type
+        code
+        refresh_token
+        assertion
+        scope
+        redirect_uri
+        subject_token
+        subject_token_type
+        requested_token_type
+        code_verifier
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::SSOOIDC::Types::CreateTokenWithIAMInput "\
+        "#<AWS::SDK::SSOOIDC::Types::CreateTokenWithIAMInput "\
           "client_id=#{client_id || 'nil'}, "\
           "grant_type=#{grant_type || 'nil'}, "\
           "code=#{code || 'nil'}, "\
@@ -363,20 +378,23 @@ module AWS::SDK::SSOOIDC
     #   <p>The list of scopes for which authorization is granted. The access token that is issued
     #         is limited to the scopes that are granted.</p>
     #   @return [Array<String>]
-    CreateTokenWithIAMOutput = ::Struct.new(
-      :access_token,
-      :token_type,
-      :expires_in,
-      :refresh_token,
-      :id_token,
-      :issued_token_type,
-      :scope,
-      keyword_init: true
-    ) do
+    class CreateTokenWithIAMOutput
       include Hearth::Structure
 
+      MEMBERS = %i[
+        access_token
+        token_type
+        expires_in
+        refresh_token
+        id_token
+        issued_token_type
+        scope
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::SSOOIDC::Types::CreateTokenWithIAMOutput "\
+        "#<AWS::SDK::SSOOIDC::Types::CreateTokenWithIAMOutput "\
           "access_token=\"[SENSITIVE]\", "\
           "token_type=#{token_type || 'nil'}, "\
           "expires_in=#{expires_in || 'nil'}, "\
@@ -408,12 +426,15 @@ module AWS::SDK::SSOOIDC
     #   <p>Human-readable text providing additional information, used to assist the
     #         client developer in understanding the error that occurred.</p>
     #   @return [String]
-    ExpiredTokenException = ::Struct.new(
-      :error,
-      :error_description,
-      keyword_init: true
-    ) do
+    class ExpiredTokenException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        error
+        error_description
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Indicates that an error from the service occurred while trying to process a
@@ -430,12 +451,15 @@ module AWS::SDK::SSOOIDC
     #   <p>Human-readable text providing additional information, used to assist the
     #         client developer in understanding the error that occurred.</p>
     #   @return [String]
-    InternalServerException = ::Struct.new(
-      :error,
-      :error_description,
-      keyword_init: true
-    ) do
+    class InternalServerException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        error
+        error_description
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Indicates that the <code>clientId</code> or <code>clientSecret</code> in the request is
@@ -453,12 +477,15 @@ module AWS::SDK::SSOOIDC
     #   <p>Human-readable text providing additional information, used to assist the
     #         client developer in understanding the error that occurred.</p>
     #   @return [String]
-    InvalidClientException = ::Struct.new(
-      :error,
-      :error_description,
-      keyword_init: true
-    ) do
+    class InvalidClientException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        error
+        error_description
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Indicates that the client information sent in the request during registration is
@@ -475,12 +502,15 @@ module AWS::SDK::SSOOIDC
     #   <p>Human-readable text providing additional information, used to assist the
     #         client developer in understanding the error that occurred.</p>
     #   @return [String]
-    InvalidClientMetadataException = ::Struct.new(
-      :error,
-      :error_description,
-      keyword_init: true
-    ) do
+    class InvalidClientMetadataException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        error
+        error_description
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Indicates that a request contains an invalid grant. This can occur if a client makes a
@@ -497,12 +527,15 @@ module AWS::SDK::SSOOIDC
     #   <p>Human-readable text providing additional information, used to assist the
     #         client developer in understanding the error that occurred.</p>
     #   @return [String]
-    InvalidGrantException = ::Struct.new(
-      :error,
-      :error_description,
-      keyword_init: true
-    ) do
+    class InvalidGrantException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        error
+        error_description
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Indicates that one or more redirect URI in the request is not supported for this operation.</p>
@@ -518,12 +551,15 @@ module AWS::SDK::SSOOIDC
     #   <p>Human-readable text providing additional information, used to assist the
     #         client developer in understanding the error that occurred.</p>
     #   @return [String]
-    InvalidRedirectUriException = ::Struct.new(
-      :error,
-      :error_description,
-      keyword_init: true
-    ) do
+    class InvalidRedirectUriException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        error
+        error_description
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Indicates that something is wrong with the input to the request. For example, a required
@@ -540,12 +576,15 @@ module AWS::SDK::SSOOIDC
     #   <p>Human-readable text providing additional information, used to assist the
     #         client developer in understanding the error that occurred.</p>
     #   @return [String]
-    InvalidRequestException = ::Struct.new(
-      :error,
-      :error_description,
-      keyword_init: true
-    ) do
+    class InvalidRequestException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        error
+        error_description
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Indicates that a token provided as input to the request was issued by and is only usable
@@ -570,14 +609,17 @@ module AWS::SDK::SSOOIDC
     # @!attribute region
     #   <p>Indicates the region which the requester may call with this token.</p>
     #   @return [String]
-    InvalidRequestRegionException = ::Struct.new(
-      :error,
-      :error_description,
-      :endpoint,
-      :region,
-      keyword_init: true
-    ) do
+    class InvalidRequestRegionException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        error
+        error_description
+        endpoint
+        region
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Indicates that the scope provided in the request is invalid.</p>
@@ -593,12 +635,15 @@ module AWS::SDK::SSOOIDC
     #   <p>Human-readable text providing additional information, used to assist the
     #         client developer in understanding the error that occurred.</p>
     #   @return [String]
-    InvalidScopeException = ::Struct.new(
-      :error,
-      :error_description,
-      keyword_init: true
-    ) do
+    class InvalidScopeException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        error
+        error_description
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -636,17 +681,20 @@ module AWS::SDK::SSOOIDC
     #   <p>This IAM Identity Center application ARN is used to define administrator-managed configuration for public client access to resources. At
     #         authorization, the scopes, grants, and redirect URI available to this client will be restricted by this application resource.</p>
     #   @return [String]
-    RegisterClientInput = ::Struct.new(
-      :client_name,
-      :client_type,
-      :scopes,
-      :redirect_uris,
-      :grant_types,
-      :issuer_url,
-      :entitled_application_arn,
-      keyword_init: true
-    ) do
+    class RegisterClientInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        client_name
+        client_type
+        scopes
+        redirect_uris
+        grant_types
+        issuer_url
+        entitled_application_arn
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -679,19 +727,22 @@ module AWS::SDK::SSOOIDC
     # @!attribute token_endpoint
     #   <p>An endpoint that the client can use to create tokens.</p>
     #   @return [String]
-    RegisterClientOutput = ::Struct.new(
-      :client_id,
-      :client_secret,
-      :client_id_issued_at,
-      :client_secret_expires_at,
-      :authorization_endpoint,
-      :token_endpoint,
-      keyword_init: true
-    ) do
+    class RegisterClientOutput
       include Hearth::Structure
 
+      MEMBERS = %i[
+        client_id
+        client_secret
+        client_id_issued_at
+        client_secret_expires_at
+        authorization_endpoint
+        token_endpoint
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::SSOOIDC::Types::RegisterClientOutput "\
+        "#<AWS::SDK::SSOOIDC::Types::RegisterClientOutput "\
           "client_id=#{client_id || 'nil'}, "\
           "client_secret=\"[SENSITIVE]\", "\
           "client_id_issued_at=#{client_id_issued_at || 'nil'}, "\
@@ -724,12 +775,15 @@ module AWS::SDK::SSOOIDC
     #   <p>Human-readable text providing additional information, used to assist the
     #         client developer in understanding the error that occurred.</p>
     #   @return [String]
-    SlowDownException = ::Struct.new(
-      :error,
-      :error_description,
-      keyword_init: true
-    ) do
+    class SlowDownException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        error
+        error_description
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -750,16 +804,19 @@ module AWS::SDK::SSOOIDC
     #   <p>The URL for the Amazon Web Services access portal. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/using-the-portal.html">Using
     #         the Amazon Web Services access portal</a> in the <i>IAM Identity Center User Guide</i>.</p>
     #   @return [String]
-    StartDeviceAuthorizationInput = ::Struct.new(
-      :client_id,
-      :client_secret,
-      :start_url,
-      keyword_init: true
-    ) do
+    class StartDeviceAuthorizationInput
       include Hearth::Structure
 
+      MEMBERS = %i[
+        client_id
+        client_secret
+        start_url
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::SSOOIDC::Types::StartDeviceAuthorizationInput "\
+        "#<AWS::SDK::SSOOIDC::Types::StartDeviceAuthorizationInput "\
           "client_id=#{client_id || 'nil'}, "\
           "client_secret=\"[SENSITIVE]\", "\
           "start_url=#{start_url || 'nil'}>"
@@ -796,16 +853,19 @@ module AWS::SDK::SSOOIDC
     #   <p>Indicates the number of seconds the client must wait between attempts when polling for a
     #         session.</p>
     #   @return [Integer]
-    StartDeviceAuthorizationOutput = ::Struct.new(
-      :device_code,
-      :user_code,
-      :verification_uri,
-      :verification_uri_complete,
-      :expires_in,
-      :interval,
-      keyword_init: true
-    ) do
+    class StartDeviceAuthorizationOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        device_code
+        user_code
+        verification_uri
+        verification_uri_complete
+        expires_in
+        interval
+      ].freeze
+
+      attr_accessor(*MEMBERS)
 
       private
 
@@ -831,12 +891,15 @@ module AWS::SDK::SSOOIDC
     #   <p>Human-readable text providing additional information, used to assist the
     #         client developer in understanding the error that occurred.</p>
     #   @return [String]
-    UnauthorizedClientException = ::Struct.new(
-      :error,
-      :error_description,
-      keyword_init: true
-    ) do
+    class UnauthorizedClientException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        error
+        error_description
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Indicates that the grant type in the request is not supported by the service.</p>
@@ -852,12 +915,15 @@ module AWS::SDK::SSOOIDC
     #   <p>Human-readable text providing additional information, used to assist the
     #         client developer in understanding the error that occurred.</p>
     #   @return [String]
-    UnsupportedGrantTypeException = ::Struct.new(
-      :error,
-      :error_description,
-      keyword_init: true
-    ) do
+    class UnsupportedGrantTypeException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        error
+        error_description
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
   end

@@ -15,9 +15,35 @@
 
 package software.amazon.smithy.aws.ruby.codegen.protocol.restxml.generators;
 
-import software.amazon.smithy.codegen.core.Symbol;
-import software.amazon.smithy.model.shapes.*;
-import software.amazon.smithy.model.traits.*;
+import java.util.Optional;
+import java.util.stream.Stream;
+import software.amazon.smithy.model.shapes.BlobShape;
+import software.amazon.smithy.model.shapes.DocumentShape;
+import software.amazon.smithy.model.shapes.DoubleShape;
+import software.amazon.smithy.model.shapes.FloatShape;
+import software.amazon.smithy.model.shapes.ListShape;
+import software.amazon.smithy.model.shapes.MapShape;
+import software.amazon.smithy.model.shapes.MemberShape;
+import software.amazon.smithy.model.shapes.OperationShape;
+import software.amazon.smithy.model.shapes.Shape;
+import software.amazon.smithy.model.shapes.ShapeVisitor;
+import software.amazon.smithy.model.shapes.StringShape;
+import software.amazon.smithy.model.shapes.StructureShape;
+import software.amazon.smithy.model.shapes.TimestampShape;
+import software.amazon.smithy.model.shapes.UnionShape;
+import software.amazon.smithy.model.traits.HttpHeaderTrait;
+import software.amazon.smithy.model.traits.HttpLabelTrait;
+import software.amazon.smithy.model.traits.HttpPrefixHeadersTrait;
+import software.amazon.smithy.model.traits.HttpQueryParamsTrait;
+import software.amazon.smithy.model.traits.HttpQueryTrait;
+import software.amazon.smithy.model.traits.MediaTypeTrait;
+import software.amazon.smithy.model.traits.SparseTrait;
+import software.amazon.smithy.model.traits.StreamingTrait;
+import software.amazon.smithy.model.traits.TimestampFormatTrait;
+import software.amazon.smithy.model.traits.XmlAttributeTrait;
+import software.amazon.smithy.model.traits.XmlFlattenedTrait;
+import software.amazon.smithy.model.traits.XmlNameTrait;
+import software.amazon.smithy.model.traits.XmlNamespaceTrait;
 import software.amazon.smithy.model.traits.synthetic.OriginalShapeIdTrait;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
 import software.amazon.smithy.ruby.codegen.Hearth;
@@ -25,9 +51,6 @@ import software.amazon.smithy.ruby.codegen.RubyImportContainer;
 import software.amazon.smithy.ruby.codegen.generators.RestBuilderGeneratorBase;
 import software.amazon.smithy.ruby.codegen.traits.NoSerializeTrait;
 import software.amazon.smithy.ruby.codegen.util.TimestampFormat;
-
-import java.util.Optional;
-import java.util.stream.Stream;
 
 public class BuilderGenerator extends RestBuilderGeneratorBase {
 
@@ -46,8 +69,7 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
 
         serializeMembers.forEach((member) -> {
             Shape target = model.expectShape(member.getTarget());
-            String symbolName = ":" + symbolProvider.toMemberName(member);
-            String inputGetter = "input[" + symbolName + "]";
+            String inputGetter = "input." + symbolProvider.toMemberName(member);
 
             if (member.hasTrait(XmlAttributeTrait.class)) {
                 String attributeName = member.getMemberName();
@@ -66,9 +88,9 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
     }
 
     @Override
-    protected void renderPayloadBodyBuilder(OperationShape operation, Shape inputShape, MemberShape payloadMember, Shape target) {
-        String symbolName = ":" + symbolProvider.toMemberName(payloadMember);
-        String inputGetter = "input[" + symbolName + "]";
+    protected void renderPayloadBodyBuilder(OperationShape operation, Shape inputShape, MemberShape payloadMember,
+                                            Shape target) {
+        String inputGetter = "input." + symbolProvider.toMemberName(payloadMember);
         if (target.hasTrait(StreamingTrait.class)) {
             renderStreamingBodyBuilder(inputShape);
         } else {
@@ -82,7 +104,6 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
         if (inputShape.hasTrait(XmlNameTrait.class)) {
             nodeName = inputShape.getTrait(XmlNameTrait.class).get().getValue();
         } else if (inputShape.hasTrait(OriginalShapeIdTrait.class)) {
-            // TODO: Does this need to use symbol provider as well?
             nodeName = inputShape.getTrait(OriginalShapeIdTrait.class).get().getOriginalId().getName();
         }
 
@@ -354,7 +375,8 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
         private final boolean checkRequired;
         private final String attributeName;
 
-        AttributeMemberSerializer(MemberShape memberShape, String inputGetter, boolean checkRequired, String attributeName) {
+        AttributeMemberSerializer(MemberShape memberShape, String inputGetter, boolean checkRequired,
+                                  String attributeName) {
             this.inputGetter = inputGetter;
             this.memberShape = memberShape;
             this.checkRequired = checkRequired;
@@ -499,7 +521,8 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
             }
             writer
                     .write("http_req.headers['Content-Type'] = 'application/xml'")
-                    .write("xml = Builders::$1L.build($2L, $3L) unless $3L.nil?", symbolProvider.toSymbol(shape).getName(),
+                    .write("xml = Builders::$1L.build($2L, $3L) unless $3L.nil?",
+                            symbolProvider.toSymbol(shape).getName(),
                             nodeName, inputGetter)
                     .call(() -> {
                         if (shape.hasTrait(XmlNamespaceTrait.class)) {

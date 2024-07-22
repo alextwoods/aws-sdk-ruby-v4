@@ -211,22 +211,25 @@ module AWS::SDK::STS
     #               <code>[{"ProviderArn":"arn:aws:iam::aws:contextProvider/IdentityCenter","ContextAssertion":"trusted-context-assertion"}]</code>
     #            </p>
     #   @return [Array<ProvidedContext>]
-    AssumeRoleInput = ::Struct.new(
-      :role_arn,
-      :role_session_name,
-      :policy_arns,
-      :policy,
-      :duration_seconds,
-      :tags,
-      :transitive_tag_keys,
-      :external_id,
-      :serial_number,
-      :token_code,
-      :source_identity,
-      :provided_contexts,
-      keyword_init: true
-    ) do
+    class AssumeRoleInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        role_arn
+        role_session_name
+        policy_arns
+        policy
+        duration_seconds
+        tags
+        transitive_tag_keys
+        external_id
+        serial_number
+        token_code
+        source_identity
+        provided_contexts
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Contains the response to a successful <a>AssumeRole</a> request, including
@@ -272,14 +275,17 @@ module AWS::SDK::STS
     #            and lower-case alphanumeric characters with no spaces. You can also include underscores or
     #            any of the following characters: =,.@-</p>
     #   @return [String]
-    AssumeRoleOutput = ::Struct.new(
-      :credentials,
-      :assumed_role_user,
-      :packed_policy_size,
-      :source_identity,
-      keyword_init: true
-    ) do
+    class AssumeRoleOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        credentials
+        assumed_role_user
+        packed_policy_size
+        source_identity
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -371,19 +377,22 @@ module AWS::SDK::STS
     #                  <i>IAM User Guide</i>.</p>
     #            </note>
     #   @return [Integer]
-    AssumeRoleWithSAMLInput = ::Struct.new(
-      :role_arn,
-      :principal_arn,
-      :saml_assertion,
-      :policy_arns,
-      :policy,
-      :duration_seconds,
-      keyword_init: true
-    ) do
+    class AssumeRoleWithSAMLInput
       include Hearth::Structure
 
+      MEMBERS = %i[
+        role_arn
+        principal_arn
+        saml_assertion
+        policy_arns
+        policy
+        duration_seconds
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::STS::Types::AssumeRoleWithSAMLInput "\
+        "#<AWS::SDK::STS::Types::AssumeRoleWithSAMLInput "\
           "role_arn=#{role_arn || 'nil'}, "\
           "principal_arn=#{principal_arn || 'nil'}, "\
           "saml_assertion=\"[SENSITIVE]\", "\
@@ -481,19 +490,22 @@ module AWS::SDK::STS
     #       consisting of upper- and lower-case alphanumeric characters with no spaces. You can
     #       also include underscores or any of the following characters: =,.@-</p>
     #   @return [String]
-    AssumeRoleWithSAMLOutput = ::Struct.new(
-      :credentials,
-      :assumed_role_user,
-      :packed_policy_size,
-      :subject,
-      :subject_type,
-      :issuer,
-      :audience,
-      :name_qualifier,
-      :source_identity,
-      keyword_init: true
-    ) do
+    class AssumeRoleWithSAMLOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        credentials
+        assumed_role_user
+        packed_policy_size
+        subject
+        subject_type
+        issuer
+        audience
+        name_qualifier
+        source_identity
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -599,20 +611,23 @@ module AWS::SDK::STS
     #                  <i>IAM User Guide</i>.</p>
     #            </note>
     #   @return [Integer]
-    AssumeRoleWithWebIdentityInput = ::Struct.new(
-      :role_arn,
-      :role_session_name,
-      :web_identity_token,
-      :provider_id,
-      :policy_arns,
-      :policy,
-      :duration_seconds,
-      keyword_init: true
-    ) do
+    class AssumeRoleWithWebIdentityInput
       include Hearth::Structure
 
+      MEMBERS = %i[
+        role_arn
+        role_session_name
+        web_identity_token
+        provider_id
+        policy_arns
+        policy
+        duration_seconds
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::STS::Types::AssumeRoleWithWebIdentityInput "\
+        "#<AWS::SDK::STS::Types::AssumeRoleWithWebIdentityInput "\
           "role_arn=#{role_arn || 'nil'}, "\
           "role_session_name=#{role_session_name || 'nil'}, "\
           "web_identity_token=\"[SENSITIVE]\", "\
@@ -692,17 +707,20 @@ module AWS::SDK::STS
     #       consisting of upper- and lower-case alphanumeric characters with no spaces. You can
     #       also include underscores or any of the following characters: =,.@-</p>
     #   @return [String]
-    AssumeRoleWithWebIdentityOutput = ::Struct.new(
-      :credentials,
-      :subject_from_web_identity_token,
-      :assumed_role_user,
-      :packed_policy_size,
-      :provider,
-      :audience,
-      :source_identity,
-      keyword_init: true
-    ) do
+    class AssumeRoleWithWebIdentityOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        credentials
+        subject_from_web_identity_token
+        assumed_role_user
+        packed_policy_size
+        provider
+        audience
+        source_identity
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The identifiers for the temporary security credentials that the operation
@@ -720,12 +738,15 @@ module AWS::SDK::STS
     #            policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM Identifiers</a> in the
     #               <i>IAM User Guide</i>.</p>
     #   @return [String]
-    AssumedRoleUser = ::Struct.new(
-      :assumed_role_id,
-      :arn,
-      keyword_init: true
-    ) do
+    class AssumedRoleUser
       include Hearth::Structure
+
+      MEMBERS = %i[
+        assumed_role_id
+        arn
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Amazon Web Services credentials for API authentication.</p>
@@ -748,17 +769,20 @@ module AWS::SDK::STS
     # @!attribute expiration
     #   <p>The date on which the current credentials expire.</p>
     #   @return [Time]
-    Credentials = ::Struct.new(
-      :access_key_id,
-      :secret_access_key,
-      :session_token,
-      :expiration,
-      keyword_init: true
-    ) do
+    class Credentials
       include Hearth::Structure
 
+      MEMBERS = %i[
+        access_key_id
+        secret_access_key
+        session_token
+        expiration
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::STS::Types::Credentials "\
+        "#<AWS::SDK::STS::Types::Credentials "\
           "access_key_id=#{access_key_id || 'nil'}, "\
           "secret_access_key=\"[SENSITIVE]\", "\
           "session_token=#{session_token || 'nil'}, "\
@@ -772,11 +796,14 @@ module AWS::SDK::STS
     # @!attribute encoded_message
     #   <p>The encoded message that was returned with the response.</p>
     #   @return [String]
-    DecodeAuthorizationMessageInput = ::Struct.new(
-      :encoded_message,
-      keyword_init: true
-    ) do
+    class DecodeAuthorizationMessageInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        encoded_message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>A document that contains additional information about the authorization status of a
@@ -787,11 +814,14 @@ module AWS::SDK::STS
     # @!attribute decoded_message
     #   <p>The API returns a response with the decoded message.</p>
     #   @return [String]
-    DecodeAuthorizationMessageOutput = ::Struct.new(
-      :decoded_message,
-      keyword_init: true
-    ) do
+    class DecodeAuthorizationMessageOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        decoded_message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The web identity token that was passed is expired or is not valid. Get a new identity
@@ -801,11 +831,14 @@ module AWS::SDK::STS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    ExpiredTokenException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class ExpiredTokenException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Identifiers for the federated user that is associated with the credentials.</p>
@@ -822,12 +855,15 @@ module AWS::SDK::STS
     #            more information about ARNs and how to use them in policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM
     #               Identifiers</a> in the <i>IAM User Guide</i>. </p>
     #   @return [String]
-    FederatedUser = ::Struct.new(
-      :federated_user_id,
-      :arn,
-      keyword_init: true
-    ) do
+    class FederatedUser
       include Hearth::Structure
+
+      MEMBERS = %i[
+        federated_user_id
+        arn
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -838,11 +874,14 @@ module AWS::SDK::STS
     #            <p>This parameter allows (through its regex pattern) a string of characters that can
     #            consist of any upper- or lowercase letter or digit.</p>
     #   @return [String]
-    GetAccessKeyInfoInput = ::Struct.new(
-      :access_key_id,
-      keyword_init: true
-    ) do
+    class GetAccessKeyInfoInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        access_key_id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -851,20 +890,24 @@ module AWS::SDK::STS
     # @!attribute account
     #   <p>The number used to identify the Amazon Web Services account.</p>
     #   @return [String]
-    GetAccessKeyInfoOutput = ::Struct.new(
-      :account,
-      keyword_init: true
-    ) do
+    class GetAccessKeyInfoOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        account
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    GetCallerIdentityInput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class GetCallerIdentityInput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Contains the response to a successful <a>GetCallerIdentity</a> request,
@@ -887,13 +930,16 @@ module AWS::SDK::STS
     # @!attribute arn
     #   <p>The Amazon Web Services ARN associated with the calling entity.</p>
     #   @return [String]
-    GetCallerIdentityOutput = ::Struct.new(
-      :user_id,
-      :account,
-      :arn,
-      keyword_init: true
-    ) do
+    class GetCallerIdentityOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        user_id
+        account
+        arn
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1006,15 +1052,18 @@ module AWS::SDK::STS
     #            and <code>department</code> are not saved as separate tags, and the session tag passed in
     #            the request takes precedence over the role tag.</p>
     #   @return [Array<Tag>]
-    GetFederationTokenInput = ::Struct.new(
-      :name,
-      :policy,
-      :policy_arns,
-      :duration_seconds,
-      :tags,
-      keyword_init: true
-    ) do
+    class GetFederationTokenInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        name
+        policy
+        policy_arns
+        duration_seconds
+        tags
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Contains the response to a successful <a>GetFederationToken</a> request,
@@ -1043,13 +1092,16 @@ module AWS::SDK::STS
     #         tags combined passed in the request. The request fails if the packed size is greater than 100 percent,
     #         which means the policies and tags exceeded the allowed space.</p>
     #   @return [Integer]
-    GetFederationTokenOutput = ::Struct.new(
-      :credentials,
-      :federated_user,
-      :packed_policy_size,
-      keyword_init: true
-    ) do
+    class GetFederationTokenOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        credentials
+        federated_user
+        packed_policy_size
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1083,13 +1135,16 @@ module AWS::SDK::STS
     #            <p>The format for this parameter, as described by its regex pattern, is a sequence of six
     #            numeric digits.</p>
     #   @return [String]
-    GetSessionTokenInput = ::Struct.new(
-      :duration_seconds,
-      :serial_number,
-      :token_code,
-      keyword_init: true
-    ) do
+    class GetSessionTokenInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        duration_seconds
+        serial_number
+        token_code
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Contains the response to a successful <a>GetSessionToken</a> request,
@@ -1105,11 +1160,14 @@ module AWS::SDK::STS
     #           strongly recommend that you make no assumptions about the maximum size.</p>
     #            </note>
     #   @return [Credentials]
-    GetSessionTokenOutput = ::Struct.new(
-      :credentials,
-      keyword_init: true
-    ) do
+    class GetSessionTokenOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        credentials
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The request could not be fulfilled because the identity provider (IDP) that
@@ -1122,11 +1180,14 @@ module AWS::SDK::STS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    IDPCommunicationErrorException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class IDPCommunicationErrorException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The identity provider (IdP) reported that authentication failed. This might be because
@@ -1138,11 +1199,14 @@ module AWS::SDK::STS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    IDPRejectedClaimException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class IDPRejectedClaimException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The error returned if the message passed to <code>DecodeAuthorizationMessage</code>
@@ -1153,11 +1217,14 @@ module AWS::SDK::STS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    InvalidAuthorizationMessageException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class InvalidAuthorizationMessageException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The web identity token that was passed could not be validated by Amazon Web Services. Get a new
@@ -1167,11 +1234,14 @@ module AWS::SDK::STS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    InvalidIdentityTokenException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class InvalidIdentityTokenException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The request was rejected because the policy document was malformed. The error message
@@ -1181,11 +1251,14 @@ module AWS::SDK::STS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    MalformedPolicyDocumentException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class MalformedPolicyDocumentException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The request was rejected because the total packed size of the session policies and
@@ -1202,11 +1275,14 @@ module AWS::SDK::STS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    PackedPolicyTooLargeException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class PackedPolicyTooLargeException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>A reference to the IAM managed policy that is passed as a session policy for a role
@@ -1219,11 +1295,14 @@ module AWS::SDK::STS
     #            for the role. For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services
     #               Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
     #   @return [String]
-    PolicyDescriptorType = ::Struct.new(
-      :arn,
-      keyword_init: true
-    ) do
+    class PolicyDescriptorType
       include Hearth::Structure
+
+      MEMBERS = %i[
+        arn
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Contains information about the provided context. This includes the signed and encrypted
@@ -1240,12 +1319,15 @@ module AWS::SDK::STS
     #   <p>The signed and encrypted trusted context assertion generated by the context provider.
     #            The trusted context assertion is signed and encrypted by Amazon Web Services STS.</p>
     #   @return [String]
-    ProvidedContext = ::Struct.new(
-      :provider_arn,
-      :context_assertion,
-      keyword_init: true
-    ) do
+    class ProvidedContext
       include Hearth::Structure
+
+      MEMBERS = %i[
+        provider_arn
+        context_assertion
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>STS is not activated in the requested region for the account that is being asked to
@@ -1258,11 +1340,14 @@ module AWS::SDK::STS
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    RegionDisabledException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class RegionDisabledException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>You can pass custom key-value pair attributes when you assume a role or federate a user.
@@ -1285,12 +1370,15 @@ module AWS::SDK::STS
     #            characters. For these and additional limits, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length">IAM
     #               and STS Character Limits</a> in the <i>IAM User Guide</i>.</p>
     #   @return [String]
-    Tag = ::Struct.new(
-      :key,
-      :value,
-      keyword_init: true
-    ) do
+    class Tag
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key
+        value
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
   end

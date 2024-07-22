@@ -17,9 +17,7 @@ package software.amazon.smithy.aws.ruby.codegen.protocol.query.generators;
 
 import java.util.Optional;
 import java.util.stream.Stream;
-
 import software.amazon.smithy.aws.traits.protocols.AwsQueryErrorTrait;
-import software.amazon.smithy.codegen.core.Symbol;
 import software.amazon.smithy.model.shapes.BlobShape;
 import software.amazon.smithy.model.shapes.DoubleShape;
 import software.amazon.smithy.model.shapes.FloatShape;
@@ -33,7 +31,6 @@ import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.shapes.TimestampShape;
 import software.amazon.smithy.model.shapes.UnionShape;
 import software.amazon.smithy.model.traits.ErrorTrait;
-import software.amazon.smithy.model.traits.HttpErrorTrait;
 import software.amazon.smithy.model.traits.SparseTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait;
 import software.amazon.smithy.model.traits.XmlAttributeTrait;
@@ -60,8 +57,7 @@ public class StubsGenerator extends StubsGeneratorBase {
 
         serializeMembers.forEach((member) -> {
             Shape target = model.expectShape(member.getTarget());
-            String symbolName = ":" + symbolProvider.toMemberName(member);
-            String inputGetter = "stub[" + symbolName + "]";
+            String inputGetter = "stub." + symbolProvider.toMemberName(member);
 
             if (member.hasTrait(XmlAttributeTrait.class)) {
                 String attributeName = member.getMemberName();
@@ -120,8 +116,8 @@ public class StubsGenerator extends StubsGeneratorBase {
                 .openBlock("stub.each do |element|")
                 .call(() -> {
                     Shape memberTarget = model.expectShape(shape.getMember().getTarget());
-                        memberTarget.accept(new MemberSerializer(shape.getMember(), "node_name", "element",
-                                !shape.hasTrait(SparseTrait.class)));
+                    memberTarget.accept(new MemberSerializer(shape.getMember(), "node_name", "element",
+                            !shape.hasTrait(SparseTrait.class)));
                 })
                 .closeBlock("end")
                 .write("xml")
@@ -197,7 +193,7 @@ public class StubsGenerator extends StubsGeneratorBase {
                 .openBlock("def self.stub(http_resp, stub:)")
                 .write("data = {}")
                 .call(() -> renderStatusCodeStubber(errorShape))
-                .write("xml = $T.new('Error')", Hearth.XML_NODE )
+                .write("xml = $T.new('Error')", Hearth.XML_NODE)
                 .write("xml << $T.new('Type', '$L')", Hearth.XML_NODE, errorType(errorShape))
                 .write("xml << $T.new('Code', '$L')", Hearth.XML_NODE, errorCode(errorShape))
                 .call(() -> renderMemberBuilders(errorShape))
@@ -230,7 +226,7 @@ public class StubsGenerator extends StubsGeneratorBase {
             }
         }
 
-        this.writer.write("http_resp.status = $1L", new Object[]{statusCode});
+        this.writer.write("http_resp.status = $1L", new Object[] {statusCode});
     }
 
     private void writeXmlNamespaceForShape(Shape shape, String dataSetter) {
@@ -397,7 +393,8 @@ public class StubsGenerator extends StubsGeneratorBase {
         private final boolean checkRequired;
         private final String attributeName;
 
-        AttributeMemberSerializer(MemberShape memberShape, String inputGetter, boolean checkRequired, String attributeName) {
+        AttributeMemberSerializer(MemberShape memberShape, String inputGetter, boolean checkRequired,
+                                  String attributeName) {
             this.inputGetter = inputGetter;
             this.memberShape = memberShape;
             this.checkRequired = checkRequired;
