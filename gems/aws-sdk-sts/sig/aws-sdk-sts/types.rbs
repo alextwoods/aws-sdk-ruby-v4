@@ -12,8 +12,8 @@ module AWS::SDK::STS
 
     class AssumeRoleInput
       include Hearth::Structure
-      attr_accessor role_arn (): ::String
-      attr_accessor role_session_name (): ::String
+      attr_accessor role_arn (): ::String?
+      attr_accessor role_session_name (): ::String?
       attr_accessor policy_arns (): ::Array[Types::PolicyDescriptorType]?
       attr_accessor policy (): ::String?
       attr_accessor duration_seconds (): ::Integer?
@@ -36,9 +36,9 @@ module AWS::SDK::STS
 
     class AssumeRoleWithSAMLInput
       include Hearth::Structure
-      attr_accessor role_arn (): ::String
-      attr_accessor principal_arn (): ::String
-      attr_accessor saml_assertion (): ::String
+      attr_accessor role_arn (): ::String?
+      attr_accessor principal_arn (): ::String?
+      attr_accessor saml_assertion (): ::String?
       attr_accessor policy_arns (): ::Array[Types::PolicyDescriptorType]?
       attr_accessor policy (): ::String?
       attr_accessor duration_seconds (): ::Integer?
@@ -59,9 +59,9 @@ module AWS::SDK::STS
 
     class AssumeRoleWithWebIdentityInput
       include Hearth::Structure
-      attr_accessor role_arn (): ::String
-      attr_accessor role_session_name (): ::String
-      attr_accessor web_identity_token (): ::String
+      attr_accessor role_arn (): ::String?
+      attr_accessor role_session_name (): ::String?
+      attr_accessor web_identity_token (): ::String?
       attr_accessor provider_id (): ::String?
       attr_accessor policy_arns (): ::Array[Types::PolicyDescriptorType]?
       attr_accessor policy (): ::String?
@@ -81,21 +81,21 @@ module AWS::SDK::STS
 
     class AssumedRoleUser
       include Hearth::Structure
-      attr_accessor assumed_role_id (): ::String
-      attr_accessor arn (): ::String
+      attr_accessor assumed_role_id (): ::String?
+      attr_accessor arn (): ::String?
     end
 
     class Credentials
       include Hearth::Structure
-      attr_accessor access_key_id (): ::String
-      attr_accessor secret_access_key (): ::String
-      attr_accessor session_token (): ::String
-      attr_accessor expiration (): ::Time
+      attr_accessor access_key_id (): ::String?
+      attr_accessor secret_access_key (): ::String?
+      attr_accessor session_token (): ::String?
+      attr_accessor expiration (): ::Time?
     end
 
     class DecodeAuthorizationMessageInput
       include Hearth::Structure
-      attr_accessor encoded_message (): ::String
+      attr_accessor encoded_message (): ::String?
     end
 
     class DecodeAuthorizationMessageOutput
@@ -110,13 +110,13 @@ module AWS::SDK::STS
 
     class FederatedUser
       include Hearth::Structure
-      attr_accessor federated_user_id (): ::String
-      attr_accessor arn (): ::String
+      attr_accessor federated_user_id (): ::String?
+      attr_accessor arn (): ::String?
     end
 
     class GetAccessKeyInfoInput
       include Hearth::Structure
-      attr_accessor access_key_id (): ::String
+      attr_accessor access_key_id (): ::String?
     end
 
     class GetAccessKeyInfoOutput
@@ -137,7 +137,7 @@ module AWS::SDK::STS
 
     class GetFederationTokenInput
       include Hearth::Structure
-      attr_accessor name (): ::String
+      attr_accessor name (): ::String?
       attr_accessor policy (): ::String?
       attr_accessor policy_arns (): ::Array[Types::PolicyDescriptorType]?
       attr_accessor duration_seconds (): ::Integer?
@@ -211,8 +211,8 @@ module AWS::SDK::STS
 
     class Tag
       include Hearth::Structure
-      attr_accessor key (): ::String
-      attr_accessor value (): ::String
+      attr_accessor key (): ::String?
+      attr_accessor value (): ::String?
     end
 
   end

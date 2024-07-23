@@ -113,27 +113,30 @@ module AWS::SDK::CodeCatalyst
   #   @return [Boolean]
   # @!attribute validate_input
   #   @return [Boolean]
-  Config = ::Struct.new(
-    :auth_resolver,
-    :auth_schemes,
-    :disable_host_prefix,
-    :endpoint,
-    :endpoint_resolver,
-    :http_bearer_provider,
-    :http_client,
-    :interceptors,
-    :logger,
-    :plugins,
-    :profile,
-    :region,
-    :retry_strategy,
-    :stub_responses,
-    :stubs,
-    :use_fips_endpoint,
-    :validate_input,
-    keyword_init: true
-  ) do
+  class Config
     include Hearth::Configuration
+
+    MEMBERS = %i[
+      auth_resolver
+      auth_schemes
+      disable_host_prefix
+      endpoint
+      endpoint_resolver
+      http_bearer_provider
+      http_client
+      interceptors
+      logger
+      plugins
+      profile
+      region
+      retry_strategy
+      stub_responses
+      stubs
+      use_fips_endpoint
+      validate_input
+    ].freeze
+
+    attr_accessor(*MEMBERS)
 
     # Validates the configuration.
     def validate!

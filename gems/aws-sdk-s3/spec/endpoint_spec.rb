@@ -181,7 +181,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -365,7 +366,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -409,7 +411,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -452,7 +455,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -610,7 +614,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -714,7 +719,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -787,7 +793,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -829,7 +836,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -871,7 +879,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -889,7 +898,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -907,7 +917,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -963,7 +974,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -1035,7 +1047,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -1077,7 +1090,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -1120,7 +1134,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -1162,7 +1177,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -1204,7 +1220,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -1246,7 +1263,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -1288,7 +1306,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -1344,7 +1363,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling list_buckets' do
@@ -1384,7 +1404,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling list_buckets' do
@@ -1424,7 +1445,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling list_buckets' do
@@ -1464,7 +1486,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling list_buckets' do
@@ -1505,7 +1528,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling list_buckets' do
@@ -1546,7 +1570,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling list_buckets' do
@@ -1588,7 +1613,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling list_buckets' do
@@ -1629,7 +1655,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling list_buckets' do
@@ -1670,7 +1697,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling list_buckets' do
@@ -1711,7 +1739,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling list_buckets' do
@@ -1750,7 +1779,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling list_buckets' do
@@ -1790,7 +1820,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling list_buckets' do
@@ -1830,7 +1861,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling list_buckets' do
@@ -1871,7 +1903,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling list_buckets' do
@@ -1911,7 +1944,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling list_buckets' do
@@ -1951,7 +1985,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -1993,7 +2028,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling list_objects' do
@@ -2035,7 +2071,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -2078,7 +2115,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -2121,7 +2159,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -2165,7 +2204,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -2208,7 +2248,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -2251,7 +2292,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -2294,7 +2336,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -2337,7 +2380,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -2381,7 +2425,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -2425,7 +2470,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -2469,7 +2515,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -2513,7 +2560,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -2556,7 +2604,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -2574,7 +2623,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -2618,7 +2668,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -2662,7 +2713,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -2706,7 +2758,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -2750,7 +2803,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -2795,7 +2849,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -2840,7 +2895,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -2911,7 +2967,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -2954,7 +3011,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -3011,7 +3069,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -3042,7 +3101,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -3060,7 +3120,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -3078,7 +3139,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -3096,7 +3158,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -3114,7 +3177,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -3132,7 +3196,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -3150,7 +3215,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -3168,7 +3234,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -3186,7 +3253,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -3230,7 +3298,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -3248,7 +3317,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -3266,7 +3336,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -3297,7 +3368,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -3315,7 +3387,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -3333,7 +3406,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -3351,7 +3425,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -3382,7 +3457,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -3452,7 +3528,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -3470,7 +3547,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -3488,7 +3566,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -3506,7 +3585,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -3537,7 +3617,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -3568,7 +3649,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -3586,7 +3668,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -3630,7 +3713,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -3661,7 +3745,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -3861,7 +3946,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -3879,7 +3965,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -3897,7 +3984,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -3915,7 +4003,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -3933,7 +4022,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -3951,7 +4041,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -3969,7 +4060,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -4011,7 +4103,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -4054,7 +4147,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -4098,7 +4192,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -4141,7 +4236,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -4184,7 +4280,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -4258,7 +4355,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -4300,7 +4398,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -4369,7 +4468,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -4411,7 +4511,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -4454,7 +4555,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -4498,7 +4600,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -4541,7 +4644,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -4584,7 +4688,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -4658,7 +4763,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -4701,7 +4807,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -4775,7 +4882,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -4848,7 +4956,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -4891,7 +5000,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -4933,7 +5043,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -5036,7 +5147,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -5109,7 +5221,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -5152,7 +5265,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -5194,7 +5308,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -5237,7 +5352,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -5311,7 +5427,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -5384,7 +5501,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -5427,7 +5545,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -5469,7 +5588,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -5512,7 +5632,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -5646,7 +5767,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -5689,7 +5811,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -5732,7 +5855,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -5832,7 +5956,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -5875,7 +6000,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -5918,7 +6044,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -6052,7 +6179,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -6095,7 +6223,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -6137,7 +6266,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -6209,7 +6339,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -6253,7 +6384,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -6350,7 +6482,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -6392,7 +6525,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -6464,7 +6598,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -6508,7 +6643,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -6550,7 +6686,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -6652,7 +6789,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -6695,7 +6833,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -6766,7 +6905,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -6861,7 +7001,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -6904,7 +7045,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -6947,7 +7089,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -6990,7 +7133,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -7033,7 +7177,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -7105,7 +7250,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -7236,7 +7382,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -7254,7 +7401,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -7464,7 +7612,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -7537,7 +7686,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling write_get_object_response' do
@@ -7579,7 +7729,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling write_get_object_response' do
@@ -7622,7 +7773,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling write_get_object_response' do
@@ -7664,7 +7816,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling write_get_object_response' do
@@ -7775,7 +7928,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -7793,7 +7947,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -7811,7 +7966,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -7829,7 +7985,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -7847,7 +8004,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -7865,7 +8023,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -7883,7 +8042,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -7953,7 +8113,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -7971,7 +8132,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -7989,7 +8151,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -8007,7 +8170,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -8025,7 +8189,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -8067,7 +8232,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -8110,7 +8276,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -8152,7 +8319,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -8195,7 +8363,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling create_bucket' do
@@ -8236,7 +8405,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling create_bucket' do
@@ -8278,7 +8448,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling list_directory_buckets' do
@@ -8317,7 +8488,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling list_directory_buckets' do
@@ -8357,7 +8529,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -8375,7 +8548,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -8393,7 +8567,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -8411,7 +8586,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -8429,7 +8605,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -8447,7 +8624,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -8465,7 +8643,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do
@@ -8508,7 +8687,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
       end
 
@@ -8526,7 +8706,8 @@ module AWS::SDK::S3
           endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
-          expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
+          expect(endpoint.auth_schemes.map(&:scheme_id)).to eq(expected[:auth_schemes].map(&:scheme_id))
+          expect(endpoint.auth_schemes.map(&:properties)).to eq(expected[:auth_schemes].map(&:properties))
         end
 
         it 'produces the correct output from the client when calling get_object' do

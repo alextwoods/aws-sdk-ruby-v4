@@ -9,12 +9,13 @@
 
 module AWS::SDK::STS
   module Endpoint
-    class Params < ::Struct[untyped]
-      attr_accessor endpoint: ::String
-      attr_accessor use_dual_stack: bool
-      attr_accessor use_fips: bool
-      attr_accessor region: ::String
-      attr_accessor use_global_endpoint: bool
+    class Params
+      def initialize: (?endpoint: ::String?, ?use_dual_stack: bool?, ?use_fips: bool?, ?region: ::String?, ?use_global_endpoint: bool?) -> void
+      attr_accessor endpoint (): ::String?
+      attr_accessor use_dual_stack (): bool?
+      attr_accessor use_fips (): bool?
+      attr_accessor region (): ::String?
+      attr_accessor use_global_endpoint (): bool?
     end
 
     class Resolver

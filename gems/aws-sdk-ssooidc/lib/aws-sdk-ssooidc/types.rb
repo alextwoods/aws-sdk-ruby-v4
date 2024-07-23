@@ -138,16 +138,16 @@ module AWS::SDK::SSOOIDC
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::SSOOIDC::Types::CreateTokenInput "\
-          "client_id=#{client_id || 'nil'}, "\
-          "client_secret=\"[SENSITIVE]\", "\
-          "grant_type=#{grant_type || 'nil'}, "\
-          "device_code=#{device_code || 'nil'}, "\
-          "code=#{code || 'nil'}, "\
-          "refresh_token=\"[SENSITIVE]\", "\
-          "scope=#{scope || 'nil'}, "\
-          "redirect_uri=#{redirect_uri || 'nil'}, "\
-          "code_verifier=\"[SENSITIVE]\">"
+        '#<AWS::SDK::SSOOIDC::Types::CreateTokenInput ' \
+          "client_id=#{client_id || 'nil'}, " \
+          'client_secret=[SENSITIVE], ' \
+          "grant_type=#{grant_type || 'nil'}, " \
+          "device_code=#{device_code || 'nil'}, " \
+          "code=#{code || 'nil'}, " \
+          'refresh_token=[SENSITIVE], ' \
+          "scope=#{scope || 'nil'}, " \
+          "redirect_uri=#{redirect_uri || 'nil'}, " \
+          'code_verifier=[SENSITIVE]>'
       end
     end
 
@@ -198,12 +198,12 @@ module AWS::SDK::SSOOIDC
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::SSOOIDC::Types::CreateTokenOutput "\
-          "access_token=\"[SENSITIVE]\", "\
-          "token_type=#{token_type || 'nil'}, "\
-          "expires_in=#{expires_in || 'nil'}, "\
-          "refresh_token=\"[SENSITIVE]\", "\
-          "id_token=\"[SENSITIVE]\">"
+        '#<AWS::SDK::SSOOIDC::Types::CreateTokenOutput ' \
+          'access_token=[SENSITIVE], ' \
+          "token_type=#{token_type || 'nil'}, " \
+          "expires_in=#{expires_in || 'nil'}, " \
+          'refresh_token=[SENSITIVE], ' \
+          'id_token=[SENSITIVE]>'
       end
 
       private
@@ -320,18 +320,18 @@ module AWS::SDK::SSOOIDC
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::SSOOIDC::Types::CreateTokenWithIAMInput "\
-          "client_id=#{client_id || 'nil'}, "\
-          "grant_type=#{grant_type || 'nil'}, "\
-          "code=#{code || 'nil'}, "\
-          "refresh_token=\"[SENSITIVE]\", "\
-          "assertion=\"[SENSITIVE]\", "\
-          "scope=#{scope || 'nil'}, "\
-          "redirect_uri=#{redirect_uri || 'nil'}, "\
-          "subject_token=\"[SENSITIVE]\", "\
-          "subject_token_type=#{subject_token_type || 'nil'}, "\
-          "requested_token_type=#{requested_token_type || 'nil'}, "\
-          "code_verifier=\"[SENSITIVE]\">"
+        '#<AWS::SDK::SSOOIDC::Types::CreateTokenWithIAMInput ' \
+          "client_id=#{client_id || 'nil'}, " \
+          "grant_type=#{grant_type || 'nil'}, " \
+          "code=#{code || 'nil'}, " \
+          'refresh_token=[SENSITIVE], ' \
+          'assertion=[SENSITIVE], ' \
+          "scope=#{scope || 'nil'}, " \
+          "redirect_uri=#{redirect_uri || 'nil'}, " \
+          'subject_token=[SENSITIVE], ' \
+          "subject_token_type=#{subject_token_type || 'nil'}, " \
+          "requested_token_type=#{requested_token_type || 'nil'}, " \
+          'code_verifier=[SENSITIVE]>'
       end
     end
 
@@ -394,13 +394,13 @@ module AWS::SDK::SSOOIDC
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::SSOOIDC::Types::CreateTokenWithIAMOutput "\
-          "access_token=\"[SENSITIVE]\", "\
-          "token_type=#{token_type || 'nil'}, "\
-          "expires_in=#{expires_in || 'nil'}, "\
-          "refresh_token=\"[SENSITIVE]\", "\
-          "id_token=\"[SENSITIVE]\", "\
-          "issued_token_type=#{issued_token_type || 'nil'}, "\
+        '#<AWS::SDK::SSOOIDC::Types::CreateTokenWithIAMOutput ' \
+          'access_token=[SENSITIVE], ' \
+          "token_type=#{token_type || 'nil'}, " \
+          "expires_in=#{expires_in || 'nil'}, " \
+          'refresh_token=[SENSITIVE], ' \
+          'id_token=[SENSITIVE], ' \
+          "issued_token_type=#{issued_token_type || 'nil'}, " \
           "scope=#{scope || 'nil'}>"
       end
 
@@ -742,12 +742,12 @@ module AWS::SDK::SSOOIDC
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::SSOOIDC::Types::RegisterClientOutput "\
-          "client_id=#{client_id || 'nil'}, "\
-          "client_secret=\"[SENSITIVE]\", "\
-          "client_id_issued_at=#{client_id_issued_at || 'nil'}, "\
-          "client_secret_expires_at=#{client_secret_expires_at || 'nil'}, "\
-          "authorization_endpoint=#{authorization_endpoint || 'nil'}, "\
+        '#<AWS::SDK::SSOOIDC::Types::RegisterClientOutput ' \
+          "client_id=#{client_id || 'nil'}, " \
+          'client_secret=[SENSITIVE], ' \
+          "client_id_issued_at=#{client_id_issued_at || 'nil'}, " \
+          "client_secret_expires_at=#{client_secret_expires_at || 'nil'}, " \
+          "authorization_endpoint=#{authorization_endpoint || 'nil'}, " \
           "token_endpoint=#{token_endpoint || 'nil'}>"
       end
 
@@ -816,9 +816,9 @@ module AWS::SDK::SSOOIDC
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::SSOOIDC::Types::StartDeviceAuthorizationInput "\
-          "client_id=#{client_id || 'nil'}, "\
-          "client_secret=\"[SENSITIVE]\", "\
+        '#<AWS::SDK::SSOOIDC::Types::StartDeviceAuthorizationInput ' \
+          "client_id=#{client_id || 'nil'}, " \
+          'client_secret=[SENSITIVE], ' \
           "start_url=#{start_url || 'nil'}>"
       end
     end

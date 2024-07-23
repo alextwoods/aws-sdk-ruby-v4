@@ -9,18 +9,14 @@
 
 module AWS::SDK::CodeCatalyst
   module Endpoint
-    Params = ::Struct.new(
-      :use_fips,
-      :region,
-      :endpoint,
-      keyword_init: true
-    ) do
-      include Hearth::Structure
-
-      def initialize(*)
-        super
-        self.use_fips = false if self.use_fips.nil?
+    class Params
+      def initialize(use_fips: nil, region: nil, endpoint: nil)
+        @use_fips = use_fips.nil? ? false : use_fips
+        @region = region
+        @endpoint = endpoint
       end
+
+      attr_accessor :use_fips, :region, :endpoint
     end
 
     class Resolver

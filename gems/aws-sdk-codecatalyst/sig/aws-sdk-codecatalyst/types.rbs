@@ -12,13 +12,13 @@ module AWS::SDK::CodeCatalyst
 
     class AccessDeniedException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
     class AccessTokenSummary
       include Hearth::Structure
-      attr_accessor id (): ::String
-      attr_accessor name (): ::String
+      attr_accessor id (): ::String?
+      attr_accessor name (): ::String?
       attr_accessor expires_time (): ::Time?
     end
 
@@ -38,66 +38,66 @@ module AWS::SDK::CodeCatalyst
 
     class ConflictException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
     class CreateAccessTokenInput
       include Hearth::Structure
-      attr_accessor name (): ::String
+      attr_accessor name (): ::String?
       attr_accessor expires_time (): ::Time?
     end
 
     class CreateAccessTokenOutput
       include Hearth::Structure
-      attr_accessor secret (): ::String
-      attr_accessor name (): ::String
-      attr_accessor expires_time (): ::Time
-      attr_accessor access_token_id (): ::String
+      attr_accessor secret (): ::String?
+      attr_accessor name (): ::String?
+      attr_accessor expires_time (): ::Time?
+      attr_accessor access_token_id (): ::String?
     end
 
     class CreateDevEnvironmentInput
       include Hearth::Structure
-      attr_accessor space_name (): ::String
-      attr_accessor project_name (): ::String
+      attr_accessor space_name (): ::String?
+      attr_accessor project_name (): ::String?
       attr_accessor repositories (): ::Array[Types::RepositoryInput]?
       attr_accessor client_token (): ::String?
       attr_accessor alias (): ::String?
       attr_accessor ides (): ::Array[Types::IdeConfiguration]?
-      attr_accessor instance_type (): ::String
+      attr_accessor instance_type (): ::String?
       attr_accessor inactivity_timeout_minutes (): ::Integer?
-      attr_accessor persistent_storage (): Types::PersistentStorageConfiguration
+      attr_accessor persistent_storage (): Types::PersistentStorageConfiguration?
       attr_accessor vpc_connection_name (): ::String?
     end
 
     class CreateDevEnvironmentOutput
       include Hearth::Structure
-      attr_accessor space_name (): ::String
-      attr_accessor project_name (): ::String
-      attr_accessor id (): ::String
+      attr_accessor space_name (): ::String?
+      attr_accessor project_name (): ::String?
+      attr_accessor id (): ::String?
       attr_accessor vpc_connection_name (): ::String?
     end
 
     class CreateProjectInput
       include Hearth::Structure
-      attr_accessor space_name (): ::String
-      attr_accessor display_name (): ::String
+      attr_accessor space_name (): ::String?
+      attr_accessor display_name (): ::String?
       attr_accessor description (): ::String?
     end
 
     class CreateProjectOutput
       include Hearth::Structure
       attr_accessor space_name (): ::String?
-      attr_accessor name (): ::String
+      attr_accessor name (): ::String?
       attr_accessor display_name (): ::String?
       attr_accessor description (): ::String?
     end
 
     class CreateSourceRepositoryBranchInput
       include Hearth::Structure
-      attr_accessor space_name (): ::String
-      attr_accessor project_name (): ::String
-      attr_accessor source_repository_name (): ::String
-      attr_accessor name (): ::String
+      attr_accessor space_name (): ::String?
+      attr_accessor project_name (): ::String?
+      attr_accessor source_repository_name (): ::String?
+      attr_accessor name (): ::String?
       attr_accessor head_commit_id (): ::String?
     end
 
@@ -111,23 +111,23 @@ module AWS::SDK::CodeCatalyst
 
     class CreateSourceRepositoryInput
       include Hearth::Structure
-      attr_accessor space_name (): ::String
-      attr_accessor project_name (): ::String
-      attr_accessor name (): ::String
+      attr_accessor space_name (): ::String?
+      attr_accessor project_name (): ::String?
+      attr_accessor name (): ::String?
       attr_accessor description (): ::String?
     end
 
     class CreateSourceRepositoryOutput
       include Hearth::Structure
-      attr_accessor space_name (): ::String
-      attr_accessor project_name (): ::String
-      attr_accessor name (): ::String
+      attr_accessor space_name (): ::String?
+      attr_accessor project_name (): ::String?
+      attr_accessor name (): ::String?
       attr_accessor description (): ::String?
     end
 
     class DeleteAccessTokenInput
       include Hearth::Structure
-      attr_accessor id (): ::String
+      attr_accessor id (): ::String?
     end
 
     class DeleteAccessTokenOutput
@@ -136,81 +136,81 @@ module AWS::SDK::CodeCatalyst
 
     class DeleteDevEnvironmentInput
       include Hearth::Structure
-      attr_accessor space_name (): ::String
-      attr_accessor project_name (): ::String
-      attr_accessor id (): ::String
+      attr_accessor space_name (): ::String?
+      attr_accessor project_name (): ::String?
+      attr_accessor id (): ::String?
     end
 
     class DeleteDevEnvironmentOutput
       include Hearth::Structure
-      attr_accessor space_name (): ::String
-      attr_accessor project_name (): ::String
-      attr_accessor id (): ::String
+      attr_accessor space_name (): ::String?
+      attr_accessor project_name (): ::String?
+      attr_accessor id (): ::String?
     end
 
     class DeleteProjectInput
       include Hearth::Structure
-      attr_accessor space_name (): ::String
-      attr_accessor name (): ::String
+      attr_accessor space_name (): ::String?
+      attr_accessor name (): ::String?
     end
 
     class DeleteProjectOutput
       include Hearth::Structure
-      attr_accessor space_name (): ::String
-      attr_accessor name (): ::String
+      attr_accessor space_name (): ::String?
+      attr_accessor name (): ::String?
       attr_accessor display_name (): ::String?
     end
 
     class DeleteSourceRepositoryInput
       include Hearth::Structure
-      attr_accessor space_name (): ::String
-      attr_accessor project_name (): ::String
-      attr_accessor name (): ::String
+      attr_accessor space_name (): ::String?
+      attr_accessor project_name (): ::String?
+      attr_accessor name (): ::String?
     end
 
     class DeleteSourceRepositoryOutput
       include Hearth::Structure
-      attr_accessor space_name (): ::String
-      attr_accessor project_name (): ::String
-      attr_accessor name (): ::String
+      attr_accessor space_name (): ::String?
+      attr_accessor project_name (): ::String?
+      attr_accessor name (): ::String?
     end
 
     class DeleteSpaceInput
       include Hearth::Structure
-      attr_accessor name (): ::String
+      attr_accessor name (): ::String?
     end
 
     class DeleteSpaceOutput
       include Hearth::Structure
-      attr_accessor name (): ::String
+      attr_accessor name (): ::String?
       attr_accessor display_name (): ::String?
     end
 
     class DevEnvironmentAccessDetails
       include Hearth::Structure
-      attr_accessor stream_url (): ::String
-      attr_accessor token_value (): ::String
+      attr_accessor stream_url (): ::String?
+      attr_accessor token_value (): ::String?
     end
 
     class DevEnvironmentRepositorySummary
       include Hearth::Structure
-      attr_accessor repository_name (): ::String
+      attr_accessor repository_name (): ::String?
       attr_accessor branch_name (): ::String?
     end
 
     class DevEnvironmentSessionConfiguration
       include Hearth::Structure
-      attr_accessor session_type (): ::String
+      attr_accessor session_type (): ::String?
       attr_accessor execute_command_session_configuration (): Types::ExecuteCommandSessionConfiguration?
     end
 
     class DevEnvironmentSessionSummary
       include Hearth::Structure
-      attr_accessor space_name (): ::String
-      attr_accessor project_name (): ::String
-      attr_accessor dev_environment_id (): ::String
-      attr_accessor started_time (): ::Time
-      attr_accessor id (): ::String
+      attr_accessor space_name (): ::String?
+      attr_accessor project_name (): ::String?
+      attr_accessor dev_environment_id (): ::String?
+      attr_accessor started_time (): ::Time?
+      attr_accessor id (): ::String?
     end
 
     module DevEnvironmentSessionType
@@ -241,17 +241,17 @@ module AWS::SDK::CodeCatalyst
       include Hearth::Structure
       attr_accessor space_name (): ::String?
       attr_accessor project_name (): ::String?
-      attr_accessor id (): ::String
-      attr_accessor last_updated_time (): ::Time
-      attr_accessor creator_id (): ::String
-      attr_accessor status (): ::String
+      attr_accessor id (): ::String?
+      attr_accessor last_updated_time (): ::Time?
+      attr_accessor creator_id (): ::String?
+      attr_accessor status (): ::String?
       attr_accessor status_reason (): ::String?
-      attr_accessor repositories (): ::Array[Types::DevEnvironmentRepositorySummary]
+      attr_accessor repositories (): ::Array[Types::DevEnvironmentRepositorySummary]?
       attr_accessor alias (): ::String?
       attr_accessor ides (): ::Array[Types::Ide]?
-      attr_accessor instance_type (): ::String
-      attr_accessor inactivity_timeout_minutes (): ::Integer
-      attr_accessor persistent_storage (): Types::PersistentStorage
+      attr_accessor instance_type (): ::String?
+      attr_accessor inactivity_timeout_minutes (): ::Integer?
+      attr_accessor persistent_storage (): Types::PersistentStorage?
       attr_accessor vpc_connection_name (): ::String?
     end
 
@@ -263,14 +263,14 @@ module AWS::SDK::CodeCatalyst
 
     class EventLogEntry
       include Hearth::Structure
-      attr_accessor id (): ::String
-      attr_accessor event_name (): ::String
-      attr_accessor event_type (): ::String
-      attr_accessor event_category (): ::String
-      attr_accessor event_source (): ::String
-      attr_accessor event_time (): ::Time
-      attr_accessor operation_type (): ::String
-      attr_accessor user_identity (): Types::UserIdentity
+      attr_accessor id (): ::String?
+      attr_accessor event_name (): ::String?
+      attr_accessor event_type (): ::String?
+      attr_accessor event_category (): ::String?
+      attr_accessor event_source (): ::String?
+      attr_accessor event_time (): ::Time?
+      attr_accessor operation_type (): ::String?
+      attr_accessor user_identity (): Types::UserIdentity?
       attr_accessor project_information (): Types::ProjectInformation?
       attr_accessor request_id (): ::String?
       attr_accessor request_payload (): Types::EventPayload?
@@ -288,14 +288,14 @@ module AWS::SDK::CodeCatalyst
 
     class ExecuteCommandSessionConfiguration
       include Hearth::Structure
-      attr_accessor command (): ::String
+      attr_accessor command (): ::String?
       attr_accessor arguments (): ::Array[::String]?
     end
 
     class Filter
       include Hearth::Structure
-      attr_accessor key (): ::String
-      attr_accessor values (): ::Array[::String]
+      attr_accessor key (): ::String?
+      attr_accessor values (): ::Array[::String]?
       attr_accessor comparison_operator (): ::String?
     end
 
@@ -307,88 +307,88 @@ module AWS::SDK::CodeCatalyst
 
     class GetDevEnvironmentInput
       include Hearth::Structure
-      attr_accessor space_name (): ::String
-      attr_accessor project_name (): ::String
-      attr_accessor id (): ::String
+      attr_accessor space_name (): ::String?
+      attr_accessor project_name (): ::String?
+      attr_accessor id (): ::String?
     end
 
     class GetDevEnvironmentOutput
       include Hearth::Structure
-      attr_accessor space_name (): ::String
-      attr_accessor project_name (): ::String
-      attr_accessor id (): ::String
-      attr_accessor last_updated_time (): ::Time
-      attr_accessor creator_id (): ::String
-      attr_accessor status (): ::String
+      attr_accessor space_name (): ::String?
+      attr_accessor project_name (): ::String?
+      attr_accessor id (): ::String?
+      attr_accessor last_updated_time (): ::Time?
+      attr_accessor creator_id (): ::String?
+      attr_accessor status (): ::String?
       attr_accessor status_reason (): ::String?
-      attr_accessor repositories (): ::Array[Types::DevEnvironmentRepositorySummary]
+      attr_accessor repositories (): ::Array[Types::DevEnvironmentRepositorySummary]?
       attr_accessor alias (): ::String?
       attr_accessor ides (): ::Array[Types::Ide]?
-      attr_accessor instance_type (): ::String
-      attr_accessor inactivity_timeout_minutes (): ::Integer
-      attr_accessor persistent_storage (): Types::PersistentStorage
+      attr_accessor instance_type (): ::String?
+      attr_accessor inactivity_timeout_minutes (): ::Integer?
+      attr_accessor persistent_storage (): Types::PersistentStorage?
       attr_accessor vpc_connection_name (): ::String?
     end
 
     class GetProjectInput
       include Hearth::Structure
-      attr_accessor space_name (): ::String
-      attr_accessor name (): ::String
+      attr_accessor space_name (): ::String?
+      attr_accessor name (): ::String?
     end
 
     class GetProjectOutput
       include Hearth::Structure
       attr_accessor space_name (): ::String?
-      attr_accessor name (): ::String
+      attr_accessor name (): ::String?
       attr_accessor display_name (): ::String?
       attr_accessor description (): ::String?
     end
 
     class GetSourceRepositoryCloneUrlsInput
       include Hearth::Structure
-      attr_accessor space_name (): ::String
-      attr_accessor project_name (): ::String
-      attr_accessor source_repository_name (): ::String
+      attr_accessor space_name (): ::String?
+      attr_accessor project_name (): ::String?
+      attr_accessor source_repository_name (): ::String?
     end
 
     class GetSourceRepositoryCloneUrlsOutput
       include Hearth::Structure
-      attr_accessor https (): ::String
+      attr_accessor https (): ::String?
     end
 
     class GetSourceRepositoryInput
       include Hearth::Structure
-      attr_accessor space_name (): ::String
-      attr_accessor project_name (): ::String
-      attr_accessor name (): ::String
+      attr_accessor space_name (): ::String?
+      attr_accessor project_name (): ::String?
+      attr_accessor name (): ::String?
     end
 
     class GetSourceRepositoryOutput
       include Hearth::Structure
-      attr_accessor space_name (): ::String
-      attr_accessor project_name (): ::String
-      attr_accessor name (): ::String
+      attr_accessor space_name (): ::String?
+      attr_accessor project_name (): ::String?
+      attr_accessor name (): ::String?
       attr_accessor description (): ::String?
-      attr_accessor last_updated_time (): ::Time
-      attr_accessor created_time (): ::Time
+      attr_accessor last_updated_time (): ::Time?
+      attr_accessor created_time (): ::Time?
     end
 
     class GetSpaceInput
       include Hearth::Structure
-      attr_accessor name (): ::String
+      attr_accessor name (): ::String?
     end
 
     class GetSpaceOutput
       include Hearth::Structure
-      attr_accessor name (): ::String
-      attr_accessor region_name (): ::String
+      attr_accessor name (): ::String?
+      attr_accessor region_name (): ::String?
       attr_accessor display_name (): ::String?
       attr_accessor description (): ::String?
     end
 
     class GetSubscriptionInput
       include Hearth::Structure
-      attr_accessor space_name (): ::String
+      attr_accessor space_name (): ::String?
     end
 
     class GetSubscriptionOutput
@@ -416,44 +416,44 @@ module AWS::SDK::CodeCatalyst
 
     class GetWorkflowInput
       include Hearth::Structure
-      attr_accessor space_name (): ::String
-      attr_accessor id (): ::String
-      attr_accessor project_name (): ::String
+      attr_accessor space_name (): ::String?
+      attr_accessor id (): ::String?
+      attr_accessor project_name (): ::String?
     end
 
     class GetWorkflowOutput
       include Hearth::Structure
-      attr_accessor space_name (): ::String
-      attr_accessor project_name (): ::String
-      attr_accessor id (): ::String
-      attr_accessor name (): ::String
+      attr_accessor space_name (): ::String?
+      attr_accessor project_name (): ::String?
+      attr_accessor id (): ::String?
+      attr_accessor name (): ::String?
       attr_accessor source_repository_name (): ::String?
       attr_accessor source_branch_name (): ::String?
-      attr_accessor definition (): Types::WorkflowDefinition
-      attr_accessor created_time (): ::Time
-      attr_accessor last_updated_time (): ::Time
-      attr_accessor run_mode (): ::String
-      attr_accessor status (): ::String
+      attr_accessor definition (): Types::WorkflowDefinition?
+      attr_accessor created_time (): ::Time?
+      attr_accessor last_updated_time (): ::Time?
+      attr_accessor run_mode (): ::String?
+      attr_accessor status (): ::String?
     end
 
     class GetWorkflowRunInput
       include Hearth::Structure
-      attr_accessor space_name (): ::String
-      attr_accessor id (): ::String
-      attr_accessor project_name (): ::String
+      attr_accessor space_name (): ::String?
+      attr_accessor id (): ::String?
+      attr_accessor project_name (): ::String?
     end
 
     class GetWorkflowRunOutput
       include Hearth::Structure
-      attr_accessor space_name (): ::String
-      attr_accessor project_name (): ::String
-      attr_accessor id (): ::String
-      attr_accessor workflow_id (): ::String
-      attr_accessor status (): ::String
+      attr_accessor space_name (): ::String?
+      attr_accessor project_name (): ::String?
+      attr_accessor id (): ::String?
+      attr_accessor workflow_id (): ::String?
+      attr_accessor status (): ::String?
       attr_accessor status_reasons (): ::Array[Types::WorkflowRunStatusReason]?
-      attr_accessor start_time (): ::Time
+      attr_accessor start_time (): ::Time?
       attr_accessor end_time (): ::Time?
-      attr_accessor last_updated_time (): ::Time
+      attr_accessor last_updated_time (): ::Time?
     end
 
     class Ide
@@ -486,28 +486,28 @@ module AWS::SDK::CodeCatalyst
 
     class ListAccessTokensOutput
       include Hearth::Structure
-      attr_accessor items (): ::Array[Types::AccessTokenSummary]
+      attr_accessor items (): ::Array[Types::AccessTokenSummary]?
       attr_accessor next_token (): ::String?
     end
 
     class ListDevEnvironmentSessionsInput
       include Hearth::Structure
-      attr_accessor space_name (): ::String
-      attr_accessor project_name (): ::String
-      attr_accessor dev_environment_id (): ::String
+      attr_accessor space_name (): ::String?
+      attr_accessor project_name (): ::String?
+      attr_accessor dev_environment_id (): ::String?
       attr_accessor next_token (): ::String?
       attr_accessor max_results (): ::Integer?
     end
 
     class ListDevEnvironmentSessionsOutput
       include Hearth::Structure
-      attr_accessor items (): ::Array[Types::DevEnvironmentSessionSummary]
+      attr_accessor items (): ::Array[Types::DevEnvironmentSessionSummary]?
       attr_accessor next_token (): ::String?
     end
 
     class ListDevEnvironmentsInput
       include Hearth::Structure
-      attr_accessor space_name (): ::String
+      attr_accessor space_name (): ::String?
       attr_accessor project_name (): ::String?
       attr_accessor filters (): ::Array[Types::Filter]?
       attr_accessor next_token (): ::String?
@@ -516,15 +516,15 @@ module AWS::SDK::CodeCatalyst
 
     class ListDevEnvironmentsOutput
       include Hearth::Structure
-      attr_accessor items (): ::Array[Types::DevEnvironmentSummary]
+      attr_accessor items (): ::Array[Types::DevEnvironmentSummary]?
       attr_accessor next_token (): ::String?
     end
 
     class ListEventLogsInput
       include Hearth::Structure
-      attr_accessor space_name (): ::String
-      attr_accessor start_time (): ::Time
-      attr_accessor end_time (): ::Time
+      attr_accessor space_name (): ::String?
+      attr_accessor start_time (): ::Time?
+      attr_accessor end_time (): ::Time?
       attr_accessor event_name (): ::String?
       attr_accessor next_token (): ::String?
       attr_accessor max_results (): ::Integer?
@@ -533,12 +533,12 @@ module AWS::SDK::CodeCatalyst
     class ListEventLogsOutput
       include Hearth::Structure
       attr_accessor next_token (): ::String?
-      attr_accessor items (): ::Array[Types::EventLogEntry]
+      attr_accessor items (): ::Array[Types::EventLogEntry]?
     end
 
     class ListProjectsInput
       include Hearth::Structure
-      attr_accessor space_name (): ::String
+      attr_accessor space_name (): ::String?
       attr_accessor next_token (): ::String?
       attr_accessor max_results (): ::Integer?
       attr_accessor filters (): ::Array[Types::ProjectListFilter]?
@@ -552,19 +552,19 @@ module AWS::SDK::CodeCatalyst
 
     class ListSourceRepositoriesInput
       include Hearth::Structure
-      attr_accessor space_name (): ::String
-      attr_accessor project_name (): ::String
+      attr_accessor space_name (): ::String?
+      attr_accessor project_name (): ::String?
       attr_accessor next_token (): ::String?
       attr_accessor max_results (): ::Integer?
     end
 
     class ListSourceRepositoriesItem
       include Hearth::Structure
-      attr_accessor id (): ::String
-      attr_accessor name (): ::String
+      attr_accessor id (): ::String?
+      attr_accessor name (): ::String?
       attr_accessor description (): ::String?
-      attr_accessor last_updated_time (): ::Time
-      attr_accessor created_time (): ::Time
+      attr_accessor last_updated_time (): ::Time?
+      attr_accessor created_time (): ::Time?
     end
 
     class ListSourceRepositoriesOutput
@@ -575,9 +575,9 @@ module AWS::SDK::CodeCatalyst
 
     class ListSourceRepositoryBranchesInput
       include Hearth::Structure
-      attr_accessor space_name (): ::String
-      attr_accessor project_name (): ::String
-      attr_accessor source_repository_name (): ::String
+      attr_accessor space_name (): ::String?
+      attr_accessor project_name (): ::String?
+      attr_accessor source_repository_name (): ::String?
       attr_accessor next_token (): ::String?
       attr_accessor max_results (): ::Integer?
     end
@@ -593,7 +593,7 @@ module AWS::SDK::CodeCatalyst
     class ListSourceRepositoryBranchesOutput
       include Hearth::Structure
       attr_accessor next_token (): ::String?
-      attr_accessor items (): ::Array[Types::ListSourceRepositoryBranchesItem]
+      attr_accessor items (): ::Array[Types::ListSourceRepositoryBranchesItem]?
     end
 
     class ListSpacesInput
@@ -609,9 +609,9 @@ module AWS::SDK::CodeCatalyst
 
     class ListWorkflowRunsInput
       include Hearth::Structure
-      attr_accessor space_name (): ::String
+      attr_accessor space_name (): ::String?
       attr_accessor workflow_id (): ::String?
-      attr_accessor project_name (): ::String
+      attr_accessor project_name (): ::String?
       attr_accessor next_token (): ::String?
       attr_accessor max_results (): ::Integer?
       attr_accessor sort_by (): ::Array[Types::WorkflowRunSortCriteria]?
@@ -625,8 +625,8 @@ module AWS::SDK::CodeCatalyst
 
     class ListWorkflowsInput
       include Hearth::Structure
-      attr_accessor space_name (): ::String
-      attr_accessor project_name (): ::String
+      attr_accessor space_name (): ::String?
+      attr_accessor project_name (): ::String?
       attr_accessor next_token (): ::String?
       attr_accessor max_results (): ::Integer?
       attr_accessor sort_by (): ::Array[Types::WorkflowSortCriteria]?
@@ -646,12 +646,12 @@ module AWS::SDK::CodeCatalyst
 
     class PersistentStorage
       include Hearth::Structure
-      attr_accessor size_in_gi_b (): ::Integer
+      attr_accessor size_in_gi_b (): ::Integer?
     end
 
     class PersistentStorageConfiguration
       include Hearth::Structure
-      attr_accessor size_in_gi_b (): ::Integer
+      attr_accessor size_in_gi_b (): ::Integer?
     end
 
     class ProjectInformation
@@ -662,47 +662,47 @@ module AWS::SDK::CodeCatalyst
 
     class ProjectListFilter
       include Hearth::Structure
-      attr_accessor key (): ::String
-      attr_accessor values (): ::Array[::String]
+      attr_accessor key (): ::String?
+      attr_accessor values (): ::Array[::String]?
       attr_accessor comparison_operator (): ::String?
     end
 
     class ProjectSummary
       include Hearth::Structure
-      attr_accessor name (): ::String
+      attr_accessor name (): ::String?
       attr_accessor display_name (): ::String?
       attr_accessor description (): ::String?
     end
 
     class RepositoryInput
       include Hearth::Structure
-      attr_accessor repository_name (): ::String
+      attr_accessor repository_name (): ::String?
       attr_accessor branch_name (): ::String?
     end
 
     class ResourceNotFoundException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
     class ServiceQuotaExceededException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
     class SpaceSummary
       include Hearth::Structure
-      attr_accessor name (): ::String
-      attr_accessor region_name (): ::String
+      attr_accessor name (): ::String?
+      attr_accessor region_name (): ::String?
       attr_accessor display_name (): ::String?
       attr_accessor description (): ::String?
     end
 
     class StartDevEnvironmentInput
       include Hearth::Structure
-      attr_accessor space_name (): ::String
-      attr_accessor project_name (): ::String
-      attr_accessor id (): ::String
+      attr_accessor space_name (): ::String?
+      attr_accessor project_name (): ::String?
+      attr_accessor id (): ::String?
       attr_accessor ides (): ::Array[Types::IdeConfiguration]?
       attr_accessor instance_type (): ::String?
       attr_accessor inactivity_timeout_minutes (): ::Integer?
@@ -710,86 +710,86 @@ module AWS::SDK::CodeCatalyst
 
     class StartDevEnvironmentOutput
       include Hearth::Structure
-      attr_accessor space_name (): ::String
-      attr_accessor project_name (): ::String
-      attr_accessor id (): ::String
-      attr_accessor status (): ::String
+      attr_accessor space_name (): ::String?
+      attr_accessor project_name (): ::String?
+      attr_accessor id (): ::String?
+      attr_accessor status (): ::String?
     end
 
     class StartDevEnvironmentSessionInput
       include Hearth::Structure
-      attr_accessor space_name (): ::String
-      attr_accessor project_name (): ::String
-      attr_accessor id (): ::String
-      attr_accessor session_configuration (): Types::DevEnvironmentSessionConfiguration
+      attr_accessor space_name (): ::String?
+      attr_accessor project_name (): ::String?
+      attr_accessor id (): ::String?
+      attr_accessor session_configuration (): Types::DevEnvironmentSessionConfiguration?
     end
 
     class StartDevEnvironmentSessionOutput
       include Hearth::Structure
-      attr_accessor access_details (): Types::DevEnvironmentAccessDetails
+      attr_accessor access_details (): Types::DevEnvironmentAccessDetails?
       attr_accessor session_id (): ::String?
-      attr_accessor space_name (): ::String
-      attr_accessor project_name (): ::String
-      attr_accessor id (): ::String
+      attr_accessor space_name (): ::String?
+      attr_accessor project_name (): ::String?
+      attr_accessor id (): ::String?
     end
 
     class StartWorkflowRunInput
       include Hearth::Structure
-      attr_accessor space_name (): ::String
-      attr_accessor project_name (): ::String
-      attr_accessor workflow_id (): ::String
+      attr_accessor space_name (): ::String?
+      attr_accessor project_name (): ::String?
+      attr_accessor workflow_id (): ::String?
       attr_accessor client_token (): ::String?
     end
 
     class StartWorkflowRunOutput
       include Hearth::Structure
-      attr_accessor space_name (): ::String
-      attr_accessor project_name (): ::String
-      attr_accessor id (): ::String
-      attr_accessor workflow_id (): ::String
+      attr_accessor space_name (): ::String?
+      attr_accessor project_name (): ::String?
+      attr_accessor id (): ::String?
+      attr_accessor workflow_id (): ::String?
     end
 
     class StopDevEnvironmentInput
       include Hearth::Structure
-      attr_accessor space_name (): ::String
-      attr_accessor project_name (): ::String
-      attr_accessor id (): ::String
+      attr_accessor space_name (): ::String?
+      attr_accessor project_name (): ::String?
+      attr_accessor id (): ::String?
     end
 
     class StopDevEnvironmentOutput
       include Hearth::Structure
-      attr_accessor space_name (): ::String
-      attr_accessor project_name (): ::String
-      attr_accessor id (): ::String
-      attr_accessor status (): ::String
+      attr_accessor space_name (): ::String?
+      attr_accessor project_name (): ::String?
+      attr_accessor id (): ::String?
+      attr_accessor status (): ::String?
     end
 
     class StopDevEnvironmentSessionInput
       include Hearth::Structure
-      attr_accessor space_name (): ::String
-      attr_accessor project_name (): ::String
-      attr_accessor id (): ::String
-      attr_accessor session_id (): ::String
+      attr_accessor space_name (): ::String?
+      attr_accessor project_name (): ::String?
+      attr_accessor id (): ::String?
+      attr_accessor session_id (): ::String?
     end
 
     class StopDevEnvironmentSessionOutput
       include Hearth::Structure
-      attr_accessor space_name (): ::String
-      attr_accessor project_name (): ::String
-      attr_accessor id (): ::String
-      attr_accessor session_id (): ::String
+      attr_accessor space_name (): ::String?
+      attr_accessor project_name (): ::String?
+      attr_accessor id (): ::String?
+      attr_accessor session_id (): ::String?
     end
 
     class ThrottlingException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
     class UpdateDevEnvironmentInput
       include Hearth::Structure
-      attr_accessor space_name (): ::String
-      attr_accessor project_name (): ::String
-      attr_accessor id (): ::String
+      attr_accessor space_name (): ::String?
+      attr_accessor project_name (): ::String?
+      attr_accessor id (): ::String?
       attr_accessor alias (): ::String?
       attr_accessor ides (): ::Array[Types::IdeConfiguration]?
       attr_accessor instance_type (): ::String?
@@ -799,9 +799,9 @@ module AWS::SDK::CodeCatalyst
 
     class UpdateDevEnvironmentOutput
       include Hearth::Structure
-      attr_accessor id (): ::String
-      attr_accessor space_name (): ::String
-      attr_accessor project_name (): ::String
+      attr_accessor id (): ::String?
+      attr_accessor space_name (): ::String?
+      attr_accessor project_name (): ::String?
       attr_accessor alias (): ::String?
       attr_accessor ides (): ::Array[Types::IdeConfiguration]?
       attr_accessor instance_type (): ::String?
@@ -811,8 +811,8 @@ module AWS::SDK::CodeCatalyst
 
     class UpdateProjectInput
       include Hearth::Structure
-      attr_accessor space_name (): ::String
-      attr_accessor name (): ::String
+      attr_accessor space_name (): ::String?
+      attr_accessor name (): ::String?
       attr_accessor description (): ::String?
     end
 
@@ -826,7 +826,7 @@ module AWS::SDK::CodeCatalyst
 
     class UpdateSpaceInput
       include Hearth::Structure
-      attr_accessor name (): ::String
+      attr_accessor name (): ::String?
       attr_accessor description (): ::String?
     end
 
@@ -839,8 +839,8 @@ module AWS::SDK::CodeCatalyst
 
     class UserIdentity
       include Hearth::Structure
-      attr_accessor user_type (): ::String
-      attr_accessor principal_id (): ::String
+      attr_accessor user_type (): ::String?
+      attr_accessor principal_id (): ::String?
       attr_accessor user_name (): ::String?
       attr_accessor aws_account_id (): ::String?
     end
@@ -855,7 +855,7 @@ module AWS::SDK::CodeCatalyst
 
     class ValidationException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
     class VerifySessionInput
@@ -869,12 +869,12 @@ module AWS::SDK::CodeCatalyst
 
     class WorkflowDefinition
       include Hearth::Structure
-      attr_accessor path (): ::String
+      attr_accessor path (): ::String?
     end
 
     class WorkflowDefinitionSummary
       include Hearth::Structure
-      attr_accessor path (): ::String
+      attr_accessor path (): ::String?
     end
 
     module WorkflowRunMode
@@ -919,14 +919,14 @@ module AWS::SDK::CodeCatalyst
 
     class WorkflowRunSummary
       include Hearth::Structure
-      attr_accessor id (): ::String
-      attr_accessor workflow_id (): ::String
-      attr_accessor workflow_name (): ::String
-      attr_accessor status (): ::String
+      attr_accessor id (): ::String?
+      attr_accessor workflow_id (): ::String?
+      attr_accessor workflow_name (): ::String?
+      attr_accessor status (): ::String?
       attr_accessor status_reasons (): ::Array[Types::WorkflowRunStatusReason]?
-      attr_accessor start_time (): ::Time
+      attr_accessor start_time (): ::Time?
       attr_accessor end_time (): ::Time?
-      attr_accessor last_updated_time (): ::Time
+      attr_accessor last_updated_time (): ::Time?
     end
 
     class WorkflowSortCriteria
@@ -941,15 +941,15 @@ module AWS::SDK::CodeCatalyst
 
     class WorkflowSummary
       include Hearth::Structure
-      attr_accessor id (): ::String
-      attr_accessor name (): ::String
-      attr_accessor source_repository_name (): ::String
-      attr_accessor source_branch_name (): ::String
-      attr_accessor definition (): Types::WorkflowDefinitionSummary
-      attr_accessor created_time (): ::Time
-      attr_accessor last_updated_time (): ::Time
-      attr_accessor run_mode (): ::String
-      attr_accessor status (): ::String
+      attr_accessor id (): ::String?
+      attr_accessor name (): ::String?
+      attr_accessor source_repository_name (): ::String?
+      attr_accessor source_branch_name (): ::String?
+      attr_accessor definition (): Types::WorkflowDefinitionSummary?
+      attr_accessor created_time (): ::Time?
+      attr_accessor last_updated_time (): ::Time?
+      attr_accessor run_mode (): ::String?
+      attr_accessor status (): ::String?
     end
 
   end

@@ -170,33 +170,36 @@ module AWS::SDK::S3
   #   @return [Boolean]
   # @!attribute validate_input
   #   @return [Boolean]
-  Config = ::Struct.new(
-    :auth_resolver,
-    :auth_schemes,
-    :credentials_provider,
-    :disable_express_session_auth,
-    :disable_host_prefix,
-    :disable_multiregion_access_points,
-    :endpoint,
-    :endpoint_resolver,
-    :force_path_style,
-    :http_client,
-    :interceptors,
-    :logger,
-    :plugins,
-    :profile,
-    :region,
-    :retry_strategy,
-    :stub_responses,
-    :stubs,
-    :use_accelerate_endpoint,
-    :use_arn_region,
-    :use_dualstack_endpoint,
-    :use_fips_endpoint,
-    :validate_input,
-    keyword_init: true
-  ) do
+  class Config
     include Hearth::Configuration
+
+    MEMBERS = %i[
+      auth_resolver
+      auth_schemes
+      credentials_provider
+      disable_express_session_auth
+      disable_host_prefix
+      disable_multiregion_access_points
+      endpoint
+      endpoint_resolver
+      force_path_style
+      http_client
+      interceptors
+      logger
+      plugins
+      profile
+      region
+      retry_strategy
+      stub_responses
+      stubs
+      use_accelerate_endpoint
+      use_arn_region
+      use_dualstack_endpoint
+      use_fips_endpoint
+      validate_input
+    ].freeze
+
+    attr_accessor(*MEMBERS)
 
     # Validates the configuration.
     def validate!

@@ -152,30 +152,33 @@ module AWS::SDK::CloudWatch
   #   @return [Boolean]
   # @!attribute validate_input
   #   @return [Boolean]
-  Config = ::Struct.new(
-    :auth_resolver,
-    :auth_schemes,
-    :credentials_provider,
-    :disable_host_prefix,
-    :disable_request_compression,
-    :endpoint,
-    :endpoint_resolver,
-    :http_client,
-    :interceptors,
-    :logger,
-    :plugins,
-    :profile,
-    :region,
-    :request_min_compression_size_bytes,
-    :retry_strategy,
-    :stub_responses,
-    :stubs,
-    :use_dualstack_endpoint,
-    :use_fips_endpoint,
-    :validate_input,
-    keyword_init: true
-  ) do
+  class Config
     include Hearth::Configuration
+
+    MEMBERS = %i[
+      auth_resolver
+      auth_schemes
+      credentials_provider
+      disable_host_prefix
+      disable_request_compression
+      endpoint
+      endpoint_resolver
+      http_client
+      interceptors
+      logger
+      plugins
+      profile
+      region
+      request_min_compression_size_bytes
+      retry_strategy
+      stub_responses
+      stubs
+      use_dualstack_endpoint
+      use_fips_endpoint
+      validate_input
+    ].freeze
+
+    attr_accessor(*MEMBERS)
 
     # Validates the configuration.
     def validate!
