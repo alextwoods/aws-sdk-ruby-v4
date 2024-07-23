@@ -392,12 +392,12 @@ module AWS::SDK::STS
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::STS::Types::AssumeRoleWithSAMLInput "\
-          "role_arn=#{role_arn || 'nil'}, "\
-          "principal_arn=#{principal_arn || 'nil'}, "\
-          "saml_assertion=\"[SENSITIVE]\", "\
-          "policy_arns=#{policy_arns || 'nil'}, "\
-          "policy=#{policy || 'nil'}, "\
+        '#<AWS::SDK::STS::Types::AssumeRoleWithSAMLInput ' \
+          "role_arn=#{role_arn || 'nil'}, " \
+          "principal_arn=#{principal_arn || 'nil'}, " \
+          'saml_assertion=[SENSITIVE], ' \
+          "policy_arns=#{policy_arns || 'nil'}, " \
+          "policy=#{policy || 'nil'}, " \
           "duration_seconds=#{duration_seconds || 'nil'}>"
       end
     end
@@ -627,13 +627,13 @@ module AWS::SDK::STS
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::STS::Types::AssumeRoleWithWebIdentityInput "\
-          "role_arn=#{role_arn || 'nil'}, "\
-          "role_session_name=#{role_session_name || 'nil'}, "\
-          "web_identity_token=\"[SENSITIVE]\", "\
-          "provider_id=#{provider_id || 'nil'}, "\
-          "policy_arns=#{policy_arns || 'nil'}, "\
-          "policy=#{policy || 'nil'}, "\
+        '#<AWS::SDK::STS::Types::AssumeRoleWithWebIdentityInput ' \
+          "role_arn=#{role_arn || 'nil'}, " \
+          "role_session_name=#{role_session_name || 'nil'}, " \
+          'web_identity_token=[SENSITIVE], ' \
+          "provider_id=#{provider_id || 'nil'}, " \
+          "policy_arns=#{policy_arns || 'nil'}, " \
+          "policy=#{policy || 'nil'}, " \
           "duration_seconds=#{duration_seconds || 'nil'}>"
       end
     end
@@ -782,10 +782,10 @@ module AWS::SDK::STS
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::STS::Types::Credentials "\
-          "access_key_id=#{access_key_id || 'nil'}, "\
-          "secret_access_key=\"[SENSITIVE]\", "\
-          "session_token=#{session_token || 'nil'}, "\
+        '#<AWS::SDK::STS::Types::Credentials ' \
+          "access_key_id=#{access_key_id || 'nil'}, " \
+          'secret_access_key=[SENSITIVE], ' \
+          "session_token=#{session_token || 'nil'}, " \
           "expiration=#{expiration || 'nil'}>"
       end
     end

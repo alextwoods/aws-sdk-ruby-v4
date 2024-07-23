@@ -82,7 +82,7 @@ module AWS::SDK::EC2
 
     class AcceptAddressTransferInput
       include Hearth::Structure
-      attr_accessor address (): ::String
+      attr_accessor address (): ::String?
       attr_accessor tag_specifications (): ::Array[Types::TagSpecification]?
       attr_accessor dry_run (): bool?
     end
@@ -95,7 +95,7 @@ module AWS::SDK::EC2
     class AcceptReservedInstancesExchangeQuoteInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor reserved_instance_ids (): ::Array[::String]
+      attr_accessor reserved_instance_ids (): ::Array[::String]?
       attr_accessor target_configurations (): ::Array[Types::TargetConfigurationRequest]?
     end
 
@@ -119,7 +119,7 @@ module AWS::SDK::EC2
 
     class AcceptTransitGatewayPeeringAttachmentInput
       include Hearth::Structure
-      attr_accessor transit_gateway_attachment_id (): ::String
+      attr_accessor transit_gateway_attachment_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -130,7 +130,7 @@ module AWS::SDK::EC2
 
     class AcceptTransitGatewayVpcAttachmentInput
       include Hearth::Structure
-      attr_accessor transit_gateway_attachment_id (): ::String
+      attr_accessor transit_gateway_attachment_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -142,8 +142,8 @@ module AWS::SDK::EC2
     class AcceptVpcEndpointConnectionsInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor service_id (): ::String
-      attr_accessor vpc_endpoint_ids (): ::Array[::String]
+      attr_accessor service_id (): ::String?
+      attr_accessor vpc_endpoint_ids (): ::Array[::String]?
     end
 
     class AcceptVpcEndpointConnectionsOutput
@@ -154,7 +154,7 @@ module AWS::SDK::EC2
     class AcceptVpcPeeringConnectionInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor vpc_peering_connection_id (): ::String
+      attr_accessor vpc_peering_connection_id (): ::String?
     end
 
     class AcceptVpcPeeringConnectionOutput
@@ -226,7 +226,7 @@ module AWS::SDK::EC2
 
     class AddPrefixListEntry
       include Hearth::Structure
-      attr_accessor cidr (): ::String
+      attr_accessor cidr (): ::String?
       attr_accessor description (): ::String?
     end
 
@@ -306,7 +306,7 @@ module AWS::SDK::EC2
 
     class AdvertiseByoipCidrInput
       include Hearth::Structure
-      attr_accessor cidr (): ::String
+      attr_accessor cidr (): ::String?
       attr_accessor asn (): ::String?
       attr_accessor dry_run (): bool?
       attr_accessor network_border_group (): ::String?
@@ -349,7 +349,7 @@ module AWS::SDK::EC2
     class AllocateHostsInput
       include Hearth::Structure
       attr_accessor auto_placement (): ::String?
-      attr_accessor availability_zone (): ::String
+      attr_accessor availability_zone (): ::String?
       attr_accessor client_token (): ::String?
       attr_accessor instance_type (): ::String?
       attr_accessor instance_family (): ::String?
@@ -369,7 +369,7 @@ module AWS::SDK::EC2
     class AllocateIpamPoolCidrInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor ipam_pool_id (): ::String
+      attr_accessor ipam_pool_id (): ::String?
       attr_accessor cidr (): ::String?
       attr_accessor netmask_length (): ::Integer?
       attr_accessor client_token (): ::String?
@@ -525,9 +525,9 @@ module AWS::SDK::EC2
 
     class ApplySecurityGroupsToClientVpnTargetNetworkInput
       include Hearth::Structure
-      attr_accessor client_vpn_endpoint_id (): ::String
-      attr_accessor vpc_id (): ::String
-      attr_accessor security_group_ids (): ::Array[::String]
+      attr_accessor client_vpn_endpoint_id (): ::String?
+      attr_accessor vpc_id (): ::String?
+      attr_accessor security_group_ids (): ::Array[::String]?
       attr_accessor dry_run (): bool?
     end
 
@@ -584,8 +584,8 @@ module AWS::SDK::EC2
 
     class AsnAuthorizationContext
       include Hearth::Structure
-      attr_accessor message (): ::String
-      attr_accessor signature (): ::String
+      attr_accessor message (): ::String?
+      attr_accessor signature (): ::String?
     end
 
     module AsnState
@@ -608,7 +608,7 @@ module AWS::SDK::EC2
       attr_accessor ipv6_addresses (): ::Array[::String]?
       attr_accessor ipv6_prefix_count (): ::Integer?
       attr_accessor ipv6_prefixes (): ::Array[::String]?
-      attr_accessor network_interface_id (): ::String
+      attr_accessor network_interface_id (): ::String?
     end
 
     class AssignIpv6AddressesOutput
@@ -621,7 +621,7 @@ module AWS::SDK::EC2
     class AssignPrivateIpAddressesInput
       include Hearth::Structure
       attr_accessor allow_reassignment (): bool?
-      attr_accessor network_interface_id (): ::String
+      attr_accessor network_interface_id (): ::String?
       attr_accessor private_ip_addresses (): ::Array[::String]?
       attr_accessor secondary_private_ip_address_count (): ::Integer?
       attr_accessor ipv4_prefixes (): ::Array[::String]?
@@ -637,7 +637,7 @@ module AWS::SDK::EC2
 
     class AssignPrivateNatGatewayAddressInput
       include Hearth::Structure
-      attr_accessor nat_gateway_id (): ::String
+      attr_accessor nat_gateway_id (): ::String?
       attr_accessor private_ip_addresses (): ::Array[::String]?
       attr_accessor private_ip_address_count (): ::Integer?
       attr_accessor dry_run (): bool?
@@ -672,8 +672,8 @@ module AWS::SDK::EC2
 
     class AssociateClientVpnTargetNetworkInput
       include Hearth::Structure
-      attr_accessor client_vpn_endpoint_id (): ::String
-      attr_accessor subnet_id (): ::String
+      attr_accessor client_vpn_endpoint_id (): ::String?
+      attr_accessor subnet_id (): ::String?
       attr_accessor client_token (): ::String?
       attr_accessor dry_run (): bool?
     end
@@ -686,8 +686,8 @@ module AWS::SDK::EC2
 
     class AssociateDhcpOptionsInput
       include Hearth::Structure
-      attr_accessor dhcp_options_id (): ::String
-      attr_accessor vpc_id (): ::String
+      attr_accessor dhcp_options_id (): ::String?
+      attr_accessor vpc_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -697,8 +697,8 @@ module AWS::SDK::EC2
 
     class AssociateEnclaveCertificateIamRoleInput
       include Hearth::Structure
-      attr_accessor certificate_arn (): ::String
-      attr_accessor role_arn (): ::String
+      attr_accessor certificate_arn (): ::String?
+      attr_accessor role_arn (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -711,8 +711,8 @@ module AWS::SDK::EC2
 
     class AssociateIamInstanceProfileInput
       include Hearth::Structure
-      attr_accessor iam_instance_profile (): Types::IamInstanceProfileSpecification
-      attr_accessor instance_id (): ::String
+      attr_accessor iam_instance_profile (): Types::IamInstanceProfileSpecification?
+      attr_accessor instance_id (): ::String?
     end
 
     class AssociateIamInstanceProfileOutput
@@ -723,8 +723,8 @@ module AWS::SDK::EC2
     class AssociateInstanceEventWindowInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor instance_event_window_id (): ::String
-      attr_accessor association_target (): Types::InstanceEventWindowAssociationRequest
+      attr_accessor instance_event_window_id (): ::String?
+      attr_accessor association_target (): Types::InstanceEventWindowAssociationRequest?
     end
 
     class AssociateInstanceEventWindowOutput
@@ -735,8 +735,8 @@ module AWS::SDK::EC2
     class AssociateIpamByoasnInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor asn (): ::String
-      attr_accessor cidr (): ::String
+      attr_accessor asn (): ::String?
+      attr_accessor cidr (): ::String?
     end
 
     class AssociateIpamByoasnOutput
@@ -747,8 +747,8 @@ module AWS::SDK::EC2
     class AssociateIpamResourceDiscoveryInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor ipam_id (): ::String
-      attr_accessor ipam_resource_discovery_id (): ::String
+      attr_accessor ipam_id (): ::String?
+      attr_accessor ipam_resource_discovery_id (): ::String?
       attr_accessor tag_specifications (): ::Array[Types::TagSpecification]?
       attr_accessor client_token (): ::String?
     end
@@ -760,8 +760,8 @@ module AWS::SDK::EC2
 
     class AssociateNatGatewayAddressInput
       include Hearth::Structure
-      attr_accessor nat_gateway_id (): ::String
-      attr_accessor allocation_ids (): ::Array[::String]
+      attr_accessor nat_gateway_id (): ::String?
+      attr_accessor allocation_ids (): ::Array[::String]?
       attr_accessor private_ip_addresses (): ::Array[::String]?
       attr_accessor dry_run (): bool?
     end
@@ -775,7 +775,7 @@ module AWS::SDK::EC2
     class AssociateRouteTableInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor route_table_id (): ::String
+      attr_accessor route_table_id (): ::String?
       attr_accessor subnet_id (): ::String?
       attr_accessor gateway_id (): ::String?
     end
@@ -789,7 +789,7 @@ module AWS::SDK::EC2
     class AssociateSubnetCidrBlockInput
       include Hearth::Structure
       attr_accessor ipv6_cidr_block (): ::String?
-      attr_accessor subnet_id (): ::String
+      attr_accessor subnet_id (): ::String?
       attr_accessor ipv6_ipam_pool_id (): ::String?
       attr_accessor ipv6_netmask_length (): ::Integer?
     end
@@ -802,9 +802,9 @@ module AWS::SDK::EC2
 
     class AssociateTransitGatewayMulticastDomainInput
       include Hearth::Structure
-      attr_accessor transit_gateway_multicast_domain_id (): ::String
-      attr_accessor transit_gateway_attachment_id (): ::String
-      attr_accessor subnet_ids (): ::Array[::String]
+      attr_accessor transit_gateway_multicast_domain_id (): ::String?
+      attr_accessor transit_gateway_attachment_id (): ::String?
+      attr_accessor subnet_ids (): ::Array[::String]?
       attr_accessor dry_run (): bool?
     end
 
@@ -815,8 +815,8 @@ module AWS::SDK::EC2
 
     class AssociateTransitGatewayPolicyTableInput
       include Hearth::Structure
-      attr_accessor transit_gateway_policy_table_id (): ::String
-      attr_accessor transit_gateway_attachment_id (): ::String
+      attr_accessor transit_gateway_policy_table_id (): ::String?
+      attr_accessor transit_gateway_attachment_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -827,8 +827,8 @@ module AWS::SDK::EC2
 
     class AssociateTransitGatewayRouteTableInput
       include Hearth::Structure
-      attr_accessor transit_gateway_route_table_id (): ::String
-      attr_accessor transit_gateway_attachment_id (): ::String
+      attr_accessor transit_gateway_route_table_id (): ::String?
+      attr_accessor transit_gateway_attachment_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -839,8 +839,8 @@ module AWS::SDK::EC2
 
     class AssociateTrunkInterfaceInput
       include Hearth::Structure
-      attr_accessor branch_interface_id (): ::String
-      attr_accessor trunk_interface_id (): ::String
+      attr_accessor branch_interface_id (): ::String?
+      attr_accessor trunk_interface_id (): ::String?
       attr_accessor vlan_id (): ::Integer?
       attr_accessor gre_key (): ::Integer?
       attr_accessor client_token (): ::String?
@@ -857,7 +857,7 @@ module AWS::SDK::EC2
       include Hearth::Structure
       attr_accessor amazon_provided_ipv6_cidr_block (): bool?
       attr_accessor cidr_block (): ::String?
-      attr_accessor vpc_id (): ::String
+      attr_accessor vpc_id (): ::String?
       attr_accessor ipv6_cidr_block_network_border_group (): ::String?
       attr_accessor ipv6_pool (): ::String?
       attr_accessor ipv6_cidr_block (): ::String?
@@ -912,8 +912,8 @@ module AWS::SDK::EC2
 
     class AthenaIntegration
       include Hearth::Structure
-      attr_accessor integration_result_s3_destination_arn (): ::String
-      attr_accessor partition_load_frequency (): ::String
+      attr_accessor integration_result_s3_destination_arn (): ::String?
+      attr_accessor partition_load_frequency (): ::String?
       attr_accessor partition_start_date (): ::Time?
       attr_accessor partition_end_date (): ::Time?
     end
@@ -921,9 +921,9 @@ module AWS::SDK::EC2
     class AttachClassicLinkVpcInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor groups (): ::Array[::String]
-      attr_accessor instance_id (): ::String
-      attr_accessor vpc_id (): ::String
+      attr_accessor groups (): ::Array[::String]?
+      attr_accessor instance_id (): ::String?
+      attr_accessor vpc_id (): ::String?
     end
 
     class AttachClassicLinkVpcOutput
@@ -934,8 +934,8 @@ module AWS::SDK::EC2
     class AttachInternetGatewayInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor internet_gateway_id (): ::String
-      attr_accessor vpc_id (): ::String
+      attr_accessor internet_gateway_id (): ::String?
+      attr_accessor vpc_id (): ::String?
     end
 
     class AttachInternetGatewayOutput
@@ -944,10 +944,10 @@ module AWS::SDK::EC2
 
     class AttachNetworkInterfaceInput
       include Hearth::Structure
-      attr_accessor device_index (): ::Integer
+      attr_accessor device_index (): ::Integer?
       attr_accessor dry_run (): bool?
-      attr_accessor instance_id (): ::String
-      attr_accessor network_interface_id (): ::String
+      attr_accessor instance_id (): ::String?
+      attr_accessor network_interface_id (): ::String?
       attr_accessor network_card_index (): ::Integer?
       attr_accessor ena_srd_specification (): Types::EnaSrdSpecification?
     end
@@ -960,8 +960,8 @@ module AWS::SDK::EC2
 
     class AttachVerifiedAccessTrustProviderInput
       include Hearth::Structure
-      attr_accessor verified_access_instance_id (): ::String
-      attr_accessor verified_access_trust_provider_id (): ::String
+      attr_accessor verified_access_instance_id (): ::String?
+      attr_accessor verified_access_trust_provider_id (): ::String?
       attr_accessor client_token (): ::String?
       attr_accessor dry_run (): bool?
     end
@@ -974,9 +974,9 @@ module AWS::SDK::EC2
 
     class AttachVolumeInput
       include Hearth::Structure
-      attr_accessor device (): ::String
-      attr_accessor instance_id (): ::String
-      attr_accessor volume_id (): ::String
+      attr_accessor device (): ::String?
+      attr_accessor instance_id (): ::String?
+      attr_accessor volume_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -994,8 +994,8 @@ module AWS::SDK::EC2
 
     class AttachVpnGatewayInput
       include Hearth::Structure
-      attr_accessor vpc_id (): ::String
-      attr_accessor vpn_gateway_id (): ::String
+      attr_accessor vpc_id (): ::String?
+      attr_accessor vpn_gateway_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -1047,8 +1047,8 @@ module AWS::SDK::EC2
 
     class AuthorizeClientVpnIngressInput
       include Hearth::Structure
-      attr_accessor client_vpn_endpoint_id (): ::String
-      attr_accessor target_network_cidr (): ::String
+      attr_accessor client_vpn_endpoint_id (): ::String?
+      attr_accessor target_network_cidr (): ::String?
       attr_accessor access_group_id (): ::String?
       attr_accessor authorize_all_groups (): bool?
       attr_accessor description (): ::String?
@@ -1064,7 +1064,7 @@ module AWS::SDK::EC2
     class AuthorizeSecurityGroupEgressInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor group_id (): ::String
+      attr_accessor group_id (): ::String?
       attr_accessor ip_permissions (): ::Array[Types::IpPermission]?
       attr_accessor tag_specifications (): ::Array[Types::TagSpecification]?
       attr_accessor cidr_ip (): ::String?
@@ -1237,8 +1237,8 @@ module AWS::SDK::EC2
 
     class BundleInstanceInput
       include Hearth::Structure
-      attr_accessor instance_id (): ::String
-      attr_accessor storage (): Types::Storage
+      attr_accessor instance_id (): ::String?
+      attr_accessor storage (): Types::Storage?
       attr_accessor dry_run (): bool?
     end
 
@@ -1337,7 +1337,7 @@ module AWS::SDK::EC2
 
     class CancelBundleTaskInput
       include Hearth::Structure
-      attr_accessor bundle_id (): ::String
+      attr_accessor bundle_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -1355,7 +1355,7 @@ module AWS::SDK::EC2
     class CancelCapacityReservationFleetsInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor capacity_reservation_fleet_ids (): ::Array[::String]
+      attr_accessor capacity_reservation_fleet_ids (): ::Array[::String]?
     end
 
     class CancelCapacityReservationFleetsOutput
@@ -1366,7 +1366,7 @@ module AWS::SDK::EC2
 
     class CancelCapacityReservationInput
       include Hearth::Structure
-      attr_accessor capacity_reservation_id (): ::String
+      attr_accessor capacity_reservation_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -1377,7 +1377,7 @@ module AWS::SDK::EC2
 
     class CancelConversionTaskInput
       include Hearth::Structure
-      attr_accessor conversion_task_id (): ::String
+      attr_accessor conversion_task_id (): ::String?
       attr_accessor dry_run (): bool?
       attr_accessor reason_message (): ::String?
     end
@@ -1388,7 +1388,7 @@ module AWS::SDK::EC2
 
     class CancelExportTaskInput
       include Hearth::Structure
-      attr_accessor export_task_id (): ::String
+      attr_accessor export_task_id (): ::String?
     end
 
     class CancelExportTaskOutput
@@ -1397,7 +1397,7 @@ module AWS::SDK::EC2
 
     class CancelImageLaunchPermissionInput
       include Hearth::Structure
-      attr_accessor image_id (): ::String
+      attr_accessor image_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -1422,7 +1422,7 @@ module AWS::SDK::EC2
 
     class CancelReservedInstancesListingInput
       include Hearth::Structure
-      attr_accessor reserved_instances_listing_id (): ::String
+      attr_accessor reserved_instances_listing_id (): ::String?
     end
 
     class CancelReservedInstancesListingOutput
@@ -1445,8 +1445,8 @@ module AWS::SDK::EC2
     class CancelSpotFleetRequestsInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor spot_fleet_request_ids (): ::Array[::String]
-      attr_accessor terminate_instances (): bool
+      attr_accessor spot_fleet_request_ids (): ::Array[::String]?
+      attr_accessor terminate_instances (): bool?
     end
 
     class CancelSpotFleetRequestsOutput
@@ -1477,7 +1477,7 @@ module AWS::SDK::EC2
     class CancelSpotInstanceRequestsInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor spot_instance_request_ids (): ::Array[::String]
+      attr_accessor spot_instance_request_ids (): ::Array[::String]?
     end
 
     class CancelSpotInstanceRequestsOutput
@@ -1727,8 +1727,8 @@ module AWS::SDK::EC2
 
     class CidrAuthorizationContext
       include Hearth::Structure
-      attr_accessor message (): ::String
-      attr_accessor signature (): ::String
+      attr_accessor message (): ::String?
+      attr_accessor signature (): ::String?
     end
 
     class CidrBlock
@@ -2001,8 +2001,8 @@ module AWS::SDK::EC2
 
     class ConfirmProductInstanceInput
       include Hearth::Structure
-      attr_accessor instance_id (): ::String
-      attr_accessor product_code (): ::String
+      attr_accessor instance_id (): ::String?
+      attr_accessor product_code (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -2109,10 +2109,10 @@ module AWS::SDK::EC2
     class CopyFpgaImageInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor source_fpga_image_id (): ::String
+      attr_accessor source_fpga_image_id (): ::String?
       attr_accessor description (): ::String?
       attr_accessor name (): ::String?
-      attr_accessor source_region (): ::String
+      attr_accessor source_region (): ::String?
       attr_accessor client_token (): ::String?
     end
 
@@ -2127,9 +2127,9 @@ module AWS::SDK::EC2
       attr_accessor description (): ::String?
       attr_accessor encrypted (): bool?
       attr_accessor kms_key_id (): ::String?
-      attr_accessor name (): ::String
-      attr_accessor source_image_id (): ::String
-      attr_accessor source_region (): ::String
+      attr_accessor name (): ::String?
+      attr_accessor source_image_id (): ::String?
+      attr_accessor source_region (): ::String?
       attr_accessor destination_outpost_arn (): ::String?
       attr_accessor dry_run (): bool?
       attr_accessor copy_image_tags (): bool?
@@ -2148,8 +2148,8 @@ module AWS::SDK::EC2
       attr_accessor encrypted (): bool?
       attr_accessor kms_key_id (): ::String?
       attr_accessor presigned_url (): ::String?
-      attr_accessor source_region (): ::String
-      attr_accessor source_snapshot_id (): ::String
+      attr_accessor source_region (): ::String?
+      attr_accessor source_snapshot_id (): ::String?
       attr_accessor tag_specifications (): ::Array[Types::TagSpecification]?
       attr_accessor dry_run (): bool?
     end
@@ -2190,9 +2190,9 @@ module AWS::SDK::EC2
       include Hearth::Structure
       attr_accessor allocation_strategy (): ::String?
       attr_accessor client_token (): ::String?
-      attr_accessor instance_type_specifications (): ::Array[Types::ReservationFleetInstanceSpecification]
+      attr_accessor instance_type_specifications (): ::Array[Types::ReservationFleetInstanceSpecification]?
       attr_accessor tenancy (): ::String?
-      attr_accessor total_target_capacity (): ::Integer
+      attr_accessor total_target_capacity (): ::Integer?
       attr_accessor end_date (): ::Time?
       attr_accessor instance_match_criteria (): ::String?
       attr_accessor tag_specifications (): ::Array[Types::TagSpecification]?
@@ -2217,12 +2217,12 @@ module AWS::SDK::EC2
     class CreateCapacityReservationInput
       include Hearth::Structure
       attr_accessor client_token (): ::String?
-      attr_accessor instance_type (): ::String
-      attr_accessor instance_platform (): ::String
+      attr_accessor instance_type (): ::String?
+      attr_accessor instance_platform (): ::String?
       attr_accessor availability_zone (): ::String?
       attr_accessor availability_zone_id (): ::String?
       attr_accessor tenancy (): ::String?
-      attr_accessor instance_count (): ::Integer
+      attr_accessor instance_count (): ::Integer?
       attr_accessor ebs_optimized (): bool?
       attr_accessor ephemeral_storage (): bool?
       attr_accessor end_date (): ::Time?
@@ -2241,7 +2241,7 @@ module AWS::SDK::EC2
 
     class CreateCarrierGatewayInput
       include Hearth::Structure
-      attr_accessor vpc_id (): ::String
+      attr_accessor vpc_id (): ::String?
       attr_accessor tag_specifications (): ::Array[Types::TagSpecification]?
       attr_accessor dry_run (): bool?
       attr_accessor client_token (): ::String?
@@ -2254,10 +2254,10 @@ module AWS::SDK::EC2
 
     class CreateClientVpnEndpointInput
       include Hearth::Structure
-      attr_accessor client_cidr_block (): ::String
-      attr_accessor server_certificate_arn (): ::String
-      attr_accessor authentication_options (): ::Array[Types::ClientVpnAuthenticationRequest]
-      attr_accessor connection_log_options (): Types::ConnectionLogOptions
+      attr_accessor client_cidr_block (): ::String?
+      attr_accessor server_certificate_arn (): ::String?
+      attr_accessor authentication_options (): ::Array[Types::ClientVpnAuthenticationRequest]?
+      attr_accessor connection_log_options (): Types::ConnectionLogOptions?
       attr_accessor dns_servers (): ::Array[::String]?
       attr_accessor transport_protocol (): ::String?
       attr_accessor vpn_port (): ::Integer?
@@ -2283,9 +2283,9 @@ module AWS::SDK::EC2
 
     class CreateClientVpnRouteInput
       include Hearth::Structure
-      attr_accessor client_vpn_endpoint_id (): ::String
-      attr_accessor destination_cidr_block (): ::String
-      attr_accessor target_vpc_subnet_id (): ::String
+      attr_accessor client_vpn_endpoint_id (): ::String?
+      attr_accessor destination_cidr_block (): ::String?
+      attr_accessor target_vpc_subnet_id (): ::String?
       attr_accessor description (): ::String?
       attr_accessor client_token (): ::String?
       attr_accessor dry_run (): bool?
@@ -2298,8 +2298,8 @@ module AWS::SDK::EC2
 
     class CreateCoipCidrInput
       include Hearth::Structure
-      attr_accessor cidr (): ::String
-      attr_accessor coip_pool_id (): ::String
+      attr_accessor cidr (): ::String?
+      attr_accessor coip_pool_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -2310,7 +2310,7 @@ module AWS::SDK::EC2
 
     class CreateCoipPoolInput
       include Hearth::Structure
-      attr_accessor local_gateway_route_table_id (): ::String
+      attr_accessor local_gateway_route_table_id (): ::String?
       attr_accessor tag_specifications (): ::Array[Types::TagSpecification]?
       attr_accessor dry_run (): bool?
     end
@@ -2325,7 +2325,7 @@ module AWS::SDK::EC2
       attr_accessor bgp_asn (): ::Integer?
       attr_accessor public_ip (): ::String?
       attr_accessor certificate_arn (): ::String?
-      attr_accessor type (): ::String
+      attr_accessor type (): ::String?
       attr_accessor tag_specifications (): ::Array[Types::TagSpecification]?
       attr_accessor device_name (): ::String?
       attr_accessor ip_address (): ::String?
@@ -2339,7 +2339,7 @@ module AWS::SDK::EC2
 
     class CreateDefaultSubnetInput
       include Hearth::Structure
-      attr_accessor availability_zone (): ::String
+      attr_accessor availability_zone (): ::String?
       attr_accessor dry_run (): bool?
       attr_accessor ipv6_native (): bool?
     end
@@ -2361,7 +2361,7 @@ module AWS::SDK::EC2
 
     class CreateDhcpOptionsInput
       include Hearth::Structure
-      attr_accessor dhcp_configurations (): ::Array[Types::NewDhcpConfiguration]
+      attr_accessor dhcp_configurations (): ::Array[Types::NewDhcpConfiguration]?
       attr_accessor tag_specifications (): ::Array[Types::TagSpecification]?
       attr_accessor dry_run (): bool?
     end
@@ -2375,7 +2375,7 @@ module AWS::SDK::EC2
       include Hearth::Structure
       attr_accessor client_token (): ::String?
       attr_accessor dry_run (): bool?
-      attr_accessor vpc_id (): ::String
+      attr_accessor vpc_id (): ::String?
       attr_accessor tag_specifications (): ::Array[Types::TagSpecification]?
     end
 
@@ -2400,8 +2400,8 @@ module AWS::SDK::EC2
       attr_accessor spot_options (): Types::SpotOptionsRequest?
       attr_accessor on_demand_options (): Types::OnDemandOptionsRequest?
       attr_accessor excess_capacity_termination_policy (): ::String?
-      attr_accessor launch_template_configs (): ::Array[Types::FleetLaunchTemplateConfigRequest]
-      attr_accessor target_capacity_specification (): Types::TargetCapacitySpecificationRequest
+      attr_accessor launch_template_configs (): ::Array[Types::FleetLaunchTemplateConfigRequest]?
+      attr_accessor target_capacity_specification (): Types::TargetCapacitySpecificationRequest?
       attr_accessor terminate_instances_with_expiration (): bool?
       attr_accessor type (): ::String?
       attr_accessor valid_from (): ::Time?
@@ -2434,8 +2434,8 @@ module AWS::SDK::EC2
       attr_accessor deliver_logs_permission_arn (): ::String?
       attr_accessor deliver_cross_account_role (): ::String?
       attr_accessor log_group_name (): ::String?
-      attr_accessor resource_ids (): ::Array[::String]
-      attr_accessor resource_type (): ::String
+      attr_accessor resource_ids (): ::Array[::String]?
+      attr_accessor resource_type (): ::String?
       attr_accessor traffic_type (): ::String?
       attr_accessor log_destination_type (): ::String?
       attr_accessor log_destination (): ::String?
@@ -2455,7 +2455,7 @@ module AWS::SDK::EC2
     class CreateFpgaImageInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor input_storage_location (): Types::StorageLocation
+      attr_accessor input_storage_location (): Types::StorageLocation?
       attr_accessor logs_storage_location (): Types::StorageLocation?
       attr_accessor description (): ::String?
       attr_accessor name (): ::String?
@@ -2474,8 +2474,8 @@ module AWS::SDK::EC2
       attr_accessor block_device_mappings (): ::Array[Types::BlockDeviceMapping]?
       attr_accessor description (): ::String?
       attr_accessor dry_run (): bool?
-      attr_accessor instance_id (): ::String
-      attr_accessor name (): ::String
+      attr_accessor instance_id (): ::String?
+      attr_accessor name (): ::String?
       attr_accessor no_reboot (): bool?
       attr_accessor tag_specifications (): ::Array[Types::TagSpecification]?
     end
@@ -2488,7 +2488,7 @@ module AWS::SDK::EC2
     class CreateInstanceConnectEndpointInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor subnet_id (): ::String
+      attr_accessor subnet_id (): ::String?
       attr_accessor security_group_ids (): ::Array[::String]?
       attr_accessor preserve_client_ip (): bool?
       attr_accessor client_token (): ::String?
@@ -2518,9 +2518,9 @@ module AWS::SDK::EC2
     class CreateInstanceExportTaskInput
       include Hearth::Structure
       attr_accessor description (): ::String?
-      attr_accessor export_to_s3_task (): Types::ExportToS3TaskSpecification
-      attr_accessor instance_id (): ::String
-      attr_accessor target_environment (): ::String
+      attr_accessor export_to_s3_task (): Types::ExportToS3TaskSpecification?
+      attr_accessor instance_id (): ::String?
+      attr_accessor target_environment (): ::String?
       attr_accessor tag_specifications (): ::Array[Types::TagSpecification]?
     end
 
@@ -2558,11 +2558,11 @@ module AWS::SDK::EC2
     class CreateIpamPoolInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor ipam_scope_id (): ::String
+      attr_accessor ipam_scope_id (): ::String?
       attr_accessor locale (): ::String?
       attr_accessor source_ipam_pool_id (): ::String?
       attr_accessor description (): ::String?
-      attr_accessor address_family (): ::String
+      attr_accessor address_family (): ::String?
       attr_accessor auto_import (): bool?
       attr_accessor publicly_advertisable (): bool?
       attr_accessor allocation_min_netmask_length (): ::Integer?
@@ -2598,7 +2598,7 @@ module AWS::SDK::EC2
     class CreateIpamScopeInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor ipam_id (): ::String
+      attr_accessor ipam_id (): ::String?
       attr_accessor description (): ::String?
       attr_accessor tag_specifications (): ::Array[Types::TagSpecification]?
       attr_accessor client_token (): ::String?
@@ -2611,7 +2611,7 @@ module AWS::SDK::EC2
 
     class CreateKeyPairInput
       include Hearth::Structure
-      attr_accessor key_name (): ::String
+      attr_accessor key_name (): ::String?
       attr_accessor dry_run (): bool?
       attr_accessor key_type (): ::String?
       attr_accessor tag_specifications (): ::Array[Types::TagSpecification]?
@@ -2631,9 +2631,9 @@ module AWS::SDK::EC2
       include Hearth::Structure
       attr_accessor dry_run (): bool?
       attr_accessor client_token (): ::String?
-      attr_accessor launch_template_name (): ::String
+      attr_accessor launch_template_name (): ::String?
       attr_accessor version_description (): ::String?
-      attr_accessor launch_template_data (): Types::RequestLaunchTemplateData
+      attr_accessor launch_template_data (): Types::RequestLaunchTemplateData?
       attr_accessor tag_specifications (): ::Array[Types::TagSpecification]?
     end
 
@@ -2651,7 +2651,7 @@ module AWS::SDK::EC2
       attr_accessor launch_template_name (): ::String?
       attr_accessor source_version (): ::String?
       attr_accessor version_description (): ::String?
-      attr_accessor launch_template_data (): Types::RequestLaunchTemplateData
+      attr_accessor launch_template_data (): Types::RequestLaunchTemplateData?
       attr_accessor resolve_alias (): bool?
     end
 
@@ -2664,7 +2664,7 @@ module AWS::SDK::EC2
     class CreateLocalGatewayRouteInput
       include Hearth::Structure
       attr_accessor destination_cidr_block (): ::String?
-      attr_accessor local_gateway_route_table_id (): ::String
+      attr_accessor local_gateway_route_table_id (): ::String?
       attr_accessor local_gateway_virtual_interface_group_id (): ::String?
       attr_accessor dry_run (): bool?
       attr_accessor network_interface_id (): ::String?
@@ -2678,7 +2678,7 @@ module AWS::SDK::EC2
 
     class CreateLocalGatewayRouteTableInput
       include Hearth::Structure
-      attr_accessor local_gateway_id (): ::String
+      attr_accessor local_gateway_id (): ::String?
       attr_accessor mode (): ::String?
       attr_accessor tag_specifications (): ::Array[Types::TagSpecification]?
       attr_accessor dry_run (): bool?
@@ -2691,8 +2691,8 @@ module AWS::SDK::EC2
 
     class CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationInput
       include Hearth::Structure
-      attr_accessor local_gateway_route_table_id (): ::String
-      attr_accessor local_gateway_virtual_interface_group_id (): ::String
+      attr_accessor local_gateway_route_table_id (): ::String?
+      attr_accessor local_gateway_virtual_interface_group_id (): ::String?
       attr_accessor tag_specifications (): ::Array[Types::TagSpecification]?
       attr_accessor dry_run (): bool?
     end
@@ -2704,8 +2704,8 @@ module AWS::SDK::EC2
 
     class CreateLocalGatewayRouteTableVpcAssociationInput
       include Hearth::Structure
-      attr_accessor local_gateway_route_table_id (): ::String
-      attr_accessor vpc_id (): ::String
+      attr_accessor local_gateway_route_table_id (): ::String?
+      attr_accessor vpc_id (): ::String?
       attr_accessor tag_specifications (): ::Array[Types::TagSpecification]?
       attr_accessor dry_run (): bool?
     end
@@ -2718,11 +2718,11 @@ module AWS::SDK::EC2
     class CreateManagedPrefixListInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor prefix_list_name (): ::String
+      attr_accessor prefix_list_name (): ::String?
       attr_accessor entries (): ::Array[Types::AddPrefixListEntry]?
-      attr_accessor max_entries (): ::Integer
+      attr_accessor max_entries (): ::Integer?
       attr_accessor tag_specifications (): ::Array[Types::TagSpecification]?
-      attr_accessor address_family (): ::String
+      attr_accessor address_family (): ::String?
       attr_accessor client_token (): ::String?
     end
 
@@ -2736,7 +2736,7 @@ module AWS::SDK::EC2
       attr_accessor allocation_id (): ::String?
       attr_accessor client_token (): ::String?
       attr_accessor dry_run (): bool?
-      attr_accessor subnet_id (): ::String
+      attr_accessor subnet_id (): ::String?
       attr_accessor tag_specifications (): ::Array[Types::TagSpecification]?
       attr_accessor connectivity_type (): ::String?
       attr_accessor private_ip_address (): ::String?
@@ -2755,14 +2755,14 @@ module AWS::SDK::EC2
       include Hearth::Structure
       attr_accessor cidr_block (): ::String?
       attr_accessor dry_run (): bool?
-      attr_accessor egress (): bool
+      attr_accessor egress (): bool?
       attr_accessor icmp_type_code (): Types::IcmpTypeCode?
       attr_accessor ipv6_cidr_block (): ::String?
-      attr_accessor network_acl_id (): ::String
+      attr_accessor network_acl_id (): ::String?
       attr_accessor port_range (): Types::PortRange?
-      attr_accessor protocol (): ::String
-      attr_accessor rule_action (): ::String
-      attr_accessor rule_number (): ::Integer
+      attr_accessor protocol (): ::String?
+      attr_accessor rule_action (): ::String?
+      attr_accessor rule_number (): ::Integer?
     end
 
     class CreateNetworkAclEntryOutput
@@ -2772,7 +2772,7 @@ module AWS::SDK::EC2
     class CreateNetworkAclInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor vpc_id (): ::String
+      attr_accessor vpc_id (): ::String?
       attr_accessor tag_specifications (): ::Array[Types::TagSpecification]?
       attr_accessor client_token (): ::String?
     end
@@ -2787,7 +2787,7 @@ module AWS::SDK::EC2
       include Hearth::Structure
       attr_accessor match_paths (): ::Array[Types::AccessScopePathRequest]?
       attr_accessor exclude_paths (): ::Array[Types::AccessScopePathRequest]?
-      attr_accessor client_token (): ::String
+      attr_accessor client_token (): ::String?
       attr_accessor tag_specifications (): ::Array[Types::TagSpecification]?
       attr_accessor dry_run (): bool?
     end
@@ -2802,13 +2802,13 @@ module AWS::SDK::EC2
       include Hearth::Structure
       attr_accessor source_ip (): ::String?
       attr_accessor destination_ip (): ::String?
-      attr_accessor source (): ::String
+      attr_accessor source (): ::String?
       attr_accessor destination (): ::String?
-      attr_accessor protocol (): ::String
+      attr_accessor protocol (): ::String?
       attr_accessor destination_port (): ::Integer?
       attr_accessor tag_specifications (): ::Array[Types::TagSpecification]?
       attr_accessor dry_run (): bool?
-      attr_accessor client_token (): ::String
+      attr_accessor client_token (): ::String?
       attr_accessor filter_at_source (): Types::PathRequestFilter?
       attr_accessor filter_at_destination (): Types::PathRequestFilter?
     end
@@ -2833,7 +2833,7 @@ module AWS::SDK::EC2
       attr_accessor ipv6_prefixes (): ::Array[Types::Ipv6PrefixSpecificationRequest]?
       attr_accessor ipv6_prefix_count (): ::Integer?
       attr_accessor interface_type (): ::String?
-      attr_accessor subnet_id (): ::String
+      attr_accessor subnet_id (): ::String?
       attr_accessor tag_specifications (): ::Array[Types::TagSpecification]?
       attr_accessor client_token (): ::String?
       attr_accessor enable_primary_ipv6 (): bool?
@@ -2848,10 +2848,10 @@ module AWS::SDK::EC2
 
     class CreateNetworkInterfacePermissionInput
       include Hearth::Structure
-      attr_accessor network_interface_id (): ::String
+      attr_accessor network_interface_id (): ::String?
       attr_accessor aws_account_id (): ::String?
       attr_accessor aws_service (): ::String?
-      attr_accessor permission (): ::String
+      attr_accessor permission (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -2888,7 +2888,7 @@ module AWS::SDK::EC2
 
     class CreateReplaceRootVolumeTaskInput
       include Hearth::Structure
-      attr_accessor instance_id (): ::String
+      attr_accessor instance_id (): ::String?
       attr_accessor snapshot_id (): ::String?
       attr_accessor client_token (): ::String?
       attr_accessor dry_run (): bool?
@@ -2904,10 +2904,10 @@ module AWS::SDK::EC2
 
     class CreateReservedInstancesListingInput
       include Hearth::Structure
-      attr_accessor client_token (): ::String
-      attr_accessor instance_count (): ::Integer
-      attr_accessor price_schedules (): ::Array[Types::PriceScheduleSpecification]
-      attr_accessor reserved_instances_id (): ::String
+      attr_accessor client_token (): ::String?
+      attr_accessor instance_count (): ::Integer?
+      attr_accessor price_schedules (): ::Array[Types::PriceScheduleSpecification]?
+      attr_accessor reserved_instances_id (): ::String?
     end
 
     class CreateReservedInstancesListingOutput
@@ -2917,8 +2917,8 @@ module AWS::SDK::EC2
 
     class CreateRestoreImageTaskInput
       include Hearth::Structure
-      attr_accessor bucket (): ::String
-      attr_accessor object_key (): ::String
+      attr_accessor bucket (): ::String?
+      attr_accessor object_key (): ::String?
       attr_accessor name (): ::String?
       attr_accessor tag_specifications (): ::Array[Types::TagSpecification]?
       attr_accessor dry_run (): bool?
@@ -2944,7 +2944,7 @@ module AWS::SDK::EC2
       attr_accessor local_gateway_id (): ::String?
       attr_accessor carrier_gateway_id (): ::String?
       attr_accessor network_interface_id (): ::String?
-      attr_accessor route_table_id (): ::String
+      attr_accessor route_table_id (): ::String?
       attr_accessor vpc_peering_connection_id (): ::String?
       attr_accessor core_network_arn (): ::String?
     end
@@ -2957,7 +2957,7 @@ module AWS::SDK::EC2
     class CreateRouteTableInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor vpc_id (): ::String
+      attr_accessor vpc_id (): ::String?
       attr_accessor tag_specifications (): ::Array[Types::TagSpecification]?
       attr_accessor client_token (): ::String?
     end
@@ -2970,8 +2970,8 @@ module AWS::SDK::EC2
 
     class CreateSecurityGroupInput
       include Hearth::Structure
-      attr_accessor description (): ::String
-      attr_accessor group_name (): ::String
+      attr_accessor description (): ::String?
+      attr_accessor group_name (): ::String?
       attr_accessor vpc_id (): ::String?
       attr_accessor tag_specifications (): ::Array[Types::TagSpecification]?
       attr_accessor dry_run (): bool?
@@ -2987,7 +2987,7 @@ module AWS::SDK::EC2
       include Hearth::Structure
       attr_accessor description (): ::String?
       attr_accessor outpost_arn (): ::String?
-      attr_accessor volume_id (): ::String
+      attr_accessor volume_id (): ::String?
       attr_accessor tag_specifications (): ::Array[Types::TagSpecification]?
       attr_accessor dry_run (): bool?
     end
@@ -3017,7 +3017,7 @@ module AWS::SDK::EC2
     class CreateSnapshotsInput
       include Hearth::Structure
       attr_accessor description (): ::String?
-      attr_accessor instance_specification (): Types::InstanceSpecification
+      attr_accessor instance_specification (): Types::InstanceSpecification?
       attr_accessor outpost_arn (): ::String?
       attr_accessor tag_specifications (): ::Array[Types::TagSpecification]?
       attr_accessor dry_run (): bool?
@@ -3031,7 +3031,7 @@ module AWS::SDK::EC2
 
     class CreateSpotDatafeedSubscriptionInput
       include Hearth::Structure
-      attr_accessor bucket (): ::String
+      attr_accessor bucket (): ::String?
       attr_accessor dry_run (): bool?
       attr_accessor prefix (): ::String?
     end
@@ -3043,8 +3043,8 @@ module AWS::SDK::EC2
 
     class CreateStoreImageTaskInput
       include Hearth::Structure
-      attr_accessor image_id (): ::String
-      attr_accessor bucket (): ::String
+      attr_accessor image_id (): ::String?
+      attr_accessor bucket (): ::String?
       attr_accessor s3_object_tags (): ::Array[Types::S3ObjectTag]?
       attr_accessor dry_run (): bool?
     end
@@ -3056,9 +3056,9 @@ module AWS::SDK::EC2
 
     class CreateSubnetCidrReservationInput
       include Hearth::Structure
-      attr_accessor subnet_id (): ::String
-      attr_accessor cidr (): ::String
-      attr_accessor reservation_type (): ::String
+      attr_accessor subnet_id (): ::String?
+      attr_accessor cidr (): ::String?
+      attr_accessor reservation_type (): ::String?
       attr_accessor description (): ::String?
       attr_accessor dry_run (): bool?
       attr_accessor tag_specifications (): ::Array[Types::TagSpecification]?
@@ -3077,7 +3077,7 @@ module AWS::SDK::EC2
       attr_accessor cidr_block (): ::String?
       attr_accessor ipv6_cidr_block (): ::String?
       attr_accessor outpost_arn (): ::String?
-      attr_accessor vpc_id (): ::String
+      attr_accessor vpc_id (): ::String?
       attr_accessor dry_run (): bool?
       attr_accessor ipv6_native (): bool?
       attr_accessor ipv4_ipam_pool_id (): ::String?
@@ -3094,8 +3094,8 @@ module AWS::SDK::EC2
     class CreateTagsInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor resources (): ::Array[::String]
-      attr_accessor tags (): ::Array[Types::Tag]
+      attr_accessor resources (): ::Array[::String]?
+      attr_accessor tags (): ::Array[Types::Tag]?
     end
 
     class CreateTagsOutput
@@ -3118,15 +3118,15 @@ module AWS::SDK::EC2
 
     class CreateTrafficMirrorFilterRuleInput
       include Hearth::Structure
-      attr_accessor traffic_mirror_filter_id (): ::String
-      attr_accessor traffic_direction (): ::String
-      attr_accessor rule_number (): ::Integer
-      attr_accessor rule_action (): ::String
+      attr_accessor traffic_mirror_filter_id (): ::String?
+      attr_accessor traffic_direction (): ::String?
+      attr_accessor rule_number (): ::Integer?
+      attr_accessor rule_action (): ::String?
       attr_accessor destination_port_range (): Types::TrafficMirrorPortRangeRequest?
       attr_accessor source_port_range (): Types::TrafficMirrorPortRangeRequest?
       attr_accessor protocol (): ::Integer?
-      attr_accessor destination_cidr_block (): ::String
-      attr_accessor source_cidr_block (): ::String
+      attr_accessor destination_cidr_block (): ::String?
+      attr_accessor source_cidr_block (): ::String?
       attr_accessor description (): ::String?
       attr_accessor dry_run (): bool?
       attr_accessor client_token (): ::String?
@@ -3140,11 +3140,11 @@ module AWS::SDK::EC2
 
     class CreateTrafficMirrorSessionInput
       include Hearth::Structure
-      attr_accessor network_interface_id (): ::String
-      attr_accessor traffic_mirror_target_id (): ::String
-      attr_accessor traffic_mirror_filter_id (): ::String
+      attr_accessor network_interface_id (): ::String?
+      attr_accessor traffic_mirror_target_id (): ::String?
+      attr_accessor traffic_mirror_filter_id (): ::String?
       attr_accessor packet_length (): ::Integer?
-      attr_accessor session_number (): ::Integer
+      attr_accessor session_number (): ::Integer?
       attr_accessor virtual_network_id (): ::Integer?
       attr_accessor description (): ::String?
       attr_accessor tag_specifications (): ::Array[Types::TagSpecification]?
@@ -3177,8 +3177,8 @@ module AWS::SDK::EC2
 
     class CreateTransitGatewayConnectInput
       include Hearth::Structure
-      attr_accessor transport_transit_gateway_attachment_id (): ::String
-      attr_accessor options (): Types::CreateTransitGatewayConnectRequestOptions
+      attr_accessor transport_transit_gateway_attachment_id (): ::String?
+      attr_accessor options (): Types::CreateTransitGatewayConnectRequestOptions?
       attr_accessor tag_specifications (): ::Array[Types::TagSpecification]?
       attr_accessor dry_run (): bool?
     end
@@ -3190,11 +3190,11 @@ module AWS::SDK::EC2
 
     class CreateTransitGatewayConnectPeerInput
       include Hearth::Structure
-      attr_accessor transit_gateway_attachment_id (): ::String
+      attr_accessor transit_gateway_attachment_id (): ::String?
       attr_accessor transit_gateway_address (): ::String?
-      attr_accessor peer_address (): ::String
+      attr_accessor peer_address (): ::String?
       attr_accessor bgp_options (): Types::TransitGatewayConnectRequestBgpOptions?
-      attr_accessor inside_cidr_blocks (): ::Array[::String]
+      attr_accessor inside_cidr_blocks (): ::Array[::String]?
       attr_accessor tag_specifications (): ::Array[Types::TagSpecification]?
       attr_accessor dry_run (): bool?
     end
@@ -3206,7 +3206,7 @@ module AWS::SDK::EC2
 
     class CreateTransitGatewayConnectRequestOptions
       include Hearth::Structure
-      attr_accessor protocol (): ::String
+      attr_accessor protocol (): ::String?
     end
 
     class CreateTransitGatewayInput
@@ -3219,7 +3219,7 @@ module AWS::SDK::EC2
 
     class CreateTransitGatewayMulticastDomainInput
       include Hearth::Structure
-      attr_accessor transit_gateway_id (): ::String
+      attr_accessor transit_gateway_id (): ::String?
       attr_accessor options (): Types::CreateTransitGatewayMulticastDomainRequestOptions?
       attr_accessor tag_specifications (): ::Array[Types::TagSpecification]?
       attr_accessor dry_run (): bool?
@@ -3244,10 +3244,10 @@ module AWS::SDK::EC2
 
     class CreateTransitGatewayPeeringAttachmentInput
       include Hearth::Structure
-      attr_accessor transit_gateway_id (): ::String
-      attr_accessor peer_transit_gateway_id (): ::String
-      attr_accessor peer_account_id (): ::String
-      attr_accessor peer_region (): ::String
+      attr_accessor transit_gateway_id (): ::String?
+      attr_accessor peer_transit_gateway_id (): ::String?
+      attr_accessor peer_account_id (): ::String?
+      attr_accessor peer_region (): ::String?
       attr_accessor options (): Types::CreateTransitGatewayPeeringAttachmentRequestOptions?
       attr_accessor tag_specifications (): ::Array[Types::TagSpecification]?
       attr_accessor dry_run (): bool?
@@ -3265,7 +3265,7 @@ module AWS::SDK::EC2
 
     class CreateTransitGatewayPolicyTableInput
       include Hearth::Structure
-      attr_accessor transit_gateway_id (): ::String
+      attr_accessor transit_gateway_id (): ::String?
       attr_accessor tag_specifications (): ::Array[Types::TagSpecification]?
       attr_accessor dry_run (): bool?
     end
@@ -3277,8 +3277,8 @@ module AWS::SDK::EC2
 
     class CreateTransitGatewayPrefixListReferenceInput
       include Hearth::Structure
-      attr_accessor transit_gateway_route_table_id (): ::String
-      attr_accessor prefix_list_id (): ::String
+      attr_accessor transit_gateway_route_table_id (): ::String?
+      attr_accessor prefix_list_id (): ::String?
       attr_accessor transit_gateway_attachment_id (): ::String?
       attr_accessor blackhole (): bool?
       attr_accessor dry_run (): bool?
@@ -3291,8 +3291,8 @@ module AWS::SDK::EC2
 
     class CreateTransitGatewayRouteInput
       include Hearth::Structure
-      attr_accessor destination_cidr_block (): ::String
-      attr_accessor transit_gateway_route_table_id (): ::String
+      attr_accessor destination_cidr_block (): ::String?
+      attr_accessor transit_gateway_route_table_id (): ::String?
       attr_accessor transit_gateway_attachment_id (): ::String?
       attr_accessor blackhole (): bool?
       attr_accessor dry_run (): bool?
@@ -3305,8 +3305,8 @@ module AWS::SDK::EC2
 
     class CreateTransitGatewayRouteTableAnnouncementInput
       include Hearth::Structure
-      attr_accessor transit_gateway_route_table_id (): ::String
-      attr_accessor peering_attachment_id (): ::String
+      attr_accessor transit_gateway_route_table_id (): ::String?
+      attr_accessor peering_attachment_id (): ::String?
       attr_accessor tag_specifications (): ::Array[Types::TagSpecification]?
       attr_accessor dry_run (): bool?
     end
@@ -3318,7 +3318,7 @@ module AWS::SDK::EC2
 
     class CreateTransitGatewayRouteTableInput
       include Hearth::Structure
-      attr_accessor transit_gateway_id (): ::String
+      attr_accessor transit_gateway_id (): ::String?
       attr_accessor tag_specifications (): ::Array[Types::TagSpecification]?
       attr_accessor dry_run (): bool?
     end
@@ -3330,9 +3330,9 @@ module AWS::SDK::EC2
 
     class CreateTransitGatewayVpcAttachmentInput
       include Hearth::Structure
-      attr_accessor transit_gateway_id (): ::String
-      attr_accessor vpc_id (): ::String
-      attr_accessor subnet_ids (): ::Array[::String]
+      attr_accessor transit_gateway_id (): ::String?
+      attr_accessor vpc_id (): ::String?
+      attr_accessor subnet_ids (): ::Array[::String]?
       attr_accessor options (): Types::CreateTransitGatewayVpcAttachmentRequestOptions?
       attr_accessor tag_specifications (): ::Array[Types::TagSpecification]?
       attr_accessor dry_run (): bool?
@@ -3360,12 +3360,12 @@ module AWS::SDK::EC2
 
     class CreateVerifiedAccessEndpointInput
       include Hearth::Structure
-      attr_accessor verified_access_group_id (): ::String
-      attr_accessor endpoint_type (): ::String
-      attr_accessor attachment_type (): ::String
-      attr_accessor domain_certificate_arn (): ::String
-      attr_accessor application_domain (): ::String
-      attr_accessor endpoint_domain_prefix (): ::String
+      attr_accessor verified_access_group_id (): ::String?
+      attr_accessor endpoint_type (): ::String?
+      attr_accessor attachment_type (): ::String?
+      attr_accessor domain_certificate_arn (): ::String?
+      attr_accessor application_domain (): ::String?
+      attr_accessor endpoint_domain_prefix (): ::String?
       attr_accessor security_group_ids (): ::Array[::String]?
       attr_accessor load_balancer_options (): Types::CreateVerifiedAccessEndpointLoadBalancerOptions?
       attr_accessor network_interface_options (): Types::CreateVerifiedAccessEndpointEniOptions?
@@ -3392,7 +3392,7 @@ module AWS::SDK::EC2
 
     class CreateVerifiedAccessGroupInput
       include Hearth::Structure
-      attr_accessor verified_access_instance_id (): ::String
+      attr_accessor verified_access_instance_id (): ::String?
       attr_accessor description (): ::String?
       attr_accessor policy_document (): ::String?
       attr_accessor tag_specifications (): ::Array[Types::TagSpecification]?
@@ -3428,12 +3428,12 @@ module AWS::SDK::EC2
 
     class CreateVerifiedAccessTrustProviderInput
       include Hearth::Structure
-      attr_accessor trust_provider_type (): ::String
+      attr_accessor trust_provider_type (): ::String?
       attr_accessor user_trust_provider_type (): ::String?
       attr_accessor device_trust_provider_type (): ::String?
       attr_accessor oidc_options (): Types::CreateVerifiedAccessTrustProviderOidcOptions?
       attr_accessor device_options (): Types::CreateVerifiedAccessTrustProviderDeviceOptions?
-      attr_accessor policy_reference_name (): ::String
+      attr_accessor policy_reference_name (): ::String?
       attr_accessor description (): ::String?
       attr_accessor tag_specifications (): ::Array[Types::TagSpecification]?
       attr_accessor client_token (): ::String?
@@ -3459,7 +3459,7 @@ module AWS::SDK::EC2
 
     class CreateVolumeInput
       include Hearth::Structure
-      attr_accessor availability_zone (): ::String
+      attr_accessor availability_zone (): ::String?
       attr_accessor encrypted (): bool?
       attr_accessor iops (): ::Integer?
       attr_accessor kms_key_id (): ::String?
@@ -3512,8 +3512,8 @@ module AWS::SDK::EC2
       attr_accessor dry_run (): bool?
       attr_accessor service_id (): ::String?
       attr_accessor vpc_endpoint_id (): ::String?
-      attr_accessor connection_notification_arn (): ::String
-      attr_accessor connection_events (): ::Array[::String]
+      attr_accessor connection_notification_arn (): ::String?
+      attr_accessor connection_events (): ::Array[::String]?
       attr_accessor client_token (): ::String?
     end
 
@@ -3527,8 +3527,8 @@ module AWS::SDK::EC2
       include Hearth::Structure
       attr_accessor dry_run (): bool?
       attr_accessor vpc_endpoint_type (): ::String?
-      attr_accessor vpc_id (): ::String
-      attr_accessor service_name (): ::String
+      attr_accessor vpc_id (): ::String?
+      attr_accessor service_name (): ::String?
       attr_accessor policy_document (): ::String?
       attr_accessor route_table_ids (): ::Array[::String]?
       attr_accessor subnet_ids (): ::Array[::String]?
@@ -3591,7 +3591,7 @@ module AWS::SDK::EC2
       attr_accessor dry_run (): bool?
       attr_accessor peer_owner_id (): ::String?
       attr_accessor peer_vpc_id (): ::String?
-      attr_accessor vpc_id (): ::String
+      attr_accessor vpc_id (): ::String?
       attr_accessor peer_region (): ::String?
       attr_accessor tag_specifications (): ::Array[Types::TagSpecification]?
     end
@@ -3603,8 +3603,8 @@ module AWS::SDK::EC2
 
     class CreateVpnConnectionInput
       include Hearth::Structure
-      attr_accessor customer_gateway_id (): ::String
-      attr_accessor type (): ::String
+      attr_accessor customer_gateway_id (): ::String?
+      attr_accessor type (): ::String?
       attr_accessor vpn_gateway_id (): ::String?
       attr_accessor transit_gateway_id (): ::String?
       attr_accessor dry_run (): bool?
@@ -3619,8 +3619,8 @@ module AWS::SDK::EC2
 
     class CreateVpnConnectionRouteInput
       include Hearth::Structure
-      attr_accessor destination_cidr_block (): ::String
-      attr_accessor vpn_connection_id (): ::String
+      attr_accessor destination_cidr_block (): ::String?
+      attr_accessor vpn_connection_id (): ::String?
     end
 
     class CreateVpnConnectionRouteOutput
@@ -3630,7 +3630,7 @@ module AWS::SDK::EC2
     class CreateVpnGatewayInput
       include Hearth::Structure
       attr_accessor availability_zone (): ::String?
-      attr_accessor type (): ::String
+      attr_accessor type (): ::String?
       attr_accessor tag_specifications (): ::Array[Types::TagSpecification]?
       attr_accessor amazon_side_asn (): ::Integer?
       attr_accessor dry_run (): bool?
@@ -3648,7 +3648,7 @@ module AWS::SDK::EC2
 
     class CreditSpecificationRequest
       include Hearth::Structure
-      attr_accessor cpu_credits (): ::String
+      attr_accessor cpu_credits (): ::String?
     end
 
     module CurrencyCodeValues
@@ -3716,7 +3716,7 @@ module AWS::SDK::EC2
 
     class DeleteCarrierGatewayInput
       include Hearth::Structure
-      attr_accessor carrier_gateway_id (): ::String
+      attr_accessor carrier_gateway_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -3727,7 +3727,7 @@ module AWS::SDK::EC2
 
     class DeleteClientVpnEndpointInput
       include Hearth::Structure
-      attr_accessor client_vpn_endpoint_id (): ::String
+      attr_accessor client_vpn_endpoint_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -3738,9 +3738,9 @@ module AWS::SDK::EC2
 
     class DeleteClientVpnRouteInput
       include Hearth::Structure
-      attr_accessor client_vpn_endpoint_id (): ::String
+      attr_accessor client_vpn_endpoint_id (): ::String?
       attr_accessor target_vpc_subnet_id (): ::String?
-      attr_accessor destination_cidr_block (): ::String
+      attr_accessor destination_cidr_block (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -3751,8 +3751,8 @@ module AWS::SDK::EC2
 
     class DeleteCoipCidrInput
       include Hearth::Structure
-      attr_accessor cidr (): ::String
-      attr_accessor coip_pool_id (): ::String
+      attr_accessor cidr (): ::String?
+      attr_accessor coip_pool_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -3763,7 +3763,7 @@ module AWS::SDK::EC2
 
     class DeleteCoipPoolInput
       include Hearth::Structure
-      attr_accessor coip_pool_id (): ::String
+      attr_accessor coip_pool_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -3774,7 +3774,7 @@ module AWS::SDK::EC2
 
     class DeleteCustomerGatewayInput
       include Hearth::Structure
-      attr_accessor customer_gateway_id (): ::String
+      attr_accessor customer_gateway_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -3784,7 +3784,7 @@ module AWS::SDK::EC2
 
     class DeleteDhcpOptionsInput
       include Hearth::Structure
-      attr_accessor dhcp_options_id (): ::String
+      attr_accessor dhcp_options_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -3795,7 +3795,7 @@ module AWS::SDK::EC2
     class DeleteEgressOnlyInternetGatewayInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor egress_only_internet_gateway_id (): ::String
+      attr_accessor egress_only_internet_gateway_id (): ::String?
     end
 
     class DeleteEgressOnlyInternetGatewayOutput
@@ -3835,8 +3835,8 @@ module AWS::SDK::EC2
     class DeleteFleetsInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor fleet_ids (): ::Array[::String]
-      attr_accessor terminate_instances (): bool
+      attr_accessor fleet_ids (): ::Array[::String]?
+      attr_accessor terminate_instances (): bool?
     end
 
     class DeleteFleetsOutput
@@ -3848,7 +3848,7 @@ module AWS::SDK::EC2
     class DeleteFlowLogsInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor flow_log_ids (): ::Array[::String]
+      attr_accessor flow_log_ids (): ::Array[::String]?
     end
 
     class DeleteFlowLogsOutput
@@ -3859,7 +3859,7 @@ module AWS::SDK::EC2
     class DeleteFpgaImageInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor fpga_image_id (): ::String
+      attr_accessor fpga_image_id (): ::String?
     end
 
     class DeleteFpgaImageOutput
@@ -3870,7 +3870,7 @@ module AWS::SDK::EC2
     class DeleteInstanceConnectEndpointInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor instance_connect_endpoint_id (): ::String
+      attr_accessor instance_connect_endpoint_id (): ::String?
     end
 
     class DeleteInstanceConnectEndpointOutput
@@ -3882,7 +3882,7 @@ module AWS::SDK::EC2
       include Hearth::Structure
       attr_accessor dry_run (): bool?
       attr_accessor force_delete (): bool?
-      attr_accessor instance_event_window_id (): ::String
+      attr_accessor instance_event_window_id (): ::String?
     end
 
     class DeleteInstanceEventWindowOutput
@@ -3893,7 +3893,7 @@ module AWS::SDK::EC2
     class DeleteInternetGatewayInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor internet_gateway_id (): ::String
+      attr_accessor internet_gateway_id (): ::String?
     end
 
     class DeleteInternetGatewayOutput
@@ -3903,7 +3903,7 @@ module AWS::SDK::EC2
     class DeleteIpamInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor ipam_id (): ::String
+      attr_accessor ipam_id (): ::String?
       attr_accessor cascade (): bool?
     end
 
@@ -3915,7 +3915,7 @@ module AWS::SDK::EC2
     class DeleteIpamPoolInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor ipam_pool_id (): ::String
+      attr_accessor ipam_pool_id (): ::String?
       attr_accessor cascade (): bool?
     end
 
@@ -3927,7 +3927,7 @@ module AWS::SDK::EC2
     class DeleteIpamResourceDiscoveryInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor ipam_resource_discovery_id (): ::String
+      attr_accessor ipam_resource_discovery_id (): ::String?
     end
 
     class DeleteIpamResourceDiscoveryOutput
@@ -3938,7 +3938,7 @@ module AWS::SDK::EC2
     class DeleteIpamScopeInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor ipam_scope_id (): ::String
+      attr_accessor ipam_scope_id (): ::String?
     end
 
     class DeleteIpamScopeOutput
@@ -3976,7 +3976,7 @@ module AWS::SDK::EC2
       attr_accessor dry_run (): bool?
       attr_accessor launch_template_id (): ::String?
       attr_accessor launch_template_name (): ::String?
-      attr_accessor versions (): ::Array[::String]
+      attr_accessor versions (): ::Array[::String]?
     end
 
     class DeleteLaunchTemplateVersionsOutput
@@ -4003,7 +4003,7 @@ module AWS::SDK::EC2
     class DeleteLocalGatewayRouteInput
       include Hearth::Structure
       attr_accessor destination_cidr_block (): ::String?
-      attr_accessor local_gateway_route_table_id (): ::String
+      attr_accessor local_gateway_route_table_id (): ::String?
       attr_accessor dry_run (): bool?
       attr_accessor destination_prefix_list_id (): ::String?
     end
@@ -4015,7 +4015,7 @@ module AWS::SDK::EC2
 
     class DeleteLocalGatewayRouteTableInput
       include Hearth::Structure
-      attr_accessor local_gateway_route_table_id (): ::String
+      attr_accessor local_gateway_route_table_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -4026,7 +4026,7 @@ module AWS::SDK::EC2
 
     class DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationInput
       include Hearth::Structure
-      attr_accessor local_gateway_route_table_virtual_interface_group_association_id (): ::String
+      attr_accessor local_gateway_route_table_virtual_interface_group_association_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -4037,7 +4037,7 @@ module AWS::SDK::EC2
 
     class DeleteLocalGatewayRouteTableVpcAssociationInput
       include Hearth::Structure
-      attr_accessor local_gateway_route_table_vpc_association_id (): ::String
+      attr_accessor local_gateway_route_table_vpc_association_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -4049,7 +4049,7 @@ module AWS::SDK::EC2
     class DeleteManagedPrefixListInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor prefix_list_id (): ::String
+      attr_accessor prefix_list_id (): ::String?
     end
 
     class DeleteManagedPrefixListOutput
@@ -4060,7 +4060,7 @@ module AWS::SDK::EC2
     class DeleteNatGatewayInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor nat_gateway_id (): ::String
+      attr_accessor nat_gateway_id (): ::String?
     end
 
     class DeleteNatGatewayOutput
@@ -4071,9 +4071,9 @@ module AWS::SDK::EC2
     class DeleteNetworkAclEntryInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor egress (): bool
-      attr_accessor network_acl_id (): ::String
-      attr_accessor rule_number (): ::Integer
+      attr_accessor egress (): bool?
+      attr_accessor network_acl_id (): ::String?
+      attr_accessor rule_number (): ::Integer?
     end
 
     class DeleteNetworkAclEntryOutput
@@ -4083,7 +4083,7 @@ module AWS::SDK::EC2
     class DeleteNetworkAclInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor network_acl_id (): ::String
+      attr_accessor network_acl_id (): ::String?
     end
 
     class DeleteNetworkAclOutput
@@ -4092,7 +4092,7 @@ module AWS::SDK::EC2
 
     class DeleteNetworkInsightsAccessScopeAnalysisInput
       include Hearth::Structure
-      attr_accessor network_insights_access_scope_analysis_id (): ::String
+      attr_accessor network_insights_access_scope_analysis_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -4104,7 +4104,7 @@ module AWS::SDK::EC2
     class DeleteNetworkInsightsAccessScopeInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor network_insights_access_scope_id (): ::String
+      attr_accessor network_insights_access_scope_id (): ::String?
     end
 
     class DeleteNetworkInsightsAccessScopeOutput
@@ -4115,7 +4115,7 @@ module AWS::SDK::EC2
     class DeleteNetworkInsightsAnalysisInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor network_insights_analysis_id (): ::String
+      attr_accessor network_insights_analysis_id (): ::String?
     end
 
     class DeleteNetworkInsightsAnalysisOutput
@@ -4126,7 +4126,7 @@ module AWS::SDK::EC2
     class DeleteNetworkInsightsPathInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor network_insights_path_id (): ::String
+      attr_accessor network_insights_path_id (): ::String?
     end
 
     class DeleteNetworkInsightsPathOutput
@@ -4137,7 +4137,7 @@ module AWS::SDK::EC2
     class DeleteNetworkInterfaceInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor network_interface_id (): ::String
+      attr_accessor network_interface_id (): ::String?
     end
 
     class DeleteNetworkInterfaceOutput
@@ -4146,7 +4146,7 @@ module AWS::SDK::EC2
 
     class DeleteNetworkInterfacePermissionInput
       include Hearth::Structure
-      attr_accessor network_interface_permission_id (): ::String
+      attr_accessor network_interface_permission_id (): ::String?
       attr_accessor force (): bool?
       attr_accessor dry_run (): bool?
     end
@@ -4159,7 +4159,7 @@ module AWS::SDK::EC2
     class DeletePlacementGroupInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor group_name (): ::String
+      attr_accessor group_name (): ::String?
     end
 
     class DeletePlacementGroupOutput
@@ -4169,7 +4169,7 @@ module AWS::SDK::EC2
     class DeletePublicIpv4PoolInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor pool_id (): ::String
+      attr_accessor pool_id (): ::String?
     end
 
     class DeletePublicIpv4PoolOutput
@@ -4194,7 +4194,7 @@ module AWS::SDK::EC2
     class DeleteQueuedReservedInstancesInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor reserved_instances_ids (): ::Array[::String]
+      attr_accessor reserved_instances_ids (): ::Array[::String]?
     end
 
     class DeleteQueuedReservedInstancesOutput
@@ -4209,7 +4209,7 @@ module AWS::SDK::EC2
       attr_accessor destination_ipv6_cidr_block (): ::String?
       attr_accessor destination_prefix_list_id (): ::String?
       attr_accessor dry_run (): bool?
-      attr_accessor route_table_id (): ::String
+      attr_accessor route_table_id (): ::String?
     end
 
     class DeleteRouteOutput
@@ -4219,7 +4219,7 @@ module AWS::SDK::EC2
     class DeleteRouteTableInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor route_table_id (): ::String
+      attr_accessor route_table_id (): ::String?
     end
 
     class DeleteRouteTableOutput
@@ -4239,7 +4239,7 @@ module AWS::SDK::EC2
 
     class DeleteSnapshotInput
       include Hearth::Structure
-      attr_accessor snapshot_id (): ::String
+      attr_accessor snapshot_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -4258,7 +4258,7 @@ module AWS::SDK::EC2
 
     class DeleteSubnetCidrReservationInput
       include Hearth::Structure
-      attr_accessor subnet_cidr_reservation_id (): ::String
+      attr_accessor subnet_cidr_reservation_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -4269,7 +4269,7 @@ module AWS::SDK::EC2
 
     class DeleteSubnetInput
       include Hearth::Structure
-      attr_accessor subnet_id (): ::String
+      attr_accessor subnet_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -4280,7 +4280,7 @@ module AWS::SDK::EC2
     class DeleteTagsInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor resources (): ::Array[::String]
+      attr_accessor resources (): ::Array[::String]?
       attr_accessor tags (): ::Array[Types::Tag]?
     end
 
@@ -4290,7 +4290,7 @@ module AWS::SDK::EC2
 
     class DeleteTrafficMirrorFilterInput
       include Hearth::Structure
-      attr_accessor traffic_mirror_filter_id (): ::String
+      attr_accessor traffic_mirror_filter_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -4301,7 +4301,7 @@ module AWS::SDK::EC2
 
     class DeleteTrafficMirrorFilterRuleInput
       include Hearth::Structure
-      attr_accessor traffic_mirror_filter_rule_id (): ::String
+      attr_accessor traffic_mirror_filter_rule_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -4312,7 +4312,7 @@ module AWS::SDK::EC2
 
     class DeleteTrafficMirrorSessionInput
       include Hearth::Structure
-      attr_accessor traffic_mirror_session_id (): ::String
+      attr_accessor traffic_mirror_session_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -4323,7 +4323,7 @@ module AWS::SDK::EC2
 
     class DeleteTrafficMirrorTargetInput
       include Hearth::Structure
-      attr_accessor traffic_mirror_target_id (): ::String
+      attr_accessor traffic_mirror_target_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -4334,7 +4334,7 @@ module AWS::SDK::EC2
 
     class DeleteTransitGatewayConnectInput
       include Hearth::Structure
-      attr_accessor transit_gateway_attachment_id (): ::String
+      attr_accessor transit_gateway_attachment_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -4345,7 +4345,7 @@ module AWS::SDK::EC2
 
     class DeleteTransitGatewayConnectPeerInput
       include Hearth::Structure
-      attr_accessor transit_gateway_connect_peer_id (): ::String
+      attr_accessor transit_gateway_connect_peer_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -4356,13 +4356,13 @@ module AWS::SDK::EC2
 
     class DeleteTransitGatewayInput
       include Hearth::Structure
-      attr_accessor transit_gateway_id (): ::String
+      attr_accessor transit_gateway_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
     class DeleteTransitGatewayMulticastDomainInput
       include Hearth::Structure
-      attr_accessor transit_gateway_multicast_domain_id (): ::String
+      attr_accessor transit_gateway_multicast_domain_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -4378,7 +4378,7 @@ module AWS::SDK::EC2
 
     class DeleteTransitGatewayPeeringAttachmentInput
       include Hearth::Structure
-      attr_accessor transit_gateway_attachment_id (): ::String
+      attr_accessor transit_gateway_attachment_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -4389,7 +4389,7 @@ module AWS::SDK::EC2
 
     class DeleteTransitGatewayPolicyTableInput
       include Hearth::Structure
-      attr_accessor transit_gateway_policy_table_id (): ::String
+      attr_accessor transit_gateway_policy_table_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -4400,8 +4400,8 @@ module AWS::SDK::EC2
 
     class DeleteTransitGatewayPrefixListReferenceInput
       include Hearth::Structure
-      attr_accessor transit_gateway_route_table_id (): ::String
-      attr_accessor prefix_list_id (): ::String
+      attr_accessor transit_gateway_route_table_id (): ::String?
+      attr_accessor prefix_list_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -4412,8 +4412,8 @@ module AWS::SDK::EC2
 
     class DeleteTransitGatewayRouteInput
       include Hearth::Structure
-      attr_accessor transit_gateway_route_table_id (): ::String
-      attr_accessor destination_cidr_block (): ::String
+      attr_accessor transit_gateway_route_table_id (): ::String?
+      attr_accessor destination_cidr_block (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -4424,7 +4424,7 @@ module AWS::SDK::EC2
 
     class DeleteTransitGatewayRouteTableAnnouncementInput
       include Hearth::Structure
-      attr_accessor transit_gateway_route_table_announcement_id (): ::String
+      attr_accessor transit_gateway_route_table_announcement_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -4435,7 +4435,7 @@ module AWS::SDK::EC2
 
     class DeleteTransitGatewayRouteTableInput
       include Hearth::Structure
-      attr_accessor transit_gateway_route_table_id (): ::String
+      attr_accessor transit_gateway_route_table_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -4446,7 +4446,7 @@ module AWS::SDK::EC2
 
     class DeleteTransitGatewayVpcAttachmentInput
       include Hearth::Structure
-      attr_accessor transit_gateway_attachment_id (): ::String
+      attr_accessor transit_gateway_attachment_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -4457,7 +4457,7 @@ module AWS::SDK::EC2
 
     class DeleteVerifiedAccessEndpointInput
       include Hearth::Structure
-      attr_accessor verified_access_endpoint_id (): ::String
+      attr_accessor verified_access_endpoint_id (): ::String?
       attr_accessor client_token (): ::String?
       attr_accessor dry_run (): bool?
     end
@@ -4469,7 +4469,7 @@ module AWS::SDK::EC2
 
     class DeleteVerifiedAccessGroupInput
       include Hearth::Structure
-      attr_accessor verified_access_group_id (): ::String
+      attr_accessor verified_access_group_id (): ::String?
       attr_accessor client_token (): ::String?
       attr_accessor dry_run (): bool?
     end
@@ -4481,7 +4481,7 @@ module AWS::SDK::EC2
 
     class DeleteVerifiedAccessInstanceInput
       include Hearth::Structure
-      attr_accessor verified_access_instance_id (): ::String
+      attr_accessor verified_access_instance_id (): ::String?
       attr_accessor dry_run (): bool?
       attr_accessor client_token (): ::String?
     end
@@ -4493,7 +4493,7 @@ module AWS::SDK::EC2
 
     class DeleteVerifiedAccessTrustProviderInput
       include Hearth::Structure
-      attr_accessor verified_access_trust_provider_id (): ::String
+      attr_accessor verified_access_trust_provider_id (): ::String?
       attr_accessor dry_run (): bool?
       attr_accessor client_token (): ::String?
     end
@@ -4505,7 +4505,7 @@ module AWS::SDK::EC2
 
     class DeleteVolumeInput
       include Hearth::Structure
-      attr_accessor volume_id (): ::String
+      attr_accessor volume_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -4516,7 +4516,7 @@ module AWS::SDK::EC2
     class DeleteVpcEndpointConnectionNotificationsInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor connection_notification_ids (): ::Array[::String]
+      attr_accessor connection_notification_ids (): ::Array[::String]?
     end
 
     class DeleteVpcEndpointConnectionNotificationsOutput
@@ -4527,7 +4527,7 @@ module AWS::SDK::EC2
     class DeleteVpcEndpointServiceConfigurationsInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor service_ids (): ::Array[::String]
+      attr_accessor service_ids (): ::Array[::String]?
     end
 
     class DeleteVpcEndpointServiceConfigurationsOutput
@@ -4538,7 +4538,7 @@ module AWS::SDK::EC2
     class DeleteVpcEndpointsInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor vpc_endpoint_ids (): ::Array[::String]
+      attr_accessor vpc_endpoint_ids (): ::Array[::String]?
     end
 
     class DeleteVpcEndpointsOutput
@@ -4548,7 +4548,7 @@ module AWS::SDK::EC2
 
     class DeleteVpcInput
       include Hearth::Structure
-      attr_accessor vpc_id (): ::String
+      attr_accessor vpc_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -4559,7 +4559,7 @@ module AWS::SDK::EC2
     class DeleteVpcPeeringConnectionInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor vpc_peering_connection_id (): ::String
+      attr_accessor vpc_peering_connection_id (): ::String?
     end
 
     class DeleteVpcPeeringConnectionOutput
@@ -4569,7 +4569,7 @@ module AWS::SDK::EC2
 
     class DeleteVpnConnectionInput
       include Hearth::Structure
-      attr_accessor vpn_connection_id (): ::String
+      attr_accessor vpn_connection_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -4579,8 +4579,8 @@ module AWS::SDK::EC2
 
     class DeleteVpnConnectionRouteInput
       include Hearth::Structure
-      attr_accessor destination_cidr_block (): ::String
-      attr_accessor vpn_connection_id (): ::String
+      attr_accessor destination_cidr_block (): ::String?
+      attr_accessor vpn_connection_id (): ::String?
     end
 
     class DeleteVpnConnectionRouteOutput
@@ -4589,7 +4589,7 @@ module AWS::SDK::EC2
 
     class DeleteVpnGatewayInput
       include Hearth::Structure
-      attr_accessor vpn_gateway_id (): ::String
+      attr_accessor vpn_gateway_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -4599,7 +4599,7 @@ module AWS::SDK::EC2
 
     class DeprovisionByoipCidrInput
       include Hearth::Structure
-      attr_accessor cidr (): ::String
+      attr_accessor cidr (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -4611,8 +4611,8 @@ module AWS::SDK::EC2
     class DeprovisionIpamByoasnInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor ipam_id (): ::String
-      attr_accessor asn (): ::String
+      attr_accessor ipam_id (): ::String?
+      attr_accessor asn (): ::String?
     end
 
     class DeprovisionIpamByoasnOutput
@@ -4623,7 +4623,7 @@ module AWS::SDK::EC2
     class DeprovisionIpamPoolCidrInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor ipam_pool_id (): ::String
+      attr_accessor ipam_pool_id (): ::String?
       attr_accessor cidr (): ::String?
     end
 
@@ -4635,8 +4635,8 @@ module AWS::SDK::EC2
     class DeprovisionPublicIpv4PoolCidrInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor pool_id (): ::String
-      attr_accessor cidr (): ::String
+      attr_accessor pool_id (): ::String?
+      attr_accessor cidr (): ::String?
     end
 
     class DeprovisionPublicIpv4PoolCidrOutput
@@ -4647,7 +4647,7 @@ module AWS::SDK::EC2
 
     class DeregisterImageInput
       include Hearth::Structure
-      attr_accessor image_id (): ::String
+      attr_accessor image_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -4658,7 +4658,7 @@ module AWS::SDK::EC2
     class DeregisterInstanceEventNotificationAttributesInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor instance_tag_attribute (): Types::DeregisterInstanceTagAttributeRequest
+      attr_accessor instance_tag_attribute (): Types::DeregisterInstanceTagAttributeRequest?
     end
 
     class DeregisterInstanceEventNotificationAttributesOutput
@@ -4805,7 +4805,7 @@ module AWS::SDK::EC2
     class DescribeByoipCidrsInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor max_results (): ::Integer
+      attr_accessor max_results (): ::Integer?
       attr_accessor next_token (): ::String?
     end
 
@@ -4818,11 +4818,11 @@ module AWS::SDK::EC2
     class DescribeCapacityBlockOfferingsInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor instance_type (): ::String
-      attr_accessor instance_count (): ::Integer
+      attr_accessor instance_type (): ::String?
+      attr_accessor instance_count (): ::Integer?
       attr_accessor start_date_range (): ::Time?
       attr_accessor end_date_range (): ::Time?
-      attr_accessor capacity_duration_hours (): ::Integer
+      attr_accessor capacity_duration_hours (): ::Integer?
       attr_accessor next_token (): ::String?
       attr_accessor max_results (): ::Integer?
     end
@@ -4895,7 +4895,7 @@ module AWS::SDK::EC2
 
     class DescribeClientVpnAuthorizationRulesInput
       include Hearth::Structure
-      attr_accessor client_vpn_endpoint_id (): ::String
+      attr_accessor client_vpn_endpoint_id (): ::String?
       attr_accessor dry_run (): bool?
       attr_accessor next_token (): ::String?
       attr_accessor filters (): ::Array[Types::Filter]?
@@ -4910,7 +4910,7 @@ module AWS::SDK::EC2
 
     class DescribeClientVpnConnectionsInput
       include Hearth::Structure
-      attr_accessor client_vpn_endpoint_id (): ::String
+      attr_accessor client_vpn_endpoint_id (): ::String?
       attr_accessor filters (): ::Array[Types::Filter]?
       attr_accessor next_token (): ::String?
       attr_accessor max_results (): ::Integer?
@@ -4940,7 +4940,7 @@ module AWS::SDK::EC2
 
     class DescribeClientVpnRoutesInput
       include Hearth::Structure
-      attr_accessor client_vpn_endpoint_id (): ::String
+      attr_accessor client_vpn_endpoint_id (): ::String?
       attr_accessor filters (): ::Array[Types::Filter]?
       attr_accessor max_results (): ::Integer?
       attr_accessor next_token (): ::String?
@@ -4955,7 +4955,7 @@ module AWS::SDK::EC2
 
     class DescribeClientVpnTargetNetworksInput
       include Hearth::Structure
-      attr_accessor client_vpn_endpoint_id (): ::String
+      attr_accessor client_vpn_endpoint_id (): ::String?
       attr_accessor association_ids (): ::Array[::String]?
       attr_accessor max_results (): ::Integer?
       attr_accessor next_token (): ::String?
@@ -5150,8 +5150,8 @@ module AWS::SDK::EC2
       attr_accessor event_type (): ::String?
       attr_accessor max_results (): ::Integer?
       attr_accessor next_token (): ::String?
-      attr_accessor fleet_id (): ::String
-      attr_accessor start_time (): ::Time
+      attr_accessor fleet_id (): ::String?
+      attr_accessor start_time (): ::Time?
     end
 
     class DescribeFleetHistoryOutput
@@ -5168,7 +5168,7 @@ module AWS::SDK::EC2
       attr_accessor dry_run (): bool?
       attr_accessor max_results (): ::Integer?
       attr_accessor next_token (): ::String?
-      attr_accessor fleet_id (): ::String
+      attr_accessor fleet_id (): ::String?
       attr_accessor filters (): ::Array[Types::Filter]?
     end
 
@@ -5221,8 +5221,8 @@ module AWS::SDK::EC2
     class DescribeFpgaImageAttributeInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor fpga_image_id (): ::String
-      attr_accessor attribute (): ::String
+      attr_accessor fpga_image_id (): ::String?
+      attr_accessor attribute (): ::String?
     end
 
     class DescribeFpgaImageAttributeOutput
@@ -5316,7 +5316,7 @@ module AWS::SDK::EC2
 
     class DescribeIdentityIdFormatInput
       include Hearth::Structure
-      attr_accessor principal_arn (): ::String
+      attr_accessor principal_arn (): ::String?
       attr_accessor resource (): ::String?
     end
 
@@ -5327,8 +5327,8 @@ module AWS::SDK::EC2
 
     class DescribeImageAttributeInput
       include Hearth::Structure
-      attr_accessor attribute (): ::String
-      attr_accessor image_id (): ::String
+      attr_accessor attribute (): ::String?
+      attr_accessor image_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -5400,9 +5400,9 @@ module AWS::SDK::EC2
 
     class DescribeInstanceAttributeInput
       include Hearth::Structure
-      attr_accessor attribute (): ::String
+      attr_accessor attribute (): ::String?
       attr_accessor dry_run (): bool?
-      attr_accessor instance_id (): ::String
+      attr_accessor instance_id (): ::String?
     end
 
     class DescribeInstanceAttributeOutput
@@ -5961,7 +5961,7 @@ module AWS::SDK::EC2
       include Hearth::Structure
       attr_accessor attribute (): ::String?
       attr_accessor dry_run (): bool?
-      attr_accessor network_interface_id (): ::String
+      attr_accessor network_interface_id (): ::String?
     end
 
     class DescribeNetworkInterfaceAttributeOutput
@@ -6169,12 +6169,12 @@ module AWS::SDK::EC2
       include Hearth::Structure
       attr_accessor dry_run (): bool?
       attr_accessor filters (): ::Array[Types::Filter]?
-      attr_accessor first_slot_start_time_range (): Types::SlotDateTimeRangeRequest
+      attr_accessor first_slot_start_time_range (): Types::SlotDateTimeRangeRequest?
       attr_accessor max_results (): ::Integer?
       attr_accessor max_slot_duration_in_hours (): ::Integer?
       attr_accessor min_slot_duration_in_hours (): ::Integer?
       attr_accessor next_token (): ::String?
-      attr_accessor recurrence (): Types::ScheduledInstanceRecurrenceRequest
+      attr_accessor recurrence (): Types::ScheduledInstanceRecurrenceRequest?
     end
 
     class DescribeScheduledInstanceAvailabilityOutput
@@ -6202,7 +6202,7 @@ module AWS::SDK::EC2
     class DescribeSecurityGroupReferencesInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor group_id (): ::Array[::String]
+      attr_accessor group_id (): ::Array[::String]?
     end
 
     class DescribeSecurityGroupReferencesOutput
@@ -6243,8 +6243,8 @@ module AWS::SDK::EC2
 
     class DescribeSnapshotAttributeInput
       include Hearth::Structure
-      attr_accessor attribute (): ::String
-      attr_accessor snapshot_id (): ::String
+      attr_accessor attribute (): ::String?
+      attr_accessor snapshot_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -6301,7 +6301,7 @@ module AWS::SDK::EC2
       attr_accessor dry_run (): bool?
       attr_accessor max_results (): ::Integer?
       attr_accessor next_token (): ::String?
-      attr_accessor spot_fleet_request_id (): ::String
+      attr_accessor spot_fleet_request_id (): ::String?
     end
 
     class DescribeSpotFleetInstancesOutput
@@ -6317,8 +6317,8 @@ module AWS::SDK::EC2
       attr_accessor event_type (): ::String?
       attr_accessor max_results (): ::Integer?
       attr_accessor next_token (): ::String?
-      attr_accessor spot_fleet_request_id (): ::String
-      attr_accessor start_time (): ::Time
+      attr_accessor spot_fleet_request_id (): ::String?
+      attr_accessor start_time (): ::Time?
     end
 
     class DescribeSpotFleetRequestHistoryOutput
@@ -6383,7 +6383,7 @@ module AWS::SDK::EC2
       attr_accessor dry_run (): bool?
       attr_accessor max_results (): ::Integer?
       attr_accessor next_token (): ::String?
-      attr_accessor vpc_id (): ::String
+      attr_accessor vpc_id (): ::String?
     end
 
     class DescribeStaleSecurityGroupsOutput
@@ -6726,8 +6726,8 @@ module AWS::SDK::EC2
 
     class DescribeVolumeAttributeInput
       include Hearth::Structure
-      attr_accessor attribute (): ::String
-      attr_accessor volume_id (): ::String
+      attr_accessor attribute (): ::String?
+      attr_accessor volume_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -6785,8 +6785,8 @@ module AWS::SDK::EC2
 
     class DescribeVpcAttributeInput
       include Hearth::Structure
-      attr_accessor attribute (): ::String
-      attr_accessor vpc_id (): ::String
+      attr_accessor attribute (): ::String?
+      attr_accessor vpc_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -6870,7 +6870,7 @@ module AWS::SDK::EC2
     class DescribeVpcEndpointServicePermissionsInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor service_id (): ::String
+      attr_accessor service_id (): ::String?
       attr_accessor filters (): ::Array[Types::Filter]?
       attr_accessor max_results (): ::Integer?
       attr_accessor next_token (): ::String?
@@ -6990,8 +6990,8 @@ module AWS::SDK::EC2
     class DetachClassicLinkVpcInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor instance_id (): ::String
-      attr_accessor vpc_id (): ::String
+      attr_accessor instance_id (): ::String?
+      attr_accessor vpc_id (): ::String?
     end
 
     class DetachClassicLinkVpcOutput
@@ -7002,8 +7002,8 @@ module AWS::SDK::EC2
     class DetachInternetGatewayInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor internet_gateway_id (): ::String
-      attr_accessor vpc_id (): ::String
+      attr_accessor internet_gateway_id (): ::String?
+      attr_accessor vpc_id (): ::String?
     end
 
     class DetachInternetGatewayOutput
@@ -7012,7 +7012,7 @@ module AWS::SDK::EC2
 
     class DetachNetworkInterfaceInput
       include Hearth::Structure
-      attr_accessor attachment_id (): ::String
+      attr_accessor attachment_id (): ::String?
       attr_accessor dry_run (): bool?
       attr_accessor force (): bool?
     end
@@ -7023,8 +7023,8 @@ module AWS::SDK::EC2
 
     class DetachVerifiedAccessTrustProviderInput
       include Hearth::Structure
-      attr_accessor verified_access_instance_id (): ::String
-      attr_accessor verified_access_trust_provider_id (): ::String
+      attr_accessor verified_access_instance_id (): ::String?
+      attr_accessor verified_access_trust_provider_id (): ::String?
       attr_accessor client_token (): ::String?
       attr_accessor dry_run (): bool?
     end
@@ -7040,7 +7040,7 @@ module AWS::SDK::EC2
       attr_accessor device (): ::String?
       attr_accessor force (): bool?
       attr_accessor instance_id (): ::String?
-      attr_accessor volume_id (): ::String
+      attr_accessor volume_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -7058,8 +7058,8 @@ module AWS::SDK::EC2
 
     class DetachVpnGatewayInput
       include Hearth::Structure
-      attr_accessor vpc_id (): ::String
-      attr_accessor vpn_gateway_id (): ::String
+      attr_accessor vpc_id (): ::String?
+      attr_accessor vpn_gateway_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -7113,7 +7113,7 @@ module AWS::SDK::EC2
 
     class DisableAddressTransferInput
       include Hearth::Structure
-      attr_accessor allocation_id (): ::String
+      attr_accessor allocation_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -7148,7 +7148,7 @@ module AWS::SDK::EC2
 
     class DisableFastLaunchInput
       include Hearth::Structure
-      attr_accessor image_id (): ::String
+      attr_accessor image_id (): ::String?
       attr_accessor force (): bool?
       attr_accessor dry_run (): bool?
     end
@@ -7201,8 +7201,8 @@ module AWS::SDK::EC2
 
     class DisableFastSnapshotRestoresInput
       include Hearth::Structure
-      attr_accessor availability_zones (): ::Array[::String]
-      attr_accessor source_snapshot_ids (): ::Array[::String]
+      attr_accessor availability_zones (): ::Array[::String]?
+      attr_accessor source_snapshot_ids (): ::Array[::String]?
       attr_accessor dry_run (): bool?
     end
 
@@ -7224,7 +7224,7 @@ module AWS::SDK::EC2
 
     class DisableImageDeprecationInput
       include Hearth::Structure
-      attr_accessor image_id (): ::String
+      attr_accessor image_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -7235,7 +7235,7 @@ module AWS::SDK::EC2
 
     class DisableImageInput
       include Hearth::Structure
-      attr_accessor image_id (): ::String
+      attr_accessor image_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -7247,7 +7247,7 @@ module AWS::SDK::EC2
     class DisableIpamOrganizationAdminAccountInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor delegated_admin_account_id (): ::String
+      attr_accessor delegated_admin_account_id (): ::String?
     end
 
     class DisableIpamOrganizationAdminAccountOutput
@@ -7277,7 +7277,7 @@ module AWS::SDK::EC2
 
     class DisableTransitGatewayRouteTablePropagationInput
       include Hearth::Structure
-      attr_accessor transit_gateway_route_table_id (): ::String
+      attr_accessor transit_gateway_route_table_id (): ::String?
       attr_accessor transit_gateway_attachment_id (): ::String?
       attr_accessor dry_run (): bool?
       attr_accessor transit_gateway_route_table_announcement_id (): ::String?
@@ -7290,8 +7290,8 @@ module AWS::SDK::EC2
 
     class DisableVgwRoutePropagationInput
       include Hearth::Structure
-      attr_accessor gateway_id (): ::String
-      attr_accessor route_table_id (): ::String
+      attr_accessor gateway_id (): ::String?
+      attr_accessor route_table_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -7312,7 +7312,7 @@ module AWS::SDK::EC2
     class DisableVpcClassicLinkInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor vpc_id (): ::String
+      attr_accessor vpc_id (): ::String?
     end
 
     class DisableVpcClassicLinkOutput
@@ -7333,8 +7333,8 @@ module AWS::SDK::EC2
 
     class DisassociateClientVpnTargetNetworkInput
       include Hearth::Structure
-      attr_accessor client_vpn_endpoint_id (): ::String
-      attr_accessor association_id (): ::String
+      attr_accessor client_vpn_endpoint_id (): ::String?
+      attr_accessor association_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -7346,8 +7346,8 @@ module AWS::SDK::EC2
 
     class DisassociateEnclaveCertificateIamRoleInput
       include Hearth::Structure
-      attr_accessor certificate_arn (): ::String
-      attr_accessor role_arn (): ::String
+      attr_accessor certificate_arn (): ::String?
+      attr_accessor role_arn (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -7358,7 +7358,7 @@ module AWS::SDK::EC2
 
     class DisassociateIamInstanceProfileInput
       include Hearth::Structure
-      attr_accessor association_id (): ::String
+      attr_accessor association_id (): ::String?
     end
 
     class DisassociateIamInstanceProfileOutput
@@ -7369,8 +7369,8 @@ module AWS::SDK::EC2
     class DisassociateInstanceEventWindowInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor instance_event_window_id (): ::String
-      attr_accessor association_target (): Types::InstanceEventWindowDisassociationRequest
+      attr_accessor instance_event_window_id (): ::String?
+      attr_accessor association_target (): Types::InstanceEventWindowDisassociationRequest?
     end
 
     class DisassociateInstanceEventWindowOutput
@@ -7381,8 +7381,8 @@ module AWS::SDK::EC2
     class DisassociateIpamByoasnInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor asn (): ::String
-      attr_accessor cidr (): ::String
+      attr_accessor asn (): ::String?
+      attr_accessor cidr (): ::String?
     end
 
     class DisassociateIpamByoasnOutput
@@ -7393,7 +7393,7 @@ module AWS::SDK::EC2
     class DisassociateIpamResourceDiscoveryInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor ipam_resource_discovery_association_id (): ::String
+      attr_accessor ipam_resource_discovery_association_id (): ::String?
     end
 
     class DisassociateIpamResourceDiscoveryOutput
@@ -7403,8 +7403,8 @@ module AWS::SDK::EC2
 
     class DisassociateNatGatewayAddressInput
       include Hearth::Structure
-      attr_accessor nat_gateway_id (): ::String
-      attr_accessor association_ids (): ::Array[::String]
+      attr_accessor nat_gateway_id (): ::String?
+      attr_accessor association_ids (): ::Array[::String]?
       attr_accessor max_drain_duration_seconds (): ::Integer?
       attr_accessor dry_run (): bool?
     end
@@ -7417,7 +7417,7 @@ module AWS::SDK::EC2
 
     class DisassociateRouteTableInput
       include Hearth::Structure
-      attr_accessor association_id (): ::String
+      attr_accessor association_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -7427,7 +7427,7 @@ module AWS::SDK::EC2
 
     class DisassociateSubnetCidrBlockInput
       include Hearth::Structure
-      attr_accessor association_id (): ::String
+      attr_accessor association_id (): ::String?
     end
 
     class DisassociateSubnetCidrBlockOutput
@@ -7438,9 +7438,9 @@ module AWS::SDK::EC2
 
     class DisassociateTransitGatewayMulticastDomainInput
       include Hearth::Structure
-      attr_accessor transit_gateway_multicast_domain_id (): ::String
-      attr_accessor transit_gateway_attachment_id (): ::String
-      attr_accessor subnet_ids (): ::Array[::String]
+      attr_accessor transit_gateway_multicast_domain_id (): ::String?
+      attr_accessor transit_gateway_attachment_id (): ::String?
+      attr_accessor subnet_ids (): ::Array[::String]?
       attr_accessor dry_run (): bool?
     end
 
@@ -7451,8 +7451,8 @@ module AWS::SDK::EC2
 
     class DisassociateTransitGatewayPolicyTableInput
       include Hearth::Structure
-      attr_accessor transit_gateway_policy_table_id (): ::String
-      attr_accessor transit_gateway_attachment_id (): ::String
+      attr_accessor transit_gateway_policy_table_id (): ::String?
+      attr_accessor transit_gateway_attachment_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -7463,8 +7463,8 @@ module AWS::SDK::EC2
 
     class DisassociateTransitGatewayRouteTableInput
       include Hearth::Structure
-      attr_accessor transit_gateway_route_table_id (): ::String
-      attr_accessor transit_gateway_attachment_id (): ::String
+      attr_accessor transit_gateway_route_table_id (): ::String?
+      attr_accessor transit_gateway_attachment_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -7475,7 +7475,7 @@ module AWS::SDK::EC2
 
     class DisassociateTrunkInterfaceInput
       include Hearth::Structure
-      attr_accessor association_id (): ::String
+      attr_accessor association_id (): ::String?
       attr_accessor client_token (): ::String?
       attr_accessor dry_run (): bool?
     end
@@ -7488,7 +7488,7 @@ module AWS::SDK::EC2
 
     class DisassociateVpcCidrBlockInput
       include Hearth::Structure
-      attr_accessor association_id (): ::String
+      attr_accessor association_id (): ::String?
     end
 
     class DisassociateVpcCidrBlockOutput
@@ -7515,9 +7515,9 @@ module AWS::SDK::EC2
 
     class DiskImageDetail
       include Hearth::Structure
-      attr_accessor bytes (): ::Integer
-      attr_accessor format (): ::String
-      attr_accessor import_manifest_url (): ::String
+      attr_accessor bytes (): ::Integer?
+      attr_accessor format (): ::String?
+      attr_accessor import_manifest_url (): ::String?
     end
 
     module DiskImageFormat
@@ -7736,7 +7736,7 @@ module AWS::SDK::EC2
 
     class ElasticGpuSpecification
       include Hearth::Structure
-      attr_accessor type (): ::String
+      attr_accessor type (): ::String?
     end
 
     class ElasticGpuSpecificationResponse
@@ -7767,7 +7767,7 @@ module AWS::SDK::EC2
 
     class ElasticInferenceAccelerator
       include Hearth::Structure
-      attr_accessor type (): ::String
+      attr_accessor type (): ::String?
       attr_accessor count (): ::Integer?
     end
 
@@ -7811,8 +7811,8 @@ module AWS::SDK::EC2
 
     class EnableAddressTransferInput
       include Hearth::Structure
-      attr_accessor allocation_id (): ::String
-      attr_accessor transfer_account_id (): ::String
+      attr_accessor allocation_id (): ::String?
+      attr_accessor transfer_account_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -7847,7 +7847,7 @@ module AWS::SDK::EC2
 
     class EnableFastLaunchInput
       include Hearth::Structure
-      attr_accessor image_id (): ::String
+      attr_accessor image_id (): ::String?
       attr_accessor resource_type (): ::String?
       attr_accessor snapshot_configuration (): Types::FastLaunchSnapshotConfigurationRequest?
       attr_accessor launch_template (): Types::FastLaunchLaunchTemplateSpecificationRequest?
@@ -7903,8 +7903,8 @@ module AWS::SDK::EC2
 
     class EnableFastSnapshotRestoresInput
       include Hearth::Structure
-      attr_accessor availability_zones (): ::Array[::String]
-      attr_accessor source_snapshot_ids (): ::Array[::String]
+      attr_accessor availability_zones (): ::Array[::String]?
+      attr_accessor source_snapshot_ids (): ::Array[::String]?
       attr_accessor dry_run (): bool?
     end
 
@@ -7916,7 +7916,7 @@ module AWS::SDK::EC2
 
     class EnableImageBlockPublicAccessInput
       include Hearth::Structure
-      attr_accessor image_block_public_access_state (): ::String
+      attr_accessor image_block_public_access_state (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -7927,8 +7927,8 @@ module AWS::SDK::EC2
 
     class EnableImageDeprecationInput
       include Hearth::Structure
-      attr_accessor image_id (): ::String
-      attr_accessor deprecate_at (): ::Time
+      attr_accessor image_id (): ::String?
+      attr_accessor deprecate_at (): ::Time?
       attr_accessor dry_run (): bool?
     end
 
@@ -7939,7 +7939,7 @@ module AWS::SDK::EC2
 
     class EnableImageInput
       include Hearth::Structure
-      attr_accessor image_id (): ::String
+      attr_accessor image_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -7951,7 +7951,7 @@ module AWS::SDK::EC2
     class EnableIpamOrganizationAdminAccountInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor delegated_admin_account_id (): ::String
+      attr_accessor delegated_admin_account_id (): ::String?
     end
 
     class EnableIpamOrganizationAdminAccountOutput
@@ -7981,7 +7981,7 @@ module AWS::SDK::EC2
 
     class EnableSnapshotBlockPublicAccessInput
       include Hearth::Structure
-      attr_accessor state (): ::String
+      attr_accessor state (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -7992,7 +7992,7 @@ module AWS::SDK::EC2
 
     class EnableTransitGatewayRouteTablePropagationInput
       include Hearth::Structure
-      attr_accessor transit_gateway_route_table_id (): ::String
+      attr_accessor transit_gateway_route_table_id (): ::String?
       attr_accessor transit_gateway_attachment_id (): ::String?
       attr_accessor dry_run (): bool?
       attr_accessor transit_gateway_route_table_announcement_id (): ::String?
@@ -8005,8 +8005,8 @@ module AWS::SDK::EC2
 
     class EnableVgwRoutePropagationInput
       include Hearth::Structure
-      attr_accessor gateway_id (): ::String
-      attr_accessor route_table_id (): ::String
+      attr_accessor gateway_id (): ::String?
+      attr_accessor route_table_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -8017,7 +8017,7 @@ module AWS::SDK::EC2
     class EnableVolumeIOInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor volume_id (): ::String
+      attr_accessor volume_id (): ::String?
     end
 
     class EnableVolumeIOOutput
@@ -8037,7 +8037,7 @@ module AWS::SDK::EC2
     class EnableVpcClassicLinkInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor vpc_id (): ::String
+      attr_accessor vpc_id (): ::String?
     end
 
     class EnableVpcClassicLinkOutput
@@ -8163,7 +8163,7 @@ module AWS::SDK::EC2
 
     class ExportClientVpnClientCertificateRevocationListInput
       include Hearth::Structure
-      attr_accessor client_vpn_endpoint_id (): ::String
+      attr_accessor client_vpn_endpoint_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -8175,7 +8175,7 @@ module AWS::SDK::EC2
 
     class ExportClientVpnClientConfigurationInput
       include Hearth::Structure
-      attr_accessor client_vpn_endpoint_id (): ::String
+      attr_accessor client_vpn_endpoint_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -8196,10 +8196,10 @@ module AWS::SDK::EC2
       include Hearth::Structure
       attr_accessor client_token (): ::String?
       attr_accessor description (): ::String?
-      attr_accessor disk_image_format (): ::String
+      attr_accessor disk_image_format (): ::String?
       attr_accessor dry_run (): bool?
-      attr_accessor image_id (): ::String
-      attr_accessor s3_export_location (): Types::ExportTaskS3LocationRequest
+      attr_accessor image_id (): ::String?
+      attr_accessor s3_export_location (): Types::ExportTaskS3LocationRequest?
       attr_accessor role_name (): ::String?
       attr_accessor tag_specifications (): ::Array[Types::TagSpecification]?
     end
@@ -8249,7 +8249,7 @@ module AWS::SDK::EC2
 
     class ExportTaskS3LocationRequest
       include Hearth::Structure
-      attr_accessor s3_bucket (): ::String
+      attr_accessor s3_bucket (): ::String?
       attr_accessor s3_prefix (): ::String?
     end
 
@@ -8281,9 +8281,9 @@ module AWS::SDK::EC2
 
     class ExportTransitGatewayRoutesInput
       include Hearth::Structure
-      attr_accessor transit_gateway_route_table_id (): ::String
+      attr_accessor transit_gateway_route_table_id (): ::String?
       attr_accessor filters (): ::Array[Types::Filter]?
-      attr_accessor s3_bucket (): ::String
+      attr_accessor s3_bucket (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -8308,7 +8308,7 @@ module AWS::SDK::EC2
       include Hearth::Structure
       attr_accessor launch_template_id (): ::String?
       attr_accessor launch_template_name (): ::String?
-      attr_accessor version (): ::String
+      attr_accessor version (): ::String?
     end
 
     class FastLaunchLaunchTemplateSpecificationResponse
@@ -8722,7 +8722,7 @@ module AWS::SDK::EC2
 
     class GetAssociatedEnclaveCertificateIamRolesInput
       include Hearth::Structure
-      attr_accessor certificate_arn (): ::String
+      attr_accessor certificate_arn (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -8733,7 +8733,7 @@ module AWS::SDK::EC2
 
     class GetAssociatedIpv6PoolCidrsInput
       include Hearth::Structure
-      attr_accessor pool_id (): ::String
+      attr_accessor pool_id (): ::String?
       attr_accessor next_token (): ::String?
       attr_accessor max_results (): ::Integer?
       attr_accessor dry_run (): bool?
@@ -8763,7 +8763,7 @@ module AWS::SDK::EC2
 
     class GetCapacityReservationUsageInput
       include Hearth::Structure
-      attr_accessor capacity_reservation_id (): ::String
+      attr_accessor capacity_reservation_id (): ::String?
       attr_accessor next_token (): ::String?
       attr_accessor max_results (): ::Integer?
       attr_accessor dry_run (): bool?
@@ -8782,7 +8782,7 @@ module AWS::SDK::EC2
 
     class GetCoipPoolUsageInput
       include Hearth::Structure
-      attr_accessor pool_id (): ::String
+      attr_accessor pool_id (): ::String?
       attr_accessor filters (): ::Array[Types::Filter]?
       attr_accessor max_results (): ::Integer?
       attr_accessor next_token (): ::String?
@@ -8799,7 +8799,7 @@ module AWS::SDK::EC2
 
     class GetConsoleOutputInput
       include Hearth::Structure
-      attr_accessor instance_id (): ::String
+      attr_accessor instance_id (): ::String?
       attr_accessor dry_run (): bool?
       attr_accessor latest (): bool?
     end
@@ -8814,7 +8814,7 @@ module AWS::SDK::EC2
     class GetConsoleScreenshotInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor instance_id (): ::String
+      attr_accessor instance_id (): ::String?
       attr_accessor wake_up (): bool?
     end
 
@@ -8827,7 +8827,7 @@ module AWS::SDK::EC2
     class GetDefaultCreditSpecificationInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor instance_family (): ::String
+      attr_accessor instance_family (): ::String?
     end
 
     class GetDefaultCreditSpecificationOutput
@@ -8859,9 +8859,9 @@ module AWS::SDK::EC2
     class GetFlowLogsIntegrationTemplateInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor flow_log_id (): ::String
-      attr_accessor config_delivery_s3_destination_arn (): ::String
-      attr_accessor integrate_services (): Types::IntegrateServices
+      attr_accessor flow_log_id (): ::String?
+      attr_accessor config_delivery_s3_destination_arn (): ::String?
+      attr_accessor integrate_services (): Types::IntegrateServices?
     end
 
     class GetFlowLogsIntegrationTemplateOutput
@@ -8871,7 +8871,7 @@ module AWS::SDK::EC2
 
     class GetGroupsForCapacityReservationInput
       include Hearth::Structure
-      attr_accessor capacity_reservation_id (): ::String
+      attr_accessor capacity_reservation_id (): ::String?
       attr_accessor next_token (): ::String?
       attr_accessor max_results (): ::Integer?
       attr_accessor dry_run (): bool?
@@ -8885,8 +8885,8 @@ module AWS::SDK::EC2
 
     class GetHostReservationPurchasePreviewInput
       include Hearth::Structure
-      attr_accessor host_id_set (): ::Array[::String]
-      attr_accessor offering_id (): ::String
+      attr_accessor host_id_set (): ::Array[::String]?
+      attr_accessor offering_id (): ::String?
     end
 
     class GetHostReservationPurchasePreviewOutput
@@ -8910,9 +8910,9 @@ module AWS::SDK::EC2
     class GetInstanceTypesFromInstanceRequirementsInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor architecture_types (): ::Array[::String]
-      attr_accessor virtualization_types (): ::Array[::String]
-      attr_accessor instance_requirements (): Types::InstanceRequirementsRequest
+      attr_accessor architecture_types (): ::Array[::String]?
+      attr_accessor virtualization_types (): ::Array[::String]?
+      attr_accessor instance_requirements (): Types::InstanceRequirementsRequest?
       attr_accessor max_results (): ::Integer?
       attr_accessor next_token (): ::String?
     end
@@ -8925,7 +8925,7 @@ module AWS::SDK::EC2
 
     class GetInstanceUefiDataInput
       include Hearth::Structure
-      attr_accessor instance_id (): ::String
+      attr_accessor instance_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -8938,8 +8938,8 @@ module AWS::SDK::EC2
     class GetIpamAddressHistoryInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor cidr (): ::String
-      attr_accessor ipam_scope_id (): ::String
+      attr_accessor cidr (): ::String?
+      attr_accessor ipam_scope_id (): ::String?
       attr_accessor vpc_id (): ::String?
       attr_accessor start_time (): ::Time?
       attr_accessor end_time (): ::Time?
@@ -8956,8 +8956,8 @@ module AWS::SDK::EC2
     class GetIpamDiscoveredAccountsInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor ipam_resource_discovery_id (): ::String
-      attr_accessor discovery_region (): ::String
+      attr_accessor ipam_resource_discovery_id (): ::String?
+      attr_accessor discovery_region (): ::String?
       attr_accessor filters (): ::Array[Types::Filter]?
       attr_accessor next_token (): ::String?
       attr_accessor max_results (): ::Integer?
@@ -8972,8 +8972,8 @@ module AWS::SDK::EC2
     class GetIpamDiscoveredPublicAddressesInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor ipam_resource_discovery_id (): ::String
-      attr_accessor address_region (): ::String
+      attr_accessor ipam_resource_discovery_id (): ::String?
+      attr_accessor address_region (): ::String?
       attr_accessor filters (): ::Array[Types::Filter]?
       attr_accessor next_token (): ::String?
       attr_accessor max_results (): ::Integer?
@@ -8989,8 +8989,8 @@ module AWS::SDK::EC2
     class GetIpamDiscoveredResourceCidrsInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor ipam_resource_discovery_id (): ::String
-      attr_accessor resource_region (): ::String
+      attr_accessor ipam_resource_discovery_id (): ::String?
+      attr_accessor resource_region (): ::String?
       attr_accessor filters (): ::Array[Types::Filter]?
       attr_accessor next_token (): ::String?
       attr_accessor max_results (): ::Integer?
@@ -9005,7 +9005,7 @@ module AWS::SDK::EC2
     class GetIpamPoolAllocationsInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor ipam_pool_id (): ::String
+      attr_accessor ipam_pool_id (): ::String?
       attr_accessor ipam_pool_allocation_id (): ::String?
       attr_accessor filters (): ::Array[Types::Filter]?
       attr_accessor max_results (): ::Integer?
@@ -9021,7 +9021,7 @@ module AWS::SDK::EC2
     class GetIpamPoolCidrsInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor ipam_pool_id (): ::String
+      attr_accessor ipam_pool_id (): ::String?
       attr_accessor filters (): ::Array[Types::Filter]?
       attr_accessor max_results (): ::Integer?
       attr_accessor next_token (): ::String?
@@ -9039,7 +9039,7 @@ module AWS::SDK::EC2
       attr_accessor filters (): ::Array[Types::Filter]?
       attr_accessor max_results (): ::Integer?
       attr_accessor next_token (): ::String?
-      attr_accessor ipam_scope_id (): ::String
+      attr_accessor ipam_scope_id (): ::String?
       attr_accessor ipam_pool_id (): ::String?
       attr_accessor resource_id (): ::String?
       attr_accessor resource_type (): ::String?
@@ -9056,7 +9056,7 @@ module AWS::SDK::EC2
     class GetLaunchTemplateDataInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor instance_id (): ::String
+      attr_accessor instance_id (): ::String?
     end
 
     class GetLaunchTemplateDataOutput
@@ -9067,7 +9067,7 @@ module AWS::SDK::EC2
     class GetManagedPrefixListAssociationsInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor prefix_list_id (): ::String
+      attr_accessor prefix_list_id (): ::String?
       attr_accessor max_results (): ::Integer?
       attr_accessor next_token (): ::String?
     end
@@ -9081,7 +9081,7 @@ module AWS::SDK::EC2
     class GetManagedPrefixListEntriesInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor prefix_list_id (): ::String
+      attr_accessor prefix_list_id (): ::String?
       attr_accessor target_version (): ::Integer?
       attr_accessor max_results (): ::Integer?
       attr_accessor next_token (): ::String?
@@ -9095,7 +9095,7 @@ module AWS::SDK::EC2
 
     class GetNetworkInsightsAccessScopeAnalysisFindingsInput
       include Hearth::Structure
-      attr_accessor network_insights_access_scope_analysis_id (): ::String
+      attr_accessor network_insights_access_scope_analysis_id (): ::String?
       attr_accessor max_results (): ::Integer?
       attr_accessor next_token (): ::String?
       attr_accessor dry_run (): bool?
@@ -9111,7 +9111,7 @@ module AWS::SDK::EC2
 
     class GetNetworkInsightsAccessScopeContentInput
       include Hearth::Structure
-      attr_accessor network_insights_access_scope_id (): ::String
+      attr_accessor network_insights_access_scope_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -9122,7 +9122,7 @@ module AWS::SDK::EC2
 
     class GetPasswordDataInput
       include Hearth::Structure
-      attr_accessor instance_id (): ::String
+      attr_accessor instance_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -9136,7 +9136,7 @@ module AWS::SDK::EC2
     class GetReservedInstancesExchangeQuoteInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor reserved_instance_ids (): ::Array[::String]
+      attr_accessor reserved_instance_ids (): ::Array[::String]?
       attr_accessor target_configurations (): ::Array[Types::TargetConfigurationRequest]?
     end
 
@@ -9155,7 +9155,7 @@ module AWS::SDK::EC2
 
     class GetSecurityGroupsForVpcInput
       include Hearth::Structure
-      attr_accessor vpc_id (): ::String
+      attr_accessor vpc_id (): ::String?
       attr_accessor next_token (): ::String?
       attr_accessor max_results (): ::Integer?
       attr_accessor filters (): ::Array[Types::Filter]?
@@ -9191,7 +9191,7 @@ module AWS::SDK::EC2
     class GetSpotPlacementScoresInput
       include Hearth::Structure
       attr_accessor instance_types (): ::Array[::String]?
-      attr_accessor target_capacity (): ::Integer
+      attr_accessor target_capacity (): ::Integer?
       attr_accessor target_capacity_unit_type (): ::String?
       attr_accessor single_availability_zone (): bool?
       attr_accessor region_names (): ::Array[::String]?
@@ -9210,7 +9210,7 @@ module AWS::SDK::EC2
     class GetSubnetCidrReservationsInput
       include Hearth::Structure
       attr_accessor filters (): ::Array[Types::Filter]?
-      attr_accessor subnet_id (): ::String
+      attr_accessor subnet_id (): ::String?
       attr_accessor dry_run (): bool?
       attr_accessor next_token (): ::String?
       attr_accessor max_results (): ::Integer?
@@ -9225,7 +9225,7 @@ module AWS::SDK::EC2
 
     class GetTransitGatewayAttachmentPropagationsInput
       include Hearth::Structure
-      attr_accessor transit_gateway_attachment_id (): ::String
+      attr_accessor transit_gateway_attachment_id (): ::String?
       attr_accessor filters (): ::Array[Types::Filter]?
       attr_accessor max_results (): ::Integer?
       attr_accessor next_token (): ::String?
@@ -9240,7 +9240,7 @@ module AWS::SDK::EC2
 
     class GetTransitGatewayMulticastDomainAssociationsInput
       include Hearth::Structure
-      attr_accessor transit_gateway_multicast_domain_id (): ::String
+      attr_accessor transit_gateway_multicast_domain_id (): ::String?
       attr_accessor filters (): ::Array[Types::Filter]?
       attr_accessor max_results (): ::Integer?
       attr_accessor next_token (): ::String?
@@ -9255,7 +9255,7 @@ module AWS::SDK::EC2
 
     class GetTransitGatewayPolicyTableAssociationsInput
       include Hearth::Structure
-      attr_accessor transit_gateway_policy_table_id (): ::String
+      attr_accessor transit_gateway_policy_table_id (): ::String?
       attr_accessor filters (): ::Array[Types::Filter]?
       attr_accessor max_results (): ::Integer?
       attr_accessor next_token (): ::String?
@@ -9270,7 +9270,7 @@ module AWS::SDK::EC2
 
     class GetTransitGatewayPolicyTableEntriesInput
       include Hearth::Structure
-      attr_accessor transit_gateway_policy_table_id (): ::String
+      attr_accessor transit_gateway_policy_table_id (): ::String?
       attr_accessor filters (): ::Array[Types::Filter]?
       attr_accessor max_results (): ::Integer?
       attr_accessor next_token (): ::String?
@@ -9284,7 +9284,7 @@ module AWS::SDK::EC2
 
     class GetTransitGatewayPrefixListReferencesInput
       include Hearth::Structure
-      attr_accessor transit_gateway_route_table_id (): ::String
+      attr_accessor transit_gateway_route_table_id (): ::String?
       attr_accessor filters (): ::Array[Types::Filter]?
       attr_accessor max_results (): ::Integer?
       attr_accessor next_token (): ::String?
@@ -9299,7 +9299,7 @@ module AWS::SDK::EC2
 
     class GetTransitGatewayRouteTableAssociationsInput
       include Hearth::Structure
-      attr_accessor transit_gateway_route_table_id (): ::String
+      attr_accessor transit_gateway_route_table_id (): ::String?
       attr_accessor filters (): ::Array[Types::Filter]?
       attr_accessor max_results (): ::Integer?
       attr_accessor next_token (): ::String?
@@ -9314,7 +9314,7 @@ module AWS::SDK::EC2
 
     class GetTransitGatewayRouteTablePropagationsInput
       include Hearth::Structure
-      attr_accessor transit_gateway_route_table_id (): ::String
+      attr_accessor transit_gateway_route_table_id (): ::String?
       attr_accessor filters (): ::Array[Types::Filter]?
       attr_accessor max_results (): ::Integer?
       attr_accessor next_token (): ::String?
@@ -9329,7 +9329,7 @@ module AWS::SDK::EC2
 
     class GetVerifiedAccessEndpointPolicyInput
       include Hearth::Structure
-      attr_accessor verified_access_endpoint_id (): ::String
+      attr_accessor verified_access_endpoint_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -9341,7 +9341,7 @@ module AWS::SDK::EC2
 
     class GetVerifiedAccessGroupPolicyInput
       include Hearth::Structure
-      attr_accessor verified_access_group_id (): ::String
+      attr_accessor verified_access_group_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -9353,8 +9353,8 @@ module AWS::SDK::EC2
 
     class GetVpnConnectionDeviceSampleConfigurationInput
       include Hearth::Structure
-      attr_accessor vpn_connection_id (): ::String
-      attr_accessor vpn_connection_device_type_id (): ::String
+      attr_accessor vpn_connection_id (): ::String?
+      attr_accessor vpn_connection_device_type_id (): ::String?
       attr_accessor internet_key_exchange_version (): ::String?
       attr_accessor dry_run (): bool?
     end
@@ -9379,8 +9379,8 @@ module AWS::SDK::EC2
 
     class GetVpnTunnelReplacementStatusInput
       include Hearth::Structure
-      attr_accessor vpn_connection_id (): ::String
-      attr_accessor vpn_tunnel_outside_ip_address (): ::String
+      attr_accessor vpn_connection_id (): ::String?
+      attr_accessor vpn_tunnel_outside_ip_address (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -9728,8 +9728,8 @@ module AWS::SDK::EC2
 
     class ImportClientVpnClientCertificateRevocationListInput
       include Hearth::Structure
-      attr_accessor client_vpn_endpoint_id (): ::String
-      attr_accessor certificate_revocation_list (): ::String
+      attr_accessor client_vpn_endpoint_id (): ::String?
+      attr_accessor certificate_revocation_list (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -9815,7 +9815,7 @@ module AWS::SDK::EC2
       attr_accessor disk_images (): ::Array[Types::DiskImage]?
       attr_accessor dry_run (): bool?
       attr_accessor launch_specification (): Types::ImportInstanceLaunchSpecification?
-      attr_accessor platform (): ::String
+      attr_accessor platform (): ::String?
     end
 
     class ImportInstanceLaunchSpecification
@@ -9860,8 +9860,8 @@ module AWS::SDK::EC2
     class ImportKeyPairInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor key_name (): ::String
-      attr_accessor public_key_material (): ::String
+      attr_accessor key_name (): ::String?
+      attr_accessor public_key_material (): ::String?
       attr_accessor tag_specifications (): ::Array[Types::TagSpecification]?
     end
 
@@ -9904,11 +9904,11 @@ module AWS::SDK::EC2
 
     class ImportVolumeInput
       include Hearth::Structure
-      attr_accessor availability_zone (): ::String
+      attr_accessor availability_zone (): ::String?
       attr_accessor description (): ::String?
       attr_accessor dry_run (): bool?
-      attr_accessor image (): Types::DiskImageDetail
-      attr_accessor volume (): Types::VolumeDetail
+      attr_accessor image (): Types::DiskImageDetail?
+      attr_accessor volume (): Types::VolumeDetail?
     end
 
     class ImportVolumeOutput
@@ -10097,7 +10097,7 @@ module AWS::SDK::EC2
 
     class InstanceCreditSpecificationRequest
       include Hearth::Structure
-      attr_accessor instance_id (): ::String
+      attr_accessor instance_id (): ::String?
       attr_accessor cpu_credits (): ::String?
     end
 
@@ -10410,8 +10410,8 @@ module AWS::SDK::EC2
 
     class InstanceRequirementsRequest
       include Hearth::Structure
-      attr_accessor v_cpu_count (): Types::VCpuCountRangeRequest
-      attr_accessor memory_mi_b (): Types::MemoryMiBRequest
+      attr_accessor v_cpu_count (): Types::VCpuCountRangeRequest?
+      attr_accessor memory_mi_b (): Types::MemoryMiBRequest?
       attr_accessor cpu_manufacturers (): ::Array[::String]?
       attr_accessor memory_gi_b_per_v_cpu (): Types::MemoryGiBPerVCpuRequest?
       attr_accessor excluded_instance_types (): ::Array[::String]?
@@ -10445,7 +10445,7 @@ module AWS::SDK::EC2
 
     class InstanceSpecification
       include Hearth::Structure
-      attr_accessor instance_id (): ::String
+      attr_accessor instance_id (): ::String?
       attr_accessor exclude_boot_volume (): bool?
       attr_accessor exclude_data_volume_ids (): ::Array[::String]?
     end
@@ -12983,7 +12983,7 @@ module AWS::SDK::EC2
 
     class LaunchTemplateElasticInferenceAccelerator
       include Hearth::Structure
-      attr_accessor type (): ::String
+      attr_accessor type (): ::String?
       attr_accessor count (): ::Integer?
     end
 
@@ -13514,9 +13514,9 @@ module AWS::SDK::EC2
 
     class LockSnapshotInput
       include Hearth::Structure
-      attr_accessor snapshot_id (): ::String
+      attr_accessor snapshot_id (): ::String?
       attr_accessor dry_run (): bool?
-      attr_accessor lock_mode (): ::String
+      attr_accessor lock_mode (): ::String?
       attr_accessor cool_off_period (): ::Integer?
       attr_accessor lock_duration (): ::Integer?
       attr_accessor expiration_date (): ::Time?
@@ -13623,7 +13623,7 @@ module AWS::SDK::EC2
 
     class MemoryMiBRequest
       include Hearth::Structure
-      attr_accessor min (): ::Integer
+      attr_accessor min (): ::Integer?
       attr_accessor max (): ::Integer?
     end
 
@@ -13641,7 +13641,7 @@ module AWS::SDK::EC2
 
     class ModifyAddressAttributeInput
       include Hearth::Structure
-      attr_accessor allocation_id (): ::String
+      attr_accessor allocation_id (): ::String?
       attr_accessor domain_name (): ::String?
       attr_accessor dry_run (): bool?
     end
@@ -13653,8 +13653,8 @@ module AWS::SDK::EC2
 
     class ModifyAvailabilityZoneGroupInput
       include Hearth::Structure
-      attr_accessor group_name (): ::String
-      attr_accessor opt_in_status (): ::String
+      attr_accessor group_name (): ::String?
+      attr_accessor opt_in_status (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -13671,7 +13671,7 @@ module AWS::SDK::EC2
 
     class ModifyCapacityReservationFleetInput
       include Hearth::Structure
-      attr_accessor capacity_reservation_fleet_id (): ::String
+      attr_accessor capacity_reservation_fleet_id (): ::String?
       attr_accessor total_target_capacity (): ::Integer?
       attr_accessor end_date (): ::Time?
       attr_accessor dry_run (): bool?
@@ -13685,7 +13685,7 @@ module AWS::SDK::EC2
 
     class ModifyCapacityReservationInput
       include Hearth::Structure
-      attr_accessor capacity_reservation_id (): ::String
+      attr_accessor capacity_reservation_id (): ::String?
       attr_accessor instance_count (): ::Integer?
       attr_accessor end_date (): ::Time?
       attr_accessor end_date_type (): ::String?
@@ -13701,7 +13701,7 @@ module AWS::SDK::EC2
 
     class ModifyClientVpnEndpointInput
       include Hearth::Structure
-      attr_accessor client_vpn_endpoint_id (): ::String
+      attr_accessor client_vpn_endpoint_id (): ::String?
       attr_accessor server_certificate_arn (): ::String?
       attr_accessor connection_log_options (): Types::ConnectionLogOptions?
       attr_accessor dns_servers (): Types::DnsServersOptionsModifyStructure?
@@ -13725,8 +13725,8 @@ module AWS::SDK::EC2
     class ModifyDefaultCreditSpecificationInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor instance_family (): ::String
-      attr_accessor cpu_credits (): ::String
+      attr_accessor instance_family (): ::String?
+      attr_accessor cpu_credits (): ::String?
     end
 
     class ModifyDefaultCreditSpecificationOutput
@@ -13736,7 +13736,7 @@ module AWS::SDK::EC2
 
     class ModifyEbsDefaultKmsKeyIdInput
       include Hearth::Structure
-      attr_accessor kms_key_id (): ::String
+      attr_accessor kms_key_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -13750,7 +13750,7 @@ module AWS::SDK::EC2
       attr_accessor dry_run (): bool?
       attr_accessor excess_capacity_termination_policy (): ::String?
       attr_accessor launch_template_configs (): ::Array[Types::FleetLaunchTemplateConfigRequest]?
-      attr_accessor fleet_id (): ::String
+      attr_accessor fleet_id (): ::String?
       attr_accessor target_capacity_specification (): Types::TargetCapacitySpecificationRequest?
       attr_accessor context (): ::String?
     end
@@ -13763,7 +13763,7 @@ module AWS::SDK::EC2
     class ModifyFpgaImageAttributeInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor fpga_image_id (): ::String
+      attr_accessor fpga_image_id (): ::String?
       attr_accessor attribute (): ::String?
       attr_accessor operation_type (): ::String?
       attr_accessor user_ids (): ::Array[::String]?
@@ -13782,7 +13782,7 @@ module AWS::SDK::EC2
     class ModifyHostsInput
       include Hearth::Structure
       attr_accessor auto_placement (): ::String?
-      attr_accessor host_ids (): ::Array[::String]
+      attr_accessor host_ids (): ::Array[::String]?
       attr_accessor host_recovery (): ::String?
       attr_accessor instance_type (): ::String?
       attr_accessor instance_family (): ::String?
@@ -13797,8 +13797,8 @@ module AWS::SDK::EC2
 
     class ModifyIdFormatInput
       include Hearth::Structure
-      attr_accessor resource (): ::String
-      attr_accessor use_long_ids (): bool
+      attr_accessor resource (): ::String?
+      attr_accessor use_long_ids (): bool?
     end
 
     class ModifyIdFormatOutput
@@ -13807,9 +13807,9 @@ module AWS::SDK::EC2
 
     class ModifyIdentityIdFormatInput
       include Hearth::Structure
-      attr_accessor principal_arn (): ::String
-      attr_accessor resource (): ::String
-      attr_accessor use_long_ids (): bool
+      attr_accessor principal_arn (): ::String?
+      attr_accessor resource (): ::String?
+      attr_accessor use_long_ids (): bool?
     end
 
     class ModifyIdentityIdFormatOutput
@@ -13820,7 +13820,7 @@ module AWS::SDK::EC2
       include Hearth::Structure
       attr_accessor attribute (): ::String?
       attr_accessor description (): Types::AttributeValue?
-      attr_accessor image_id (): ::String
+      attr_accessor image_id (): ::String?
       attr_accessor launch_permission (): Types::LaunchPermissionModifications?
       attr_accessor operation_type (): ::String?
       attr_accessor product_codes (): ::Array[::String]?
@@ -13847,7 +13847,7 @@ module AWS::SDK::EC2
       attr_accessor ebs_optimized (): Types::AttributeBooleanValue?
       attr_accessor ena_support (): Types::AttributeBooleanValue?
       attr_accessor groups (): ::Array[::String]?
-      attr_accessor instance_id (): ::String
+      attr_accessor instance_id (): ::String?
       attr_accessor instance_initiated_shutdown_behavior (): Types::AttributeValue?
       attr_accessor instance_type (): Types::AttributeValue?
       attr_accessor kernel (): Types::AttributeValue?
@@ -13864,8 +13864,8 @@ module AWS::SDK::EC2
 
     class ModifyInstanceCapacityReservationAttributesInput
       include Hearth::Structure
-      attr_accessor instance_id (): ::String
-      attr_accessor capacity_reservation_specification (): Types::CapacityReservationSpecification
+      attr_accessor instance_id (): ::String?
+      attr_accessor capacity_reservation_specification (): Types::CapacityReservationSpecification?
       attr_accessor dry_run (): bool?
     end
 
@@ -13878,7 +13878,7 @@ module AWS::SDK::EC2
       include Hearth::Structure
       attr_accessor dry_run (): bool?
       attr_accessor client_token (): ::String?
-      attr_accessor instance_credit_specifications (): ::Array[Types::InstanceCreditSpecificationRequest]
+      attr_accessor instance_credit_specifications (): ::Array[Types::InstanceCreditSpecificationRequest]?
     end
 
     class ModifyInstanceCreditSpecificationOutput
@@ -13890,9 +13890,9 @@ module AWS::SDK::EC2
     class ModifyInstanceEventStartTimeInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor instance_id (): ::String
-      attr_accessor instance_event_id (): ::String
-      attr_accessor not_before (): ::Time
+      attr_accessor instance_id (): ::String?
+      attr_accessor instance_event_id (): ::String?
+      attr_accessor not_before (): ::Time?
     end
 
     class ModifyInstanceEventStartTimeOutput
@@ -13904,7 +13904,7 @@ module AWS::SDK::EC2
       include Hearth::Structure
       attr_accessor dry_run (): bool?
       attr_accessor name (): ::String?
-      attr_accessor instance_event_window_id (): ::String
+      attr_accessor instance_event_window_id (): ::String?
       attr_accessor time_ranges (): ::Array[Types::InstanceEventWindowTimeRangeRequest]?
       attr_accessor cron_expression (): ::String?
     end
@@ -13916,7 +13916,7 @@ module AWS::SDK::EC2
 
     class ModifyInstanceMaintenanceOptionsInput
       include Hearth::Structure
-      attr_accessor instance_id (): ::String
+      attr_accessor instance_id (): ::String?
       attr_accessor auto_recovery (): ::String?
       attr_accessor dry_run (): bool?
     end
@@ -13929,7 +13929,7 @@ module AWS::SDK::EC2
 
     class ModifyInstanceMetadataOptionsInput
       include Hearth::Structure
-      attr_accessor instance_id (): ::String
+      attr_accessor instance_id (): ::String?
       attr_accessor http_tokens (): ::String?
       attr_accessor http_put_response_hop_limit (): ::Integer?
       attr_accessor http_endpoint (): ::String?
@@ -13949,7 +13949,7 @@ module AWS::SDK::EC2
       attr_accessor affinity (): ::String?
       attr_accessor group_name (): ::String?
       attr_accessor host_id (): ::String?
-      attr_accessor instance_id (): ::String
+      attr_accessor instance_id (): ::String?
       attr_accessor tenancy (): ::String?
       attr_accessor partition_number (): ::Integer?
       attr_accessor host_resource_group_arn (): ::String?
@@ -13964,7 +13964,7 @@ module AWS::SDK::EC2
     class ModifyIpamInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor ipam_id (): ::String
+      attr_accessor ipam_id (): ::String?
       attr_accessor description (): ::String?
       attr_accessor add_operating_regions (): ::Array[Types::AddIpamOperatingRegion]?
       attr_accessor remove_operating_regions (): ::Array[Types::RemoveIpamOperatingRegion]?
@@ -13979,7 +13979,7 @@ module AWS::SDK::EC2
     class ModifyIpamPoolInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor ipam_pool_id (): ::String
+      attr_accessor ipam_pool_id (): ::String?
       attr_accessor description (): ::String?
       attr_accessor auto_import (): bool?
       attr_accessor allocation_min_netmask_length (): ::Integer?
@@ -13998,12 +13998,12 @@ module AWS::SDK::EC2
     class ModifyIpamResourceCidrInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor resource_id (): ::String
-      attr_accessor resource_cidr (): ::String
-      attr_accessor resource_region (): ::String
-      attr_accessor current_ipam_scope_id (): ::String
+      attr_accessor resource_id (): ::String?
+      attr_accessor resource_cidr (): ::String?
+      attr_accessor resource_region (): ::String?
+      attr_accessor current_ipam_scope_id (): ::String?
       attr_accessor destination_ipam_scope_id (): ::String?
-      attr_accessor monitored (): bool
+      attr_accessor monitored (): bool?
     end
 
     class ModifyIpamResourceCidrOutput
@@ -14014,7 +14014,7 @@ module AWS::SDK::EC2
     class ModifyIpamResourceDiscoveryInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor ipam_resource_discovery_id (): ::String
+      attr_accessor ipam_resource_discovery_id (): ::String?
       attr_accessor description (): ::String?
       attr_accessor add_operating_regions (): ::Array[Types::AddIpamOperatingRegion]?
       attr_accessor remove_operating_regions (): ::Array[Types::RemoveIpamOperatingRegion]?
@@ -14028,7 +14028,7 @@ module AWS::SDK::EC2
     class ModifyIpamScopeInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor ipam_scope_id (): ::String
+      attr_accessor ipam_scope_id (): ::String?
       attr_accessor description (): ::String?
     end
 
@@ -14054,7 +14054,7 @@ module AWS::SDK::EC2
     class ModifyLocalGatewayRouteInput
       include Hearth::Structure
       attr_accessor destination_cidr_block (): ::String?
-      attr_accessor local_gateway_route_table_id (): ::String
+      attr_accessor local_gateway_route_table_id (): ::String?
       attr_accessor local_gateway_virtual_interface_group_id (): ::String?
       attr_accessor network_interface_id (): ::String?
       attr_accessor dry_run (): bool?
@@ -14069,7 +14069,7 @@ module AWS::SDK::EC2
     class ModifyManagedPrefixListInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor prefix_list_id (): ::String
+      attr_accessor prefix_list_id (): ::String?
       attr_accessor current_version (): ::Integer?
       attr_accessor prefix_list_name (): ::String?
       attr_accessor add_entries (): ::Array[Types::AddPrefixListEntry]?
@@ -14088,7 +14088,7 @@ module AWS::SDK::EC2
       attr_accessor description (): Types::AttributeValue?
       attr_accessor dry_run (): bool?
       attr_accessor groups (): ::Array[::String]?
-      attr_accessor network_interface_id (): ::String
+      attr_accessor network_interface_id (): ::String?
       attr_accessor source_dest_check (): Types::AttributeBooleanValue?
       attr_accessor ena_srd_specification (): Types::EnaSrdSpecification?
       attr_accessor enable_primary_ipv6 (): bool?
@@ -14102,7 +14102,7 @@ module AWS::SDK::EC2
     class ModifyPrivateDnsNameOptionsInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor instance_id (): ::String
+      attr_accessor instance_id (): ::String?
       attr_accessor private_dns_hostname_type (): ::String?
       attr_accessor enable_resource_name_dns_a_record (): bool?
       attr_accessor enable_resource_name_dns_aaaa_record (): bool?
@@ -14115,9 +14115,9 @@ module AWS::SDK::EC2
 
     class ModifyReservedInstancesInput
       include Hearth::Structure
-      attr_accessor reserved_instances_ids (): ::Array[::String]
+      attr_accessor reserved_instances_ids (): ::Array[::String]?
       attr_accessor client_token (): ::String?
-      attr_accessor target_configurations (): ::Array[Types::ReservedInstancesConfiguration]
+      attr_accessor target_configurations (): ::Array[Types::ReservedInstancesConfiguration]?
     end
 
     class ModifyReservedInstancesOutput
@@ -14127,8 +14127,8 @@ module AWS::SDK::EC2
 
     class ModifySecurityGroupRulesInput
       include Hearth::Structure
-      attr_accessor group_id (): ::String
-      attr_accessor security_group_rules (): ::Array[Types::SecurityGroupRuleUpdate]
+      attr_accessor group_id (): ::String?
+      attr_accessor security_group_rules (): ::Array[Types::SecurityGroupRuleUpdate]?
       attr_accessor dry_run (): bool?
     end
 
@@ -14143,7 +14143,7 @@ module AWS::SDK::EC2
       attr_accessor create_volume_permission (): Types::CreateVolumePermissionModifications?
       attr_accessor group_names (): ::Array[::String]?
       attr_accessor operation_type (): ::String?
-      attr_accessor snapshot_id (): ::String
+      attr_accessor snapshot_id (): ::String?
       attr_accessor user_ids (): ::Array[::String]?
       attr_accessor dry_run (): bool?
     end
@@ -14154,7 +14154,7 @@ module AWS::SDK::EC2
 
     class ModifySnapshotTierInput
       include Hearth::Structure
-      attr_accessor snapshot_id (): ::String
+      attr_accessor snapshot_id (): ::String?
       attr_accessor storage_tier (): ::String?
       attr_accessor dry_run (): bool?
     end
@@ -14169,7 +14169,7 @@ module AWS::SDK::EC2
       include Hearth::Structure
       attr_accessor excess_capacity_termination_policy (): ::String?
       attr_accessor launch_template_configs (): ::Array[Types::LaunchTemplateConfig]?
-      attr_accessor spot_fleet_request_id (): ::String
+      attr_accessor spot_fleet_request_id (): ::String?
       attr_accessor target_capacity (): ::Integer?
       attr_accessor on_demand_target_capacity (): ::Integer?
       attr_accessor context (): ::String?
@@ -14184,7 +14184,7 @@ module AWS::SDK::EC2
       include Hearth::Structure
       attr_accessor assign_ipv6_address_on_creation (): Types::AttributeBooleanValue?
       attr_accessor map_public_ip_on_launch (): Types::AttributeBooleanValue?
-      attr_accessor subnet_id (): ::String
+      attr_accessor subnet_id (): ::String?
       attr_accessor map_customer_owned_ip_on_launch (): Types::AttributeBooleanValue?
       attr_accessor customer_owned_ipv4_pool (): ::String?
       attr_accessor enable_dns64 (): Types::AttributeBooleanValue?
@@ -14201,7 +14201,7 @@ module AWS::SDK::EC2
 
     class ModifyTrafficMirrorFilterNetworkServicesInput
       include Hearth::Structure
-      attr_accessor traffic_mirror_filter_id (): ::String
+      attr_accessor traffic_mirror_filter_id (): ::String?
       attr_accessor add_network_services (): ::Array[::String]?
       attr_accessor remove_network_services (): ::Array[::String]?
       attr_accessor dry_run (): bool?
@@ -14214,7 +14214,7 @@ module AWS::SDK::EC2
 
     class ModifyTrafficMirrorFilterRuleInput
       include Hearth::Structure
-      attr_accessor traffic_mirror_filter_rule_id (): ::String
+      attr_accessor traffic_mirror_filter_rule_id (): ::String?
       attr_accessor traffic_direction (): ::String?
       attr_accessor rule_number (): ::Integer?
       attr_accessor rule_action (): ::String?
@@ -14235,7 +14235,7 @@ module AWS::SDK::EC2
 
     class ModifyTrafficMirrorSessionInput
       include Hearth::Structure
-      attr_accessor traffic_mirror_session_id (): ::String
+      attr_accessor traffic_mirror_session_id (): ::String?
       attr_accessor traffic_mirror_target_id (): ::String?
       attr_accessor traffic_mirror_filter_id (): ::String?
       attr_accessor packet_length (): ::Integer?
@@ -14253,7 +14253,7 @@ module AWS::SDK::EC2
 
     class ModifyTransitGatewayInput
       include Hearth::Structure
-      attr_accessor transit_gateway_id (): ::String
+      attr_accessor transit_gateway_id (): ::String?
       attr_accessor description (): ::String?
       attr_accessor options (): Types::ModifyTransitGatewayOptions?
       attr_accessor dry_run (): bool?
@@ -14281,8 +14281,8 @@ module AWS::SDK::EC2
 
     class ModifyTransitGatewayPrefixListReferenceInput
       include Hearth::Structure
-      attr_accessor transit_gateway_route_table_id (): ::String
-      attr_accessor prefix_list_id (): ::String
+      attr_accessor transit_gateway_route_table_id (): ::String?
+      attr_accessor prefix_list_id (): ::String?
       attr_accessor transit_gateway_attachment_id (): ::String?
       attr_accessor blackhole (): bool?
       attr_accessor dry_run (): bool?
@@ -14295,7 +14295,7 @@ module AWS::SDK::EC2
 
     class ModifyTransitGatewayVpcAttachmentInput
       include Hearth::Structure
-      attr_accessor transit_gateway_attachment_id (): ::String
+      attr_accessor transit_gateway_attachment_id (): ::String?
       attr_accessor add_subnet_ids (): ::Array[::String]?
       attr_accessor remove_subnet_ids (): ::Array[::String]?
       attr_accessor options (): Types::ModifyTransitGatewayVpcAttachmentRequestOptions?
@@ -14323,7 +14323,7 @@ module AWS::SDK::EC2
 
     class ModifyVerifiedAccessEndpointInput
       include Hearth::Structure
-      attr_accessor verified_access_endpoint_id (): ::String
+      attr_accessor verified_access_endpoint_id (): ::String?
       attr_accessor verified_access_group_id (): ::String?
       attr_accessor load_balancer_options (): Types::ModifyVerifiedAccessEndpointLoadBalancerOptions?
       attr_accessor network_interface_options (): Types::ModifyVerifiedAccessEndpointEniOptions?
@@ -14346,7 +14346,7 @@ module AWS::SDK::EC2
 
     class ModifyVerifiedAccessEndpointPolicyInput
       include Hearth::Structure
-      attr_accessor verified_access_endpoint_id (): ::String
+      attr_accessor verified_access_endpoint_id (): ::String?
       attr_accessor policy_enabled (): bool?
       attr_accessor policy_document (): ::String?
       attr_accessor client_token (): ::String?
@@ -14363,7 +14363,7 @@ module AWS::SDK::EC2
 
     class ModifyVerifiedAccessGroupInput
       include Hearth::Structure
-      attr_accessor verified_access_group_id (): ::String
+      attr_accessor verified_access_group_id (): ::String?
       attr_accessor verified_access_instance_id (): ::String?
       attr_accessor description (): ::String?
       attr_accessor client_token (): ::String?
@@ -14377,7 +14377,7 @@ module AWS::SDK::EC2
 
     class ModifyVerifiedAccessGroupPolicyInput
       include Hearth::Structure
-      attr_accessor verified_access_group_id (): ::String
+      attr_accessor verified_access_group_id (): ::String?
       attr_accessor policy_enabled (): bool?
       attr_accessor policy_document (): ::String?
       attr_accessor client_token (): ::String?
@@ -14394,7 +14394,7 @@ module AWS::SDK::EC2
 
     class ModifyVerifiedAccessInstanceInput
       include Hearth::Structure
-      attr_accessor verified_access_instance_id (): ::String
+      attr_accessor verified_access_instance_id (): ::String?
       attr_accessor description (): ::String?
       attr_accessor dry_run (): bool?
       attr_accessor client_token (): ::String?
@@ -14402,8 +14402,8 @@ module AWS::SDK::EC2
 
     class ModifyVerifiedAccessInstanceLoggingConfigurationInput
       include Hearth::Structure
-      attr_accessor verified_access_instance_id (): ::String
-      attr_accessor access_logs (): Types::VerifiedAccessLogOptions
+      attr_accessor verified_access_instance_id (): ::String?
+      attr_accessor access_logs (): Types::VerifiedAccessLogOptions?
       attr_accessor dry_run (): bool?
       attr_accessor client_token (): ::String?
     end
@@ -14425,7 +14425,7 @@ module AWS::SDK::EC2
 
     class ModifyVerifiedAccessTrustProviderInput
       include Hearth::Structure
-      attr_accessor verified_access_trust_provider_id (): ::String
+      attr_accessor verified_access_trust_provider_id (): ::String?
       attr_accessor oidc_options (): Types::ModifyVerifiedAccessTrustProviderOidcOptions?
       attr_accessor device_options (): Types::ModifyVerifiedAccessTrustProviderDeviceOptions?
       attr_accessor description (): ::String?
@@ -14453,7 +14453,7 @@ module AWS::SDK::EC2
     class ModifyVolumeAttributeInput
       include Hearth::Structure
       attr_accessor auto_enable_io (): Types::AttributeBooleanValue?
-      attr_accessor volume_id (): ::String
+      attr_accessor volume_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -14464,7 +14464,7 @@ module AWS::SDK::EC2
     class ModifyVolumeInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor volume_id (): ::String
+      attr_accessor volume_id (): ::String?
       attr_accessor size (): ::Integer?
       attr_accessor volume_type (): ::String?
       attr_accessor iops (): ::Integer?
@@ -14481,7 +14481,7 @@ module AWS::SDK::EC2
       include Hearth::Structure
       attr_accessor enable_dns_hostnames (): Types::AttributeBooleanValue?
       attr_accessor enable_dns_support (): Types::AttributeBooleanValue?
-      attr_accessor vpc_id (): ::String
+      attr_accessor vpc_id (): ::String?
       attr_accessor enable_network_address_usage_metrics (): Types::AttributeBooleanValue?
     end
 
@@ -14492,7 +14492,7 @@ module AWS::SDK::EC2
     class ModifyVpcEndpointConnectionNotificationInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor connection_notification_id (): ::String
+      attr_accessor connection_notification_id (): ::String?
       attr_accessor connection_notification_arn (): ::String?
       attr_accessor connection_events (): ::Array[::String]?
     end
@@ -14505,7 +14505,7 @@ module AWS::SDK::EC2
     class ModifyVpcEndpointInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor vpc_endpoint_id (): ::String
+      attr_accessor vpc_endpoint_id (): ::String?
       attr_accessor reset_policy (): bool?
       attr_accessor policy_document (): ::String?
       attr_accessor add_route_table_ids (): ::Array[::String]?
@@ -14528,7 +14528,7 @@ module AWS::SDK::EC2
     class ModifyVpcEndpointServiceConfigurationInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor service_id (): ::String
+      attr_accessor service_id (): ::String?
       attr_accessor private_dns_name (): ::String?
       attr_accessor remove_private_dns_name (): bool?
       attr_accessor acceptance_required (): bool?
@@ -14548,8 +14548,8 @@ module AWS::SDK::EC2
     class ModifyVpcEndpointServicePayerResponsibilityInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor service_id (): ::String
-      attr_accessor payer_responsibility (): ::String
+      attr_accessor service_id (): ::String?
+      attr_accessor payer_responsibility (): ::String?
     end
 
     class ModifyVpcEndpointServicePayerResponsibilityOutput
@@ -14560,7 +14560,7 @@ module AWS::SDK::EC2
     class ModifyVpcEndpointServicePermissionsInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor service_id (): ::String
+      attr_accessor service_id (): ::String?
       attr_accessor add_allowed_principals (): ::Array[::String]?
       attr_accessor remove_allowed_principals (): ::Array[::String]?
     end
@@ -14576,7 +14576,7 @@ module AWS::SDK::EC2
       attr_accessor accepter_peering_connection_options (): Types::PeeringConnectionOptionsRequest?
       attr_accessor dry_run (): bool?
       attr_accessor requester_peering_connection_options (): Types::PeeringConnectionOptionsRequest?
-      attr_accessor vpc_peering_connection_id (): ::String
+      attr_accessor vpc_peering_connection_id (): ::String?
     end
 
     class ModifyVpcPeeringConnectionOptionsOutput
@@ -14587,8 +14587,8 @@ module AWS::SDK::EC2
 
     class ModifyVpcTenancyInput
       include Hearth::Structure
-      attr_accessor vpc_id (): ::String
-      attr_accessor instance_tenancy (): ::String
+      attr_accessor vpc_id (): ::String?
+      attr_accessor instance_tenancy (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -14599,7 +14599,7 @@ module AWS::SDK::EC2
 
     class ModifyVpnConnectionInput
       include Hearth::Structure
-      attr_accessor vpn_connection_id (): ::String
+      attr_accessor vpn_connection_id (): ::String?
       attr_accessor transit_gateway_id (): ::String?
       attr_accessor customer_gateway_id (): ::String?
       attr_accessor vpn_gateway_id (): ::String?
@@ -14608,7 +14608,7 @@ module AWS::SDK::EC2
 
     class ModifyVpnConnectionOptionsInput
       include Hearth::Structure
-      attr_accessor vpn_connection_id (): ::String
+      attr_accessor vpn_connection_id (): ::String?
       attr_accessor local_ipv4_network_cidr (): ::String?
       attr_accessor remote_ipv4_network_cidr (): ::String?
       attr_accessor local_ipv6_network_cidr (): ::String?
@@ -14628,8 +14628,8 @@ module AWS::SDK::EC2
 
     class ModifyVpnTunnelCertificateInput
       include Hearth::Structure
-      attr_accessor vpn_connection_id (): ::String
-      attr_accessor vpn_tunnel_outside_ip_address (): ::String
+      attr_accessor vpn_connection_id (): ::String?
+      attr_accessor vpn_tunnel_outside_ip_address (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -14640,9 +14640,9 @@ module AWS::SDK::EC2
 
     class ModifyVpnTunnelOptionsInput
       include Hearth::Structure
-      attr_accessor vpn_connection_id (): ::String
-      attr_accessor vpn_tunnel_outside_ip_address (): ::String
-      attr_accessor tunnel_options (): Types::ModifyVpnTunnelOptionsSpecification
+      attr_accessor vpn_connection_id (): ::String?
+      attr_accessor vpn_tunnel_outside_ip_address (): ::String?
+      attr_accessor tunnel_options (): Types::ModifyVpnTunnelOptionsSpecification?
       attr_accessor dry_run (): bool?
       attr_accessor skip_tunnel_replacement (): bool?
     end
@@ -14678,7 +14678,7 @@ module AWS::SDK::EC2
 
     class MonitorInstancesInput
       include Hearth::Structure
-      attr_accessor instance_ids (): ::Array[::String]
+      attr_accessor instance_ids (): ::Array[::String]?
       attr_accessor dry_run (): bool?
     end
 
@@ -14705,7 +14705,7 @@ module AWS::SDK::EC2
     class MoveAddressToVpcInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor public_ip (): ::String
+      attr_accessor public_ip (): ::String?
     end
 
     class MoveAddressToVpcOutput
@@ -14717,9 +14717,9 @@ module AWS::SDK::EC2
     class MoveByoipCidrToIpamInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor cidr (): ::String
-      attr_accessor ipam_pool_id (): ::String
-      attr_accessor ipam_pool_owner (): ::String
+      attr_accessor cidr (): ::String?
+      attr_accessor ipam_pool_id (): ::String?
+      attr_accessor ipam_pool_owner (): ::String?
     end
 
     class MoveByoipCidrToIpamOutput
@@ -15656,7 +15656,7 @@ module AWS::SDK::EC2
 
     class ProvisionByoipCidrInput
       include Hearth::Structure
-      attr_accessor cidr (): ::String
+      attr_accessor cidr (): ::String?
       attr_accessor cidr_authorization_context (): Types::CidrAuthorizationContext?
       attr_accessor publicly_advertisable (): bool?
       attr_accessor description (): ::String?
@@ -15674,9 +15674,9 @@ module AWS::SDK::EC2
     class ProvisionIpamByoasnInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor ipam_id (): ::String
-      attr_accessor asn (): ::String
-      attr_accessor asn_authorization_context (): Types::AsnAuthorizationContext
+      attr_accessor ipam_id (): ::String?
+      attr_accessor asn (): ::String?
+      attr_accessor asn_authorization_context (): Types::AsnAuthorizationContext?
     end
 
     class ProvisionIpamByoasnOutput
@@ -15687,7 +15687,7 @@ module AWS::SDK::EC2
     class ProvisionIpamPoolCidrInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor ipam_pool_id (): ::String
+      attr_accessor ipam_pool_id (): ::String?
       attr_accessor cidr (): ::String?
       attr_accessor cidr_authorization_context (): Types::IpamCidrAuthorizationContext?
       attr_accessor netmask_length (): ::Integer?
@@ -15702,9 +15702,9 @@ module AWS::SDK::EC2
     class ProvisionPublicIpv4PoolCidrInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor ipam_pool_id (): ::String
-      attr_accessor pool_id (): ::String
-      attr_accessor netmask_length (): ::Integer
+      attr_accessor ipam_pool_id (): ::String?
+      attr_accessor pool_id (): ::String?
+      attr_accessor netmask_length (): ::Integer?
     end
 
     class ProvisionPublicIpv4PoolCidrOutput
@@ -15764,8 +15764,8 @@ module AWS::SDK::EC2
       include Hearth::Structure
       attr_accessor dry_run (): bool?
       attr_accessor tag_specifications (): ::Array[Types::TagSpecification]?
-      attr_accessor capacity_block_offering_id (): ::String
-      attr_accessor instance_platform (): ::String
+      attr_accessor capacity_block_offering_id (): ::String?
+      attr_accessor instance_platform (): ::String?
     end
 
     class PurchaseCapacityBlockOutput
@@ -15777,9 +15777,9 @@ module AWS::SDK::EC2
       include Hearth::Structure
       attr_accessor client_token (): ::String?
       attr_accessor currency_code (): ::String?
-      attr_accessor host_id_set (): ::Array[::String]
+      attr_accessor host_id_set (): ::Array[::String]?
       attr_accessor limit_price (): ::String?
-      attr_accessor offering_id (): ::String
+      attr_accessor offering_id (): ::String?
       attr_accessor tag_specifications (): ::Array[Types::TagSpecification]?
     end
 
@@ -15794,14 +15794,14 @@ module AWS::SDK::EC2
 
     class PurchaseRequest
       include Hearth::Structure
-      attr_accessor instance_count (): ::Integer
-      attr_accessor purchase_token (): ::String
+      attr_accessor instance_count (): ::Integer?
+      attr_accessor purchase_token (): ::String?
     end
 
     class PurchaseReservedInstancesOfferingInput
       include Hearth::Structure
-      attr_accessor instance_count (): ::Integer
-      attr_accessor reserved_instances_offering_id (): ::String
+      attr_accessor instance_count (): ::Integer?
+      attr_accessor reserved_instances_offering_id (): ::String?
       attr_accessor dry_run (): bool?
       attr_accessor limit_price (): Types::ReservedInstanceLimitPrice?
       attr_accessor purchase_time (): ::Time?
@@ -15816,7 +15816,7 @@ module AWS::SDK::EC2
       include Hearth::Structure
       attr_accessor client_token (): ::String?
       attr_accessor dry_run (): bool?
-      attr_accessor purchase_requests (): ::Array[Types::PurchaseRequest]
+      attr_accessor purchase_requests (): ::Array[Types::PurchaseRequest]?
     end
 
     class PurchaseScheduledInstancesOutput
@@ -15836,7 +15836,7 @@ module AWS::SDK::EC2
 
     class RebootInstancesInput
       include Hearth::Structure
-      attr_accessor instance_ids (): ::Array[::String]
+      attr_accessor instance_ids (): ::Array[::String]?
       attr_accessor dry_run (): bool?
     end
 
@@ -15879,7 +15879,7 @@ module AWS::SDK::EC2
       attr_accessor dry_run (): bool?
       attr_accessor ena_support (): bool?
       attr_accessor kernel_id (): ::String?
-      attr_accessor name (): ::String
+      attr_accessor name (): ::String?
       attr_accessor billing_products (): ::Array[::String]?
       attr_accessor ramdisk_id (): ::String?
       attr_accessor root_device_name (): ::String?
@@ -15899,7 +15899,7 @@ module AWS::SDK::EC2
     class RegisterInstanceEventNotificationAttributesInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor instance_tag_attribute (): Types::RegisterInstanceTagAttributeRequest
+      attr_accessor instance_tag_attribute (): Types::RegisterInstanceTagAttributeRequest?
     end
 
     class RegisterInstanceEventNotificationAttributesOutput
@@ -15915,9 +15915,9 @@ module AWS::SDK::EC2
 
     class RegisterTransitGatewayMulticastGroupMembersInput
       include Hearth::Structure
-      attr_accessor transit_gateway_multicast_domain_id (): ::String
+      attr_accessor transit_gateway_multicast_domain_id (): ::String?
       attr_accessor group_ip_address (): ::String?
-      attr_accessor network_interface_ids (): ::Array[::String]
+      attr_accessor network_interface_ids (): ::Array[::String]?
       attr_accessor dry_run (): bool?
     end
 
@@ -15928,9 +15928,9 @@ module AWS::SDK::EC2
 
     class RegisterTransitGatewayMulticastGroupSourcesInput
       include Hearth::Structure
-      attr_accessor transit_gateway_multicast_domain_id (): ::String
+      attr_accessor transit_gateway_multicast_domain_id (): ::String?
       attr_accessor group_ip_address (): ::String?
-      attr_accessor network_interface_ids (): ::Array[::String]
+      attr_accessor network_interface_ids (): ::Array[::String]?
       attr_accessor dry_run (): bool?
     end
 
@@ -15954,7 +15954,7 @@ module AWS::SDK::EC2
 
     class RejectTransitGatewayPeeringAttachmentInput
       include Hearth::Structure
-      attr_accessor transit_gateway_attachment_id (): ::String
+      attr_accessor transit_gateway_attachment_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -15965,7 +15965,7 @@ module AWS::SDK::EC2
 
     class RejectTransitGatewayVpcAttachmentInput
       include Hearth::Structure
-      attr_accessor transit_gateway_attachment_id (): ::String
+      attr_accessor transit_gateway_attachment_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -15977,8 +15977,8 @@ module AWS::SDK::EC2
     class RejectVpcEndpointConnectionsInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor service_id (): ::String
-      attr_accessor vpc_endpoint_ids (): ::Array[::String]
+      attr_accessor service_id (): ::String?
+      attr_accessor vpc_endpoint_ids (): ::Array[::String]?
     end
 
     class RejectVpcEndpointConnectionsOutput
@@ -15989,7 +15989,7 @@ module AWS::SDK::EC2
     class RejectVpcPeeringConnectionInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor vpc_peering_connection_id (): ::String
+      attr_accessor vpc_peering_connection_id (): ::String?
     end
 
     class RejectVpcPeeringConnectionOutput
@@ -16011,7 +16011,7 @@ module AWS::SDK::EC2
 
     class ReleaseHostsInput
       include Hearth::Structure
-      attr_accessor host_ids (): ::Array[::String]
+      attr_accessor host_ids (): ::Array[::String]?
     end
 
     class ReleaseHostsOutput
@@ -16023,9 +16023,9 @@ module AWS::SDK::EC2
     class ReleaseIpamPoolAllocationInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor ipam_pool_id (): ::String
-      attr_accessor cidr (): ::String
-      attr_accessor ipam_pool_allocation_id (): ::String
+      attr_accessor ipam_pool_id (): ::String?
+      attr_accessor cidr (): ::String?
+      attr_accessor ipam_pool_allocation_id (): ::String?
     end
 
     class ReleaseIpamPoolAllocationOutput
@@ -16040,13 +16040,13 @@ module AWS::SDK::EC2
 
     class RemovePrefixListEntry
       include Hearth::Structure
-      attr_accessor cidr (): ::String
+      attr_accessor cidr (): ::String?
     end
 
     class ReplaceIamInstanceProfileAssociationInput
       include Hearth::Structure
-      attr_accessor iam_instance_profile (): Types::IamInstanceProfileSpecification
-      attr_accessor association_id (): ::String
+      attr_accessor iam_instance_profile (): Types::IamInstanceProfileSpecification?
+      attr_accessor association_id (): ::String?
     end
 
     class ReplaceIamInstanceProfileAssociationOutput
@@ -16056,9 +16056,9 @@ module AWS::SDK::EC2
 
     class ReplaceNetworkAclAssociationInput
       include Hearth::Structure
-      attr_accessor association_id (): ::String
+      attr_accessor association_id (): ::String?
       attr_accessor dry_run (): bool?
-      attr_accessor network_acl_id (): ::String
+      attr_accessor network_acl_id (): ::String?
     end
 
     class ReplaceNetworkAclAssociationOutput
@@ -16070,14 +16070,14 @@ module AWS::SDK::EC2
       include Hearth::Structure
       attr_accessor cidr_block (): ::String?
       attr_accessor dry_run (): bool?
-      attr_accessor egress (): bool
+      attr_accessor egress (): bool?
       attr_accessor icmp_type_code (): Types::IcmpTypeCode?
       attr_accessor ipv6_cidr_block (): ::String?
-      attr_accessor network_acl_id (): ::String
+      attr_accessor network_acl_id (): ::String?
       attr_accessor port_range (): Types::PortRange?
-      attr_accessor protocol (): ::String
-      attr_accessor rule_action (): ::String
-      attr_accessor rule_number (): ::Integer
+      attr_accessor protocol (): ::String?
+      attr_accessor rule_action (): ::String?
+      attr_accessor rule_number (): ::Integer?
     end
 
     class ReplaceNetworkAclEntryOutput
@@ -16127,7 +16127,7 @@ module AWS::SDK::EC2
       attr_accessor local_gateway_id (): ::String?
       attr_accessor carrier_gateway_id (): ::String?
       attr_accessor network_interface_id (): ::String?
-      attr_accessor route_table_id (): ::String
+      attr_accessor route_table_id (): ::String?
       attr_accessor vpc_peering_connection_id (): ::String?
       attr_accessor core_network_arn (): ::String?
     end
@@ -16138,9 +16138,9 @@ module AWS::SDK::EC2
 
     class ReplaceRouteTableAssociationInput
       include Hearth::Structure
-      attr_accessor association_id (): ::String
+      attr_accessor association_id (): ::String?
       attr_accessor dry_run (): bool?
-      attr_accessor route_table_id (): ::String
+      attr_accessor route_table_id (): ::String?
     end
 
     class ReplaceRouteTableAssociationOutput
@@ -16151,8 +16151,8 @@ module AWS::SDK::EC2
 
     class ReplaceTransitGatewayRouteInput
       include Hearth::Structure
-      attr_accessor destination_cidr_block (): ::String
-      attr_accessor transit_gateway_route_table_id (): ::String
+      attr_accessor destination_cidr_block (): ::String?
+      attr_accessor transit_gateway_route_table_id (): ::String?
       attr_accessor transit_gateway_attachment_id (): ::String?
       attr_accessor blackhole (): bool?
       attr_accessor dry_run (): bool?
@@ -16165,8 +16165,8 @@ module AWS::SDK::EC2
 
     class ReplaceVpnTunnelInput
       include Hearth::Structure
-      attr_accessor vpn_connection_id (): ::String
-      attr_accessor vpn_tunnel_outside_ip_address (): ::String
+      attr_accessor vpn_connection_id (): ::String?
+      attr_accessor vpn_tunnel_outside_ip_address (): ::String?
       attr_accessor apply_pending_maintenance (): bool?
       attr_accessor dry_run (): bool?
     end
@@ -16207,10 +16207,10 @@ module AWS::SDK::EC2
       attr_accessor description (): ::String?
       attr_accessor dry_run (): bool?
       attr_accessor end_time (): ::Time?
-      attr_accessor instances (): ::Array[::String]
-      attr_accessor reason_codes (): ::Array[::String]
+      attr_accessor instances (): ::Array[::String]?
+      attr_accessor reason_codes (): ::Array[::String]?
       attr_accessor start_time (): ::Time?
-      attr_accessor status (): ::String
+      attr_accessor status (): ::String?
     end
 
     class ReportInstanceStatusOutput
@@ -16273,7 +16273,7 @@ module AWS::SDK::EC2
     class RequestSpotFleetInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor spot_fleet_request_config (): Types::SpotFleetRequestConfigData
+      attr_accessor spot_fleet_request_config (): Types::SpotFleetRequestConfigData?
     end
 
     class RequestSpotFleetOutput
@@ -16476,8 +16476,8 @@ module AWS::SDK::EC2
 
     class ResetAddressAttributeInput
       include Hearth::Structure
-      attr_accessor allocation_id (): ::String
-      attr_accessor attribute (): ::String
+      attr_accessor allocation_id (): ::String?
+      attr_accessor attribute (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -16499,7 +16499,7 @@ module AWS::SDK::EC2
     class ResetFpgaImageAttributeInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor fpga_image_id (): ::String
+      attr_accessor fpga_image_id (): ::String?
       attr_accessor attribute (): ::String?
     end
 
@@ -16514,8 +16514,8 @@ module AWS::SDK::EC2
 
     class ResetImageAttributeInput
       include Hearth::Structure
-      attr_accessor attribute (): ::String
-      attr_accessor image_id (): ::String
+      attr_accessor attribute (): ::String?
+      attr_accessor image_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -16529,9 +16529,9 @@ module AWS::SDK::EC2
 
     class ResetInstanceAttributeInput
       include Hearth::Structure
-      attr_accessor attribute (): ::String
+      attr_accessor attribute (): ::String?
       attr_accessor dry_run (): bool?
-      attr_accessor instance_id (): ::String
+      attr_accessor instance_id (): ::String?
     end
 
     class ResetInstanceAttributeOutput
@@ -16541,7 +16541,7 @@ module AWS::SDK::EC2
     class ResetNetworkInterfaceAttributeInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor network_interface_id (): ::String
+      attr_accessor network_interface_id (): ::String?
       attr_accessor source_dest_check (): ::String?
     end
 
@@ -16551,8 +16551,8 @@ module AWS::SDK::EC2
 
     class ResetSnapshotAttributeInput
       include Hearth::Structure
-      attr_accessor attribute (): ::String
-      attr_accessor snapshot_id (): ::String
+      attr_accessor attribute (): ::String?
+      attr_accessor snapshot_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -16790,7 +16790,7 @@ module AWS::SDK::EC2
     class RestoreAddressToClassicInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor public_ip (): ::String
+      attr_accessor public_ip (): ::String?
     end
 
     class RestoreAddressToClassicOutput
@@ -16801,7 +16801,7 @@ module AWS::SDK::EC2
 
     class RestoreImageFromRecycleBinInput
       include Hearth::Structure
-      attr_accessor image_id (): ::String
+      attr_accessor image_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -16813,9 +16813,9 @@ module AWS::SDK::EC2
     class RestoreManagedPrefixListVersionInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor prefix_list_id (): ::String
-      attr_accessor previous_version (): ::Integer
-      attr_accessor current_version (): ::Integer
+      attr_accessor prefix_list_id (): ::String?
+      attr_accessor previous_version (): ::Integer?
+      attr_accessor current_version (): ::Integer?
     end
 
     class RestoreManagedPrefixListVersionOutput
@@ -16825,7 +16825,7 @@ module AWS::SDK::EC2
 
     class RestoreSnapshotFromRecycleBinInput
       include Hearth::Structure
-      attr_accessor snapshot_id (): ::String
+      attr_accessor snapshot_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -16846,7 +16846,7 @@ module AWS::SDK::EC2
 
     class RestoreSnapshotTierInput
       include Hearth::Structure
-      attr_accessor snapshot_id (): ::String
+      attr_accessor snapshot_id (): ::String?
       attr_accessor temporary_restore_days (): ::Integer?
       attr_accessor permanent_restore (): bool?
       attr_accessor dry_run (): bool?
@@ -16862,8 +16862,8 @@ module AWS::SDK::EC2
 
     class RevokeClientVpnIngressInput
       include Hearth::Structure
-      attr_accessor client_vpn_endpoint_id (): ::String
-      attr_accessor target_network_cidr (): ::String
+      attr_accessor client_vpn_endpoint_id (): ::String?
+      attr_accessor target_network_cidr (): ::String?
       attr_accessor access_group_id (): ::String?
       attr_accessor revoke_all_groups (): bool?
       attr_accessor dry_run (): bool?
@@ -16877,7 +16877,7 @@ module AWS::SDK::EC2
     class RevokeSecurityGroupEgressInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor group_id (): ::String
+      attr_accessor group_id (): ::String?
       attr_accessor ip_permissions (): ::Array[Types::IpPermission]?
       attr_accessor security_group_rule_ids (): ::Array[::String]?
       attr_accessor cidr_ip (): ::String?
@@ -17027,8 +17027,8 @@ module AWS::SDK::EC2
       attr_accessor ipv6_addresses (): ::Array[Types::InstanceIpv6Address]?
       attr_accessor kernel_id (): ::String?
       attr_accessor key_name (): ::String?
-      attr_accessor max_count (): ::Integer
-      attr_accessor min_count (): ::Integer
+      attr_accessor max_count (): ::Integer?
+      attr_accessor min_count (): ::Integer?
       attr_accessor monitoring (): Types::RunInstancesMonitoringEnabled?
       attr_accessor placement (): Types::Placement?
       attr_accessor ramdisk_id (): ::String?
@@ -17065,7 +17065,7 @@ module AWS::SDK::EC2
 
     class RunInstancesMonitoringEnabled
       include Hearth::Structure
-      attr_accessor enabled (): bool
+      attr_accessor enabled (): bool?
     end
 
     class RunInstancesOutput
@@ -17082,8 +17082,8 @@ module AWS::SDK::EC2
       attr_accessor client_token (): ::String?
       attr_accessor dry_run (): bool?
       attr_accessor instance_count (): ::Integer?
-      attr_accessor launch_specification (): Types::ScheduledInstancesLaunchSpecification
-      attr_accessor scheduled_instance_id (): ::String
+      attr_accessor launch_specification (): Types::ScheduledInstancesLaunchSpecification?
+      attr_accessor scheduled_instance_id (): ::String?
     end
 
     class RunScheduledInstancesOutput
@@ -17202,7 +17202,7 @@ module AWS::SDK::EC2
       attr_accessor block_device_mappings (): ::Array[Types::ScheduledInstancesBlockDeviceMapping]?
       attr_accessor ebs_optimized (): bool?
       attr_accessor iam_instance_profile (): Types::ScheduledInstancesIamInstanceProfile?
-      attr_accessor image_id (): ::String
+      attr_accessor image_id (): ::String?
       attr_accessor instance_type (): ::String?
       attr_accessor kernel_id (): ::String?
       attr_accessor key_name (): ::String?
@@ -17250,7 +17250,7 @@ module AWS::SDK::EC2
 
     class SearchLocalGatewayRoutesInput
       include Hearth::Structure
-      attr_accessor local_gateway_route_table_id (): ::String
+      attr_accessor local_gateway_route_table_id (): ::String?
       attr_accessor filters (): ::Array[Types::Filter]?
       attr_accessor max_results (): ::Integer?
       attr_accessor next_token (): ::String?
@@ -17265,7 +17265,7 @@ module AWS::SDK::EC2
 
     class SearchTransitGatewayMulticastGroupsInput
       include Hearth::Structure
-      attr_accessor transit_gateway_multicast_domain_id (): ::String
+      attr_accessor transit_gateway_multicast_domain_id (): ::String?
       attr_accessor filters (): ::Array[Types::Filter]?
       attr_accessor max_results (): ::Integer?
       attr_accessor next_token (): ::String?
@@ -17280,8 +17280,8 @@ module AWS::SDK::EC2
 
     class SearchTransitGatewayRoutesInput
       include Hearth::Structure
-      attr_accessor transit_gateway_route_table_id (): ::String
-      attr_accessor filters (): ::Array[Types::Filter]
+      attr_accessor transit_gateway_route_table_id (): ::String?
+      attr_accessor filters (): ::Array[Types::Filter]?
       attr_accessor max_results (): ::Integer?
       attr_accessor dry_run (): bool?
     end
@@ -17371,7 +17371,7 @@ module AWS::SDK::EC2
 
     class SecurityGroupRuleUpdate
       include Hearth::Structure
-      attr_accessor security_group_rule_id (): ::String
+      attr_accessor security_group_rule_id (): ::String?
       attr_accessor security_group_rule (): Types::SecurityGroupRuleRequest?
     end
 
@@ -17383,7 +17383,7 @@ module AWS::SDK::EC2
 
     class SendDiagnosticInterruptInput
       include Hearth::Structure
-      attr_accessor instance_id (): ::String
+      attr_accessor instance_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -17468,8 +17468,8 @@ module AWS::SDK::EC2
 
     class SlotDateTimeRangeRequest
       include Hearth::Structure
-      attr_accessor earliest_time (): ::Time
-      attr_accessor latest_time (): ::Time
+      attr_accessor earliest_time (): ::Time?
+      attr_accessor latest_time (): ::Time?
     end
 
     class SlotStartTimeRangeRequest
@@ -17678,11 +17678,11 @@ module AWS::SDK::EC2
       attr_accessor excess_capacity_termination_policy (): ::String?
       attr_accessor fulfilled_capacity (): ::Float?
       attr_accessor on_demand_fulfilled_capacity (): ::Float?
-      attr_accessor iam_fleet_role (): ::String
+      attr_accessor iam_fleet_role (): ::String?
       attr_accessor launch_specifications (): ::Array[Types::SpotFleetLaunchSpecification]?
       attr_accessor launch_template_configs (): ::Array[Types::LaunchTemplateConfig]?
       attr_accessor spot_price (): ::String?
-      attr_accessor target_capacity (): ::Integer
+      attr_accessor target_capacity (): ::Integer?
       attr_accessor on_demand_target_capacity (): ::Integer?
       attr_accessor on_demand_max_total_price (): ::String?
       attr_accessor spot_max_total_price (): ::String?
@@ -17858,7 +17858,7 @@ module AWS::SDK::EC2
 
     class StartInstancesInput
       include Hearth::Structure
-      attr_accessor instance_ids (): ::Array[::String]
+      attr_accessor instance_ids (): ::Array[::String]?
       attr_accessor additional_info (): ::String?
       attr_accessor dry_run (): bool?
     end
@@ -17870,10 +17870,10 @@ module AWS::SDK::EC2
 
     class StartNetworkInsightsAccessScopeAnalysisInput
       include Hearth::Structure
-      attr_accessor network_insights_access_scope_id (): ::String
+      attr_accessor network_insights_access_scope_id (): ::String?
       attr_accessor dry_run (): bool?
       attr_accessor tag_specifications (): ::Array[Types::TagSpecification]?
-      attr_accessor client_token (): ::String
+      attr_accessor client_token (): ::String?
     end
 
     class StartNetworkInsightsAccessScopeAnalysisOutput
@@ -17883,12 +17883,12 @@ module AWS::SDK::EC2
 
     class StartNetworkInsightsAnalysisInput
       include Hearth::Structure
-      attr_accessor network_insights_path_id (): ::String
+      attr_accessor network_insights_path_id (): ::String?
       attr_accessor additional_accounts (): ::Array[::String]?
       attr_accessor filter_in_arns (): ::Array[::String]?
       attr_accessor dry_run (): bool?
       attr_accessor tag_specifications (): ::Array[Types::TagSpecification]?
-      attr_accessor client_token (): ::String
+      attr_accessor client_token (): ::String?
     end
 
     class StartNetworkInsightsAnalysisOutput
@@ -17899,7 +17899,7 @@ module AWS::SDK::EC2
     class StartVpcEndpointServicePrivateDnsVerificationInput
       include Hearth::Structure
       attr_accessor dry_run (): bool?
-      attr_accessor service_id (): ::String
+      attr_accessor service_id (): ::String?
     end
 
     class StartVpcEndpointServicePrivateDnsVerificationOutput
@@ -17965,7 +17965,7 @@ module AWS::SDK::EC2
 
     class StopInstancesInput
       include Hearth::Structure
-      attr_accessor instance_ids (): ::Array[::String]
+      attr_accessor instance_ids (): ::Array[::String]?
       attr_accessor hibernate (): bool?
       attr_accessor dry_run (): bool?
       attr_accessor force (): bool?
@@ -18160,7 +18160,7 @@ module AWS::SDK::EC2
 
     class TargetCapacitySpecificationRequest
       include Hearth::Structure
-      attr_accessor total_target_capacity (): ::Integer
+      attr_accessor total_target_capacity (): ::Integer?
       attr_accessor on_demand_target_capacity (): ::Integer?
       attr_accessor spot_target_capacity (): ::Integer?
       attr_accessor default_target_capacity_type (): ::String?
@@ -18184,7 +18184,7 @@ module AWS::SDK::EC2
     class TargetConfigurationRequest
       include Hearth::Structure
       attr_accessor instance_count (): ::Integer?
-      attr_accessor offering_id (): ::String
+      attr_accessor offering_id (): ::String?
     end
 
     class TargetGroup
@@ -18233,7 +18233,7 @@ module AWS::SDK::EC2
 
     class TerminateClientVpnConnectionsInput
       include Hearth::Structure
-      attr_accessor client_vpn_endpoint_id (): ::String
+      attr_accessor client_vpn_endpoint_id (): ::String?
       attr_accessor connection_id (): ::String?
       attr_accessor username (): ::String?
       attr_accessor dry_run (): bool?
@@ -18255,7 +18255,7 @@ module AWS::SDK::EC2
 
     class TerminateInstancesInput
       include Hearth::Structure
-      attr_accessor instance_ids (): ::Array[::String]
+      attr_accessor instance_ids (): ::Array[::String]?
       attr_accessor dry_run (): bool?
     end
 
@@ -19042,7 +19042,7 @@ module AWS::SDK::EC2
       include Hearth::Structure
       attr_accessor ipv6_addresses (): ::Array[::String]?
       attr_accessor ipv6_prefixes (): ::Array[::String]?
-      attr_accessor network_interface_id (): ::String
+      attr_accessor network_interface_id (): ::String?
     end
 
     class UnassignIpv6AddressesOutput
@@ -19054,7 +19054,7 @@ module AWS::SDK::EC2
 
     class UnassignPrivateIpAddressesInput
       include Hearth::Structure
-      attr_accessor network_interface_id (): ::String
+      attr_accessor network_interface_id (): ::String?
       attr_accessor private_ip_addresses (): ::Array[::String]?
       attr_accessor ipv4_prefixes (): ::Array[::String]?
     end
@@ -19065,8 +19065,8 @@ module AWS::SDK::EC2
 
     class UnassignPrivateNatGatewayAddressInput
       include Hearth::Structure
-      attr_accessor nat_gateway_id (): ::String
-      attr_accessor private_ip_addresses (): ::Array[::String]
+      attr_accessor nat_gateway_id (): ::String?
+      attr_accessor private_ip_addresses (): ::Array[::String]?
       attr_accessor max_drain_duration_seconds (): ::Integer?
       attr_accessor dry_run (): bool?
     end
@@ -19089,7 +19089,7 @@ module AWS::SDK::EC2
 
     class UnlockSnapshotInput
       include Hearth::Structure
-      attr_accessor snapshot_id (): ::String
+      attr_accessor snapshot_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -19100,7 +19100,7 @@ module AWS::SDK::EC2
 
     class UnmonitorInstancesInput
       include Hearth::Structure
-      attr_accessor instance_ids (): ::Array[::String]
+      attr_accessor instance_ids (): ::Array[::String]?
       attr_accessor dry_run (): bool?
     end
 
@@ -19221,7 +19221,7 @@ module AWS::SDK::EC2
 
     class VCpuCountRangeRequest
       include Hearth::Structure
-      attr_accessor min (): ::Integer
+      attr_accessor min (): ::Integer?
       attr_accessor max (): ::Integer?
     end
 
@@ -19357,7 +19357,7 @@ module AWS::SDK::EC2
 
     class VerifiedAccessLogCloudWatchLogsDestinationOptions
       include Hearth::Structure
-      attr_accessor enabled (): bool
+      attr_accessor enabled (): bool?
       attr_accessor log_group (): ::String?
     end
 
@@ -19382,7 +19382,7 @@ module AWS::SDK::EC2
 
     class VerifiedAccessLogKinesisDataFirehoseDestinationOptions
       include Hearth::Structure
-      attr_accessor enabled (): bool
+      attr_accessor enabled (): bool?
       attr_accessor delivery_stream (): ::String?
     end
 
@@ -19406,7 +19406,7 @@ module AWS::SDK::EC2
 
     class VerifiedAccessLogS3DestinationOptions
       include Hearth::Structure
-      attr_accessor enabled (): bool
+      attr_accessor enabled (): bool?
       attr_accessor bucket_name (): ::String?
       attr_accessor prefix (): ::String?
       attr_accessor bucket_owner (): ::String?
@@ -19527,7 +19527,7 @@ module AWS::SDK::EC2
 
     class VolumeDetail
       include Hearth::Structure
-      attr_accessor size (): ::Integer
+      attr_accessor size (): ::Integer?
     end
 
     class VolumeModification
@@ -19981,7 +19981,7 @@ module AWS::SDK::EC2
 
     class WithdrawByoipCidrInput
       include Hearth::Structure
-      attr_accessor cidr (): ::String
+      attr_accessor cidr (): ::String?
       attr_accessor dry_run (): bool?
     end
 

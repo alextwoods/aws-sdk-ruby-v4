@@ -9,7 +9,13 @@
 
 module AWS::SDK::CodeCatalyst
   module Auth
-    Params = Struct.new(:operation_name, keyword_init: true)
+    class Params
+      def initialize(operation_name: nil)
+        @operation_name = operation_name
+      end
+
+      attr_accessor :operation_name
+    end
 
     SCHEMES = [
       Hearth::AuthSchemes::HTTPBearer.new,

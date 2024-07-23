@@ -570,16 +570,16 @@ module AWS::SDK::KMS
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::KMS::Types::CreateCustomKeyStoreInput "\
-          "custom_key_store_name=#{custom_key_store_name || 'nil'}, "\
-          "cloud_hsm_cluster_id=#{cloud_hsm_cluster_id || 'nil'}, "\
-          "trust_anchor_certificate=#{trust_anchor_certificate || 'nil'}, "\
-          "key_store_password=\"[SENSITIVE]\", "\
-          "custom_key_store_type=#{custom_key_store_type || 'nil'}, "\
-          "xks_proxy_uri_endpoint=#{xks_proxy_uri_endpoint || 'nil'}, "\
-          "xks_proxy_uri_path=#{xks_proxy_uri_path || 'nil'}, "\
-          "xks_proxy_vpc_endpoint_service_name=#{xks_proxy_vpc_endpoint_service_name || 'nil'}, "\
-          "xks_proxy_authentication_credential=#{xks_proxy_authentication_credential || 'nil'}, "\
+        '#<AWS::SDK::KMS::Types::CreateCustomKeyStoreInput ' \
+          "custom_key_store_name=#{custom_key_store_name || 'nil'}, " \
+          "cloud_hsm_cluster_id=#{cloud_hsm_cluster_id || 'nil'}, " \
+          "trust_anchor_certificate=#{trust_anchor_certificate || 'nil'}, " \
+          'key_store_password=[SENSITIVE], ' \
+          "custom_key_store_type=#{custom_key_store_type || 'nil'}, " \
+          "xks_proxy_uri_endpoint=#{xks_proxy_uri_endpoint || 'nil'}, " \
+          "xks_proxy_uri_path=#{xks_proxy_uri_path || 'nil'}, " \
+          "xks_proxy_vpc_endpoint_service_name=#{xks_proxy_vpc_endpoint_service_name || 'nil'}, " \
+          "xks_proxy_authentication_credential=#{xks_proxy_authentication_credential || 'nil'}, " \
           "xks_proxy_connectivity=#{xks_proxy_connectivity || 'nil'}>"
       end
     end
@@ -1668,10 +1668,10 @@ module AWS::SDK::KMS
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::KMS::Types::DecryptOutput "\
-          "key_id=#{key_id || 'nil'}, "\
-          "plaintext=\"[SENSITIVE]\", "\
-          "encryption_algorithm=#{encryption_algorithm || 'nil'}, "\
+        '#<AWS::SDK::KMS::Types::DecryptOutput ' \
+          "key_id=#{key_id || 'nil'}, " \
+          'plaintext=[SENSITIVE], ' \
+          "encryption_algorithm=#{encryption_algorithm || 'nil'}, " \
           "ciphertext_for_recipient=#{ciphertext_for_recipient || 'nil'}>"
       end
     end
@@ -2230,12 +2230,12 @@ module AWS::SDK::KMS
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::KMS::Types::EncryptInput "\
-          "key_id=#{key_id || 'nil'}, "\
-          "plaintext=\"[SENSITIVE]\", "\
-          "encryption_context=#{encryption_context || 'nil'}, "\
-          "grant_tokens=#{grant_tokens || 'nil'}, "\
-          "encryption_algorithm=#{encryption_algorithm || 'nil'}, "\
+        '#<AWS::SDK::KMS::Types::EncryptInput ' \
+          "key_id=#{key_id || 'nil'}, " \
+          'plaintext=[SENSITIVE], ' \
+          "encryption_context=#{encryption_context || 'nil'}, " \
+          "grant_tokens=#{grant_tokens || 'nil'}, " \
+          "encryption_algorithm=#{encryption_algorithm || 'nil'}, " \
           "dry_run=#{dry_run || 'nil'}>"
       end
     end
@@ -2440,10 +2440,10 @@ module AWS::SDK::KMS
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::KMS::Types::GenerateDataKeyOutput "\
-          "ciphertext_blob=#{ciphertext_blob || 'nil'}, "\
-          "plaintext=\"[SENSITIVE]\", "\
-          "key_id=#{key_id || 'nil'}, "\
+        '#<AWS::SDK::KMS::Types::GenerateDataKeyOutput ' \
+          "ciphertext_blob=#{ciphertext_blob || 'nil'}, " \
+          'plaintext=[SENSITIVE], ' \
+          "key_id=#{key_id || 'nil'}, " \
           "ciphertext_for_recipient=#{ciphertext_for_recipient || 'nil'}>"
       end
     end
@@ -2586,12 +2586,12 @@ module AWS::SDK::KMS
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::KMS::Types::GenerateDataKeyPairOutput "\
-          "private_key_ciphertext_blob=#{private_key_ciphertext_blob || 'nil'}, "\
-          "private_key_plaintext=\"[SENSITIVE]\", "\
-          "public_key=#{public_key || 'nil'}, "\
-          "key_id=#{key_id || 'nil'}, "\
-          "key_pair_spec=#{key_pair_spec || 'nil'}, "\
+        '#<AWS::SDK::KMS::Types::GenerateDataKeyPairOutput ' \
+          "private_key_ciphertext_blob=#{private_key_ciphertext_blob || 'nil'}, " \
+          'private_key_plaintext=[SENSITIVE], ' \
+          "public_key=#{public_key || 'nil'}, " \
+          "key_id=#{key_id || 'nil'}, " \
+          "key_pair_spec=#{key_pair_spec || 'nil'}, " \
           "ciphertext_for_recipient=#{ciphertext_for_recipient || 'nil'}>"
       end
     end
@@ -2851,11 +2851,11 @@ module AWS::SDK::KMS
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::KMS::Types::GenerateMacInput "\
-          "message=\"[SENSITIVE]\", "\
-          "key_id=#{key_id || 'nil'}, "\
-          "mac_algorithm=#{mac_algorithm || 'nil'}, "\
-          "grant_tokens=#{grant_tokens || 'nil'}, "\
+        '#<AWS::SDK::KMS::Types::GenerateMacInput ' \
+          'message=[SENSITIVE], ' \
+          "key_id=#{key_id || 'nil'}, " \
+          "mac_algorithm=#{mac_algorithm || 'nil'}, " \
+          "grant_tokens=#{grant_tokens || 'nil'}, " \
           "dry_run=#{dry_run || 'nil'}>"
       end
     end
@@ -2956,8 +2956,8 @@ module AWS::SDK::KMS
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::KMS::Types::GenerateRandomOutput "\
-          "plaintext=\"[SENSITIVE]\", "\
+        '#<AWS::SDK::KMS::Types::GenerateRandomOutput ' \
+          'plaintext=[SENSITIVE], ' \
           "ciphertext_for_recipient=#{ciphertext_for_recipient || 'nil'}>"
       end
     end
@@ -3187,10 +3187,10 @@ module AWS::SDK::KMS
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::KMS::Types::GetParametersForImportOutput "\
-          "key_id=#{key_id || 'nil'}, "\
-          "import_token=#{import_token || 'nil'}, "\
-          "public_key=\"[SENSITIVE]\", "\
+        '#<AWS::SDK::KMS::Types::GetParametersForImportOutput ' \
+          "key_id=#{key_id || 'nil'}, " \
+          "import_token=#{import_token || 'nil'}, " \
+          'public_key=[SENSITIVE], ' \
           "parameters_valid_to=#{parameters_valid_to || 'nil'}>"
       end
     end
@@ -5579,12 +5579,12 @@ module AWS::SDK::KMS
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::KMS::Types::SignInput "\
-          "key_id=#{key_id || 'nil'}, "\
-          "message=\"[SENSITIVE]\", "\
-          "message_type=#{message_type || 'nil'}, "\
-          "grant_tokens=#{grant_tokens || 'nil'}, "\
-          "signing_algorithm=#{signing_algorithm || 'nil'}, "\
+        '#<AWS::SDK::KMS::Types::SignInput ' \
+          "key_id=#{key_id || 'nil'}, " \
+          'message=[SENSITIVE], ' \
+          "message_type=#{message_type || 'nil'}, " \
+          "grant_tokens=#{grant_tokens || 'nil'}, " \
+          "signing_algorithm=#{signing_algorithm || 'nil'}, " \
           "dry_run=#{dry_run || 'nil'}>"
       end
     end
@@ -5985,15 +5985,15 @@ module AWS::SDK::KMS
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::KMS::Types::UpdateCustomKeyStoreInput "\
-          "custom_key_store_id=#{custom_key_store_id || 'nil'}, "\
-          "new_custom_key_store_name=#{new_custom_key_store_name || 'nil'}, "\
-          "key_store_password=\"[SENSITIVE]\", "\
-          "cloud_hsm_cluster_id=#{cloud_hsm_cluster_id || 'nil'}, "\
-          "xks_proxy_uri_endpoint=#{xks_proxy_uri_endpoint || 'nil'}, "\
-          "xks_proxy_uri_path=#{xks_proxy_uri_path || 'nil'}, "\
-          "xks_proxy_vpc_endpoint_service_name=#{xks_proxy_vpc_endpoint_service_name || 'nil'}, "\
-          "xks_proxy_authentication_credential=#{xks_proxy_authentication_credential || 'nil'}, "\
+        '#<AWS::SDK::KMS::Types::UpdateCustomKeyStoreInput ' \
+          "custom_key_store_id=#{custom_key_store_id || 'nil'}, " \
+          "new_custom_key_store_name=#{new_custom_key_store_name || 'nil'}, " \
+          'key_store_password=[SENSITIVE], ' \
+          "cloud_hsm_cluster_id=#{cloud_hsm_cluster_id || 'nil'}, " \
+          "xks_proxy_uri_endpoint=#{xks_proxy_uri_endpoint || 'nil'}, " \
+          "xks_proxy_uri_path=#{xks_proxy_uri_path || 'nil'}, " \
+          "xks_proxy_vpc_endpoint_service_name=#{xks_proxy_vpc_endpoint_service_name || 'nil'}, " \
+          "xks_proxy_authentication_credential=#{xks_proxy_authentication_credential || 'nil'}, " \
           "xks_proxy_connectivity=#{xks_proxy_connectivity || 'nil'}>"
       end
     end
@@ -6218,13 +6218,13 @@ module AWS::SDK::KMS
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::KMS::Types::VerifyInput "\
-          "key_id=#{key_id || 'nil'}, "\
-          "message=\"[SENSITIVE]\", "\
-          "message_type=#{message_type || 'nil'}, "\
-          "signature=#{signature || 'nil'}, "\
-          "signing_algorithm=#{signing_algorithm || 'nil'}, "\
-          "grant_tokens=#{grant_tokens || 'nil'}, "\
+        '#<AWS::SDK::KMS::Types::VerifyInput ' \
+          "key_id=#{key_id || 'nil'}, " \
+          'message=[SENSITIVE], ' \
+          "message_type=#{message_type || 'nil'}, " \
+          "signature=#{signature || 'nil'}, " \
+          "signing_algorithm=#{signing_algorithm || 'nil'}, " \
+          "grant_tokens=#{grant_tokens || 'nil'}, " \
           "dry_run=#{dry_run || 'nil'}>"
       end
     end
@@ -6285,12 +6285,12 @@ module AWS::SDK::KMS
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::KMS::Types::VerifyMacInput "\
-          "message=\"[SENSITIVE]\", "\
-          "key_id=#{key_id || 'nil'}, "\
-          "mac_algorithm=#{mac_algorithm || 'nil'}, "\
-          "mac=#{mac || 'nil'}, "\
-          "grant_tokens=#{grant_tokens || 'nil'}, "\
+        '#<AWS::SDK::KMS::Types::VerifyMacInput ' \
+          'message=[SENSITIVE], ' \
+          "key_id=#{key_id || 'nil'}, " \
+          "mac_algorithm=#{mac_algorithm || 'nil'}, " \
+          "mac=#{mac || 'nil'}, " \
+          "grant_tokens=#{grant_tokens || 'nil'}, " \
           "dry_run=#{dry_run || 'nil'}>"
       end
     end
@@ -6495,9 +6495,9 @@ module AWS::SDK::KMS
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::KMS::Types::XksProxyAuthenticationCredentialType "\
-          "access_key_id=\"[SENSITIVE]\", "\
-          "raw_secret_access_key=\"[SENSITIVE]\">"
+        '#<AWS::SDK::KMS::Types::XksProxyAuthenticationCredentialType ' \
+          'access_key_id=[SENSITIVE], ' \
+          'raw_secret_access_key=[SENSITIVE]>'
       end
     end
 
@@ -6549,11 +6549,11 @@ module AWS::SDK::KMS
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::KMS::Types::XksProxyConfigurationType "\
-          "connectivity=#{connectivity || 'nil'}, "\
-          "access_key_id=\"[SENSITIVE]\", "\
-          "uri_endpoint=#{uri_endpoint || 'nil'}, "\
-          "uri_path=#{uri_path || 'nil'}, "\
+        '#<AWS::SDK::KMS::Types::XksProxyConfigurationType ' \
+          "connectivity=#{connectivity || 'nil'}, " \
+          'access_key_id=[SENSITIVE], ' \
+          "uri_endpoint=#{uri_endpoint || 'nil'}, " \
+          "uri_path=#{uri_path || 'nil'}, " \
           "vpc_endpoint_service_name=#{vpc_endpoint_service_name || 'nil'}>"
       end
     end

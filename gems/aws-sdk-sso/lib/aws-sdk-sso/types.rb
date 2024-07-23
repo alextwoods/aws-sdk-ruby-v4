@@ -64,10 +64,10 @@ module AWS::SDK::SSO
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::SSO::Types::GetRoleCredentialsInput "\
-          "role_name=#{role_name || 'nil'}, "\
-          "account_id=#{account_id || 'nil'}, "\
-          "access_token=\"[SENSITIVE]\">"
+        '#<AWS::SDK::SSO::Types::GetRoleCredentialsInput ' \
+          "role_name=#{role_name || 'nil'}, " \
+          "account_id=#{account_id || 'nil'}, " \
+          'access_token=[SENSITIVE]>'
       end
     end
 
@@ -136,10 +136,10 @@ module AWS::SDK::SSO
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::SSO::Types::ListAccountRolesInput "\
-          "next_token=#{next_token || 'nil'}, "\
-          "max_results=#{max_results || 'nil'}, "\
-          "access_token=\"[SENSITIVE]\", "\
+        '#<AWS::SDK::SSO::Types::ListAccountRolesInput ' \
+          "next_token=#{next_token || 'nil'}, " \
+          "max_results=#{max_results || 'nil'}, " \
+          'access_token=[SENSITIVE], ' \
           "account_id=#{account_id || 'nil'}>"
       end
     end
@@ -194,10 +194,10 @@ module AWS::SDK::SSO
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::SSO::Types::ListAccountsInput "\
-          "next_token=#{next_token || 'nil'}, "\
-          "max_results=#{max_results || 'nil'}, "\
-          "access_token=\"[SENSITIVE]\">"
+        '#<AWS::SDK::SSO::Types::ListAccountsInput ' \
+          "next_token=#{next_token || 'nil'}, " \
+          "max_results=#{max_results || 'nil'}, " \
+          'access_token=[SENSITIVE]>'
       end
     end
 
@@ -240,8 +240,8 @@ module AWS::SDK::SSO
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::SSO::Types::LogoutInput "\
-          "access_token=\"[SENSITIVE]\">"
+        '#<AWS::SDK::SSO::Types::LogoutInput ' \
+          'access_token=[SENSITIVE]>'
       end
     end
 
@@ -307,10 +307,10 @@ module AWS::SDK::SSO
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::SSO::Types::RoleCredentials "\
-          "access_key_id=#{access_key_id || 'nil'}, "\
-          "secret_access_key=\"[SENSITIVE]\", "\
-          "session_token=\"[SENSITIVE]\", "\
+        '#<AWS::SDK::SSO::Types::RoleCredentials ' \
+          "access_key_id=#{access_key_id || 'nil'}, " \
+          'secret_access_key=[SENSITIVE], ' \
+          'session_token=[SENSITIVE], ' \
           "expiration=#{expiration || 'nil'}>"
       end
 

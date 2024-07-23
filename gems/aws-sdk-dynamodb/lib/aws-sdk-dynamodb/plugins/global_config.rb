@@ -17,7 +17,7 @@ module AWS::SDK::DynamoDB
       def call(config)
         options = config.options
         ::Hearth.config.each do |key, value|
-          config[key] = value unless options.key?(key)
+          config.send("#{key}=", value) unless options.key?(key)
         end
       end
 

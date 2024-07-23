@@ -9,7 +9,14 @@
 
 module AWS::SDK::KMS
   module Auth
-    Params = Struct.new(:operation_name, :region, keyword_init: true)
+    class Params
+      def initialize(operation_name: nil, region: nil)
+        @operation_name = operation_name
+        @region = region
+      end
+
+      attr_accessor :operation_name, :region
+    end
 
     SCHEMES = [
       AWS::SDK::Core::AuthSchemes::SigV4.new,
