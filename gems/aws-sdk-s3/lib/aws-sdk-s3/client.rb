@@ -5020,7 +5020,7 @@ module AWS::SDK::S3
     #   )
     # @example Response structure
     #   resp.data #=> Types::GetObjectOutput
-    #   resp.data.body #=> String
+    #   resp.data.body #=> IO
     #   resp.data.delete_marker #=> Boolean
     #   resp.data.accept_ranges #=> String
     #   resp.data.expiration #=> String
@@ -5863,7 +5863,7 @@ module AWS::SDK::S3
     #   )
     # @example Response structure
     #   resp.data #=> Types::GetObjectTorrentOutput
-    #   resp.data.body #=> String
+    #   resp.data.body #=> IO
     #   resp.data.request_charged #=> String, one of ["requester"]
     # @example To retrieve torrent files for an object
     #   # The following example retrieves torrent files of an object.

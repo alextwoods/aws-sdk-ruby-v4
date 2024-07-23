@@ -25,13 +25,16 @@ module AWS::SDK::SSO
     # @!attribute email_address
     #   <p>The email address of the AWS account that is assigned to the user.</p>
     #   @return [String]
-    AccountInfo = ::Struct.new(
-      :account_id,
-      :account_name,
-      :email_address,
-      keyword_init: true
-    ) do
+    class AccountInfo
       include Hearth::Structure
+
+      MEMBERS = %i[
+        account_id
+        account_name
+        email_address
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -49,16 +52,19 @@ module AWS::SDK::SSO
     #   <p>The token issued by the <code>CreateToken</code> API call. For more information, see
     #           <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a> in the <i>IAM Identity Center OIDC API Reference Guide</i>.</p>
     #   @return [String]
-    GetRoleCredentialsInput = ::Struct.new(
-      :role_name,
-      :account_id,
-      :access_token,
-      keyword_init: true
-    ) do
+    class GetRoleCredentialsInput
       include Hearth::Structure
 
+      MEMBERS = %i[
+        role_name
+        account_id
+        access_token
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::SSO::Types::GetRoleCredentialsInput "\
+        "#<AWS::SDK::SSO::Types::GetRoleCredentialsInput "\
           "role_name=#{role_name || 'nil'}, "\
           "account_id=#{account_id || 'nil'}, "\
           "access_token=\"[SENSITIVE]\">"
@@ -71,11 +77,14 @@ module AWS::SDK::SSO
     # @!attribute role_credentials
     #   <p>The credentials for the role that is assigned to the user.</p>
     #   @return [RoleCredentials]
-    GetRoleCredentialsOutput = ::Struct.new(
-      :role_credentials,
-      keyword_init: true
-    ) do
+    class GetRoleCredentialsOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        role_credentials
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Indicates that a problem occurred with the input to the request. For example, a required
@@ -85,11 +94,14 @@ module AWS::SDK::SSO
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    InvalidRequestException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class InvalidRequestException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -111,17 +123,20 @@ module AWS::SDK::SSO
     # @!attribute account_id
     #   <p>The identifier for the AWS account that is assigned to the user.</p>
     #   @return [String]
-    ListAccountRolesInput = ::Struct.new(
-      :next_token,
-      :max_results,
-      :access_token,
-      :account_id,
-      keyword_init: true
-    ) do
+    class ListAccountRolesInput
       include Hearth::Structure
 
+      MEMBERS = %i[
+        next_token
+        max_results
+        access_token
+        account_id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::SSO::Types::ListAccountRolesInput "\
+        "#<AWS::SDK::SSO::Types::ListAccountRolesInput "\
           "next_token=#{next_token || 'nil'}, "\
           "max_results=#{max_results || 'nil'}, "\
           "access_token=\"[SENSITIVE]\", "\
@@ -140,12 +155,15 @@ module AWS::SDK::SSO
     #   <p>A paginated response with the list of roles and the next token if more results are
     #         available.</p>
     #   @return [Array<RoleInfo>]
-    ListAccountRolesOutput = ::Struct.new(
-      :next_token,
-      :role_list,
-      keyword_init: true
-    ) do
+    class ListAccountRolesOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        next_token
+        role_list
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -164,16 +182,19 @@ module AWS::SDK::SSO
     #   <p>The token issued by the <code>CreateToken</code> API call. For more information, see
     #           <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a> in the <i>IAM Identity Center OIDC API Reference Guide</i>.</p>
     #   @return [String]
-    ListAccountsInput = ::Struct.new(
-      :next_token,
-      :max_results,
-      :access_token,
-      keyword_init: true
-    ) do
+    class ListAccountsInput
       include Hearth::Structure
 
+      MEMBERS = %i[
+        next_token
+        max_results
+        access_token
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::SSO::Types::ListAccountsInput "\
+        "#<AWS::SDK::SSO::Types::ListAccountsInput "\
           "next_token=#{next_token || 'nil'}, "\
           "max_results=#{max_results || 'nil'}, "\
           "access_token=\"[SENSITIVE]\">"
@@ -191,12 +212,15 @@ module AWS::SDK::SSO
     #   <p>A paginated response with the list of account information and the next token if more
     #         results are available.</p>
     #   @return [Array<AccountInfo>]
-    ListAccountsOutput = ::Struct.new(
-      :next_token,
-      :account_list,
-      keyword_init: true
-    ) do
+    class ListAccountsOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        next_token
+        account_list
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -206,25 +230,29 @@ module AWS::SDK::SSO
     #   <p>The token issued by the <code>CreateToken</code> API call. For more information, see
     #           <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a> in the <i>IAM Identity Center OIDC API Reference Guide</i>.</p>
     #   @return [String]
-    LogoutInput = ::Struct.new(
-      :access_token,
-      keyword_init: true
-    ) do
+    class LogoutInput
       include Hearth::Structure
 
+      MEMBERS = %i[
+        access_token
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::SSO::Types::LogoutInput "\
+        "#<AWS::SDK::SSO::Types::LogoutInput "\
           "access_token=\"[SENSITIVE]\">"
       end
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    LogoutOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class LogoutOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The specified resource doesn't exist.</p>
@@ -233,11 +261,14 @@ module AWS::SDK::SSO
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    ResourceNotFoundException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class ResourceNotFoundException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Provides information about the role credentials that are assigned to the user.</p>
@@ -263,17 +294,20 @@ module AWS::SDK::SSO
     # @!attribute expiration
     #   <p>The date on which temporary security credentials expire.</p>
     #   @return [Integer]
-    RoleCredentials = ::Struct.new(
-      :access_key_id,
-      :secret_access_key,
-      :session_token,
-      :expiration,
-      keyword_init: true
-    ) do
+    class RoleCredentials
       include Hearth::Structure
 
+      MEMBERS = %i[
+        access_key_id
+        secret_access_key
+        session_token
+        expiration
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::SSO::Types::RoleCredentials "\
+        "#<AWS::SDK::SSO::Types::RoleCredentials "\
           "access_key_id=#{access_key_id || 'nil'}, "\
           "secret_access_key=\"[SENSITIVE]\", "\
           "session_token=\"[SENSITIVE]\", "\
@@ -300,12 +334,15 @@ module AWS::SDK::SSO
     # @!attribute account_id
     #   <p>The identifier of the AWS account assigned to the user.</p>
     #   @return [String]
-    RoleInfo = ::Struct.new(
-      :role_name,
-      :account_id,
-      keyword_init: true
-    ) do
+    class RoleInfo
       include Hearth::Structure
+
+      MEMBERS = %i[
+        role_name
+        account_id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Indicates that the request is being made too frequently and is more than what the server
@@ -315,11 +352,14 @@ module AWS::SDK::SSO
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    TooManyRequestsException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class TooManyRequestsException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Indicates that the request is not authorized. This can happen due to an invalid access
@@ -329,11 +369,14 @@ module AWS::SDK::SSO
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    UnauthorizedException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class UnauthorizedException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
   end

@@ -21,11 +21,14 @@ module AWS::SDK::S3
     #   <p>Specifies the number of days after which Amazon S3 aborts an incomplete multipart
     #            upload.</p>
     #   @return [Integer]
-    AbortIncompleteMultipartUpload = ::Struct.new(
-      :days_after_initiation,
-      keyword_init: true
-    ) do
+    class AbortIncompleteMultipartUpload
       include Hearth::Structure
+
+      MEMBERS = %i[
+        days_after_initiation
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -74,15 +77,18 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    AbortMultipartUploadInput = ::Struct.new(
-      :bucket,
-      :key,
-      :upload_id,
-      :request_payer,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class AbortMultipartUploadInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        key
+        upload_id
+        request_payer
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -96,11 +102,14 @@ module AWS::SDK::S3
     #            </note>
     #   Enum, one of: ["requester"]
     #   @return [String]
-    AbortMultipartUploadOutput = ::Struct.new(
-      :request_charged,
-      keyword_init: true
-    ) do
+    class AbortMultipartUploadOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        request_charged
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Configures the transfer acceleration state for an Amazon S3 bucket. For more information, see
@@ -113,11 +122,14 @@ module AWS::SDK::S3
     #   <p>Specifies the transfer acceleration status of the bucket.</p>
     #   Enum, one of: ["Enabled", "Suspended"]
     #   @return [String]
-    AccelerateConfiguration = ::Struct.new(
-      :status,
-      keyword_init: true
-    ) do
+    class AccelerateConfiguration
       include Hearth::Structure
+
+      MEMBERS = %i[
+        status
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Contains the elements that set the ACL permissions for an object per grantee.</p>
@@ -131,12 +143,15 @@ module AWS::SDK::S3
     # @!attribute owner
     #   <p>Container for the bucket owner's display name and ID.</p>
     #   @return [Owner]
-    AccessControlPolicy = ::Struct.new(
-      :grants,
-      :owner,
-      keyword_init: true
-    ) do
+    class AccessControlPolicy
       include Hearth::Structure
+
+      MEMBERS = %i[
+        grants
+        owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>A container for information about access control for replicas.</p>
@@ -148,11 +163,14 @@ module AWS::SDK::S3
     #               replication</a> in the <i>Amazon S3 API Reference</i>.</p>
     #   Enum, one of: ["Destination"]
     #   @return [String]
-    AccessControlTranslation = ::Struct.new(
-      :owner,
-      keyword_init: true
-    ) do
+    class AccessControlTranslation
       include Hearth::Structure
+
+      MEMBERS = %i[
+        owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>A conjunction (logical AND) of predicates, which is used in evaluating a metrics filter.
@@ -169,12 +187,15 @@ module AWS::SDK::S3
     # @!attribute tags
     #   <p>The list of tags to use when evaluating an AND predicate.</p>
     #   @return [Array<Tag>]
-    AnalyticsAndOperator = ::Struct.new(
-      :prefix,
-      :tags,
-      keyword_init: true
-    ) do
+    class AnalyticsAndOperator
       include Hearth::Structure
+
+      MEMBERS = %i[
+        prefix
+        tags
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Specifies the configuration and any analyses for the analytics filter of an Amazon S3
@@ -196,13 +217,16 @@ module AWS::SDK::S3
     #   <p> Contains data related to access patterns to be collected and made available to analyze
     #            the tradeoffs between different storage classes. </p>
     #   @return [StorageClassAnalysis]
-    AnalyticsConfiguration = ::Struct.new(
-      :id,
-      :member_filter,
-      :storage_class_analysis,
-      keyword_init: true
-    ) do
+    class AnalyticsConfiguration
       include Hearth::Structure
+
+      MEMBERS = %i[
+        id
+        filter
+        storage_class_analysis
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Where to publish the analytics results.</p>
@@ -212,11 +236,14 @@ module AWS::SDK::S3
     # @!attribute s3_bucket_destination
     #   <p>A destination signifying output to an S3 bucket.</p>
     #   @return [AnalyticsS3BucketDestination]
-    AnalyticsExportDestination = ::Struct.new(
-      :s3_bucket_destination,
-      keyword_init: true
-    ) do
+    class AnalyticsExportDestination
       include Hearth::Structure
+
+      MEMBERS = %i[
+        s3_bucket_destination
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The filter used to describe a set of objects for analyses. A filter must have exactly
@@ -297,14 +324,17 @@ module AWS::SDK::S3
     # @!attribute prefix
     #   <p>The prefix to use when exporting data. The prefix is prepended to all results.</p>
     #   @return [String]
-    AnalyticsS3BucketDestination = ::Struct.new(
-      :format,
-      :bucket_account_id,
-      :bucket,
-      :prefix,
-      keyword_init: true
-    ) do
+    class AnalyticsS3BucketDestination
       include Hearth::Structure
+
+      MEMBERS = %i[
+        format
+        bucket_account_id
+        bucket
+        prefix
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for AnalyticsS3ExportFileFormat
@@ -331,12 +361,15 @@ module AWS::SDK::S3
     #   <p>Date the bucket was created. This date can change when making changes to your bucket,
     #            such as editing its bucket policy.</p>
     #   @return [Time]
-    Bucket = ::Struct.new(
-      :name,
-      :creation_date,
-      keyword_init: true
-    ) do
+    class Bucket
       include Hearth::Structure
+
+      MEMBERS = %i[
+        name
+        creation_date
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for BucketAccelerateStatus
@@ -350,11 +383,12 @@ module AWS::SDK::S3
     #          of the system. Select a different name and try again.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    BucketAlreadyExists = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class BucketAlreadyExists
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The bucket you tried to create already exists, and you own it. Amazon S3 returns this error
@@ -363,11 +397,12 @@ module AWS::SDK::S3
     #          returns 200 OK and resets the bucket access control lists (ACLs).</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    BucketAlreadyOwnedByYou = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class BucketAlreadyOwnedByYou
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for BucketCannedACL
@@ -398,12 +433,15 @@ module AWS::SDK::S3
     #   <p>The type of bucket.</p>
     #   Enum, one of: ["Directory"]
     #   @return [String]
-    BucketInfo = ::Struct.new(
-      :data_redundancy,
-      :type,
-      keyword_init: true
-    ) do
+    class BucketInfo
       include Hearth::Structure
+
+      MEMBERS = %i[
+        data_redundancy
+        type
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Specifies the lifecycle configuration for objects in an Amazon S3 bucket. For more
@@ -415,11 +453,14 @@ module AWS::SDK::S3
     # @!attribute rules
     #   <p>A lifecycle rule for individual objects in an Amazon S3 bucket.</p>
     #   @return [Array<LifecycleRule>]
-    BucketLifecycleConfiguration = ::Struct.new(
-      :rules,
-      keyword_init: true
-    ) do
+    class BucketLifecycleConfiguration
       include Hearth::Structure
+
+      MEMBERS = %i[
+        rules
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for BucketLocationConstraint
@@ -490,11 +531,14 @@ module AWS::SDK::S3
     #            for a bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTlogging.html">PUT Bucket logging</a> in the
     #               <i>Amazon S3 API Reference</i>.</p>
     #   @return [LoggingEnabled]
-    BucketLoggingStatus = ::Struct.new(
-      :logging_enabled,
-      keyword_init: true
-    ) do
+    class BucketLoggingStatus
       include Hearth::Structure
+
+      MEMBERS = %i[
+        logging_enabled
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for BucketLogsPermission
@@ -529,11 +573,14 @@ module AWS::SDK::S3
     #   <p>A set of origins and methods (cross-origin access that you want to allow). You can add
     #            up to 100 rules to the configuration.</p>
     #   @return [Array<CORSRule>]
-    CORSConfiguration = ::Struct.new(
-      :cors_rules,
-      keyword_init: true
-    ) do
+    class CORSConfiguration
       include Hearth::Structure
+
+      MEMBERS = %i[
+        cors_rules
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Specifies a cross-origin access rule for an Amazon S3 bucket.</p>
@@ -569,16 +616,19 @@ module AWS::SDK::S3
     #   <p>The time in seconds that your browser is to cache the preflight response for the
     #            specified resource.</p>
     #   @return [Integer]
-    CORSRule = ::Struct.new(
-      :id,
-      :allowed_headers,
-      :allowed_methods,
-      :allowed_origins,
-      :expose_headers,
-      :max_age_seconds,
-      keyword_init: true
-    ) do
+    class CORSRule
       include Hearth::Structure
+
+      MEMBERS = %i[
+        id
+        allowed_headers
+        allowed_methods
+        allowed_origins
+        expose_headers
+        max_age_seconds
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Describes how an uncompressed comma-separated values (CSV)-formatted input object is
@@ -648,17 +698,20 @@ module AWS::SDK::S3
     #            should be allowed. Default value is FALSE. Setting this value to TRUE may lower
     #            performance.</p>
     #   @return [Boolean]
-    CSVInput = ::Struct.new(
-      :file_header_info,
-      :comments,
-      :quote_escape_character,
-      :record_delimiter,
-      :field_delimiter,
-      :quote_character,
-      :allow_quoted_record_delimiter,
-      keyword_init: true
-    ) do
+    class CSVInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        file_header_info
+        comments
+        quote_escape_character
+        record_delimiter
+        field_delimiter
+        quote_character
+        allow_quoted_record_delimiter
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Describes how uncompressed comma-separated values (CSV)-formatted results are
@@ -701,15 +754,18 @@ module AWS::SDK::S3
     #            example, if the value is <code>a, b</code>, Amazon S3 wraps this field value in quotation marks,
     #            as follows: <code>" a , b "</code>.</p>
     #   @return [String]
-    CSVOutput = ::Struct.new(
-      :quote_fields,
-      :quote_escape_character,
-      :record_delimiter,
-      :field_delimiter,
-      :quote_character,
-      keyword_init: true
-    ) do
+    class CSVOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        quote_fields
+        quote_escape_character
+        record_delimiter
+        field_delimiter
+        quote_character
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Contains all the possible checksum or digest values for an object.</p>
@@ -743,14 +799,17 @@ module AWS::SDK::S3
     #       with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">
     #       Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     #   @return [String]
-    Checksum = ::Struct.new(
-      :checksum_crc32,
-      :checksum_crc32_c,
-      :checksum_sha1,
-      :checksum_sha256,
-      keyword_init: true
-    ) do
+    class Checksum
       include Hearth::Structure
+
+      MEMBERS = %i[
+        checksum_crc32
+        checksum_crc32_c
+        checksum_sha1
+        checksum_sha256
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for ChecksumAlgorithm
@@ -779,11 +838,14 @@ module AWS::SDK::S3
     # @!attribute prefix
     #   <p>Container for the specified common prefix.</p>
     #   @return [String]
-    CommonPrefix = ::Struct.new(
-      :prefix,
-      keyword_init: true
-    ) do
+    class CommonPrefix
       include Hearth::Structure
+
+      MEMBERS = %i[
+        prefix
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -894,26 +956,29 @@ module AWS::SDK::S3
     #               <p>This functionality is not supported for directory buckets.</p>
     #            </note>
     #   @return [String]
-    CompleteMultipartUploadInput = ::Struct.new(
-      :bucket,
-      :key,
-      :multipart_upload,
-      :upload_id,
-      :checksum_crc32,
-      :checksum_crc32_c,
-      :checksum_sha1,
-      :checksum_sha256,
-      :request_payer,
-      :expected_bucket_owner,
-      :sse_customer_algorithm,
-      :sse_customer_key,
-      :sse_customer_key_md5,
-      keyword_init: true
-    ) do
+    class CompleteMultipartUploadInput
       include Hearth::Structure
 
+      MEMBERS = %i[
+        bucket
+        key
+        multipart_upload
+        upload_id
+        checksum_crc32
+        checksum_crc32_c
+        checksum_sha1
+        checksum_sha256
+        request_payer
+        expected_bucket_owner
+        sse_customer_algorithm
+        sse_customer_key
+        sse_customer_key_md5
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::S3::Types::CompleteMultipartUploadInput "\
+        "#<AWS::SDK::S3::Types::CompleteMultipartUploadInput "\
           "bucket=#{bucket || 'nil'}, "\
           "key=#{key || 'nil'}, "\
           "multipart_upload=#{multipart_upload || 'nil'}, "\
@@ -1037,27 +1102,30 @@ module AWS::SDK::S3
     #            </note>
     #   Enum, one of: ["requester"]
     #   @return [String]
-    CompleteMultipartUploadOutput = ::Struct.new(
-      :location,
-      :bucket,
-      :key,
-      :expiration,
-      :e_tag,
-      :checksum_crc32,
-      :checksum_crc32_c,
-      :checksum_sha1,
-      :checksum_sha256,
-      :server_side_encryption,
-      :version_id,
-      :ssekms_key_id,
-      :bucket_key_enabled,
-      :request_charged,
-      keyword_init: true
-    ) do
+    class CompleteMultipartUploadOutput
       include Hearth::Structure
 
+      MEMBERS = %i[
+        location
+        bucket
+        key
+        expiration
+        e_tag
+        checksum_crc32
+        checksum_crc32_c
+        checksum_sha1
+        checksum_sha256
+        server_side_encryption
+        version_id
+        ssekms_key_id
+        bucket_key_enabled
+        request_charged
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::S3::Types::CompleteMultipartUploadOutput "\
+        "#<AWS::SDK::S3::Types::CompleteMultipartUploadOutput "\
           "location=#{location || 'nil'}, "\
           "bucket=#{bucket || 'nil'}, "\
           "key=#{key || 'nil'}, "\
@@ -1084,11 +1152,14 @@ module AWS::SDK::S3
     #            <p>If you do not supply a valid <code>Part</code> with your request, the service sends back
     #            an HTTP 400 response.</p>
     #   @return [Array<CompletedPart>]
-    CompletedMultipartUpload = ::Struct.new(
-      :parts,
-      keyword_init: true
-    ) do
+    class CompletedMultipartUpload
       include Hearth::Structure
+
+      MEMBERS = %i[
+        parts
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Details of the parts that were uploaded.</p>
@@ -1146,16 +1217,19 @@ module AWS::SDK::S3
     #               </ul>
     #            </note>
     #   @return [Integer]
-    CompletedPart = ::Struct.new(
-      :e_tag,
-      :checksum_crc32,
-      :checksum_crc32_c,
-      :checksum_sha1,
-      :checksum_sha256,
-      :part_number,
-      keyword_init: true
-    ) do
+    class CompletedPart
       include Hearth::Structure
+
+      MEMBERS = %i[
+        e_tag
+        checksum_crc32
+        checksum_crc32_c
+        checksum_sha1
+        checksum_sha256
+        part_number
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for CompressionType
@@ -1197,22 +1271,26 @@ module AWS::SDK::S3
     #               XML related object key constraints</a>.</p>
     #            </important>
     #   @return [String]
-    Condition = ::Struct.new(
-      :http_error_code_returned_equals,
-      :key_prefix_equals,
-      keyword_init: true
-    ) do
+    class Condition
       include Hearth::Structure
+
+      MEMBERS = %i[
+        http_error_code_returned_equals
+        key_prefix_equals
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p></p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    ContinuationEvent = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class ContinuationEvent
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1841,54 +1919,57 @@ module AWS::SDK::S3
     # @!attribute expected_source_bucket_owner
     #   <p>The account ID of the expected source bucket owner. If the account ID that you provide does not match the actual owner of the source bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    CopyObjectInput = ::Struct.new(
-      :acl,
-      :bucket,
-      :cache_control,
-      :checksum_algorithm,
-      :content_disposition,
-      :content_encoding,
-      :content_language,
-      :content_type,
-      :copy_source,
-      :copy_source_if_match,
-      :copy_source_if_modified_since,
-      :copy_source_if_none_match,
-      :copy_source_if_unmodified_since,
-      :expires,
-      :grant_full_control,
-      :grant_read,
-      :grant_read_acp,
-      :grant_write_acp,
-      :key,
-      :metadata,
-      :metadata_directive,
-      :tagging_directive,
-      :server_side_encryption,
-      :storage_class,
-      :website_redirect_location,
-      :sse_customer_algorithm,
-      :sse_customer_key,
-      :sse_customer_key_md5,
-      :ssekms_key_id,
-      :ssekms_encryption_context,
-      :bucket_key_enabled,
-      :copy_source_sse_customer_algorithm,
-      :copy_source_sse_customer_key,
-      :copy_source_sse_customer_key_md5,
-      :request_payer,
-      :tagging,
-      :object_lock_mode,
-      :object_lock_retain_until_date,
-      :object_lock_legal_hold_status,
-      :expected_bucket_owner,
-      :expected_source_bucket_owner,
-      keyword_init: true
-    ) do
+    class CopyObjectInput
       include Hearth::Structure
 
+      MEMBERS = %i[
+        acl
+        bucket
+        cache_control
+        checksum_algorithm
+        content_disposition
+        content_encoding
+        content_language
+        content_type
+        copy_source
+        copy_source_if_match
+        copy_source_if_modified_since
+        copy_source_if_none_match
+        copy_source_if_unmodified_since
+        expires
+        grant_full_control
+        grant_read
+        grant_read_acp
+        grant_write_acp
+        key
+        metadata
+        metadata_directive
+        tagging_directive
+        server_side_encryption
+        storage_class
+        website_redirect_location
+        sse_customer_algorithm
+        sse_customer_key
+        sse_customer_key_md5
+        ssekms_key_id
+        ssekms_encryption_context
+        bucket_key_enabled
+        copy_source_sse_customer_algorithm
+        copy_source_sse_customer_key
+        copy_source_sse_customer_key_md5
+        request_payer
+        tagging
+        object_lock_mode
+        object_lock_retain_until_date
+        object_lock_legal_hold_status
+        expected_bucket_owner
+        expected_source_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::S3::Types::CopyObjectInput "\
+        "#<AWS::SDK::S3::Types::CopyObjectInput "\
           "acl=#{acl || 'nil'}, "\
           "bucket=#{bucket || 'nil'}, "\
           "cache_control=#{cache_control || 'nil'}, "\
@@ -2020,24 +2101,27 @@ module AWS::SDK::S3
     #            </note>
     #   Enum, one of: ["requester"]
     #   @return [String]
-    CopyObjectOutput = ::Struct.new(
-      :copy_object_result,
-      :expiration,
-      :copy_source_version_id,
-      :version_id,
-      :server_side_encryption,
-      :sse_customer_algorithm,
-      :sse_customer_key_md5,
-      :ssekms_key_id,
-      :ssekms_encryption_context,
-      :bucket_key_enabled,
-      :request_charged,
-      keyword_init: true
-    ) do
+    class CopyObjectOutput
       include Hearth::Structure
 
+      MEMBERS = %i[
+        copy_object_result
+        expiration
+        copy_source_version_id
+        version_id
+        server_side_encryption
+        sse_customer_algorithm
+        sse_customer_key_md5
+        ssekms_key_id
+        ssekms_encryption_context
+        bucket_key_enabled
+        request_charged
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::S3::Types::CopyObjectOutput "\
+        "#<AWS::SDK::S3::Types::CopyObjectOutput "\
           "copy_object_result=#{copy_object_result || 'nil'}, "\
           "expiration=#{expiration || 'nil'}, "\
           "copy_source_version_id=#{copy_source_version_id || 'nil'}, "\
@@ -2088,16 +2172,19 @@ module AWS::SDK::S3
     #       with the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">
     #       Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     #   @return [String]
-    CopyObjectResult = ::Struct.new(
-      :e_tag,
-      :last_modified,
-      :checksum_crc32,
-      :checksum_crc32_c,
-      :checksum_sha1,
-      :checksum_sha256,
-      keyword_init: true
-    ) do
+    class CopyObjectResult
       include Hearth::Structure
+
+      MEMBERS = %i[
+        e_tag
+        last_modified
+        checksum_crc32
+        checksum_crc32_c
+        checksum_sha1
+        checksum_sha256
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Container for all response elements.</p>
@@ -2139,16 +2226,19 @@ module AWS::SDK::S3
     #       with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">
     #       Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     #   @return [String]
-    CopyPartResult = ::Struct.new(
-      :e_tag,
-      :last_modified,
-      :checksum_crc32,
-      :checksum_crc32_c,
-      :checksum_sha1,
-      :checksum_sha256,
-      keyword_init: true
-    ) do
+    class CopyPartResult
       include Hearth::Structure
+
+      MEMBERS = %i[
+        e_tag
+        last_modified
+        checksum_crc32
+        checksum_crc32_c
+        checksum_sha1
+        checksum_sha256
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The configuration information for the bucket.</p>
@@ -2183,13 +2273,16 @@ module AWS::SDK::S3
     #               <p>This functionality is only supported by directory buckets.</p>
     #            </note>
     #   @return [BucketInfo]
-    CreateBucketConfiguration = ::Struct.new(
-      :location_constraint,
-      :location,
-      :bucket,
-      keyword_init: true
-    ) do
+    class CreateBucketConfiguration
       include Hearth::Structure
+
+      MEMBERS = %i[
+        location_constraint
+        location
+        bucket
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2290,20 +2383,23 @@ module AWS::SDK::S3
     #            </note>
     #   Enum, one of: ["BucketOwnerPreferred", "ObjectWriter", "BucketOwnerEnforced"]
     #   @return [String]
-    CreateBucketInput = ::Struct.new(
-      :acl,
-      :bucket,
-      :create_bucket_configuration,
-      :grant_full_control,
-      :grant_read,
-      :grant_read_acp,
-      :grant_write,
-      :grant_write_acp,
-      :object_lock_enabled_for_bucket,
-      :object_ownership,
-      keyword_init: true
-    ) do
+    class CreateBucketInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        acl
+        bucket
+        create_bucket_configuration
+        grant_full_control
+        grant_read
+        grant_read_acp
+        grant_write
+        grant_write_acp
+        object_lock_enabled_for_bucket
+        object_ownership
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2312,11 +2408,14 @@ module AWS::SDK::S3
     # @!attribute location
     #   <p>A forward slash followed by the name of the bucket.</p>
     #   @return [String]
-    CreateBucketOutput = ::Struct.new(
-      :location,
-      keyword_init: true
-    ) do
+    class CreateBucketOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        location
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2840,43 +2939,46 @@ module AWS::SDK::S3
     #       the <i>Amazon S3 User Guide</i>.</p>
     #   Enum, one of: ["CRC32", "CRC32C", "SHA1", "SHA256"]
     #   @return [String]
-    CreateMultipartUploadInput = ::Struct.new(
-      :acl,
-      :bucket,
-      :cache_control,
-      :content_disposition,
-      :content_encoding,
-      :content_language,
-      :content_type,
-      :expires,
-      :grant_full_control,
-      :grant_read,
-      :grant_read_acp,
-      :grant_write_acp,
-      :key,
-      :metadata,
-      :server_side_encryption,
-      :storage_class,
-      :website_redirect_location,
-      :sse_customer_algorithm,
-      :sse_customer_key,
-      :sse_customer_key_md5,
-      :ssekms_key_id,
-      :ssekms_encryption_context,
-      :bucket_key_enabled,
-      :request_payer,
-      :tagging,
-      :object_lock_mode,
-      :object_lock_retain_until_date,
-      :object_lock_legal_hold_status,
-      :expected_bucket_owner,
-      :checksum_algorithm,
-      keyword_init: true
-    ) do
+    class CreateMultipartUploadInput
       include Hearth::Structure
 
+      MEMBERS = %i[
+        acl
+        bucket
+        cache_control
+        content_disposition
+        content_encoding
+        content_language
+        content_type
+        expires
+        grant_full_control
+        grant_read
+        grant_read_acp
+        grant_write_acp
+        key
+        metadata
+        server_side_encryption
+        storage_class
+        website_redirect_location
+        sse_customer_algorithm
+        sse_customer_key
+        sse_customer_key_md5
+        ssekms_key_id
+        ssekms_encryption_context
+        bucket_key_enabled
+        request_payer
+        tagging
+        object_lock_mode
+        object_lock_retain_until_date
+        object_lock_legal_hold_status
+        expected_bucket_owner
+        checksum_algorithm
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::S3::Types::CreateMultipartUploadInput "\
+        "#<AWS::SDK::S3::Types::CreateMultipartUploadInput "\
           "acl=#{acl || 'nil'}, "\
           "bucket=#{bucket || 'nil'}, "\
           "cache_control=#{cache_control || 'nil'}, "\
@@ -3016,26 +3118,29 @@ module AWS::SDK::S3
     #   <p>The algorithm that was used to create a checksum of the object.</p>
     #   Enum, one of: ["CRC32", "CRC32C", "SHA1", "SHA256"]
     #   @return [String]
-    CreateMultipartUploadOutput = ::Struct.new(
-      :abort_date,
-      :abort_rule_id,
-      :bucket,
-      :key,
-      :upload_id,
-      :server_side_encryption,
-      :sse_customer_algorithm,
-      :sse_customer_key_md5,
-      :ssekms_key_id,
-      :ssekms_encryption_context,
-      :bucket_key_enabled,
-      :request_charged,
-      :checksum_algorithm,
-      keyword_init: true
-    ) do
+    class CreateMultipartUploadOutput
       include Hearth::Structure
 
+      MEMBERS = %i[
+        abort_date
+        abort_rule_id
+        bucket
+        key
+        upload_id
+        server_side_encryption
+        sse_customer_algorithm
+        sse_customer_key_md5
+        ssekms_key_id
+        ssekms_encryption_context
+        bucket_key_enabled
+        request_charged
+        checksum_algorithm
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::S3::Types::CreateMultipartUploadOutput "\
+        "#<AWS::SDK::S3::Types::CreateMultipartUploadOutput "\
           "abort_date=#{abort_date || 'nil'}, "\
           "abort_rule_id=#{abort_rule_id || 'nil'}, "\
           "bucket=#{bucket || 'nil'}, "\
@@ -3069,12 +3174,15 @@ module AWS::SDK::S3
     # @!attribute bucket
     #   <p>The name of the bucket that you create a session for.</p>
     #   @return [String]
-    CreateSessionInput = ::Struct.new(
-      :session_mode,
-      :bucket,
-      keyword_init: true
-    ) do
+    class CreateSessionInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        session_mode
+        bucket
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3083,11 +3191,14 @@ module AWS::SDK::S3
     # @!attribute credentials
     #   <p>The established temporary security credentials  for the created session..</p>
     #   @return [SessionCredentials]
-    CreateSessionOutput = ::Struct.new(
-      :credentials,
-      keyword_init: true
-    ) do
+    class CreateSessionOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        credentials
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for DataRedundancy
@@ -3128,13 +3239,16 @@ module AWS::SDK::S3
     #   <p>The number of years that you want to specify for the default retention period. Must be
     #            used with <code>Mode</code>.</p>
     #   @return [Integer]
-    DefaultRetention = ::Struct.new(
-      :mode,
-      :days,
-      :years,
-      keyword_init: true
-    ) do
+    class DefaultRetention
       include Hearth::Structure
+
+      MEMBERS = %i[
+        mode
+        days
+        years
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Container for the objects to delete.</p>
@@ -3155,12 +3269,15 @@ module AWS::SDK::S3
     #   <p>Element to enable quiet mode for the request. When you add this element, you must set
     #            its value to <code>true</code>.</p>
     #   @return [Boolean]
-    Delete = ::Struct.new(
-      :objects,
-      :quiet,
-      keyword_init: true
-    ) do
+    class Delete
       include Hearth::Structure
+
+      MEMBERS = %i[
+        objects
+        quiet
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3177,22 +3294,26 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    DeleteBucketAnalyticsConfigurationInput = ::Struct.new(
-      :bucket,
-      :id,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class DeleteBucketAnalyticsConfigurationInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        id
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    DeleteBucketAnalyticsConfigurationOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class DeleteBucketAnalyticsConfigurationOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3205,21 +3326,25 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    DeleteBucketCorsInput = ::Struct.new(
-      :bucket,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class DeleteBucketCorsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    DeleteBucketCorsOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class DeleteBucketCorsOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3233,21 +3358,25 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    DeleteBucketEncryptionInput = ::Struct.new(
-      :bucket,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class DeleteBucketEncryptionInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    DeleteBucketEncryptionOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class DeleteBucketEncryptionOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3270,12 +3399,15 @@ module AWS::SDK::S3
     #   <code>501 Not Implemented</code>.</p>
     #            </note>
     #   @return [String]
-    DeleteBucketInput = ::Struct.new(
-      :bucket,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class DeleteBucketInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3288,21 +3420,25 @@ module AWS::SDK::S3
     # @!attribute id
     #   <p>The ID used to identify the S3 Intelligent-Tiering configuration.</p>
     #   @return [String]
-    DeleteBucketIntelligentTieringConfigurationInput = ::Struct.new(
-      :bucket,
-      :id,
-      keyword_init: true
-    ) do
+    class DeleteBucketIntelligentTieringConfigurationInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    DeleteBucketIntelligentTieringConfigurationOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class DeleteBucketIntelligentTieringConfigurationOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3319,22 +3455,26 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    DeleteBucketInventoryConfigurationInput = ::Struct.new(
-      :bucket,
-      :id,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class DeleteBucketInventoryConfigurationInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        id
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    DeleteBucketInventoryConfigurationOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class DeleteBucketInventoryConfigurationOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3347,21 +3487,25 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    DeleteBucketLifecycleInput = ::Struct.new(
-      :bucket,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class DeleteBucketLifecycleInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    DeleteBucketLifecycleOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class DeleteBucketLifecycleOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3379,31 +3523,36 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    DeleteBucketMetricsConfigurationInput = ::Struct.new(
-      :bucket,
-      :id,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class DeleteBucketMetricsConfigurationInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        id
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    DeleteBucketMetricsConfigurationOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class DeleteBucketMetricsConfigurationOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    DeleteBucketOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class DeleteBucketOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3416,21 +3565,25 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    DeleteBucketOwnershipControlsInput = ::Struct.new(
-      :bucket,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class DeleteBucketOwnershipControlsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    DeleteBucketOwnershipControlsOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class DeleteBucketOwnershipControlsOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3453,21 +3606,25 @@ module AWS::SDK::S3
     #   <code>501 Not Implemented</code>.</p>
     #            </note>
     #   @return [String]
-    DeleteBucketPolicyInput = ::Struct.new(
-      :bucket,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class DeleteBucketPolicyInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    DeleteBucketPolicyOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class DeleteBucketPolicyOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3480,21 +3637,25 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    DeleteBucketReplicationInput = ::Struct.new(
-      :bucket,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class DeleteBucketReplicationInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    DeleteBucketReplicationOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class DeleteBucketReplicationOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3507,21 +3668,25 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    DeleteBucketTaggingInput = ::Struct.new(
-      :bucket,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class DeleteBucketTaggingInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    DeleteBucketTaggingOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class DeleteBucketTaggingOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3534,21 +3699,25 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    DeleteBucketWebsiteInput = ::Struct.new(
-      :bucket,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class DeleteBucketWebsiteInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    DeleteBucketWebsiteOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class DeleteBucketWebsiteOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Information about the delete marker.</p>
@@ -3575,15 +3744,18 @@ module AWS::SDK::S3
     # @!attribute last_modified
     #   <p>Date and time when the object was last modified.</p>
     #   @return [Time]
-    DeleteMarkerEntry = ::Struct.new(
-      :owner,
-      :key,
-      :version_id,
-      :is_latest,
-      :last_modified,
-      keyword_init: true
-    ) do
+    class DeleteMarkerEntry
       include Hearth::Structure
+
+      MEMBERS = %i[
+        owner
+        key
+        version_id
+        is_latest
+        last_modified
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Specifies whether Amazon S3 replicates delete markers. If you specify a <code>Filter</code>
@@ -3608,11 +3780,14 @@ module AWS::SDK::S3
     #            </note>
     #   Enum, one of: ["Enabled", "Disabled"]
     #   @return [String]
-    DeleteMarkerReplication = ::Struct.new(
-      :status,
-      keyword_init: true
-    ) do
+    class DeleteMarkerReplication
       include Hearth::Structure
+
+      MEMBERS = %i[
+        status
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for DeleteMarkerReplicationStatus
@@ -3689,17 +3864,20 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    DeleteObjectInput = ::Struct.new(
-      :bucket,
-      :key,
-      :mfa,
-      :version_id,
-      :request_payer,
-      :bypass_governance_retention,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class DeleteObjectInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        key
+        mfa
+        version_id
+        request_payer
+        bypass_governance_retention
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3730,13 +3908,16 @@ module AWS::SDK::S3
     #            </note>
     #   Enum, one of: ["requester"]
     #   @return [String]
-    DeleteObjectOutput = ::Struct.new(
-      :delete_marker,
-      :version_id,
-      :request_charged,
-      keyword_init: true
-    ) do
+    class DeleteObjectOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        delete_marker
+        version_id
+        request_charged
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3762,14 +3943,17 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    DeleteObjectTaggingInput = ::Struct.new(
-      :bucket,
-      :key,
-      :version_id,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class DeleteObjectTaggingInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        key
+        version_id
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3778,11 +3962,14 @@ module AWS::SDK::S3
     # @!attribute version_id
     #   <p>The versionId of the object the tag-set was removed from.</p>
     #   @return [String]
-    DeleteObjectTaggingOutput = ::Struct.new(
-      :version_id,
-      keyword_init: true
-    ) do
+    class DeleteObjectTaggingOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        version_id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3886,17 +4073,20 @@ module AWS::SDK::S3
     #               <code>ChecksumAlgorithm</code> parameter.</p>
     #   Enum, one of: ["CRC32", "CRC32C", "SHA1", "SHA256"]
     #   @return [String]
-    DeleteObjectsInput = ::Struct.new(
-      :bucket,
-      :delete,
-      :mfa,
-      :request_payer,
-      :bypass_governance_retention,
-      :expected_bucket_owner,
-      :checksum_algorithm,
-      keyword_init: true
-    ) do
+    class DeleteObjectsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        delete
+        mfa
+        request_payer
+        bypass_governance_retention
+        expected_bucket_owner
+        checksum_algorithm
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3920,13 +4110,16 @@ module AWS::SDK::S3
     #   <p>Container for a failed delete action that describes the object that Amazon S3 attempted to
     #            delete and the error it encountered.</p>
     #   @return [Array<Error>]
-    DeleteObjectsOutput = ::Struct.new(
-      :deleted,
-      :request_charged,
-      :errors,
-      keyword_init: true
-    ) do
+    class DeleteObjectsOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        deleted
+        request_charged
+        errors
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -3940,21 +4133,25 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    DeletePublicAccessBlockInput = ::Struct.new(
-      :bucket,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class DeletePublicAccessBlockInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    DeletePublicAccessBlockOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class DeletePublicAccessBlockOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Information about the deleted object.</p>
@@ -3989,14 +4186,17 @@ module AWS::SDK::S3
     #               <p>This functionality is not supported for directory buckets.</p>
     #            </note>
     #   @return [String]
-    DeletedObject = ::Struct.new(
-      :key,
-      :version_id,
-      :delete_marker,
-      :delete_marker_version_id,
-      keyword_init: true
-    ) do
+    class DeletedObject
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key
+        version_id
+        delete_marker
+        delete_marker_version_id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Specifies information about where to publish analysis or configuration results for an
@@ -4050,17 +4250,20 @@ module AWS::SDK::S3
     #   <p> A container specifying replication metrics-related settings enabling replication
     #            metrics and events. </p>
     #   @return [Metrics]
-    Destination = ::Struct.new(
-      :bucket,
-      :account,
-      :storage_class,
-      :access_control_translation,
-      :encryption_configuration,
-      :replication_time,
-      :metrics,
-      keyword_init: true
-    ) do
+    class Destination
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        account
+        storage_class
+        access_control_translation
+        encryption_configuration
+        replication_time
+        metrics
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for EncodingType
@@ -4094,16 +4297,19 @@ module AWS::SDK::S3
     #   <p>If the encryption type is <code>aws:kms</code>, this optional value can be used to
     #            specify the encryption context for the restore results.</p>
     #   @return [String]
-    Encryption = ::Struct.new(
-      :encryption_type,
-      :kms_key_id,
-      :kms_context,
-      keyword_init: true
-    ) do
+    class Encryption
       include Hearth::Structure
 
+      MEMBERS = %i[
+        encryption_type
+        kms_key_id
+        kms_context
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::S3::Types::Encryption "\
+        "#<AWS::SDK::S3::Types::Encryption "\
           "encryption_type=#{encryption_type || 'nil'}, "\
           "kms_key_id=\"[SENSITIVE]\", "\
           "kms_context=#{kms_context || 'nil'}>"
@@ -4123,11 +4329,14 @@ module AWS::SDK::S3
     #               KMS</a> in the <i>Amazon Web Services Key Management Service Developer
     #            Guide</i>.</p>
     #   @return [String]
-    EncryptionConfiguration = ::Struct.new(
-      :replica_kms_key_id,
-      keyword_init: true
-    ) do
+    class EncryptionConfiguration
       include Hearth::Structure
+
+      MEMBERS = %i[
+        replica_kms_key_id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>A message that indicates the request is complete and no more messages will be sent. You
@@ -4135,11 +4344,12 @@ module AWS::SDK::S3
     #             <code>EndEvent</code>.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    EndEvent = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class EndEvent
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Container for all error elements.</p>
@@ -6031,14 +6241,17 @@ module AWS::SDK::S3
     #            Sophisticated programs with more exhaustive error handling and proper internationalization
     #            are more likely to ignore the error message.</p>
     #   @return [String]
-    Error = ::Struct.new(
-      :key,
-      :version_id,
-      :code,
-      :message,
-      keyword_init: true
-    ) do
+    class Error
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key
+        version_id
+        code
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The error information.</p>
@@ -6053,11 +6266,14 @@ module AWS::SDK::S3
     #               XML related object key constraints</a>.</p>
     #            </important>
     #   @return [String]
-    ErrorDocument = ::Struct.new(
-      :key,
-      keyword_init: true
-    ) do
+    class ErrorDocument
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for Event
@@ -6121,11 +6337,12 @@ module AWS::SDK::S3
     # <p>A container for specifying the configuration for Amazon EventBridge.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    EventBridgeConfiguration = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class EventBridgeConfiguration
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Optional configuration to replicate existing source bucket objects. For more
@@ -6138,11 +6355,14 @@ module AWS::SDK::S3
     #   <p>Specifies whether Amazon S3 replicates existing source bucket objects. </p>
     #   Enum, one of: ["Enabled", "Disabled"]
     #   @return [String]
-    ExistingObjectReplication = ::Struct.new(
-      :status,
-      keyword_init: true
-    ) do
+    class ExistingObjectReplication
       include Hearth::Structure
+
+      MEMBERS = %i[
+        status
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for ExistingObjectReplicationStatus
@@ -6189,12 +6409,15 @@ module AWS::SDK::S3
     # @!attribute value
     #   <p>The value that the filter searches for in object key names.</p>
     #   @return [String]
-    FilterRule = ::Struct.new(
-      :name,
-      :value,
-      keyword_init: true
-    ) do
+    class FilterRule
       include Hearth::Structure
+
+      MEMBERS = %i[
+        name
+        value
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for FilterRuleName
@@ -6227,13 +6450,16 @@ module AWS::SDK::S3
     #            </note>
     #   Enum, one of: ["requester"]
     #   @return [String]
-    GetBucketAccelerateConfigurationInput = ::Struct.new(
-      :bucket,
-      :expected_bucket_owner,
-      :request_payer,
-      keyword_init: true
-    ) do
+    class GetBucketAccelerateConfigurationInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        expected_bucket_owner
+        request_payer
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -6252,12 +6478,15 @@ module AWS::SDK::S3
     #            </note>
     #   Enum, one of: ["requester"]
     #   @return [String]
-    GetBucketAccelerateConfigurationOutput = ::Struct.new(
-      :status,
-      :request_charged,
-      keyword_init: true
-    ) do
+    class GetBucketAccelerateConfigurationOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        status
+        request_charged
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -6275,12 +6504,15 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    GetBucketAclInput = ::Struct.new(
-      :bucket,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class GetBucketAclInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -6293,12 +6525,15 @@ module AWS::SDK::S3
     # @!attribute grants
     #   <p>A list of grants.</p>
     #   @return [Array<Grant>]
-    GetBucketAclOutput = ::Struct.new(
-      :owner,
-      :grants,
-      keyword_init: true
-    ) do
+    class GetBucketAclOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        owner
+        grants
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -6315,13 +6550,16 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    GetBucketAnalyticsConfigurationInput = ::Struct.new(
-      :bucket,
-      :id,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class GetBucketAnalyticsConfigurationInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        id
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -6330,11 +6568,14 @@ module AWS::SDK::S3
     # @!attribute analytics_configuration
     #   <p>The configuration and any analyses for the analytics filter.</p>
     #   @return [AnalyticsConfiguration]
-    GetBucketAnalyticsConfigurationOutput = ::Struct.new(
-      :analytics_configuration,
-      keyword_init: true
-    ) do
+    class GetBucketAnalyticsConfigurationOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        analytics_configuration
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -6352,12 +6593,15 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    GetBucketCorsInput = ::Struct.new(
-      :bucket,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class GetBucketCorsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -6367,11 +6611,14 @@ module AWS::SDK::S3
     #   <p>A set of origins and methods (cross-origin access that you want to allow). You can add
     #            up to 100 rules to the configuration.</p>
     #   @return [Array<CORSRule>]
-    GetBucketCorsOutput = ::Struct.new(
-      :cors_rules,
-      keyword_init: true
-    ) do
+    class GetBucketCorsOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        cors_rules
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -6385,12 +6632,15 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    GetBucketEncryptionInput = ::Struct.new(
-      :bucket,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class GetBucketEncryptionInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -6399,11 +6649,14 @@ module AWS::SDK::S3
     # @!attribute server_side_encryption_configuration
     #   <p>Specifies the default server-side-encryption configuration.</p>
     #   @return [ServerSideEncryptionConfiguration]
-    GetBucketEncryptionOutput = ::Struct.new(
-      :server_side_encryption_configuration,
-      keyword_init: true
-    ) do
+    class GetBucketEncryptionOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        server_side_encryption_configuration
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -6416,12 +6669,15 @@ module AWS::SDK::S3
     # @!attribute id
     #   <p>The ID used to identify the S3 Intelligent-Tiering configuration.</p>
     #   @return [String]
-    GetBucketIntelligentTieringConfigurationInput = ::Struct.new(
-      :bucket,
-      :id,
-      keyword_init: true
-    ) do
+    class GetBucketIntelligentTieringConfigurationInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -6430,11 +6686,14 @@ module AWS::SDK::S3
     # @!attribute intelligent_tiering_configuration
     #   <p>Container for S3 Intelligent-Tiering configuration.</p>
     #   @return [IntelligentTieringConfiguration]
-    GetBucketIntelligentTieringConfigurationOutput = ::Struct.new(
-      :intelligent_tiering_configuration,
-      keyword_init: true
-    ) do
+    class GetBucketIntelligentTieringConfigurationOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        intelligent_tiering_configuration
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -6451,13 +6710,16 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    GetBucketInventoryConfigurationInput = ::Struct.new(
-      :bucket,
-      :id,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class GetBucketInventoryConfigurationInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        id
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -6466,11 +6728,14 @@ module AWS::SDK::S3
     # @!attribute inventory_configuration
     #   <p>Specifies the inventory configuration.</p>
     #   @return [InventoryConfiguration]
-    GetBucketInventoryConfigurationOutput = ::Struct.new(
-      :inventory_configuration,
-      keyword_init: true
-    ) do
+    class GetBucketInventoryConfigurationOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        inventory_configuration
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -6483,12 +6748,15 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    GetBucketLifecycleConfigurationInput = ::Struct.new(
-      :bucket,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class GetBucketLifecycleConfigurationInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -6497,11 +6765,14 @@ module AWS::SDK::S3
     # @!attribute rules
     #   <p>Container for a lifecycle rule.</p>
     #   @return [Array<LifecycleRule>]
-    GetBucketLifecycleConfigurationOutput = ::Struct.new(
-      :rules,
-      keyword_init: true
-    ) do
+    class GetBucketLifecycleConfigurationOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        rules
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -6519,12 +6790,15 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    GetBucketLocationInput = ::Struct.new(
-      :bucket,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class GetBucketLocationInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -6536,11 +6810,14 @@ module AWS::SDK::S3
     #            Region <code>us-east-1</code> have a LocationConstraint of <code>null</code>.</p>
     #   Enum, one of: ["af-south-1", "ap-east-1", "ap-northeast-1", "ap-northeast-2", "ap-northeast-3", "ap-south-1", "ap-south-2", "ap-southeast-1", "ap-southeast-2", "ap-southeast-3", "ca-central-1", "cn-north-1", "cn-northwest-1", "EU", "eu-central-1", "eu-north-1", "eu-south-1", "eu-south-2", "eu-west-1", "eu-west-2", "eu-west-3", "me-south-1", "sa-east-1", "us-east-2", "us-gov-east-1", "us-gov-west-1", "us-west-1", "us-west-2"]
     #   @return [String]
-    GetBucketLocationOutput = ::Struct.new(
-      :location_constraint,
-      keyword_init: true
-    ) do
+    class GetBucketLocationOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        location_constraint
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -6553,12 +6830,15 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    GetBucketLoggingInput = ::Struct.new(
-      :bucket,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class GetBucketLoggingInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -6569,11 +6849,14 @@ module AWS::SDK::S3
     #            for a bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTlogging.html">PUT Bucket logging</a> in the
     #               <i>Amazon S3 API Reference</i>.</p>
     #   @return [LoggingEnabled]
-    GetBucketLoggingOutput = ::Struct.new(
-      :logging_enabled,
-      keyword_init: true
-    ) do
+    class GetBucketLoggingOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        logging_enabled
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -6591,13 +6874,16 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    GetBucketMetricsConfigurationInput = ::Struct.new(
-      :bucket,
-      :id,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class GetBucketMetricsConfigurationInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        id
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -6606,11 +6892,14 @@ module AWS::SDK::S3
     # @!attribute metrics_configuration
     #   <p>Specifies the metrics configuration.</p>
     #   @return [MetricsConfiguration]
-    GetBucketMetricsConfigurationOutput = ::Struct.new(
-      :metrics_configuration,
-      keyword_init: true
-    ) do
+    class GetBucketMetricsConfigurationOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        metrics_configuration
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -6628,12 +6917,15 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    GetBucketNotificationConfigurationInput = ::Struct.new(
-      :bucket,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class GetBucketNotificationConfigurationInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>A container for specifying the notification configuration of the bucket. If this element
@@ -6659,14 +6951,17 @@ module AWS::SDK::S3
     # @!attribute event_bridge_configuration
     #   <p>Enables delivery of events to Amazon EventBridge.</p>
     #   @return [EventBridgeConfiguration]
-    GetBucketNotificationConfigurationOutput = ::Struct.new(
-      :topic_configurations,
-      :queue_configurations,
-      :lambda_function_configurations,
-      :event_bridge_configuration,
-      keyword_init: true
-    ) do
+    class GetBucketNotificationConfigurationOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        topic_configurations
+        queue_configurations
+        lambda_function_configurations
+        event_bridge_configuration
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -6680,12 +6975,15 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    GetBucketOwnershipControlsInput = ::Struct.new(
-      :bucket,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class GetBucketOwnershipControlsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -6695,11 +6993,14 @@ module AWS::SDK::S3
     #   <p>The <code>OwnershipControls</code> (BucketOwnerEnforced, BucketOwnerPreferred, or
     #            ObjectWriter) currently in effect for this Amazon S3 bucket.</p>
     #   @return [OwnershipControls]
-    GetBucketOwnershipControlsOutput = ::Struct.new(
-      :ownership_controls,
-      keyword_init: true
-    ) do
+    class GetBucketOwnershipControlsOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        ownership_controls
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -6732,12 +7033,15 @@ module AWS::SDK::S3
     #   <code>501 Not Implemented</code>.</p>
     #            </note>
     #   @return [String]
-    GetBucketPolicyInput = ::Struct.new(
-      :bucket,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class GetBucketPolicyInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -6746,11 +7050,14 @@ module AWS::SDK::S3
     # @!attribute policy
     #   <p>The bucket policy as a JSON document.</p>
     #   @return [String]
-    GetBucketPolicyOutput = ::Struct.new(
-      :policy,
-      keyword_init: true
-    ) do
+    class GetBucketPolicyOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        policy
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -6763,12 +7070,15 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    GetBucketPolicyStatusInput = ::Struct.new(
-      :bucket,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class GetBucketPolicyStatusInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -6777,11 +7087,14 @@ module AWS::SDK::S3
     # @!attribute policy_status
     #   <p>The policy status for the specified bucket.</p>
     #   @return [PolicyStatus]
-    GetBucketPolicyStatusOutput = ::Struct.new(
-      :policy_status,
-      keyword_init: true
-    ) do
+    class GetBucketPolicyStatusOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        policy_status
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -6794,12 +7107,15 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    GetBucketReplicationInput = ::Struct.new(
-      :bucket,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class GetBucketReplicationInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -6809,11 +7125,14 @@ module AWS::SDK::S3
     #   <p>A container for replication rules. You can add up to 1,000 rules. The maximum size of a
     #            replication configuration is 2 MB.</p>
     #   @return [ReplicationConfiguration]
-    GetBucketReplicationOutput = ::Struct.new(
-      :replication_configuration,
-      keyword_init: true
-    ) do
+    class GetBucketReplicationOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        replication_configuration
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -6826,12 +7145,15 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    GetBucketRequestPaymentInput = ::Struct.new(
-      :bucket,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class GetBucketRequestPaymentInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -6841,11 +7163,14 @@ module AWS::SDK::S3
     #   <p>Specifies who pays for the download and request fees.</p>
     #   Enum, one of: ["Requester", "BucketOwner"]
     #   @return [String]
-    GetBucketRequestPaymentOutput = ::Struct.new(
-      :payer,
-      keyword_init: true
-    ) do
+    class GetBucketRequestPaymentOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        payer
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -6858,12 +7183,15 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    GetBucketTaggingInput = ::Struct.new(
-      :bucket,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class GetBucketTaggingInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -6872,11 +7200,14 @@ module AWS::SDK::S3
     # @!attribute tag_set
     #   <p>Contains the tag set.</p>
     #   @return [Array<Tag>]
-    GetBucketTaggingOutput = ::Struct.new(
-      :tag_set,
-      keyword_init: true
-    ) do
+    class GetBucketTaggingOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        tag_set
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -6889,12 +7220,15 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    GetBucketVersioningInput = ::Struct.new(
-      :bucket,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class GetBucketVersioningInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -6911,12 +7245,15 @@ module AWS::SDK::S3
     #            has never been so configured, this element is not returned.</p>
     #   Enum, one of: ["Enabled", "Disabled"]
     #   @return [String]
-    GetBucketVersioningOutput = ::Struct.new(
-      :status,
-      :mfa_delete,
-      keyword_init: true
-    ) do
+    class GetBucketVersioningOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        status
+        mfa_delete
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -6929,12 +7266,15 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    GetBucketWebsiteInput = ::Struct.new(
-      :bucket,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class GetBucketWebsiteInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -6957,14 +7297,17 @@ module AWS::SDK::S3
     # @!attribute routing_rules
     #   <p>Rules that define when a redirect is applied and the redirect behavior.</p>
     #   @return [Array<RoutingRule>]
-    GetBucketWebsiteOutput = ::Struct.new(
-      :redirect_all_requests_to,
-      :index_document,
-      :error_document,
-      :routing_rules,
-      keyword_init: true
-    ) do
+    class GetBucketWebsiteOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        redirect_all_requests_to
+        index_document
+        error_document
+        routing_rules
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -7003,15 +7346,18 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    GetObjectAclInput = ::Struct.new(
-      :bucket,
-      :key,
-      :version_id,
-      :request_payer,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class GetObjectAclInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        key
+        version_id
+        request_payer
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -7033,13 +7379,16 @@ module AWS::SDK::S3
     #            </note>
     #   Enum, one of: ["requester"]
     #   @return [String]
-    GetObjectAclOutput = ::Struct.new(
-      :owner,
-      :grants,
-      :request_charged,
-      keyword_init: true
-    ) do
+    class GetObjectAclOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        owner
+        grants
+        request_charged
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -7132,24 +7481,27 @@ module AWS::SDK::S3
     #   <p>Specifies the fields at the root level that you want returned in the response. Fields
     #            that you do not specify are not returned.</p>
     #   @return [Array<String>]
-    GetObjectAttributesInput = ::Struct.new(
-      :bucket,
-      :key,
-      :version_id,
-      :max_parts,
-      :part_number_marker,
-      :sse_customer_algorithm,
-      :sse_customer_key,
-      :sse_customer_key_md5,
-      :request_payer,
-      :expected_bucket_owner,
-      :object_attributes,
-      keyword_init: true
-    ) do
+    class GetObjectAttributesInput
       include Hearth::Structure
 
+      MEMBERS = %i[
+        bucket
+        key
+        version_id
+        max_parts
+        part_number_marker
+        sse_customer_algorithm
+        sse_customer_key
+        sse_customer_key_md5
+        request_payer
+        expected_bucket_owner
+        object_attributes
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::S3::Types::GetObjectAttributesInput "\
+        "#<AWS::SDK::S3::Types::GetObjectAttributesInput "\
           "bucket=#{bucket || 'nil'}, "\
           "key=#{key || 'nil'}, "\
           "version_id=#{version_id || 'nil'}, "\
@@ -7223,19 +7575,22 @@ module AWS::SDK::S3
     # @!attribute object_size
     #   <p>The size of the object in bytes.</p>
     #   @return [Integer]
-    GetObjectAttributesOutput = ::Struct.new(
-      :delete_marker,
-      :last_modified,
-      :version_id,
-      :request_charged,
-      :e_tag,
-      :checksum,
-      :object_parts,
-      :storage_class,
-      :object_size,
-      keyword_init: true
-    ) do
+    class GetObjectAttributesOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        delete_marker
+        last_modified
+        version_id
+        request_charged
+        e_tag
+        checksum
+        object_parts
+        storage_class
+        object_size
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>A collection of parts associated with a multipart upload.</p>
@@ -7284,16 +7639,19 @@ module AWS::SDK::S3
     #               </ul>
     #            </note>
     #   @return [Array<ObjectPart>]
-    GetObjectAttributesParts = ::Struct.new(
-      :total_parts_count,
-      :part_number_marker,
-      :next_part_number_marker,
-      :max_parts,
-      :is_truncated,
-      :parts,
-      keyword_init: true
-    ) do
+    class GetObjectAttributesParts
       include Hearth::Structure
+
+      MEMBERS = %i[
+        total_parts_count
+        part_number_marker
+        next_part_number_marker
+        max_parts
+        is_truncated
+        parts
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -7535,34 +7893,37 @@ module AWS::SDK::S3
     #   <p>To retrieve the checksum, this mode must be enabled.</p>
     #   Enum, one of: ["ENABLED"]
     #   @return [String]
-    GetObjectInput = ::Struct.new(
-      :bucket,
-      :if_match,
-      :if_modified_since,
-      :if_none_match,
-      :if_unmodified_since,
-      :key,
-      :range,
-      :response_cache_control,
-      :response_content_disposition,
-      :response_content_encoding,
-      :response_content_language,
-      :response_content_type,
-      :response_expires,
-      :version_id,
-      :sse_customer_algorithm,
-      :sse_customer_key,
-      :sse_customer_key_md5,
-      :request_payer,
-      :part_number,
-      :expected_bucket_owner,
-      :checksum_mode,
-      keyword_init: true
-    ) do
+    class GetObjectInput
       include Hearth::Structure
 
+      MEMBERS = %i[
+        bucket
+        if_match
+        if_modified_since
+        if_none_match
+        if_unmodified_since
+        key
+        range
+        response_cache_control
+        response_content_disposition
+        response_content_encoding
+        response_content_language
+        response_content_type
+        response_expires
+        version_id
+        sse_customer_algorithm
+        sse_customer_key
+        sse_customer_key_md5
+        request_payer
+        part_number
+        expected_bucket_owner
+        checksum_mode
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::S3::Types::GetObjectInput "\
+        "#<AWS::SDK::S3::Types::GetObjectInput "\
           "bucket=#{bucket || 'nil'}, "\
           "if_match=#{if_match || 'nil'}, "\
           "if_modified_since=#{if_modified_since || 'nil'}, "\
@@ -7620,15 +7981,18 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    GetObjectLegalHoldInput = ::Struct.new(
-      :bucket,
-      :key,
-      :version_id,
-      :request_payer,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class GetObjectLegalHoldInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        key
+        version_id
+        request_payer
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -7637,11 +8001,14 @@ module AWS::SDK::S3
     # @!attribute legal_hold
     #   <p>The current legal hold status for the specified object.</p>
     #   @return [ObjectLockLegalHold]
-    GetObjectLegalHoldOutput = ::Struct.new(
-      :legal_hold,
-      keyword_init: true
-    ) do
+    class GetObjectLegalHoldOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        legal_hold
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -7656,12 +8023,15 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    GetObjectLockConfigurationInput = ::Struct.new(
-      :bucket,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class GetObjectLockConfigurationInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -7670,16 +8040,19 @@ module AWS::SDK::S3
     # @!attribute object_lock_configuration
     #   <p>The specified bucket's Object Lock configuration.</p>
     #   @return [ObjectLockConfiguration]
-    GetObjectLockConfigurationOutput = ::Struct.new(
-      :object_lock_configuration,
-      keyword_init: true
-    ) do
+    class GetObjectLockConfigurationOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        object_lock_configuration
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :body
+    #   @option params [IO] :body
     #   @option params [Boolean] :delete_marker
     #   @option params [String] :accept_ranges
     #   @option params [String] :expiration
@@ -7717,7 +8090,7 @@ module AWS::SDK::S3
     #   @option params [String] :object_lock_legal_hold_status
     # @!attribute body
     #   <p>Object data.</p>
-    #   @return [String]
+    #   @return [IO]
     # @!attribute delete_marker
     #   <p>Indicates whether the object retrieved was (true) or was not (false) a Delete Marker. If
     #            false, this response header does not appear in the response.</p>
@@ -7929,49 +8302,52 @@ module AWS::SDK::S3
     #            </note>
     #   Enum, one of: ["ON", "OFF"]
     #   @return [String]
-    GetObjectOutput = ::Struct.new(
-      :body,
-      :delete_marker,
-      :accept_ranges,
-      :expiration,
-      :restore,
-      :last_modified,
-      :content_length,
-      :e_tag,
-      :checksum_crc32,
-      :checksum_crc32_c,
-      :checksum_sha1,
-      :checksum_sha256,
-      :missing_meta,
-      :version_id,
-      :cache_control,
-      :content_disposition,
-      :content_encoding,
-      :content_language,
-      :content_range,
-      :content_type,
-      :expires,
-      :website_redirect_location,
-      :server_side_encryption,
-      :metadata,
-      :sse_customer_algorithm,
-      :sse_customer_key_md5,
-      :ssekms_key_id,
-      :bucket_key_enabled,
-      :storage_class,
-      :request_charged,
-      :replication_status,
-      :parts_count,
-      :tag_count,
-      :object_lock_mode,
-      :object_lock_retain_until_date,
-      :object_lock_legal_hold_status,
-      keyword_init: true
-    ) do
+    class GetObjectOutput
       include Hearth::Structure
 
+      MEMBERS = %i[
+        body
+        delete_marker
+        accept_ranges
+        expiration
+        restore
+        last_modified
+        content_length
+        e_tag
+        checksum_crc32
+        checksum_crc32_c
+        checksum_sha1
+        checksum_sha256
+        missing_meta
+        version_id
+        cache_control
+        content_disposition
+        content_encoding
+        content_language
+        content_range
+        content_type
+        expires
+        website_redirect_location
+        server_side_encryption
+        metadata
+        sse_customer_algorithm
+        sse_customer_key_md5
+        ssekms_key_id
+        bucket_key_enabled
+        storage_class
+        request_charged
+        replication_status
+        parts_count
+        tag_count
+        object_lock_mode
+        object_lock_retain_until_date
+        object_lock_legal_hold_status
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::S3::Types::GetObjectOutput "\
+        "#<AWS::SDK::S3::Types::GetObjectOutput "\
           "body=#{body || 'nil'}, "\
           "delete_marker=#{delete_marker || 'nil'}, "\
           "accept_ranges=#{accept_ranges || 'nil'}, "\
@@ -8014,7 +8390,7 @@ module AWS::SDK::S3
 
       def _defaults
         {
-          body: ""
+          body: StringIO.new("")
         }
       end
     end
@@ -8052,15 +8428,18 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    GetObjectRetentionInput = ::Struct.new(
-      :bucket,
-      :key,
-      :version_id,
-      :request_payer,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class GetObjectRetentionInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        key
+        version_id
+        request_payer
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -8069,11 +8448,14 @@ module AWS::SDK::S3
     # @!attribute retention
     #   <p>The container element for an object's retention settings.</p>
     #   @return [ObjectLockRetention]
-    GetObjectRetentionOutput = ::Struct.new(
-      :retention,
-      keyword_init: true
-    ) do
+    class GetObjectRetentionOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        retention
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -8112,15 +8494,18 @@ module AWS::SDK::S3
     #            </note>
     #   Enum, one of: ["requester"]
     #   @return [String]
-    GetObjectTaggingInput = ::Struct.new(
-      :bucket,
-      :key,
-      :version_id,
-      :expected_bucket_owner,
-      :request_payer,
-      keyword_init: true
-    ) do
+    class GetObjectTaggingInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        key
+        version_id
+        expected_bucket_owner
+        request_payer
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -8133,12 +8518,15 @@ module AWS::SDK::S3
     # @!attribute tag_set
     #   <p>Contains the tag set.</p>
     #   @return [Array<Tag>]
-    GetObjectTaggingOutput = ::Struct.new(
-      :version_id,
-      :tag_set,
-      keyword_init: true
-    ) do
+    class GetObjectTaggingOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        version_id
+        tag_set
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -8168,23 +8556,26 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    GetObjectTorrentInput = ::Struct.new(
-      :bucket,
-      :key,
-      :request_payer,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class GetObjectTorrentInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        key
+        request_payer
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :body
+    #   @option params [IO] :body
     #   @option params [String] :request_charged
     # @!attribute body
     #   <p>A Bencoded dictionary as defined by the BitTorrent specification</p>
-    #   @return [String]
+    #   @return [IO]
     # @!attribute request_charged
     #   <p>If present, indicates that the requester was successfully charged for the
     #            request.</p>
@@ -8193,18 +8584,21 @@ module AWS::SDK::S3
     #            </note>
     #   Enum, one of: ["requester"]
     #   @return [String]
-    GetObjectTorrentOutput = ::Struct.new(
-      :body,
-      :request_charged,
-      keyword_init: true
-    ) do
+    class GetObjectTorrentOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        body
+        request_charged
+      ].freeze
+
+      attr_accessor(*MEMBERS)
 
       private
 
       def _defaults
         {
-          body: ""
+          body: StringIO.new("")
         }
       end
     end
@@ -8220,12 +8614,15 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    GetPublicAccessBlockInput = ::Struct.new(
-      :bucket,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class GetPublicAccessBlockInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -8235,11 +8632,14 @@ module AWS::SDK::S3
     #   <p>The <code>PublicAccessBlock</code> configuration currently in effect for this Amazon S3
     #            bucket.</p>
     #   @return [PublicAccessBlockConfiguration]
-    GetPublicAccessBlockOutput = ::Struct.new(
-      :public_access_block_configuration,
-      keyword_init: true
-    ) do
+    class GetPublicAccessBlockOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        public_access_block_configuration
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Container for S3 Glacier job parameters.</p>
@@ -8250,11 +8650,14 @@ module AWS::SDK::S3
     #   <p>Retrieval tier at which the restore will be processed.</p>
     #   Enum, one of: ["Standard", "Bulk", "Expedited"]
     #   @return [String]
-    GlacierJobParameters = ::Struct.new(
-      :tier,
-      keyword_init: true
-    ) do
+    class GlacierJobParameters
       include Hearth::Structure
+
+      MEMBERS = %i[
+        tier
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Container for grant information.</p>
@@ -8269,12 +8672,15 @@ module AWS::SDK::S3
     #   <p>Specifies the permission given to the grantee.</p>
     #   Enum, one of: ["FULL_CONTROL", "WRITE", "WRITE_ACP", "READ", "READ_ACP"]
     #   @return [String]
-    Grant = ::Struct.new(
-      :grantee,
-      :permission,
-      keyword_init: true
-    ) do
+    class Grant
       include Hearth::Structure
+
+      MEMBERS = %i[
+        grantee
+        permission
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Container for the person being granted permissions.</p>
@@ -8331,15 +8737,18 @@ module AWS::SDK::S3
     #   <p>Type of grantee</p>
     #   Enum, one of: ["CanonicalUser", "AmazonCustomerByEmail", "Group"]
     #   @return [String]
-    Grantee = ::Struct.new(
-      :display_name,
-      :email_address,
-      :id,
-      :uri,
-      :type,
-      keyword_init: true
-    ) do
+    class Grantee
       include Hearth::Structure
+
+      MEMBERS = %i[
+        display_name
+        email_address
+        id
+        uri
+        type
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -8372,12 +8781,15 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    HeadBucketInput = ::Struct.new(
-      :bucket,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class HeadBucketInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -8412,14 +8824,17 @@ module AWS::SDK::S3
     #               <p>This functionality is not supported for directory buckets.</p>
     #            </note>
     #   @return [Boolean]
-    HeadBucketOutput = ::Struct.new(
-      :bucket_location_type,
-      :bucket_location_name,
-      :bucket_region,
-      :access_point_alias,
-      keyword_init: true
-    ) do
+    class HeadBucketOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket_location_type
+        bucket_location_name
+        bucket_region
+        access_point_alias
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -8604,28 +9019,31 @@ module AWS::SDK::S3
     #               <code>kms:Decrypt</code> action for the request to succeed.</p>
     #   Enum, one of: ["ENABLED"]
     #   @return [String]
-    HeadObjectInput = ::Struct.new(
-      :bucket,
-      :if_match,
-      :if_modified_since,
-      :if_none_match,
-      :if_unmodified_since,
-      :key,
-      :range,
-      :version_id,
-      :sse_customer_algorithm,
-      :sse_customer_key,
-      :sse_customer_key_md5,
-      :request_payer,
-      :part_number,
-      :expected_bucket_owner,
-      :checksum_mode,
-      keyword_init: true
-    ) do
+    class HeadObjectInput
       include Hearth::Structure
 
+      MEMBERS = %i[
+        bucket
+        if_match
+        if_modified_since
+        if_none_match
+        if_unmodified_since
+        key
+        range
+        version_id
+        sse_customer_algorithm
+        sse_customer_key
+        sse_customer_key_md5
+        request_payer
+        part_number
+        expected_bucket_owner
+        checksum_mode
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::S3::Types::HeadObjectInput "\
+        "#<AWS::SDK::S3::Types::HeadObjectInput "\
           "bucket=#{bucket || 'nil'}, "\
           "if_match=#{if_match || 'nil'}, "\
           "if_modified_since=#{if_modified_since || 'nil'}, "\
@@ -8935,47 +9353,50 @@ module AWS::SDK::S3
     #            </note>
     #   Enum, one of: ["ON", "OFF"]
     #   @return [String]
-    HeadObjectOutput = ::Struct.new(
-      :delete_marker,
-      :accept_ranges,
-      :expiration,
-      :restore,
-      :archive_status,
-      :last_modified,
-      :content_length,
-      :checksum_crc32,
-      :checksum_crc32_c,
-      :checksum_sha1,
-      :checksum_sha256,
-      :e_tag,
-      :missing_meta,
-      :version_id,
-      :cache_control,
-      :content_disposition,
-      :content_encoding,
-      :content_language,
-      :content_type,
-      :expires,
-      :website_redirect_location,
-      :server_side_encryption,
-      :metadata,
-      :sse_customer_algorithm,
-      :sse_customer_key_md5,
-      :ssekms_key_id,
-      :bucket_key_enabled,
-      :storage_class,
-      :request_charged,
-      :replication_status,
-      :parts_count,
-      :object_lock_mode,
-      :object_lock_retain_until_date,
-      :object_lock_legal_hold_status,
-      keyword_init: true
-    ) do
+    class HeadObjectOutput
       include Hearth::Structure
 
+      MEMBERS = %i[
+        delete_marker
+        accept_ranges
+        expiration
+        restore
+        archive_status
+        last_modified
+        content_length
+        checksum_crc32
+        checksum_crc32_c
+        checksum_sha1
+        checksum_sha256
+        e_tag
+        missing_meta
+        version_id
+        cache_control
+        content_disposition
+        content_encoding
+        content_language
+        content_type
+        expires
+        website_redirect_location
+        server_side_encryption
+        metadata
+        sse_customer_algorithm
+        sse_customer_key_md5
+        ssekms_key_id
+        bucket_key_enabled
+        storage_class
+        request_charged
+        replication_status
+        parts_count
+        object_lock_mode
+        object_lock_retain_until_date
+        object_lock_legal_hold_status
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::S3::Types::HeadObjectOutput "\
+        "#<AWS::SDK::S3::Types::HeadObjectOutput "\
           "delete_marker=#{delete_marker || 'nil'}, "\
           "accept_ranges=#{accept_ranges || 'nil'}, "\
           "expiration=#{expiration || 'nil'}, "\
@@ -9028,11 +9449,14 @@ module AWS::SDK::S3
     #               XML related object key constraints</a>.</p>
     #            </important>
     #   @return [String]
-    IndexDocument = ::Struct.new(
-      :suffix,
-      keyword_init: true
-    ) do
+    class IndexDocument
       include Hearth::Structure
+
+      MEMBERS = %i[
+        suffix
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Container element that identifies who initiated the multipart upload. </p>
@@ -9055,12 +9479,15 @@ module AWS::SDK::S3
     #               <p>This functionality is not supported for directory buckets.</p>
     #            </note>
     #   @return [String]
-    Initiator = ::Struct.new(
-      :id,
-      :display_name,
-      keyword_init: true
-    ) do
+    class Initiator
       include Hearth::Structure
+
+      MEMBERS = %i[
+        id
+        display_name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Describes the serialization format of the object.</p>
@@ -9084,14 +9511,17 @@ module AWS::SDK::S3
     # @!attribute parquet
     #   <p>Specifies Parquet as object's input serialization format.</p>
     #   @return [ParquetInput]
-    InputSerialization = ::Struct.new(
-      :csv,
-      :compression_type,
-      :json,
-      :parquet,
-      keyword_init: true
-    ) do
+    class InputSerialization
       include Hearth::Structure
+
+      MEMBERS = %i[
+        csv
+        compression_type
+        json
+        parquet
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for IntelligentTieringAccessTier
@@ -9115,12 +9545,15 @@ module AWS::SDK::S3
     #   <p>All of these tags must exist in the object's tag set in order for the configuration to
     #            apply.</p>
     #   @return [Array<Tag>]
-    IntelligentTieringAndOperator = ::Struct.new(
-      :prefix,
-      :tags,
-      keyword_init: true
-    ) do
+    class IntelligentTieringAndOperator
       include Hearth::Structure
+
+      MEMBERS = %i[
+        prefix
+        tags
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Specifies the S3 Intelligent-Tiering configuration for an Amazon S3 bucket.</p>
@@ -9147,14 +9580,17 @@ module AWS::SDK::S3
     # @!attribute tierings
     #   <p>Specifies the S3 Intelligent-Tiering storage class tier of the configuration.</p>
     #   @return [Array<Tiering>]
-    IntelligentTieringConfiguration = ::Struct.new(
-      :id,
-      :member_filter,
-      :status,
-      :tierings,
-      keyword_init: true
-    ) do
+    class IntelligentTieringConfiguration
       include Hearth::Structure
+
+      MEMBERS = %i[
+        id
+        filter
+        status
+        tierings
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The <code>Filter</code> is used to identify objects that the S3 Intelligent-Tiering
@@ -9181,13 +9617,16 @@ module AWS::SDK::S3
     #            The operator must have at least two predicates, and an object must match all of the
     #            predicates in order for the filter to apply.</p>
     #   @return [IntelligentTieringAndOperator]
-    IntelligentTieringFilter = ::Struct.new(
-      :prefix,
-      :tag,
-      :and,
-      keyword_init: true
-    ) do
+    class IntelligentTieringFilter
       include Hearth::Structure
+
+      MEMBERS = %i[
+        prefix
+        tag
+        and
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for IntelligentTieringStatus
@@ -9215,12 +9654,15 @@ module AWS::SDK::S3
     # @!attribute access_tier
     #   Enum, one of: ["ARCHIVE_ACCESS", "DEEP_ARCHIVE_ACCESS"]
     #   @return [String]
-    InvalidObjectState = ::Struct.new(
-      :storage_class,
-      :access_tier,
-      keyword_init: true
-    ) do
+    class InvalidObjectState
       include Hearth::Structure
+
+      MEMBERS = %i[
+        storage_class
+        access_tier
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Specifies the inventory configuration for an Amazon S3 bucket. For more information, see
@@ -9263,17 +9705,20 @@ module AWS::SDK::S3
     # @!attribute schedule
     #   <p>Specifies the schedule for generating inventory results.</p>
     #   @return [InventorySchedule]
-    InventoryConfiguration = ::Struct.new(
-      :destination,
-      :is_enabled,
-      :member_filter,
-      :id,
-      :included_object_versions,
-      :optional_fields,
-      :schedule,
-      keyword_init: true
-    ) do
+    class InventoryConfiguration
       include Hearth::Structure
+
+      MEMBERS = %i[
+        destination
+        is_enabled
+        filter
+        id
+        included_object_versions
+        optional_fields
+        schedule
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Specifies the inventory configuration for an Amazon S3 bucket.</p>
@@ -9284,11 +9729,14 @@ module AWS::SDK::S3
     #   <p>Contains the bucket name, file format, bucket owner (optional), and prefix (optional)
     #            where inventory results are published.</p>
     #   @return [InventoryS3BucketDestination]
-    InventoryDestination = ::Struct.new(
-      :s3_bucket_destination,
-      keyword_init: true
-    ) do
+    class InventoryDestination
       include Hearth::Structure
+
+      MEMBERS = %i[
+        s3_bucket_destination
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Contains the type of server-side encryption used to encrypt the inventory
@@ -9303,12 +9751,15 @@ module AWS::SDK::S3
     # @!attribute ssekms
     #   <p>Specifies the use of SSE-KMS to encrypt delivered inventory reports.</p>
     #   @return [SSEKMS]
-    InventoryEncryption = ::Struct.new(
-      :sses3,
-      :ssekms,
-      keyword_init: true
-    ) do
+    class InventoryEncryption
       include Hearth::Structure
+
+      MEMBERS = %i[
+        sses3
+        ssekms
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Specifies an inventory filter. The inventory only includes objects that meet the
@@ -9319,11 +9770,14 @@ module AWS::SDK::S3
     # @!attribute prefix
     #   <p>The prefix that an object must have to be included in the inventory results.</p>
     #   @return [String]
-    InventoryFilter = ::Struct.new(
-      :prefix,
-      keyword_init: true
-    ) do
+    class InventoryFilter
       include Hearth::Structure
+
+      MEMBERS = %i[
+        prefix
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for InventoryFormat
@@ -9414,15 +9868,18 @@ module AWS::SDK::S3
     #   <p>Contains the type of server-side encryption used to encrypt the inventory
     #            results.</p>
     #   @return [InventoryEncryption]
-    InventoryS3BucketDestination = ::Struct.new(
-      :account_id,
-      :bucket,
-      :format,
-      :prefix,
-      :encryption,
-      keyword_init: true
-    ) do
+    class InventoryS3BucketDestination
       include Hearth::Structure
+
+      MEMBERS = %i[
+        account_id
+        bucket
+        format
+        prefix
+        encryption
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Specifies the schedule for generating inventory results.</p>
@@ -9433,11 +9890,14 @@ module AWS::SDK::S3
     #   <p>Specifies how frequently inventory results are produced.</p>
     #   Enum, one of: ["Daily", "Weekly"]
     #   @return [String]
-    InventorySchedule = ::Struct.new(
-      :frequency,
-      keyword_init: true
-    ) do
+    class InventorySchedule
       include Hearth::Structure
+
+      MEMBERS = %i[
+        frequency
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Specifies JSON as object's input serialization format.</p>
@@ -9448,11 +9908,14 @@ module AWS::SDK::S3
     #   <p>The type of JSON. Valid values: Document, Lines.</p>
     #   Enum, one of: ["DOCUMENT", "LINES"]
     #   @return [String]
-    JSONInput = ::Struct.new(
-      :type,
-      keyword_init: true
-    ) do
+    class JSONInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        type
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Specifies JSON as request's output serialization format.</p>
@@ -9463,11 +9926,14 @@ module AWS::SDK::S3
     #   <p>The value used to separate individual records in the output. If no value is specified,
     #            Amazon S3 uses a newline character ('\n').</p>
     #   @return [String]
-    JSONOutput = ::Struct.new(
-      :record_delimiter,
-      keyword_init: true
-    ) do
+    class JSONOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        record_delimiter
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for JSONType
@@ -9503,14 +9969,17 @@ module AWS::SDK::S3
     #               notifications using object key name filtering</a> in the
     #               <i>Amazon S3 User Guide</i>.</p>
     #   @return [NotificationConfigurationFilter]
-    LambdaFunctionConfiguration = ::Struct.new(
-      :id,
-      :lambda_function_arn,
-      :events,
-      :member_filter,
-      keyword_init: true
-    ) do
+    class LambdaFunctionConfiguration
       include Hearth::Structure
+
+      MEMBERS = %i[
+        id
+        lambda_function_arn
+        events
+        filter
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Container for the expiration for the lifecycle of the object.</p>
@@ -9534,13 +10003,16 @@ module AWS::SDK::S3
     #            to true, the delete marker will be expired; if set to false the policy takes no action.
     #            This cannot be specified with Days or Date in a Lifecycle Expiration Policy.</p>
     #   @return [Boolean]
-    LifecycleExpiration = ::Struct.new(
-      :date,
-      :days,
-      :expired_object_delete_marker,
-      keyword_init: true
-    ) do
+    class LifecycleExpiration
       include Hearth::Structure
+
+      MEMBERS = %i[
+        date
+        days
+        expired_object_delete_marker
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>A lifecycle rule for individual objects in an Amazon S3 bucket.</p>
@@ -9607,19 +10079,22 @@ module AWS::SDK::S3
     #               Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Configuration</a> in
     #            the <i>Amazon S3 User Guide</i>.</p>
     #   @return [AbortIncompleteMultipartUpload]
-    LifecycleRule = ::Struct.new(
-      :expiration,
-      :id,
-      :prefix,
-      :member_filter,
-      :status,
-      :transitions,
-      :noncurrent_version_transitions,
-      :noncurrent_version_expiration,
-      :abort_incomplete_multipart_upload,
-      keyword_init: true
-    ) do
+    class LifecycleRule
       include Hearth::Structure
+
+      MEMBERS = %i[
+        expiration
+        id
+        prefix
+        filter
+        status
+        transitions
+        noncurrent_version_transitions
+        noncurrent_version_expiration
+        abort_incomplete_multipart_upload
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>This is used in a Lifecycle Rule Filter to apply a logical AND to two or more
@@ -9644,14 +10119,17 @@ module AWS::SDK::S3
     # @!attribute object_size_less_than
     #   <p>Maximum object size to which the rule applies.</p>
     #   @return [Integer]
-    LifecycleRuleAndOperator = ::Struct.new(
-      :prefix,
-      :tags,
-      :object_size_greater_than,
-      :object_size_less_than,
-      keyword_init: true
-    ) do
+    class LifecycleRuleAndOperator
       include Hearth::Structure
+
+      MEMBERS = %i[
+        prefix
+        tags
+        object_size_greater_than
+        object_size_less_than
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The <code>Filter</code> is used to identify objects that a Lifecycle Rule applies to. A
@@ -9750,13 +10228,16 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    ListBucketAnalyticsConfigurationsInput = ::Struct.new(
-      :bucket,
-      :continuation_token,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class ListBucketAnalyticsConfigurationsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        continuation_token
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -9784,14 +10265,17 @@ module AWS::SDK::S3
     # @!attribute analytics_configuration_list
     #   <p>The list of analytics configurations for a bucket.</p>
     #   @return [Array<AnalyticsConfiguration>]
-    ListBucketAnalyticsConfigurationsOutput = ::Struct.new(
-      :is_truncated,
-      :continuation_token,
-      :next_continuation_token,
-      :analytics_configuration_list,
-      keyword_init: true
-    ) do
+    class ListBucketAnalyticsConfigurationsOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        is_truncated
+        continuation_token
+        next_continuation_token
+        analytics_configuration_list
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -9805,12 +10289,15 @@ module AWS::SDK::S3
     #   <p>The <code>ContinuationToken</code> that represents a placeholder from where this request
     #            should begin.</p>
     #   @return [String]
-    ListBucketIntelligentTieringConfigurationsInput = ::Struct.new(
-      :bucket,
-      :continuation_token,
-      keyword_init: true
-    ) do
+    class ListBucketIntelligentTieringConfigurationsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        continuation_token
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -9836,14 +10323,17 @@ module AWS::SDK::S3
     # @!attribute intelligent_tiering_configuration_list
     #   <p>The list of S3 Intelligent-Tiering configurations for a bucket.</p>
     #   @return [Array<IntelligentTieringConfiguration>]
-    ListBucketIntelligentTieringConfigurationsOutput = ::Struct.new(
-      :is_truncated,
-      :continuation_token,
-      :next_continuation_token,
-      :intelligent_tiering_configuration_list,
-      keyword_init: true
-    ) do
+    class ListBucketIntelligentTieringConfigurationsOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        is_truncated
+        continuation_token
+        next_continuation_token
+        intelligent_tiering_configuration_list
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -9863,13 +10353,16 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    ListBucketInventoryConfigurationsInput = ::Struct.new(
-      :bucket,
-      :continuation_token,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class ListBucketInventoryConfigurationsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        continuation_token
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -9895,14 +10388,17 @@ module AWS::SDK::S3
     #               <code>NextContinuationToken</code> from this response to continue the listing in a
     #            subsequent request. The continuation token is an opaque value that Amazon S3 understands.</p>
     #   @return [String]
-    ListBucketInventoryConfigurationsOutput = ::Struct.new(
-      :continuation_token,
-      :inventory_configuration_list,
-      :is_truncated,
-      :next_continuation_token,
-      keyword_init: true
-    ) do
+    class ListBucketInventoryConfigurationsOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        continuation_token
+        inventory_configuration_list
+        is_truncated
+        next_continuation_token
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -9922,13 +10418,16 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    ListBucketMetricsConfigurationsInput = ::Struct.new(
-      :bucket,
-      :continuation_token,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class ListBucketMetricsConfigurationsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        continuation_token
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -9955,23 +10454,27 @@ module AWS::SDK::S3
     # @!attribute metrics_configuration_list
     #   <p>The list of metrics configurations for a bucket.</p>
     #   @return [Array<MetricsConfiguration>]
-    ListBucketMetricsConfigurationsOutput = ::Struct.new(
-      :is_truncated,
-      :continuation_token,
-      :next_continuation_token,
-      :metrics_configuration_list,
-      keyword_init: true
-    ) do
+    class ListBucketMetricsConfigurationsOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        is_truncated
+        continuation_token
+        next_continuation_token
+        metrics_configuration_list
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    ListBucketsInput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class ListBucketsInput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -9984,12 +10487,15 @@ module AWS::SDK::S3
     # @!attribute owner
     #   <p>The owner of the buckets listed.</p>
     #   @return [Owner]
-    ListBucketsOutput = ::Struct.new(
-      :buckets,
-      :owner,
-      keyword_init: true
-    ) do
+    class ListBucketsOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        buckets
+        owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -10005,12 +10511,15 @@ module AWS::SDK::S3
     # @!attribute max_directory_buckets
     #   <p>Maximum number of buckets to be returned in response. When the number is more than the count of buckets that are owned by an Amazon Web Services account, return all the buckets in response.</p>
     #   @return [Integer]
-    ListDirectoryBucketsInput = ::Struct.new(
-      :continuation_token,
-      :max_directory_buckets,
-      keyword_init: true
-    ) do
+    class ListDirectoryBucketsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        continuation_token
+        max_directory_buckets
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -10024,12 +10533,15 @@ module AWS::SDK::S3
     #   <p>If <code>ContinuationToken</code> was sent with the request, it is included in the
     #            response. You can use the returned <code>ContinuationToken</code> for pagination of the list response.</p>
     #   @return [String]
-    ListDirectoryBucketsOutput = ::Struct.new(
-      :buckets,
-      :continuation_token,
-      keyword_init: true
-    ) do
+    class ListDirectoryBucketsOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        buckets
+        continuation_token
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -10151,19 +10663,22 @@ module AWS::SDK::S3
     #            </note>
     #   Enum, one of: ["requester"]
     #   @return [String]
-    ListMultipartUploadsInput = ::Struct.new(
-      :bucket,
-      :delimiter,
-      :encoding_type,
-      :key_marker,
-      :max_uploads,
-      :prefix,
-      :upload_id_marker,
-      :expected_bucket_owner,
-      :request_payer,
-      keyword_init: true
-    ) do
+    class ListMultipartUploadsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        delimiter
+        encoding_type
+        key_marker
+        max_uploads
+        prefix
+        upload_id_marker
+        expected_bucket_owner
+        request_payer
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -10261,23 +10776,26 @@ module AWS::SDK::S3
     #            </note>
     #   Enum, one of: ["requester"]
     #   @return [String]
-    ListMultipartUploadsOutput = ::Struct.new(
-      :bucket,
-      :key_marker,
-      :upload_id_marker,
-      :next_key_marker,
-      :prefix,
-      :delimiter,
-      :next_upload_id_marker,
-      :max_uploads,
-      :is_truncated,
-      :uploads,
-      :common_prefixes,
-      :encoding_type,
-      :request_charged,
-      keyword_init: true
-    ) do
+    class ListMultipartUploadsOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        key_marker
+        upload_id_marker
+        next_key_marker
+        prefix
+        delimiter
+        next_upload_id_marker
+        max_uploads
+        is_truncated
+        uploads
+        common_prefixes
+        encoding_type
+        request_charged
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -10350,20 +10868,23 @@ module AWS::SDK::S3
     #   <p>Specifies the optional fields that you want returned in the response. Fields that you do
     #            not specify are not returned.</p>
     #   @return [Array<String>]
-    ListObjectVersionsInput = ::Struct.new(
-      :bucket,
-      :delimiter,
-      :encoding_type,
-      :key_marker,
-      :max_keys,
-      :prefix,
-      :version_id_marker,
-      :expected_bucket_owner,
-      :request_payer,
-      :optional_object_attributes,
-      keyword_init: true
-    ) do
+    class ListObjectVersionsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        delimiter
+        encoding_type
+        key_marker
+        max_keys
+        prefix
+        version_id_marker
+        expected_bucket_owner
+        request_payer
+        optional_object_attributes
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -10450,24 +10971,27 @@ module AWS::SDK::S3
     #            </note>
     #   Enum, one of: ["requester"]
     #   @return [String]
-    ListObjectVersionsOutput = ::Struct.new(
-      :is_truncated,
-      :key_marker,
-      :version_id_marker,
-      :next_key_marker,
-      :next_version_id_marker,
-      :versions,
-      :delete_markers,
-      :name,
-      :prefix,
-      :delimiter,
-      :max_keys,
-      :common_prefixes,
-      :encoding_type,
-      :request_charged,
-      keyword_init: true
-    ) do
+    class ListObjectVersionsOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        is_truncated
+        key_marker
+        version_id_marker
+        next_key_marker
+        next_version_id_marker
+        versions
+        delete_markers
+        name
+        prefix
+        delimiter
+        max_keys
+        common_prefixes
+        encoding_type
+        request_charged
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -10534,19 +11058,22 @@ module AWS::SDK::S3
     #   <p>Specifies the optional fields that you want returned in the response. Fields that you do
     #            not specify are not returned.</p>
     #   @return [Array<String>]
-    ListObjectsInput = ::Struct.new(
-      :bucket,
-      :delimiter,
-      :encoding_type,
-      :marker,
-      :max_keys,
-      :prefix,
-      :request_payer,
-      :expected_bucket_owner,
-      :optional_object_attributes,
-      keyword_init: true
-    ) do
+    class ListObjectsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        delimiter
+        encoding_type
+        marker
+        max_keys
+        prefix
+        request_payer
+        expected_bucket_owner
+        optional_object_attributes
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -10631,21 +11158,24 @@ module AWS::SDK::S3
     #            </note>
     #   Enum, one of: ["requester"]
     #   @return [String]
-    ListObjectsOutput = ::Struct.new(
-      :is_truncated,
-      :marker,
-      :next_marker,
-      :contents,
-      :name,
-      :prefix,
-      :delimiter,
-      :max_keys,
-      :common_prefixes,
-      :encoding_type,
-      :request_charged,
-      keyword_init: true
-    ) do
+    class ListObjectsOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        is_truncated
+        marker
+        next_marker
+        contents
+        name
+        prefix
+        delimiter
+        max_keys
+        common_prefixes
+        encoding_type
+        request_charged
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -10752,21 +11282,24 @@ module AWS::SDK::S3
     #               <p>This functionality is not supported for directory buckets.</p>
     #            </note>
     #   @return [Array<String>]
-    ListObjectsV2Input = ::Struct.new(
-      :bucket,
-      :delimiter,
-      :encoding_type,
-      :max_keys,
-      :prefix,
-      :continuation_token,
-      :fetch_owner,
-      :start_after,
-      :request_payer,
-      :expected_bucket_owner,
-      :optional_object_attributes,
-      keyword_init: true
-    ) do
+    class ListObjectsV2Input
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        delimiter
+        encoding_type
+        max_keys
+        prefix
+        continuation_token
+        fetch_owner
+        start_after
+        request_payer
+        expected_bucket_owner
+        optional_object_attributes
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -10890,23 +11423,26 @@ module AWS::SDK::S3
     #            </note>
     #   Enum, one of: ["requester"]
     #   @return [String]
-    ListObjectsV2Output = ::Struct.new(
-      :is_truncated,
-      :contents,
-      :name,
-      :prefix,
-      :delimiter,
-      :max_keys,
-      :common_prefixes,
-      :encoding_type,
-      :key_count,
-      :continuation_token,
-      :next_continuation_token,
-      :start_after,
-      :request_charged,
-      keyword_init: true
-    ) do
+    class ListObjectsV2Output
       include Hearth::Structure
+
+      MEMBERS = %i[
+        is_truncated
+        contents
+        name
+        prefix
+        delimiter
+        max_keys
+        common_prefixes
+        encoding_type
+        key_count
+        continuation_token
+        next_continuation_token
+        start_after
+        request_charged
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -10994,23 +11530,26 @@ module AWS::SDK::S3
     #               <p>This functionality is not supported for directory buckets.</p>
     #            </note>
     #   @return [String]
-    ListPartsInput = ::Struct.new(
-      :bucket,
-      :key,
-      :max_parts,
-      :part_number_marker,
-      :upload_id,
-      :request_payer,
-      :expected_bucket_owner,
-      :sse_customer_algorithm,
-      :sse_customer_key,
-      :sse_customer_key_md5,
-      keyword_init: true
-    ) do
+    class ListPartsInput
       include Hearth::Structure
 
+      MEMBERS = %i[
+        bucket
+        key
+        max_parts
+        part_number_marker
+        upload_id
+        request_payer
+        expected_bucket_owner
+        sse_customer_algorithm
+        sse_customer_key
+        sse_customer_key_md5
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::S3::Types::ListPartsInput "\
+        "#<AWS::SDK::S3::Types::ListPartsInput "\
           "bucket=#{bucket || 'nil'}, "\
           "key=#{key || 'nil'}, "\
           "max_parts=#{max_parts || 'nil'}, "\
@@ -11129,25 +11668,28 @@ module AWS::SDK::S3
     #   <p>The algorithm that was used to create a checksum of the object.</p>
     #   Enum, one of: ["CRC32", "CRC32C", "SHA1", "SHA256"]
     #   @return [String]
-    ListPartsOutput = ::Struct.new(
-      :abort_date,
-      :abort_rule_id,
-      :bucket,
-      :key,
-      :upload_id,
-      :part_number_marker,
-      :next_part_number_marker,
-      :max_parts,
-      :is_truncated,
-      :parts,
-      :initiator,
-      :owner,
-      :storage_class,
-      :request_charged,
-      :checksum_algorithm,
-      keyword_init: true
-    ) do
+    class ListPartsOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        abort_date
+        abort_rule_id
+        bucket
+        key
+        upload_id
+        part_number_marker
+        next_part_number_marker
+        max_parts
+        is_truncated
+        parts
+        initiator
+        owner
+        storage_class
+        request_charged
+        checksum_algorithm
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Specifies the location where the bucket will be created.</p>
@@ -11168,12 +11710,15 @@ module AWS::SDK::S3
     #   <p>The name of the location where the bucket will be created.</p>
     #            <p>For directory buckets, the AZ ID of the Availability Zone where the bucket will be created. An example AZ ID value is <code>usw2-az2</code>.</p>
     #   @return [String]
-    LocationInfo = ::Struct.new(
-      :type,
-      :name,
-      keyword_init: true
-    ) do
+    class LocationInfo
       include Hearth::Structure
+
+      MEMBERS = %i[
+        type
+        name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for LocationType
@@ -11211,14 +11756,17 @@ module AWS::SDK::S3
     # @!attribute target_object_key_format
     #   <p>Amazon S3 key format for log objects.</p>
     #   @return [TargetObjectKeyFormat]
-    LoggingEnabled = ::Struct.new(
-      :target_bucket,
-      :target_grants,
-      :target_prefix,
-      :target_object_key_format,
-      keyword_init: true
-    ) do
+    class LoggingEnabled
       include Hearth::Structure
+
+      MEMBERS = %i[
+        target_bucket
+        target_grants
+        target_prefix
+        target_object_key_format
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for MFADelete
@@ -11253,12 +11801,15 @@ module AWS::SDK::S3
     # @!attribute value
     #   <p>Value of the object.</p>
     #   @return [String]
-    MetadataEntry = ::Struct.new(
-      :name,
-      :value,
-      keyword_init: true
-    ) do
+    class MetadataEntry
       include Hearth::Structure
+
+      MEMBERS = %i[
+        name
+        value
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p> A container specifying replication metrics-related settings enabling replication
@@ -11275,12 +11826,15 @@ module AWS::SDK::S3
     #   <p> A container specifying the time threshold for emitting the
     #               <code>s3:Replication:OperationMissedThreshold</code> event. </p>
     #   @return [ReplicationTimeValue]
-    Metrics = ::Struct.new(
-      :status,
-      :event_threshold,
-      keyword_init: true
-    ) do
+    class Metrics
       include Hearth::Structure
+
+      MEMBERS = %i[
+        status
+        event_threshold
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>A conjunction (logical AND) of predicates, which is used in evaluating a metrics filter.
@@ -11300,13 +11854,16 @@ module AWS::SDK::S3
     # @!attribute access_point_arn
     #   <p>The access point ARN used when evaluating an <code>AND</code> predicate.</p>
     #   @return [String]
-    MetricsAndOperator = ::Struct.new(
-      :prefix,
-      :tags,
-      :access_point_arn,
-      keyword_init: true
-    ) do
+    class MetricsAndOperator
       include Hearth::Structure
+
+      MEMBERS = %i[
+        prefix
+        tags
+        access_point_arn
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Specifies a metrics configuration for the CloudWatch request metrics (specified by the
@@ -11327,12 +11884,15 @@ module AWS::SDK::S3
     #            objects that meet the filter's criteria. A filter must be a prefix, an object tag, an
     #            access point ARN, or a conjunction (MetricsAndOperator).</p>
     #   @return [MetricsFilter]
-    MetricsConfiguration = ::Struct.new(
-      :id,
-      :member_filter,
-      keyword_init: true
-    ) do
+    class MetricsConfiguration
       include Hearth::Structure
+
+      MEMBERS = %i[
+        id
+        filter
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Specifies a metrics configuration filter. The metrics configuration only includes
@@ -11448,47 +12008,53 @@ module AWS::SDK::S3
     #   <p>The algorithm that was used to create a checksum of the object.</p>
     #   Enum, one of: ["CRC32", "CRC32C", "SHA1", "SHA256"]
     #   @return [String]
-    MultipartUpload = ::Struct.new(
-      :upload_id,
-      :key,
-      :initiated,
-      :storage_class,
-      :owner,
-      :initiator,
-      :checksum_algorithm,
-      keyword_init: true
-    ) do
+    class MultipartUpload
       include Hearth::Structure
+
+      MEMBERS = %i[
+        upload_id
+        key
+        initiated
+        storage_class
+        owner
+        initiator
+        checksum_algorithm
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The specified bucket does not exist.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    NoSuchBucket = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class NoSuchBucket
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The specified key does not exist.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    NoSuchKey = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class NoSuchKey
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The specified multipart upload does not exist.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    NoSuchUpload = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class NoSuchUpload
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Specifies when noncurrent object versions expire. Upon expiration, Amazon S3 permanently
@@ -11513,12 +12079,15 @@ module AWS::SDK::S3
     #            versions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/intro-lifecycle-rules.html">Lifecycle configuration
     #               elements</a> in the <i>Amazon S3 User Guide</i>.</p>
     #   @return [Integer]
-    NoncurrentVersionExpiration = ::Struct.new(
-      :noncurrent_days,
-      :newer_noncurrent_versions,
-      keyword_init: true
-    ) do
+    class NoncurrentVersionExpiration
       include Hearth::Structure
+
+      MEMBERS = %i[
+        noncurrent_days
+        newer_noncurrent_versions
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Container for the transition rule that describes when noncurrent objects transition to
@@ -11551,23 +12120,27 @@ module AWS::SDK::S3
     #            versions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/intro-lifecycle-rules.html">Lifecycle configuration
     #               elements</a> in the <i>Amazon S3 User Guide</i>.</p>
     #   @return [Integer]
-    NoncurrentVersionTransition = ::Struct.new(
-      :noncurrent_days,
-      :storage_class,
-      :newer_noncurrent_versions,
-      keyword_init: true
-    ) do
+    class NoncurrentVersionTransition
       include Hearth::Structure
+
+      MEMBERS = %i[
+        noncurrent_days
+        storage_class
+        newer_noncurrent_versions
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The specified content does not exist.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    NotFound = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class NotFound
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>A container for specifying the notification configuration of the bucket. If this element
@@ -11593,14 +12166,17 @@ module AWS::SDK::S3
     # @!attribute event_bridge_configuration
     #   <p>Enables delivery of events to Amazon EventBridge.</p>
     #   @return [EventBridgeConfiguration]
-    NotificationConfiguration = ::Struct.new(
-      :topic_configurations,
-      :queue_configurations,
-      :lambda_function_configurations,
-      :event_bridge_configuration,
-      keyword_init: true
-    ) do
+    class NotificationConfiguration
       include Hearth::Structure
+
+      MEMBERS = %i[
+        topic_configurations
+        queue_configurations
+        lambda_function_configurations
+        event_bridge_configuration
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Specifies object key name filtering rules. For information about key name filtering, see
@@ -11613,11 +12189,14 @@ module AWS::SDK::S3
     # @!attribute key
     #   <p>A container for object key name prefix and suffix filtering rules.</p>
     #   @return [S3KeyFilter]
-    NotificationConfigurationFilter = ::Struct.new(
-      :key,
-      keyword_init: true
-    ) do
+    class NotificationConfigurationFilter
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>An object consists of data and its descriptive metadata.</p>
@@ -11696,28 +12275,32 @@ module AWS::SDK::S3
     #               <p>This functionality is not supported for directory buckets. Only the S3 Express One Zone storage class is supported by directory buckets to store objects.</p>
     #            </note>
     #   @return [RestoreStatus]
-    Object = ::Struct.new(
-      :key,
-      :last_modified,
-      :e_tag,
-      :checksum_algorithm,
-      :member_size,
-      :storage_class,
-      :owner,
-      :restore_status,
-      keyword_init: true
-    ) do
+    class Object
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key
+        last_modified
+        e_tag
+        checksum_algorithm
+        size
+        storage_class
+        owner
+        restore_status
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>This action is not allowed against this storage tier.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    ObjectAlreadyInActiveTierError = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class ObjectAlreadyInActiveTierError
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for ObjectAttributes
@@ -11769,12 +12352,15 @@ module AWS::SDK::S3
     #               <p>This functionality is not supported for directory buckets.</p>
     #            </note>
     #   @return [String]
-    ObjectIdentifier = ::Struct.new(
-      :key,
-      :version_id,
-      keyword_init: true
-    ) do
+    class ObjectIdentifier
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key
+        version_id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The container element for Object Lock configuration parameters.</p>
@@ -11795,12 +12381,15 @@ module AWS::SDK::S3
     #            select one. You cannot specify <code>Days</code> and <code>Years</code> at the same
     #            time.</p>
     #   @return [ObjectLockRule]
-    ObjectLockConfiguration = ::Struct.new(
-      :object_lock_enabled,
-      :rule,
-      keyword_init: true
-    ) do
+    class ObjectLockConfiguration
       include Hearth::Structure
+
+      MEMBERS = %i[
+        object_lock_enabled
+        rule
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for ObjectLockEnabled
@@ -11816,11 +12405,14 @@ module AWS::SDK::S3
     #   <p>Indicates whether the specified object has a legal hold in place.</p>
     #   Enum, one of: ["ON", "OFF"]
     #   @return [String]
-    ObjectLockLegalHold = ::Struct.new(
-      :status,
-      keyword_init: true
-    ) do
+    class ObjectLockLegalHold
       include Hearth::Structure
+
+      MEMBERS = %i[
+        status
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for ObjectLockLegalHoldStatus
@@ -11849,12 +12441,15 @@ module AWS::SDK::S3
     # @!attribute retain_until_date
     #   <p>The date on which this Object Lock Retention will expire.</p>
     #   @return [Time]
-    ObjectLockRetention = ::Struct.new(
-      :mode,
-      :retain_until_date,
-      keyword_init: true
-    ) do
+    class ObjectLockRetention
       include Hearth::Structure
+
+      MEMBERS = %i[
+        mode
+        retain_until_date
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for ObjectLockRetentionMode
@@ -11874,22 +12469,26 @@ module AWS::SDK::S3
     #            period can be either <code>Days</code> or <code>Years</code> but you must select one. You
     #            cannot specify <code>Days</code> and <code>Years</code> at the same time.</p>
     #   @return [DefaultRetention]
-    ObjectLockRule = ::Struct.new(
-      :default_retention,
-      keyword_init: true
-    ) do
+    class ObjectLockRule
       include Hearth::Structure
+
+      MEMBERS = %i[
+        default_retention
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The source object of the COPY action is not in the active tier and is only stored in
     #          Amazon S3 Glacier.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    ObjectNotInActiveTierError = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class ObjectNotInActiveTierError
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for ObjectOwnership
@@ -11962,16 +12561,19 @@ module AWS::SDK::S3
     #       with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">
     #       Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     #   @return [String]
-    ObjectPart = ::Struct.new(
-      :part_number,
-      :member_size,
-      :checksum_crc32,
-      :checksum_crc32_c,
-      :checksum_sha1,
-      :checksum_sha256,
-      keyword_init: true
-    ) do
+    class ObjectPart
       include Hearth::Structure
+
+      MEMBERS = %i[
+        part_number
+        size
+        checksum_crc32
+        checksum_crc32_c
+        checksum_sha1
+        checksum_sha256
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for ObjectStorageClass
@@ -12047,20 +12649,23 @@ module AWS::SDK::S3
     #            and how to work with archived objects, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/archived-objects.html"> Working with archived
     #               objects</a> in the <i>Amazon S3 User Guide</i>.</p>
     #   @return [RestoreStatus]
-    ObjectVersion = ::Struct.new(
-      :e_tag,
-      :checksum_algorithm,
-      :member_size,
-      :storage_class,
-      :key,
-      :version_id,
-      :is_latest,
-      :last_modified,
-      :owner,
-      :restore_status,
-      keyword_init: true
-    ) do
+    class ObjectVersion
       include Hearth::Structure
+
+      MEMBERS = %i[
+        e_tag
+        checksum_algorithm
+        size
+        storage_class
+        key
+        version_id
+        is_latest
+        last_modified
+        owner
+        restore_status
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for ObjectVersionStorageClass
@@ -12080,11 +12685,14 @@ module AWS::SDK::S3
     # @!attribute s3
     #   <p>Describes an S3 location that will receive the results of the restore request.</p>
     #   @return [S3Location]
-    OutputLocation = ::Struct.new(
-      :s3,
-      keyword_init: true
-    ) do
+    class OutputLocation
       include Hearth::Structure
+
+      MEMBERS = %i[
+        s3
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Describes how results of the Select job are serialized.</p>
@@ -12098,12 +12706,15 @@ module AWS::SDK::S3
     # @!attribute json
     #   <p>Specifies JSON as request's output serialization format.</p>
     #   @return [JSONOutput]
-    OutputSerialization = ::Struct.new(
-      :csv,
-      :json,
-      keyword_init: true
-    ) do
+    class OutputSerialization
       include Hearth::Structure
+
+      MEMBERS = %i[
+        csv
+        json
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Container for the owner's display name and ID.</p>
@@ -12147,12 +12758,15 @@ module AWS::SDK::S3
     # @!attribute id
     #   <p>Container for the ID of the owner.</p>
     #   @return [String]
-    Owner = ::Struct.new(
-      :display_name,
-      :id,
-      keyword_init: true
-    ) do
+    class Owner
       include Hearth::Structure
+
+      MEMBERS = %i[
+        display_name
+        id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for OwnerOverride
@@ -12167,11 +12781,14 @@ module AWS::SDK::S3
     # @!attribute rules
     #   <p>The container element for an ownership control rule.</p>
     #   @return [Array<OwnershipControlsRule>]
-    OwnershipControls = ::Struct.new(
-      :rules,
-      keyword_init: true
-    ) do
+    class OwnershipControls
       include Hearth::Structure
+
+      MEMBERS = %i[
+        rules
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The container element for an ownership control rule.</p>
@@ -12202,21 +12819,25 @@ module AWS::SDK::S3
     #            </note>
     #   Enum, one of: ["BucketOwnerPreferred", "ObjectWriter", "BucketOwnerEnforced"]
     #   @return [String]
-    OwnershipControlsRule = ::Struct.new(
-      :object_ownership,
-      keyword_init: true
-    ) do
+    class OwnershipControlsRule
       include Hearth::Structure
+
+      MEMBERS = %i[
+        object_ownership
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Container for Parquet.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    ParquetInput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class ParquetInput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Container for elements related to a part.</p>
@@ -12267,18 +12888,21 @@ module AWS::SDK::S3
     #       <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the
     #       <i>Amazon S3 User Guide</i>.</p>
     #   @return [String]
-    Part = ::Struct.new(
-      :part_number,
-      :last_modified,
-      :e_tag,
-      :member_size,
-      :checksum_crc32,
-      :checksum_crc32_c,
-      :checksum_sha1,
-      :checksum_sha256,
-      keyword_init: true
-    ) do
+    class Part
       include Hearth::Structure
+
+      MEMBERS = %i[
+        part_number
+        last_modified
+        e_tag
+        size
+        checksum_crc32
+        checksum_crc32_c
+        checksum_sha1
+        checksum_sha256
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for PartitionDateSource
@@ -12300,11 +12924,14 @@ module AWS::SDK::S3
     #   <p>Specifies the partition date source for the partitioned prefix. PartitionDateSource can be EventTime or DeliveryTime.</p>
     #   Enum, one of: ["EventTime", "DeliveryTime"]
     #   @return [String]
-    PartitionedPrefix = ::Struct.new(
-      :partition_date_source,
-      keyword_init: true
-    ) do
+    class PartitionedPrefix
       include Hearth::Structure
+
+      MEMBERS = %i[
+        partition_date_source
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for Payer
@@ -12335,11 +12962,14 @@ module AWS::SDK::S3
     #   <p>The policy status for this bucket. <code>TRUE</code> indicates that this bucket is
     #            public. <code>FALSE</code> indicates that the bucket is not public.</p>
     #   @return [Boolean]
-    PolicyStatus = ::Struct.new(
-      :is_public,
-      keyword_init: true
-    ) do
+    class PolicyStatus
       include Hearth::Structure
+
+      MEMBERS = %i[
+        is_public
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>This data type contains information about progress of an operation.</p>
@@ -12357,13 +12987,16 @@ module AWS::SDK::S3
     # @!attribute bytes_returned
     #   <p>The current number of bytes of records payload data returned.</p>
     #   @return [Integer]
-    Progress = ::Struct.new(
-      :bytes_scanned,
-      :bytes_processed,
-      :bytes_returned,
-      keyword_init: true
-    ) do
+    class Progress
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bytes_scanned
+        bytes_processed
+        bytes_returned
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>This data type contains information about the progress event of an operation.</p>
@@ -12373,11 +13006,14 @@ module AWS::SDK::S3
     # @!attribute details
     #   <p>The Progress event details.</p>
     #   @return [Progress]
-    ProgressEvent = ::Struct.new(
-      :details,
-      keyword_init: true
-    ) do
+    class ProgressEvent
       include Hearth::Structure
+
+      MEMBERS = %i[
+        details
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for Protocol
@@ -12435,14 +13071,17 @@ module AWS::SDK::S3
     #            public and cross-account access within any public bucket policy, including non-public
     #            delegation to specific accounts, is blocked.</p>
     #   @return [Boolean]
-    PublicAccessBlockConfiguration = ::Struct.new(
-      :block_public_acls,
-      :ignore_public_acls,
-      :block_public_policy,
-      :restrict_public_buckets,
-      keyword_init: true
-    ) do
+    class PublicAccessBlockConfiguration
       include Hearth::Structure
+
+      MEMBERS = %i[
+        block_public_acls
+        ignore_public_acls
+        block_public_policy
+        restrict_public_buckets
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -12470,23 +13109,27 @@ module AWS::SDK::S3
     #               <code>ChecksumAlgorithm</code> parameter.</p>
     #   Enum, one of: ["CRC32", "CRC32C", "SHA1", "SHA256"]
     #   @return [String]
-    PutBucketAccelerateConfigurationInput = ::Struct.new(
-      :bucket,
-      :accelerate_configuration,
-      :expected_bucket_owner,
-      :checksum_algorithm,
-      keyword_init: true
-    ) do
+    class PutBucketAccelerateConfigurationInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        accelerate_configuration
+        expected_bucket_owner
+        checksum_algorithm
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    PutBucketAccelerateConfigurationOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class PutBucketAccelerateConfigurationOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -12551,30 +13194,34 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    PutBucketAclInput = ::Struct.new(
-      :acl,
-      :access_control_policy,
-      :bucket,
-      :content_md5,
-      :checksum_algorithm,
-      :grant_full_control,
-      :grant_read,
-      :grant_read_acp,
-      :grant_write,
-      :grant_write_acp,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class PutBucketAclInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        acl
+        access_control_policy
+        bucket
+        content_md5
+        checksum_algorithm
+        grant_full_control
+        grant_read
+        grant_read_acp
+        grant_write
+        grant_write_acp
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    PutBucketAclOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class PutBucketAclOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -12595,23 +13242,27 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    PutBucketAnalyticsConfigurationInput = ::Struct.new(
-      :bucket,
-      :id,
-      :analytics_configuration,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class PutBucketAnalyticsConfigurationInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        id
+        analytics_configuration
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    PutBucketAnalyticsConfigurationOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class PutBucketAnalyticsConfigurationOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -12651,24 +13302,28 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    PutBucketCorsInput = ::Struct.new(
-      :bucket,
-      :cors_configuration,
-      :content_md5,
-      :checksum_algorithm,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class PutBucketCorsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        cors_configuration
+        content_md5
+        checksum_algorithm
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    PutBucketCorsOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class PutBucketCorsOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -12708,24 +13363,28 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    PutBucketEncryptionInput = ::Struct.new(
-      :bucket,
-      :content_md5,
-      :checksum_algorithm,
-      :server_side_encryption_configuration,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class PutBucketEncryptionInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        content_md5
+        checksum_algorithm
+        server_side_encryption_configuration
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    PutBucketEncryptionOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class PutBucketEncryptionOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -12742,22 +13401,26 @@ module AWS::SDK::S3
     # @!attribute intelligent_tiering_configuration
     #   <p>Container for S3 Intelligent-Tiering configuration.</p>
     #   @return [IntelligentTieringConfiguration]
-    PutBucketIntelligentTieringConfigurationInput = ::Struct.new(
-      :bucket,
-      :id,
-      :intelligent_tiering_configuration,
-      keyword_init: true
-    ) do
+    class PutBucketIntelligentTieringConfigurationInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        id
+        intelligent_tiering_configuration
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    PutBucketIntelligentTieringConfigurationOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class PutBucketIntelligentTieringConfigurationOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -12778,23 +13441,27 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    PutBucketInventoryConfigurationInput = ::Struct.new(
-      :bucket,
-      :id,
-      :inventory_configuration,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class PutBucketInventoryConfigurationInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        id
+        inventory_configuration
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    PutBucketInventoryConfigurationOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class PutBucketInventoryConfigurationOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -12822,23 +13489,27 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    PutBucketLifecycleConfigurationInput = ::Struct.new(
-      :bucket,
-      :checksum_algorithm,
-      :lifecycle_configuration,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class PutBucketLifecycleConfigurationInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        checksum_algorithm
+        lifecycle_configuration
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    PutBucketLifecycleConfigurationOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class PutBucketLifecycleConfigurationOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -12871,24 +13542,28 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    PutBucketLoggingInput = ::Struct.new(
-      :bucket,
-      :bucket_logging_status,
-      :content_md5,
-      :checksum_algorithm,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class PutBucketLoggingInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        bucket_logging_status
+        content_md5
+        checksum_algorithm
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    PutBucketLoggingOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class PutBucketLoggingOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -12910,23 +13585,27 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    PutBucketMetricsConfigurationInput = ::Struct.new(
-      :bucket,
-      :id,
-      :metrics_configuration,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class PutBucketMetricsConfigurationInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        id
+        metrics_configuration
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    PutBucketMetricsConfigurationOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class PutBucketMetricsConfigurationOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -12949,23 +13628,27 @@ module AWS::SDK::S3
     #   <p>Skips validation of Amazon SQS, Amazon SNS, and Lambda
     #            destinations. True or false value.</p>
     #   @return [Boolean]
-    PutBucketNotificationConfigurationInput = ::Struct.new(
-      :bucket,
-      :notification_configuration,
-      :expected_bucket_owner,
-      :skip_destination_validation,
-      keyword_init: true
-    ) do
+    class PutBucketNotificationConfigurationInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        notification_configuration
+        expected_bucket_owner
+        skip_destination_validation
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    PutBucketNotificationConfigurationOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class PutBucketNotificationConfigurationOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -12988,23 +13671,27 @@ module AWS::SDK::S3
     #   <p>The <code>OwnershipControls</code> (BucketOwnerEnforced, BucketOwnerPreferred, or
     #            ObjectWriter) that you want to apply to this Amazon S3 bucket.</p>
     #   @return [OwnershipControls]
-    PutBucketOwnershipControlsInput = ::Struct.new(
-      :bucket,
-      :content_md5,
-      :expected_bucket_owner,
-      :ownership_controls,
-      keyword_init: true
-    ) do
+    class PutBucketOwnershipControlsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        content_md5
+        expected_bucket_owner
+        ownership_controls
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    PutBucketOwnershipControlsOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class PutBucketOwnershipControlsOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -13084,25 +13771,29 @@ module AWS::SDK::S3
     #   <code>501 Not Implemented</code>.</p>
     #            </note>
     #   @return [String]
-    PutBucketPolicyInput = ::Struct.new(
-      :bucket,
-      :content_md5,
-      :checksum_algorithm,
-      :confirm_remove_self_bucket_access,
-      :policy,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class PutBucketPolicyInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        content_md5
+        checksum_algorithm
+        confirm_remove_self_bucket_access
+        policy
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    PutBucketPolicyOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class PutBucketPolicyOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -13142,25 +13833,29 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    PutBucketReplicationInput = ::Struct.new(
-      :bucket,
-      :content_md5,
-      :checksum_algorithm,
-      :replication_configuration,
-      :token,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class PutBucketReplicationInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        content_md5
+        checksum_algorithm
+        replication_configuration
+        token
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    PutBucketReplicationOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class PutBucketReplicationOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -13195,24 +13890,28 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    PutBucketRequestPaymentInput = ::Struct.new(
-      :bucket,
-      :content_md5,
-      :checksum_algorithm,
-      :request_payment_configuration,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class PutBucketRequestPaymentInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        content_md5
+        checksum_algorithm
+        request_payment_configuration
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    PutBucketRequestPaymentOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class PutBucketRequestPaymentOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -13247,24 +13946,28 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    PutBucketTaggingInput = ::Struct.new(
-      :bucket,
-      :content_md5,
-      :checksum_algorithm,
-      :tagging,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class PutBucketTaggingInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        content_md5
+        checksum_algorithm
+        tagging
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    PutBucketTaggingOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class PutBucketTaggingOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -13305,25 +14008,29 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    PutBucketVersioningInput = ::Struct.new(
-      :bucket,
-      :content_md5,
-      :checksum_algorithm,
-      :mfa,
-      :versioning_configuration,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class PutBucketVersioningInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        content_md5
+        checksum_algorithm
+        mfa
+        versioning_configuration
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    PutBucketVersioningOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class PutBucketVersioningOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -13358,24 +14065,28 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    PutBucketWebsiteInput = ::Struct.new(
-      :bucket,
-      :content_md5,
-      :checksum_algorithm,
-      :website_configuration,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class PutBucketWebsiteInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        content_md5
+        checksum_algorithm
+        website_configuration
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    PutBucketWebsiteOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class PutBucketWebsiteOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -13474,24 +14185,27 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    PutObjectAclInput = ::Struct.new(
-      :acl,
-      :access_control_policy,
-      :bucket,
-      :content_md5,
-      :checksum_algorithm,
-      :grant_full_control,
-      :grant_read,
-      :grant_read_acp,
-      :grant_write,
-      :grant_write_acp,
-      :key,
-      :request_payer,
-      :version_id,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class PutObjectAclInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        acl
+        access_control_policy
+        bucket
+        content_md5
+        checksum_algorithm
+        grant_full_control
+        grant_read
+        grant_read_acp
+        grant_write
+        grant_write_acp
+        key
+        request_payer
+        version_id
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -13505,17 +14219,20 @@ module AWS::SDK::S3
     #            </note>
     #   Enum, one of: ["requester"]
     #   @return [String]
-    PutObjectAclOutput = ::Struct.new(
-      :request_charged,
-      keyword_init: true
-    ) do
+    class PutObjectAclOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        request_charged
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [String] :acl
-    #   @option params [String] :body
+    #   @option params [IO] :body
     #   @option params [String] :bucket
     #   @option params [String] :cache_control
     #   @option params [String] :content_disposition
@@ -13583,7 +14300,7 @@ module AWS::SDK::S3
     #   @return [String]
     # @!attribute body
     #   <p>Object data.</p>
-    #   @return [String]
+    #   @return [IO]
     # @!attribute bucket
     #   <p>The bucket name to which the PUT action was initiated. </p>
     #            <p>
@@ -13921,50 +14638,53 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    PutObjectInput = ::Struct.new(
-      :acl,
-      :body,
-      :bucket,
-      :cache_control,
-      :content_disposition,
-      :content_encoding,
-      :content_language,
-      :content_length,
-      :content_md5,
-      :content_type,
-      :checksum_algorithm,
-      :checksum_crc32,
-      :checksum_crc32_c,
-      :checksum_sha1,
-      :checksum_sha256,
-      :expires,
-      :grant_full_control,
-      :grant_read,
-      :grant_read_acp,
-      :grant_write_acp,
-      :key,
-      :metadata,
-      :server_side_encryption,
-      :storage_class,
-      :website_redirect_location,
-      :sse_customer_algorithm,
-      :sse_customer_key,
-      :sse_customer_key_md5,
-      :ssekms_key_id,
-      :ssekms_encryption_context,
-      :bucket_key_enabled,
-      :request_payer,
-      :tagging,
-      :object_lock_mode,
-      :object_lock_retain_until_date,
-      :object_lock_legal_hold_status,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class PutObjectInput
       include Hearth::Structure
 
+      MEMBERS = %i[
+        acl
+        body
+        bucket
+        cache_control
+        content_disposition
+        content_encoding
+        content_language
+        content_length
+        content_md5
+        content_type
+        checksum_algorithm
+        checksum_crc32
+        checksum_crc32_c
+        checksum_sha1
+        checksum_sha256
+        expires
+        grant_full_control
+        grant_read
+        grant_read_acp
+        grant_write_acp
+        key
+        metadata
+        server_side_encryption
+        storage_class
+        website_redirect_location
+        sse_customer_algorithm
+        sse_customer_key
+        sse_customer_key_md5
+        ssekms_key_id
+        ssekms_encryption_context
+        bucket_key_enabled
+        request_payer
+        tagging
+        object_lock_mode
+        object_lock_retain_until_date
+        object_lock_legal_hold_status
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::S3::Types::PutObjectInput "\
+        "#<AWS::SDK::S3::Types::PutObjectInput "\
           "acl=#{acl || 'nil'}, "\
           "body=#{body || 'nil'}, "\
           "bucket=#{bucket || 'nil'}, "\
@@ -14059,18 +14779,21 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    PutObjectLegalHoldInput = ::Struct.new(
-      :bucket,
-      :key,
-      :legal_hold,
-      :request_payer,
-      :version_id,
-      :content_md5,
-      :checksum_algorithm,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class PutObjectLegalHoldInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        key
+        legal_hold
+        request_payer
+        version_id
+        content_md5
+        checksum_algorithm
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -14084,11 +14807,14 @@ module AWS::SDK::S3
     #            </note>
     #   Enum, one of: ["requester"]
     #   @return [String]
-    PutObjectLegalHoldOutput = ::Struct.new(
-      :request_charged,
-      keyword_init: true
-    ) do
+    class PutObjectLegalHoldOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        request_charged
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -14138,17 +14864,20 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    PutObjectLockConfigurationInput = ::Struct.new(
-      :bucket,
-      :object_lock_configuration,
-      :request_payer,
-      :token,
-      :content_md5,
-      :checksum_algorithm,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class PutObjectLockConfigurationInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        object_lock_configuration
+        request_payer
+        token
+        content_md5
+        checksum_algorithm
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -14162,11 +14891,14 @@ module AWS::SDK::S3
     #            </note>
     #   Enum, one of: ["requester"]
     #   @return [String]
-    PutObjectLockConfigurationOutput = ::Struct.new(
-      :request_charged,
-      keyword_init: true
-    ) do
+    class PutObjectLockConfigurationOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        request_charged
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -14298,27 +15030,30 @@ module AWS::SDK::S3
     #            </note>
     #   Enum, one of: ["requester"]
     #   @return [String]
-    PutObjectOutput = ::Struct.new(
-      :expiration,
-      :e_tag,
-      :checksum_crc32,
-      :checksum_crc32_c,
-      :checksum_sha1,
-      :checksum_sha256,
-      :server_side_encryption,
-      :version_id,
-      :sse_customer_algorithm,
-      :sse_customer_key_md5,
-      :ssekms_key_id,
-      :ssekms_encryption_context,
-      :bucket_key_enabled,
-      :request_charged,
-      keyword_init: true
-    ) do
+    class PutObjectOutput
       include Hearth::Structure
 
+      MEMBERS = %i[
+        expiration
+        e_tag
+        checksum_crc32
+        checksum_crc32_c
+        checksum_sha1
+        checksum_sha256
+        server_side_encryption
+        version_id
+        sse_customer_algorithm
+        sse_customer_key_md5
+        ssekms_key_id
+        ssekms_encryption_context
+        bucket_key_enabled
+        request_charged
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::S3::Types::PutObjectOutput "\
+        "#<AWS::SDK::S3::Types::PutObjectOutput "\
           "expiration=#{expiration || 'nil'}, "\
           "e_tag=#{e_tag || 'nil'}, "\
           "checksum_crc32=#{checksum_crc32 || 'nil'}, "\
@@ -14396,19 +15131,22 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    PutObjectRetentionInput = ::Struct.new(
-      :bucket,
-      :key,
-      :retention,
-      :request_payer,
-      :version_id,
-      :bypass_governance_retention,
-      :content_md5,
-      :checksum_algorithm,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class PutObjectRetentionInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        key
+        retention
+        request_payer
+        version_id
+        bypass_governance_retention
+        content_md5
+        checksum_algorithm
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -14422,11 +15160,14 @@ module AWS::SDK::S3
     #            </note>
     #   Enum, one of: ["requester"]
     #   @return [String]
-    PutObjectRetentionOutput = ::Struct.new(
-      :request_charged,
-      keyword_init: true
-    ) do
+    class PutObjectRetentionOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        request_charged
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -14485,18 +15226,21 @@ module AWS::SDK::S3
     #            </note>
     #   Enum, one of: ["requester"]
     #   @return [String]
-    PutObjectTaggingInput = ::Struct.new(
-      :bucket,
-      :key,
-      :version_id,
-      :content_md5,
-      :checksum_algorithm,
-      :tagging,
-      :expected_bucket_owner,
-      :request_payer,
-      keyword_init: true
-    ) do
+    class PutObjectTaggingInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        key
+        version_id
+        content_md5
+        checksum_algorithm
+        tagging
+        expected_bucket_owner
+        request_payer
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -14505,11 +15249,14 @@ module AWS::SDK::S3
     # @!attribute version_id
     #   <p>The versionId of the object the tag-set was added to.</p>
     #   @return [String]
-    PutObjectTaggingOutput = ::Struct.new(
-      :version_id,
-      keyword_init: true
-    ) do
+    class PutObjectTaggingOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        version_id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -14545,24 +15292,28 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    PutPublicAccessBlockInput = ::Struct.new(
-      :bucket,
-      :content_md5,
-      :checksum_algorithm,
-      :public_access_block_configuration,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class PutPublicAccessBlockInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        content_md5
+        checksum_algorithm
+        public_access_block_configuration
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    PutPublicAccessBlockOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class PutPublicAccessBlockOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Specifies the configuration for publishing messages to an Amazon Simple Queue Service
@@ -14590,14 +15341,17 @@ module AWS::SDK::S3
     #               notifications using object key name filtering</a> in the
     #               <i>Amazon S3 User Guide</i>.</p>
     #   @return [NotificationConfigurationFilter]
-    QueueConfiguration = ::Struct.new(
-      :id,
-      :queue_arn,
-      :events,
-      :member_filter,
-      keyword_init: true
-    ) do
+    class QueueConfiguration
       include Hearth::Structure
+
+      MEMBERS = %i[
+        id
+        queue_arn
+        events
+        filter
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for QuoteFields
@@ -14614,11 +15368,14 @@ module AWS::SDK::S3
     # @!attribute payload
     #   <p>The byte array of partial, one or more result records.</p>
     #   @return [String]
-    RecordsEvent = ::Struct.new(
-      :payload,
-      keyword_init: true
-    ) do
+    class RecordsEvent
       include Hearth::Structure
+
+      MEMBERS = %i[
+        payload
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Specifies how requests are redirected. In the event of an error, you can specify a
@@ -14665,15 +15422,18 @@ module AWS::SDK::S3
     #               XML related object key constraints</a>.</p>
     #            </important>
     #   @return [String]
-    Redirect = ::Struct.new(
-      :host_name,
-      :http_redirect_code,
-      :protocol,
-      :replace_key_prefix_with,
-      :replace_key_with,
-      keyword_init: true
-    ) do
+    class Redirect
       include Hearth::Structure
+
+      MEMBERS = %i[
+        host_name
+        http_redirect_code
+        protocol
+        replace_key_prefix_with
+        replace_key_with
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Specifies the redirect behavior of all requests to a website endpoint of an Amazon S3
@@ -14690,12 +15450,15 @@ module AWS::SDK::S3
     #            the original request.</p>
     #   Enum, one of: ["http", "https"]
     #   @return [String]
-    RedirectAllRequestsTo = ::Struct.new(
-      :host_name,
-      :protocol,
-      keyword_init: true
-    ) do
+    class RedirectAllRequestsTo
       include Hearth::Structure
+
+      MEMBERS = %i[
+        host_name
+        protocol
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>A filter that you can specify for selection for modifications on replicas. Amazon S3 doesn't
@@ -14714,11 +15477,14 @@ module AWS::SDK::S3
     #   <p>Specifies whether Amazon S3 replicates modifications on replicas.</p>
     #   Enum, one of: ["Enabled", "Disabled"]
     #   @return [String]
-    ReplicaModifications = ::Struct.new(
-      :status,
-      keyword_init: true
-    ) do
+    class ReplicaModifications
       include Hearth::Structure
+
+      MEMBERS = %i[
+        status
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for ReplicaModificationsStatus
@@ -14743,12 +15509,15 @@ module AWS::SDK::S3
     #   <p>A container for one or more replication rules. A replication configuration must have at
     #            least one rule and can contain a maximum of 1,000 rules. </p>
     #   @return [Array<ReplicationRule>]
-    ReplicationConfiguration = ::Struct.new(
-      :role,
-      :rules,
-      keyword_init: true
-    ) do
+    class ReplicationConfiguration
       include Hearth::Structure
+
+      MEMBERS = %i[
+        role
+        rules
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Specifies which Amazon S3 objects to replicate and where to store the replicas.</p>
@@ -14825,19 +15594,22 @@ module AWS::SDK::S3
     #               replication of delete markers differently. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations">Backward Compatibility</a>.</p>
     #            </note>
     #   @return [DeleteMarkerReplication]
-    ReplicationRule = ::Struct.new(
-      :id,
-      :priority,
-      :prefix,
-      :member_filter,
-      :status,
-      :source_selection_criteria,
-      :existing_object_replication,
-      :destination,
-      :delete_marker_replication,
-      keyword_init: true
-    ) do
+    class ReplicationRule
       include Hearth::Structure
+
+      MEMBERS = %i[
+        id
+        priority
+        prefix
+        filter
+        status
+        source_selection_criteria
+        existing_object_replication
+        destination
+        delete_marker_replication
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>A container for specifying rule filters. The filters determine the subset of objects to
@@ -14864,12 +15636,15 @@ module AWS::SDK::S3
     # @!attribute tags
     #   <p>An array of tags containing key and value pairs.</p>
     #   @return [Array<Tag>]
-    ReplicationRuleAndOperator = ::Struct.new(
-      :prefix,
-      :tags,
-      keyword_init: true
-    ) do
+    class ReplicationRuleAndOperator
       include Hearth::Structure
+
+      MEMBERS = %i[
+        prefix
+        tags
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>A filter that identifies the subset of objects to which the replication rule applies. A
@@ -14978,12 +15753,15 @@ module AWS::SDK::S3
     #   <p> A container specifying the time by which replication should be complete for all objects
     #            and operations on objects. </p>
     #   @return [ReplicationTimeValue]
-    ReplicationTime = ::Struct.new(
-      :status,
-      :time,
-      keyword_init: true
-    ) do
+    class ReplicationTime
       include Hearth::Structure
+
+      MEMBERS = %i[
+        status
+        time
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for ReplicationTimeStatus
@@ -15002,11 +15780,14 @@ module AWS::SDK::S3
     #   <p> Contains an integer specifying time in minutes. </p>
     #            <p> Valid value: 15</p>
     #   @return [Integer]
-    ReplicationTimeValue = ::Struct.new(
-      :minutes,
-      keyword_init: true
-    ) do
+    class ReplicationTimeValue
       include Hearth::Structure
+
+      MEMBERS = %i[
+        minutes
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for RequestCharged
@@ -15041,11 +15822,14 @@ module AWS::SDK::S3
     #   <p>Specifies who pays for the download and request fees.</p>
     #   Enum, one of: ["Requester", "BucketOwner"]
     #   @return [String]
-    RequestPaymentConfiguration = ::Struct.new(
-      :payer,
-      keyword_init: true
-    ) do
+    class RequestPaymentConfiguration
       include Hearth::Structure
+
+      MEMBERS = %i[
+        payer
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Container for specifying if periodic <code>QueryProgress</code> messages should be
@@ -15057,11 +15841,14 @@ module AWS::SDK::S3
     #   <p>Specifies whether periodic QueryProgress frames should be sent. Valid values: TRUE,
     #            FALSE. Default value: FALSE.</p>
     #   @return [Boolean]
-    RequestProgress = ::Struct.new(
-      :enabled,
-      keyword_init: true
-    ) do
+    class RequestProgress
       include Hearth::Structure
+
+      MEMBERS = %i[
+        enabled
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -15115,17 +15902,20 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    RestoreObjectInput = ::Struct.new(
-      :bucket,
-      :key,
-      :version_id,
-      :restore_request,
-      :request_payer,
-      :checksum_algorithm,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class RestoreObjectInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket
+        key
+        version_id
+        restore_request
+        request_payer
+        checksum_algorithm
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -15144,12 +15934,15 @@ module AWS::SDK::S3
     #   <p>Indicates the path in the provided S3 output location where Select results will be
     #            restored to.</p>
     #   @return [String]
-    RestoreObjectOutput = ::Struct.new(
-      :request_charged,
-      :restore_output_path,
-      keyword_init: true
-    ) do
+    class RestoreObjectOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        request_charged
+        restore_output_path
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Container for restore job parameters.</p>
@@ -15189,17 +15982,20 @@ module AWS::SDK::S3
     # @!attribute output_location
     #   <p>Describes the location where the restore job's output is stored.</p>
     #   @return [OutputLocation]
-    RestoreRequest = ::Struct.new(
-      :days,
-      :glacier_job_parameters,
-      :type,
-      :tier,
-      :description,
-      :select_parameters,
-      :output_location,
-      keyword_init: true
-    ) do
+    class RestoreRequest
       include Hearth::Structure
+
+      MEMBERS = %i[
+        days
+        glacier_job_parameters
+        type
+        tier
+        description
+        select_parameters
+        output_location
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for RestoreRequestType
@@ -15240,12 +16036,15 @@ module AWS::SDK::S3
     #               RestoreExpiryDate="2012-12-21T00:00:00.000Z"</code>
     #            </p>
     #   @return [Time]
-    RestoreStatus = ::Struct.new(
-      :is_restore_in_progress,
-      :restore_expiry_date,
-      keyword_init: true
-    ) do
+    class RestoreStatus
       include Hearth::Structure
+
+      MEMBERS = %i[
+        is_restore_in_progress
+        restore_expiry_date
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Specifies the redirect behavior and when a redirect is applied. For more information
@@ -15266,12 +16065,15 @@ module AWS::SDK::S3
     #            another page, or with another protocol. In the event of an error, you can specify a
     #            different error code to return.</p>
     #   @return [Redirect]
-    RoutingRule = ::Struct.new(
-      :condition,
-      :redirect,
-      keyword_init: true
-    ) do
+    class RoutingRule
       include Hearth::Structure
+
+      MEMBERS = %i[
+        condition
+        redirect
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>A container for object key name prefix and suffix filtering rules.</p>
@@ -15282,11 +16084,14 @@ module AWS::SDK::S3
     #   <p>A list of containers for the key-value pair that defines the criteria for the filter
     #            rule.</p>
     #   @return [Array<FilterRule>]
-    S3KeyFilter = ::Struct.new(
-      :filter_rules,
-      keyword_init: true
-    ) do
+    class S3KeyFilter
       include Hearth::Structure
+
+      MEMBERS = %i[
+        filter_rules
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Describes an Amazon S3 location that will receive the results of the restore request.</p>
@@ -15326,18 +16131,21 @@ module AWS::SDK::S3
     #   <p>The class of storage used to store the restore results.</p>
     #   Enum, one of: ["STANDARD", "REDUCED_REDUNDANCY", "STANDARD_IA", "ONEZONE_IA", "INTELLIGENT_TIERING", "GLACIER", "DEEP_ARCHIVE", "OUTPOSTS", "GLACIER_IR", "SNOW", "EXPRESS_ONEZONE"]
     #   @return [String]
-    S3Location = ::Struct.new(
-      :bucket_name,
-      :prefix,
-      :encryption,
-      :canned_acl,
-      :access_control_list,
-      :tagging,
-      :user_metadata,
-      :storage_class,
-      keyword_init: true
-    ) do
+    class S3Location
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bucket_name
+        prefix
+        encryption
+        canned_acl
+        access_control_list
+        tagging
+        user_metadata
+        storage_class
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Specifies the use of SSE-KMS to encrypt delivered inventory reports.</p>
@@ -15348,14 +16156,17 @@ module AWS::SDK::S3
     #   <p>Specifies the ID of the Key Management Service (KMS) symmetric encryption customer managed key to use for
     #            encrypting inventory reports.</p>
     #   @return [String]
-    SSEKMS = ::Struct.new(
-      :key_id,
-      keyword_init: true
-    ) do
+    class SSEKMS
       include Hearth::Structure
 
+      MEMBERS = %i[
+        key_id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::S3::Types::SSEKMS "\
+        "#<AWS::SDK::S3::Types::SSEKMS "\
           "key_id=\"[SENSITIVE]\">"
       end
     end
@@ -15363,11 +16174,12 @@ module AWS::SDK::S3
     # <p>Specifies the use of SSE-S3 to encrypt delivered inventory reports.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    SSES3 = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class SSES3
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Specifies the byte range of the object to get the records from. A record is processed
@@ -15393,12 +16205,15 @@ module AWS::SDK::S3
     #               <code><scanrange><end>50</end></scanrange></code> means scan the
     #            last 50 bytes.</p>
     #   @return [Integer]
-    ScanRange = ::Struct.new(
-      :start,
-      :end,
-      keyword_init: true
-    ) do
+    class ScanRange
       include Hearth::Structure
+
+      MEMBERS = %i[
+        start
+        end
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The container for selecting objects from a content event stream.</p>
@@ -15562,25 +16377,28 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    SelectObjectContentInput = ::Struct.new(
-      :bucket,
-      :key,
-      :sse_customer_algorithm,
-      :sse_customer_key,
-      :sse_customer_key_md5,
-      :expression,
-      :expression_type,
-      :request_progress,
-      :input_serialization,
-      :output_serialization,
-      :scan_range,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class SelectObjectContentInput
       include Hearth::Structure
 
+      MEMBERS = %i[
+        bucket
+        key
+        sse_customer_algorithm
+        sse_customer_key
+        sse_customer_key_md5
+        expression
+        expression_type
+        request_progress
+        input_serialization
+        output_serialization
+        scan_range
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::S3::Types::SelectObjectContentInput "\
+        "#<AWS::SDK::S3::Types::SelectObjectContentInput "\
           "bucket=#{bucket || 'nil'}, "\
           "key=#{key || 'nil'}, "\
           "sse_customer_algorithm=#{sse_customer_algorithm || 'nil'}, "\
@@ -15602,11 +16420,14 @@ module AWS::SDK::S3
     # @!attribute payload
     #   <p>The array of results.</p>
     #   @return [SelectObjectContentEventStream]
-    SelectObjectContentOutput = ::Struct.new(
-      :payload,
-      keyword_init: true
-    ) do
+    class SelectObjectContentOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        payload
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Describes the parameters for Select job types.</p>
@@ -15629,14 +16450,17 @@ module AWS::SDK::S3
     # @!attribute output_serialization
     #   <p>Describes how the results of the Select job are serialized.</p>
     #   @return [OutputSerialization]
-    SelectParameters = ::Struct.new(
-      :input_serialization,
-      :expression_type,
-      :expression,
-      :output_serialization,
-      keyword_init: true
-    ) do
+    class SelectParameters
       include Hearth::Structure
+
+      MEMBERS = %i[
+        input_serialization
+        expression_type
+        expression
+        output_serialization
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for ServerSideEncryption
@@ -15692,15 +16516,18 @@ module AWS::SDK::S3
     #                  Developer Guide</i>.</p>
     #            </important>
     #   @return [String]
-    ServerSideEncryptionByDefault = ::Struct.new(
-      :sse_algorithm,
-      :kms_master_key_id,
-      keyword_init: true
-    ) do
+    class ServerSideEncryptionByDefault
       include Hearth::Structure
 
+      MEMBERS = %i[
+        sse_algorithm
+        kms_master_key_id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::S3::Types::ServerSideEncryptionByDefault "\
+        "#<AWS::SDK::S3::Types::ServerSideEncryptionByDefault "\
           "sse_algorithm=#{sse_algorithm || 'nil'}, "\
           "kms_master_key_id=\"[SENSITIVE]\">"
       end
@@ -15714,11 +16541,14 @@ module AWS::SDK::S3
     #   <p>Container for information about a particular server-side encryption configuration
     #            rule.</p>
     #   @return [Array<ServerSideEncryptionRule>]
-    ServerSideEncryptionConfiguration = ::Struct.new(
-      :rules,
-      keyword_init: true
-    ) do
+    class ServerSideEncryptionConfiguration
       include Hearth::Structure
+
+      MEMBERS = %i[
+        rules
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Specifies the default server-side encryption configuration.</p>
@@ -15739,12 +16569,15 @@ module AWS::SDK::S3
     #            <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html">Amazon S3 Bucket Keys</a> in the
     #               <i>Amazon S3 User Guide</i>.</p>
     #   @return [Boolean]
-    ServerSideEncryptionRule = ::Struct.new(
-      :apply_server_side_encryption_by_default,
-      :bucket_key_enabled,
-      keyword_init: true
-    ) do
+    class ServerSideEncryptionRule
       include Hearth::Structure
+
+      MEMBERS = %i[
+        apply_server_side_encryption_by_default
+        bucket_key_enabled
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The established temporary security credentials of the session.</p>
@@ -15773,17 +16606,20 @@ module AWS::SDK::S3
     #   <p>Temporary security credentials expire after a specified interval. After temporary credentials expire, any calls that you make with those credentials will fail. So you must generate a new set of temporary credentials.
     #            Temporary credentials cannot be extended or refreshed beyond the original specified interval.</p>
     #   @return [Time]
-    SessionCredentials = ::Struct.new(
-      :access_key_id,
-      :secret_access_key,
-      :session_token,
-      :expiration,
-      keyword_init: true
-    ) do
+    class SessionCredentials
       include Hearth::Structure
 
+      MEMBERS = %i[
+        access_key_id
+        secret_access_key
+        session_token
+        expiration
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::S3::Types::SessionCredentials "\
+        "#<AWS::SDK::S3::Types::SessionCredentials "\
           "access_key_id=#{access_key_id || 'nil'}, "\
           "secret_access_key=\"[SENSITIVE]\", "\
           "session_token=\"[SENSITIVE]\", "\
@@ -15804,11 +16640,12 @@ module AWS::SDK::S3
     #          </p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    SimplePrefix = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class SimplePrefix
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>A container that describes additional filters for identifying the source objects that
@@ -15836,12 +16673,15 @@ module AWS::SDK::S3
     #               element is not allowed</p>
     #            </note>
     #   @return [ReplicaModifications]
-    SourceSelectionCriteria = ::Struct.new(
-      :sse_kms_encrypted_objects,
-      :replica_modifications,
-      keyword_init: true
-    ) do
+    class SourceSelectionCriteria
       include Hearth::Structure
+
+      MEMBERS = %i[
+        sse_kms_encrypted_objects
+        replica_modifications
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>A container for filter information for the selection of S3 objects encrypted with Amazon Web Services
@@ -15854,11 +16694,14 @@ module AWS::SDK::S3
     #            Amazon Web Services KMS key stored in Amazon Web Services Key Management Service.</p>
     #   Enum, one of: ["Enabled", "Disabled"]
     #   @return [String]
-    SseKmsEncryptedObjects = ::Struct.new(
-      :status,
-      keyword_init: true
-    ) do
+    class SseKmsEncryptedObjects
       include Hearth::Structure
+
+      MEMBERS = %i[
+        status
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for SseKmsEncryptedObjectsStatus
@@ -15883,13 +16726,16 @@ module AWS::SDK::S3
     # @!attribute bytes_returned
     #   <p>The total number of bytes of records payload data returned.</p>
     #   @return [Integer]
-    Stats = ::Struct.new(
-      :bytes_scanned,
-      :bytes_processed,
-      :bytes_returned,
-      keyword_init: true
-    ) do
+    class Stats
       include Hearth::Structure
+
+      MEMBERS = %i[
+        bytes_scanned
+        bytes_processed
+        bytes_returned
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Container for the Stats Event.</p>
@@ -15899,11 +16745,14 @@ module AWS::SDK::S3
     # @!attribute details
     #   <p>The Stats event details.</p>
     #   @return [Stats]
-    StatsEvent = ::Struct.new(
-      :details,
-      keyword_init: true
-    ) do
+    class StatsEvent
       include Hearth::Structure
+
+      MEMBERS = %i[
+        details
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for StorageClass
@@ -15940,11 +16789,14 @@ module AWS::SDK::S3
     #   <p>Specifies how data related to the storage class analysis for an Amazon S3 bucket should be
     #            exported.</p>
     #   @return [StorageClassAnalysisDataExport]
-    StorageClassAnalysis = ::Struct.new(
-      :data_export,
-      keyword_init: true
-    ) do
+    class StorageClassAnalysis
       include Hearth::Structure
+
+      MEMBERS = %i[
+        data_export
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Container for data related to the storage class analysis for an Amazon S3 bucket for
@@ -15961,12 +16813,15 @@ module AWS::SDK::S3
     # @!attribute destination
     #   <p>The place to store the data for an analysis.</p>
     #   @return [AnalyticsExportDestination]
-    StorageClassAnalysisDataExport = ::Struct.new(
-      :output_schema_version,
-      :destination,
-      keyword_init: true
-    ) do
+    class StorageClassAnalysisDataExport
       include Hearth::Structure
+
+      MEMBERS = %i[
+        output_schema_version
+        destination
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for StorageClassAnalysisSchemaVersion
@@ -15985,12 +16840,15 @@ module AWS::SDK::S3
     # @!attribute value
     #   <p>Value of the tag.</p>
     #   @return [String]
-    Tag = ::Struct.new(
-      :key,
-      :value,
-      keyword_init: true
-    ) do
+    class Tag
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key
+        value
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Container for <code>TagSet</code> elements.</p>
@@ -16000,11 +16858,14 @@ module AWS::SDK::S3
     # @!attribute tag_set
     #   <p>A collection for a set of tags</p>
     #   @return [Array<Tag>]
-    Tagging = ::Struct.new(
-      :tag_set,
-      keyword_init: true
-    ) do
+    class Tagging
       include Hearth::Structure
+
+      MEMBERS = %i[
+        tag_set
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for TaggingDirective
@@ -16029,12 +16890,15 @@ module AWS::SDK::S3
     #   <p>Logging permissions assigned to the grantee for the bucket.</p>
     #   Enum, one of: ["FULL_CONTROL", "READ", "WRITE"]
     #   @return [String]
-    TargetGrant = ::Struct.new(
-      :grantee,
-      :permission,
-      keyword_init: true
-    ) do
+    class TargetGrant
       include Hearth::Structure
+
+      MEMBERS = %i[
+        grantee
+        permission
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Amazon S3 key format for log objects. Only one format, PartitionedPrefix or SimplePrefix, is allowed.</p>
@@ -16048,12 +16912,15 @@ module AWS::SDK::S3
     # @!attribute partitioned_prefix
     #   <p>Partitioned S3 key for log objects.</p>
     #   @return [PartitionedPrefix]
-    TargetObjectKeyFormat = ::Struct.new(
-      :simple_prefix,
-      :partitioned_prefix,
-      keyword_init: true
-    ) do
+    class TargetObjectKeyFormat
       include Hearth::Structure
+
+      MEMBERS = %i[
+        simple_prefix
+        partitioned_prefix
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for Tier
@@ -16084,12 +16951,15 @@ module AWS::SDK::S3
     #            list of access tiers in the S3 Intelligent-Tiering storage class.</p>
     #   Enum, one of: ["ARCHIVE_ACCESS", "DEEP_ARCHIVE_ACCESS"]
     #   @return [String]
-    Tiering = ::Struct.new(
-      :days,
-      :access_tier,
-      keyword_init: true
-    ) do
+    class Tiering
       include Hearth::Structure
+
+      MEMBERS = %i[
+        days
+        access_tier
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>A container for specifying the configuration for publication of messages to an Amazon
@@ -16119,14 +16989,17 @@ module AWS::SDK::S3
     #               notifications using object key name filtering</a> in the
     #               <i>Amazon S3 User Guide</i>.</p>
     #   @return [NotificationConfigurationFilter]
-    TopicConfiguration = ::Struct.new(
-      :id,
-      :topic_arn,
-      :events,
-      :member_filter,
-      keyword_init: true
-    ) do
+    class TopicConfiguration
       include Hearth::Structure
+
+      MEMBERS = %i[
+        id
+        topic_arn
+        events
+        filter
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Specifies when an object transitions to a specified storage class. For more information
@@ -16149,13 +17022,16 @@ module AWS::SDK::S3
     #   <p>The storage class to which you want the object to transition.</p>
     #   Enum, one of: ["GLACIER", "STANDARD_IA", "ONEZONE_IA", "INTELLIGENT_TIERING", "DEEP_ARCHIVE", "GLACIER_IR"]
     #   @return [String]
-    Transition = ::Struct.new(
-      :date,
-      :days,
-      :storage_class,
-      keyword_init: true
-    ) do
+    class Transition
       include Hearth::Structure
+
+      MEMBERS = %i[
+        date
+        days
+        storage_class
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for TransitionStorageClass
@@ -16407,32 +17283,35 @@ module AWS::SDK::S3
     # @!attribute expected_source_bucket_owner
     #   <p>The account ID of the expected source bucket owner. If the account ID that you provide does not match the actual owner of the source bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    UploadPartCopyInput = ::Struct.new(
-      :bucket,
-      :copy_source,
-      :copy_source_if_match,
-      :copy_source_if_modified_since,
-      :copy_source_if_none_match,
-      :copy_source_if_unmodified_since,
-      :copy_source_range,
-      :key,
-      :part_number,
-      :upload_id,
-      :sse_customer_algorithm,
-      :sse_customer_key,
-      :sse_customer_key_md5,
-      :copy_source_sse_customer_algorithm,
-      :copy_source_sse_customer_key,
-      :copy_source_sse_customer_key_md5,
-      :request_payer,
-      :expected_bucket_owner,
-      :expected_source_bucket_owner,
-      keyword_init: true
-    ) do
+    class UploadPartCopyInput
       include Hearth::Structure
 
+      MEMBERS = %i[
+        bucket
+        copy_source
+        copy_source_if_match
+        copy_source_if_modified_since
+        copy_source_if_none_match
+        copy_source_if_unmodified_since
+        copy_source_range
+        key
+        part_number
+        upload_id
+        sse_customer_algorithm
+        sse_customer_key
+        sse_customer_key_md5
+        copy_source_sse_customer_algorithm
+        copy_source_sse_customer_key
+        copy_source_sse_customer_key_md5
+        request_payer
+        expected_bucket_owner
+        expected_source_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::S3::Types::UploadPartCopyInput "\
+        "#<AWS::SDK::S3::Types::UploadPartCopyInput "\
           "bucket=#{bucket || 'nil'}, "\
           "copy_source=#{copy_source || 'nil'}, "\
           "copy_source_if_match=#{copy_source_if_match || 'nil'}, "\
@@ -16520,21 +17399,24 @@ module AWS::SDK::S3
     #            </note>
     #   Enum, one of: ["requester"]
     #   @return [String]
-    UploadPartCopyOutput = ::Struct.new(
-      :copy_source_version_id,
-      :copy_part_result,
-      :server_side_encryption,
-      :sse_customer_algorithm,
-      :sse_customer_key_md5,
-      :ssekms_key_id,
-      :bucket_key_enabled,
-      :request_charged,
-      keyword_init: true
-    ) do
+    class UploadPartCopyOutput
       include Hearth::Structure
 
+      MEMBERS = %i[
+        copy_source_version_id
+        copy_part_result
+        server_side_encryption
+        sse_customer_algorithm
+        sse_customer_key_md5
+        ssekms_key_id
+        bucket_key_enabled
+        request_charged
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::S3::Types::UploadPartCopyOutput "\
+        "#<AWS::SDK::S3::Types::UploadPartCopyOutput "\
           "copy_source_version_id=#{copy_source_version_id || 'nil'}, "\
           "copy_part_result=#{copy_part_result || 'nil'}, "\
           "server_side_encryption=#{server_side_encryption || 'nil'}, "\
@@ -16548,7 +17430,7 @@ module AWS::SDK::S3
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :body
+    #   @option params [IO] :body
     #   @option params [String] :bucket
     #   @option params [Integer] :content_length
     #   @option params [String] :content_md5
@@ -16567,7 +17449,7 @@ module AWS::SDK::S3
     #   @option params [String] :expected_bucket_owner
     # @!attribute body
     #   <p>Object data.</p>
-    #   @return [String]
+    #   @return [IO]
     # @!attribute bucket
     #   <p>The name of the bucket to which the multipart upload was initiated.</p>
     #            <p>
@@ -16684,30 +17566,33 @@ module AWS::SDK::S3
     # @!attribute expected_bucket_owner
     #   <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     #   @return [String]
-    UploadPartInput = ::Struct.new(
-      :body,
-      :bucket,
-      :content_length,
-      :content_md5,
-      :checksum_algorithm,
-      :checksum_crc32,
-      :checksum_crc32_c,
-      :checksum_sha1,
-      :checksum_sha256,
-      :key,
-      :part_number,
-      :upload_id,
-      :sse_customer_algorithm,
-      :sse_customer_key,
-      :sse_customer_key_md5,
-      :request_payer,
-      :expected_bucket_owner,
-      keyword_init: true
-    ) do
+    class UploadPartInput
       include Hearth::Structure
 
+      MEMBERS = %i[
+        body
+        bucket
+        content_length
+        content_md5
+        checksum_algorithm
+        checksum_crc32
+        checksum_crc32_c
+        checksum_sha1
+        checksum_sha256
+        key
+        part_number
+        upload_id
+        sse_customer_algorithm
+        sse_customer_key
+        sse_customer_key_md5
+        request_payer
+        expected_bucket_owner
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::S3::Types::UploadPartInput "\
+        "#<AWS::SDK::S3::Types::UploadPartInput "\
           "body=#{body || 'nil'}, "\
           "bucket=#{bucket || 'nil'}, "\
           "content_length=#{content_length || 'nil'}, "\
@@ -16813,24 +17698,27 @@ module AWS::SDK::S3
     #            </note>
     #   Enum, one of: ["requester"]
     #   @return [String]
-    UploadPartOutput = ::Struct.new(
-      :server_side_encryption,
-      :e_tag,
-      :checksum_crc32,
-      :checksum_crc32_c,
-      :checksum_sha1,
-      :checksum_sha256,
-      :sse_customer_algorithm,
-      :sse_customer_key_md5,
-      :ssekms_key_id,
-      :bucket_key_enabled,
-      :request_charged,
-      keyword_init: true
-    ) do
+    class UploadPartOutput
       include Hearth::Structure
 
+      MEMBERS = %i[
+        server_side_encryption
+        e_tag
+        checksum_crc32
+        checksum_crc32_c
+        checksum_sha1
+        checksum_sha256
+        sse_customer_algorithm
+        sse_customer_key_md5
+        ssekms_key_id
+        bucket_key_enabled
+        request_charged
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::S3::Types::UploadPartOutput "\
+        "#<AWS::SDK::S3::Types::UploadPartOutput "\
           "server_side_encryption=#{server_side_encryption || 'nil'}, "\
           "e_tag=#{e_tag || 'nil'}, "\
           "checksum_crc32=#{checksum_crc32 || 'nil'}, "\
@@ -16861,12 +17749,15 @@ module AWS::SDK::S3
     #   <p>The versioning state of the bucket.</p>
     #   Enum, one of: ["Enabled", "Suspended"]
     #   @return [String]
-    VersioningConfiguration = ::Struct.new(
-      :mfa_delete,
-      :status,
-      keyword_init: true
-    ) do
+    class VersioningConfiguration
       include Hearth::Structure
+
+      MEMBERS = %i[
+        mfa_delete
+        status
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Specifies website configuration parameters for an Amazon S3 bucket.</p>
@@ -16891,21 +17782,24 @@ module AWS::SDK::S3
     # @!attribute routing_rules
     #   <p>Rules that define when a redirect is applied and the redirect behavior.</p>
     #   @return [Array<RoutingRule>]
-    WebsiteConfiguration = ::Struct.new(
-      :error_document,
-      :index_document,
-      :redirect_all_requests_to,
-      :routing_rules,
-      keyword_init: true
-    ) do
+    class WebsiteConfiguration
       include Hearth::Structure
+
+      MEMBERS = %i[
+        error_document
+        index_document
+        redirect_all_requests_to
+        routing_rules
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [String] :request_route
     #   @option params [String] :request_token
-    #   @option params [String] :body
+    #   @option params [IO] :body
     #   @option params [Integer] :status_code
     #   @option params [String] :error_code
     #   @option params [String] :error_message
@@ -16952,7 +17846,7 @@ module AWS::SDK::S3
     #   @return [String]
     # @!attribute body
     #   <p>The object data.</p>
-    #   @return [String]
+    #   @return [IO]
     # @!attribute status_code
     #   <p>The integer status code for an HTTP response of a corresponding <code>GetObject</code>
     #            request. The following is a list of status codes.</p>
@@ -17209,53 +18103,56 @@ module AWS::SDK::S3
     #   <p> Indicates whether the object stored in Amazon S3 uses an S3 bucket key for server-side
     #            encryption with Amazon Web Services KMS (SSE-KMS).</p>
     #   @return [Boolean]
-    WriteGetObjectResponseInput = ::Struct.new(
-      :request_route,
-      :request_token,
-      :body,
-      :status_code,
-      :error_code,
-      :error_message,
-      :accept_ranges,
-      :cache_control,
-      :content_disposition,
-      :content_encoding,
-      :content_language,
-      :content_length,
-      :content_range,
-      :content_type,
-      :checksum_crc32,
-      :checksum_crc32_c,
-      :checksum_sha1,
-      :checksum_sha256,
-      :delete_marker,
-      :e_tag,
-      :expires,
-      :expiration,
-      :last_modified,
-      :missing_meta,
-      :metadata,
-      :object_lock_mode,
-      :object_lock_legal_hold_status,
-      :object_lock_retain_until_date,
-      :parts_count,
-      :replication_status,
-      :request_charged,
-      :restore,
-      :server_side_encryption,
-      :sse_customer_algorithm,
-      :ssekms_key_id,
-      :sse_customer_key_md5,
-      :storage_class,
-      :tag_count,
-      :version_id,
-      :bucket_key_enabled,
-      keyword_init: true
-    ) do
+    class WriteGetObjectResponseInput
       include Hearth::Structure
 
+      MEMBERS = %i[
+        request_route
+        request_token
+        body
+        status_code
+        error_code
+        error_message
+        accept_ranges
+        cache_control
+        content_disposition
+        content_encoding
+        content_language
+        content_length
+        content_range
+        content_type
+        checksum_crc32
+        checksum_crc32_c
+        checksum_sha1
+        checksum_sha256
+        delete_marker
+        e_tag
+        expires
+        expiration
+        last_modified
+        missing_meta
+        metadata
+        object_lock_mode
+        object_lock_legal_hold_status
+        object_lock_retain_until_date
+        parts_count
+        replication_status
+        request_charged
+        restore
+        server_side_encryption
+        sse_customer_algorithm
+        ssekms_key_id
+        sse_customer_key_md5
+        storage_class
+        tag_count
+        version_id
+        bucket_key_enabled
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::S3::Types::WriteGetObjectResponseInput "\
+        "#<AWS::SDK::S3::Types::WriteGetObjectResponseInput "\
           "request_route=#{request_route || 'nil'}, "\
           "request_token=#{request_token || 'nil'}, "\
           "body=#{body || 'nil'}, "\
@@ -17301,11 +18198,12 @@ module AWS::SDK::S3
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    WriteGetObjectResponseOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class WriteGetObjectResponseOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
   end

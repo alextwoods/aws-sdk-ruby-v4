@@ -18,14 +18,14 @@ module AWS::SDK::CloudWatch
       ALARM: ::String
     end
 
-    class AlarmHistoryItem < ::Struct[untyped]
+    class AlarmHistoryItem
       include Hearth::Structure
-      attr_accessor alarm_name (): ::String
-      attr_accessor alarm_type (): ::String
-      attr_accessor timestamp (): ::Time
-      attr_accessor history_item_type (): ::String
-      attr_accessor history_summary (): ::String
-      attr_accessor history_data (): ::String
+      attr_accessor alarm_name (): ::String?
+      attr_accessor alarm_type (): ::String?
+      attr_accessor timestamp (): ::Time?
+      attr_accessor history_item_type (): ::String?
+      attr_accessor history_summary (): ::String?
+      attr_accessor history_data (): ::String?
     end
 
     module AlarmType
@@ -34,22 +34,22 @@ module AWS::SDK::CloudWatch
       METRIC_ALARM: ::String
     end
 
-    class AnomalyDetector < ::Struct[untyped]
+    class AnomalyDetector
       include Hearth::Structure
-      attr_accessor namespace (): ::String
-      attr_accessor metric_name (): ::String
-      attr_accessor dimensions (): ::Array[Types::Dimension]
-      attr_accessor stat (): ::String
-      attr_accessor configuration (): Types::AnomalyDetectorConfiguration
-      attr_accessor state_value (): ::String
-      attr_accessor single_metric_anomaly_detector (): Types::SingleMetricAnomalyDetector
-      attr_accessor metric_math_anomaly_detector (): Types::MetricMathAnomalyDetector
+      attr_accessor namespace (): ::String?
+      attr_accessor metric_name (): ::String?
+      attr_accessor dimensions (): ::Array[Types::Dimension]?
+      attr_accessor stat (): ::String?
+      attr_accessor configuration (): Types::AnomalyDetectorConfiguration?
+      attr_accessor state_value (): ::String?
+      attr_accessor single_metric_anomaly_detector (): Types::SingleMetricAnomalyDetector?
+      attr_accessor metric_math_anomaly_detector (): Types::MetricMathAnomalyDetector?
     end
 
-    class AnomalyDetectorConfiguration < ::Struct[untyped]
+    class AnomalyDetectorConfiguration
       include Hearth::Structure
-      attr_accessor excluded_time_ranges (): ::Array[Types::Range]
-      attr_accessor metric_timezone (): ::String
+      attr_accessor excluded_time_ranges (): ::Array[Types::Range]?
+      attr_accessor metric_timezone (): ::String?
     end
 
     module AnomalyDetectorStateValue
@@ -82,358 +82,358 @@ module AWS::SDK::CloudWatch
       GREATER_THAN_UPPER_THRESHOLD: ::String
     end
 
-    class CompositeAlarm < ::Struct[untyped]
+    class CompositeAlarm
       include Hearth::Structure
-      attr_accessor actions_enabled (): bool
-      attr_accessor alarm_actions (): ::Array[::String]
-      attr_accessor alarm_arn (): ::String
-      attr_accessor alarm_configuration_updated_timestamp (): ::Time
-      attr_accessor alarm_description (): ::String
-      attr_accessor alarm_name (): ::String
-      attr_accessor alarm_rule (): ::String
-      attr_accessor insufficient_data_actions (): ::Array[::String]
-      attr_accessor ok_actions (): ::Array[::String]
-      attr_accessor state_reason (): ::String
-      attr_accessor state_reason_data (): ::String
-      attr_accessor state_updated_timestamp (): ::Time
-      attr_accessor state_value (): ::String
-      attr_accessor state_transitioned_timestamp (): ::Time
-      attr_accessor actions_suppressed_by (): ::String
-      attr_accessor actions_suppressed_reason (): ::String
-      attr_accessor actions_suppressor (): ::String
-      attr_accessor actions_suppressor_wait_period (): ::Integer
-      attr_accessor actions_suppressor_extension_period (): ::Integer
+      attr_accessor actions_enabled (): bool?
+      attr_accessor alarm_actions (): ::Array[::String]?
+      attr_accessor alarm_arn (): ::String?
+      attr_accessor alarm_configuration_updated_timestamp (): ::Time?
+      attr_accessor alarm_description (): ::String?
+      attr_accessor alarm_name (): ::String?
+      attr_accessor alarm_rule (): ::String?
+      attr_accessor insufficient_data_actions (): ::Array[::String]?
+      attr_accessor ok_actions (): ::Array[::String]?
+      attr_accessor state_reason (): ::String?
+      attr_accessor state_reason_data (): ::String?
+      attr_accessor state_updated_timestamp (): ::Time?
+      attr_accessor state_value (): ::String?
+      attr_accessor state_transitioned_timestamp (): ::Time?
+      attr_accessor actions_suppressed_by (): ::String?
+      attr_accessor actions_suppressed_reason (): ::String?
+      attr_accessor actions_suppressor (): ::String?
+      attr_accessor actions_suppressor_wait_period (): ::Integer?
+      attr_accessor actions_suppressor_extension_period (): ::Integer?
     end
 
-    class ConcurrentModificationException < ::Struct[untyped]
+    class ConcurrentModificationException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class DashboardEntry < ::Struct[untyped]
+    class DashboardEntry
       include Hearth::Structure
-      attr_accessor dashboard_name (): ::String
-      attr_accessor dashboard_arn (): ::String
-      attr_accessor last_modified (): ::Time
-      attr_accessor member_size (): ::Integer
+      attr_accessor dashboard_name (): ::String?
+      attr_accessor dashboard_arn (): ::String?
+      attr_accessor last_modified (): ::Time?
+      attr_accessor size (): ::Integer?
     end
 
-    class DashboardInvalidInputError < ::Struct[untyped]
+    class DashboardInvalidInputError
       include Hearth::Structure
-      attr_accessor message (): ::String
-      attr_accessor dashboard_validation_messages (): ::Array[Types::DashboardValidationMessage]
+      attr_accessor message (): ::String?
+      attr_accessor dashboard_validation_messages (): ::Array[Types::DashboardValidationMessage]?
     end
 
-    class DashboardNotFoundError < ::Struct[untyped]
+    class DashboardNotFoundError
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class DashboardValidationMessage < ::Struct[untyped]
+    class DashboardValidationMessage
       include Hearth::Structure
-      attr_accessor data_path (): ::String
-      attr_accessor message (): ::String
+      attr_accessor data_path (): ::String?
+      attr_accessor message (): ::String?
     end
 
-    class Datapoint < ::Struct[untyped]
+    class Datapoint
       include Hearth::Structure
-      attr_accessor timestamp (): ::Time
-      attr_accessor sample_count (): ::Float
-      attr_accessor average (): ::Float
-      attr_accessor member_sum (): ::Float
-      attr_accessor minimum (): ::Float
-      attr_accessor maximum (): ::Float
-      attr_accessor unit (): ::String
-      attr_accessor extended_statistics (): ::Hash[::String, ::Float]
+      attr_accessor timestamp (): ::Time?
+      attr_accessor sample_count (): ::Float?
+      attr_accessor average (): ::Float?
+      attr_accessor sum (): ::Float?
+      attr_accessor minimum (): ::Float?
+      attr_accessor maximum (): ::Float?
+      attr_accessor unit (): ::String?
+      attr_accessor extended_statistics (): ::Hash[::String, ::Float]?
     end
 
-    class DeleteAlarmsInput < ::Struct[untyped]
+    class DeleteAlarmsInput
       include Hearth::Structure
       attr_accessor alarm_names (): ::Array[::String]
     end
 
-    class DeleteAlarmsOutput < ::Struct[untyped]
+    class DeleteAlarmsOutput
       include Hearth::Structure
     end
 
-    class DeleteAnomalyDetectorInput < ::Struct[untyped]
+    class DeleteAnomalyDetectorInput
       include Hearth::Structure
-      attr_accessor namespace (): ::String
-      attr_accessor metric_name (): ::String
-      attr_accessor dimensions (): ::Array[Types::Dimension]
-      attr_accessor stat (): ::String
-      attr_accessor single_metric_anomaly_detector (): Types::SingleMetricAnomalyDetector
-      attr_accessor metric_math_anomaly_detector (): Types::MetricMathAnomalyDetector
+      attr_accessor namespace (): ::String?
+      attr_accessor metric_name (): ::String?
+      attr_accessor dimensions (): ::Array[Types::Dimension]?
+      attr_accessor stat (): ::String?
+      attr_accessor single_metric_anomaly_detector (): Types::SingleMetricAnomalyDetector?
+      attr_accessor metric_math_anomaly_detector (): Types::MetricMathAnomalyDetector?
     end
 
-    class DeleteAnomalyDetectorOutput < ::Struct[untyped]
+    class DeleteAnomalyDetectorOutput
       include Hearth::Structure
     end
 
-    class DeleteDashboardsInput < ::Struct[untyped]
+    class DeleteDashboardsInput
       include Hearth::Structure
       attr_accessor dashboard_names (): ::Array[::String]
     end
 
-    class DeleteDashboardsOutput < ::Struct[untyped]
+    class DeleteDashboardsOutput
       include Hearth::Structure
     end
 
-    class DeleteInsightRulesInput < ::Struct[untyped]
+    class DeleteInsightRulesInput
       include Hearth::Structure
       attr_accessor rule_names (): ::Array[::String]
     end
 
-    class DeleteInsightRulesOutput < ::Struct[untyped]
+    class DeleteInsightRulesOutput
       include Hearth::Structure
-      attr_accessor failures (): ::Array[Types::PartialFailure]
+      attr_accessor failures (): ::Array[Types::PartialFailure]?
     end
 
-    class DeleteMetricStreamInput < ::Struct[untyped]
+    class DeleteMetricStreamInput
       include Hearth::Structure
       attr_accessor name (): ::String
     end
 
-    class DeleteMetricStreamOutput < ::Struct[untyped]
+    class DeleteMetricStreamOutput
       include Hearth::Structure
     end
 
-    class DescribeAlarmHistoryInput < ::Struct[untyped]
+    class DescribeAlarmHistoryInput
       include Hearth::Structure
-      attr_accessor alarm_name (): ::String
-      attr_accessor alarm_types (): ::Array[::String]
-      attr_accessor history_item_type (): ::String
-      attr_accessor start_date (): ::Time
-      attr_accessor end_date (): ::Time
-      attr_accessor max_records (): ::Integer
-      attr_accessor next_token (): ::String
-      attr_accessor scan_by (): ::String
+      attr_accessor alarm_name (): ::String?
+      attr_accessor alarm_types (): ::Array[::String]?
+      attr_accessor history_item_type (): ::String?
+      attr_accessor start_date (): ::Time?
+      attr_accessor end_date (): ::Time?
+      attr_accessor max_records (): ::Integer?
+      attr_accessor next_token (): ::String?
+      attr_accessor scan_by (): ::String?
     end
 
-    class DescribeAlarmHistoryOutput < ::Struct[untyped]
+    class DescribeAlarmHistoryOutput
       include Hearth::Structure
-      attr_accessor alarm_history_items (): ::Array[Types::AlarmHistoryItem]
-      attr_accessor next_token (): ::String
+      attr_accessor alarm_history_items (): ::Array[Types::AlarmHistoryItem]?
+      attr_accessor next_token (): ::String?
     end
 
-    class DescribeAlarmsForMetricInput < ::Struct[untyped]
+    class DescribeAlarmsForMetricInput
       include Hearth::Structure
       attr_accessor metric_name (): ::String
       attr_accessor namespace (): ::String
-      attr_accessor statistic (): ::String
-      attr_accessor extended_statistic (): ::String
-      attr_accessor dimensions (): ::Array[Types::Dimension]
-      attr_accessor period (): ::Integer
-      attr_accessor unit (): ::String
+      attr_accessor statistic (): ::String?
+      attr_accessor extended_statistic (): ::String?
+      attr_accessor dimensions (): ::Array[Types::Dimension]?
+      attr_accessor period (): ::Integer?
+      attr_accessor unit (): ::String?
     end
 
-    class DescribeAlarmsForMetricOutput < ::Struct[untyped]
+    class DescribeAlarmsForMetricOutput
       include Hearth::Structure
-      attr_accessor metric_alarms (): ::Array[Types::MetricAlarm]
+      attr_accessor metric_alarms (): ::Array[Types::MetricAlarm]?
     end
 
-    class DescribeAlarmsInput < ::Struct[untyped]
+    class DescribeAlarmsInput
       include Hearth::Structure
-      attr_accessor alarm_names (): ::Array[::String]
-      attr_accessor alarm_name_prefix (): ::String
-      attr_accessor alarm_types (): ::Array[::String]
-      attr_accessor children_of_alarm_name (): ::String
-      attr_accessor parents_of_alarm_name (): ::String
-      attr_accessor state_value (): ::String
-      attr_accessor action_prefix (): ::String
-      attr_accessor max_records (): ::Integer
-      attr_accessor next_token (): ::String
+      attr_accessor alarm_names (): ::Array[::String]?
+      attr_accessor alarm_name_prefix (): ::String?
+      attr_accessor alarm_types (): ::Array[::String]?
+      attr_accessor children_of_alarm_name (): ::String?
+      attr_accessor parents_of_alarm_name (): ::String?
+      attr_accessor state_value (): ::String?
+      attr_accessor action_prefix (): ::String?
+      attr_accessor max_records (): ::Integer?
+      attr_accessor next_token (): ::String?
     end
 
-    class DescribeAlarmsOutput < ::Struct[untyped]
+    class DescribeAlarmsOutput
       include Hearth::Structure
-      attr_accessor composite_alarms (): ::Array[Types::CompositeAlarm]
-      attr_accessor metric_alarms (): ::Array[Types::MetricAlarm]
-      attr_accessor next_token (): ::String
+      attr_accessor composite_alarms (): ::Array[Types::CompositeAlarm]?
+      attr_accessor metric_alarms (): ::Array[Types::MetricAlarm]?
+      attr_accessor next_token (): ::String?
     end
 
-    class DescribeAnomalyDetectorsInput < ::Struct[untyped]
+    class DescribeAnomalyDetectorsInput
       include Hearth::Structure
-      attr_accessor next_token (): ::String
-      attr_accessor max_results (): ::Integer
-      attr_accessor namespace (): ::String
-      attr_accessor metric_name (): ::String
-      attr_accessor dimensions (): ::Array[Types::Dimension]
-      attr_accessor anomaly_detector_types (): ::Array[::String]
+      attr_accessor next_token (): ::String?
+      attr_accessor max_results (): ::Integer?
+      attr_accessor namespace (): ::String?
+      attr_accessor metric_name (): ::String?
+      attr_accessor dimensions (): ::Array[Types::Dimension]?
+      attr_accessor anomaly_detector_types (): ::Array[::String]?
     end
 
-    class DescribeAnomalyDetectorsOutput < ::Struct[untyped]
+    class DescribeAnomalyDetectorsOutput
       include Hearth::Structure
-      attr_accessor anomaly_detectors (): ::Array[Types::AnomalyDetector]
-      attr_accessor next_token (): ::String
+      attr_accessor anomaly_detectors (): ::Array[Types::AnomalyDetector]?
+      attr_accessor next_token (): ::String?
     end
 
-    class DescribeInsightRulesInput < ::Struct[untyped]
+    class DescribeInsightRulesInput
       include Hearth::Structure
-      attr_accessor next_token (): ::String
-      attr_accessor max_results (): ::Integer
+      attr_accessor next_token (): ::String?
+      attr_accessor max_results (): ::Integer?
     end
 
-    class DescribeInsightRulesOutput < ::Struct[untyped]
+    class DescribeInsightRulesOutput
       include Hearth::Structure
-      attr_accessor next_token (): ::String
-      attr_accessor insight_rules (): ::Array[Types::InsightRule]
+      attr_accessor next_token (): ::String?
+      attr_accessor insight_rules (): ::Array[Types::InsightRule]?
     end
 
-    class Dimension < ::Struct[untyped]
+    class Dimension
       include Hearth::Structure
       attr_accessor name (): ::String
       attr_accessor value (): ::String
     end
 
-    class DimensionFilter < ::Struct[untyped]
+    class DimensionFilter
       include Hearth::Structure
       attr_accessor name (): ::String
-      attr_accessor value (): ::String
+      attr_accessor value (): ::String?
     end
 
-    class DisableAlarmActionsInput < ::Struct[untyped]
+    class DisableAlarmActionsInput
       include Hearth::Structure
       attr_accessor alarm_names (): ::Array[::String]
     end
 
-    class DisableAlarmActionsOutput < ::Struct[untyped]
+    class DisableAlarmActionsOutput
       include Hearth::Structure
     end
 
-    class DisableInsightRulesInput < ::Struct[untyped]
+    class DisableInsightRulesInput
       include Hearth::Structure
       attr_accessor rule_names (): ::Array[::String]
     end
 
-    class DisableInsightRulesOutput < ::Struct[untyped]
+    class DisableInsightRulesOutput
       include Hearth::Structure
-      attr_accessor failures (): ::Array[Types::PartialFailure]
+      attr_accessor failures (): ::Array[Types::PartialFailure]?
     end
 
-    class EnableAlarmActionsInput < ::Struct[untyped]
+    class EnableAlarmActionsInput
       include Hearth::Structure
       attr_accessor alarm_names (): ::Array[::String]
     end
 
-    class EnableAlarmActionsOutput < ::Struct[untyped]
+    class EnableAlarmActionsOutput
       include Hearth::Structure
     end
 
-    class EnableInsightRulesInput < ::Struct[untyped]
+    class EnableInsightRulesInput
       include Hearth::Structure
       attr_accessor rule_names (): ::Array[::String]
     end
 
-    class EnableInsightRulesOutput < ::Struct[untyped]
+    class EnableInsightRulesOutput
       include Hearth::Structure
-      attr_accessor failures (): ::Array[Types::PartialFailure]
+      attr_accessor failures (): ::Array[Types::PartialFailure]?
     end
 
     module EvaluationState
       PARTIAL_DATA: ::String
     end
 
-    class GetDashboardInput < ::Struct[untyped]
+    class GetDashboardInput
       include Hearth::Structure
       attr_accessor dashboard_name (): ::String
     end
 
-    class GetDashboardOutput < ::Struct[untyped]
+    class GetDashboardOutput
       include Hearth::Structure
-      attr_accessor dashboard_arn (): ::String
-      attr_accessor dashboard_body (): ::String
-      attr_accessor dashboard_name (): ::String
+      attr_accessor dashboard_arn (): ::String?
+      attr_accessor dashboard_body (): ::String?
+      attr_accessor dashboard_name (): ::String?
     end
 
-    class GetInsightRuleReportInput < ::Struct[untyped]
+    class GetInsightRuleReportInput
       include Hearth::Structure
       attr_accessor rule_name (): ::String
       attr_accessor start_time (): ::Time
       attr_accessor end_time (): ::Time
       attr_accessor period (): ::Integer
-      attr_accessor max_contributor_count (): ::Integer
-      attr_accessor metrics (): ::Array[::String]
-      attr_accessor order_by (): ::String
+      attr_accessor max_contributor_count (): ::Integer?
+      attr_accessor metrics (): ::Array[::String]?
+      attr_accessor order_by (): ::String?
     end
 
-    class GetInsightRuleReportOutput < ::Struct[untyped]
+    class GetInsightRuleReportOutput
       include Hearth::Structure
-      attr_accessor key_labels (): ::Array[::String]
-      attr_accessor aggregation_statistic (): ::String
-      attr_accessor aggregate_value (): ::Float
-      attr_accessor approximate_unique_count (): ::Integer
-      attr_accessor contributors (): ::Array[Types::InsightRuleContributor]
-      attr_accessor metric_datapoints (): ::Array[Types::InsightRuleMetricDatapoint]
+      attr_accessor key_labels (): ::Array[::String]?
+      attr_accessor aggregation_statistic (): ::String?
+      attr_accessor aggregate_value (): ::Float?
+      attr_accessor approximate_unique_count (): ::Integer?
+      attr_accessor contributors (): ::Array[Types::InsightRuleContributor]?
+      attr_accessor metric_datapoints (): ::Array[Types::InsightRuleMetricDatapoint]?
     end
 
-    class GetMetricDataInput < ::Struct[untyped]
+    class GetMetricDataInput
       include Hearth::Structure
       attr_accessor metric_data_queries (): ::Array[Types::MetricDataQuery]
       attr_accessor start_time (): ::Time
       attr_accessor end_time (): ::Time
-      attr_accessor next_token (): ::String
-      attr_accessor scan_by (): ::String
-      attr_accessor max_datapoints (): ::Integer
-      attr_accessor label_options (): Types::LabelOptions
+      attr_accessor next_token (): ::String?
+      attr_accessor scan_by (): ::String?
+      attr_accessor max_datapoints (): ::Integer?
+      attr_accessor label_options (): Types::LabelOptions?
     end
 
-    class GetMetricDataOutput < ::Struct[untyped]
+    class GetMetricDataOutput
       include Hearth::Structure
-      attr_accessor metric_data_results (): ::Array[Types::MetricDataResult]
-      attr_accessor next_token (): ::String
-      attr_accessor messages (): ::Array[Types::MessageData]
+      attr_accessor metric_data_results (): ::Array[Types::MetricDataResult]?
+      attr_accessor next_token (): ::String?
+      attr_accessor messages (): ::Array[Types::MessageData]?
     end
 
-    class GetMetricStatisticsInput < ::Struct[untyped]
+    class GetMetricStatisticsInput
       include Hearth::Structure
       attr_accessor namespace (): ::String
       attr_accessor metric_name (): ::String
-      attr_accessor dimensions (): ::Array[Types::Dimension]
+      attr_accessor dimensions (): ::Array[Types::Dimension]?
       attr_accessor start_time (): ::Time
       attr_accessor end_time (): ::Time
       attr_accessor period (): ::Integer
-      attr_accessor statistics (): ::Array[::String]
-      attr_accessor extended_statistics (): ::Array[::String]
-      attr_accessor unit (): ::String
+      attr_accessor statistics (): ::Array[::String]?
+      attr_accessor extended_statistics (): ::Array[::String]?
+      attr_accessor unit (): ::String?
     end
 
-    class GetMetricStatisticsOutput < ::Struct[untyped]
+    class GetMetricStatisticsOutput
       include Hearth::Structure
-      attr_accessor label (): ::String
-      attr_accessor datapoints (): ::Array[Types::Datapoint]
+      attr_accessor label (): ::String?
+      attr_accessor datapoints (): ::Array[Types::Datapoint]?
     end
 
-    class GetMetricStreamInput < ::Struct[untyped]
+    class GetMetricStreamInput
       include Hearth::Structure
       attr_accessor name (): ::String
     end
 
-    class GetMetricStreamOutput < ::Struct[untyped]
+    class GetMetricStreamOutput
       include Hearth::Structure
-      attr_accessor arn (): ::String
-      attr_accessor name (): ::String
-      attr_accessor include_filters (): ::Array[Types::MetricStreamFilter]
-      attr_accessor exclude_filters (): ::Array[Types::MetricStreamFilter]
-      attr_accessor firehose_arn (): ::String
-      attr_accessor role_arn (): ::String
-      attr_accessor state (): ::String
-      attr_accessor creation_date (): ::Time
-      attr_accessor last_update_date (): ::Time
-      attr_accessor output_format (): ::String
-      attr_accessor statistics_configurations (): ::Array[Types::MetricStreamStatisticsConfiguration]
-      attr_accessor include_linked_accounts_metrics (): bool
+      attr_accessor arn (): ::String?
+      attr_accessor name (): ::String?
+      attr_accessor include_filters (): ::Array[Types::MetricStreamFilter]?
+      attr_accessor exclude_filters (): ::Array[Types::MetricStreamFilter]?
+      attr_accessor firehose_arn (): ::String?
+      attr_accessor role_arn (): ::String?
+      attr_accessor state (): ::String?
+      attr_accessor creation_date (): ::Time?
+      attr_accessor last_update_date (): ::Time?
+      attr_accessor output_format (): ::String?
+      attr_accessor statistics_configurations (): ::Array[Types::MetricStreamStatisticsConfiguration]?
+      attr_accessor include_linked_accounts_metrics (): bool?
     end
 
-    class GetMetricWidgetImageInput < ::Struct[untyped]
+    class GetMetricWidgetImageInput
       include Hearth::Structure
       attr_accessor metric_widget (): ::String
-      attr_accessor output_format (): ::String
+      attr_accessor output_format (): ::String?
     end
 
-    class GetMetricWidgetImageOutput < ::Struct[untyped]
+    class GetMetricWidgetImageOutput
       include Hearth::Structure
-      attr_accessor metric_widget_image (): ::String
+      attr_accessor metric_widget_image (): ::String?
     end
 
     module HistoryItemType
@@ -444,273 +444,273 @@ module AWS::SDK::CloudWatch
       ACTION: ::String
     end
 
-    class InsightRule < ::Struct[untyped]
+    class InsightRule
       include Hearth::Structure
       attr_accessor name (): ::String
       attr_accessor state (): ::String
       attr_accessor schema (): ::String
       attr_accessor definition (): ::String
-      attr_accessor managed_rule (): bool
+      attr_accessor managed_rule (): bool?
     end
 
-    class InsightRuleContributor < ::Struct[untyped]
+    class InsightRuleContributor
       include Hearth::Structure
       attr_accessor keys (): ::Array[::String]
       attr_accessor approximate_aggregate_value (): ::Float
       attr_accessor datapoints (): ::Array[Types::InsightRuleContributorDatapoint]
     end
 
-    class InsightRuleContributorDatapoint < ::Struct[untyped]
+    class InsightRuleContributorDatapoint
       include Hearth::Structure
       attr_accessor timestamp (): ::Time
       attr_accessor approximate_value (): ::Float
     end
 
-    class InsightRuleMetricDatapoint < ::Struct[untyped]
+    class InsightRuleMetricDatapoint
       include Hearth::Structure
       attr_accessor timestamp (): ::Time
-      attr_accessor unique_contributors (): ::Float
-      attr_accessor max_contributor_value (): ::Float
-      attr_accessor sample_count (): ::Float
-      attr_accessor average (): ::Float
-      attr_accessor member_sum (): ::Float
-      attr_accessor minimum (): ::Float
-      attr_accessor maximum (): ::Float
+      attr_accessor unique_contributors (): ::Float?
+      attr_accessor max_contributor_value (): ::Float?
+      attr_accessor sample_count (): ::Float?
+      attr_accessor average (): ::Float?
+      attr_accessor sum (): ::Float?
+      attr_accessor minimum (): ::Float?
+      attr_accessor maximum (): ::Float?
     end
 
-    class InternalServiceFault < ::Struct[untyped]
+    class InternalServiceFault
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class InvalidFormatFault < ::Struct[untyped]
+    class InvalidFormatFault
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class InvalidNextToken < ::Struct[untyped]
+    class InvalidNextToken
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class InvalidParameterCombinationException < ::Struct[untyped]
+    class InvalidParameterCombinationException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class InvalidParameterValueException < ::Struct[untyped]
+    class InvalidParameterValueException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class LabelOptions < ::Struct[untyped]
+    class LabelOptions
       include Hearth::Structure
-      attr_accessor timezone (): ::String
+      attr_accessor timezone (): ::String?
     end
 
-    class LimitExceededException < ::Struct[untyped]
+    class LimitExceededException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class LimitExceededFault < ::Struct[untyped]
+    class LimitExceededFault
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class ListDashboardsInput < ::Struct[untyped]
+    class ListDashboardsInput
       include Hearth::Structure
-      attr_accessor dashboard_name_prefix (): ::String
-      attr_accessor next_token (): ::String
+      attr_accessor dashboard_name_prefix (): ::String?
+      attr_accessor next_token (): ::String?
     end
 
-    class ListDashboardsOutput < ::Struct[untyped]
+    class ListDashboardsOutput
       include Hearth::Structure
-      attr_accessor dashboard_entries (): ::Array[Types::DashboardEntry]
-      attr_accessor next_token (): ::String
+      attr_accessor dashboard_entries (): ::Array[Types::DashboardEntry]?
+      attr_accessor next_token (): ::String?
     end
 
-    class ListManagedInsightRulesInput < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor resource_arn (): ::String
-      attr_accessor next_token (): ::String
-      attr_accessor max_results (): ::Integer
-    end
-
-    class ListManagedInsightRulesOutput < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor managed_rules (): ::Array[Types::ManagedRuleDescription]
-      attr_accessor next_token (): ::String
-    end
-
-    class ListMetricStreamsInput < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor next_token (): ::String
-      attr_accessor max_results (): ::Integer
-    end
-
-    class ListMetricStreamsOutput < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor next_token (): ::String
-      attr_accessor member_entries (): ::Array[Types::MetricStreamEntry]
-    end
-
-    class ListMetricsInput < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor namespace (): ::String
-      attr_accessor metric_name (): ::String
-      attr_accessor dimensions (): ::Array[Types::DimensionFilter]
-      attr_accessor next_token (): ::String
-      attr_accessor recently_active (): ::String
-      attr_accessor include_linked_accounts (): bool
-      attr_accessor owning_account (): ::String
-    end
-
-    class ListMetricsOutput < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor metrics (): ::Array[Types::Metric]
-      attr_accessor next_token (): ::String
-      attr_accessor owning_accounts (): ::Array[::String]
-    end
-
-    class ListTagsForResourceInput < ::Struct[untyped]
+    class ListManagedInsightRulesInput
       include Hearth::Structure
       attr_accessor resource_arn (): ::String
+      attr_accessor next_token (): ::String?
+      attr_accessor max_results (): ::Integer?
     end
 
-    class ListTagsForResourceOutput < ::Struct[untyped]
+    class ListManagedInsightRulesOutput
       include Hearth::Structure
-      attr_accessor tags (): ::Array[Types::Tag]
+      attr_accessor managed_rules (): ::Array[Types::ManagedRuleDescription]?
+      attr_accessor next_token (): ::String?
     end
 
-    class ManagedRule < ::Struct[untyped]
+    class ListMetricStreamsInput
+      include Hearth::Structure
+      attr_accessor next_token (): ::String?
+      attr_accessor max_results (): ::Integer?
+    end
+
+    class ListMetricStreamsOutput
+      include Hearth::Structure
+      attr_accessor next_token (): ::String?
+      attr_accessor entries (): ::Array[Types::MetricStreamEntry]?
+    end
+
+    class ListMetricsInput
+      include Hearth::Structure
+      attr_accessor namespace (): ::String?
+      attr_accessor metric_name (): ::String?
+      attr_accessor dimensions (): ::Array[Types::DimensionFilter]?
+      attr_accessor next_token (): ::String?
+      attr_accessor recently_active (): ::String?
+      attr_accessor include_linked_accounts (): bool?
+      attr_accessor owning_account (): ::String?
+    end
+
+    class ListMetricsOutput
+      include Hearth::Structure
+      attr_accessor metrics (): ::Array[Types::Metric]?
+      attr_accessor next_token (): ::String?
+      attr_accessor owning_accounts (): ::Array[::String]?
+    end
+
+    class ListTagsForResourceInput
+      include Hearth::Structure
+      attr_accessor resource_arn (): ::String
+    end
+
+    class ListTagsForResourceOutput
+      include Hearth::Structure
+      attr_accessor tags (): ::Array[Types::Tag]?
+    end
+
+    class ManagedRule
       include Hearth::Structure
       attr_accessor template_name (): ::String
       attr_accessor resource_arn (): ::String
-      attr_accessor tags (): ::Array[Types::Tag]
+      attr_accessor tags (): ::Array[Types::Tag]?
     end
 
-    class ManagedRuleDescription < ::Struct[untyped]
+    class ManagedRuleDescription
       include Hearth::Structure
-      attr_accessor template_name (): ::String
-      attr_accessor resource_arn (): ::String
-      attr_accessor rule_state (): Types::ManagedRuleState
+      attr_accessor template_name (): ::String?
+      attr_accessor resource_arn (): ::String?
+      attr_accessor rule_state (): Types::ManagedRuleState?
     end
 
-    class ManagedRuleState < ::Struct[untyped]
+    class ManagedRuleState
       include Hearth::Structure
       attr_accessor rule_name (): ::String
       attr_accessor state (): ::String
     end
 
-    class MessageData < ::Struct[untyped]
+    class MessageData
       include Hearth::Structure
-      attr_accessor code (): ::String
-      attr_accessor value (): ::String
+      attr_accessor code (): ::String?
+      attr_accessor value (): ::String?
     end
 
-    class Metric < ::Struct[untyped]
+    class Metric
       include Hearth::Structure
-      attr_accessor namespace (): ::String
-      attr_accessor metric_name (): ::String
-      attr_accessor dimensions (): ::Array[Types::Dimension]
+      attr_accessor namespace (): ::String?
+      attr_accessor metric_name (): ::String?
+      attr_accessor dimensions (): ::Array[Types::Dimension]?
     end
 
-    class MetricAlarm < ::Struct[untyped]
+    class MetricAlarm
       include Hearth::Structure
-      attr_accessor alarm_name (): ::String
-      attr_accessor alarm_arn (): ::String
-      attr_accessor alarm_description (): ::String
-      attr_accessor alarm_configuration_updated_timestamp (): ::Time
-      attr_accessor actions_enabled (): bool
-      attr_accessor ok_actions (): ::Array[::String]
-      attr_accessor alarm_actions (): ::Array[::String]
-      attr_accessor insufficient_data_actions (): ::Array[::String]
-      attr_accessor state_value (): ::String
-      attr_accessor state_reason (): ::String
-      attr_accessor state_reason_data (): ::String
-      attr_accessor state_updated_timestamp (): ::Time
-      attr_accessor metric_name (): ::String
-      attr_accessor namespace (): ::String
-      attr_accessor statistic (): ::String
-      attr_accessor extended_statistic (): ::String
-      attr_accessor dimensions (): ::Array[Types::Dimension]
-      attr_accessor period (): ::Integer
-      attr_accessor unit (): ::String
-      attr_accessor evaluation_periods (): ::Integer
-      attr_accessor datapoints_to_alarm (): ::Integer
-      attr_accessor threshold (): ::Float
-      attr_accessor comparison_operator (): ::String
-      attr_accessor treat_missing_data (): ::String
-      attr_accessor evaluate_low_sample_count_percentile (): ::String
-      attr_accessor metrics (): ::Array[Types::MetricDataQuery]
-      attr_accessor threshold_metric_id (): ::String
-      attr_accessor evaluation_state (): ::String
-      attr_accessor state_transitioned_timestamp (): ::Time
+      attr_accessor alarm_name (): ::String?
+      attr_accessor alarm_arn (): ::String?
+      attr_accessor alarm_description (): ::String?
+      attr_accessor alarm_configuration_updated_timestamp (): ::Time?
+      attr_accessor actions_enabled (): bool?
+      attr_accessor ok_actions (): ::Array[::String]?
+      attr_accessor alarm_actions (): ::Array[::String]?
+      attr_accessor insufficient_data_actions (): ::Array[::String]?
+      attr_accessor state_value (): ::String?
+      attr_accessor state_reason (): ::String?
+      attr_accessor state_reason_data (): ::String?
+      attr_accessor state_updated_timestamp (): ::Time?
+      attr_accessor metric_name (): ::String?
+      attr_accessor namespace (): ::String?
+      attr_accessor statistic (): ::String?
+      attr_accessor extended_statistic (): ::String?
+      attr_accessor dimensions (): ::Array[Types::Dimension]?
+      attr_accessor period (): ::Integer?
+      attr_accessor unit (): ::String?
+      attr_accessor evaluation_periods (): ::Integer?
+      attr_accessor datapoints_to_alarm (): ::Integer?
+      attr_accessor threshold (): ::Float?
+      attr_accessor comparison_operator (): ::String?
+      attr_accessor treat_missing_data (): ::String?
+      attr_accessor evaluate_low_sample_count_percentile (): ::String?
+      attr_accessor metrics (): ::Array[Types::MetricDataQuery]?
+      attr_accessor threshold_metric_id (): ::String?
+      attr_accessor evaluation_state (): ::String?
+      attr_accessor state_transitioned_timestamp (): ::Time?
     end
 
-    class MetricDataQuery < ::Struct[untyped]
-      include Hearth::Structure
-      attr_accessor id (): ::String
-      attr_accessor metric_stat (): Types::MetricStat
-      attr_accessor expression (): ::String
-      attr_accessor label (): ::String
-      attr_accessor return_data (): bool
-      attr_accessor period (): ::Integer
-      attr_accessor account_id (): ::String
-    end
-
-    class MetricDataResult < ::Struct[untyped]
+    class MetricDataQuery
       include Hearth::Structure
       attr_accessor id (): ::String
-      attr_accessor label (): ::String
-      attr_accessor timestamps (): ::Array[::Time]
-      attr_accessor member_values (): ::Array[::Float]
-      attr_accessor status_code (): ::String
-      attr_accessor messages (): ::Array[Types::MessageData]
+      attr_accessor metric_stat (): Types::MetricStat?
+      attr_accessor expression (): ::String?
+      attr_accessor label (): ::String?
+      attr_accessor return_data (): bool?
+      attr_accessor period (): ::Integer?
+      attr_accessor account_id (): ::String?
     end
 
-    class MetricDatum < ::Struct[untyped]
+    class MetricDataResult
+      include Hearth::Structure
+      attr_accessor id (): ::String?
+      attr_accessor label (): ::String?
+      attr_accessor timestamps (): ::Array[::Time]?
+      attr_accessor values (): ::Array[::Float]?
+      attr_accessor status_code (): ::String?
+      attr_accessor messages (): ::Array[Types::MessageData]?
+    end
+
+    class MetricDatum
       include Hearth::Structure
       attr_accessor metric_name (): ::String
-      attr_accessor dimensions (): ::Array[Types::Dimension]
-      attr_accessor timestamp (): ::Time
-      attr_accessor value (): ::Float
-      attr_accessor statistic_values (): Types::StatisticSet
-      attr_accessor member_values (): ::Array[::Float]
-      attr_accessor counts (): ::Array[::Float]
-      attr_accessor unit (): ::String
-      attr_accessor storage_resolution (): ::Integer
+      attr_accessor dimensions (): ::Array[Types::Dimension]?
+      attr_accessor timestamp (): ::Time?
+      attr_accessor value (): ::Float?
+      attr_accessor statistic_values (): Types::StatisticSet?
+      attr_accessor values (): ::Array[::Float]?
+      attr_accessor counts (): ::Array[::Float]?
+      attr_accessor unit (): ::String?
+      attr_accessor storage_resolution (): ::Integer?
     end
 
-    class MetricMathAnomalyDetector < ::Struct[untyped]
+    class MetricMathAnomalyDetector
       include Hearth::Structure
-      attr_accessor metric_data_queries (): ::Array[Types::MetricDataQuery]
+      attr_accessor metric_data_queries (): ::Array[Types::MetricDataQuery]?
     end
 
-    class MetricStat < ::Struct[untyped]
+    class MetricStat
       include Hearth::Structure
       attr_accessor metric (): Types::Metric
       attr_accessor period (): ::Integer
       attr_accessor stat (): ::String
-      attr_accessor unit (): ::String
+      attr_accessor unit (): ::String?
     end
 
-    class MetricStreamEntry < ::Struct[untyped]
+    class MetricStreamEntry
       include Hearth::Structure
-      attr_accessor arn (): ::String
-      attr_accessor creation_date (): ::Time
-      attr_accessor last_update_date (): ::Time
-      attr_accessor name (): ::String
-      attr_accessor firehose_arn (): ::String
-      attr_accessor state (): ::String
-      attr_accessor output_format (): ::String
+      attr_accessor arn (): ::String?
+      attr_accessor creation_date (): ::Time?
+      attr_accessor last_update_date (): ::Time?
+      attr_accessor name (): ::String?
+      attr_accessor firehose_arn (): ::String?
+      attr_accessor state (): ::String?
+      attr_accessor output_format (): ::String?
     end
 
-    class MetricStreamFilter < ::Struct[untyped]
+    class MetricStreamFilter
       include Hearth::Structure
-      attr_accessor namespace (): ::String
-      attr_accessor metric_names (): ::Array[::String]
+      attr_accessor namespace (): ::String?
+      attr_accessor metric_names (): ::Array[::String]?
     end
 
     module MetricStreamOutputFormat
@@ -721,157 +721,157 @@ module AWS::SDK::CloudWatch
       OPEN_TELEMETRY_1_0: ::String
     end
 
-    class MetricStreamStatisticsConfiguration < ::Struct[untyped]
+    class MetricStreamStatisticsConfiguration
       include Hearth::Structure
       attr_accessor include_metrics (): ::Array[Types::MetricStreamStatisticsMetric]
       attr_accessor additional_statistics (): ::Array[::String]
     end
 
-    class MetricStreamStatisticsMetric < ::Struct[untyped]
+    class MetricStreamStatisticsMetric
       include Hearth::Structure
       attr_accessor namespace (): ::String
       attr_accessor metric_name (): ::String
     end
 
-    class MissingRequiredParameterException < ::Struct[untyped]
+    class MissingRequiredParameterException
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class PartialFailure < ::Struct[untyped]
+    class PartialFailure
       include Hearth::Structure
-      attr_accessor failure_resource (): ::String
-      attr_accessor exception_type (): ::String
-      attr_accessor failure_code (): ::String
-      attr_accessor failure_description (): ::String
+      attr_accessor failure_resource (): ::String?
+      attr_accessor exception_type (): ::String?
+      attr_accessor failure_code (): ::String?
+      attr_accessor failure_description (): ::String?
     end
 
-    class PutAnomalyDetectorInput < ::Struct[untyped]
+    class PutAnomalyDetectorInput
       include Hearth::Structure
-      attr_accessor namespace (): ::String
-      attr_accessor metric_name (): ::String
-      attr_accessor dimensions (): ::Array[Types::Dimension]
-      attr_accessor stat (): ::String
-      attr_accessor configuration (): Types::AnomalyDetectorConfiguration
-      attr_accessor single_metric_anomaly_detector (): Types::SingleMetricAnomalyDetector
-      attr_accessor metric_math_anomaly_detector (): Types::MetricMathAnomalyDetector
+      attr_accessor namespace (): ::String?
+      attr_accessor metric_name (): ::String?
+      attr_accessor dimensions (): ::Array[Types::Dimension]?
+      attr_accessor stat (): ::String?
+      attr_accessor configuration (): Types::AnomalyDetectorConfiguration?
+      attr_accessor single_metric_anomaly_detector (): Types::SingleMetricAnomalyDetector?
+      attr_accessor metric_math_anomaly_detector (): Types::MetricMathAnomalyDetector?
     end
 
-    class PutAnomalyDetectorOutput < ::Struct[untyped]
+    class PutAnomalyDetectorOutput
       include Hearth::Structure
     end
 
-    class PutCompositeAlarmInput < ::Struct[untyped]
+    class PutCompositeAlarmInput
       include Hearth::Structure
-      attr_accessor actions_enabled (): bool
-      attr_accessor alarm_actions (): ::Array[::String]
-      attr_accessor alarm_description (): ::String
+      attr_accessor actions_enabled (): bool?
+      attr_accessor alarm_actions (): ::Array[::String]?
+      attr_accessor alarm_description (): ::String?
       attr_accessor alarm_name (): ::String
       attr_accessor alarm_rule (): ::String
-      attr_accessor insufficient_data_actions (): ::Array[::String]
-      attr_accessor ok_actions (): ::Array[::String]
-      attr_accessor tags (): ::Array[Types::Tag]
-      attr_accessor actions_suppressor (): ::String
-      attr_accessor actions_suppressor_wait_period (): ::Integer
-      attr_accessor actions_suppressor_extension_period (): ::Integer
+      attr_accessor insufficient_data_actions (): ::Array[::String]?
+      attr_accessor ok_actions (): ::Array[::String]?
+      attr_accessor tags (): ::Array[Types::Tag]?
+      attr_accessor actions_suppressor (): ::String?
+      attr_accessor actions_suppressor_wait_period (): ::Integer?
+      attr_accessor actions_suppressor_extension_period (): ::Integer?
     end
 
-    class PutCompositeAlarmOutput < ::Struct[untyped]
+    class PutCompositeAlarmOutput
       include Hearth::Structure
     end
 
-    class PutDashboardInput < ::Struct[untyped]
+    class PutDashboardInput
       include Hearth::Structure
       attr_accessor dashboard_name (): ::String
       attr_accessor dashboard_body (): ::String
     end
 
-    class PutDashboardOutput < ::Struct[untyped]
+    class PutDashboardOutput
       include Hearth::Structure
-      attr_accessor dashboard_validation_messages (): ::Array[Types::DashboardValidationMessage]
+      attr_accessor dashboard_validation_messages (): ::Array[Types::DashboardValidationMessage]?
     end
 
-    class PutInsightRuleInput < ::Struct[untyped]
+    class PutInsightRuleInput
       include Hearth::Structure
       attr_accessor rule_name (): ::String
-      attr_accessor rule_state (): ::String
+      attr_accessor rule_state (): ::String?
       attr_accessor rule_definition (): ::String
-      attr_accessor tags (): ::Array[Types::Tag]
+      attr_accessor tags (): ::Array[Types::Tag]?
     end
 
-    class PutInsightRuleOutput < ::Struct[untyped]
+    class PutInsightRuleOutput
       include Hearth::Structure
     end
 
-    class PutManagedInsightRulesInput < ::Struct[untyped]
+    class PutManagedInsightRulesInput
       include Hearth::Structure
       attr_accessor managed_rules (): ::Array[Types::ManagedRule]
     end
 
-    class PutManagedInsightRulesOutput < ::Struct[untyped]
+    class PutManagedInsightRulesOutput
       include Hearth::Structure
-      attr_accessor failures (): ::Array[Types::PartialFailure]
+      attr_accessor failures (): ::Array[Types::PartialFailure]?
     end
 
-    class PutMetricAlarmInput < ::Struct[untyped]
+    class PutMetricAlarmInput
       include Hearth::Structure
       attr_accessor alarm_name (): ::String
-      attr_accessor alarm_description (): ::String
-      attr_accessor actions_enabled (): bool
-      attr_accessor ok_actions (): ::Array[::String]
-      attr_accessor alarm_actions (): ::Array[::String]
-      attr_accessor insufficient_data_actions (): ::Array[::String]
-      attr_accessor metric_name (): ::String
-      attr_accessor namespace (): ::String
-      attr_accessor statistic (): ::String
-      attr_accessor extended_statistic (): ::String
-      attr_accessor dimensions (): ::Array[Types::Dimension]
-      attr_accessor period (): ::Integer
-      attr_accessor unit (): ::String
+      attr_accessor alarm_description (): ::String?
+      attr_accessor actions_enabled (): bool?
+      attr_accessor ok_actions (): ::Array[::String]?
+      attr_accessor alarm_actions (): ::Array[::String]?
+      attr_accessor insufficient_data_actions (): ::Array[::String]?
+      attr_accessor metric_name (): ::String?
+      attr_accessor namespace (): ::String?
+      attr_accessor statistic (): ::String?
+      attr_accessor extended_statistic (): ::String?
+      attr_accessor dimensions (): ::Array[Types::Dimension]?
+      attr_accessor period (): ::Integer?
+      attr_accessor unit (): ::String?
       attr_accessor evaluation_periods (): ::Integer
-      attr_accessor datapoints_to_alarm (): ::Integer
-      attr_accessor threshold (): ::Float
+      attr_accessor datapoints_to_alarm (): ::Integer?
+      attr_accessor threshold (): ::Float?
       attr_accessor comparison_operator (): ::String
-      attr_accessor treat_missing_data (): ::String
-      attr_accessor evaluate_low_sample_count_percentile (): ::String
-      attr_accessor metrics (): ::Array[Types::MetricDataQuery]
-      attr_accessor tags (): ::Array[Types::Tag]
-      attr_accessor threshold_metric_id (): ::String
+      attr_accessor treat_missing_data (): ::String?
+      attr_accessor evaluate_low_sample_count_percentile (): ::String?
+      attr_accessor metrics (): ::Array[Types::MetricDataQuery]?
+      attr_accessor tags (): ::Array[Types::Tag]?
+      attr_accessor threshold_metric_id (): ::String?
     end
 
-    class PutMetricAlarmOutput < ::Struct[untyped]
+    class PutMetricAlarmOutput
       include Hearth::Structure
     end
 
-    class PutMetricDataInput < ::Struct[untyped]
+    class PutMetricDataInput
       include Hearth::Structure
       attr_accessor namespace (): ::String
       attr_accessor metric_data (): ::Array[Types::MetricDatum]
     end
 
-    class PutMetricDataOutput < ::Struct[untyped]
+    class PutMetricDataOutput
       include Hearth::Structure
     end
 
-    class PutMetricStreamInput < ::Struct[untyped]
+    class PutMetricStreamInput
       include Hearth::Structure
       attr_accessor name (): ::String
-      attr_accessor include_filters (): ::Array[Types::MetricStreamFilter]
-      attr_accessor exclude_filters (): ::Array[Types::MetricStreamFilter]
+      attr_accessor include_filters (): ::Array[Types::MetricStreamFilter]?
+      attr_accessor exclude_filters (): ::Array[Types::MetricStreamFilter]?
       attr_accessor firehose_arn (): ::String
       attr_accessor role_arn (): ::String
       attr_accessor output_format (): ::String
-      attr_accessor tags (): ::Array[Types::Tag]
-      attr_accessor statistics_configurations (): ::Array[Types::MetricStreamStatisticsConfiguration]
-      attr_accessor include_linked_accounts_metrics (): bool
+      attr_accessor tags (): ::Array[Types::Tag]?
+      attr_accessor statistics_configurations (): ::Array[Types::MetricStreamStatisticsConfiguration]?
+      attr_accessor include_linked_accounts_metrics (): bool?
     end
 
-    class PutMetricStreamOutput < ::Struct[untyped]
+    class PutMetricStreamOutput
       include Hearth::Structure
-      attr_accessor arn (): ::String
+      attr_accessor arn (): ::String?
     end
 
-    class Range < ::Struct[untyped]
+    class Range
       include Hearth::Structure
       attr_accessor start_time (): ::Time
       attr_accessor end_time (): ::Time
@@ -881,16 +881,16 @@ module AWS::SDK::CloudWatch
       PT3_H: ::String
     end
 
-    class ResourceNotFound < ::Struct[untyped]
+    class ResourceNotFound
       include Hearth::Structure
-      attr_accessor message (): ::String
+      attr_accessor message (): ::String?
     end
 
-    class ResourceNotFoundException < ::Struct[untyped]
+    class ResourceNotFoundException
       include Hearth::Structure
-      attr_accessor resource_type (): ::String
-      attr_accessor resource_id (): ::String
-      attr_accessor message (): ::String
+      attr_accessor resource_type (): ::String?
+      attr_accessor resource_id (): ::String?
+      attr_accessor message (): ::String?
     end
 
     module ScanBy
@@ -899,24 +899,24 @@ module AWS::SDK::CloudWatch
       TIMESTAMP_ASCENDING: ::String
     end
 
-    class SetAlarmStateInput < ::Struct[untyped]
+    class SetAlarmStateInput
       include Hearth::Structure
       attr_accessor alarm_name (): ::String
       attr_accessor state_value (): ::String
       attr_accessor state_reason (): ::String
-      attr_accessor state_reason_data (): ::String
+      attr_accessor state_reason_data (): ::String?
     end
 
-    class SetAlarmStateOutput < ::Struct[untyped]
+    class SetAlarmStateOutput
       include Hearth::Structure
     end
 
-    class SingleMetricAnomalyDetector < ::Struct[untyped]
+    class SingleMetricAnomalyDetector
       include Hearth::Structure
-      attr_accessor namespace (): ::String
-      attr_accessor metric_name (): ::String
-      attr_accessor dimensions (): ::Array[Types::Dimension]
-      attr_accessor stat (): ::String
+      attr_accessor namespace (): ::String?
+      attr_accessor metric_name (): ::String?
+      attr_accessor dimensions (): ::Array[Types::Dimension]?
+      attr_accessor stat (): ::String?
     end
 
     module StandardUnit
@@ -975,12 +975,12 @@ module AWS::SDK::CloudWatch
       NONE: ::String
     end
 
-    class StartMetricStreamsInput < ::Struct[untyped]
+    class StartMetricStreamsInput
       include Hearth::Structure
       attr_accessor names (): ::Array[::String]
     end
 
-    class StartMetricStreamsOutput < ::Struct[untyped]
+    class StartMetricStreamsOutput
       include Hearth::Structure
     end
 
@@ -1004,7 +1004,7 @@ module AWS::SDK::CloudWatch
       MAXIMUM: ::String
     end
 
-    class StatisticSet < ::Struct[untyped]
+    class StatisticSet
       include Hearth::Structure
       attr_accessor sample_count (): ::Float
       attr_accessor member_sum (): ::Float
@@ -1022,38 +1022,38 @@ module AWS::SDK::CloudWatch
       FORBIDDEN: ::String
     end
 
-    class StopMetricStreamsInput < ::Struct[untyped]
+    class StopMetricStreamsInput
       include Hearth::Structure
       attr_accessor names (): ::Array[::String]
     end
 
-    class StopMetricStreamsOutput < ::Struct[untyped]
+    class StopMetricStreamsOutput
       include Hearth::Structure
     end
 
-    class Tag < ::Struct[untyped]
+    class Tag
       include Hearth::Structure
       attr_accessor key (): ::String
       attr_accessor value (): ::String
     end
 
-    class TagResourceInput < ::Struct[untyped]
+    class TagResourceInput
       include Hearth::Structure
       attr_accessor resource_arn (): ::String
       attr_accessor tags (): ::Array[Types::Tag]
     end
 
-    class TagResourceOutput < ::Struct[untyped]
+    class TagResourceOutput
       include Hearth::Structure
     end
 
-    class UntagResourceInput < ::Struct[untyped]
+    class UntagResourceInput
       include Hearth::Structure
       attr_accessor resource_arn (): ::String
       attr_accessor tag_keys (): ::Array[::String]
     end
 
-    class UntagResourceOutput < ::Struct[untyped]
+    class UntagResourceOutput
       include Hearth::Structure
     end
 

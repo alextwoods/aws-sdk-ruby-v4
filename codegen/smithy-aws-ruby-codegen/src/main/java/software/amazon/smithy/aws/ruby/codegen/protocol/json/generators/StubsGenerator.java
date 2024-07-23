@@ -15,6 +15,8 @@
 
 package software.amazon.smithy.aws.ruby.codegen.protocol.json.generators;
 
+import java.util.Optional;
+import java.util.stream.Stream;
 import software.amazon.smithy.model.shapes.BlobShape;
 import software.amazon.smithy.model.shapes.DoubleShape;
 import software.amazon.smithy.model.shapes.FloatShape;
@@ -37,9 +39,6 @@ import software.amazon.smithy.ruby.codegen.RubyImportContainer;
 import software.amazon.smithy.ruby.codegen.generators.StubsGeneratorBase;
 import software.amazon.smithy.ruby.codegen.traits.NoSerializeTrait;
 import software.amazon.smithy.ruby.codegen.util.TimestampFormat;
-
-import java.util.Optional;
-import java.util.stream.Stream;
 
 public class StubsGenerator extends StubsGeneratorBase {
 
@@ -88,7 +87,8 @@ public class StubsGenerator extends StubsGeneratorBase {
                     Shape memberTarget =
                             model.expectShape(shape.getMember().getTarget());
                     memberTarget
-                            .accept(new MemberSerializer(shape.getMember(), "data << ", "element", !shape.hasTrait(SparseTrait.class)));
+                            .accept(new MemberSerializer(shape.getMember(), "data << ", "element",
+                                    !shape.hasTrait(SparseTrait.class)));
                 })
                 .closeBlock("end")
                 .write("data")
@@ -105,7 +105,8 @@ public class StubsGenerator extends StubsGeneratorBase {
                 .call(() -> {
                     Shape valueTarget = model.expectShape(shape.getValue().getTarget());
                     valueTarget
-                            .accept(new MemberSerializer(shape.getValue(), "data[key] = ", "value", !shape.hasTrait(SparseTrait.class)));
+                            .accept(new MemberSerializer(shape.getValue(), "data[key] = ", "value",
+                                    !shape.hasTrait(SparseTrait.class)));
                 })
                 .closeBlock("end")
                 .write("data")
@@ -171,11 +172,9 @@ public class StubsGenerator extends StubsGeneratorBase {
 
         serializeMembers.forEach((member) -> {
             Shape target = model.expectShape(member.getTarget());
-
-            String symbolName = ":" + symbolProvider.toMemberName(member);
             String dataName = "'" + member.getMemberName() + "'";
             String dataSetter = "data[" + dataName + "] = ";
-            String inputGetter = "stub[" + symbolName + "]";
+            String inputGetter = "stub." + symbolProvider.toMemberName(member);
             target.accept(new MemberSerializer(member, dataSetter, inputGetter, true));
         });
     }

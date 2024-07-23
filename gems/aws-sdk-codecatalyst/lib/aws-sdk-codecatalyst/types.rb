@@ -16,11 +16,14 @@ module AWS::SDK::CodeCatalyst
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    AccessDeniedException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class AccessDeniedException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Information about a specified personal access token (PAT).</p>
@@ -38,13 +41,16 @@ module AWS::SDK::CodeCatalyst
     # @!attribute expires_time
     #   <p>The date and time when the personal access token will expire, in coordinated universal time (UTC) timestamp format as specified in <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339</a>.</p>
     #   @return [Time]
-    AccessTokenSummary = ::Struct.new(
-      :id,
-      :name,
-      :expires_time,
-      keyword_init: true
-    ) do
+    class AccessTokenSummary
       include Hearth::Structure
+
+      MEMBERS = %i[
+        id
+        name
+        expires_time
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for ComparisonOperator
@@ -69,11 +75,14 @@ module AWS::SDK::CodeCatalyst
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    ConflictException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class ConflictException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -86,12 +95,15 @@ module AWS::SDK::CodeCatalyst
     # @!attribute expires_time
     #   <p>The date and time the personal access token expires, in coordinated universal time (UTC) timestamp format as specified in <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339</a>.</p>
     #   @return [Time]
-    CreateAccessTokenInput = ::Struct.new(
-      :name,
-      :expires_time,
-      keyword_init: true
-    ) do
+    class CreateAccessTokenInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        name
+        expires_time
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -112,17 +124,20 @@ module AWS::SDK::CodeCatalyst
     # @!attribute access_token_id
     #   <p>The system-generated unique ID of the access token.</p>
     #   @return [String]
-    CreateAccessTokenOutput = ::Struct.new(
-      :secret,
-      :name,
-      :expires_time,
-      :access_token_id,
-      keyword_init: true
-    ) do
+    class CreateAccessTokenOutput
       include Hearth::Structure
 
+      MEMBERS = %i[
+        secret
+        name
+        expires_time
+        access_token_id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::CodeCatalyst::Types::CreateAccessTokenOutput "\
+        "#<AWS::SDK::CodeCatalyst::Types::CreateAccessTokenOutput "\
           "secret=\"[SENSITIVE]\", "\
           "name=#{name || 'nil'}, "\
           "expires_time=#{expires_time || 'nil'}, "\
@@ -185,20 +200,23 @@ module AWS::SDK::CodeCatalyst
     # @!attribute vpc_connection_name
     #   <p>The name of the connection that will be used to connect to Amazon VPC, if any.</p>
     #   @return [String]
-    CreateDevEnvironmentInput = ::Struct.new(
-      :space_name,
-      :project_name,
-      :repositories,
-      :client_token,
-      :alias,
-      :ides,
-      :instance_type,
-      :inactivity_timeout_minutes,
-      :persistent_storage,
-      :vpc_connection_name,
-      keyword_init: true
-    ) do
+    class CreateDevEnvironmentInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        space_name
+        project_name
+        repositories
+        client_token
+        alias
+        ides
+        instance_type
+        inactivity_timeout_minutes
+        persistent_storage
+        vpc_connection_name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -219,14 +237,17 @@ module AWS::SDK::CodeCatalyst
     # @!attribute vpc_connection_name
     #   <p>The name of the connection used to connect to Amazon VPC used when the Dev Environment was created, if any.</p>
     #   @return [String]
-    CreateDevEnvironmentOutput = ::Struct.new(
-      :space_name,
-      :project_name,
-      :id,
-      :vpc_connection_name,
-      keyword_init: true
-    ) do
+    class CreateDevEnvironmentOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        space_name
+        project_name
+        id
+        vpc_connection_name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -243,13 +264,16 @@ module AWS::SDK::CodeCatalyst
     # @!attribute description
     #   <p>The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.</p>
     #   @return [String]
-    CreateProjectInput = ::Struct.new(
-      :space_name,
-      :display_name,
-      :description,
-      keyword_init: true
-    ) do
+    class CreateProjectInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        space_name
+        display_name
+        description
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -270,14 +294,17 @@ module AWS::SDK::CodeCatalyst
     # @!attribute description
     #   <p>The description of the project.</p>
     #   @return [String]
-    CreateProjectOutput = ::Struct.new(
-      :space_name,
-      :name,
-      :display_name,
-      :description,
-      keyword_init: true
-    ) do
+    class CreateProjectOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        space_name
+        name
+        display_name
+        description
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -302,15 +329,18 @@ module AWS::SDK::CodeCatalyst
     # @!attribute head_commit_id
     #   <p>The commit ID in an existing branch from which you want to create the new branch.</p>
     #   @return [String]
-    CreateSourceRepositoryBranchInput = ::Struct.new(
-      :space_name,
-      :project_name,
-      :source_repository_name,
-      :name,
-      :head_commit_id,
-      keyword_init: true
-    ) do
+    class CreateSourceRepositoryBranchInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        space_name
+        project_name
+        source_repository_name
+        name
+        head_commit_id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -331,14 +361,17 @@ module AWS::SDK::CodeCatalyst
     # @!attribute head_commit_id
     #   <p>The commit ID of the tip of the newly created branch.</p>
     #   @return [String]
-    CreateSourceRepositoryBranchOutput = ::Struct.new(
-      :ref,
-      :name,
-      :last_updated_time,
-      :head_commit_id,
-      keyword_init: true
-    ) do
+    class CreateSourceRepositoryBranchOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        ref
+        name
+        last_updated_time
+        head_commit_id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -359,14 +392,17 @@ module AWS::SDK::CodeCatalyst
     # @!attribute description
     #   <p>The description of the source repository.</p>
     #   @return [String]
-    CreateSourceRepositoryInput = ::Struct.new(
-      :space_name,
-      :project_name,
-      :name,
-      :description,
-      keyword_init: true
-    ) do
+    class CreateSourceRepositoryInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        space_name
+        project_name
+        name
+        description
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -387,14 +423,17 @@ module AWS::SDK::CodeCatalyst
     # @!attribute description
     #   <p>The description of the source repository.</p>
     #   @return [String]
-    CreateSourceRepositoryOutput = ::Struct.new(
-      :space_name,
-      :project_name,
-      :name,
-      :description,
-      keyword_init: true
-    ) do
+    class CreateSourceRepositoryOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        space_name
+        project_name
+        name
+        description
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -403,20 +442,24 @@ module AWS::SDK::CodeCatalyst
     # @!attribute id
     #   <p>The ID of the personal access token to delete. You can find the IDs of all PATs associated with your Amazon Web Services Builder ID in a space by calling <a>ListAccessTokens</a>.</p>
     #   @return [String]
-    DeleteAccessTokenInput = ::Struct.new(
-      :id,
-      keyword_init: true
-    ) do
+    class DeleteAccessTokenInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    DeleteAccessTokenOutput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class DeleteAccessTokenOutput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -433,13 +476,16 @@ module AWS::SDK::CodeCatalyst
     # @!attribute id
     #   <p>The system-generated unique ID of the Dev Environment you want to delete. To retrieve a list of Dev Environment IDs, use <a>ListDevEnvironments</a>.</p>
     #   @return [String]
-    DeleteDevEnvironmentInput = ::Struct.new(
-      :space_name,
-      :project_name,
-      :id,
-      keyword_init: true
-    ) do
+    class DeleteDevEnvironmentInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        space_name
+        project_name
+        id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -456,13 +502,16 @@ module AWS::SDK::CodeCatalyst
     # @!attribute id
     #   <p>The system-generated unique ID of the deleted Dev Environment. </p>
     #   @return [String]
-    DeleteDevEnvironmentOutput = ::Struct.new(
-      :space_name,
-      :project_name,
-      :id,
-      keyword_init: true
-    ) do
+    class DeleteDevEnvironmentOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        space_name
+        project_name
+        id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -475,12 +524,15 @@ module AWS::SDK::CodeCatalyst
     # @!attribute name
     #   <p>The name of the project in the space. To retrieve a list of project names, use <a>ListProjects</a>.</p>
     #   @return [String]
-    DeleteProjectInput = ::Struct.new(
-      :space_name,
-      :name,
-      keyword_init: true
-    ) do
+    class DeleteProjectInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        space_name
+        name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -497,13 +549,16 @@ module AWS::SDK::CodeCatalyst
     # @!attribute display_name
     #   <p>The friendly name displayed to users of the project in Amazon CodeCatalyst.</p>
     #   @return [String]
-    DeleteProjectOutput = ::Struct.new(
-      :space_name,
-      :name,
-      :display_name,
-      keyword_init: true
-    ) do
+    class DeleteProjectOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        space_name
+        name
+        display_name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -520,13 +575,16 @@ module AWS::SDK::CodeCatalyst
     # @!attribute name
     #   <p>The name of the source repository.</p>
     #   @return [String]
-    DeleteSourceRepositoryInput = ::Struct.new(
-      :space_name,
-      :project_name,
-      :name,
-      keyword_init: true
-    ) do
+    class DeleteSourceRepositoryInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        space_name
+        project_name
+        name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -543,13 +601,16 @@ module AWS::SDK::CodeCatalyst
     # @!attribute name
     #   <p>The name of the repository.</p>
     #   @return [String]
-    DeleteSourceRepositoryOutput = ::Struct.new(
-      :space_name,
-      :project_name,
-      :name,
-      keyword_init: true
-    ) do
+    class DeleteSourceRepositoryOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        space_name
+        project_name
+        name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -558,11 +619,14 @@ module AWS::SDK::CodeCatalyst
     # @!attribute name
     #   <p>The name of the space.  To retrieve a list of space names, use <a>ListSpaces</a>.</p>
     #   @return [String]
-    DeleteSpaceInput = ::Struct.new(
-      :name,
-      keyword_init: true
-    ) do
+    class DeleteSpaceInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -575,12 +639,15 @@ module AWS::SDK::CodeCatalyst
     # @!attribute display_name
     #   <p>The friendly name of the space displayed to users of the space in Amazon CodeCatalyst.</p>
     #   @return [String]
-    DeleteSpaceOutput = ::Struct.new(
-      :name,
-      :display_name,
-      keyword_init: true
-    ) do
+    class DeleteSpaceOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        name
+        display_name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Information about connection details for a Dev Environment.</p>
@@ -596,15 +663,18 @@ module AWS::SDK::CodeCatalyst
     # @!attribute token_value
     #   <p>An encrypted token value that contains session and caller information used to authenticate the connection.</p>
     #   @return [String]
-    DevEnvironmentAccessDetails = ::Struct.new(
-      :stream_url,
-      :token_value,
-      keyword_init: true
-    ) do
+    class DevEnvironmentAccessDetails
       include Hearth::Structure
 
+      MEMBERS = %i[
+        stream_url
+        token_value
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::CodeCatalyst::Types::DevEnvironmentAccessDetails [SENSITIVE]>"
+        "#<AWS::SDK::CodeCatalyst::Types::DevEnvironmentAccessDetails [SENSITIVE]>"
       end
     end
 
@@ -619,12 +689,15 @@ module AWS::SDK::CodeCatalyst
     # @!attribute branch_name
     #   <p>The name of the branch in a source repository cloned into the Dev Environment. </p>
     #   @return [String]
-    DevEnvironmentRepositorySummary = ::Struct.new(
-      :repository_name,
-      :branch_name,
-      keyword_init: true
-    ) do
+    class DevEnvironmentRepositorySummary
       include Hearth::Structure
+
+      MEMBERS = %i[
+        repository_name
+        branch_name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Information about the configuration of a Dev Environment session.</p>
@@ -639,12 +712,15 @@ module AWS::SDK::CodeCatalyst
     # @!attribute execute_command_session_configuration
     #   <p>Information about optional commands that will be run on the Dev Environment when the SSH session begins.</p>
     #   @return [ExecuteCommandSessionConfiguration]
-    DevEnvironmentSessionConfiguration = ::Struct.new(
-      :session_type,
-      :execute_command_session_configuration,
-      keyword_init: true
-    ) do
+    class DevEnvironmentSessionConfiguration
       include Hearth::Structure
+
+      MEMBERS = %i[
+        session_type
+        execute_command_session_configuration
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Information about active sessions for a Dev Environment.</p>
@@ -671,15 +747,18 @@ module AWS::SDK::CodeCatalyst
     # @!attribute id
     #   <p>The system-generated unique ID of the Dev Environment session.</p>
     #   @return [String]
-    DevEnvironmentSessionSummary = ::Struct.new(
-      :space_name,
-      :project_name,
-      :dev_environment_id,
-      :started_time,
-      :id,
-      keyword_init: true
-    ) do
+    class DevEnvironmentSessionSummary
       include Hearth::Structure
+
+      MEMBERS = %i[
+        space_name
+        project_name
+        dev_environment_id
+        started_time
+        id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for DevEnvironmentSessionType
@@ -769,24 +848,27 @@ module AWS::SDK::CodeCatalyst
     # @!attribute vpc_connection_name
     #   <p>The name of the connection used to connect to Amazon VPC used when the Dev Environment was created, if any.</p>
     #   @return [String]
-    DevEnvironmentSummary = ::Struct.new(
-      :space_name,
-      :project_name,
-      :id,
-      :last_updated_time,
-      :creator_id,
-      :status,
-      :status_reason,
-      :repositories,
-      :alias,
-      :ides,
-      :instance_type,
-      :inactivity_timeout_minutes,
-      :persistent_storage,
-      :vpc_connection_name,
-      keyword_init: true
-    ) do
+    class DevEnvironmentSummary
       include Hearth::Structure
+
+      MEMBERS = %i[
+        space_name
+        project_name
+        id
+        last_updated_time
+        creator_id
+        status
+        status_reason
+        repositories
+        alias
+        ides
+        instance_type
+        inactivity_timeout_minutes
+        persistent_storage
+        vpc_connection_name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
 
       private
 
@@ -808,12 +890,15 @@ module AWS::SDK::CodeCatalyst
     # @!attribute verified
     #   <p>Whether the email address has been verified.</p>
     #   @return [Boolean]
-    EmailAddress = ::Struct.new(
-      :email,
-      :verified,
-      keyword_init: true
-    ) do
+    class EmailAddress
       include Hearth::Structure
+
+      MEMBERS = %i[
+        email
+        verified
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Information about an entry in an event log of Amazon CodeCatalyst activity.</p>
@@ -880,25 +965,28 @@ module AWS::SDK::CodeCatalyst
     # @!attribute user_agent
     #   <p>The user agent whose actions are recorded in the event.</p>
     #   @return [String]
-    EventLogEntry = ::Struct.new(
-      :id,
-      :event_name,
-      :event_type,
-      :event_category,
-      :event_source,
-      :event_time,
-      :operation_type,
-      :user_identity,
-      :project_information,
-      :request_id,
-      :request_payload,
-      :response_payload,
-      :error_code,
-      :source_ip_address,
-      :user_agent,
-      keyword_init: true
-    ) do
+    class EventLogEntry
       include Hearth::Structure
+
+      MEMBERS = %i[
+        id
+        event_name
+        event_type
+        event_category
+        event_source
+        event_time
+        operation_type
+        user_identity
+        project_information
+        request_id
+        request_payload
+        response_payload
+        error_code
+        source_ip_address
+        user_agent
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Information about the payload of an event recording Amazon CodeCatalyst activity.</p>
@@ -912,12 +1000,15 @@ module AWS::SDK::CodeCatalyst
     # @!attribute data
     #   <p>The data included in the event payload.</p>
     #   @return [String]
-    EventPayload = ::Struct.new(
-      :content_type,
-      :data,
-      keyword_init: true
-    ) do
+    class EventPayload
       include Hearth::Structure
+
+      MEMBERS = %i[
+        content_type
+        data
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Information about the commands that will be run on a Dev Environment when an SSH session begins.</p>
@@ -931,12 +1022,15 @@ module AWS::SDK::CodeCatalyst
     # @!attribute arguments
     #   <p>An array of arguments containing arguments and members.</p>
     #   @return [Array<String>]
-    ExecuteCommandSessionConfiguration = ::Struct.new(
-      :command,
-      :arguments,
-      keyword_init: true
-    ) do
+    class ExecuteCommandSessionConfiguration
       include Hearth::Structure
+
+      MEMBERS = %i[
+        command
+        arguments
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Information about a filter used to limit results of a query.</p>
@@ -954,13 +1048,16 @@ module AWS::SDK::CodeCatalyst
     # @!attribute comparison_operator
     #   <p>The operator used to compare the fields.</p>
     #   @return [String]
-    Filter = ::Struct.new(
-      :key,
-      :member_values,
-      :comparison_operator,
-      keyword_init: true
-    ) do
+    class Filter
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key
+        values
+        comparison_operator
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for FilterKey
@@ -984,13 +1081,16 @@ module AWS::SDK::CodeCatalyst
     # @!attribute id
     #   <p>The system-generated unique ID of the Dev Environment for which you want to view information. To retrieve a list of Dev Environment IDs, use <a>ListDevEnvironments</a>.</p>
     #   @return [String]
-    GetDevEnvironmentInput = ::Struct.new(
-      :space_name,
-      :project_name,
-      :id,
-      keyword_init: true
-    ) do
+    class GetDevEnvironmentInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        space_name
+        project_name
+        id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1053,24 +1153,27 @@ module AWS::SDK::CodeCatalyst
     # @!attribute vpc_connection_name
     #   <p>The name of the connection used to connect to Amazon VPC used when the Dev Environment was created, if any.</p>
     #   @return [String]
-    GetDevEnvironmentOutput = ::Struct.new(
-      :space_name,
-      :project_name,
-      :id,
-      :last_updated_time,
-      :creator_id,
-      :status,
-      :status_reason,
-      :repositories,
-      :alias,
-      :ides,
-      :instance_type,
-      :inactivity_timeout_minutes,
-      :persistent_storage,
-      :vpc_connection_name,
-      keyword_init: true
-    ) do
+    class GetDevEnvironmentOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        space_name
+        project_name
+        id
+        last_updated_time
+        creator_id
+        status
+        status_reason
+        repositories
+        alias
+        ides
+        instance_type
+        inactivity_timeout_minutes
+        persistent_storage
+        vpc_connection_name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
 
       private
 
@@ -1091,12 +1194,15 @@ module AWS::SDK::CodeCatalyst
     # @!attribute name
     #   <p>The name of the project in the space.</p>
     #   @return [String]
-    GetProjectInput = ::Struct.new(
-      :space_name,
-      :name,
-      keyword_init: true
-    ) do
+    class GetProjectInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        space_name
+        name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1117,14 +1223,17 @@ module AWS::SDK::CodeCatalyst
     # @!attribute description
     #   <p>The description of the project.</p>
     #   @return [String]
-    GetProjectOutput = ::Struct.new(
-      :space_name,
-      :name,
-      :display_name,
-      :description,
-      keyword_init: true
-    ) do
+    class GetProjectOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        space_name
+        name
+        display_name
+        description
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1141,13 +1250,16 @@ module AWS::SDK::CodeCatalyst
     # @!attribute source_repository_name
     #   <p>The name of the source repository.</p>
     #   @return [String]
-    GetSourceRepositoryCloneUrlsInput = ::Struct.new(
-      :space_name,
-      :project_name,
-      :source_repository_name,
-      keyword_init: true
-    ) do
+    class GetSourceRepositoryCloneUrlsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        space_name
+        project_name
+        source_repository_name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1156,11 +1268,14 @@ module AWS::SDK::CodeCatalyst
     # @!attribute https
     #   <p>The HTTPS URL to use when cloning the source repository.</p>
     #   @return [String]
-    GetSourceRepositoryCloneUrlsOutput = ::Struct.new(
-      :https,
-      keyword_init: true
-    ) do
+    class GetSourceRepositoryCloneUrlsOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        https
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1177,13 +1292,16 @@ module AWS::SDK::CodeCatalyst
     # @!attribute name
     #   <p>The name of the source repository.</p>
     #   @return [String]
-    GetSourceRepositoryInput = ::Struct.new(
-      :space_name,
-      :project_name,
-      :name,
-      keyword_init: true
-    ) do
+    class GetSourceRepositoryInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        space_name
+        project_name
+        name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1212,16 +1330,19 @@ module AWS::SDK::CodeCatalyst
     # @!attribute created_time
     #   <p>The time the source repository was created, in coordinated universal time (UTC) timestamp format as specified in <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339</a>.</p>
     #   @return [Time]
-    GetSourceRepositoryOutput = ::Struct.new(
-      :space_name,
-      :project_name,
-      :name,
-      :description,
-      :last_updated_time,
-      :created_time,
-      keyword_init: true
-    ) do
+    class GetSourceRepositoryOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        space_name
+        project_name
+        name
+        description
+        last_updated_time
+        created_time
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1230,11 +1351,14 @@ module AWS::SDK::CodeCatalyst
     # @!attribute name
     #   <p>The name of the space.</p>
     #   @return [String]
-    GetSpaceInput = ::Struct.new(
-      :name,
-      keyword_init: true
-    ) do
+    class GetSpaceInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1255,14 +1379,17 @@ module AWS::SDK::CodeCatalyst
     # @!attribute description
     #   <p>The description of the space.</p>
     #   @return [String]
-    GetSpaceOutput = ::Struct.new(
-      :name,
-      :region_name,
-      :display_name,
-      :description,
-      keyword_init: true
-    ) do
+    class GetSpaceOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        name
+        region_name
+        display_name
+        description
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1271,11 +1398,14 @@ module AWS::SDK::CodeCatalyst
     # @!attribute space_name
     #   <p>The name of the space.</p>
     #   @return [String]
-    GetSubscriptionInput = ::Struct.new(
-      :space_name,
-      keyword_init: true
-    ) do
+    class GetSubscriptionInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        space_name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1298,14 +1428,17 @@ module AWS::SDK::CodeCatalyst
     # @!attribute pending_subscription_start_time
     #   <p>The day and time the pending change will be applied to the space, in coordinated universal time (UTC) timestamp format as specified in <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339</a>.</p>
     #   @return [Time]
-    GetSubscriptionOutput = ::Struct.new(
-      :subscription_type,
-      :aws_account_name,
-      :pending_subscription_type,
-      :pending_subscription_start_time,
-      keyword_init: true
-    ) do
+    class GetSubscriptionOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        subscription_type
+        aws_account_name
+        pending_subscription_type
+        pending_subscription_start_time
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1318,12 +1451,15 @@ module AWS::SDK::CodeCatalyst
     # @!attribute user_name
     #   <p>The name of the user as displayed in Amazon CodeCatalyst.</p>
     #   @return [String]
-    GetUserDetailsInput = ::Struct.new(
-      :id,
-      :user_name,
-      keyword_init: true
-    ) do
+    class GetUserDetailsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        id
+        user_name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1348,15 +1484,18 @@ module AWS::SDK::CodeCatalyst
     # @!attribute version
     #   <p/>
     #   @return [String]
-    GetUserDetailsOutput = ::Struct.new(
-      :user_id,
-      :user_name,
-      :display_name,
-      :primary_email,
-      :version,
-      keyword_init: true
-    ) do
+    class GetUserDetailsOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        user_id
+        user_name
+        display_name
+        primary_email
+        version
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1373,13 +1512,16 @@ module AWS::SDK::CodeCatalyst
     # @!attribute project_name
     #   <p>The name of the project in the space.</p>
     #   @return [String]
-    GetWorkflowInput = ::Struct.new(
-      :space_name,
-      :id,
-      :project_name,
-      keyword_init: true
-    ) do
+    class GetWorkflowInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        space_name
+        id
+        project_name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1433,21 +1575,24 @@ module AWS::SDK::CodeCatalyst
     #   <p>The status of the workflow.</p>
     #   Enum, one of: ["INVALID", "ACTIVE"]
     #   @return [String]
-    GetWorkflowOutput = ::Struct.new(
-      :space_name,
-      :project_name,
-      :id,
-      :name,
-      :source_repository_name,
-      :source_branch_name,
-      :definition,
-      :created_time,
-      :last_updated_time,
-      :run_mode,
-      :status,
-      keyword_init: true
-    ) do
+    class GetWorkflowOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        space_name
+        project_name
+        id
+        name
+        source_repository_name
+        source_branch_name
+        definition
+        created_time
+        last_updated_time
+        run_mode
+        status
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1464,13 +1609,16 @@ module AWS::SDK::CodeCatalyst
     # @!attribute project_name
     #   <p>The name of the project in the space.</p>
     #   @return [String]
-    GetWorkflowRunInput = ::Struct.new(
-      :space_name,
-      :id,
-      :project_name,
-      keyword_init: true
-    ) do
+    class GetWorkflowRunInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        space_name
+        id
+        project_name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1514,19 +1662,22 @@ module AWS::SDK::CodeCatalyst
     #   <p>The date and time the workflow run status was last updated, in coordinated universal time (UTC) timestamp format as specified in <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339</a>
     #            </p>
     #   @return [Time]
-    GetWorkflowRunOutput = ::Struct.new(
-      :space_name,
-      :project_name,
-      :id,
-      :workflow_id,
-      :status,
-      :status_reasons,
-      :start_time,
-      :end_time,
-      :last_updated_time,
-      keyword_init: true
-    ) do
+    class GetWorkflowRunOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        space_name
+        project_name
+        id
+        workflow_id
+        status
+        status_reasons
+        start_time
+        end_time
+        last_updated_time
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Information about an integrated development environment (IDE) used in a Dev Environment.</p>
@@ -1540,12 +1691,15 @@ module AWS::SDK::CodeCatalyst
     # @!attribute name
     #   <p>The name of the IDE.</p>
     #   @return [String]
-    Ide = ::Struct.new(
-      :runtime,
-      :name,
-      keyword_init: true
-    ) do
+    class Ide
       include Hearth::Structure
+
+      MEMBERS = %i[
+        runtime
+        name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Information about the configuration of an integrated development environment (IDE) for a Dev Environment.</p>
@@ -1562,12 +1716,15 @@ module AWS::SDK::CodeCatalyst
     # @!attribute name
     #   <p>The name of the IDE. Valid values include <code>Cloud9</code>, <code>IntelliJ</code>, <code>PyCharm</code>, <code>GoLand</code>, and <code>VSCode</code>.</p>
     #   @return [String]
-    IdeConfiguration = ::Struct.new(
-      :runtime,
-      :name,
-      keyword_init: true
-    ) do
+    class IdeConfiguration
       include Hearth::Structure
+
+      MEMBERS = %i[
+        runtime
+        name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for InstanceType
@@ -1591,12 +1748,15 @@ module AWS::SDK::CodeCatalyst
     # @!attribute next_token
     #   <p>A token returned from a call to this API to indicate the next batch of results to return, if any.</p>
     #   @return [String]
-    ListAccessTokensInput = ::Struct.new(
-      :max_results,
-      :next_token,
-      keyword_init: true
-    ) do
+    class ListAccessTokensInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        max_results
+        next_token
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1609,12 +1769,15 @@ module AWS::SDK::CodeCatalyst
     # @!attribute next_token
     #   <p>A token returned from a call to this API to indicate the next batch of results to return, if any.</p>
     #   @return [String]
-    ListAccessTokensOutput = ::Struct.new(
-      :items,
-      :next_token,
-      keyword_init: true
-    ) do
+    class ListAccessTokensOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        items
+        next_token
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1639,15 +1802,18 @@ module AWS::SDK::CodeCatalyst
     # @!attribute max_results
     #   <p>The maximum number of results to show in a single call to this API. If the number of results is larger than the number you specified, the response will include a <code>NextToken</code> element, which you can use to obtain additional results.</p>
     #   @return [Integer]
-    ListDevEnvironmentSessionsInput = ::Struct.new(
-      :space_name,
-      :project_name,
-      :dev_environment_id,
-      :next_token,
-      :max_results,
-      keyword_init: true
-    ) do
+    class ListDevEnvironmentSessionsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        space_name
+        project_name
+        dev_environment_id
+        next_token
+        max_results
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1660,12 +1826,15 @@ module AWS::SDK::CodeCatalyst
     # @!attribute next_token
     #   <p>A token returned from a call to this API to indicate the next batch of results to return, if any.</p>
     #   @return [String]
-    ListDevEnvironmentSessionsOutput = ::Struct.new(
-      :items,
-      :next_token,
-      keyword_init: true
-    ) do
+    class ListDevEnvironmentSessionsOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        items
+        next_token
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1690,15 +1859,18 @@ module AWS::SDK::CodeCatalyst
     # @!attribute max_results
     #   <p>The maximum number of results to show in a single call to this API. If the number of results is larger than the number you specified, the response will include a <code>NextToken</code> element, which you can use to obtain additional results.</p>
     #   @return [Integer]
-    ListDevEnvironmentsInput = ::Struct.new(
-      :space_name,
-      :project_name,
-      :filters,
-      :next_token,
-      :max_results,
-      keyword_init: true
-    ) do
+    class ListDevEnvironmentsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        space_name
+        project_name
+        filters
+        next_token
+        max_results
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1711,12 +1883,15 @@ module AWS::SDK::CodeCatalyst
     # @!attribute next_token
     #   <p>A token returned from a call to this API to indicate the next batch of results to return, if any.</p>
     #   @return [String]
-    ListDevEnvironmentsOutput = ::Struct.new(
-      :items,
-      :next_token,
-      keyword_init: true
-    ) do
+    class ListDevEnvironmentsOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        items
+        next_token
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1745,16 +1920,19 @@ module AWS::SDK::CodeCatalyst
     # @!attribute max_results
     #   <p>The maximum number of results to show in a single call to this API. If the number of results is larger than the number you specified, the response will include a <code>NextToken</code> element, which you can use to obtain additional results.</p>
     #   @return [Integer]
-    ListEventLogsInput = ::Struct.new(
-      :space_name,
-      :start_time,
-      :end_time,
-      :event_name,
-      :next_token,
-      :max_results,
-      keyword_init: true
-    ) do
+    class ListEventLogsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        space_name
+        start_time
+        end_time
+        event_name
+        next_token
+        max_results
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1767,12 +1945,15 @@ module AWS::SDK::CodeCatalyst
     # @!attribute items
     #   <p>Information about each event retrieved in the list.</p>
     #   @return [Array<EventLogEntry>]
-    ListEventLogsOutput = ::Struct.new(
-      :next_token,
-      :items,
-      keyword_init: true
-    ) do
+    class ListEventLogsOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        next_token
+        items
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1793,14 +1974,17 @@ module AWS::SDK::CodeCatalyst
     # @!attribute filters
     #   <p>Information about filters to apply to narrow the results returned in the list.</p>
     #   @return [Array<ProjectListFilter>]
-    ListProjectsInput = ::Struct.new(
-      :space_name,
-      :next_token,
-      :max_results,
-      :filters,
-      keyword_init: true
-    ) do
+    class ListProjectsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        space_name
+        next_token
+        max_results
+        filters
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1813,12 +1997,15 @@ module AWS::SDK::CodeCatalyst
     # @!attribute items
     #   <p>Information about the projects.</p>
     #   @return [Array<ProjectSummary>]
-    ListProjectsOutput = ::Struct.new(
-      :next_token,
-      :items,
-      keyword_init: true
-    ) do
+    class ListProjectsOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        next_token
+        items
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1839,14 +2026,17 @@ module AWS::SDK::CodeCatalyst
     # @!attribute max_results
     #   <p>The maximum number of results to show in a single call to this API. If the number of results is larger than the number you specified, the response will include a <code>NextToken</code> element, which you can use to obtain additional results.</p>
     #   @return [Integer]
-    ListSourceRepositoriesInput = ::Struct.new(
-      :space_name,
-      :project_name,
-      :next_token,
-      :max_results,
-      keyword_init: true
-    ) do
+    class ListSourceRepositoriesInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        space_name
+        project_name
+        next_token
+        max_results
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Information about a source repository returned in a list of source repositories.</p>
@@ -1872,15 +2062,18 @@ module AWS::SDK::CodeCatalyst
     # @!attribute created_time
     #   <p>The time the source repository was created, in coordinated universal time (UTC) timestamp format as specified in <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339</a>.</p>
     #   @return [Time]
-    ListSourceRepositoriesItem = ::Struct.new(
-      :id,
-      :name,
-      :description,
-      :last_updated_time,
-      :created_time,
-      keyword_init: true
-    ) do
+    class ListSourceRepositoriesItem
       include Hearth::Structure
+
+      MEMBERS = %i[
+        id
+        name
+        description
+        last_updated_time
+        created_time
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1893,12 +2086,15 @@ module AWS::SDK::CodeCatalyst
     # @!attribute next_token
     #   <p>A token returned from a call to this API to indicate the next batch of results to return, if any.</p>
     #   @return [String]
-    ListSourceRepositoriesOutput = ::Struct.new(
-      :items,
-      :next_token,
-      keyword_init: true
-    ) do
+    class ListSourceRepositoriesOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        items
+        next_token
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1923,15 +2119,18 @@ module AWS::SDK::CodeCatalyst
     # @!attribute max_results
     #   <p>The maximum number of results to show in a single call to this API. If the number of results is larger than the number you specified, the response will include a <code>NextToken</code> element, which you can use to obtain additional results.</p>
     #   @return [Integer]
-    ListSourceRepositoryBranchesInput = ::Struct.new(
-      :space_name,
-      :project_name,
-      :source_repository_name,
-      :next_token,
-      :max_results,
-      keyword_init: true
-    ) do
+    class ListSourceRepositoryBranchesInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        space_name
+        project_name
+        source_repository_name
+        next_token
+        max_results
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Information about a branch of a source repository returned in a list of branches.</p>
@@ -1953,14 +2152,17 @@ module AWS::SDK::CodeCatalyst
     # @!attribute head_commit_id
     #   <p>The commit ID of the tip of the branch at the time of the request, also known as the head commit.</p>
     #   @return [String]
-    ListSourceRepositoryBranchesItem = ::Struct.new(
-      :ref,
-      :name,
-      :last_updated_time,
-      :head_commit_id,
-      keyword_init: true
-    ) do
+    class ListSourceRepositoryBranchesItem
       include Hearth::Structure
+
+      MEMBERS = %i[
+        ref
+        name
+        last_updated_time
+        head_commit_id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1973,12 +2175,15 @@ module AWS::SDK::CodeCatalyst
     # @!attribute items
     #   <p>Information about the source branches.</p>
     #   @return [Array<ListSourceRepositoryBranchesItem>]
-    ListSourceRepositoryBranchesOutput = ::Struct.new(
-      :next_token,
-      :items,
-      keyword_init: true
-    ) do
+    class ListSourceRepositoryBranchesOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        next_token
+        items
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -1987,11 +2192,14 @@ module AWS::SDK::CodeCatalyst
     # @!attribute next_token
     #   <p>A token returned from a call to this API to indicate the next batch of results to return, if any.</p>
     #   @return [String]
-    ListSpacesInput = ::Struct.new(
-      :next_token,
-      keyword_init: true
-    ) do
+    class ListSpacesInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        next_token
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2004,12 +2212,15 @@ module AWS::SDK::CodeCatalyst
     # @!attribute items
     #   <p>Information about the spaces. </p>
     #   @return [Array<SpaceSummary>]
-    ListSpacesOutput = ::Struct.new(
-      :next_token,
-      :items,
-      keyword_init: true
-    ) do
+    class ListSpacesOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        next_token
+        items
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2038,16 +2249,19 @@ module AWS::SDK::CodeCatalyst
     # @!attribute member_sort_by
     #   <p>Information used to sort the items in the returned list.</p>
     #   @return [Array<WorkflowRunSortCriteria>]
-    ListWorkflowRunsInput = ::Struct.new(
-      :space_name,
-      :workflow_id,
-      :project_name,
-      :next_token,
-      :max_results,
-      :member_sort_by,
-      keyword_init: true
-    ) do
+    class ListWorkflowRunsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        space_name
+        workflow_id
+        project_name
+        next_token
+        max_results
+        sort_by
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2060,12 +2274,15 @@ module AWS::SDK::CodeCatalyst
     # @!attribute items
     #   <p>Information about the runs of a workflow.</p>
     #   @return [Array<WorkflowRunSummary>]
-    ListWorkflowRunsOutput = ::Struct.new(
-      :next_token,
-      :items,
-      keyword_init: true
-    ) do
+    class ListWorkflowRunsOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        next_token
+        items
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2090,15 +2307,18 @@ module AWS::SDK::CodeCatalyst
     # @!attribute member_sort_by
     #   <p>Information used to sort the items in the returned list.</p>
     #   @return [Array<WorkflowSortCriteria>]
-    ListWorkflowsInput = ::Struct.new(
-      :space_name,
-      :project_name,
-      :next_token,
-      :max_results,
-      :member_sort_by,
-      keyword_init: true
-    ) do
+    class ListWorkflowsInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        space_name
+        project_name
+        next_token
+        max_results
+        sort_by
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2111,12 +2331,15 @@ module AWS::SDK::CodeCatalyst
     # @!attribute items
     #   <p>Information about the workflows in a project.</p>
     #   @return [Array<WorkflowSummary>]
-    ListWorkflowsOutput = ::Struct.new(
-      :next_token,
-      :items,
-      keyword_init: true
-    ) do
+    class ListWorkflowsOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        next_token
+        items
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for OperationType
@@ -2137,11 +2360,14 @@ module AWS::SDK::CodeCatalyst
     #           16, 32, and 64.</p>
     #            </note>
     #   @return [Integer]
-    PersistentStorage = ::Struct.new(
-      :size_in_gi_b,
-      keyword_init: true
-    ) do
+    class PersistentStorage
       include Hearth::Structure
+
+      MEMBERS = %i[
+        size_in_gi_b
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Information about the configuration of persistent storage for a Dev Environment. </p>
@@ -2155,11 +2381,14 @@ module AWS::SDK::CodeCatalyst
     #           16, 32, and 64.</p>
     #            </note>
     #   @return [Integer]
-    PersistentStorageConfiguration = ::Struct.new(
-      :size_in_gi_b,
-      keyword_init: true
-    ) do
+    class PersistentStorageConfiguration
       include Hearth::Structure
+
+      MEMBERS = %i[
+        size_in_gi_b
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Information about a project in a space.</p>
@@ -2173,12 +2402,15 @@ module AWS::SDK::CodeCatalyst
     # @!attribute project_id
     #   <p>The system-generated unique ID of the project.</p>
     #   @return [String]
-    ProjectInformation = ::Struct.new(
-      :name,
-      :project_id,
-      keyword_init: true
-    ) do
+    class ProjectInformation
       include Hearth::Structure
+
+      MEMBERS = %i[
+        name
+        project_id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>nformation about the filter used to narrow the results returned in a list of projects.</p>
@@ -2198,13 +2430,16 @@ module AWS::SDK::CodeCatalyst
     #   <p>The operator used to compare the fields.</p>
     #   Enum, one of: ["EQ", "GT", "GE", "LT", "LE", "BEGINS_WITH"]
     #   @return [String]
-    ProjectListFilter = ::Struct.new(
-      :key,
-      :member_values,
-      :comparison_operator,
-      keyword_init: true
-    ) do
+    class ProjectListFilter
       include Hearth::Structure
+
+      MEMBERS = %i[
+        key
+        values
+        comparison_operator
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Information about a project.</p>
@@ -2222,13 +2457,16 @@ module AWS::SDK::CodeCatalyst
     # @!attribute description
     #   <p>The description of the project.</p>
     #   @return [String]
-    ProjectSummary = ::Struct.new(
-      :name,
-      :display_name,
-      :description,
-      keyword_init: true
-    ) do
+    class ProjectSummary
       include Hearth::Structure
+
+      MEMBERS = %i[
+        name
+        display_name
+        description
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Information about a repository that will be cloned to a Dev Environment.</p>
@@ -2242,12 +2480,15 @@ module AWS::SDK::CodeCatalyst
     # @!attribute branch_name
     #   <p>The name of the branch in a source repository.</p>
     #   @return [String]
-    RepositoryInput = ::Struct.new(
-      :repository_name,
-      :branch_name,
-      keyword_init: true
-    ) do
+    class RepositoryInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        repository_name
+        branch_name
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The request was denied because the specified resource was not found. Verify that the spelling is correct and that you have access to the resource.</p>
@@ -2256,11 +2497,14 @@ module AWS::SDK::CodeCatalyst
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    ResourceNotFoundException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class ResourceNotFoundException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The request was denied because one or more resources has reached its limits for the tier the space belongs to. Either reduce
@@ -2270,11 +2514,14 @@ module AWS::SDK::CodeCatalyst
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    ServiceQuotaExceededException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class ServiceQuotaExceededException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Information about an space.</p>
@@ -2297,14 +2544,17 @@ module AWS::SDK::CodeCatalyst
     # @!attribute description
     #   <p>The description of the space.</p>
     #   @return [String]
-    SpaceSummary = ::Struct.new(
-      :name,
-      :region_name,
-      :display_name,
-      :description,
-      keyword_init: true
-    ) do
+    class SpaceSummary
       include Hearth::Structure
+
+      MEMBERS = %i[
+        name
+        region_name
+        display_name
+        description
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2334,16 +2584,19 @@ module AWS::SDK::CodeCatalyst
     # @!attribute inactivity_timeout_minutes
     #   <p>The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.</p>
     #   @return [Integer]
-    StartDevEnvironmentInput = ::Struct.new(
-      :space_name,
-      :project_name,
-      :id,
-      :ides,
-      :instance_type,
-      :inactivity_timeout_minutes,
-      keyword_init: true
-    ) do
+    class StartDevEnvironmentInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        space_name
+        project_name
+        id
+        ides
+        instance_type
+        inactivity_timeout_minutes
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2365,14 +2618,17 @@ module AWS::SDK::CodeCatalyst
     #   <p>The status of the Dev Environment. </p>
     #   Enum, one of: ["PENDING", "RUNNING", "STARTING", "STOPPING", "STOPPED", "FAILED", "DELETING", "DELETED"]
     #   @return [String]
-    StartDevEnvironmentOutput = ::Struct.new(
-      :space_name,
-      :project_name,
-      :id,
-      :status,
-      keyword_init: true
-    ) do
+    class StartDevEnvironmentOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        space_name
+        project_name
+        id
+        status
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2393,14 +2649,17 @@ module AWS::SDK::CodeCatalyst
     # @!attribute session_configuration
     #   <p>Information about the configuration of a Dev Environment session.</p>
     #   @return [DevEnvironmentSessionConfiguration]
-    StartDevEnvironmentSessionInput = ::Struct.new(
-      :space_name,
-      :project_name,
-      :id,
-      :session_configuration,
-      keyword_init: true
-    ) do
+    class StartDevEnvironmentSessionInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        space_name
+        project_name
+        id
+        session_configuration
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2425,18 +2684,21 @@ module AWS::SDK::CodeCatalyst
     # @!attribute id
     #   <p>The system-generated unique ID of the Dev Environment.</p>
     #   @return [String]
-    StartDevEnvironmentSessionOutput = ::Struct.new(
-      :access_details,
-      :session_id,
-      :space_name,
-      :project_name,
-      :id,
-      keyword_init: true
-    ) do
+    class StartDevEnvironmentSessionOutput
       include Hearth::Structure
 
+      MEMBERS = %i[
+        access_details
+        session_id
+        space_name
+        project_name
+        id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
+
       def to_s
-        "#<struct AWS::SDK::CodeCatalyst::Types::StartDevEnvironmentSessionOutput "\
+        "#<AWS::SDK::CodeCatalyst::Types::StartDevEnvironmentSessionOutput "\
           "access_details=\"[SENSITIVE]\", "\
           "session_id=#{session_id || 'nil'}, "\
           "space_name=#{space_name || 'nil'}, "\
@@ -2464,14 +2726,17 @@ module AWS::SDK::CodeCatalyst
     #   <p>A user-specified idempotency token.  Idempotency ensures that an API request completes only once.
     #          With an idempotent request, if the original request completes successfully, the subsequent retries return the result from the original successful request and have no additional effect.</p>
     #   @return [String]
-    StartWorkflowRunInput = ::Struct.new(
-      :space_name,
-      :project_name,
-      :workflow_id,
-      :client_token,
-      keyword_init: true
-    ) do
+    class StartWorkflowRunInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        space_name
+        project_name
+        workflow_id
+        client_token
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2492,14 +2757,17 @@ module AWS::SDK::CodeCatalyst
     # @!attribute workflow_id
     #   <p>The system-generated unique ID of the workflow.</p>
     #   @return [String]
-    StartWorkflowRunOutput = ::Struct.new(
-      :space_name,
-      :project_name,
-      :id,
-      :workflow_id,
-      keyword_init: true
-    ) do
+    class StartWorkflowRunOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        space_name
+        project_name
+        id
+        workflow_id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2516,13 +2784,16 @@ module AWS::SDK::CodeCatalyst
     # @!attribute id
     #   <p>The system-generated unique ID of the Dev Environment. </p>
     #   @return [String]
-    StopDevEnvironmentInput = ::Struct.new(
-      :space_name,
-      :project_name,
-      :id,
-      keyword_init: true
-    ) do
+    class StopDevEnvironmentInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        space_name
+        project_name
+        id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2544,14 +2815,17 @@ module AWS::SDK::CodeCatalyst
     #   <p>The status of the Dev Environment. </p>
     #   Enum, one of: ["PENDING", "RUNNING", "STARTING", "STOPPING", "STOPPED", "FAILED", "DELETING", "DELETED"]
     #   @return [String]
-    StopDevEnvironmentOutput = ::Struct.new(
-      :space_name,
-      :project_name,
-      :id,
-      :status,
-      keyword_init: true
-    ) do
+    class StopDevEnvironmentOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        space_name
+        project_name
+        id
+        status
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2572,14 +2846,17 @@ module AWS::SDK::CodeCatalyst
     # @!attribute session_id
     #   <p>The system-generated unique ID of the Dev Environment session. This ID is returned by <a>StartDevEnvironmentSession</a>.</p>
     #   @return [String]
-    StopDevEnvironmentSessionInput = ::Struct.new(
-      :space_name,
-      :project_name,
-      :id,
-      :session_id,
-      keyword_init: true
-    ) do
+    class StopDevEnvironmentSessionInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        space_name
+        project_name
+        id
+        session_id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2600,14 +2877,17 @@ module AWS::SDK::CodeCatalyst
     # @!attribute session_id
     #   <p>The system-generated unique ID of the Dev Environment session.</p>
     #   @return [String]
-    StopDevEnvironmentSessionOutput = ::Struct.new(
-      :space_name,
-      :project_name,
-      :id,
-      :session_id,
-      keyword_init: true
-    ) do
+    class StopDevEnvironmentSessionOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        space_name
+        project_name
+        id
+        session_id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>The request was denied due to request throttling.</p>
@@ -2616,11 +2896,14 @@ module AWS::SDK::CodeCatalyst
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    ThrottlingException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class ThrottlingException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2666,18 +2949,21 @@ module AWS::SDK::CodeCatalyst
     #   <p>A user-specified idempotency token.  Idempotency ensures that an API request completes only once.
     #          With an idempotent request, if the original request completes successfully, the subsequent retries return the result from the original successful request and have no additional effect.</p>
     #   @return [String]
-    UpdateDevEnvironmentInput = ::Struct.new(
-      :space_name,
-      :project_name,
-      :id,
-      :alias,
-      :ides,
-      :instance_type,
-      :inactivity_timeout_minutes,
-      :client_token,
-      keyword_init: true
-    ) do
+    class UpdateDevEnvironmentInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        space_name
+        project_name
+        id
+        alias
+        ides
+        instance_type
+        inactivity_timeout_minutes
+        client_token
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2716,18 +3002,21 @@ module AWS::SDK::CodeCatalyst
     #   <p>A user-specified idempotency token.  Idempotency ensures that an API request completes only once.
     #          With an idempotent request, if the original request completes successfully, the subsequent retries return the result from the original successful request and have no additional effect.</p>
     #   @return [String]
-    UpdateDevEnvironmentOutput = ::Struct.new(
-      :id,
-      :space_name,
-      :project_name,
-      :alias,
-      :ides,
-      :instance_type,
-      :inactivity_timeout_minutes,
-      :client_token,
-      keyword_init: true
-    ) do
+    class UpdateDevEnvironmentOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        id
+        space_name
+        project_name
+        alias
+        ides
+        instance_type
+        inactivity_timeout_minutes
+        client_token
+      ].freeze
+
+      attr_accessor(*MEMBERS)
 
       private
 
@@ -2752,13 +3041,16 @@ module AWS::SDK::CodeCatalyst
     # @!attribute description
     #   <p>The description of the project.</p>
     #   @return [String]
-    UpdateProjectInput = ::Struct.new(
-      :space_name,
-      :name,
-      :description,
-      keyword_init: true
-    ) do
+    class UpdateProjectInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        space_name
+        name
+        description
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2779,14 +3071,17 @@ module AWS::SDK::CodeCatalyst
     # @!attribute description
     #   <p>The description of the project.</p>
     #   @return [String]
-    UpdateProjectOutput = ::Struct.new(
-      :space_name,
-      :name,
-      :display_name,
-      :description,
-      keyword_init: true
-    ) do
+    class UpdateProjectOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        space_name
+        name
+        display_name
+        description
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2799,12 +3094,15 @@ module AWS::SDK::CodeCatalyst
     # @!attribute description
     #   <p>The description of the space.</p>
     #   @return [String]
-    UpdateSpaceInput = ::Struct.new(
-      :name,
-      :description,
-      keyword_init: true
-    ) do
+    class UpdateSpaceInput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        name
+        description
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2821,13 +3119,16 @@ module AWS::SDK::CodeCatalyst
     # @!attribute description
     #   <p>The description of the space.</p>
     #   @return [String]
-    UpdateSpaceOutput = ::Struct.new(
-      :name,
-      :display_name,
-      :description,
-      keyword_init: true
-    ) do
+    class UpdateSpaceOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        name
+        display_name
+        description
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Information about a user whose activity is recorded in an event for a space.</p>
@@ -2850,14 +3151,17 @@ module AWS::SDK::CodeCatalyst
     # @!attribute aws_account_id
     #   <p>The Amazon Web Services account number of the user in Amazon Web Services, if any.</p>
     #   @return [String]
-    UserIdentity = ::Struct.new(
-      :user_type,
-      :principal_id,
-      :user_name,
-      :aws_account_id,
-      keyword_init: true
-    ) do
+    class UserIdentity
       include Hearth::Structure
+
+      MEMBERS = %i[
+        user_type
+        principal_id
+        user_name
+        aws_account_id
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for UserType
@@ -2875,20 +3179,24 @@ module AWS::SDK::CodeCatalyst
     #   @option params [String] :message
     # @!attribute message
     #   @return [String]
-    ValidationException = ::Struct.new(
-      :message,
-      keyword_init: true
-    ) do
+    class ValidationException
       include Hearth::Structure
+
+      MEMBERS = %i[
+        message
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    VerifySessionInput = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class VerifySessionInput
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # @!method initialize(params = {})
@@ -2897,11 +3205,14 @@ module AWS::SDK::CodeCatalyst
     # @!attribute identity
     #   <p>The system-generated unique ID of the user in Amazon CodeCatalyst.</p>
     #   @return [String]
-    VerifySessionOutput = ::Struct.new(
-      :identity,
-      keyword_init: true
-    ) do
+    class VerifySessionOutput
       include Hearth::Structure
+
+      MEMBERS = %i[
+        identity
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Information about a workflow definition file.</p>
@@ -2911,11 +3222,14 @@ module AWS::SDK::CodeCatalyst
     # @!attribute path
     #   <p>The path to the workflow definition file stored in the source repository for the project, including the file name.</p>
     #   @return [String]
-    WorkflowDefinition = ::Struct.new(
-      :path,
-      keyword_init: true
-    ) do
+    class WorkflowDefinition
       include Hearth::Structure
+
+      MEMBERS = %i[
+        path
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Information about a workflow definition.</p>
@@ -2925,11 +3239,14 @@ module AWS::SDK::CodeCatalyst
     # @!attribute path
     #   <p>The path to the workflow definition file stored in the source repository for the project, including the file name.</p>
     #   @return [String]
-    WorkflowDefinitionSummary = ::Struct.new(
-      :path,
-      keyword_init: true
-    ) do
+    class WorkflowDefinitionSummary
       include Hearth::Structure
+
+      MEMBERS = %i[
+        path
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for WorkflowRunMode
@@ -2944,11 +3261,12 @@ module AWS::SDK::CodeCatalyst
     # <p>Information used to sort workflow runs in the returned list.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    WorkflowRunSortCriteria = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class WorkflowRunSortCriteria
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for WorkflowRunStatus
@@ -2979,11 +3297,12 @@ module AWS::SDK::CodeCatalyst
     # <p>Information about the status of a workflow run.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    WorkflowRunStatusReason = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class WorkflowRunStatusReason
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Information about a workflow run.</p>
@@ -3024,28 +3343,32 @@ module AWS::SDK::CodeCatalyst
     #   <p>The date and time the workflow was last updated, in coordinated universal time (UTC) timestamp format as specified in <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339</a>
     #            </p>
     #   @return [Time]
-    WorkflowRunSummary = ::Struct.new(
-      :id,
-      :workflow_id,
-      :workflow_name,
-      :status,
-      :status_reasons,
-      :start_time,
-      :end_time,
-      :last_updated_time,
-      keyword_init: true
-    ) do
+    class WorkflowRunSummary
       include Hearth::Structure
+
+      MEMBERS = %i[
+        id
+        workflow_id
+        workflow_name
+        status
+        status_reasons
+        start_time
+        end_time
+        last_updated_time
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # <p>Information used to sort workflows in the returned list.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    WorkflowSortCriteria = ::Struct.new(
-      nil,
-      keyword_init: true
-    ) do
+    class WorkflowSortCriteria
       include Hearth::Structure
+
+      MEMBERS = [].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
     # Enum constants for WorkflowStatus
@@ -3098,19 +3421,22 @@ module AWS::SDK::CodeCatalyst
     #   <p>The status of the workflow.</p>
     #   Enum, one of: ["INVALID", "ACTIVE"]
     #   @return [String]
-    WorkflowSummary = ::Struct.new(
-      :id,
-      :name,
-      :source_repository_name,
-      :source_branch_name,
-      :definition,
-      :created_time,
-      :last_updated_time,
-      :run_mode,
-      :status,
-      keyword_init: true
-    ) do
+    class WorkflowSummary
       include Hearth::Structure
+
+      MEMBERS = %i[
+        id
+        name
+        source_repository_name
+        source_branch_name
+        definition
+        created_time
+        last_updated_time
+        run_mode
+        status
+      ].freeze
+
+      attr_accessor(*MEMBERS)
     end
 
   end

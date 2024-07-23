@@ -15,8 +15,37 @@
 
 package software.amazon.smithy.aws.ruby.codegen.protocol.restxml.generators;
 
-import software.amazon.smithy.model.shapes.*;
-import software.amazon.smithy.model.traits.*;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+import software.amazon.smithy.model.shapes.BlobShape;
+import software.amazon.smithy.model.shapes.DocumentShape;
+import software.amazon.smithy.model.shapes.DoubleShape;
+import software.amazon.smithy.model.shapes.FloatShape;
+import software.amazon.smithy.model.shapes.ListShape;
+import software.amazon.smithy.model.shapes.MapShape;
+import software.amazon.smithy.model.shapes.MemberShape;
+import software.amazon.smithy.model.shapes.Shape;
+import software.amazon.smithy.model.shapes.ShapeVisitor;
+import software.amazon.smithy.model.shapes.StringShape;
+import software.amazon.smithy.model.shapes.StructureShape;
+import software.amazon.smithy.model.shapes.TimestampShape;
+import software.amazon.smithy.model.shapes.UnionShape;
+import software.amazon.smithy.model.traits.ErrorTrait;
+import software.amazon.smithy.model.traits.HttpHeaderTrait;
+import software.amazon.smithy.model.traits.HttpLabelTrait;
+import software.amazon.smithy.model.traits.HttpPayloadTrait;
+import software.amazon.smithy.model.traits.HttpPrefixHeadersTrait;
+import software.amazon.smithy.model.traits.HttpResponseCodeTrait;
+import software.amazon.smithy.model.traits.MediaTypeTrait;
+import software.amazon.smithy.model.traits.SparseTrait;
+import software.amazon.smithy.model.traits.StreamingTrait;
+import software.amazon.smithy.model.traits.TimestampFormatTrait;
+import software.amazon.smithy.model.traits.XmlAttributeTrait;
+import software.amazon.smithy.model.traits.XmlFlattenedTrait;
+import software.amazon.smithy.model.traits.XmlNameTrait;
+import software.amazon.smithy.model.traits.XmlNamespaceTrait;
 import software.amazon.smithy.model.traits.synthetic.OriginalShapeIdTrait;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
 import software.amazon.smithy.ruby.codegen.Hearth;
@@ -24,11 +53,6 @@ import software.amazon.smithy.ruby.codegen.RubyImportContainer;
 import software.amazon.smithy.ruby.codegen.generators.RestStubsGeneratorBase;
 import software.amazon.smithy.ruby.codegen.traits.NoSerializeTrait;
 import software.amazon.smithy.ruby.codegen.util.TimestampFormat;
-
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class StubsGenerator extends RestStubsGeneratorBase {
 
@@ -67,7 +91,6 @@ public class StubsGenerator extends RestStubsGeneratorBase {
         if (outputShape.hasTrait(XmlNameTrait.class)) {
             nodeName = outputShape.getTrait(XmlNameTrait.class).get().getValue();
         } else if (outputShape.hasTrait(OriginalShapeIdTrait.class)) {
-            // TODO: Does this need to use symbol provider as well?
             nodeName = outputShape.getTrait(OriginalShapeIdTrait.class).get().getOriginalId().getName();
         }
 
@@ -91,7 +114,7 @@ public class StubsGenerator extends RestStubsGeneratorBase {
     @Override
     protected void renderPayloadBodyStub(Shape outputShape, MemberShape payloadMember,
                                          Shape target) {
-        String inputGetter = "stub[:" + symbolProvider.toMemberName(payloadMember) + "]";
+        String inputGetter = "stub." + symbolProvider.toMemberName(payloadMember);
         if (target.hasTrait(StreamingTrait.class)) {
             renderStreamingStub(outputShape);
         } else {
@@ -193,7 +216,7 @@ public class StubsGenerator extends RestStubsGeneratorBase {
                 .call(() -> renderStatusCodeStubber(errorShape))
                 .call(() -> renderHeaderStubbers(errorShape))
                 .call(() -> renderPrefixHeadersStubbers(errorShape))
-                .write("xml = $T.new('Error')", Hearth.XML_NODE )
+                .write("xml = $T.new('Error')", Hearth.XML_NODE)
                 .write("xml << $T.new('Type', '$L')", Hearth.XML_NODE, errorType(errorShape))
                 .write("xml << $T.new('Code', '$L')", Hearth.XML_NODE, errorCode(errorShape))
                 .call(() -> renderMemberStubbers(errorShape))
@@ -229,8 +252,7 @@ public class StubsGenerator extends RestStubsGeneratorBase {
 
         serializeMembers.forEach((member) -> {
             Shape target = model.expectShape(member.getTarget());
-            String symbolName = ":" + symbolProvider.toMemberName(member);
-            String inputGetter = "stub[" + symbolName + "]";
+            String inputGetter = "stub." + symbolProvider.toMemberName(member);
 
             if (member.hasTrait(XmlAttributeTrait.class)) {
                 String attributeName = member.getMemberName();
@@ -411,7 +433,8 @@ public class StubsGenerator extends RestStubsGeneratorBase {
         private final boolean checkRequired;
         private final String attributeName;
 
-        AttributeMemberSerializer(MemberShape memberShape, String inputGetter, boolean checkRequired, String attributeName) {
+        AttributeMemberSerializer(MemberShape memberShape, String inputGetter, boolean checkRequired,
+                                  String attributeName) {
             this.inputGetter = inputGetter;
             this.memberShape = memberShape;
             this.checkRequired = checkRequired;

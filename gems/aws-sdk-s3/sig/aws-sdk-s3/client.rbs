@@ -989,7 +989,7 @@ module AWS::SDK::S3
       (?Types::PutObjectInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutObjectOutput] |
       (
         ?acl: ("private" | "public-read" | "public-read-write" | "authenticated-read" | "aws-exec-read" | "bucket-owner-read" | "bucket-owner-full-control"),
-        ?body: ::String,
+        ?body: (Hearth::_ReadableIO | Hearth::_WritableIO),
         bucket: ::String,
         ?cache_control: ::String,
         ?content_disposition: ::String,
@@ -1213,7 +1213,7 @@ module AWS::SDK::S3
     def upload_part: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::UploadPartOutput] |
       (?Types::UploadPartInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::UploadPartOutput] |
       (
-        ?body: ::String,
+        ?body: (Hearth::_ReadableIO | Hearth::_WritableIO),
         bucket: ::String,
         ?content_length: ::Integer,
         ?content_md5: ::String,
@@ -1261,7 +1261,7 @@ module AWS::SDK::S3
       (
         request_route: ::String,
         request_token: ::String,
-        ?body: ::String,
+        ?body: (Hearth::_ReadableIO | Hearth::_WritableIO),
         ?status_code: ::Integer,
         ?error_code: ::String,
         ?error_message: ::String,

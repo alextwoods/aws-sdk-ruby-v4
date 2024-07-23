@@ -128,7 +128,7 @@ public class ParserGenerator extends ParserGeneratorBase {
                     Shape memberTarget =
                             model.expectShape(s.getMember().getTarget());
                     memberTarget
-                            .accept(new MemberDeserializer(s.getMember(),"", "value", !s.hasTrait(SparseTrait.class)));
+                            .accept(new MemberDeserializer(s.getMember(), "", "value", !s.hasTrait(SparseTrait.class)));
                 })
                 .closeBlock("end")
                 .closeBlock("end");

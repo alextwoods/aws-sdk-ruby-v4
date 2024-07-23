@@ -15,9 +15,21 @@
 
 package software.amazon.smithy.aws.ruby.codegen.protocol.ec2.generators;
 
+import java.util.stream.Stream;
 import software.amazon.smithy.aws.traits.protocols.Ec2QueryNameTrait;
-import software.amazon.smithy.codegen.core.Symbol;
-import software.amazon.smithy.model.shapes.*;
+import software.amazon.smithy.model.shapes.BlobShape;
+import software.amazon.smithy.model.shapes.CollectionShape;
+import software.amazon.smithy.model.shapes.DoubleShape;
+import software.amazon.smithy.model.shapes.FloatShape;
+import software.amazon.smithy.model.shapes.ListShape;
+import software.amazon.smithy.model.shapes.MapShape;
+import software.amazon.smithy.model.shapes.MemberShape;
+import software.amazon.smithy.model.shapes.OperationShape;
+import software.amazon.smithy.model.shapes.Shape;
+import software.amazon.smithy.model.shapes.ShapeVisitor;
+import software.amazon.smithy.model.shapes.StructureShape;
+import software.amazon.smithy.model.shapes.TimestampShape;
+import software.amazon.smithy.model.shapes.UnionShape;
 import software.amazon.smithy.model.traits.SparseTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait;
 import software.amazon.smithy.model.traits.XmlNameTrait;
@@ -29,8 +41,6 @@ import software.amazon.smithy.ruby.codegen.traits.NoSerializeTrait;
 import software.amazon.smithy.ruby.codegen.util.TimestampFormat;
 import software.amazon.smithy.utils.StringUtils;
 
-import java.util.stream.Stream;
-
 public class BuilderGenerator extends BuilderGeneratorBase {
 
     public BuilderGenerator(GenerationContext context) {
@@ -41,8 +51,7 @@ public class BuilderGenerator extends BuilderGeneratorBase {
         String name = StringUtils.capitalize(shape.getMemberName());
         if (shape.hasTrait(Ec2QueryNameTrait.class)) {
             name = shape.expectTrait(Ec2QueryNameTrait.class).getValue();
-        }
-        else if (shape.hasTrait(XmlNameTrait.class)) {
+        } else if (shape.hasTrait(XmlNameTrait.class)) {
             name = StringUtils.capitalize(shape.expectTrait(XmlNameTrait.class).getValue());
         }
         return name;
@@ -71,10 +80,8 @@ public class BuilderGenerator extends BuilderGeneratorBase {
 
         serializeMembers.forEach((member) -> {
             Shape target = model.expectShape(member.getTarget());
-
             String dataName = writer.format("'$L'", getQueryParamName(member));
-            String symbolName = ":" + symbolProvider.toMemberName(member);
-            String inputGetter = "input[" + symbolName + "]";
+            String inputGetter = "input." + symbolProvider.toMemberName(member);
             target.accept(new MemberSerializer(member, dataName, inputGetter, true));
         });
     }
@@ -170,7 +177,8 @@ public class BuilderGenerator extends BuilderGeneratorBase {
         }
 
         private void rubyFloat() {
-            writer.write("params[context + $L] = $T.serialize($L).to_s$L", dataName, Hearth.NUMBER_HELPER, inputGetter, checkRequired());
+            writer.write("params[context + $L] = $T.serialize($L).to_s$L", dataName, Hearth.NUMBER_HELPER, inputGetter,
+                    checkRequired());
         }
 
         @Override
