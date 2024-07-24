@@ -17,10 +17,10 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = Types::AcceleratorCount.new
         xml.at('min') do |node|
-          data.member_min = node.text&.to_i
+          data.min = node.text&.to_i
         end
         xml.at('max') do |node|
-          data.member_max = node.text&.to_i
+          data.max = node.text&.to_i
         end
         return data
       end
@@ -50,10 +50,10 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = Types::AcceleratorTotalMemoryMiB.new
         xml.at('min') do |node|
-          data.member_min = node.text&.to_i
+          data.min = node.text&.to_i
         end
         xml.at('max') do |node|
-          data.member_max = node.text&.to_i
+          data.max = node.text&.to_i
         end
         return data
       end
@@ -1578,10 +1578,10 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = Types::BaselineEbsBandwidthMbps.new
         xml.at('min') do |node|
-          data.member_min = node.text&.to_i
+          data.min = node.text&.to_i
         end
         xml.at('max') do |node|
-          data.member_max = node.text&.to_i
+          data.max = node.text&.to_i
         end
         return data
       end
@@ -2005,7 +2005,7 @@ module AWS::SDK::EC2
           data.allocation_type = (node.text || '')
         end
         xml.at('count') do |node|
-          data.member_count = node.text&.to_i
+          data.count = node.text&.to_i
         end
         return data
       end
@@ -4308,7 +4308,7 @@ module AWS::SDK::EC2
           data.outpost_arn = (node.text || '')
         end
         xml.at('size') do |node|
-          data.member_size = node.text&.to_i
+          data.size = node.text&.to_i
         end
         xml.at('snapshotId') do |node|
           data.snapshot_id = (node.text || '')
@@ -8648,7 +8648,7 @@ module AWS::SDK::EC2
         end
         xml.at('valueSet') do |node|
           children = node.children('item')
-          data.member_values = DhcpConfigurationValueList.parse(children)
+          data.values = DhcpConfigurationValueList.parse(children)
         end
         return data
       end
@@ -9267,7 +9267,7 @@ module AWS::SDK::EC2
           data.import_manifest_url = (node.text || '')
         end
         xml.at('size') do |node|
-          data.member_size = node.text&.to_i
+          data.size = node.text&.to_i
         end
         return data
       end
@@ -9280,7 +9280,7 @@ module AWS::SDK::EC2
           data.id = (node.text || '')
         end
         xml.at('size') do |node|
-          data.member_size = node.text&.to_i
+          data.size = node.text&.to_i
         end
         return data
       end
@@ -9293,7 +9293,7 @@ module AWS::SDK::EC2
           data.size_in_gb = node.text&.to_i
         end
         xml.at('count') do |node|
-          data.member_count = node.text&.to_i
+          data.count = node.text&.to_i
         end
         xml.at('type') do |node|
           data.type = (node.text || '')
@@ -10969,7 +10969,7 @@ module AWS::SDK::EC2
           data.manufacturer = (node.text || '')
         end
         xml.at('count') do |node|
-          data.member_count = node.text&.to_i
+          data.count = node.text&.to_i
         end
         xml.at('memoryInfo') do |node|
           data.memory_info = FpgaDeviceMemoryInfo.parse(node)
@@ -11556,7 +11556,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('entrySet') do |node|
           children = node.children('item')
-          data.member_entries = PrefixListEntrySet.parse(children)
+          data.entries = PrefixListEntrySet.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -11956,7 +11956,7 @@ module AWS::SDK::EC2
           data.manufacturer = (node.text || '')
         end
         xml.at('count') do |node|
-          data.member_count = node.text&.to_i
+          data.count = node.text&.to_i
         end
         xml.at('memoryInfo') do |node|
           data.memory_info = GpuDeviceMemoryInfo.parse(node)
@@ -12273,7 +12273,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = Types::HostReservation.new
         xml.at('count') do |node|
-          data.member_count = node.text&.to_i
+          data.count = node.text&.to_i
         end
         xml.at('currencyCode') do |node|
           data.currency_code = (node.text || '')
@@ -12957,7 +12957,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = Types::InferenceDeviceInfo.new
         xml.at('count') do |node|
-          data.member_count = node.text&.to_i
+          data.count = node.text&.to_i
         end
         xml.at('name') do |node|
           data.name = (node.text || '')
@@ -15824,7 +15824,7 @@ module AWS::SDK::EC2
           data.type = (node.text || '')
         end
         xml.at('count') do |node|
-          data.member_count = node.text&.to_i
+          data.count = node.text&.to_i
         end
         return data
       end
@@ -16794,10 +16794,10 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = Types::MemoryGiBPerVCpu.new
         xml.at('min') do |node|
-          data.member_min = Hearth::NumberHelper.deserialize(node.text)
+          data.min = Hearth::NumberHelper.deserialize(node.text)
         end
         xml.at('max') do |node|
-          data.member_max = Hearth::NumberHelper.deserialize(node.text)
+          data.max = Hearth::NumberHelper.deserialize(node.text)
         end
         return data
       end
@@ -16817,10 +16817,10 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = Types::MemoryMiB.new
         xml.at('min') do |node|
-          data.member_min = node.text&.to_i
+          data.min = node.text&.to_i
         end
         xml.at('max') do |node|
-          data.member_max = node.text&.to_i
+          data.max = node.text&.to_i
         end
         return data
       end
@@ -17879,7 +17879,7 @@ module AWS::SDK::EC2
         end
         xml.at('entrySet') do |node|
           children = node.children('item')
-          data.member_entries = NetworkAclEntryList.parse(children)
+          data.entries = NetworkAclEntryList.parse(children)
         end
         xml.at('default') do |node|
           data.is_default = (node.text == 'true')
@@ -17982,10 +17982,10 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = Types::NetworkBandwidthGbps.new
         xml.at('min') do |node|
-          data.member_min = Hearth::NumberHelper.deserialize(node.text)
+          data.min = Hearth::NumberHelper.deserialize(node.text)
         end
         xml.at('max') do |node|
-          data.member_max = Hearth::NumberHelper.deserialize(node.text)
+          data.max = Hearth::NumberHelper.deserialize(node.text)
         end
         return data
       end
@@ -18465,10 +18465,10 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = Types::NetworkInterfaceCount.new
         xml.at('min') do |node|
-          data.member_min = node.text&.to_i
+          data.min = node.text&.to_i
         end
         xml.at('max') do |node|
-          data.member_max = node.text&.to_i
+          data.max = node.text&.to_i
         end
         return data
       end
@@ -19310,7 +19310,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = Types::PricingDetail.new
         xml.at('count') do |node|
-          data.member_count = node.text&.to_i
+          data.count = node.text&.to_i
         end
         xml.at('price') do |node|
           data.price = Hearth::NumberHelper.deserialize(node.text)
@@ -23410,10 +23410,10 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = Types::TotalLocalStorageGB.new
         xml.at('min') do |node|
-          data.member_min = Hearth::NumberHelper.deserialize(node.text)
+          data.min = Hearth::NumberHelper.deserialize(node.text)
         end
         xml.at('max') do |node|
-          data.member_max = Hearth::NumberHelper.deserialize(node.text)
+          data.max = Hearth::NumberHelper.deserialize(node.text)
         end
         return data
       end
@@ -25135,10 +25135,10 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = Types::VCpuCountRange.new
         xml.at('min') do |node|
-          data.member_min = node.text&.to_i
+          data.min = node.text&.to_i
         end
         xml.at('max') do |node|
-          data.member_max = node.text&.to_i
+          data.max = node.text&.to_i
         end
         return data
       end
@@ -25704,7 +25704,7 @@ module AWS::SDK::EC2
           data.outpost_arn = (node.text || '')
         end
         xml.at('size') do |node|
-          data.member_size = node.text&.to_i
+          data.size = node.text&.to_i
         end
         xml.at('snapshotId') do |node|
           data.snapshot_id = (node.text || '')

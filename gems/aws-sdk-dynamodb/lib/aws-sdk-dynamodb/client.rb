@@ -134,7 +134,7 @@ module AWS::SDK::DynamoDB
     def batch_execute_statement(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::BatchExecuteStatementInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::BatchExecuteStatement.build(config)
       context = Hearth::Context.new(
@@ -145,12 +145,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'BatchExecuteStatement',
         'code.function' => 'batch_execute_statement',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.BatchExecuteStatement', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.BatchExecuteStatement', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#batch_execute_statement] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -355,7 +355,7 @@ module AWS::SDK::DynamoDB
     def batch_get_item(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::BatchGetItemInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::BatchGetItem.build(config)
       context = Hearth::Context.new(
@@ -366,12 +366,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'BatchGetItem',
         'code.function' => 'batch_get_item',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.BatchGetItem', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.BatchGetItem', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#batch_get_item] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -606,7 +606,7 @@ module AWS::SDK::DynamoDB
     def batch_write_item(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::BatchWriteItemInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::BatchWriteItem.build(config)
       context = Hearth::Context.new(
@@ -617,12 +617,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'BatchWriteItem',
         'code.function' => 'batch_write_item',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.BatchWriteItem', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.BatchWriteItem', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#batch_write_item] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -689,7 +689,7 @@ module AWS::SDK::DynamoDB
     def create_backup(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::CreateBackupInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::CreateBackup.build(config)
       context = Hearth::Context.new(
@@ -700,12 +700,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'CreateBackup',
         'code.function' => 'create_backup',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.CreateBackup', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.CreateBackup', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_backup] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -823,7 +823,7 @@ module AWS::SDK::DynamoDB
     def create_global_table(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::CreateGlobalTableInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::CreateGlobalTable.build(config)
       context = Hearth::Context.new(
@@ -834,12 +834,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'CreateGlobalTable',
         'code.function' => 'create_global_table',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.CreateGlobalTable', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.CreateGlobalTable', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_global_table] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1016,7 +1016,7 @@ module AWS::SDK::DynamoDB
     def create_table(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::CreateTableInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::CreateTable.build(config)
       context = Hearth::Context.new(
@@ -1027,12 +1027,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'CreateTable',
         'code.function' => 'create_table',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.CreateTable', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.CreateTable', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_table] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1113,7 +1113,7 @@ module AWS::SDK::DynamoDB
     def delete_backup(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::DeleteBackupInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::DeleteBackup.build(config)
       context = Hearth::Context.new(
@@ -1124,12 +1124,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'DeleteBackup',
         'code.function' => 'delete_backup',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.DeleteBackup', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.DeleteBackup', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_backup] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1253,7 +1253,7 @@ module AWS::SDK::DynamoDB
     def delete_item(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::DeleteItemInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::DeleteItem.build(config)
       context = Hearth::Context.new(
@@ -1264,12 +1264,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'DeleteItem',
         'code.function' => 'delete_item',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.DeleteItem', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.DeleteItem', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_item] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1426,7 +1426,7 @@ module AWS::SDK::DynamoDB
     def delete_table(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::DeleteTableInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::DeleteTable.build(config)
       context = Hearth::Context.new(
@@ -1437,12 +1437,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'DeleteTable',
         'code.function' => 'delete_table',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.DeleteTable', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.DeleteTable', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_table] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1523,7 +1523,7 @@ module AWS::SDK::DynamoDB
     def describe_backup(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::DescribeBackupInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::DescribeBackup.build(config)
       context = Hearth::Context.new(
@@ -1534,12 +1534,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'DescribeBackup',
         'code.function' => 'describe_backup',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.DescribeBackup', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.DescribeBackup', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_backup] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1585,7 +1585,7 @@ module AWS::SDK::DynamoDB
     def describe_continuous_backups(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::DescribeContinuousBackupsInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::DescribeContinuousBackups.build(config)
       context = Hearth::Context.new(
@@ -1596,12 +1596,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'DescribeContinuousBackups',
         'code.function' => 'describe_continuous_backups',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.DescribeContinuousBackups', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.DescribeContinuousBackups', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_continuous_backups] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1641,7 +1641,7 @@ module AWS::SDK::DynamoDB
     def describe_contributor_insights(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::DescribeContributorInsightsInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::DescribeContributorInsights.build(config)
       context = Hearth::Context.new(
@@ -1652,12 +1652,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'DescribeContributorInsights',
         'code.function' => 'describe_contributor_insights',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.DescribeContributorInsights', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.DescribeContributorInsights', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_contributor_insights] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1689,7 +1689,7 @@ module AWS::SDK::DynamoDB
     def describe_endpoints(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::DescribeEndpointsInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::DescribeEndpoints.build(config)
       context = Hearth::Context.new(
@@ -1700,12 +1700,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'DescribeEndpoints',
         'code.function' => 'describe_endpoints',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.DescribeEndpoints', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.DescribeEndpoints', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_endpoints] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1759,7 +1759,7 @@ module AWS::SDK::DynamoDB
     def describe_export(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::DescribeExportInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::DescribeExport.build(config)
       context = Hearth::Context.new(
@@ -1770,12 +1770,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'DescribeExport',
         'code.function' => 'describe_export',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.DescribeExport', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.DescribeExport', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_export] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1838,7 +1838,7 @@ module AWS::SDK::DynamoDB
     def describe_global_table(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::DescribeGlobalTableInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::DescribeGlobalTable.build(config)
       context = Hearth::Context.new(
@@ -1849,12 +1849,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'DescribeGlobalTable',
         'code.function' => 'describe_global_table',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.DescribeGlobalTable', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.DescribeGlobalTable', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_global_table] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1930,7 +1930,7 @@ module AWS::SDK::DynamoDB
     def describe_global_table_settings(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::DescribeGlobalTableSettingsInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::DescribeGlobalTableSettings.build(config)
       context = Hearth::Context.new(
@@ -1941,12 +1941,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'DescribeGlobalTableSettings',
         'code.function' => 'describe_global_table_settings',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.DescribeGlobalTableSettings', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.DescribeGlobalTableSettings', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_global_table_settings] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2028,7 +2028,7 @@ module AWS::SDK::DynamoDB
     def describe_import(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::DescribeImportInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::DescribeImport.build(config)
       context = Hearth::Context.new(
@@ -2039,12 +2039,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'DescribeImport',
         'code.function' => 'describe_import',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.DescribeImport', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.DescribeImport', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_import] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2080,7 +2080,7 @@ module AWS::SDK::DynamoDB
     def describe_kinesis_streaming_destination(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::DescribeKinesisStreamingDestinationInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::DescribeKinesisStreamingDestination.build(config)
       context = Hearth::Context.new(
@@ -2091,12 +2091,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'DescribeKinesisStreamingDestination',
         'code.function' => 'describe_kinesis_streaming_destination',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.DescribeKinesisStreamingDestination', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.DescribeKinesisStreamingDestination', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_kinesis_streaming_destination] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2206,7 +2206,7 @@ module AWS::SDK::DynamoDB
     def describe_limits(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::DescribeLimitsInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::DescribeLimits.build(config)
       context = Hearth::Context.new(
@@ -2217,12 +2217,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'DescribeLimits',
         'code.function' => 'describe_limits',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.DescribeLimits', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.DescribeLimits', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_limits] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2351,7 +2351,7 @@ module AWS::SDK::DynamoDB
     def describe_table(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::DescribeTableInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::DescribeTable.build(config)
       context = Hearth::Context.new(
@@ -2362,12 +2362,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'DescribeTable',
         'code.function' => 'describe_table',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.DescribeTable', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.DescribeTable', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_table] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2427,7 +2427,7 @@ module AWS::SDK::DynamoDB
     def describe_table_replica_auto_scaling(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::DescribeTableReplicaAutoScalingInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::DescribeTableReplicaAutoScaling.build(config)
       context = Hearth::Context.new(
@@ -2438,12 +2438,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'DescribeTableReplicaAutoScaling',
         'code.function' => 'describe_table_replica_auto_scaling',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.DescribeTableReplicaAutoScaling', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.DescribeTableReplicaAutoScaling', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_table_replica_auto_scaling] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2475,7 +2475,7 @@ module AWS::SDK::DynamoDB
     def describe_time_to_live(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::DescribeTimeToLiveInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::DescribeTimeToLive.build(config)
       context = Hearth::Context.new(
@@ -2486,12 +2486,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'DescribeTimeToLive',
         'code.function' => 'describe_time_to_live',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.DescribeTimeToLive', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.DescribeTimeToLive', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_time_to_live] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2530,7 +2530,7 @@ module AWS::SDK::DynamoDB
     def disable_kinesis_streaming_destination(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::DisableKinesisStreamingDestinationInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::DisableKinesisStreamingDestination.build(config)
       context = Hearth::Context.new(
@@ -2541,12 +2541,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'DisableKinesisStreamingDestination',
         'code.function' => 'disable_kinesis_streaming_destination',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.DisableKinesisStreamingDestination', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.DisableKinesisStreamingDestination', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_kinesis_streaming_destination] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2587,7 +2587,7 @@ module AWS::SDK::DynamoDB
     def enable_kinesis_streaming_destination(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::EnableKinesisStreamingDestinationInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::EnableKinesisStreamingDestination.build(config)
       context = Hearth::Context.new(
@@ -2598,12 +2598,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'EnableKinesisStreamingDestination',
         'code.function' => 'enable_kinesis_streaming_destination',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.EnableKinesisStreamingDestination', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.EnableKinesisStreamingDestination', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_kinesis_streaming_destination] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2697,7 +2697,7 @@ module AWS::SDK::DynamoDB
     def execute_statement(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::ExecuteStatementInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::ExecuteStatement.build(config)
       context = Hearth::Context.new(
@@ -2708,12 +2708,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'ExecuteStatement',
         'code.function' => 'execute_statement',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.ExecuteStatement', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.ExecuteStatement', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#execute_statement] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2804,7 +2804,7 @@ module AWS::SDK::DynamoDB
     def execute_transaction(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::ExecuteTransactionInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::ExecuteTransaction.build(config)
       context = Hearth::Context.new(
@@ -2815,12 +2815,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'ExecuteTransaction',
         'code.function' => 'execute_transaction',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.ExecuteTransaction', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.ExecuteTransaction', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#execute_transaction] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2890,7 +2890,7 @@ module AWS::SDK::DynamoDB
     def export_table_to_point_in_time(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::ExportTableToPointInTimeInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::ExportTableToPointInTime.build(config)
       context = Hearth::Context.new(
@@ -2901,12 +2901,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'ExportTableToPointInTime',
         'code.function' => 'export_table_to_point_in_time',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.ExportTableToPointInTime', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.ExportTableToPointInTime', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#export_table_to_point_in_time] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3024,7 +3024,7 @@ module AWS::SDK::DynamoDB
     def get_item(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::GetItemInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::GetItem.build(config)
       context = Hearth::Context.new(
@@ -3035,12 +3035,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'GetItem',
         'code.function' => 'get_item',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.GetItem', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.GetItem', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_item] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3173,7 +3173,7 @@ module AWS::SDK::DynamoDB
     def import_table(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::ImportTableInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::ImportTable.build(config)
       context = Hearth::Context.new(
@@ -3184,12 +3184,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'ImportTable',
         'code.function' => 'import_table',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.ImportTable', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.ImportTable', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#import_table] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3245,7 +3245,7 @@ module AWS::SDK::DynamoDB
     def list_backups(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::ListBackupsInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::ListBackups.build(config)
       context = Hearth::Context.new(
@@ -3256,12 +3256,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'ListBackups',
         'code.function' => 'list_backups',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.ListBackups', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.ListBackups', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_backups] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3299,7 +3299,7 @@ module AWS::SDK::DynamoDB
     def list_contributor_insights(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::ListContributorInsightsInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::ListContributorInsights.build(config)
       context = Hearth::Context.new(
@@ -3310,12 +3310,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'ListContributorInsights',
         'code.function' => 'list_contributor_insights',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.ListContributorInsights', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.ListContributorInsights', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_contributor_insights] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3352,7 +3352,7 @@ module AWS::SDK::DynamoDB
     def list_exports(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::ListExportsInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::ListExports.build(config)
       context = Hearth::Context.new(
@@ -3363,12 +3363,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'ListExports',
         'code.function' => 'list_exports',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.ListExports', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.ListExports', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_exports] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3418,7 +3418,7 @@ module AWS::SDK::DynamoDB
     def list_global_tables(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::ListGlobalTablesInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::ListGlobalTables.build(config)
       context = Hearth::Context.new(
@@ -3429,12 +3429,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'ListGlobalTables',
         'code.function' => 'list_global_tables',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.ListGlobalTables', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.ListGlobalTables', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_global_tables] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3479,7 +3479,7 @@ module AWS::SDK::DynamoDB
     def list_imports(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::ListImportsInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::ListImports.build(config)
       context = Hearth::Context.new(
@@ -3490,12 +3490,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'ListImports',
         'code.function' => 'list_imports',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.ListImports', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.ListImports', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_imports] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3542,7 +3542,7 @@ module AWS::SDK::DynamoDB
     def list_tables(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::ListTablesInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::ListTables.build(config)
       context = Hearth::Context.new(
@@ -3553,12 +3553,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'ListTables',
         'code.function' => 'list_tables',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.ListTables', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.ListTables', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_tables] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3596,7 +3596,7 @@ module AWS::SDK::DynamoDB
     def list_tags_of_resource(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::ListTagsOfResourceInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::ListTagsOfResource.build(config)
       context = Hearth::Context.new(
@@ -3607,12 +3607,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'ListTagsOfResource',
         'code.function' => 'list_tags_of_resource',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.ListTagsOfResource', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.ListTagsOfResource', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_tags_of_resource] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3751,7 +3751,7 @@ module AWS::SDK::DynamoDB
     def put_item(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::PutItemInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::PutItem.build(config)
       context = Hearth::Context.new(
@@ -3762,12 +3762,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'PutItem',
         'code.function' => 'put_item',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.PutItem', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.PutItem', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_item] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3841,7 +3841,7 @@ module AWS::SDK::DynamoDB
     #   resp = client.query(
     #     table_name: 'TableName', # required
     #     index_name: 'IndexName',
-    #     member_select: 'ALL_ATTRIBUTES', # accepts ["ALL_ATTRIBUTES", "ALL_PROJECTED_ATTRIBUTES", "SPECIFIC_ATTRIBUTES", "COUNT"]
+    #     select: 'ALL_ATTRIBUTES', # accepts ["ALL_ATTRIBUTES", "ALL_PROJECTED_ATTRIBUTES", "SPECIFIC_ATTRIBUTES", "COUNT"]
     #     attributes_to_get: [
     #       'member'
     #     ],
@@ -3899,7 +3899,7 @@ module AWS::SDK::DynamoDB
     #   resp.data.items[0]['key'].l #=> Array<AttributeValue>
     #   resp.data.items[0]['key'].null #=> Boolean
     #   resp.data.items[0]['key'].bool #=> Boolean
-    #   resp.data.member_count #=> Integer
+    #   resp.data.count #=> Integer
     #   resp.data.scanned_count #=> Integer
     #   resp.data.last_evaluated_key #=> Hash<String, AttributeValue>
     #   resp.data.consumed_capacity #=> Types::ConsumedCapacity
@@ -3928,7 +3928,7 @@ module AWS::SDK::DynamoDB
     #
     #   # resp.to_h outputs the following:
     #   {
-    #     member_count: 2,
+    #     count: 2,
     #     items: [
     #       {
     #         'SongTitle' => {
@@ -3942,7 +3942,7 @@ module AWS::SDK::DynamoDB
     def query(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::QueryInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::Query.build(config)
       context = Hearth::Context.new(
@@ -3953,12 +3953,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'Query',
         'code.function' => 'query',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.Query', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.Query', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#query] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4130,7 +4130,7 @@ module AWS::SDK::DynamoDB
     def restore_table_from_backup(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::RestoreTableFromBackupInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::RestoreTableFromBackup.build(config)
       context = Hearth::Context.new(
@@ -4141,12 +4141,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'RestoreTableFromBackup',
         'code.function' => 'restore_table_from_backup',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.RestoreTableFromBackup', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.RestoreTableFromBackup', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#restore_table_from_backup] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4346,7 +4346,7 @@ module AWS::SDK::DynamoDB
     def restore_table_to_point_in_time(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::RestoreTableToPointInTimeInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::RestoreTableToPointInTime.build(config)
       context = Hearth::Context.new(
@@ -4357,12 +4357,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'RestoreTableToPointInTime',
         'code.function' => 'restore_table_to_point_in_time',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.RestoreTableToPointInTime', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.RestoreTableToPointInTime', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#restore_table_to_point_in_time] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4431,7 +4431,7 @@ module AWS::SDK::DynamoDB
     #       'member'
     #     ],
     #     limit: 1,
-    #     member_select: 'ALL_ATTRIBUTES', # accepts ["ALL_ATTRIBUTES", "ALL_PROJECTED_ATTRIBUTES", "SPECIFIC_ATTRIBUTES", "COUNT"]
+    #     select: 'ALL_ATTRIBUTES', # accepts ["ALL_ATTRIBUTES", "ALL_PROJECTED_ATTRIBUTES", "SPECIFIC_ATTRIBUTES", "COUNT"]
     #     scan_filter: {
     #       'key' => {
     #         attribute_value_list: [
@@ -4485,7 +4485,7 @@ module AWS::SDK::DynamoDB
     #   resp.data.items[0]['key'].l #=> Array<AttributeValue>
     #   resp.data.items[0]['key'].null #=> Boolean
     #   resp.data.items[0]['key'].bool #=> Boolean
-    #   resp.data.member_count #=> Integer
+    #   resp.data.count #=> Integer
     #   resp.data.scanned_count #=> Integer
     #   resp.data.last_evaluated_key #=> Hash<String, AttributeValue>
     #   resp.data.consumed_capacity #=> Types::ConsumedCapacity
@@ -4518,7 +4518,7 @@ module AWS::SDK::DynamoDB
     #
     #   # resp.to_h outputs the following:
     #   {
-    #     member_count: 2,
+    #     count: 2,
     #     items: [
     #       {
     #         'SongTitle' => {
@@ -4543,7 +4543,7 @@ module AWS::SDK::DynamoDB
     def scan(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::ScanInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::Scan.build(config)
       context = Hearth::Context.new(
@@ -4554,12 +4554,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'Scan',
         'code.function' => 'scan',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.Scan', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.Scan', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#scan] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4599,7 +4599,7 @@ module AWS::SDK::DynamoDB
     def tag_resource(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::TagResourceInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::TagResource.build(config)
       context = Hearth::Context.new(
@@ -4610,12 +4610,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'TagResource',
         'code.function' => 'tag_resource',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.TagResource', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.TagResource', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#tag_resource] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4729,7 +4729,7 @@ module AWS::SDK::DynamoDB
     def transact_get_items(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::TransactGetItemsInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::TransactGetItems.build(config)
       context = Hearth::Context.new(
@@ -4740,12 +4740,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'TransactGetItems',
         'code.function' => 'transact_get_items',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.TransactGetItems', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.TransactGetItems', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#transact_get_items] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4927,7 +4927,7 @@ module AWS::SDK::DynamoDB
     def transact_write_items(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::TransactWriteItemsInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::TransactWriteItems.build(config)
       context = Hearth::Context.new(
@@ -4938,12 +4938,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'TransactWriteItems',
         'code.function' => 'transact_write_items',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.TransactWriteItems', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.TransactWriteItems', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#transact_write_items] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4978,7 +4978,7 @@ module AWS::SDK::DynamoDB
     def untag_resource(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::UntagResourceInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::UntagResource.build(config)
       context = Hearth::Context.new(
@@ -4989,12 +4989,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'UntagResource',
         'code.function' => 'untag_resource',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.UntagResource', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.UntagResource', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#untag_resource] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5043,7 +5043,7 @@ module AWS::SDK::DynamoDB
     def update_continuous_backups(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::UpdateContinuousBackupsInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::UpdateContinuousBackups.build(config)
       context = Hearth::Context.new(
@@ -5054,12 +5054,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'UpdateContinuousBackups',
         'code.function' => 'update_continuous_backups',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.UpdateContinuousBackups', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.UpdateContinuousBackups', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_continuous_backups] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5099,7 +5099,7 @@ module AWS::SDK::DynamoDB
     def update_contributor_insights(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::UpdateContributorInsightsInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::UpdateContributorInsights.build(config)
       context = Hearth::Context.new(
@@ -5110,12 +5110,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'UpdateContributorInsights',
         'code.function' => 'update_contributor_insights',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.UpdateContributorInsights', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.UpdateContributorInsights', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_contributor_insights] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5218,7 +5218,7 @@ module AWS::SDK::DynamoDB
     def update_global_table(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::UpdateGlobalTableInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::UpdateGlobalTable.build(config)
       context = Hearth::Context.new(
@@ -5229,12 +5229,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'UpdateGlobalTable',
         'code.function' => 'update_global_table',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.UpdateGlobalTable', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.UpdateGlobalTable', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_global_table] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5346,7 +5346,7 @@ module AWS::SDK::DynamoDB
     def update_global_table_settings(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::UpdateGlobalTableSettingsInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::UpdateGlobalTableSettings.build(config)
       context = Hearth::Context.new(
@@ -5357,12 +5357,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'UpdateGlobalTableSettings',
         'code.function' => 'update_global_table_settings',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.UpdateGlobalTableSettings', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.UpdateGlobalTableSettings', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_global_table_settings] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5512,7 +5512,7 @@ module AWS::SDK::DynamoDB
     def update_item(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::UpdateItemInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::UpdateItem.build(config)
       context = Hearth::Context.new(
@@ -5523,12 +5523,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'UpdateItem',
         'code.function' => 'update_item',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.UpdateItem', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.UpdateItem', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_item] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5566,7 +5566,7 @@ module AWS::SDK::DynamoDB
     def update_kinesis_streaming_destination(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::UpdateKinesisStreamingDestinationInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::UpdateKinesisStreamingDestination.build(config)
       context = Hearth::Context.new(
@@ -5577,12 +5577,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'UpdateKinesisStreamingDestination',
         'code.function' => 'update_kinesis_streaming_destination',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.UpdateKinesisStreamingDestination', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.UpdateKinesisStreamingDestination', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_kinesis_streaming_destination] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5798,7 +5798,7 @@ module AWS::SDK::DynamoDB
     def update_table(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::UpdateTableInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::UpdateTable.build(config)
       context = Hearth::Context.new(
@@ -5809,12 +5809,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'UpdateTable',
         'code.function' => 'update_table',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.UpdateTable', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.UpdateTable', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_table] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5905,7 +5905,7 @@ module AWS::SDK::DynamoDB
     def update_table_replica_auto_scaling(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::UpdateTableReplicaAutoScalingInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::UpdateTableReplicaAutoScaling.build(config)
       context = Hearth::Context.new(
@@ -5916,12 +5916,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'UpdateTableReplicaAutoScaling',
         'code.function' => 'update_table_replica_auto_scaling',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.UpdateTableReplicaAutoScaling', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.UpdateTableReplicaAutoScaling', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_table_replica_auto_scaling] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5981,7 +5981,7 @@ module AWS::SDK::DynamoDB
     def update_time_to_live(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::dynamodb.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::UpdateTimeToLiveInput.build(params, context: 'params')
       stack = AWS::SDK::DynamoDB::Middleware::UpdateTimeToLive.build(config)
       context = Hearth::Context.new(
@@ -5992,12 +5992,12 @@ module AWS::SDK::DynamoDB
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'DynamoDB_20120810',
+        'rpc.service' => 'DynamoDB',
         'rpc.method' => 'UpdateTimeToLive',
         'code.function' => 'update_time_to_live',
         'code.namespace' => 'AWS::SDK::DynamoDB::Client'
       }
-      tracer.in_span('DynamoDB_20120810.UpdateTimeToLive', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('DynamoDB.UpdateTimeToLive', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_time_to_live] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error

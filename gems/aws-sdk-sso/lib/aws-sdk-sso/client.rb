@@ -69,7 +69,7 @@ module AWS::SDK::SSO
     def get_role_credentials(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::sso.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.sso.client')
       input = Params::GetRoleCredentialsInput.build(params, context: 'params')
       stack = AWS::SDK::SSO::Middleware::GetRoleCredentials.build(config)
       context = Hearth::Context.new(
@@ -80,12 +80,12 @@ module AWS::SDK::SSO
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'SWBPortalService',
+        'rpc.service' => 'SSO',
         'rpc.method' => 'GetRoleCredentials',
         'code.function' => 'get_role_credentials',
         'code.namespace' => 'AWS::SDK::SSO::Client'
       }
-      tracer.in_span('SWBPortalService.GetRoleCredentials', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('SSO.GetRoleCredentials', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_role_credentials] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -122,7 +122,7 @@ module AWS::SDK::SSO
     def list_account_roles(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::sso.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.sso.client')
       input = Params::ListAccountRolesInput.build(params, context: 'params')
       stack = AWS::SDK::SSO::Middleware::ListAccountRoles.build(config)
       context = Hearth::Context.new(
@@ -133,12 +133,12 @@ module AWS::SDK::SSO
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'SWBPortalService',
+        'rpc.service' => 'SSO',
         'rpc.method' => 'ListAccountRoles',
         'code.function' => 'list_account_roles',
         'code.namespace' => 'AWS::SDK::SSO::Client'
       }
-      tracer.in_span('SWBPortalService.ListAccountRoles', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('SSO.ListAccountRoles', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_account_roles] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -177,7 +177,7 @@ module AWS::SDK::SSO
     def list_accounts(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::sso.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.sso.client')
       input = Params::ListAccountsInput.build(params, context: 'params')
       stack = AWS::SDK::SSO::Middleware::ListAccounts.build(config)
       context = Hearth::Context.new(
@@ -188,12 +188,12 @@ module AWS::SDK::SSO
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'SWBPortalService',
+        'rpc.service' => 'SSO',
         'rpc.method' => 'ListAccounts',
         'code.function' => 'list_accounts',
         'code.namespace' => 'AWS::SDK::SSO::Client'
       }
-      tracer.in_span('SWBPortalService.ListAccounts', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('SSO.ListAccounts', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_accounts] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -235,7 +235,7 @@ module AWS::SDK::SSO
     def logout(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::sso.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.sso.client')
       input = Params::LogoutInput.build(params, context: 'params')
       stack = AWS::SDK::SSO::Middleware::Logout.build(config)
       context = Hearth::Context.new(
@@ -246,12 +246,12 @@ module AWS::SDK::SSO
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'SWBPortalService',
+        'rpc.service' => 'SSO',
         'rpc.method' => 'Logout',
         'code.function' => 'logout',
         'code.namespace' => 'AWS::SDK::SSO::Client'
       }
-      tracer.in_span('SWBPortalService.Logout', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('SSO.Logout', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#logout] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error

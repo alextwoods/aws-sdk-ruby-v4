@@ -9,20 +9,15 @@
 
 module AWS::SDK::EC2
   module Endpoint
-    Params = ::Struct.new(
-      :region,
-      :use_dual_stack,
-      :use_fips,
-      :endpoint,
-      keyword_init: true
-    ) do
-      include Hearth::Structure
-
-      def initialize(*)
-        super
-        self.use_dual_stack = false if self.use_dual_stack.nil?
-        self.use_fips = false if self.use_fips.nil?
+    class Params
+      def initialize(region: nil, use_dual_stack: nil, use_fips: nil, endpoint: nil)
+        @region = region
+        @use_dual_stack = use_dual_stack.nil? ? false : use_dual_stack
+        @use_fips = use_fips.nil? ? false : use_fips
+        @endpoint = endpoint
       end
+
+      attr_accessor :region, :use_dual_stack, :use_fips, :endpoint
     end
 
     class Resolver

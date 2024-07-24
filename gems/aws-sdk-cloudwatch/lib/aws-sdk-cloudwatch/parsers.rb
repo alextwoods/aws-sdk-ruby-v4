@@ -238,7 +238,7 @@ module AWS::SDK::CloudWatch
           data.last_modified = Time.parse(node.text) if node.text
         end
         xml.at('Size') do |node|
-          data.member_size = node.text&.to_i
+          data.size = node.text&.to_i
         end
         return data
       end
@@ -312,7 +312,7 @@ module AWS::SDK::CloudWatch
           data.average = Hearth::NumberHelper.deserialize(node.text)
         end
         xml.at('Sum') do |node|
-          data.member_sum = Hearth::NumberHelper.deserialize(node.text)
+          data.sum = Hearth::NumberHelper.deserialize(node.text)
         end
         xml.at('Minimum') do |node|
           data.minimum = Hearth::NumberHelper.deserialize(node.text)
@@ -836,7 +836,7 @@ module AWS::SDK::CloudWatch
           data.average = Hearth::NumberHelper.deserialize(node.text)
         end
         xml.at('Sum') do |node|
-          data.member_sum = Hearth::NumberHelper.deserialize(node.text)
+          data.sum = Hearth::NumberHelper.deserialize(node.text)
         end
         xml.at('Minimum') do |node|
           data.minimum = Hearth::NumberHelper.deserialize(node.text)
@@ -1011,7 +1011,7 @@ module AWS::SDK::CloudWatch
         end
         xml.at('Entries') do |node|
           children = node.children('member')
-          data.member_entries = MetricStreamEntries.parse(children)
+          data.entries = MetricStreamEntries.parse(children)
         end
         data
       end
@@ -1283,7 +1283,7 @@ module AWS::SDK::CloudWatch
         end
         xml.at('Values') do |node|
           children = node.children('member')
-          data.member_values = DatapointValues.parse(children)
+          data.values = DatapointValues.parse(children)
         end
         xml.at('StatusCode') do |node|
           data.status_code = (node.text || '')

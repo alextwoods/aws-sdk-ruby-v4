@@ -203,12 +203,12 @@ module AWS::SDK::S3
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [String] :id
-    #   @option params [AnalyticsFilter] :member_filter
+    #   @option params [AnalyticsFilter] :filter
     #   @option params [StorageClassAnalysis] :storage_class_analysis
     # @!attribute id
     #   <p>The ID that identifies the analytics configuration.</p>
     #   @return [String]
-    # @!attribute member_filter
+    # @!attribute filter
     #   <p>The filter used to describe a set of objects for analyses. A filter must have exactly
     #            one prefix, one tag, or one conjunction (AnalyticsAndOperator). If no filter is provided,
     #            all objects will be considered in any analysis.</p>
@@ -255,20 +255,12 @@ module AWS::SDK::S3
         def to_h
           { prefix: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::S3::Types::Prefix #{__getobj__ || 'nil'}>"
-        end
       end
 
       # <p>The tag to use when evaluating an analytics filter.</p>
       class Tag < AnalyticsFilter
         def to_h
           { tag: super(__getobj__) }
-        end
-
-        def to_s
-          "#<AWS::SDK::S3::Types::Tag #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -277,10 +269,6 @@ module AWS::SDK::S3
       class And < AnalyticsFilter
         def to_h
           { and: super(__getobj__) }
-        end
-
-        def to_s
-          "#<AWS::SDK::S3::Types::And #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -978,19 +966,19 @@ module AWS::SDK::S3
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::S3::Types::CompleteMultipartUploadInput "\
-          "bucket=#{bucket || 'nil'}, "\
-          "key=#{key || 'nil'}, "\
-          "multipart_upload=#{multipart_upload || 'nil'}, "\
-          "upload_id=#{upload_id || 'nil'}, "\
-          "checksum_crc32=#{checksum_crc32 || 'nil'}, "\
-          "checksum_crc32_c=#{checksum_crc32_c || 'nil'}, "\
-          "checksum_sha1=#{checksum_sha1 || 'nil'}, "\
-          "checksum_sha256=#{checksum_sha256 || 'nil'}, "\
-          "request_payer=#{request_payer || 'nil'}, "\
-          "expected_bucket_owner=#{expected_bucket_owner || 'nil'}, "\
-          "sse_customer_algorithm=#{sse_customer_algorithm || 'nil'}, "\
-          "sse_customer_key=\"[SENSITIVE]\", "\
+        '#<AWS::SDK::S3::Types::CompleteMultipartUploadInput ' \
+          "bucket=#{bucket || 'nil'}, " \
+          "key=#{key || 'nil'}, " \
+          "multipart_upload=#{multipart_upload || 'nil'}, " \
+          "upload_id=#{upload_id || 'nil'}, " \
+          "checksum_crc32=#{checksum_crc32 || 'nil'}, " \
+          "checksum_crc32_c=#{checksum_crc32_c || 'nil'}, " \
+          "checksum_sha1=#{checksum_sha1 || 'nil'}, " \
+          "checksum_sha256=#{checksum_sha256 || 'nil'}, " \
+          "request_payer=#{request_payer || 'nil'}, " \
+          "expected_bucket_owner=#{expected_bucket_owner || 'nil'}, " \
+          "sse_customer_algorithm=#{sse_customer_algorithm || 'nil'}, " \
+          'sse_customer_key=[SENSITIVE], ' \
           "sse_customer_key_md5=#{sse_customer_key_md5 || 'nil'}>"
       end
     end
@@ -1125,20 +1113,20 @@ module AWS::SDK::S3
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::S3::Types::CompleteMultipartUploadOutput "\
-          "location=#{location || 'nil'}, "\
-          "bucket=#{bucket || 'nil'}, "\
-          "key=#{key || 'nil'}, "\
-          "expiration=#{expiration || 'nil'}, "\
-          "e_tag=#{e_tag || 'nil'}, "\
-          "checksum_crc32=#{checksum_crc32 || 'nil'}, "\
-          "checksum_crc32_c=#{checksum_crc32_c || 'nil'}, "\
-          "checksum_sha1=#{checksum_sha1 || 'nil'}, "\
-          "checksum_sha256=#{checksum_sha256 || 'nil'}, "\
-          "server_side_encryption=#{server_side_encryption || 'nil'}, "\
-          "version_id=#{version_id || 'nil'}, "\
-          "ssekms_key_id=\"[SENSITIVE]\", "\
-          "bucket_key_enabled=#{bucket_key_enabled || 'nil'}, "\
+        '#<AWS::SDK::S3::Types::CompleteMultipartUploadOutput ' \
+          "location=#{location || 'nil'}, " \
+          "bucket=#{bucket || 'nil'}, " \
+          "key=#{key || 'nil'}, " \
+          "expiration=#{expiration || 'nil'}, " \
+          "e_tag=#{e_tag || 'nil'}, " \
+          "checksum_crc32=#{checksum_crc32 || 'nil'}, " \
+          "checksum_crc32_c=#{checksum_crc32_c || 'nil'}, " \
+          "checksum_sha1=#{checksum_sha1 || 'nil'}, " \
+          "checksum_sha256=#{checksum_sha256 || 'nil'}, " \
+          "server_side_encryption=#{server_side_encryption || 'nil'}, " \
+          "version_id=#{version_id || 'nil'}, " \
+          'ssekms_key_id=[SENSITIVE], ' \
+          "bucket_key_enabled=#{bucket_key_enabled || 'nil'}, " \
           "request_charged=#{request_charged || 'nil'}>"
       end
     end
@@ -1969,47 +1957,47 @@ module AWS::SDK::S3
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::S3::Types::CopyObjectInput "\
-          "acl=#{acl || 'nil'}, "\
-          "bucket=#{bucket || 'nil'}, "\
-          "cache_control=#{cache_control || 'nil'}, "\
-          "checksum_algorithm=#{checksum_algorithm || 'nil'}, "\
-          "content_disposition=#{content_disposition || 'nil'}, "\
-          "content_encoding=#{content_encoding || 'nil'}, "\
-          "content_language=#{content_language || 'nil'}, "\
-          "content_type=#{content_type || 'nil'}, "\
-          "copy_source=#{copy_source || 'nil'}, "\
-          "copy_source_if_match=#{copy_source_if_match || 'nil'}, "\
-          "copy_source_if_modified_since=#{copy_source_if_modified_since || 'nil'}, "\
-          "copy_source_if_none_match=#{copy_source_if_none_match || 'nil'}, "\
-          "copy_source_if_unmodified_since=#{copy_source_if_unmodified_since || 'nil'}, "\
-          "expires=#{expires || 'nil'}, "\
-          "grant_full_control=#{grant_full_control || 'nil'}, "\
-          "grant_read=#{grant_read || 'nil'}, "\
-          "grant_read_acp=#{grant_read_acp || 'nil'}, "\
-          "grant_write_acp=#{grant_write_acp || 'nil'}, "\
-          "key=#{key || 'nil'}, "\
-          "metadata=#{metadata || 'nil'}, "\
-          "metadata_directive=#{metadata_directive || 'nil'}, "\
-          "tagging_directive=#{tagging_directive || 'nil'}, "\
-          "server_side_encryption=#{server_side_encryption || 'nil'}, "\
-          "storage_class=#{storage_class || 'nil'}, "\
-          "website_redirect_location=#{website_redirect_location || 'nil'}, "\
-          "sse_customer_algorithm=#{sse_customer_algorithm || 'nil'}, "\
-          "sse_customer_key=\"[SENSITIVE]\", "\
-          "sse_customer_key_md5=#{sse_customer_key_md5 || 'nil'}, "\
-          "ssekms_key_id=\"[SENSITIVE]\", "\
-          "ssekms_encryption_context=\"[SENSITIVE]\", "\
-          "bucket_key_enabled=#{bucket_key_enabled || 'nil'}, "\
-          "copy_source_sse_customer_algorithm=#{copy_source_sse_customer_algorithm || 'nil'}, "\
-          "copy_source_sse_customer_key=\"[SENSITIVE]\", "\
-          "copy_source_sse_customer_key_md5=#{copy_source_sse_customer_key_md5 || 'nil'}, "\
-          "request_payer=#{request_payer || 'nil'}, "\
-          "tagging=#{tagging || 'nil'}, "\
-          "object_lock_mode=#{object_lock_mode || 'nil'}, "\
-          "object_lock_retain_until_date=#{object_lock_retain_until_date || 'nil'}, "\
-          "object_lock_legal_hold_status=#{object_lock_legal_hold_status || 'nil'}, "\
-          "expected_bucket_owner=#{expected_bucket_owner || 'nil'}, "\
+        '#<AWS::SDK::S3::Types::CopyObjectInput ' \
+          "acl=#{acl || 'nil'}, " \
+          "bucket=#{bucket || 'nil'}, " \
+          "cache_control=#{cache_control || 'nil'}, " \
+          "checksum_algorithm=#{checksum_algorithm || 'nil'}, " \
+          "content_disposition=#{content_disposition || 'nil'}, " \
+          "content_encoding=#{content_encoding || 'nil'}, " \
+          "content_language=#{content_language || 'nil'}, " \
+          "content_type=#{content_type || 'nil'}, " \
+          "copy_source=#{copy_source || 'nil'}, " \
+          "copy_source_if_match=#{copy_source_if_match || 'nil'}, " \
+          "copy_source_if_modified_since=#{copy_source_if_modified_since || 'nil'}, " \
+          "copy_source_if_none_match=#{copy_source_if_none_match || 'nil'}, " \
+          "copy_source_if_unmodified_since=#{copy_source_if_unmodified_since || 'nil'}, " \
+          "expires=#{expires || 'nil'}, " \
+          "grant_full_control=#{grant_full_control || 'nil'}, " \
+          "grant_read=#{grant_read || 'nil'}, " \
+          "grant_read_acp=#{grant_read_acp || 'nil'}, " \
+          "grant_write_acp=#{grant_write_acp || 'nil'}, " \
+          "key=#{key || 'nil'}, " \
+          "metadata=#{metadata || 'nil'}, " \
+          "metadata_directive=#{metadata_directive || 'nil'}, " \
+          "tagging_directive=#{tagging_directive || 'nil'}, " \
+          "server_side_encryption=#{server_side_encryption || 'nil'}, " \
+          "storage_class=#{storage_class || 'nil'}, " \
+          "website_redirect_location=#{website_redirect_location || 'nil'}, " \
+          "sse_customer_algorithm=#{sse_customer_algorithm || 'nil'}, " \
+          'sse_customer_key=[SENSITIVE], ' \
+          "sse_customer_key_md5=#{sse_customer_key_md5 || 'nil'}, " \
+          'ssekms_key_id=[SENSITIVE], ' \
+          'ssekms_encryption_context=[SENSITIVE], ' \
+          "bucket_key_enabled=#{bucket_key_enabled || 'nil'}, " \
+          "copy_source_sse_customer_algorithm=#{copy_source_sse_customer_algorithm || 'nil'}, " \
+          'copy_source_sse_customer_key=[SENSITIVE], ' \
+          "copy_source_sse_customer_key_md5=#{copy_source_sse_customer_key_md5 || 'nil'}, " \
+          "request_payer=#{request_payer || 'nil'}, " \
+          "tagging=#{tagging || 'nil'}, " \
+          "object_lock_mode=#{object_lock_mode || 'nil'}, " \
+          "object_lock_retain_until_date=#{object_lock_retain_until_date || 'nil'}, " \
+          "object_lock_legal_hold_status=#{object_lock_legal_hold_status || 'nil'}, " \
+          "expected_bucket_owner=#{expected_bucket_owner || 'nil'}, " \
           "expected_source_bucket_owner=#{expected_source_bucket_owner || 'nil'}>"
       end
     end
@@ -2121,17 +2109,17 @@ module AWS::SDK::S3
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::S3::Types::CopyObjectOutput "\
-          "copy_object_result=#{copy_object_result || 'nil'}, "\
-          "expiration=#{expiration || 'nil'}, "\
-          "copy_source_version_id=#{copy_source_version_id || 'nil'}, "\
-          "version_id=#{version_id || 'nil'}, "\
-          "server_side_encryption=#{server_side_encryption || 'nil'}, "\
-          "sse_customer_algorithm=#{sse_customer_algorithm || 'nil'}, "\
-          "sse_customer_key_md5=#{sse_customer_key_md5 || 'nil'}, "\
-          "ssekms_key_id=\"[SENSITIVE]\", "\
-          "ssekms_encryption_context=\"[SENSITIVE]\", "\
-          "bucket_key_enabled=#{bucket_key_enabled || 'nil'}, "\
+        '#<AWS::SDK::S3::Types::CopyObjectOutput ' \
+          "copy_object_result=#{copy_object_result || 'nil'}, " \
+          "expiration=#{expiration || 'nil'}, " \
+          "copy_source_version_id=#{copy_source_version_id || 'nil'}, " \
+          "version_id=#{version_id || 'nil'}, " \
+          "server_side_encryption=#{server_side_encryption || 'nil'}, " \
+          "sse_customer_algorithm=#{sse_customer_algorithm || 'nil'}, " \
+          "sse_customer_key_md5=#{sse_customer_key_md5 || 'nil'}, " \
+          'ssekms_key_id=[SENSITIVE], ' \
+          'ssekms_encryption_context=[SENSITIVE], ' \
+          "bucket_key_enabled=#{bucket_key_enabled || 'nil'}, " \
           "request_charged=#{request_charged || 'nil'}>"
       end
     end
@@ -2978,36 +2966,36 @@ module AWS::SDK::S3
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::S3::Types::CreateMultipartUploadInput "\
-          "acl=#{acl || 'nil'}, "\
-          "bucket=#{bucket || 'nil'}, "\
-          "cache_control=#{cache_control || 'nil'}, "\
-          "content_disposition=#{content_disposition || 'nil'}, "\
-          "content_encoding=#{content_encoding || 'nil'}, "\
-          "content_language=#{content_language || 'nil'}, "\
-          "content_type=#{content_type || 'nil'}, "\
-          "expires=#{expires || 'nil'}, "\
-          "grant_full_control=#{grant_full_control || 'nil'}, "\
-          "grant_read=#{grant_read || 'nil'}, "\
-          "grant_read_acp=#{grant_read_acp || 'nil'}, "\
-          "grant_write_acp=#{grant_write_acp || 'nil'}, "\
-          "key=#{key || 'nil'}, "\
-          "metadata=#{metadata || 'nil'}, "\
-          "server_side_encryption=#{server_side_encryption || 'nil'}, "\
-          "storage_class=#{storage_class || 'nil'}, "\
-          "website_redirect_location=#{website_redirect_location || 'nil'}, "\
-          "sse_customer_algorithm=#{sse_customer_algorithm || 'nil'}, "\
-          "sse_customer_key=\"[SENSITIVE]\", "\
-          "sse_customer_key_md5=#{sse_customer_key_md5 || 'nil'}, "\
-          "ssekms_key_id=\"[SENSITIVE]\", "\
-          "ssekms_encryption_context=\"[SENSITIVE]\", "\
-          "bucket_key_enabled=#{bucket_key_enabled || 'nil'}, "\
-          "request_payer=#{request_payer || 'nil'}, "\
-          "tagging=#{tagging || 'nil'}, "\
-          "object_lock_mode=#{object_lock_mode || 'nil'}, "\
-          "object_lock_retain_until_date=#{object_lock_retain_until_date || 'nil'}, "\
-          "object_lock_legal_hold_status=#{object_lock_legal_hold_status || 'nil'}, "\
-          "expected_bucket_owner=#{expected_bucket_owner || 'nil'}, "\
+        '#<AWS::SDK::S3::Types::CreateMultipartUploadInput ' \
+          "acl=#{acl || 'nil'}, " \
+          "bucket=#{bucket || 'nil'}, " \
+          "cache_control=#{cache_control || 'nil'}, " \
+          "content_disposition=#{content_disposition || 'nil'}, " \
+          "content_encoding=#{content_encoding || 'nil'}, " \
+          "content_language=#{content_language || 'nil'}, " \
+          "content_type=#{content_type || 'nil'}, " \
+          "expires=#{expires || 'nil'}, " \
+          "grant_full_control=#{grant_full_control || 'nil'}, " \
+          "grant_read=#{grant_read || 'nil'}, " \
+          "grant_read_acp=#{grant_read_acp || 'nil'}, " \
+          "grant_write_acp=#{grant_write_acp || 'nil'}, " \
+          "key=#{key || 'nil'}, " \
+          "metadata=#{metadata || 'nil'}, " \
+          "server_side_encryption=#{server_side_encryption || 'nil'}, " \
+          "storage_class=#{storage_class || 'nil'}, " \
+          "website_redirect_location=#{website_redirect_location || 'nil'}, " \
+          "sse_customer_algorithm=#{sse_customer_algorithm || 'nil'}, " \
+          'sse_customer_key=[SENSITIVE], ' \
+          "sse_customer_key_md5=#{sse_customer_key_md5 || 'nil'}, " \
+          'ssekms_key_id=[SENSITIVE], ' \
+          'ssekms_encryption_context=[SENSITIVE], ' \
+          "bucket_key_enabled=#{bucket_key_enabled || 'nil'}, " \
+          "request_payer=#{request_payer || 'nil'}, " \
+          "tagging=#{tagging || 'nil'}, " \
+          "object_lock_mode=#{object_lock_mode || 'nil'}, " \
+          "object_lock_retain_until_date=#{object_lock_retain_until_date || 'nil'}, " \
+          "object_lock_legal_hold_status=#{object_lock_legal_hold_status || 'nil'}, " \
+          "expected_bucket_owner=#{expected_bucket_owner || 'nil'}, " \
           "checksum_algorithm=#{checksum_algorithm || 'nil'}>"
       end
     end
@@ -3140,19 +3128,19 @@ module AWS::SDK::S3
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::S3::Types::CreateMultipartUploadOutput "\
-          "abort_date=#{abort_date || 'nil'}, "\
-          "abort_rule_id=#{abort_rule_id || 'nil'}, "\
-          "bucket=#{bucket || 'nil'}, "\
-          "key=#{key || 'nil'}, "\
-          "upload_id=#{upload_id || 'nil'}, "\
-          "server_side_encryption=#{server_side_encryption || 'nil'}, "\
-          "sse_customer_algorithm=#{sse_customer_algorithm || 'nil'}, "\
-          "sse_customer_key_md5=#{sse_customer_key_md5 || 'nil'}, "\
-          "ssekms_key_id=\"[SENSITIVE]\", "\
-          "ssekms_encryption_context=\"[SENSITIVE]\", "\
-          "bucket_key_enabled=#{bucket_key_enabled || 'nil'}, "\
-          "request_charged=#{request_charged || 'nil'}, "\
+        '#<AWS::SDK::S3::Types::CreateMultipartUploadOutput ' \
+          "abort_date=#{abort_date || 'nil'}, " \
+          "abort_rule_id=#{abort_rule_id || 'nil'}, " \
+          "bucket=#{bucket || 'nil'}, " \
+          "key=#{key || 'nil'}, " \
+          "upload_id=#{upload_id || 'nil'}, " \
+          "server_side_encryption=#{server_side_encryption || 'nil'}, " \
+          "sse_customer_algorithm=#{sse_customer_algorithm || 'nil'}, " \
+          "sse_customer_key_md5=#{sse_customer_key_md5 || 'nil'}, " \
+          'ssekms_key_id=[SENSITIVE], ' \
+          'ssekms_encryption_context=[SENSITIVE], ' \
+          "bucket_key_enabled=#{bucket_key_enabled || 'nil'}, " \
+          "request_charged=#{request_charged || 'nil'}, " \
           "checksum_algorithm=#{checksum_algorithm || 'nil'}>"
       end
     end
@@ -4309,9 +4297,9 @@ module AWS::SDK::S3
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::S3::Types::Encryption "\
-          "encryption_type=#{encryption_type || 'nil'}, "\
-          "kms_key_id=\"[SENSITIVE]\", "\
+        '#<AWS::SDK::S3::Types::Encryption ' \
+          "encryption_type=#{encryption_type || 'nil'}, " \
+          'kms_key_id=[SENSITIVE], ' \
           "kms_context=#{kms_context || 'nil'}>"
       end
     end
@@ -7501,17 +7489,17 @@ module AWS::SDK::S3
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::S3::Types::GetObjectAttributesInput "\
-          "bucket=#{bucket || 'nil'}, "\
-          "key=#{key || 'nil'}, "\
-          "version_id=#{version_id || 'nil'}, "\
-          "max_parts=#{max_parts || 'nil'}, "\
-          "part_number_marker=#{part_number_marker || 'nil'}, "\
-          "sse_customer_algorithm=#{sse_customer_algorithm || 'nil'}, "\
-          "sse_customer_key=\"[SENSITIVE]\", "\
-          "sse_customer_key_md5=#{sse_customer_key_md5 || 'nil'}, "\
-          "request_payer=#{request_payer || 'nil'}, "\
-          "expected_bucket_owner=#{expected_bucket_owner || 'nil'}, "\
+        '#<AWS::SDK::S3::Types::GetObjectAttributesInput ' \
+          "bucket=#{bucket || 'nil'}, " \
+          "key=#{key || 'nil'}, " \
+          "version_id=#{version_id || 'nil'}, " \
+          "max_parts=#{max_parts || 'nil'}, " \
+          "part_number_marker=#{part_number_marker || 'nil'}, " \
+          "sse_customer_algorithm=#{sse_customer_algorithm || 'nil'}, " \
+          'sse_customer_key=[SENSITIVE], ' \
+          "sse_customer_key_md5=#{sse_customer_key_md5 || 'nil'}, " \
+          "request_payer=#{request_payer || 'nil'}, " \
+          "expected_bucket_owner=#{expected_bucket_owner || 'nil'}, " \
           "object_attributes=#{object_attributes || 'nil'}>"
       end
     end
@@ -7923,27 +7911,27 @@ module AWS::SDK::S3
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::S3::Types::GetObjectInput "\
-          "bucket=#{bucket || 'nil'}, "\
-          "if_match=#{if_match || 'nil'}, "\
-          "if_modified_since=#{if_modified_since || 'nil'}, "\
-          "if_none_match=#{if_none_match || 'nil'}, "\
-          "if_unmodified_since=#{if_unmodified_since || 'nil'}, "\
-          "key=#{key || 'nil'}, "\
-          "range=#{range || 'nil'}, "\
-          "response_cache_control=#{response_cache_control || 'nil'}, "\
-          "response_content_disposition=#{response_content_disposition || 'nil'}, "\
-          "response_content_encoding=#{response_content_encoding || 'nil'}, "\
-          "response_content_language=#{response_content_language || 'nil'}, "\
-          "response_content_type=#{response_content_type || 'nil'}, "\
-          "response_expires=#{response_expires || 'nil'}, "\
-          "version_id=#{version_id || 'nil'}, "\
-          "sse_customer_algorithm=#{sse_customer_algorithm || 'nil'}, "\
-          "sse_customer_key=\"[SENSITIVE]\", "\
-          "sse_customer_key_md5=#{sse_customer_key_md5 || 'nil'}, "\
-          "request_payer=#{request_payer || 'nil'}, "\
-          "part_number=#{part_number || 'nil'}, "\
-          "expected_bucket_owner=#{expected_bucket_owner || 'nil'}, "\
+        '#<AWS::SDK::S3::Types::GetObjectInput ' \
+          "bucket=#{bucket || 'nil'}, " \
+          "if_match=#{if_match || 'nil'}, " \
+          "if_modified_since=#{if_modified_since || 'nil'}, " \
+          "if_none_match=#{if_none_match || 'nil'}, " \
+          "if_unmodified_since=#{if_unmodified_since || 'nil'}, " \
+          "key=#{key || 'nil'}, " \
+          "range=#{range || 'nil'}, " \
+          "response_cache_control=#{response_cache_control || 'nil'}, " \
+          "response_content_disposition=#{response_content_disposition || 'nil'}, " \
+          "response_content_encoding=#{response_content_encoding || 'nil'}, " \
+          "response_content_language=#{response_content_language || 'nil'}, " \
+          "response_content_type=#{response_content_type || 'nil'}, " \
+          "response_expires=#{response_expires || 'nil'}, " \
+          "version_id=#{version_id || 'nil'}, " \
+          "sse_customer_algorithm=#{sse_customer_algorithm || 'nil'}, " \
+          'sse_customer_key=[SENSITIVE], ' \
+          "sse_customer_key_md5=#{sse_customer_key_md5 || 'nil'}, " \
+          "request_payer=#{request_payer || 'nil'}, " \
+          "part_number=#{part_number || 'nil'}, " \
+          "expected_bucket_owner=#{expected_bucket_owner || 'nil'}, " \
           "checksum_mode=#{checksum_mode || 'nil'}>"
       end
     end
@@ -8347,42 +8335,42 @@ module AWS::SDK::S3
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::S3::Types::GetObjectOutput "\
-          "body=#{body || 'nil'}, "\
-          "delete_marker=#{delete_marker || 'nil'}, "\
-          "accept_ranges=#{accept_ranges || 'nil'}, "\
-          "expiration=#{expiration || 'nil'}, "\
-          "restore=#{restore || 'nil'}, "\
-          "last_modified=#{last_modified || 'nil'}, "\
-          "content_length=#{content_length || 'nil'}, "\
-          "e_tag=#{e_tag || 'nil'}, "\
-          "checksum_crc32=#{checksum_crc32 || 'nil'}, "\
-          "checksum_crc32_c=#{checksum_crc32_c || 'nil'}, "\
-          "checksum_sha1=#{checksum_sha1 || 'nil'}, "\
-          "checksum_sha256=#{checksum_sha256 || 'nil'}, "\
-          "missing_meta=#{missing_meta || 'nil'}, "\
-          "version_id=#{version_id || 'nil'}, "\
-          "cache_control=#{cache_control || 'nil'}, "\
-          "content_disposition=#{content_disposition || 'nil'}, "\
-          "content_encoding=#{content_encoding || 'nil'}, "\
-          "content_language=#{content_language || 'nil'}, "\
-          "content_range=#{content_range || 'nil'}, "\
-          "content_type=#{content_type || 'nil'}, "\
-          "expires=#{expires || 'nil'}, "\
-          "website_redirect_location=#{website_redirect_location || 'nil'}, "\
-          "server_side_encryption=#{server_side_encryption || 'nil'}, "\
-          "metadata=#{metadata || 'nil'}, "\
-          "sse_customer_algorithm=#{sse_customer_algorithm || 'nil'}, "\
-          "sse_customer_key_md5=#{sse_customer_key_md5 || 'nil'}, "\
-          "ssekms_key_id=\"[SENSITIVE]\", "\
-          "bucket_key_enabled=#{bucket_key_enabled || 'nil'}, "\
-          "storage_class=#{storage_class || 'nil'}, "\
-          "request_charged=#{request_charged || 'nil'}, "\
-          "replication_status=#{replication_status || 'nil'}, "\
-          "parts_count=#{parts_count || 'nil'}, "\
-          "tag_count=#{tag_count || 'nil'}, "\
-          "object_lock_mode=#{object_lock_mode || 'nil'}, "\
-          "object_lock_retain_until_date=#{object_lock_retain_until_date || 'nil'}, "\
+        '#<AWS::SDK::S3::Types::GetObjectOutput ' \
+          "body=#{body || 'nil'}, " \
+          "delete_marker=#{delete_marker || 'nil'}, " \
+          "accept_ranges=#{accept_ranges || 'nil'}, " \
+          "expiration=#{expiration || 'nil'}, " \
+          "restore=#{restore || 'nil'}, " \
+          "last_modified=#{last_modified || 'nil'}, " \
+          "content_length=#{content_length || 'nil'}, " \
+          "e_tag=#{e_tag || 'nil'}, " \
+          "checksum_crc32=#{checksum_crc32 || 'nil'}, " \
+          "checksum_crc32_c=#{checksum_crc32_c || 'nil'}, " \
+          "checksum_sha1=#{checksum_sha1 || 'nil'}, " \
+          "checksum_sha256=#{checksum_sha256 || 'nil'}, " \
+          "missing_meta=#{missing_meta || 'nil'}, " \
+          "version_id=#{version_id || 'nil'}, " \
+          "cache_control=#{cache_control || 'nil'}, " \
+          "content_disposition=#{content_disposition || 'nil'}, " \
+          "content_encoding=#{content_encoding || 'nil'}, " \
+          "content_language=#{content_language || 'nil'}, " \
+          "content_range=#{content_range || 'nil'}, " \
+          "content_type=#{content_type || 'nil'}, " \
+          "expires=#{expires || 'nil'}, " \
+          "website_redirect_location=#{website_redirect_location || 'nil'}, " \
+          "server_side_encryption=#{server_side_encryption || 'nil'}, " \
+          "metadata=#{metadata || 'nil'}, " \
+          "sse_customer_algorithm=#{sse_customer_algorithm || 'nil'}, " \
+          "sse_customer_key_md5=#{sse_customer_key_md5 || 'nil'}, " \
+          'ssekms_key_id=[SENSITIVE], ' \
+          "bucket_key_enabled=#{bucket_key_enabled || 'nil'}, " \
+          "storage_class=#{storage_class || 'nil'}, " \
+          "request_charged=#{request_charged || 'nil'}, " \
+          "replication_status=#{replication_status || 'nil'}, " \
+          "parts_count=#{parts_count || 'nil'}, " \
+          "tag_count=#{tag_count || 'nil'}, " \
+          "object_lock_mode=#{object_lock_mode || 'nil'}, " \
+          "object_lock_retain_until_date=#{object_lock_retain_until_date || 'nil'}, " \
           "object_lock_legal_hold_status=#{object_lock_legal_hold_status || 'nil'}>"
       end
 
@@ -9043,21 +9031,21 @@ module AWS::SDK::S3
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::S3::Types::HeadObjectInput "\
-          "bucket=#{bucket || 'nil'}, "\
-          "if_match=#{if_match || 'nil'}, "\
-          "if_modified_since=#{if_modified_since || 'nil'}, "\
-          "if_none_match=#{if_none_match || 'nil'}, "\
-          "if_unmodified_since=#{if_unmodified_since || 'nil'}, "\
-          "key=#{key || 'nil'}, "\
-          "range=#{range || 'nil'}, "\
-          "version_id=#{version_id || 'nil'}, "\
-          "sse_customer_algorithm=#{sse_customer_algorithm || 'nil'}, "\
-          "sse_customer_key=\"[SENSITIVE]\", "\
-          "sse_customer_key_md5=#{sse_customer_key_md5 || 'nil'}, "\
-          "request_payer=#{request_payer || 'nil'}, "\
-          "part_number=#{part_number || 'nil'}, "\
-          "expected_bucket_owner=#{expected_bucket_owner || 'nil'}, "\
+        '#<AWS::SDK::S3::Types::HeadObjectInput ' \
+          "bucket=#{bucket || 'nil'}, " \
+          "if_match=#{if_match || 'nil'}, " \
+          "if_modified_since=#{if_modified_since || 'nil'}, " \
+          "if_none_match=#{if_none_match || 'nil'}, " \
+          "if_unmodified_since=#{if_unmodified_since || 'nil'}, " \
+          "key=#{key || 'nil'}, " \
+          "range=#{range || 'nil'}, " \
+          "version_id=#{version_id || 'nil'}, " \
+          "sse_customer_algorithm=#{sse_customer_algorithm || 'nil'}, " \
+          'sse_customer_key=[SENSITIVE], ' \
+          "sse_customer_key_md5=#{sse_customer_key_md5 || 'nil'}, " \
+          "request_payer=#{request_payer || 'nil'}, " \
+          "part_number=#{part_number || 'nil'}, " \
+          "expected_bucket_owner=#{expected_bucket_owner || 'nil'}, " \
           "checksum_mode=#{checksum_mode || 'nil'}>"
       end
     end
@@ -9396,40 +9384,40 @@ module AWS::SDK::S3
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::S3::Types::HeadObjectOutput "\
-          "delete_marker=#{delete_marker || 'nil'}, "\
-          "accept_ranges=#{accept_ranges || 'nil'}, "\
-          "expiration=#{expiration || 'nil'}, "\
-          "restore=#{restore || 'nil'}, "\
-          "archive_status=#{archive_status || 'nil'}, "\
-          "last_modified=#{last_modified || 'nil'}, "\
-          "content_length=#{content_length || 'nil'}, "\
-          "checksum_crc32=#{checksum_crc32 || 'nil'}, "\
-          "checksum_crc32_c=#{checksum_crc32_c || 'nil'}, "\
-          "checksum_sha1=#{checksum_sha1 || 'nil'}, "\
-          "checksum_sha256=#{checksum_sha256 || 'nil'}, "\
-          "e_tag=#{e_tag || 'nil'}, "\
-          "missing_meta=#{missing_meta || 'nil'}, "\
-          "version_id=#{version_id || 'nil'}, "\
-          "cache_control=#{cache_control || 'nil'}, "\
-          "content_disposition=#{content_disposition || 'nil'}, "\
-          "content_encoding=#{content_encoding || 'nil'}, "\
-          "content_language=#{content_language || 'nil'}, "\
-          "content_type=#{content_type || 'nil'}, "\
-          "expires=#{expires || 'nil'}, "\
-          "website_redirect_location=#{website_redirect_location || 'nil'}, "\
-          "server_side_encryption=#{server_side_encryption || 'nil'}, "\
-          "metadata=#{metadata || 'nil'}, "\
-          "sse_customer_algorithm=#{sse_customer_algorithm || 'nil'}, "\
-          "sse_customer_key_md5=#{sse_customer_key_md5 || 'nil'}, "\
-          "ssekms_key_id=\"[SENSITIVE]\", "\
-          "bucket_key_enabled=#{bucket_key_enabled || 'nil'}, "\
-          "storage_class=#{storage_class || 'nil'}, "\
-          "request_charged=#{request_charged || 'nil'}, "\
-          "replication_status=#{replication_status || 'nil'}, "\
-          "parts_count=#{parts_count || 'nil'}, "\
-          "object_lock_mode=#{object_lock_mode || 'nil'}, "\
-          "object_lock_retain_until_date=#{object_lock_retain_until_date || 'nil'}, "\
+        '#<AWS::SDK::S3::Types::HeadObjectOutput ' \
+          "delete_marker=#{delete_marker || 'nil'}, " \
+          "accept_ranges=#{accept_ranges || 'nil'}, " \
+          "expiration=#{expiration || 'nil'}, " \
+          "restore=#{restore || 'nil'}, " \
+          "archive_status=#{archive_status || 'nil'}, " \
+          "last_modified=#{last_modified || 'nil'}, " \
+          "content_length=#{content_length || 'nil'}, " \
+          "checksum_crc32=#{checksum_crc32 || 'nil'}, " \
+          "checksum_crc32_c=#{checksum_crc32_c || 'nil'}, " \
+          "checksum_sha1=#{checksum_sha1 || 'nil'}, " \
+          "checksum_sha256=#{checksum_sha256 || 'nil'}, " \
+          "e_tag=#{e_tag || 'nil'}, " \
+          "missing_meta=#{missing_meta || 'nil'}, " \
+          "version_id=#{version_id || 'nil'}, " \
+          "cache_control=#{cache_control || 'nil'}, " \
+          "content_disposition=#{content_disposition || 'nil'}, " \
+          "content_encoding=#{content_encoding || 'nil'}, " \
+          "content_language=#{content_language || 'nil'}, " \
+          "content_type=#{content_type || 'nil'}, " \
+          "expires=#{expires || 'nil'}, " \
+          "website_redirect_location=#{website_redirect_location || 'nil'}, " \
+          "server_side_encryption=#{server_side_encryption || 'nil'}, " \
+          "metadata=#{metadata || 'nil'}, " \
+          "sse_customer_algorithm=#{sse_customer_algorithm || 'nil'}, " \
+          "sse_customer_key_md5=#{sse_customer_key_md5 || 'nil'}, " \
+          'ssekms_key_id=[SENSITIVE], ' \
+          "bucket_key_enabled=#{bucket_key_enabled || 'nil'}, " \
+          "storage_class=#{storage_class || 'nil'}, " \
+          "request_charged=#{request_charged || 'nil'}, " \
+          "replication_status=#{replication_status || 'nil'}, " \
+          "parts_count=#{parts_count || 'nil'}, " \
+          "object_lock_mode=#{object_lock_mode || 'nil'}, " \
+          "object_lock_retain_until_date=#{object_lock_retain_until_date || 'nil'}, " \
           "object_lock_legal_hold_status=#{object_lock_legal_hold_status || 'nil'}>"
       end
     end
@@ -9563,13 +9551,13 @@ module AWS::SDK::S3
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [String] :id
-    #   @option params [IntelligentTieringFilter] :member_filter
+    #   @option params [IntelligentTieringFilter] :filter
     #   @option params [String] :status
     #   @option params [Array<Tiering>] :tierings
     # @!attribute id
     #   <p>The ID used to identify the S3 Intelligent-Tiering configuration.</p>
     #   @return [String]
-    # @!attribute member_filter
+    # @!attribute filter
     #   <p>Specifies a bucket filter. The configuration only includes objects that meet the
     #            filter's criteria.</p>
     #   @return [IntelligentTieringFilter]
@@ -9671,7 +9659,7 @@ module AWS::SDK::S3
     #   @param [Hash] params
     #   @option params [InventoryDestination] :destination
     #   @option params [Boolean] :is_enabled
-    #   @option params [InventoryFilter] :member_filter
+    #   @option params [InventoryFilter] :filter
     #   @option params [String] :id
     #   @option params [String] :included_object_versions
     #   @option params [Array<String>] :optional_fields
@@ -9684,7 +9672,7 @@ module AWS::SDK::S3
     #            inventory list is generated. If set to <code>False</code>, no inventory list is
     #            generated.</p>
     #   @return [Boolean]
-    # @!attribute member_filter
+    # @!attribute filter
     #   <p>Specifies an inventory filter. The inventory only includes objects that meet the
     #            filter's criteria.</p>
     #   @return [InventoryFilter]
@@ -9949,7 +9937,7 @@ module AWS::SDK::S3
     #   @option params [String] :id
     #   @option params [String] :lambda_function_arn
     #   @option params [Array<String>] :events
-    #   @option params [NotificationConfigurationFilter] :member_filter
+    #   @option params [NotificationConfigurationFilter] :filter
     # @!attribute id
     #   <p>An optional unique identifier for configurations in a notification configuration. If you
     #            don't provide one, Amazon S3 will assign an ID.</p>
@@ -9963,7 +9951,7 @@ module AWS::SDK::S3
     #            see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Supported
     #               Event Types</a> in the <i>Amazon S3 User Guide</i>.</p>
     #   @return [Array<String>]
-    # @!attribute member_filter
+    # @!attribute filter
     #   <p>Specifies object key name filtering rules. For information about key name filtering, see
     #               <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-filtering.html">Configuring event
     #               notifications using object key name filtering</a> in the
@@ -10023,7 +10011,7 @@ module AWS::SDK::S3
     #   @option params [LifecycleExpiration] :expiration
     #   @option params [String] :id
     #   @option params [String] :prefix
-    #   @option params [LifecycleRuleFilter] :member_filter
+    #   @option params [LifecycleRuleFilter] :filter
     #   @option params [String] :status
     #   @option params [Array<Transition>] :transitions
     #   @option params [Array<NoncurrentVersionTransition>] :noncurrent_version_transitions
@@ -10046,7 +10034,7 @@ module AWS::SDK::S3
     #            </important>
     #   @deprecated
     #   @return [String]
-    # @!attribute member_filter
+    # @!attribute filter
     #   <p>The <code>Filter</code> is used to identify objects that a Lifecycle Rule applies to. A
     #               <code>Filter</code> must have exactly one of <code>Prefix</code>, <code>Tag</code>, or
     #               <code>And</code> specified. <code>Filter</code> is required if the
@@ -10146,20 +10134,12 @@ module AWS::SDK::S3
         def to_h
           { prefix: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::S3::Types::Prefix #{__getobj__ || 'nil'}>"
-        end
       end
 
       # <p>This tag must exist in the object's tag set in order for the rule to apply.</p>
       class Tag < LifecycleRuleFilter
         def to_h
           { tag: super(__getobj__) }
-        end
-
-        def to_s
-          "#<AWS::SDK::S3::Types::Tag #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -10168,20 +10148,12 @@ module AWS::SDK::S3
         def to_h
           { object_size_greater_than: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::S3::Types::ObjectSizeGreaterThan #{__getobj__ || 'nil'}>"
-        end
       end
 
       # <p>Maximum object size to which the rule applies.</p>
       class ObjectSizeLessThan < LifecycleRuleFilter
         def to_h
           { object_size_less_than: super(__getobj__) }
-        end
-
-        def to_s
-          "#<AWS::SDK::S3::Types::ObjectSizeLessThan #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -10191,10 +10163,6 @@ module AWS::SDK::S3
       class And < LifecycleRuleFilter
         def to_h
           { and: super(__getobj__) }
-        end
-
-        def to_s
-          "#<AWS::SDK::S3::Types::And #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -11549,16 +11517,16 @@ module AWS::SDK::S3
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::S3::Types::ListPartsInput "\
-          "bucket=#{bucket || 'nil'}, "\
-          "key=#{key || 'nil'}, "\
-          "max_parts=#{max_parts || 'nil'}, "\
-          "part_number_marker=#{part_number_marker || 'nil'}, "\
-          "upload_id=#{upload_id || 'nil'}, "\
-          "request_payer=#{request_payer || 'nil'}, "\
-          "expected_bucket_owner=#{expected_bucket_owner || 'nil'}, "\
-          "sse_customer_algorithm=#{sse_customer_algorithm || 'nil'}, "\
-          "sse_customer_key=\"[SENSITIVE]\", "\
+        '#<AWS::SDK::S3::Types::ListPartsInput ' \
+          "bucket=#{bucket || 'nil'}, " \
+          "key=#{key || 'nil'}, " \
+          "max_parts=#{max_parts || 'nil'}, " \
+          "part_number_marker=#{part_number_marker || 'nil'}, " \
+          "upload_id=#{upload_id || 'nil'}, " \
+          "request_payer=#{request_payer || 'nil'}, " \
+          "expected_bucket_owner=#{expected_bucket_owner || 'nil'}, " \
+          "sse_customer_algorithm=#{sse_customer_algorithm || 'nil'}, " \
+          'sse_customer_key=[SENSITIVE], ' \
           "sse_customer_key_md5=#{sse_customer_key_md5 || 'nil'}>"
       end
     end
@@ -11874,12 +11842,12 @@ module AWS::SDK::S3
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [String] :id
-    #   @option params [MetricsFilter] :member_filter
+    #   @option params [MetricsFilter] :filter
     # @!attribute id
     #   <p>The ID used to identify the metrics configuration. The ID has a 64 character limit and
     #            can only contain letters, numbers, periods, dashes, and underscores.</p>
     #   @return [String]
-    # @!attribute member_filter
+    # @!attribute filter
     #   <p>Specifies a metrics configuration filter. The metrics configuration will only include
     #            objects that meet the filter's criteria. A filter must be a prefix, an object tag, an
     #            access point ARN, or a conjunction (MetricsAndOperator).</p>
@@ -11904,10 +11872,6 @@ module AWS::SDK::S3
         def to_h
           { prefix: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::S3::Types::Prefix #{__getobj__ || 'nil'}>"
-        end
       end
 
       # <p>The tag used when evaluating a metrics filter.</p>
@@ -11915,20 +11879,12 @@ module AWS::SDK::S3
         def to_h
           { tag: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::S3::Types::Tag #{__getobj__ || 'nil'}>"
-        end
       end
 
       # <p>The access point ARN used when evaluating a metrics filter.</p>
       class AccessPointArn < MetricsFilter
         def to_h
           { access_point_arn: super(__getobj__) }
-        end
-
-        def to_s
-          "#<AWS::SDK::S3::Types::AccessPointArn #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -11938,10 +11894,6 @@ module AWS::SDK::S3
       class And < MetricsFilter
         def to_h
           { and: super(__getobj__) }
-        end
-
-        def to_s
-          "#<AWS::SDK::S3::Types::And #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -12206,7 +12158,7 @@ module AWS::SDK::S3
     #   @option params [Time] :last_modified
     #   @option params [String] :e_tag
     #   @option params [Array<String>] :checksum_algorithm
-    #   @option params [Integer] :member_size
+    #   @option params [Integer] :size
     #   @option params [String] :storage_class
     #   @option params [Owner] :owner
     #   @option params [RestoreStatus] :restore_status
@@ -12248,7 +12200,7 @@ module AWS::SDK::S3
     # @!attribute checksum_algorithm
     #   <p>The algorithm that was used to create a checksum of the object.</p>
     #   @return [Array<String>]
-    # @!attribute member_size
+    # @!attribute size
     #   <p>Size in bytes of the object</p>
     #   @return [Integer]
     # @!attribute storage_class
@@ -12525,7 +12477,7 @@ module AWS::SDK::S3
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [Integer] :part_number
-    #   @option params [Integer] :member_size
+    #   @option params [Integer] :size
     #   @option params [String] :checksum_crc32
     #   @option params [String] :checksum_crc32_c
     #   @option params [String] :checksum_sha1
@@ -12534,7 +12486,7 @@ module AWS::SDK::S3
     #   <p>The part number identifying the part. This value is a positive integer between 1 and
     #            10,000.</p>
     #   @return [Integer]
-    # @!attribute member_size
+    # @!attribute size
     #   <p>The size of the uploaded part in bytes.</p>
     #   @return [Integer]
     # @!attribute checksum_crc32
@@ -12606,7 +12558,7 @@ module AWS::SDK::S3
     #   @param [Hash] params
     #   @option params [String] :e_tag
     #   @option params [Array<String>] :checksum_algorithm
-    #   @option params [Integer] :member_size
+    #   @option params [Integer] :size
     #   @option params [String] :storage_class
     #   @option params [String] :key
     #   @option params [String] :version_id
@@ -12620,7 +12572,7 @@ module AWS::SDK::S3
     # @!attribute checksum_algorithm
     #   <p>The algorithm that was used to create a checksum of the object.</p>
     #   @return [Array<String>]
-    # @!attribute member_size
+    # @!attribute size
     #   <p>Size in bytes of the object.</p>
     #   @return [Integer]
     # @!attribute storage_class
@@ -12846,7 +12798,7 @@ module AWS::SDK::S3
     #   @option params [Integer] :part_number
     #   @option params [Time] :last_modified
     #   @option params [String] :e_tag
-    #   @option params [Integer] :member_size
+    #   @option params [Integer] :size
     #   @option params [String] :checksum_crc32
     #   @option params [String] :checksum_crc32_c
     #   @option params [String] :checksum_sha1
@@ -12861,7 +12813,7 @@ module AWS::SDK::S3
     # @!attribute e_tag
     #   <p>Entity tag returned when the part was uploaded.</p>
     #   @return [String]
-    # @!attribute member_size
+    # @!attribute size
     #   <p>Size in bytes of the uploaded part data.</p>
     #   @return [Integer]
     # @!attribute checksum_crc32
@@ -14684,43 +14636,43 @@ module AWS::SDK::S3
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::S3::Types::PutObjectInput "\
-          "acl=#{acl || 'nil'}, "\
-          "body=#{body || 'nil'}, "\
-          "bucket=#{bucket || 'nil'}, "\
-          "cache_control=#{cache_control || 'nil'}, "\
-          "content_disposition=#{content_disposition || 'nil'}, "\
-          "content_encoding=#{content_encoding || 'nil'}, "\
-          "content_language=#{content_language || 'nil'}, "\
-          "content_length=#{content_length || 'nil'}, "\
-          "content_md5=#{content_md5 || 'nil'}, "\
-          "content_type=#{content_type || 'nil'}, "\
-          "checksum_algorithm=#{checksum_algorithm || 'nil'}, "\
-          "checksum_crc32=#{checksum_crc32 || 'nil'}, "\
-          "checksum_crc32_c=#{checksum_crc32_c || 'nil'}, "\
-          "checksum_sha1=#{checksum_sha1 || 'nil'}, "\
-          "checksum_sha256=#{checksum_sha256 || 'nil'}, "\
-          "expires=#{expires || 'nil'}, "\
-          "grant_full_control=#{grant_full_control || 'nil'}, "\
-          "grant_read=#{grant_read || 'nil'}, "\
-          "grant_read_acp=#{grant_read_acp || 'nil'}, "\
-          "grant_write_acp=#{grant_write_acp || 'nil'}, "\
-          "key=#{key || 'nil'}, "\
-          "metadata=#{metadata || 'nil'}, "\
-          "server_side_encryption=#{server_side_encryption || 'nil'}, "\
-          "storage_class=#{storage_class || 'nil'}, "\
-          "website_redirect_location=#{website_redirect_location || 'nil'}, "\
-          "sse_customer_algorithm=#{sse_customer_algorithm || 'nil'}, "\
-          "sse_customer_key=\"[SENSITIVE]\", "\
-          "sse_customer_key_md5=#{sse_customer_key_md5 || 'nil'}, "\
-          "ssekms_key_id=\"[SENSITIVE]\", "\
-          "ssekms_encryption_context=\"[SENSITIVE]\", "\
-          "bucket_key_enabled=#{bucket_key_enabled || 'nil'}, "\
-          "request_payer=#{request_payer || 'nil'}, "\
-          "tagging=#{tagging || 'nil'}, "\
-          "object_lock_mode=#{object_lock_mode || 'nil'}, "\
-          "object_lock_retain_until_date=#{object_lock_retain_until_date || 'nil'}, "\
-          "object_lock_legal_hold_status=#{object_lock_legal_hold_status || 'nil'}, "\
+        '#<AWS::SDK::S3::Types::PutObjectInput ' \
+          "acl=#{acl || 'nil'}, " \
+          "body=#{body || 'nil'}, " \
+          "bucket=#{bucket || 'nil'}, " \
+          "cache_control=#{cache_control || 'nil'}, " \
+          "content_disposition=#{content_disposition || 'nil'}, " \
+          "content_encoding=#{content_encoding || 'nil'}, " \
+          "content_language=#{content_language || 'nil'}, " \
+          "content_length=#{content_length || 'nil'}, " \
+          "content_md5=#{content_md5 || 'nil'}, " \
+          "content_type=#{content_type || 'nil'}, " \
+          "checksum_algorithm=#{checksum_algorithm || 'nil'}, " \
+          "checksum_crc32=#{checksum_crc32 || 'nil'}, " \
+          "checksum_crc32_c=#{checksum_crc32_c || 'nil'}, " \
+          "checksum_sha1=#{checksum_sha1 || 'nil'}, " \
+          "checksum_sha256=#{checksum_sha256 || 'nil'}, " \
+          "expires=#{expires || 'nil'}, " \
+          "grant_full_control=#{grant_full_control || 'nil'}, " \
+          "grant_read=#{grant_read || 'nil'}, " \
+          "grant_read_acp=#{grant_read_acp || 'nil'}, " \
+          "grant_write_acp=#{grant_write_acp || 'nil'}, " \
+          "key=#{key || 'nil'}, " \
+          "metadata=#{metadata || 'nil'}, " \
+          "server_side_encryption=#{server_side_encryption || 'nil'}, " \
+          "storage_class=#{storage_class || 'nil'}, " \
+          "website_redirect_location=#{website_redirect_location || 'nil'}, " \
+          "sse_customer_algorithm=#{sse_customer_algorithm || 'nil'}, " \
+          'sse_customer_key=[SENSITIVE], ' \
+          "sse_customer_key_md5=#{sse_customer_key_md5 || 'nil'}, " \
+          'ssekms_key_id=[SENSITIVE], ' \
+          'ssekms_encryption_context=[SENSITIVE], ' \
+          "bucket_key_enabled=#{bucket_key_enabled || 'nil'}, " \
+          "request_payer=#{request_payer || 'nil'}, " \
+          "tagging=#{tagging || 'nil'}, " \
+          "object_lock_mode=#{object_lock_mode || 'nil'}, " \
+          "object_lock_retain_until_date=#{object_lock_retain_until_date || 'nil'}, " \
+          "object_lock_legal_hold_status=#{object_lock_legal_hold_status || 'nil'}, " \
           "expected_bucket_owner=#{expected_bucket_owner || 'nil'}>"
       end
     end
@@ -15053,20 +15005,20 @@ module AWS::SDK::S3
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::S3::Types::PutObjectOutput "\
-          "expiration=#{expiration || 'nil'}, "\
-          "e_tag=#{e_tag || 'nil'}, "\
-          "checksum_crc32=#{checksum_crc32 || 'nil'}, "\
-          "checksum_crc32_c=#{checksum_crc32_c || 'nil'}, "\
-          "checksum_sha1=#{checksum_sha1 || 'nil'}, "\
-          "checksum_sha256=#{checksum_sha256 || 'nil'}, "\
-          "server_side_encryption=#{server_side_encryption || 'nil'}, "\
-          "version_id=#{version_id || 'nil'}, "\
-          "sse_customer_algorithm=#{sse_customer_algorithm || 'nil'}, "\
-          "sse_customer_key_md5=#{sse_customer_key_md5 || 'nil'}, "\
-          "ssekms_key_id=\"[SENSITIVE]\", "\
-          "ssekms_encryption_context=\"[SENSITIVE]\", "\
-          "bucket_key_enabled=#{bucket_key_enabled || 'nil'}, "\
+        '#<AWS::SDK::S3::Types::PutObjectOutput ' \
+          "expiration=#{expiration || 'nil'}, " \
+          "e_tag=#{e_tag || 'nil'}, " \
+          "checksum_crc32=#{checksum_crc32 || 'nil'}, " \
+          "checksum_crc32_c=#{checksum_crc32_c || 'nil'}, " \
+          "checksum_sha1=#{checksum_sha1 || 'nil'}, " \
+          "checksum_sha256=#{checksum_sha256 || 'nil'}, " \
+          "server_side_encryption=#{server_side_encryption || 'nil'}, " \
+          "version_id=#{version_id || 'nil'}, " \
+          "sse_customer_algorithm=#{sse_customer_algorithm || 'nil'}, " \
+          "sse_customer_key_md5=#{sse_customer_key_md5 || 'nil'}, " \
+          'ssekms_key_id=[SENSITIVE], ' \
+          'ssekms_encryption_context=[SENSITIVE], ' \
+          "bucket_key_enabled=#{bucket_key_enabled || 'nil'}, " \
           "request_charged=#{request_charged || 'nil'}>"
       end
     end
@@ -15323,7 +15275,7 @@ module AWS::SDK::S3
     #   @option params [String] :id
     #   @option params [String] :queue_arn
     #   @option params [Array<String>] :events
-    #   @option params [NotificationConfigurationFilter] :member_filter
+    #   @option params [NotificationConfigurationFilter] :filter
     # @!attribute id
     #   <p>An optional unique identifier for configurations in a notification configuration. If you
     #            don't provide one, Amazon S3 will assign an ID.</p>
@@ -15335,7 +15287,7 @@ module AWS::SDK::S3
     # @!attribute events
     #   <p>A collection of bucket events for which to send notifications</p>
     #   @return [Array<String>]
-    # @!attribute member_filter
+    # @!attribute filter
     #   <p>Specifies object key name filtering rules. For information about key name filtering, see
     #               <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-filtering.html">Configuring event
     #               notifications using object key name filtering</a> in the
@@ -15526,7 +15478,7 @@ module AWS::SDK::S3
     #   @option params [String] :id
     #   @option params [Integer] :priority
     #   @option params [String] :prefix
-    #   @option params [ReplicationRuleFilter] :member_filter
+    #   @option params [ReplicationRuleFilter] :filter
     #   @option params [String] :status
     #   @option params [SourceSelectionCriteria] :source_selection_criteria
     #   @option params [ExistingObjectReplication] :existing_object_replication
@@ -15555,7 +15507,7 @@ module AWS::SDK::S3
     #            </important>
     #   @deprecated
     #   @return [String]
-    # @!attribute member_filter
+    # @!attribute filter
     #   <p>A filter that identifies the subset of objects to which the replication rule applies. A
     #               <code>Filter</code> must specify exactly one <code>Prefix</code>, <code>Tag</code>, or
     #            an <code>And</code> child element.</p>
@@ -15662,10 +15614,6 @@ module AWS::SDK::S3
         def to_h
           { prefix: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::S3::Types::Prefix #{__getobj__ || 'nil'}>"
-        end
       end
 
       # <p>A container for specifying a tag key and value. </p>
@@ -15673,10 +15621,6 @@ module AWS::SDK::S3
       class Tag < ReplicationRuleFilter
         def to_h
           { tag: super(__getobj__) }
-        end
-
-        def to_s
-          "#<AWS::SDK::S3::Types::Tag #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -15696,10 +15640,6 @@ module AWS::SDK::S3
       class And < ReplicationRuleFilter
         def to_h
           { and: super(__getobj__) }
-        end
-
-        def to_s
-          "#<AWS::SDK::S3::Types::And #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -16166,8 +16106,8 @@ module AWS::SDK::S3
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::S3::Types::SSEKMS "\
-          "key_id=\"[SENSITIVE]\">"
+        '#<AWS::SDK::S3::Types::SSEKMS ' \
+          'key_id=[SENSITIVE]>'
       end
     end
 
@@ -16223,20 +16163,12 @@ module AWS::SDK::S3
         def to_h
           { records: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::S3::Types::Records #{__getobj__ || 'nil'}>"
-        end
       end
 
       # <p>The Stats Event.</p>
       class Stats < SelectObjectContentEventStream
         def to_h
           { stats: super(__getobj__) }
-        end
-
-        def to_s
-          "#<AWS::SDK::S3::Types::Stats #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -16245,10 +16177,6 @@ module AWS::SDK::S3
         def to_h
           { progress: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::S3::Types::Progress #{__getobj__ || 'nil'}>"
-        end
       end
 
       # <p>The Continuation Event.</p>
@@ -16256,20 +16184,12 @@ module AWS::SDK::S3
         def to_h
           { cont: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::S3::Types::Cont #{__getobj__ || 'nil'}>"
-        end
       end
 
       # <p>The End Event.</p>
       class End < SelectObjectContentEventStream
         def to_h
           { end: super(__getobj__) }
-        end
-
-        def to_s
-          "#<AWS::SDK::S3::Types::End #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -16398,18 +16318,18 @@ module AWS::SDK::S3
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::S3::Types::SelectObjectContentInput "\
-          "bucket=#{bucket || 'nil'}, "\
-          "key=#{key || 'nil'}, "\
-          "sse_customer_algorithm=#{sse_customer_algorithm || 'nil'}, "\
-          "sse_customer_key=\"[SENSITIVE]\", "\
-          "sse_customer_key_md5=#{sse_customer_key_md5 || 'nil'}, "\
-          "expression=#{expression || 'nil'}, "\
-          "expression_type=#{expression_type || 'nil'}, "\
-          "request_progress=#{request_progress || 'nil'}, "\
-          "input_serialization=#{input_serialization || 'nil'}, "\
-          "output_serialization=#{output_serialization || 'nil'}, "\
-          "scan_range=#{scan_range || 'nil'}, "\
+        '#<AWS::SDK::S3::Types::SelectObjectContentInput ' \
+          "bucket=#{bucket || 'nil'}, " \
+          "key=#{key || 'nil'}, " \
+          "sse_customer_algorithm=#{sse_customer_algorithm || 'nil'}, " \
+          'sse_customer_key=[SENSITIVE], ' \
+          "sse_customer_key_md5=#{sse_customer_key_md5 || 'nil'}, " \
+          "expression=#{expression || 'nil'}, " \
+          "expression_type=#{expression_type || 'nil'}, " \
+          "request_progress=#{request_progress || 'nil'}, " \
+          "input_serialization=#{input_serialization || 'nil'}, " \
+          "output_serialization=#{output_serialization || 'nil'}, " \
+          "scan_range=#{scan_range || 'nil'}, " \
           "expected_bucket_owner=#{expected_bucket_owner || 'nil'}>"
       end
     end
@@ -16527,9 +16447,9 @@ module AWS::SDK::S3
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::S3::Types::ServerSideEncryptionByDefault "\
-          "sse_algorithm=#{sse_algorithm || 'nil'}, "\
-          "kms_master_key_id=\"[SENSITIVE]\">"
+        '#<AWS::SDK::S3::Types::ServerSideEncryptionByDefault ' \
+          "sse_algorithm=#{sse_algorithm || 'nil'}, " \
+          'kms_master_key_id=[SENSITIVE]>'
       end
     end
 
@@ -16619,10 +16539,10 @@ module AWS::SDK::S3
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::S3::Types::SessionCredentials "\
-          "access_key_id=#{access_key_id || 'nil'}, "\
-          "secret_access_key=\"[SENSITIVE]\", "\
-          "session_token=\"[SENSITIVE]\", "\
+        '#<AWS::SDK::S3::Types::SessionCredentials ' \
+          "access_key_id=#{access_key_id || 'nil'}, " \
+          'secret_access_key=[SENSITIVE], ' \
+          'session_token=[SENSITIVE], ' \
           "expiration=#{expiration || 'nil'}>"
       end
     end
@@ -16969,7 +16889,7 @@ module AWS::SDK::S3
     #   @option params [String] :id
     #   @option params [String] :topic_arn
     #   @option params [Array<String>] :events
-    #   @option params [NotificationConfigurationFilter] :member_filter
+    #   @option params [NotificationConfigurationFilter] :filter
     # @!attribute id
     #   <p>An optional unique identifier for configurations in a notification configuration. If you
     #            don't provide one, Amazon S3 will assign an ID.</p>
@@ -16983,7 +16903,7 @@ module AWS::SDK::S3
     #               <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Supported
     #               Event Types</a> in the <i>Amazon S3 User Guide</i>.</p>
     #   @return [Array<String>]
-    # @!attribute member_filter
+    # @!attribute filter
     #   <p>Specifies object key name filtering rules. For information about key name filtering, see
     #               <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-filtering.html">Configuring event
     #               notifications using object key name filtering</a> in the
@@ -17311,25 +17231,25 @@ module AWS::SDK::S3
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::S3::Types::UploadPartCopyInput "\
-          "bucket=#{bucket || 'nil'}, "\
-          "copy_source=#{copy_source || 'nil'}, "\
-          "copy_source_if_match=#{copy_source_if_match || 'nil'}, "\
-          "copy_source_if_modified_since=#{copy_source_if_modified_since || 'nil'}, "\
-          "copy_source_if_none_match=#{copy_source_if_none_match || 'nil'}, "\
-          "copy_source_if_unmodified_since=#{copy_source_if_unmodified_since || 'nil'}, "\
-          "copy_source_range=#{copy_source_range || 'nil'}, "\
-          "key=#{key || 'nil'}, "\
-          "part_number=#{part_number || 'nil'}, "\
-          "upload_id=#{upload_id || 'nil'}, "\
-          "sse_customer_algorithm=#{sse_customer_algorithm || 'nil'}, "\
-          "sse_customer_key=\"[SENSITIVE]\", "\
-          "sse_customer_key_md5=#{sse_customer_key_md5 || 'nil'}, "\
-          "copy_source_sse_customer_algorithm=#{copy_source_sse_customer_algorithm || 'nil'}, "\
-          "copy_source_sse_customer_key=\"[SENSITIVE]\", "\
-          "copy_source_sse_customer_key_md5=#{copy_source_sse_customer_key_md5 || 'nil'}, "\
-          "request_payer=#{request_payer || 'nil'}, "\
-          "expected_bucket_owner=#{expected_bucket_owner || 'nil'}, "\
+        '#<AWS::SDK::S3::Types::UploadPartCopyInput ' \
+          "bucket=#{bucket || 'nil'}, " \
+          "copy_source=#{copy_source || 'nil'}, " \
+          "copy_source_if_match=#{copy_source_if_match || 'nil'}, " \
+          "copy_source_if_modified_since=#{copy_source_if_modified_since || 'nil'}, " \
+          "copy_source_if_none_match=#{copy_source_if_none_match || 'nil'}, " \
+          "copy_source_if_unmodified_since=#{copy_source_if_unmodified_since || 'nil'}, " \
+          "copy_source_range=#{copy_source_range || 'nil'}, " \
+          "key=#{key || 'nil'}, " \
+          "part_number=#{part_number || 'nil'}, " \
+          "upload_id=#{upload_id || 'nil'}, " \
+          "sse_customer_algorithm=#{sse_customer_algorithm || 'nil'}, " \
+          'sse_customer_key=[SENSITIVE], ' \
+          "sse_customer_key_md5=#{sse_customer_key_md5 || 'nil'}, " \
+          "copy_source_sse_customer_algorithm=#{copy_source_sse_customer_algorithm || 'nil'}, " \
+          'copy_source_sse_customer_key=[SENSITIVE], ' \
+          "copy_source_sse_customer_key_md5=#{copy_source_sse_customer_key_md5 || 'nil'}, " \
+          "request_payer=#{request_payer || 'nil'}, " \
+          "expected_bucket_owner=#{expected_bucket_owner || 'nil'}, " \
           "expected_source_bucket_owner=#{expected_source_bucket_owner || 'nil'}>"
       end
     end
@@ -17416,14 +17336,14 @@ module AWS::SDK::S3
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::S3::Types::UploadPartCopyOutput "\
-          "copy_source_version_id=#{copy_source_version_id || 'nil'}, "\
-          "copy_part_result=#{copy_part_result || 'nil'}, "\
-          "server_side_encryption=#{server_side_encryption || 'nil'}, "\
-          "sse_customer_algorithm=#{sse_customer_algorithm || 'nil'}, "\
-          "sse_customer_key_md5=#{sse_customer_key_md5 || 'nil'}, "\
-          "ssekms_key_id=\"[SENSITIVE]\", "\
-          "bucket_key_enabled=#{bucket_key_enabled || 'nil'}, "\
+        '#<AWS::SDK::S3::Types::UploadPartCopyOutput ' \
+          "copy_source_version_id=#{copy_source_version_id || 'nil'}, " \
+          "copy_part_result=#{copy_part_result || 'nil'}, " \
+          "server_side_encryption=#{server_side_encryption || 'nil'}, " \
+          "sse_customer_algorithm=#{sse_customer_algorithm || 'nil'}, " \
+          "sse_customer_key_md5=#{sse_customer_key_md5 || 'nil'}, " \
+          'ssekms_key_id=[SENSITIVE], ' \
+          "bucket_key_enabled=#{bucket_key_enabled || 'nil'}, " \
           "request_charged=#{request_charged || 'nil'}>"
       end
     end
@@ -17592,23 +17512,23 @@ module AWS::SDK::S3
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::S3::Types::UploadPartInput "\
-          "body=#{body || 'nil'}, "\
-          "bucket=#{bucket || 'nil'}, "\
-          "content_length=#{content_length || 'nil'}, "\
-          "content_md5=#{content_md5 || 'nil'}, "\
-          "checksum_algorithm=#{checksum_algorithm || 'nil'}, "\
-          "checksum_crc32=#{checksum_crc32 || 'nil'}, "\
-          "checksum_crc32_c=#{checksum_crc32_c || 'nil'}, "\
-          "checksum_sha1=#{checksum_sha1 || 'nil'}, "\
-          "checksum_sha256=#{checksum_sha256 || 'nil'}, "\
-          "key=#{key || 'nil'}, "\
-          "part_number=#{part_number || 'nil'}, "\
-          "upload_id=#{upload_id || 'nil'}, "\
-          "sse_customer_algorithm=#{sse_customer_algorithm || 'nil'}, "\
-          "sse_customer_key=\"[SENSITIVE]\", "\
-          "sse_customer_key_md5=#{sse_customer_key_md5 || 'nil'}, "\
-          "request_payer=#{request_payer || 'nil'}, "\
+        '#<AWS::SDK::S3::Types::UploadPartInput ' \
+          "body=#{body || 'nil'}, " \
+          "bucket=#{bucket || 'nil'}, " \
+          "content_length=#{content_length || 'nil'}, " \
+          "content_md5=#{content_md5 || 'nil'}, " \
+          "checksum_algorithm=#{checksum_algorithm || 'nil'}, " \
+          "checksum_crc32=#{checksum_crc32 || 'nil'}, " \
+          "checksum_crc32_c=#{checksum_crc32_c || 'nil'}, " \
+          "checksum_sha1=#{checksum_sha1 || 'nil'}, " \
+          "checksum_sha256=#{checksum_sha256 || 'nil'}, " \
+          "key=#{key || 'nil'}, " \
+          "part_number=#{part_number || 'nil'}, " \
+          "upload_id=#{upload_id || 'nil'}, " \
+          "sse_customer_algorithm=#{sse_customer_algorithm || 'nil'}, " \
+          'sse_customer_key=[SENSITIVE], ' \
+          "sse_customer_key_md5=#{sse_customer_key_md5 || 'nil'}, " \
+          "request_payer=#{request_payer || 'nil'}, " \
           "expected_bucket_owner=#{expected_bucket_owner || 'nil'}>"
       end
     end
@@ -17718,17 +17638,17 @@ module AWS::SDK::S3
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::S3::Types::UploadPartOutput "\
-          "server_side_encryption=#{server_side_encryption || 'nil'}, "\
-          "e_tag=#{e_tag || 'nil'}, "\
-          "checksum_crc32=#{checksum_crc32 || 'nil'}, "\
-          "checksum_crc32_c=#{checksum_crc32_c || 'nil'}, "\
-          "checksum_sha1=#{checksum_sha1 || 'nil'}, "\
-          "checksum_sha256=#{checksum_sha256 || 'nil'}, "\
-          "sse_customer_algorithm=#{sse_customer_algorithm || 'nil'}, "\
-          "sse_customer_key_md5=#{sse_customer_key_md5 || 'nil'}, "\
-          "ssekms_key_id=\"[SENSITIVE]\", "\
-          "bucket_key_enabled=#{bucket_key_enabled || 'nil'}, "\
+        '#<AWS::SDK::S3::Types::UploadPartOutput ' \
+          "server_side_encryption=#{server_side_encryption || 'nil'}, " \
+          "e_tag=#{e_tag || 'nil'}, " \
+          "checksum_crc32=#{checksum_crc32 || 'nil'}, " \
+          "checksum_crc32_c=#{checksum_crc32_c || 'nil'}, " \
+          "checksum_sha1=#{checksum_sha1 || 'nil'}, " \
+          "checksum_sha256=#{checksum_sha256 || 'nil'}, " \
+          "sse_customer_algorithm=#{sse_customer_algorithm || 'nil'}, " \
+          "sse_customer_key_md5=#{sse_customer_key_md5 || 'nil'}, " \
+          'ssekms_key_id=[SENSITIVE], ' \
+          "bucket_key_enabled=#{bucket_key_enabled || 'nil'}, " \
           "request_charged=#{request_charged || 'nil'}>"
       end
     end
@@ -18152,46 +18072,46 @@ module AWS::SDK::S3
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::S3::Types::WriteGetObjectResponseInput "\
-          "request_route=#{request_route || 'nil'}, "\
-          "request_token=#{request_token || 'nil'}, "\
-          "body=#{body || 'nil'}, "\
-          "status_code=#{status_code || 'nil'}, "\
-          "error_code=#{error_code || 'nil'}, "\
-          "error_message=#{error_message || 'nil'}, "\
-          "accept_ranges=#{accept_ranges || 'nil'}, "\
-          "cache_control=#{cache_control || 'nil'}, "\
-          "content_disposition=#{content_disposition || 'nil'}, "\
-          "content_encoding=#{content_encoding || 'nil'}, "\
-          "content_language=#{content_language || 'nil'}, "\
-          "content_length=#{content_length || 'nil'}, "\
-          "content_range=#{content_range || 'nil'}, "\
-          "content_type=#{content_type || 'nil'}, "\
-          "checksum_crc32=#{checksum_crc32 || 'nil'}, "\
-          "checksum_crc32_c=#{checksum_crc32_c || 'nil'}, "\
-          "checksum_sha1=#{checksum_sha1 || 'nil'}, "\
-          "checksum_sha256=#{checksum_sha256 || 'nil'}, "\
-          "delete_marker=#{delete_marker || 'nil'}, "\
-          "e_tag=#{e_tag || 'nil'}, "\
-          "expires=#{expires || 'nil'}, "\
-          "expiration=#{expiration || 'nil'}, "\
-          "last_modified=#{last_modified || 'nil'}, "\
-          "missing_meta=#{missing_meta || 'nil'}, "\
-          "metadata=#{metadata || 'nil'}, "\
-          "object_lock_mode=#{object_lock_mode || 'nil'}, "\
-          "object_lock_legal_hold_status=#{object_lock_legal_hold_status || 'nil'}, "\
-          "object_lock_retain_until_date=#{object_lock_retain_until_date || 'nil'}, "\
-          "parts_count=#{parts_count || 'nil'}, "\
-          "replication_status=#{replication_status || 'nil'}, "\
-          "request_charged=#{request_charged || 'nil'}, "\
-          "restore=#{restore || 'nil'}, "\
-          "server_side_encryption=#{server_side_encryption || 'nil'}, "\
-          "sse_customer_algorithm=#{sse_customer_algorithm || 'nil'}, "\
-          "ssekms_key_id=\"[SENSITIVE]\", "\
-          "sse_customer_key_md5=#{sse_customer_key_md5 || 'nil'}, "\
-          "storage_class=#{storage_class || 'nil'}, "\
-          "tag_count=#{tag_count || 'nil'}, "\
-          "version_id=#{version_id || 'nil'}, "\
+        '#<AWS::SDK::S3::Types::WriteGetObjectResponseInput ' \
+          "request_route=#{request_route || 'nil'}, " \
+          "request_token=#{request_token || 'nil'}, " \
+          "body=#{body || 'nil'}, " \
+          "status_code=#{status_code || 'nil'}, " \
+          "error_code=#{error_code || 'nil'}, " \
+          "error_message=#{error_message || 'nil'}, " \
+          "accept_ranges=#{accept_ranges || 'nil'}, " \
+          "cache_control=#{cache_control || 'nil'}, " \
+          "content_disposition=#{content_disposition || 'nil'}, " \
+          "content_encoding=#{content_encoding || 'nil'}, " \
+          "content_language=#{content_language || 'nil'}, " \
+          "content_length=#{content_length || 'nil'}, " \
+          "content_range=#{content_range || 'nil'}, " \
+          "content_type=#{content_type || 'nil'}, " \
+          "checksum_crc32=#{checksum_crc32 || 'nil'}, " \
+          "checksum_crc32_c=#{checksum_crc32_c || 'nil'}, " \
+          "checksum_sha1=#{checksum_sha1 || 'nil'}, " \
+          "checksum_sha256=#{checksum_sha256 || 'nil'}, " \
+          "delete_marker=#{delete_marker || 'nil'}, " \
+          "e_tag=#{e_tag || 'nil'}, " \
+          "expires=#{expires || 'nil'}, " \
+          "expiration=#{expiration || 'nil'}, " \
+          "last_modified=#{last_modified || 'nil'}, " \
+          "missing_meta=#{missing_meta || 'nil'}, " \
+          "metadata=#{metadata || 'nil'}, " \
+          "object_lock_mode=#{object_lock_mode || 'nil'}, " \
+          "object_lock_legal_hold_status=#{object_lock_legal_hold_status || 'nil'}, " \
+          "object_lock_retain_until_date=#{object_lock_retain_until_date || 'nil'}, " \
+          "parts_count=#{parts_count || 'nil'}, " \
+          "replication_status=#{replication_status || 'nil'}, " \
+          "request_charged=#{request_charged || 'nil'}, " \
+          "restore=#{restore || 'nil'}, " \
+          "server_side_encryption=#{server_side_encryption || 'nil'}, " \
+          "sse_customer_algorithm=#{sse_customer_algorithm || 'nil'}, " \
+          'ssekms_key_id=[SENSITIVE], ' \
+          "sse_customer_key_md5=#{sse_customer_key_md5 || 'nil'}, " \
+          "storage_class=#{storage_class || 'nil'}, " \
+          "tag_count=#{tag_count || 'nil'}, " \
+          "version_id=#{version_id || 'nil'}, " \
           "bucket_key_enabled=#{bucket_key_enabled || 'nil'}>"
       end
     end

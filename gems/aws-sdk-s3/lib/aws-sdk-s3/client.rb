@@ -131,7 +131,7 @@ module AWS::SDK::S3
     def abort_multipart_upload(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::AbortMultipartUploadInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::AbortMultipartUpload.build(config)
       context = Hearth::Context.new(
@@ -142,12 +142,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'AbortMultipartUpload',
         'code.function' => 'abort_multipart_upload',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.AbortMultipartUpload', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.AbortMultipartUpload', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#abort_multipart_upload] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -367,7 +367,7 @@ module AWS::SDK::S3
     def complete_multipart_upload(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::CompleteMultipartUploadInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::CompleteMultipartUpload.build(config)
       context = Hearth::Context.new(
@@ -378,12 +378,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'CompleteMultipartUpload',
         'code.function' => 'complete_multipart_upload',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.CompleteMultipartUpload', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.CompleteMultipartUpload', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#complete_multipart_upload] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -643,7 +643,7 @@ module AWS::SDK::S3
     def copy_object(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::CopyObjectInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::CopyObject.build(config)
       context = Hearth::Context.new(
@@ -654,12 +654,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'CopyObject',
         'code.function' => 'copy_object',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.CopyObject', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.CopyObject', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#copy_object] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -854,7 +854,7 @@ module AWS::SDK::S3
     def create_bucket(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::CreateBucketInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::CreateBucket.build(config)
       context = Hearth::Context.new(
@@ -865,12 +865,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'CreateBucket',
         'code.function' => 'create_bucket',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.CreateBucket', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.CreateBucket', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_bucket] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1172,7 +1172,7 @@ module AWS::SDK::S3
     def create_multipart_upload(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::CreateMultipartUploadInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::CreateMultipartUpload.build(config)
       context = Hearth::Context.new(
@@ -1183,12 +1183,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'CreateMultipartUpload',
         'code.function' => 'create_multipart_upload',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.CreateMultipartUpload', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.CreateMultipartUpload', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_multipart_upload] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1286,7 +1286,7 @@ module AWS::SDK::S3
     def create_session(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::CreateSessionInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::CreateSession.build(config)
       context = Hearth::Context.new(
@@ -1297,12 +1297,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'CreateSession',
         'code.function' => 'create_session',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.CreateSession', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.CreateSession', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_session] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1389,7 +1389,7 @@ module AWS::SDK::S3
     def delete_bucket(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::DeleteBucketInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::DeleteBucket.build(config)
       context = Hearth::Context.new(
@@ -1400,12 +1400,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'DeleteBucket',
         'code.function' => 'delete_bucket',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.DeleteBucket', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.DeleteBucket', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1466,7 +1466,7 @@ module AWS::SDK::S3
     def delete_bucket_analytics_configuration(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::DeleteBucketAnalyticsConfigurationInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::DeleteBucketAnalyticsConfiguration.build(config)
       context = Hearth::Context.new(
@@ -1477,12 +1477,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'DeleteBucketAnalyticsConfiguration',
         'code.function' => 'delete_bucket_analytics_configuration',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.DeleteBucketAnalyticsConfiguration', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.DeleteBucketAnalyticsConfiguration', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_analytics_configuration] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1543,7 +1543,7 @@ module AWS::SDK::S3
     def delete_bucket_cors(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::DeleteBucketCorsInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::DeleteBucketCors.build(config)
       context = Hearth::Context.new(
@@ -1554,12 +1554,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'DeleteBucketCors',
         'code.function' => 'delete_bucket_cors',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.DeleteBucketCors', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.DeleteBucketCors', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_cors] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1614,7 +1614,7 @@ module AWS::SDK::S3
     def delete_bucket_encryption(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::DeleteBucketEncryptionInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::DeleteBucketEncryption.build(config)
       context = Hearth::Context.new(
@@ -1625,12 +1625,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'DeleteBucketEncryption',
         'code.function' => 'delete_bucket_encryption',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.DeleteBucketEncryption', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.DeleteBucketEncryption', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_encryption] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1684,7 +1684,7 @@ module AWS::SDK::S3
     def delete_bucket_intelligent_tiering_configuration(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::DeleteBucketIntelligentTieringConfigurationInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::DeleteBucketIntelligentTieringConfiguration.build(config)
       context = Hearth::Context.new(
@@ -1695,12 +1695,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'DeleteBucketIntelligentTieringConfiguration',
         'code.function' => 'delete_bucket_intelligent_tiering_configuration',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.DeleteBucketIntelligentTieringConfiguration', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.DeleteBucketIntelligentTieringConfiguration', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_intelligent_tiering_configuration] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1759,7 +1759,7 @@ module AWS::SDK::S3
     def delete_bucket_inventory_configuration(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::DeleteBucketInventoryConfigurationInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::DeleteBucketInventoryConfiguration.build(config)
       context = Hearth::Context.new(
@@ -1770,12 +1770,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'DeleteBucketInventoryConfiguration',
         'code.function' => 'delete_bucket_inventory_configuration',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.DeleteBucketInventoryConfiguration', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.DeleteBucketInventoryConfiguration', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_inventory_configuration] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1838,7 +1838,7 @@ module AWS::SDK::S3
     def delete_bucket_lifecycle(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::DeleteBucketLifecycleInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::DeleteBucketLifecycle.build(config)
       context = Hearth::Context.new(
@@ -1849,12 +1849,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'DeleteBucketLifecycle',
         'code.function' => 'delete_bucket_lifecycle',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.DeleteBucketLifecycle', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.DeleteBucketLifecycle', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_lifecycle] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1921,7 +1921,7 @@ module AWS::SDK::S3
     def delete_bucket_metrics_configuration(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::DeleteBucketMetricsConfigurationInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::DeleteBucketMetricsConfiguration.build(config)
       context = Hearth::Context.new(
@@ -1932,12 +1932,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'DeleteBucketMetricsConfiguration',
         'code.function' => 'delete_bucket_metrics_configuration',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.DeleteBucketMetricsConfiguration', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.DeleteBucketMetricsConfiguration', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_metrics_configuration] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1988,7 +1988,7 @@ module AWS::SDK::S3
     def delete_bucket_ownership_controls(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::DeleteBucketOwnershipControlsInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::DeleteBucketOwnershipControls.build(config)
       context = Hearth::Context.new(
@@ -1999,12 +1999,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'DeleteBucketOwnershipControls',
         'code.function' => 'delete_bucket_ownership_controls',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.DeleteBucketOwnershipControls', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.DeleteBucketOwnershipControls', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_ownership_controls] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2103,7 +2103,7 @@ module AWS::SDK::S3
     def delete_bucket_policy(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::DeleteBucketPolicyInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::DeleteBucketPolicy.build(config)
       context = Hearth::Context.new(
@@ -2114,12 +2114,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'DeleteBucketPolicy',
         'code.function' => 'delete_bucket_policy',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.DeleteBucketPolicy', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.DeleteBucketPolicy', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_policy] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2184,7 +2184,7 @@ module AWS::SDK::S3
     def delete_bucket_replication(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::DeleteBucketReplicationInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::DeleteBucketReplication.build(config)
       context = Hearth::Context.new(
@@ -2195,12 +2195,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'DeleteBucketReplication',
         'code.function' => 'delete_bucket_replication',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.DeleteBucketReplication', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.DeleteBucketReplication', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_replication] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2257,7 +2257,7 @@ module AWS::SDK::S3
     def delete_bucket_tagging(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::DeleteBucketTaggingInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::DeleteBucketTagging.build(config)
       context = Hearth::Context.new(
@@ -2268,12 +2268,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'DeleteBucketTagging',
         'code.function' => 'delete_bucket_tagging',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.DeleteBucketTagging', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.DeleteBucketTagging', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_tagging] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2337,7 +2337,7 @@ module AWS::SDK::S3
     def delete_bucket_website(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::DeleteBucketWebsiteInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::DeleteBucketWebsite.build(config)
       context = Hearth::Context.new(
@@ -2348,12 +2348,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'DeleteBucketWebsite',
         'code.function' => 'delete_bucket_website',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.DeleteBucketWebsite', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.DeleteBucketWebsite', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_website] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2506,7 +2506,7 @@ module AWS::SDK::S3
     def delete_object(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::DeleteObjectInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::DeleteObject.build(config)
       context = Hearth::Context.new(
@@ -2517,12 +2517,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'DeleteObject',
         'code.function' => 'delete_object',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.DeleteObject', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.DeleteObject', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_object] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2600,7 +2600,7 @@ module AWS::SDK::S3
     def delete_object_tagging(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::DeleteObjectTaggingInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::DeleteObjectTagging.build(config)
       context = Hearth::Context.new(
@@ -2611,12 +2611,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'DeleteObjectTagging',
         'code.function' => 'delete_object_tagging',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.DeleteObjectTagging', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.DeleteObjectTagging', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_object_tagging] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2829,7 +2829,7 @@ module AWS::SDK::S3
     def delete_objects(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::DeleteObjectsInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::DeleteObjects.build(config)
       context = Hearth::Context.new(
@@ -2840,12 +2840,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'DeleteObjects',
         'code.function' => 'delete_objects',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.DeleteObjects', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.DeleteObjects', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_objects] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2905,7 +2905,7 @@ module AWS::SDK::S3
     def delete_public_access_block(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::DeletePublicAccessBlockInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::DeletePublicAccessBlock.build(config)
       context = Hearth::Context.new(
@@ -2916,12 +2916,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'DeletePublicAccessBlock',
         'code.function' => 'delete_public_access_block',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.DeletePublicAccessBlock', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.DeletePublicAccessBlock', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_public_access_block] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2982,7 +2982,7 @@ module AWS::SDK::S3
     def get_bucket_accelerate_configuration(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetBucketAccelerateConfigurationInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetBucketAccelerateConfiguration.build(config)
       context = Hearth::Context.new(
@@ -2993,12 +2993,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'GetBucketAccelerateConfiguration',
         'code.function' => 'get_bucket_accelerate_configuration',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.GetBucketAccelerateConfiguration', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.GetBucketAccelerateConfiguration', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_accelerate_configuration] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3068,7 +3068,7 @@ module AWS::SDK::S3
     def get_bucket_acl(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetBucketAclInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetBucketAcl.build(config)
       context = Hearth::Context.new(
@@ -3079,12 +3079,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'GetBucketAcl',
         'code.function' => 'get_bucket_acl',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.GetBucketAcl', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.GetBucketAcl', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_acl] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3145,14 +3145,14 @@ module AWS::SDK::S3
     #   resp.data #=> Types::GetBucketAnalyticsConfigurationOutput
     #   resp.data.analytics_configuration #=> Types::AnalyticsConfiguration
     #   resp.data.analytics_configuration.id #=> String
-    #   resp.data.analytics_configuration.member_filter #=> Types::AnalyticsFilter, one of [Prefix, Tag, And]
-    #   resp.data.analytics_configuration.member_filter.prefix #=> String
-    #   resp.data.analytics_configuration.member_filter.tag #=> Types::Tag
-    #   resp.data.analytics_configuration.member_filter.tag.key #=> String
-    #   resp.data.analytics_configuration.member_filter.tag.value #=> String
-    #   resp.data.analytics_configuration.member_filter.and #=> Types::AnalyticsAndOperator
-    #   resp.data.analytics_configuration.member_filter.and.prefix #=> String
-    #   resp.data.analytics_configuration.member_filter.and.tags #=> Array<Tag>
+    #   resp.data.analytics_configuration.filter #=> Types::AnalyticsFilter, one of [Prefix, Tag, And]
+    #   resp.data.analytics_configuration.filter.prefix #=> String
+    #   resp.data.analytics_configuration.filter.tag #=> Types::Tag
+    #   resp.data.analytics_configuration.filter.tag.key #=> String
+    #   resp.data.analytics_configuration.filter.tag.value #=> String
+    #   resp.data.analytics_configuration.filter.and #=> Types::AnalyticsAndOperator
+    #   resp.data.analytics_configuration.filter.and.prefix #=> String
+    #   resp.data.analytics_configuration.filter.and.tags #=> Array<Tag>
     #   resp.data.analytics_configuration.storage_class_analysis #=> Types::StorageClassAnalysis
     #   resp.data.analytics_configuration.storage_class_analysis.data_export #=> Types::StorageClassAnalysisDataExport
     #   resp.data.analytics_configuration.storage_class_analysis.data_export.output_schema_version #=> String, one of ["V_1"]
@@ -3165,7 +3165,7 @@ module AWS::SDK::S3
     def get_bucket_analytics_configuration(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetBucketAnalyticsConfigurationInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetBucketAnalyticsConfiguration.build(config)
       context = Hearth::Context.new(
@@ -3176,12 +3176,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'GetBucketAnalyticsConfiguration',
         'code.function' => 'get_bucket_analytics_configuration',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.GetBucketAnalyticsConfiguration', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.GetBucketAnalyticsConfiguration', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_analytics_configuration] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3273,7 +3273,7 @@ module AWS::SDK::S3
     def get_bucket_cors(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetBucketCorsInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetBucketCors.build(config)
       context = Hearth::Context.new(
@@ -3284,12 +3284,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'GetBucketCors',
         'code.function' => 'get_bucket_cors',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.GetBucketCors', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.GetBucketCors', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_cors] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3350,7 +3350,7 @@ module AWS::SDK::S3
     def get_bucket_encryption(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetBucketEncryptionInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetBucketEncryption.build(config)
       context = Hearth::Context.new(
@@ -3361,12 +3361,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'GetBucketEncryption',
         'code.function' => 'get_bucket_encryption',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.GetBucketEncryption', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.GetBucketEncryption', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_encryption] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3419,14 +3419,14 @@ module AWS::SDK::S3
     #   resp.data #=> Types::GetBucketIntelligentTieringConfigurationOutput
     #   resp.data.intelligent_tiering_configuration #=> Types::IntelligentTieringConfiguration
     #   resp.data.intelligent_tiering_configuration.id #=> String
-    #   resp.data.intelligent_tiering_configuration.member_filter #=> Types::IntelligentTieringFilter
-    #   resp.data.intelligent_tiering_configuration.member_filter.prefix #=> String
-    #   resp.data.intelligent_tiering_configuration.member_filter.tag #=> Types::Tag
-    #   resp.data.intelligent_tiering_configuration.member_filter.tag.key #=> String
-    #   resp.data.intelligent_tiering_configuration.member_filter.tag.value #=> String
-    #   resp.data.intelligent_tiering_configuration.member_filter.and #=> Types::IntelligentTieringAndOperator
-    #   resp.data.intelligent_tiering_configuration.member_filter.and.prefix #=> String
-    #   resp.data.intelligent_tiering_configuration.member_filter.and.tags #=> Array<Tag>
+    #   resp.data.intelligent_tiering_configuration.filter #=> Types::IntelligentTieringFilter
+    #   resp.data.intelligent_tiering_configuration.filter.prefix #=> String
+    #   resp.data.intelligent_tiering_configuration.filter.tag #=> Types::Tag
+    #   resp.data.intelligent_tiering_configuration.filter.tag.key #=> String
+    #   resp.data.intelligent_tiering_configuration.filter.tag.value #=> String
+    #   resp.data.intelligent_tiering_configuration.filter.and #=> Types::IntelligentTieringAndOperator
+    #   resp.data.intelligent_tiering_configuration.filter.and.prefix #=> String
+    #   resp.data.intelligent_tiering_configuration.filter.and.tags #=> Array<Tag>
     #   resp.data.intelligent_tiering_configuration.status #=> String, one of ["Enabled", "Disabled"]
     #   resp.data.intelligent_tiering_configuration.tierings #=> Array<Tiering>
     #   resp.data.intelligent_tiering_configuration.tierings[0] #=> Types::Tiering
@@ -3435,7 +3435,7 @@ module AWS::SDK::S3
     def get_bucket_intelligent_tiering_configuration(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetBucketIntelligentTieringConfigurationInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetBucketIntelligentTieringConfiguration.build(config)
       context = Hearth::Context.new(
@@ -3446,12 +3446,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'GetBucketIntelligentTieringConfiguration',
         'code.function' => 'get_bucket_intelligent_tiering_configuration',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.GetBucketIntelligentTieringConfiguration', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.GetBucketIntelligentTieringConfiguration', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_intelligent_tiering_configuration] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3520,8 +3520,8 @@ module AWS::SDK::S3
     #   resp.data.inventory_configuration.destination.s3_bucket_destination.encryption.ssekms #=> Types::SSEKMS
     #   resp.data.inventory_configuration.destination.s3_bucket_destination.encryption.ssekms.key_id #=> String
     #   resp.data.inventory_configuration.is_enabled #=> Boolean
-    #   resp.data.inventory_configuration.member_filter #=> Types::InventoryFilter
-    #   resp.data.inventory_configuration.member_filter.prefix #=> String
+    #   resp.data.inventory_configuration.filter #=> Types::InventoryFilter
+    #   resp.data.inventory_configuration.filter.prefix #=> String
     #   resp.data.inventory_configuration.id #=> String
     #   resp.data.inventory_configuration.included_object_versions #=> String, one of ["All", "Current"]
     #   resp.data.inventory_configuration.optional_fields #=> Array<String>
@@ -3531,7 +3531,7 @@ module AWS::SDK::S3
     def get_bucket_inventory_configuration(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetBucketInventoryConfigurationInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetBucketInventoryConfiguration.build(config)
       context = Hearth::Context.new(
@@ -3542,12 +3542,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'GetBucketInventoryConfiguration',
         'code.function' => 'get_bucket_inventory_configuration',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.GetBucketInventoryConfiguration', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.GetBucketInventoryConfiguration', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_inventory_configuration] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3638,18 +3638,18 @@ module AWS::SDK::S3
     #   resp.data.rules[0].expiration.expired_object_delete_marker #=> Boolean
     #   resp.data.rules[0].id #=> String
     #   resp.data.rules[0].prefix #=> String
-    #   resp.data.rules[0].member_filter #=> Types::LifecycleRuleFilter, one of [Prefix, Tag, ObjectSizeGreaterThan, ObjectSizeLessThan, And]
-    #   resp.data.rules[0].member_filter.prefix #=> String
-    #   resp.data.rules[0].member_filter.tag #=> Types::Tag
-    #   resp.data.rules[0].member_filter.tag.key #=> String
-    #   resp.data.rules[0].member_filter.tag.value #=> String
-    #   resp.data.rules[0].member_filter.object_size_greater_than #=> Integer
-    #   resp.data.rules[0].member_filter.object_size_less_than #=> Integer
-    #   resp.data.rules[0].member_filter.and #=> Types::LifecycleRuleAndOperator
-    #   resp.data.rules[0].member_filter.and.prefix #=> String
-    #   resp.data.rules[0].member_filter.and.tags #=> Array<Tag>
-    #   resp.data.rules[0].member_filter.and.object_size_greater_than #=> Integer
-    #   resp.data.rules[0].member_filter.and.object_size_less_than #=> Integer
+    #   resp.data.rules[0].filter #=> Types::LifecycleRuleFilter, one of [Prefix, Tag, ObjectSizeGreaterThan, ObjectSizeLessThan, And]
+    #   resp.data.rules[0].filter.prefix #=> String
+    #   resp.data.rules[0].filter.tag #=> Types::Tag
+    #   resp.data.rules[0].filter.tag.key #=> String
+    #   resp.data.rules[0].filter.tag.value #=> String
+    #   resp.data.rules[0].filter.object_size_greater_than #=> Integer
+    #   resp.data.rules[0].filter.object_size_less_than #=> Integer
+    #   resp.data.rules[0].filter.and #=> Types::LifecycleRuleAndOperator
+    #   resp.data.rules[0].filter.and.prefix #=> String
+    #   resp.data.rules[0].filter.and.tags #=> Array<Tag>
+    #   resp.data.rules[0].filter.and.object_size_greater_than #=> Integer
+    #   resp.data.rules[0].filter.and.object_size_less_than #=> Integer
     #   resp.data.rules[0].status #=> String, one of ["Enabled", "Disabled"]
     #   resp.data.rules[0].transitions #=> Array<Transition>
     #   resp.data.rules[0].transitions[0] #=> Types::Transition
@@ -3691,7 +3691,7 @@ module AWS::SDK::S3
     def get_bucket_lifecycle_configuration(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetBucketLifecycleConfigurationInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetBucketLifecycleConfiguration.build(config)
       context = Hearth::Context.new(
@@ -3702,12 +3702,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'GetBucketLifecycleConfiguration',
         'code.function' => 'get_bucket_lifecycle_configuration',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.GetBucketLifecycleConfiguration', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.GetBucketLifecycleConfiguration', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_lifecycle_configuration] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3776,7 +3776,7 @@ module AWS::SDK::S3
     def get_bucket_location(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetBucketLocationInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetBucketLocation.build(config)
       context = Hearth::Context.new(
@@ -3787,12 +3787,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'GetBucketLocation',
         'code.function' => 'get_bucket_location',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.GetBucketLocation', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.GetBucketLocation', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_location] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3855,7 +3855,7 @@ module AWS::SDK::S3
     def get_bucket_logging(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetBucketLoggingInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetBucketLogging.build(config)
       context = Hearth::Context.new(
@@ -3866,12 +3866,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'GetBucketLogging',
         'code.function' => 'get_bucket_logging',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.GetBucketLogging', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.GetBucketLogging', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_logging] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3936,20 +3936,20 @@ module AWS::SDK::S3
     #   resp.data #=> Types::GetBucketMetricsConfigurationOutput
     #   resp.data.metrics_configuration #=> Types::MetricsConfiguration
     #   resp.data.metrics_configuration.id #=> String
-    #   resp.data.metrics_configuration.member_filter #=> Types::MetricsFilter, one of [Prefix, Tag, AccessPointArn, And]
-    #   resp.data.metrics_configuration.member_filter.prefix #=> String
-    #   resp.data.metrics_configuration.member_filter.tag #=> Types::Tag
-    #   resp.data.metrics_configuration.member_filter.tag.key #=> String
-    #   resp.data.metrics_configuration.member_filter.tag.value #=> String
-    #   resp.data.metrics_configuration.member_filter.access_point_arn #=> String
-    #   resp.data.metrics_configuration.member_filter.and #=> Types::MetricsAndOperator
-    #   resp.data.metrics_configuration.member_filter.and.prefix #=> String
-    #   resp.data.metrics_configuration.member_filter.and.tags #=> Array<Tag>
-    #   resp.data.metrics_configuration.member_filter.and.access_point_arn #=> String
+    #   resp.data.metrics_configuration.filter #=> Types::MetricsFilter, one of [Prefix, Tag, AccessPointArn, And]
+    #   resp.data.metrics_configuration.filter.prefix #=> String
+    #   resp.data.metrics_configuration.filter.tag #=> Types::Tag
+    #   resp.data.metrics_configuration.filter.tag.key #=> String
+    #   resp.data.metrics_configuration.filter.tag.value #=> String
+    #   resp.data.metrics_configuration.filter.access_point_arn #=> String
+    #   resp.data.metrics_configuration.filter.and #=> Types::MetricsAndOperator
+    #   resp.data.metrics_configuration.filter.and.prefix #=> String
+    #   resp.data.metrics_configuration.filter.and.tags #=> Array<Tag>
+    #   resp.data.metrics_configuration.filter.and.access_point_arn #=> String
     def get_bucket_metrics_configuration(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetBucketMetricsConfigurationInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetBucketMetricsConfiguration.build(config)
       context = Hearth::Context.new(
@@ -3960,12 +3960,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'GetBucketMetricsConfiguration',
         'code.function' => 'get_bucket_metrics_configuration',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.GetBucketMetricsConfiguration', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.GetBucketMetricsConfiguration', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_metrics_configuration] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4023,29 +4023,29 @@ module AWS::SDK::S3
     #   resp.data.topic_configurations[0].topic_arn #=> String
     #   resp.data.topic_configurations[0].events #=> Array<String>
     #   resp.data.topic_configurations[0].events[0] #=> String, one of ["s3:ReducedRedundancyLostObject", "s3:ObjectCreated:*", "s3:ObjectCreated:Put", "s3:ObjectCreated:Post", "s3:ObjectCreated:Copy", "s3:ObjectCreated:CompleteMultipartUpload", "s3:ObjectRemoved:*", "s3:ObjectRemoved:Delete", "s3:ObjectRemoved:DeleteMarkerCreated", "s3:ObjectRestore:*", "s3:ObjectRestore:Post", "s3:ObjectRestore:Completed", "s3:Replication:*", "s3:Replication:OperationFailedReplication", "s3:Replication:OperationNotTracked", "s3:Replication:OperationMissedThreshold", "s3:Replication:OperationReplicatedAfterThreshold", "s3:ObjectRestore:Delete", "s3:LifecycleTransition", "s3:IntelligentTiering", "s3:ObjectAcl:Put", "s3:LifecycleExpiration:*", "s3:LifecycleExpiration:Delete", "s3:LifecycleExpiration:DeleteMarkerCreated", "s3:ObjectTagging:*", "s3:ObjectTagging:Put", "s3:ObjectTagging:Delete"]
-    #   resp.data.topic_configurations[0].member_filter #=> Types::NotificationConfigurationFilter
-    #   resp.data.topic_configurations[0].member_filter.key #=> Types::S3KeyFilter
-    #   resp.data.topic_configurations[0].member_filter.key.filter_rules #=> Array<FilterRule>
-    #   resp.data.topic_configurations[0].member_filter.key.filter_rules[0] #=> Types::FilterRule
-    #   resp.data.topic_configurations[0].member_filter.key.filter_rules[0].name #=> String, one of ["prefix", "suffix"]
-    #   resp.data.topic_configurations[0].member_filter.key.filter_rules[0].value #=> String
+    #   resp.data.topic_configurations[0].filter #=> Types::NotificationConfigurationFilter
+    #   resp.data.topic_configurations[0].filter.key #=> Types::S3KeyFilter
+    #   resp.data.topic_configurations[0].filter.key.filter_rules #=> Array<FilterRule>
+    #   resp.data.topic_configurations[0].filter.key.filter_rules[0] #=> Types::FilterRule
+    #   resp.data.topic_configurations[0].filter.key.filter_rules[0].name #=> String, one of ["prefix", "suffix"]
+    #   resp.data.topic_configurations[0].filter.key.filter_rules[0].value #=> String
     #   resp.data.queue_configurations #=> Array<QueueConfiguration>
     #   resp.data.queue_configurations[0] #=> Types::QueueConfiguration
     #   resp.data.queue_configurations[0].id #=> String
     #   resp.data.queue_configurations[0].queue_arn #=> String
     #   resp.data.queue_configurations[0].events #=> Array<String>
-    #   resp.data.queue_configurations[0].member_filter #=> Types::NotificationConfigurationFilter
+    #   resp.data.queue_configurations[0].filter #=> Types::NotificationConfigurationFilter
     #   resp.data.lambda_function_configurations #=> Array<LambdaFunctionConfiguration>
     #   resp.data.lambda_function_configurations[0] #=> Types::LambdaFunctionConfiguration
     #   resp.data.lambda_function_configurations[0].id #=> String
     #   resp.data.lambda_function_configurations[0].lambda_function_arn #=> String
     #   resp.data.lambda_function_configurations[0].events #=> Array<String>
-    #   resp.data.lambda_function_configurations[0].member_filter #=> Types::NotificationConfigurationFilter
+    #   resp.data.lambda_function_configurations[0].filter #=> Types::NotificationConfigurationFilter
     #   resp.data.event_bridge_configuration #=> Types::EventBridgeConfiguration
     def get_bucket_notification_configuration(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetBucketNotificationConfigurationInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetBucketNotificationConfiguration.build(config)
       context = Hearth::Context.new(
@@ -4056,12 +4056,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'GetBucketNotificationConfiguration',
         'code.function' => 'get_bucket_notification_configuration',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.GetBucketNotificationConfiguration', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.GetBucketNotificationConfiguration', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_notification_configuration] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4116,7 +4116,7 @@ module AWS::SDK::S3
     def get_bucket_ownership_controls(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetBucketOwnershipControlsInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetBucketOwnershipControls.build(config)
       context = Hearth::Context.new(
@@ -4127,12 +4127,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'GetBucketOwnershipControls',
         'code.function' => 'get_bucket_ownership_controls',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.GetBucketOwnershipControls', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.GetBucketOwnershipControls', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_ownership_controls] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4234,7 +4234,7 @@ module AWS::SDK::S3
     def get_bucket_policy(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetBucketPolicyInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetBucketPolicy.build(config)
       context = Hearth::Context.new(
@@ -4245,12 +4245,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'GetBucketPolicy',
         'code.function' => 'get_bucket_policy',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.GetBucketPolicy', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.GetBucketPolicy', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_policy] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4313,7 +4313,7 @@ module AWS::SDK::S3
     def get_bucket_policy_status(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetBucketPolicyStatusInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetBucketPolicyStatus.build(config)
       context = Hearth::Context.new(
@@ -4324,12 +4324,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'GetBucketPolicyStatus',
         'code.function' => 'get_bucket_policy_status',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.GetBucketPolicyStatus', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.GetBucketPolicyStatus', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_policy_status] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4395,14 +4395,14 @@ module AWS::SDK::S3
     #   resp.data.replication_configuration.rules[0].id #=> String
     #   resp.data.replication_configuration.rules[0].priority #=> Integer
     #   resp.data.replication_configuration.rules[0].prefix #=> String
-    #   resp.data.replication_configuration.rules[0].member_filter #=> Types::ReplicationRuleFilter, one of [Prefix, Tag, And]
-    #   resp.data.replication_configuration.rules[0].member_filter.prefix #=> String
-    #   resp.data.replication_configuration.rules[0].member_filter.tag #=> Types::Tag
-    #   resp.data.replication_configuration.rules[0].member_filter.tag.key #=> String
-    #   resp.data.replication_configuration.rules[0].member_filter.tag.value #=> String
-    #   resp.data.replication_configuration.rules[0].member_filter.and #=> Types::ReplicationRuleAndOperator
-    #   resp.data.replication_configuration.rules[0].member_filter.and.prefix #=> String
-    #   resp.data.replication_configuration.rules[0].member_filter.and.tags #=> Array<Tag>
+    #   resp.data.replication_configuration.rules[0].filter #=> Types::ReplicationRuleFilter, one of [Prefix, Tag, And]
+    #   resp.data.replication_configuration.rules[0].filter.prefix #=> String
+    #   resp.data.replication_configuration.rules[0].filter.tag #=> Types::Tag
+    #   resp.data.replication_configuration.rules[0].filter.tag.key #=> String
+    #   resp.data.replication_configuration.rules[0].filter.tag.value #=> String
+    #   resp.data.replication_configuration.rules[0].filter.and #=> Types::ReplicationRuleAndOperator
+    #   resp.data.replication_configuration.rules[0].filter.and.prefix #=> String
+    #   resp.data.replication_configuration.rules[0].filter.and.tags #=> Array<Tag>
     #   resp.data.replication_configuration.rules[0].status #=> String, one of ["Enabled", "Disabled"]
     #   resp.data.replication_configuration.rules[0].source_selection_criteria #=> Types::SourceSelectionCriteria
     #   resp.data.replication_configuration.rules[0].source_selection_criteria.sse_kms_encrypted_objects #=> Types::SseKmsEncryptedObjects
@@ -4453,7 +4453,7 @@ module AWS::SDK::S3
     def get_bucket_replication(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetBucketReplicationInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetBucketReplication.build(config)
       context = Hearth::Context.new(
@@ -4464,12 +4464,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'GetBucketReplication',
         'code.function' => 'get_bucket_replication',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.GetBucketReplication', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.GetBucketReplication', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_replication] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4523,7 +4523,7 @@ module AWS::SDK::S3
     def get_bucket_request_payment(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetBucketRequestPaymentInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetBucketRequestPayment.build(config)
       context = Hearth::Context.new(
@@ -4534,12 +4534,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'GetBucketRequestPayment',
         'code.function' => 'get_bucket_request_payment',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.GetBucketRequestPayment', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.GetBucketRequestPayment', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_request_payment] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4624,7 +4624,7 @@ module AWS::SDK::S3
     def get_bucket_tagging(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetBucketTaggingInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetBucketTagging.build(config)
       context = Hearth::Context.new(
@@ -4635,12 +4635,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'GetBucketTagging',
         'code.function' => 'get_bucket_tagging',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.GetBucketTagging', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.GetBucketTagging', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_tagging] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4708,7 +4708,7 @@ module AWS::SDK::S3
     def get_bucket_versioning(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetBucketVersioningInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetBucketVersioning.build(config)
       context = Hearth::Context.new(
@@ -4719,12 +4719,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'GetBucketVersioning',
         'code.function' => 'get_bucket_versioning',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.GetBucketVersioning', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.GetBucketVersioning', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_versioning] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4809,7 +4809,7 @@ module AWS::SDK::S3
     def get_bucket_website(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetBucketWebsiteInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetBucketWebsite.build(config)
       context = Hearth::Context.new(
@@ -4820,12 +4820,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'GetBucketWebsite',
         'code.function' => 'get_bucket_website',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.GetBucketWebsite', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.GetBucketWebsite', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_website] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5060,7 +5060,7 @@ module AWS::SDK::S3
     def get_object(params = {}, options = {}, &block)
       response_body = output_stream(options, &block)
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetObjectInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetObject.build(config)
       context = Hearth::Context.new(
@@ -5071,12 +5071,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'GetObject',
         'code.function' => 'get_object',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.GetObject', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.GetObject', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5211,7 +5211,7 @@ module AWS::SDK::S3
     def get_object_acl(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetObjectAclInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetObjectAcl.build(config)
       context = Hearth::Context.new(
@@ -5222,12 +5222,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'GetObjectAcl',
         'code.function' => 'get_object_acl',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.GetObjectAcl', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.GetObjectAcl', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_acl] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5470,7 +5470,7 @@ module AWS::SDK::S3
     #   resp.data.object_parts.parts #=> Array<ObjectPart>
     #   resp.data.object_parts.parts[0] #=> Types::ObjectPart
     #   resp.data.object_parts.parts[0].part_number #=> Integer
-    #   resp.data.object_parts.parts[0].member_size #=> Integer
+    #   resp.data.object_parts.parts[0].size #=> Integer
     #   resp.data.object_parts.parts[0].checksum_crc32 #=> String
     #   resp.data.object_parts.parts[0].checksum_crc32_c #=> String
     #   resp.data.object_parts.parts[0].checksum_sha1 #=> String
@@ -5480,7 +5480,7 @@ module AWS::SDK::S3
     def get_object_attributes(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetObjectAttributesInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetObjectAttributes.build(config)
       context = Hearth::Context.new(
@@ -5491,12 +5491,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'GetObjectAttributes',
         'code.function' => 'get_object_attributes',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.GetObjectAttributes', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.GetObjectAttributes', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_attributes] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5544,7 +5544,7 @@ module AWS::SDK::S3
     def get_object_legal_hold(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetObjectLegalHoldInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetObjectLegalHold.build(config)
       context = Hearth::Context.new(
@@ -5555,12 +5555,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'GetObjectLegalHold',
         'code.function' => 'get_object_legal_hold',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.GetObjectLegalHold', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.GetObjectLegalHold', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_legal_hold] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5610,7 +5610,7 @@ module AWS::SDK::S3
     def get_object_lock_configuration(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetObjectLockConfigurationInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetObjectLockConfiguration.build(config)
       context = Hearth::Context.new(
@@ -5621,12 +5621,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'GetObjectLockConfiguration',
         'code.function' => 'get_object_lock_configuration',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.GetObjectLockConfiguration', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.GetObjectLockConfiguration', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_lock_configuration] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5675,7 +5675,7 @@ module AWS::SDK::S3
     def get_object_retention(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetObjectRetentionInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetObjectRetention.build(config)
       context = Hearth::Context.new(
@@ -5686,12 +5686,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'GetObjectRetention',
         'code.function' => 'get_object_retention',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.GetObjectRetention', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.GetObjectRetention', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_retention] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5799,7 +5799,7 @@ module AWS::SDK::S3
     def get_object_tagging(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetObjectTaggingInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetObjectTagging.build(config)
       context = Hearth::Context.new(
@@ -5810,12 +5810,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'GetObjectTagging',
         'code.function' => 'get_object_tagging',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.GetObjectTagging', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.GetObjectTagging', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_tagging] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5877,7 +5877,7 @@ module AWS::SDK::S3
     def get_object_torrent(params = {}, options = {}, &block)
       response_body = output_stream(options, &block)
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetObjectTorrentInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetObjectTorrent.build(config)
       context = Hearth::Context.new(
@@ -5888,12 +5888,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'GetObjectTorrent',
         'code.function' => 'get_object_torrent',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.GetObjectTorrent', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.GetObjectTorrent', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_torrent] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5967,7 +5967,7 @@ module AWS::SDK::S3
     def get_public_access_block(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetPublicAccessBlockInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetPublicAccessBlock.build(config)
       context = Hearth::Context.new(
@@ -5978,12 +5978,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'GetPublicAccessBlock',
         'code.function' => 'get_public_access_block',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.GetPublicAccessBlock', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.GetPublicAccessBlock', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_public_access_block] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -6074,7 +6074,7 @@ module AWS::SDK::S3
     def head_bucket(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::HeadBucketInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::HeadBucket.build(config)
       context = Hearth::Context.new(
@@ -6085,12 +6085,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'HeadBucket',
         'code.function' => 'head_bucket',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.HeadBucket', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.HeadBucket', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#head_bucket] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -6302,7 +6302,7 @@ module AWS::SDK::S3
     def head_object(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::HeadObjectInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::HeadObject.build(config)
       context = Hearth::Context.new(
@@ -6313,12 +6313,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'HeadObject',
         'code.function' => 'head_object',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.HeadObject', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.HeadObject', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#head_object] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -6390,14 +6390,14 @@ module AWS::SDK::S3
     #   resp.data.analytics_configuration_list #=> Array<AnalyticsConfiguration>
     #   resp.data.analytics_configuration_list[0] #=> Types::AnalyticsConfiguration
     #   resp.data.analytics_configuration_list[0].id #=> String
-    #   resp.data.analytics_configuration_list[0].member_filter #=> Types::AnalyticsFilter, one of [Prefix, Tag, And]
-    #   resp.data.analytics_configuration_list[0].member_filter.prefix #=> String
-    #   resp.data.analytics_configuration_list[0].member_filter.tag #=> Types::Tag
-    #   resp.data.analytics_configuration_list[0].member_filter.tag.key #=> String
-    #   resp.data.analytics_configuration_list[0].member_filter.tag.value #=> String
-    #   resp.data.analytics_configuration_list[0].member_filter.and #=> Types::AnalyticsAndOperator
-    #   resp.data.analytics_configuration_list[0].member_filter.and.prefix #=> String
-    #   resp.data.analytics_configuration_list[0].member_filter.and.tags #=> Array<Tag>
+    #   resp.data.analytics_configuration_list[0].filter #=> Types::AnalyticsFilter, one of [Prefix, Tag, And]
+    #   resp.data.analytics_configuration_list[0].filter.prefix #=> String
+    #   resp.data.analytics_configuration_list[0].filter.tag #=> Types::Tag
+    #   resp.data.analytics_configuration_list[0].filter.tag.key #=> String
+    #   resp.data.analytics_configuration_list[0].filter.tag.value #=> String
+    #   resp.data.analytics_configuration_list[0].filter.and #=> Types::AnalyticsAndOperator
+    #   resp.data.analytics_configuration_list[0].filter.and.prefix #=> String
+    #   resp.data.analytics_configuration_list[0].filter.and.tags #=> Array<Tag>
     #   resp.data.analytics_configuration_list[0].storage_class_analysis #=> Types::StorageClassAnalysis
     #   resp.data.analytics_configuration_list[0].storage_class_analysis.data_export #=> Types::StorageClassAnalysisDataExport
     #   resp.data.analytics_configuration_list[0].storage_class_analysis.data_export.output_schema_version #=> String, one of ["V_1"]
@@ -6410,7 +6410,7 @@ module AWS::SDK::S3
     def list_bucket_analytics_configurations(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::ListBucketAnalyticsConfigurationsInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::ListBucketAnalyticsConfigurations.build(config)
       context = Hearth::Context.new(
@@ -6421,12 +6421,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'ListBucketAnalyticsConfigurations',
         'code.function' => 'list_bucket_analytics_configurations',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.ListBucketAnalyticsConfigurations', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.ListBucketAnalyticsConfigurations', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_bucket_analytics_configurations] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -6483,14 +6483,14 @@ module AWS::SDK::S3
     #   resp.data.intelligent_tiering_configuration_list #=> Array<IntelligentTieringConfiguration>
     #   resp.data.intelligent_tiering_configuration_list[0] #=> Types::IntelligentTieringConfiguration
     #   resp.data.intelligent_tiering_configuration_list[0].id #=> String
-    #   resp.data.intelligent_tiering_configuration_list[0].member_filter #=> Types::IntelligentTieringFilter
-    #   resp.data.intelligent_tiering_configuration_list[0].member_filter.prefix #=> String
-    #   resp.data.intelligent_tiering_configuration_list[0].member_filter.tag #=> Types::Tag
-    #   resp.data.intelligent_tiering_configuration_list[0].member_filter.tag.key #=> String
-    #   resp.data.intelligent_tiering_configuration_list[0].member_filter.tag.value #=> String
-    #   resp.data.intelligent_tiering_configuration_list[0].member_filter.and #=> Types::IntelligentTieringAndOperator
-    #   resp.data.intelligent_tiering_configuration_list[0].member_filter.and.prefix #=> String
-    #   resp.data.intelligent_tiering_configuration_list[0].member_filter.and.tags #=> Array<Tag>
+    #   resp.data.intelligent_tiering_configuration_list[0].filter #=> Types::IntelligentTieringFilter
+    #   resp.data.intelligent_tiering_configuration_list[0].filter.prefix #=> String
+    #   resp.data.intelligent_tiering_configuration_list[0].filter.tag #=> Types::Tag
+    #   resp.data.intelligent_tiering_configuration_list[0].filter.tag.key #=> String
+    #   resp.data.intelligent_tiering_configuration_list[0].filter.tag.value #=> String
+    #   resp.data.intelligent_tiering_configuration_list[0].filter.and #=> Types::IntelligentTieringAndOperator
+    #   resp.data.intelligent_tiering_configuration_list[0].filter.and.prefix #=> String
+    #   resp.data.intelligent_tiering_configuration_list[0].filter.and.tags #=> Array<Tag>
     #   resp.data.intelligent_tiering_configuration_list[0].status #=> String, one of ["Enabled", "Disabled"]
     #   resp.data.intelligent_tiering_configuration_list[0].tierings #=> Array<Tiering>
     #   resp.data.intelligent_tiering_configuration_list[0].tierings[0] #=> Types::Tiering
@@ -6499,7 +6499,7 @@ module AWS::SDK::S3
     def list_bucket_intelligent_tiering_configurations(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::ListBucketIntelligentTieringConfigurationsInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::ListBucketIntelligentTieringConfigurations.build(config)
       context = Hearth::Context.new(
@@ -6510,12 +6510,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'ListBucketIntelligentTieringConfigurations',
         'code.function' => 'list_bucket_intelligent_tiering_configurations',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.ListBucketIntelligentTieringConfigurations', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.ListBucketIntelligentTieringConfigurations', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_bucket_intelligent_tiering_configurations] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -6594,8 +6594,8 @@ module AWS::SDK::S3
     #   resp.data.inventory_configuration_list[0].destination.s3_bucket_destination.encryption.ssekms #=> Types::SSEKMS
     #   resp.data.inventory_configuration_list[0].destination.s3_bucket_destination.encryption.ssekms.key_id #=> String
     #   resp.data.inventory_configuration_list[0].is_enabled #=> Boolean
-    #   resp.data.inventory_configuration_list[0].member_filter #=> Types::InventoryFilter
-    #   resp.data.inventory_configuration_list[0].member_filter.prefix #=> String
+    #   resp.data.inventory_configuration_list[0].filter #=> Types::InventoryFilter
+    #   resp.data.inventory_configuration_list[0].filter.prefix #=> String
     #   resp.data.inventory_configuration_list[0].id #=> String
     #   resp.data.inventory_configuration_list[0].included_object_versions #=> String, one of ["All", "Current"]
     #   resp.data.inventory_configuration_list[0].optional_fields #=> Array<String>
@@ -6607,7 +6607,7 @@ module AWS::SDK::S3
     def list_bucket_inventory_configurations(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::ListBucketInventoryConfigurationsInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::ListBucketInventoryConfigurations.build(config)
       context = Hearth::Context.new(
@@ -6618,12 +6618,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'ListBucketInventoryConfigurations',
         'code.function' => 'list_bucket_inventory_configurations',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.ListBucketInventoryConfigurations', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.ListBucketInventoryConfigurations', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_bucket_inventory_configurations] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -6695,20 +6695,20 @@ module AWS::SDK::S3
     #   resp.data.metrics_configuration_list #=> Array<MetricsConfiguration>
     #   resp.data.metrics_configuration_list[0] #=> Types::MetricsConfiguration
     #   resp.data.metrics_configuration_list[0].id #=> String
-    #   resp.data.metrics_configuration_list[0].member_filter #=> Types::MetricsFilter, one of [Prefix, Tag, AccessPointArn, And]
-    #   resp.data.metrics_configuration_list[0].member_filter.prefix #=> String
-    #   resp.data.metrics_configuration_list[0].member_filter.tag #=> Types::Tag
-    #   resp.data.metrics_configuration_list[0].member_filter.tag.key #=> String
-    #   resp.data.metrics_configuration_list[0].member_filter.tag.value #=> String
-    #   resp.data.metrics_configuration_list[0].member_filter.access_point_arn #=> String
-    #   resp.data.metrics_configuration_list[0].member_filter.and #=> Types::MetricsAndOperator
-    #   resp.data.metrics_configuration_list[0].member_filter.and.prefix #=> String
-    #   resp.data.metrics_configuration_list[0].member_filter.and.tags #=> Array<Tag>
-    #   resp.data.metrics_configuration_list[0].member_filter.and.access_point_arn #=> String
+    #   resp.data.metrics_configuration_list[0].filter #=> Types::MetricsFilter, one of [Prefix, Tag, AccessPointArn, And]
+    #   resp.data.metrics_configuration_list[0].filter.prefix #=> String
+    #   resp.data.metrics_configuration_list[0].filter.tag #=> Types::Tag
+    #   resp.data.metrics_configuration_list[0].filter.tag.key #=> String
+    #   resp.data.metrics_configuration_list[0].filter.tag.value #=> String
+    #   resp.data.metrics_configuration_list[0].filter.access_point_arn #=> String
+    #   resp.data.metrics_configuration_list[0].filter.and #=> Types::MetricsAndOperator
+    #   resp.data.metrics_configuration_list[0].filter.and.prefix #=> String
+    #   resp.data.metrics_configuration_list[0].filter.and.tags #=> Array<Tag>
+    #   resp.data.metrics_configuration_list[0].filter.and.access_point_arn #=> String
     def list_bucket_metrics_configurations(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::ListBucketMetricsConfigurationsInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::ListBucketMetricsConfigurations.build(config)
       context = Hearth::Context.new(
@@ -6719,12 +6719,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'ListBucketMetricsConfigurations',
         'code.function' => 'list_bucket_metrics_configurations',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.ListBucketMetricsConfigurations', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.ListBucketMetricsConfigurations', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_bucket_metrics_configurations] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -6788,7 +6788,7 @@ module AWS::SDK::S3
     def list_buckets(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::ListBucketsInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::ListBuckets.build(config)
       context = Hearth::Context.new(
@@ -6799,12 +6799,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'ListBuckets',
         'code.function' => 'list_buckets',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.ListBuckets', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.ListBuckets', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_buckets] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -6857,7 +6857,7 @@ module AWS::SDK::S3
     def list_directory_buckets(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::ListDirectoryBucketsInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::ListDirectoryBuckets.build(config)
       context = Hearth::Context.new(
@@ -6868,12 +6868,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'ListDirectoryBuckets',
         'code.function' => 'list_directory_buckets',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.ListDirectoryBuckets', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.ListDirectoryBuckets', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_directory_buckets] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -7089,7 +7089,7 @@ module AWS::SDK::S3
     def list_multipart_uploads(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::ListMultipartUploadsInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::ListMultipartUploads.build(config)
       context = Hearth::Context.new(
@@ -7100,12 +7100,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'ListMultipartUploads',
         'code.function' => 'list_multipart_uploads',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.ListMultipartUploads', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.ListMultipartUploads', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_multipart_uploads] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -7190,7 +7190,7 @@ module AWS::SDK::S3
     #   resp.data.versions[0].e_tag #=> String
     #   resp.data.versions[0].checksum_algorithm #=> Array<String>
     #   resp.data.versions[0].checksum_algorithm[0] #=> String, one of ["CRC32", "CRC32C", "SHA1", "SHA256"]
-    #   resp.data.versions[0].member_size #=> Integer
+    #   resp.data.versions[0].size #=> Integer
     #   resp.data.versions[0].storage_class #=> String, one of ["STANDARD"]
     #   resp.data.versions[0].key #=> String
     #   resp.data.versions[0].version_id #=> String
@@ -7239,7 +7239,7 @@ module AWS::SDK::S3
     #           id: "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
     #         },
     #         is_latest: true,
-    #         member_size: 3191
+    #         size: 3191
     #       },
     #       {
     #         last_modified: Time.parse('2016-12-13T00:58:26.000Z'),
@@ -7252,14 +7252,14 @@ module AWS::SDK::S3
     #           id: "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
     #         },
     #         is_latest: false,
-    #         member_size: 3191
+    #         size: 3191
     #       }
     #     ]
     #   }
     def list_object_versions(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::ListObjectVersionsInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::ListObjectVersions.build(config)
       context = Hearth::Context.new(
@@ -7270,12 +7270,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'ListObjectVersions',
         'code.function' => 'list_object_versions',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.ListObjectVersions', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.ListObjectVersions', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_object_versions] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -7359,7 +7359,7 @@ module AWS::SDK::S3
     #   resp.data.contents[0].e_tag #=> String
     #   resp.data.contents[0].checksum_algorithm #=> Array<String>
     #   resp.data.contents[0].checksum_algorithm[0] #=> String, one of ["CRC32", "CRC32C", "SHA1", "SHA256"]
-    #   resp.data.contents[0].member_size #=> Integer
+    #   resp.data.contents[0].size #=> Integer
     #   resp.data.contents[0].storage_class #=> String, one of ["STANDARD", "REDUCED_REDUNDANCY", "GLACIER", "STANDARD_IA", "ONEZONE_IA", "INTELLIGENT_TIERING", "DEEP_ARCHIVE", "OUTPOSTS", "GLACIER_IR", "SNOW", "EXPRESS_ONEZONE"]
     #   resp.data.contents[0].owner #=> Types::Owner
     #   resp.data.contents[0].owner.display_name #=> String
@@ -7379,7 +7379,7 @@ module AWS::SDK::S3
     def list_objects(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::ListObjectsInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::ListObjects.build(config)
       context = Hearth::Context.new(
@@ -7390,12 +7390,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'ListObjects',
         'code.function' => 'list_objects',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.ListObjects', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.ListObjects', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_objects] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -7519,7 +7519,7 @@ module AWS::SDK::S3
     #   resp.data.contents[0].e_tag #=> String
     #   resp.data.contents[0].checksum_algorithm #=> Array<String>
     #   resp.data.contents[0].checksum_algorithm[0] #=> String, one of ["CRC32", "CRC32C", "SHA1", "SHA256"]
-    #   resp.data.contents[0].member_size #=> Integer
+    #   resp.data.contents[0].size #=> Integer
     #   resp.data.contents[0].storage_class #=> String, one of ["STANDARD", "REDUCED_REDUNDANCY", "GLACIER", "STANDARD_IA", "ONEZONE_IA", "INTELLIGENT_TIERING", "DEEP_ARCHIVE", "OUTPOSTS", "GLACIER_IR", "SNOW", "EXPRESS_ONEZONE"]
     #   resp.data.contents[0].owner #=> Types::Owner
     #   resp.data.contents[0].owner.display_name #=> String
@@ -7543,7 +7543,7 @@ module AWS::SDK::S3
     def list_objects_v2(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::ListObjectsV2Input.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::ListObjectsV2.build(config)
       context = Hearth::Context.new(
@@ -7554,12 +7554,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'ListObjectsV2',
         'code.function' => 'list_objects_v2',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.ListObjectsV2', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.ListObjectsV2', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_objects_v2] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -7689,7 +7689,7 @@ module AWS::SDK::S3
     #   resp.data.parts[0].part_number #=> Integer
     #   resp.data.parts[0].last_modified #=> Time
     #   resp.data.parts[0].e_tag #=> String
-    #   resp.data.parts[0].member_size #=> Integer
+    #   resp.data.parts[0].size #=> Integer
     #   resp.data.parts[0].checksum_crc32 #=> String
     #   resp.data.parts[0].checksum_crc32_c #=> String
     #   resp.data.parts[0].checksum_sha1 #=> String
@@ -7706,7 +7706,7 @@ module AWS::SDK::S3
     def list_parts(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::ListPartsInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::ListParts.build(config)
       context = Hearth::Context.new(
@@ -7717,12 +7717,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'ListParts',
         'code.function' => 'list_parts',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.ListParts', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.ListParts', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_parts] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -7797,7 +7797,7 @@ module AWS::SDK::S3
     def put_bucket_accelerate_configuration(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::PutBucketAccelerateConfigurationInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::PutBucketAccelerateConfiguration.build(config)
       context = Hearth::Context.new(
@@ -7808,12 +7808,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'PutBucketAccelerateConfiguration',
         'code.function' => 'put_bucket_accelerate_configuration',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.PutBucketAccelerateConfiguration', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.PutBucketAccelerateConfiguration', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_accelerate_configuration] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -8079,7 +8079,7 @@ module AWS::SDK::S3
     def put_bucket_acl(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::PutBucketAclInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::PutBucketAcl.build(config)
       context = Hearth::Context.new(
@@ -8090,12 +8090,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'PutBucketAcl',
         'code.function' => 'put_bucket_acl',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.PutBucketAcl', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.PutBucketAcl', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_acl] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -8226,7 +8226,7 @@ module AWS::SDK::S3
     #     id: 'Id', # required
     #     analytics_configuration: {
     #       id: 'Id', # required
-    #       member_filter: {
+    #       filter: {
     #         # One of:
     #         prefix: 'Prefix',
     #         tag: {
@@ -8258,7 +8258,7 @@ module AWS::SDK::S3
     def put_bucket_analytics_configuration(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::PutBucketAnalyticsConfigurationInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::PutBucketAnalyticsConfiguration.build(config)
       context = Hearth::Context.new(
@@ -8269,12 +8269,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'PutBucketAnalyticsConfiguration',
         'code.function' => 'put_bucket_analytics_configuration',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.PutBucketAnalyticsConfiguration', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.PutBucketAnalyticsConfiguration', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_analytics_configuration] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -8424,7 +8424,7 @@ module AWS::SDK::S3
     def put_bucket_cors(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::PutBucketCorsInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::PutBucketCors.build(config)
       context = Hearth::Context.new(
@@ -8435,12 +8435,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'PutBucketCors',
         'code.function' => 'put_bucket_cors',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.PutBucketCors', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.PutBucketCors', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_cors] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -8516,7 +8516,7 @@ module AWS::SDK::S3
     def put_bucket_encryption(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::PutBucketEncryptionInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::PutBucketEncryption.build(config)
       context = Hearth::Context.new(
@@ -8527,12 +8527,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'PutBucketEncryption',
         'code.function' => 'put_bucket_encryption',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.PutBucketEncryption', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.PutBucketEncryption', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_encryption] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -8615,7 +8615,7 @@ module AWS::SDK::S3
     #     id: 'Id', # required
     #     intelligent_tiering_configuration: {
     #       id: 'Id', # required
-    #       member_filter: {
+    #       filter: {
     #         prefix: 'Prefix',
     #         tag: {
     #           key: 'Key', # required
@@ -8639,7 +8639,7 @@ module AWS::SDK::S3
     def put_bucket_intelligent_tiering_configuration(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::PutBucketIntelligentTieringConfigurationInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::PutBucketIntelligentTieringConfiguration.build(config)
       context = Hearth::Context.new(
@@ -8650,12 +8650,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'PutBucketIntelligentTieringConfiguration',
         'code.function' => 'put_bucket_intelligent_tiering_configuration',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.PutBucketIntelligentTieringConfiguration', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.PutBucketIntelligentTieringConfiguration', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_intelligent_tiering_configuration] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -8781,7 +8781,7 @@ module AWS::SDK::S3
     #         } # required
     #       }, # required
     #       is_enabled: false, # required
-    #       member_filter: {
+    #       filter: {
     #         prefix: 'Prefix' # required
     #       },
     #       id: 'Id', # required
@@ -8800,7 +8800,7 @@ module AWS::SDK::S3
     def put_bucket_inventory_configuration(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::PutBucketInventoryConfigurationInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::PutBucketInventoryConfiguration.build(config)
       context = Hearth::Context.new(
@@ -8811,12 +8811,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'PutBucketInventoryConfiguration',
         'code.function' => 'put_bucket_inventory_configuration',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.PutBucketInventoryConfiguration', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.PutBucketInventoryConfiguration', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_inventory_configuration] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -8946,7 +8946,7 @@ module AWS::SDK::S3
     #           },
     #           id: 'ID',
     #           prefix: 'Prefix',
-    #           member_filter: {
+    #           filter: {
     #             # One of:
     #             prefix: 'Prefix',
     #             tag: {
@@ -8997,7 +8997,7 @@ module AWS::SDK::S3
     #     lifecycle_configuration: {
     #       rules: [
     #         {
-    #           member_filter: {
+    #           filter: {
     #             prefix: "documents/"
     #           },
     #           status: "Enabled",
@@ -9021,7 +9021,7 @@ module AWS::SDK::S3
     def put_bucket_lifecycle_configuration(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::PutBucketLifecycleConfigurationInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::PutBucketLifecycleConfiguration.build(config)
       context = Hearth::Context.new(
@@ -9032,12 +9032,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'PutBucketLifecycleConfiguration',
         'code.function' => 'put_bucket_lifecycle_configuration',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.PutBucketLifecycleConfiguration', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.PutBucketLifecycleConfiguration', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_lifecycle_configuration] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -9203,7 +9203,7 @@ module AWS::SDK::S3
     def put_bucket_logging(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::PutBucketLoggingInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::PutBucketLogging.build(config)
       context = Hearth::Context.new(
@@ -9214,12 +9214,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'PutBucketLogging',
         'code.function' => 'put_bucket_logging',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.PutBucketLogging', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.PutBucketLogging', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_logging] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -9294,7 +9294,7 @@ module AWS::SDK::S3
     #     id: 'Id', # required
     #     metrics_configuration: {
     #       id: 'Id', # required
-    #       member_filter: {
+    #       filter: {
     #         # One of:
     #         prefix: 'Prefix',
     #         tag: {
@@ -9315,7 +9315,7 @@ module AWS::SDK::S3
     def put_bucket_metrics_configuration(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::PutBucketMetricsConfigurationInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::PutBucketMetricsConfiguration.build(config)
       context = Hearth::Context.new(
@@ -9326,12 +9326,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'PutBucketMetricsConfiguration',
         'code.function' => 'put_bucket_metrics_configuration',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.PutBucketMetricsConfiguration', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.PutBucketMetricsConfiguration', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_metrics_configuration] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -9416,7 +9416,7 @@ module AWS::SDK::S3
     #           events: [
     #             's3:ReducedRedundancyLostObject' # accepts ["s3:ReducedRedundancyLostObject", "s3:ObjectCreated:*", "s3:ObjectCreated:Put", "s3:ObjectCreated:Post", "s3:ObjectCreated:Copy", "s3:ObjectCreated:CompleteMultipartUpload", "s3:ObjectRemoved:*", "s3:ObjectRemoved:Delete", "s3:ObjectRemoved:DeleteMarkerCreated", "s3:ObjectRestore:*", "s3:ObjectRestore:Post", "s3:ObjectRestore:Completed", "s3:Replication:*", "s3:Replication:OperationFailedReplication", "s3:Replication:OperationNotTracked", "s3:Replication:OperationMissedThreshold", "s3:Replication:OperationReplicatedAfterThreshold", "s3:ObjectRestore:Delete", "s3:LifecycleTransition", "s3:IntelligentTiering", "s3:ObjectAcl:Put", "s3:LifecycleExpiration:*", "s3:LifecycleExpiration:Delete", "s3:LifecycleExpiration:DeleteMarkerCreated", "s3:ObjectTagging:*", "s3:ObjectTagging:Put", "s3:ObjectTagging:Delete"]
     #           ], # required
-    #           member_filter: {
+    #           filter: {
     #             key: {
     #               filter_rules: [
     #                 {
@@ -9468,7 +9468,7 @@ module AWS::SDK::S3
     def put_bucket_notification_configuration(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::PutBucketNotificationConfigurationInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::PutBucketNotificationConfiguration.build(config)
       context = Hearth::Context.new(
@@ -9479,12 +9479,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'PutBucketNotificationConfiguration',
         'code.function' => 'put_bucket_notification_configuration',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.PutBucketNotificationConfiguration', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.PutBucketNotificationConfiguration', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_notification_configuration] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -9543,7 +9543,7 @@ module AWS::SDK::S3
     def put_bucket_ownership_controls(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::PutBucketOwnershipControlsInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::PutBucketOwnershipControls.build(config)
       context = Hearth::Context.new(
@@ -9554,12 +9554,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'PutBucketOwnershipControls',
         'code.function' => 'put_bucket_ownership_controls',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.PutBucketOwnershipControls', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.PutBucketOwnershipControls', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_ownership_controls] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -9668,7 +9668,7 @@ module AWS::SDK::S3
     def put_bucket_policy(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::PutBucketPolicyInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::PutBucketPolicy.build(config)
       context = Hearth::Context.new(
@@ -9679,12 +9679,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'PutBucketPolicy',
         'code.function' => 'put_bucket_policy',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.PutBucketPolicy', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.PutBucketPolicy', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_policy] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -9789,7 +9789,7 @@ module AWS::SDK::S3
     #           id: 'ID',
     #           priority: 1,
     #           prefix: 'Prefix',
-    #           member_filter: {
+    #           filter: {
     #             # One of:
     #             prefix: 'Prefix',
     #             tag: {
@@ -9867,7 +9867,7 @@ module AWS::SDK::S3
     def put_bucket_replication(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::PutBucketReplicationInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::PutBucketReplication.build(config)
       context = Hearth::Context.new(
@@ -9878,12 +9878,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'PutBucketReplication',
         'code.function' => 'put_bucket_replication',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.PutBucketReplication', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.PutBucketReplication', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_replication] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -9949,7 +9949,7 @@ module AWS::SDK::S3
     def put_bucket_request_payment(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::PutBucketRequestPaymentInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::PutBucketRequestPayment.build(config)
       context = Hearth::Context.new(
@@ -9960,12 +9960,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'PutBucketRequestPayment',
         'code.function' => 'put_bucket_request_payment',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.PutBucketRequestPayment', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.PutBucketRequestPayment', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_request_payment] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -10085,7 +10085,7 @@ module AWS::SDK::S3
     def put_bucket_tagging(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::PutBucketTaggingInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::PutBucketTagging.build(config)
       context = Hearth::Context.new(
@@ -10096,12 +10096,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'PutBucketTagging',
         'code.function' => 'put_bucket_tagging',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.PutBucketTagging', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.PutBucketTagging', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_tagging] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -10193,7 +10193,7 @@ module AWS::SDK::S3
     def put_bucket_versioning(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::PutBucketVersioningInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::PutBucketVersioning.build(config)
       context = Hearth::Context.new(
@@ -10204,12 +10204,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'PutBucketVersioning',
         'code.function' => 'put_bucket_versioning',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.PutBucketVersioning', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.PutBucketVersioning', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_versioning] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -10410,7 +10410,7 @@ module AWS::SDK::S3
     def put_bucket_website(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::PutBucketWebsiteInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::PutBucketWebsite.build(config)
       context = Hearth::Context.new(
@@ -10421,12 +10421,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'PutBucketWebsite',
         'code.function' => 'put_bucket_website',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.PutBucketWebsite', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.PutBucketWebsite', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_website] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -10737,7 +10737,7 @@ module AWS::SDK::S3
     def put_object(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::PutObjectInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::PutObject.build(config)
       context = Hearth::Context.new(
@@ -10748,12 +10748,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'PutObject',
         'code.function' => 'put_object',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.PutObject', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.PutObject', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_object] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -11013,7 +11013,7 @@ module AWS::SDK::S3
     def put_object_acl(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::PutObjectAclInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::PutObjectAcl.build(config)
       context = Hearth::Context.new(
@@ -11024,12 +11024,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'PutObjectAcl',
         'code.function' => 'put_object_acl',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.PutObjectAcl', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.PutObjectAcl', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_object_acl] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -11074,7 +11074,7 @@ module AWS::SDK::S3
     def put_object_legal_hold(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::PutObjectLegalHoldInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::PutObjectLegalHold.build(config)
       context = Hearth::Context.new(
@@ -11085,12 +11085,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'PutObjectLegalHold',
         'code.function' => 'put_object_legal_hold',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.PutObjectLegalHold', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.PutObjectLegalHold', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_object_legal_hold] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -11158,7 +11158,7 @@ module AWS::SDK::S3
     def put_object_lock_configuration(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::PutObjectLockConfigurationInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::PutObjectLockConfiguration.build(config)
       context = Hearth::Context.new(
@@ -11169,12 +11169,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'PutObjectLockConfiguration',
         'code.function' => 'put_object_lock_configuration',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.PutObjectLockConfiguration', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.PutObjectLockConfiguration', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_object_lock_configuration] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -11222,7 +11222,7 @@ module AWS::SDK::S3
     def put_object_retention(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::PutObjectRetentionInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::PutObjectRetention.build(config)
       context = Hearth::Context.new(
@@ -11233,12 +11233,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'PutObjectRetention',
         'code.function' => 'put_object_retention',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.PutObjectRetention', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.PutObjectRetention', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_object_retention] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -11360,7 +11360,7 @@ module AWS::SDK::S3
     def put_object_tagging(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::PutObjectTaggingInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::PutObjectTagging.build(config)
       context = Hearth::Context.new(
@@ -11371,12 +11371,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'PutObjectTagging',
         'code.function' => 'put_object_tagging',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.PutObjectTagging', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.PutObjectTagging', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_object_tagging] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -11453,7 +11453,7 @@ module AWS::SDK::S3
     def put_public_access_block(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::PutPublicAccessBlockInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::PutPublicAccessBlock.build(config)
       context = Hearth::Context.new(
@@ -11464,12 +11464,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'PutPublicAccessBlock',
         'code.function' => 'put_public_access_block',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.PutPublicAccessBlock', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.PutPublicAccessBlock', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_public_access_block] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -11864,7 +11864,7 @@ module AWS::SDK::S3
     def restore_object(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::RestoreObjectInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::RestoreObject.build(config)
       context = Hearth::Context.new(
@@ -11875,12 +11875,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'RestoreObject',
         'code.function' => 'restore_object',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.RestoreObject', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.RestoreObject', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#restore_object] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -12098,7 +12098,7 @@ module AWS::SDK::S3
     def upload_part(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::UploadPartInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::UploadPart.build(config)
       context = Hearth::Context.new(
@@ -12109,12 +12109,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'UploadPart',
         'code.function' => 'upload_part',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.UploadPart', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.UploadPart', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#upload_part] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -12352,7 +12352,7 @@ module AWS::SDK::S3
     def upload_part_copy(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::UploadPartCopyInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::UploadPartCopy.build(config)
       context = Hearth::Context.new(
@@ -12363,12 +12363,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'UploadPartCopy',
         'code.function' => 'upload_part_copy',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.UploadPartCopy', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.UploadPartCopy', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#upload_part_copy] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -12474,7 +12474,7 @@ module AWS::SDK::S3
     def write_get_object_response(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      tracer = config.telemetry_provider.tracer_provider.tracer('aws::sdk::s3.client')
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::WriteGetObjectResponseInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::WriteGetObjectResponse.build(config)
       context = Hearth::Context.new(
@@ -12485,12 +12485,12 @@ module AWS::SDK::S3
         tracer: tracer
       )
       attributes = {
-        'rpc.service' => 'AmazonS3',
+        'rpc.service' => 'S3',
         'rpc.method' => 'WriteGetObjectResponse',
         'code.function' => 'write_get_object_response',
         'code.namespace' => 'AWS::SDK::S3::Client'
       }
-      tracer.in_span('AmazonS3.WriteGetObjectResponse', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      tracer.in_span('S3.WriteGetObjectResponse', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#write_get_object_response] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error

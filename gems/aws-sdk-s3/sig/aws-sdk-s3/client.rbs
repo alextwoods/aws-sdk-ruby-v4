@@ -752,7 +752,7 @@ module AWS::SDK::S3
         id: ::String,
         analytics_configuration: {
           id: ::String,
-          member_filter: {
+          filter: {
             Prefix: ::String,
             Tag: Types::Tag,
             And: Types::AnalyticsAndOperator
@@ -795,7 +795,7 @@ module AWS::SDK::S3
         id: ::String,
         intelligent_tiering_configuration: {
           id: ::String,
-          member_filter: {
+          filter: {
             prefix: ::String,
             tag: Types::Tag,
             and: Types::IntelligentTieringAndOperator
@@ -815,7 +815,7 @@ module AWS::SDK::S3
             s3_bucket_destination: Types::InventoryS3BucketDestination
           },
           is_enabled: bool,
-          member_filter: {
+          filter: {
             prefix: ::String
           },
           id: ::String,
@@ -863,7 +863,7 @@ module AWS::SDK::S3
         id: ::String,
         metrics_configuration: {
           id: ::String,
-          member_filter: {
+          filter: {
             Prefix: ::String,
             Tag: Types::Tag,
             AccessPointArn: ::String,

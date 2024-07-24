@@ -3305,7 +3305,7 @@ module AWS::SDK::DynamoDB
       def self.default(visited = [])
         {
           items: ItemList.default(visited),
-          member_count: 1,
+          count: 1,
           scanned_count: 1,
           last_evaluated_key: Key.default(visited),
           consumed_capacity: ConsumedCapacity.default(visited),
@@ -3900,7 +3900,7 @@ module AWS::SDK::DynamoDB
       def self.default(visited = [])
         {
           items: ItemList.default(visited),
-          member_count: 1,
+          count: 1,
           scanned_count: 1,
           last_evaluated_key: Key.default(visited),
           consumed_capacity: ConsumedCapacity.default(visited),

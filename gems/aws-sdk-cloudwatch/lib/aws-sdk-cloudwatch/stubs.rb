@@ -286,7 +286,7 @@ module AWS::SDK::CloudWatch
           dashboard_name: 'dashboard_name',
           dashboard_arn: 'dashboard_arn',
           last_modified: Time.now,
-          member_size: 1,
+          size: 1,
         }
       end
 
@@ -400,7 +400,7 @@ module AWS::SDK::CloudWatch
           timestamp: Time.now,
           sample_count: 1.0,
           average: 1.0,
-          member_sum: 1.0,
+          sum: 1.0,
           minimum: 1.0,
           maximum: 1.0,
           unit: 'unit',
@@ -1244,7 +1244,7 @@ module AWS::SDK::CloudWatch
           max_contributor_value: 1.0,
           sample_count: 1.0,
           average: 1.0,
-          member_sum: 1.0,
+          sum: 1.0,
           minimum: 1.0,
           maximum: 1.0,
         }
@@ -1553,7 +1553,7 @@ module AWS::SDK::CloudWatch
       def self.default(visited = [])
         {
           next_token: 'next_token',
-          member_entries: MetricStreamEntries.default(visited),
+          entries: MetricStreamEntries.default(visited),
         }
       end
 
@@ -1872,7 +1872,7 @@ module AWS::SDK::CloudWatch
           id: 'id',
           label: 'label',
           timestamps: Timestamps.default(visited),
-          member_values: DatapointValues.default(visited),
+          values: DatapointValues.default(visited),
           status_code: 'status_code',
           messages: MetricDataResultMessages.default(visited),
         }

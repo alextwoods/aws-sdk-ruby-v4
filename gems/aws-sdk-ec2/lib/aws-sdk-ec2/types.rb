@@ -14,13 +14,13 @@ module AWS::SDK::EC2
     #          on an instance.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Integer] :member_min
-    #   @option params [Integer] :member_max
-    # @!attribute member_min
+    #   @option params [Integer] :min
+    #   @option params [Integer] :max
+    # @!attribute min
     #   <p>The minimum number of accelerators. If this parameter is not specified, there is no minimum
     #            limit.</p>
     #   @return [Integer]
-    # @!attribute member_max
+    # @!attribute max
     #   <p>The maximum number of accelerators. If this parameter is not specified, there is no
     #            maximum limit.</p>
     #   @return [Integer]
@@ -40,13 +40,13 @@ module AWS::SDK::EC2
     #             <code>0</code>.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Integer] :member_min
-    #   @option params [Integer] :member_max
-    # @!attribute member_min
+    #   @option params [Integer] :min
+    #   @option params [Integer] :max
+    # @!attribute min
     #   <p>The minimum number of accelerators. To specify no minimum limit, omit this
     #            parameter.</p>
     #   @return [Integer]
-    # @!attribute member_max
+    # @!attribute max
     #   <p>The maximum number of accelerators. To specify no maximum limit, omit this
     #            parameter. To exclude accelerator-enabled instance types, set <code>Max</code> to
     #            <code>0</code>.</p>
@@ -105,13 +105,13 @@ module AWS::SDK::EC2
     # <p>The minimum and maximum amount of total accelerator memory, in MiB.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Integer] :member_min
-    #   @option params [Integer] :member_max
-    # @!attribute member_min
+    #   @option params [Integer] :min
+    #   @option params [Integer] :max
+    # @!attribute min
     #   <p>The minimum amount of accelerator memory, in MiB. If this parameter is not specified,
     #            there is no minimum limit.</p>
     #   @return [Integer]
-    # @!attribute member_max
+    # @!attribute max
     #   <p>The maximum amount of accelerator memory, in MiB. If this parameter is not specified,
     #            there is no maximum limit.</p>
     #   @return [Integer]
@@ -129,13 +129,13 @@ module AWS::SDK::EC2
     # <p>The minimum and maximum amount of total accelerator memory, in MiB.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Integer] :member_min
-    #   @option params [Integer] :member_max
-    # @!attribute member_min
+    #   @option params [Integer] :min
+    #   @option params [Integer] :max
+    # @!attribute min
     #   <p>The minimum amount of accelerator memory, in MiB. To specify no minimum limit, omit this
     #            parameter.</p>
     #   @return [Integer]
-    # @!attribute member_max
+    # @!attribute max
     #   <p>The maximum amount of accelerator memory, in MiB. To specify no maximum limit, omit this
     #            parameter.</p>
     #   @return [Integer]
@@ -4078,13 +4078,13 @@ module AWS::SDK::EC2
     #             EBS–optimized instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Integer] :member_min
-    #   @option params [Integer] :member_max
-    # @!attribute member_min
+    #   @option params [Integer] :min
+    #   @option params [Integer] :max
+    # @!attribute min
     #   <p>The minimum baseline bandwidth, in Mbps. If this parameter is not specified, there is no
     #            minimum limit.</p>
     #   @return [Integer]
-    # @!attribute member_max
+    # @!attribute max
     #   <p>The maximum baseline bandwidth, in Mbps. If this parameter is not specified, there is no
     #            maximum limit.</p>
     #   @return [Integer]
@@ -4104,13 +4104,13 @@ module AWS::SDK::EC2
     #             EBS–optimized instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Integer] :member_min
-    #   @option params [Integer] :member_max
-    # @!attribute member_min
+    #   @option params [Integer] :min
+    #   @option params [Integer] :max
+    # @!attribute min
     #   <p>The minimum baseline bandwidth, in Mbps. To specify no minimum limit, omit
     #            this parameter.</p>
     #   @return [Integer]
-    # @!attribute member_max
+    # @!attribute max
     #   <p>The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit
     #            this parameter.</p>
     #   @return [Integer]
@@ -5041,13 +5041,13 @@ module AWS::SDK::EC2
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [String] :allocation_type
-    #   @option params [Integer] :member_count
+    #   @option params [Integer] :count
     # @!attribute allocation_type
     #   <p>The usage type. <code>used</code> indicates that the instance capacity is
     #   			in use by instances that are running in the Capacity Reservation.</p>
     #   Enum, one of: ["used"]
     #   @return [String]
-    # @!attribute member_count
+    # @!attribute count
     #   <p>The amount of instance capacity associated with the usage. For example a value of
     #   			<code>4</code> indicates that instance capacity for 4 instances is currently in use.</p>
     #   @return [Integer]
@@ -7599,16 +7599,16 @@ module AWS::SDK::EC2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::EC2::Types::CopySnapshotInput "\
-          "description=#{description || 'nil'}, "\
-          "destination_outpost_arn=#{destination_outpost_arn || 'nil'}, "\
-          "destination_region=#{destination_region || 'nil'}, "\
-          "encrypted=#{encrypted || 'nil'}, "\
-          "kms_key_id=#{kms_key_id || 'nil'}, "\
-          "presigned_url=\"[SENSITIVE]\", "\
-          "source_region=#{source_region || 'nil'}, "\
-          "source_snapshot_id=#{source_snapshot_id || 'nil'}, "\
-          "tag_specifications=#{tag_specifications || 'nil'}, "\
+        '#<AWS::SDK::EC2::Types::CopySnapshotInput ' \
+          "description=#{description || 'nil'}, " \
+          "destination_outpost_arn=#{destination_outpost_arn || 'nil'}, " \
+          "destination_region=#{destination_region || 'nil'}, " \
+          "encrypted=#{encrypted || 'nil'}, " \
+          "kms_key_id=#{kms_key_id || 'nil'}, " \
+          'presigned_url=[SENSITIVE], ' \
+          "source_region=#{source_region || 'nil'}, " \
+          "source_snapshot_id=#{source_snapshot_id || 'nil'}, " \
+          "tag_specifications=#{tag_specifications || 'nil'}, " \
           "dry_run=#{dry_run || 'nil'}>"
       end
     end
@@ -9902,11 +9902,11 @@ module AWS::SDK::EC2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::EC2::Types::CreateKeyPairOutput "\
-          "key_fingerprint=#{key_fingerprint || 'nil'}, "\
-          "key_material=\"[SENSITIVE]\", "\
-          "key_name=#{key_name || 'nil'}, "\
-          "key_pair_id=#{key_pair_id || 'nil'}, "\
+        '#<AWS::SDK::EC2::Types::CreateKeyPairOutput ' \
+          "key_fingerprint=#{key_fingerprint || 'nil'}, " \
+          'key_material=[SENSITIVE], ' \
+          "key_name=#{key_name || 'nil'}, " \
+          "key_pair_id=#{key_pair_id || 'nil'}, " \
           "tags=#{tags || 'nil'}>"
       end
     end
@@ -10306,7 +10306,7 @@ module AWS::SDK::EC2
     #   @param [Hash] params
     #   @option params [Boolean] :dry_run
     #   @option params [String] :prefix_list_name
-    #   @option params [Array<AddPrefixListEntry>] :member_entries
+    #   @option params [Array<AddPrefixListEntry>] :entries
     #   @option params [Integer] :max_entries
     #   @option params [Array<TagSpecification>] :tag_specifications
     #   @option params [String] :address_family
@@ -10320,7 +10320,7 @@ module AWS::SDK::EC2
     #   <p>A name for the prefix list.</p>
     #            <p>Constraints: Up to 255 characters in length. The name cannot start with <code>com.amazonaws</code>.</p>
     #   @return [String]
-    # @!attribute member_entries
+    # @!attribute entries
     #   <p>One or more entries for the prefix list.</p>
     #   @return [Array<AddPrefixListEntry>]
     # @!attribute max_entries
@@ -13539,13 +13539,13 @@ module AWS::SDK::EC2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::EC2::Types::CreateVerifiedAccessTrustProviderOidcOptions "\
-          "issuer=#{issuer || 'nil'}, "\
-          "authorization_endpoint=#{authorization_endpoint || 'nil'}, "\
-          "token_endpoint=#{token_endpoint || 'nil'}, "\
-          "user_info_endpoint=#{user_info_endpoint || 'nil'}, "\
-          "client_id=#{client_id || 'nil'}, "\
-          "client_secret=\"[SENSITIVE]\", "\
+        '#<AWS::SDK::EC2::Types::CreateVerifiedAccessTrustProviderOidcOptions ' \
+          "issuer=#{issuer || 'nil'}, " \
+          "authorization_endpoint=#{authorization_endpoint || 'nil'}, " \
+          "token_endpoint=#{token_endpoint || 'nil'}, " \
+          "user_info_endpoint=#{user_info_endpoint || 'nil'}, " \
+          "client_id=#{client_id || 'nil'}, " \
+          'client_secret=[SENSITIVE], ' \
           "scope=#{scope || 'nil'}>"
       end
     end
@@ -13573,7 +13573,7 @@ module AWS::SDK::EC2
     #   @option params [Integer] :iops
     #   @option params [String] :kms_key_id
     #   @option params [String] :outpost_arn
-    #   @option params [Integer] :member_size
+    #   @option params [Integer] :size
     #   @option params [String] :snapshot_id
     #   @option params [String] :volume_type
     #   @option params [Boolean] :dry_run
@@ -13644,7 +13644,7 @@ module AWS::SDK::EC2
     # @!attribute outpost_arn
     #   <p>The Amazon Resource Name (ARN) of the Outpost.</p>
     #   @return [String]
-    # @!attribute member_size
+    # @!attribute size
     #   <p>The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size.
     #         If you specify a snapshot, the default is the snapshot size. You can specify a volume
     #         size that is equal to or larger than the snapshot size.</p>
@@ -13764,7 +13764,7 @@ module AWS::SDK::EC2
     #   @option params [Boolean] :encrypted
     #   @option params [String] :kms_key_id
     #   @option params [String] :outpost_arn
-    #   @option params [Integer] :member_size
+    #   @option params [Integer] :size
     #   @option params [String] :snapshot_id
     #   @option params [String] :state
     #   @option params [String] :volume_id
@@ -13794,7 +13794,7 @@ module AWS::SDK::EC2
     # @!attribute outpost_arn
     #   <p>The Amazon Resource Name (ARN) of the Outpost.</p>
     #   @return [String]
-    # @!attribute member_size
+    # @!attribute size
     #   <p>The size of the volume, in GiBs.</p>
     #   @return [Integer]
     # @!attribute snapshot_id
@@ -20912,7 +20912,7 @@ module AWS::SDK::EC2
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [Boolean] :dry_run
-    #   @option params [Array<Filter>] :member_filter
+    #   @option params [Array<Filter>] :filter
     #   @option params [Array<String>] :flow_log_ids
     #   @option params [Integer] :max_results
     #   @option params [String] :next_token
@@ -20921,7 +20921,7 @@ module AWS::SDK::EC2
     #      and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
     #      Otherwise, it is <code>UnauthorizedOperation</code>.</p>
     #   @return [Boolean]
-    # @!attribute member_filter
+    # @!attribute filter
     #   <p>One or more filters.</p>
     #            <ul>
     #               <li>
@@ -21170,13 +21170,13 @@ module AWS::SDK::EC2
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Array<Filter>] :member_filter
+    #   @option params [Array<Filter>] :filter
     #   @option params [Integer] :max_duration
     #   @option params [Integer] :max_results
     #   @option params [Integer] :min_duration
     #   @option params [String] :next_token
     #   @option params [String] :offering_id
-    # @!attribute member_filter
+    # @!attribute filter
     #   <p>The filters.</p>
     #            <ul>
     #               <li>
@@ -21250,11 +21250,11 @@ module AWS::SDK::EC2
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Array<Filter>] :member_filter
+    #   @option params [Array<Filter>] :filter
     #   @option params [Array<String>] :host_reservation_id_set
     #   @option params [Integer] :max_results
     #   @option params [String] :next_token
-    # @!attribute member_filter
+    # @!attribute filter
     #   <p>The filters.</p>
     #            <ul>
     #               <li>
@@ -21329,11 +21329,11 @@ module AWS::SDK::EC2
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Array<Filter>] :member_filter
+    #   @option params [Array<Filter>] :filter
     #   @option params [Array<String>] :host_ids
     #   @option params [Integer] :max_results
     #   @option params [String] :next_token
-    # @!attribute member_filter
+    # @!attribute filter
     #   <p>The filters.</p>
     #            <ul>
     #               <li>
@@ -25518,7 +25518,7 @@ module AWS::SDK::EC2
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [Boolean] :dry_run
-    #   @option params [Array<Filter>] :member_filter
+    #   @option params [Array<Filter>] :filter
     #   @option params [Integer] :max_results
     #   @option params [Array<String>] :nat_gateway_ids
     #   @option params [String] :next_token
@@ -25527,7 +25527,7 @@ module AWS::SDK::EC2
     #      and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
     #      Otherwise, it is <code>UnauthorizedOperation</code>.</p>
     #   @return [Boolean]
-    # @!attribute member_filter
+    # @!attribute filter
     #   <p>The filters.</p>
     #            <ul>
     #               <li>
@@ -32829,11 +32829,11 @@ module AWS::SDK::EC2
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [String] :key
-    #   @option params [Array<AttributeValue>] :member_values
+    #   @option params [Array<AttributeValue>] :values
     # @!attribute key
     #   <p>The name of a DHCP option.</p>
     #   @return [String]
-    # @!attribute member_values
+    # @!attribute values
     #   <p>The values for the DHCP option.</p>
     #   @return [Array<AttributeValue>]
     class DhcpConfiguration
@@ -34384,7 +34384,7 @@ module AWS::SDK::EC2
     #   @option params [String] :checksum
     #   @option params [String] :format
     #   @option params [String] :import_manifest_url
-    #   @option params [Integer] :member_size
+    #   @option params [Integer] :size
     # @!attribute checksum
     #   <p>The checksum computed for the disk image.</p>
     #   @return [String]
@@ -34398,7 +34398,7 @@ module AWS::SDK::EC2
     #      the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
     #            <p>For information about the import manifest referenced by this API action, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html">VM Import Manifest</a>.</p>
     #   @return [String]
-    # @!attribute member_size
+    # @!attribute size
     #   <p>The size of the disk image, in GiB.</p>
     #   @return [Integer]
     class DiskImageDescription
@@ -34414,11 +34414,11 @@ module AWS::SDK::EC2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::EC2::Types::DiskImageDescription "\
-          "checksum=#{checksum || 'nil'}, "\
-          "format=#{format || 'nil'}, "\
-          "import_manifest_url=\"[SENSITIVE]\", "\
-          "member_size=#{member_size || 'nil'}>"
+        '#<AWS::SDK::EC2::Types::DiskImageDescription ' \
+          "checksum=#{checksum || 'nil'}, " \
+          "format=#{format || 'nil'}, " \
+          'import_manifest_url=[SENSITIVE], ' \
+          "size=#{size || 'nil'}>"
       end
     end
 
@@ -34454,10 +34454,10 @@ module AWS::SDK::EC2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::EC2::Types::DiskImageDetail "\
-          "bytes=#{bytes || 'nil'}, "\
-          "format=#{format || 'nil'}, "\
-          "import_manifest_url=\"[SENSITIVE]\">"
+        '#<AWS::SDK::EC2::Types::DiskImageDetail ' \
+          "bytes=#{bytes || 'nil'}, " \
+          "format=#{format || 'nil'}, " \
+          'import_manifest_url=[SENSITIVE]>'
       end
     end
 
@@ -34474,11 +34474,11 @@ module AWS::SDK::EC2
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [String] :id
-    #   @option params [Integer] :member_size
+    #   @option params [Integer] :size
     # @!attribute id
     #   <p>The volume identifier.</p>
     #   @return [String]
-    # @!attribute member_size
+    # @!attribute size
     #   <p>The size of the volume, in GiB.</p>
     #   @return [Integer]
     class DiskImageVolumeDescription
@@ -34496,12 +34496,12 @@ module AWS::SDK::EC2
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [Integer] :size_in_gb
-    #   @option params [Integer] :member_count
+    #   @option params [Integer] :count
     #   @option params [String] :type
     # @!attribute size_in_gb
     #   <p>The size of the disk in GB.</p>
     #   @return [Integer]
-    # @!attribute member_count
+    # @!attribute count
     #   <p>The number of disks with this configuration.</p>
     #   @return [Integer]
     # @!attribute type
@@ -35331,13 +35331,13 @@ module AWS::SDK::EC2
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [String] :type
-    #   @option params [Integer] :member_count
+    #   @option params [Integer] :count
     # @!attribute type
     #   <p>
     #           	The type of elastic inference accelerator. The possible values are <code>eia1.medium</code>, <code>eia1.large</code>, <code>eia1.xlarge</code>, <code>eia2.medium</code>, <code>eia2.large</code>, and <code>eia2.xlarge</code>.
     #           </p>
     #   @return [String]
-    # @!attribute member_count
+    # @!attribute count
     #   <p>
     #               The number of elastic inference accelerators to attach to the instance.
     #           </p>
@@ -37722,11 +37722,11 @@ module AWS::SDK::EC2
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [String] :name
-    #   @option params [Array<String>] :member_values
+    #   @option params [Array<String>] :values
     # @!attribute name
     #   <p>The name of the filter. Filter names are case-sensitive.</p>
     #   @return [String]
-    # @!attribute member_values
+    # @!attribute values
     #   <p>The filter values. Filter values are case-sensitive. If you specify multiple values for a
     #            filter, the values are joined with an <code>OR</code>, and the request returns all results
     #            that match any of the specified values.</p>
@@ -38720,7 +38720,7 @@ module AWS::SDK::EC2
     #   @param [Hash] params
     #   @option params [String] :name
     #   @option params [String] :manufacturer
-    #   @option params [Integer] :member_count
+    #   @option params [Integer] :count
     #   @option params [FpgaDeviceMemoryInfo] :memory_info
     # @!attribute name
     #   <p>The name of the FPGA accelerator.</p>
@@ -38728,7 +38728,7 @@ module AWS::SDK::EC2
     # @!attribute manufacturer
     #   <p>The manufacturer of the FPGA accelerator.</p>
     #   @return [String]
-    # @!attribute member_count
+    # @!attribute count
     #   <p>The count of FPGA accelerators for the instance type.</p>
     #   @return [Integer]
     # @!attribute memory_info
@@ -40501,9 +40501,9 @@ module AWS::SDK::EC2
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Array<PrefixListEntry>] :member_entries
+    #   @option params [Array<PrefixListEntry>] :entries
     #   @option params [String] :next_token
-    # @!attribute member_entries
+    # @!attribute entries
     #   <p>Information about the prefix list entries.</p>
     #   @return [Array<PrefixListEntry>]
     # @!attribute next_token
@@ -40675,9 +40675,9 @@ module AWS::SDK::EC2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::EC2::Types::GetPasswordDataOutput "\
-          "instance_id=#{instance_id || 'nil'}, "\
-          "password_data=\"[SENSITIVE]\", "\
+        '#<AWS::SDK::EC2::Types::GetPasswordDataOutput ' \
+          "instance_id=#{instance_id || 'nil'}, " \
+          'password_data=[SENSITIVE], ' \
           "timestamp=#{timestamp || 'nil'}>"
       end
     end
@@ -41785,8 +41785,8 @@ module AWS::SDK::EC2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::EC2::Types::GetVpnConnectionDeviceSampleConfigurationOutput "\
-          "vpn_connection_device_sample_configuration=\"[SENSITIVE]\">"
+        '#<AWS::SDK::EC2::Types::GetVpnConnectionDeviceSampleConfigurationOutput ' \
+          'vpn_connection_device_sample_configuration=[SENSITIVE]>'
       end
     end
 
@@ -41928,7 +41928,7 @@ module AWS::SDK::EC2
     #   @param [Hash] params
     #   @option params [String] :name
     #   @option params [String] :manufacturer
-    #   @option params [Integer] :member_count
+    #   @option params [Integer] :count
     #   @option params [GpuDeviceMemoryInfo] :memory_info
     # @!attribute name
     #   <p>The name of the GPU accelerator.</p>
@@ -41936,7 +41936,7 @@ module AWS::SDK::EC2
     # @!attribute manufacturer
     #   <p>The manufacturer of the GPU accelerator.</p>
     #   @return [String]
-    # @!attribute member_count
+    # @!attribute count
     #   <p>The number of GPUs for the instance type.</p>
     #   @return [Integer]
     # @!attribute memory_info
@@ -42408,7 +42408,7 @@ module AWS::SDK::EC2
     # <p>Details about the Dedicated Host Reservation and associated Dedicated Hosts.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Integer] :member_count
+    #   @option params [Integer] :count
     #   @option params [String] :currency_code
     #   @option params [Integer] :duration
     #   @option params [Time] :end
@@ -42422,7 +42422,7 @@ module AWS::SDK::EC2
     #   @option params [String] :state
     #   @option params [String] :upfront_price
     #   @option params [Array<Tag>] :tags
-    # @!attribute member_count
+    # @!attribute count
     #   <p>The number of Dedicated Hosts the reservation is associated with.</p>
     #   @return [Integer]
     # @!attribute currency_code
@@ -42989,12 +42989,12 @@ module AWS::SDK::EC2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::EC2::Types::ImageDiskContainer "\
-          "description=#{description || 'nil'}, "\
-          "device_name=#{device_name || 'nil'}, "\
-          "format=#{format || 'nil'}, "\
-          "snapshot_id=#{snapshot_id || 'nil'}, "\
-          "url=\"[SENSITIVE]\", "\
+        '#<AWS::SDK::EC2::Types::ImageDiskContainer ' \
+          "description=#{description || 'nil'}, " \
+          "device_name=#{device_name || 'nil'}, " \
+          "format=#{format || 'nil'}, " \
+          "snapshot_id=#{snapshot_id || 'nil'}, " \
+          'url=[SENSITIVE], ' \
           "user_bucket=#{user_bucket || 'nil'}>"
       end
     end
@@ -43589,18 +43589,18 @@ module AWS::SDK::EC2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::EC2::Types::ImportInstanceLaunchSpecification "\
-          "additional_info=#{additional_info || 'nil'}, "\
-          "architecture=#{architecture || 'nil'}, "\
-          "group_ids=#{group_ids || 'nil'}, "\
-          "group_names=#{group_names || 'nil'}, "\
-          "instance_initiated_shutdown_behavior=#{instance_initiated_shutdown_behavior || 'nil'}, "\
-          "instance_type=#{instance_type || 'nil'}, "\
-          "monitoring=#{monitoring || 'nil'}, "\
-          "placement=#{placement || 'nil'}, "\
-          "private_ip_address=#{private_ip_address || 'nil'}, "\
-          "subnet_id=#{subnet_id || 'nil'}, "\
-          "user_data=\"[SENSITIVE]\">"
+        '#<AWS::SDK::EC2::Types::ImportInstanceLaunchSpecification ' \
+          "additional_info=#{additional_info || 'nil'}, " \
+          "architecture=#{architecture || 'nil'}, " \
+          "group_ids=#{group_ids || 'nil'}, " \
+          "group_names=#{group_names || 'nil'}, " \
+          "instance_initiated_shutdown_behavior=#{instance_initiated_shutdown_behavior || 'nil'}, " \
+          "instance_type=#{instance_type || 'nil'}, " \
+          "monitoring=#{monitoring || 'nil'}, " \
+          "placement=#{placement || 'nil'}, " \
+          "private_ip_address=#{private_ip_address || 'nil'}, " \
+          "subnet_id=#{subnet_id || 'nil'}, " \
+          'user_data=[SENSITIVE]>'
       end
     end
 
@@ -44032,11 +44032,11 @@ module AWS::SDK::EC2
     # <p>Describes the Inference accelerators for the instance type.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Integer] :member_count
+    #   @option params [Integer] :count
     #   @option params [String] :name
     #   @option params [String] :manufacturer
     #   @option params [InferenceDeviceMemoryInfo] :memory_info
-    # @!attribute member_count
+    # @!attribute count
     #   <p>The number of Inference accelerators for the instance type.</p>
     #   @return [Integer]
     # @!attribute name
@@ -51038,21 +51038,21 @@ module AWS::SDK::EC2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::EC2::Types::LaunchSpecification "\
-          "user_data=\"[SENSITIVE]\", "\
-          "security_groups=#{security_groups || 'nil'}, "\
-          "addressing_type=#{addressing_type || 'nil'}, "\
-          "block_device_mappings=#{block_device_mappings || 'nil'}, "\
-          "ebs_optimized=#{ebs_optimized || 'nil'}, "\
-          "iam_instance_profile=#{iam_instance_profile || 'nil'}, "\
-          "image_id=#{image_id || 'nil'}, "\
-          "instance_type=#{instance_type || 'nil'}, "\
-          "kernel_id=#{kernel_id || 'nil'}, "\
-          "key_name=#{key_name || 'nil'}, "\
-          "network_interfaces=#{network_interfaces || 'nil'}, "\
-          "placement=#{placement || 'nil'}, "\
-          "ramdisk_id=#{ramdisk_id || 'nil'}, "\
-          "subnet_id=#{subnet_id || 'nil'}, "\
+        '#<AWS::SDK::EC2::Types::LaunchSpecification ' \
+          'user_data=[SENSITIVE], ' \
+          "security_groups=#{security_groups || 'nil'}, " \
+          "addressing_type=#{addressing_type || 'nil'}, " \
+          "block_device_mappings=#{block_device_mappings || 'nil'}, " \
+          "ebs_optimized=#{ebs_optimized || 'nil'}, " \
+          "iam_instance_profile=#{iam_instance_profile || 'nil'}, " \
+          "image_id=#{image_id || 'nil'}, " \
+          "instance_type=#{instance_type || 'nil'}, " \
+          "kernel_id=#{kernel_id || 'nil'}, " \
+          "key_name=#{key_name || 'nil'}, " \
+          "network_interfaces=#{network_interfaces || 'nil'}, " \
+          "placement=#{placement || 'nil'}, " \
+          "ramdisk_id=#{ramdisk_id || 'nil'}, " \
+          "subnet_id=#{subnet_id || 'nil'}, " \
           "monitoring=#{monitoring || 'nil'}>"
       end
     end
@@ -51531,12 +51531,12 @@ module AWS::SDK::EC2
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [String] :type
-    #   @option params [Integer] :member_count
+    #   @option params [Integer] :count
     # @!attribute type
     #   <p> The type of elastic inference accelerator. The possible values are eia1.medium,
     #               eia1.large, and eia1.xlarge. </p>
     #   @return [String]
-    # @!attribute member_count
+    # @!attribute count
     #   <p> The number of elastic inference accelerators to attach to the instance. </p>
     #            <p>Default: 1</p>
     #   @return [Integer]
@@ -51555,12 +51555,12 @@ module AWS::SDK::EC2
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [String] :type
-    #   @option params [Integer] :member_count
+    #   @option params [Integer] :count
     # @!attribute type
     #   <p> The type of elastic inference accelerator. The possible values are eia1.medium,
     #               eia1.large, and eia1.xlarge. </p>
     #   @return [String]
-    # @!attribute member_count
+    # @!attribute count
     #   <p> The number of elastic inference accelerators to attach to the instance. </p>
     #            <p>Default: 1</p>
     #   @return [Integer]
@@ -53979,13 +53979,13 @@ module AWS::SDK::EC2
     #          <p></p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Float] :member_min
-    #   @option params [Float] :member_max
-    # @!attribute member_min
+    #   @option params [Float] :min
+    #   @option params [Float] :max
+    # @!attribute min
     #   <p>The minimum amount of memory per vCPU, in GiB. If this parameter is not specified, there is
     #            no minimum limit.</p>
     #   @return [Float]
-    # @!attribute member_max
+    # @!attribute max
     #   <p>The maximum amount of memory per vCPU, in GiB. If this parameter is not specified, there is
     #            no maximum limit.</p>
     #   @return [Float]
@@ -54003,13 +54003,13 @@ module AWS::SDK::EC2
     # <p>The minimum and maximum amount of memory per vCPU, in GiB.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Float] :member_min
-    #   @option params [Float] :member_max
-    # @!attribute member_min
+    #   @option params [Float] :min
+    #   @option params [Float] :max
+    # @!attribute min
     #   <p>The minimum amount of memory per vCPU, in GiB. To specify no minimum limit, omit this
     #            parameter.</p>
     #   @return [Float]
-    # @!attribute member_max
+    # @!attribute max
     #   <p>The maximum amount of memory per vCPU, in GiB. To specify no maximum limit, omit this
     #            parameter.</p>
     #   @return [Float]
@@ -54044,13 +54044,13 @@ module AWS::SDK::EC2
     # <p>The minimum and maximum amount of memory, in MiB.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Integer] :member_min
-    #   @option params [Integer] :member_max
-    # @!attribute member_min
+    #   @option params [Integer] :min
+    #   @option params [Integer] :max
+    # @!attribute min
     #   <p>The minimum amount of memory, in MiB. If this parameter is not specified, there is no minimum
     #            limit.</p>
     #   @return [Integer]
-    # @!attribute member_max
+    # @!attribute max
     #   <p>The maximum amount of memory, in MiB. If this parameter is not specified, there is no
     #            maximum limit.</p>
     #   @return [Integer]
@@ -54068,13 +54068,13 @@ module AWS::SDK::EC2
     # <p>The minimum and maximum amount of memory, in MiB.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Integer] :member_min
-    #   @option params [Integer] :member_max
-    # @!attribute member_min
+    #   @option params [Integer] :min
+    #   @option params [Integer] :max
+    # @!attribute min
     #   <p>The minimum amount of memory, in MiB. To specify no minimum limit, specify
     #            <code>0</code>.</p>
     #   @return [Integer]
-    # @!attribute member_max
+    # @!attribute max
     #   <p>The maximum amount of memory, in MiB. To specify no maximum limit, omit this
     #            parameter.</p>
     #   @return [Integer]
@@ -57694,13 +57694,13 @@ module AWS::SDK::EC2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::EC2::Types::ModifyVerifiedAccessTrustProviderOidcOptions "\
-          "issuer=#{issuer || 'nil'}, "\
-          "authorization_endpoint=#{authorization_endpoint || 'nil'}, "\
-          "token_endpoint=#{token_endpoint || 'nil'}, "\
-          "user_info_endpoint=#{user_info_endpoint || 'nil'}, "\
-          "client_id=#{client_id || 'nil'}, "\
-          "client_secret=\"[SENSITIVE]\", "\
+        '#<AWS::SDK::EC2::Types::ModifyVerifiedAccessTrustProviderOidcOptions ' \
+          "issuer=#{issuer || 'nil'}, " \
+          "authorization_endpoint=#{authorization_endpoint || 'nil'}, " \
+          "token_endpoint=#{token_endpoint || 'nil'}, " \
+          "user_info_endpoint=#{user_info_endpoint || 'nil'}, " \
+          "client_id=#{client_id || 'nil'}, " \
+          'client_secret=[SENSITIVE], ' \
           "scope=#{scope || 'nil'}>"
       end
     end
@@ -57763,7 +57763,7 @@ module AWS::SDK::EC2
     #   @param [Hash] params
     #   @option params [Boolean] :dry_run
     #   @option params [String] :volume_id
-    #   @option params [Integer] :member_size
+    #   @option params [Integer] :size
     #   @option params [String] :volume_type
     #   @option params [Integer] :iops
     #   @option params [Integer] :throughput
@@ -57776,7 +57776,7 @@ module AWS::SDK::EC2
     # @!attribute volume_id
     #   <p>The ID of the volume.</p>
     #   @return [String]
-    # @!attribute member_size
+    # @!attribute size
     #   <p>The target size of the volume, in GiB. The target volume size must be greater than or
     #         equal to the existing size of the volume.</p>
     #            <p>The following are the supported volumes sizes for each volume type:</p>
@@ -58578,11 +58578,11 @@ module AWS::SDK::EC2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::EC2::Types::ModifyVpnTunnelOptionsInput "\
-          "vpn_connection_id=#{vpn_connection_id || 'nil'}, "\
-          "vpn_tunnel_outside_ip_address=#{vpn_tunnel_outside_ip_address || 'nil'}, "\
-          "tunnel_options=\"[SENSITIVE]\", "\
-          "dry_run=#{dry_run || 'nil'}, "\
+        '#<AWS::SDK::EC2::Types::ModifyVpnTunnelOptionsInput ' \
+          "vpn_connection_id=#{vpn_connection_id || 'nil'}, " \
+          "vpn_tunnel_outside_ip_address=#{vpn_tunnel_outside_ip_address || 'nil'}, " \
+          'tunnel_options=[SENSITIVE], ' \
+          "dry_run=#{dry_run || 'nil'}, " \
           "skip_tunnel_replacement=#{skip_tunnel_replacement || 'nil'}>"
       end
     end
@@ -59244,7 +59244,7 @@ module AWS::SDK::EC2
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [Array<NetworkAclAssociation>] :associations
-    #   @option params [Array<NetworkAclEntry>] :member_entries
+    #   @option params [Array<NetworkAclEntry>] :entries
     #   @option params [Boolean] :is_default
     #   @option params [String] :network_acl_id
     #   @option params [Array<Tag>] :tags
@@ -59253,7 +59253,7 @@ module AWS::SDK::EC2
     # @!attribute associations
     #   <p>Any associations between the network ACL and one or more subnets</p>
     #   @return [Array<NetworkAclAssociation>]
-    # @!attribute member_entries
+    # @!attribute entries
     #   <p>The entries (rules) in the network ACL.</p>
     #   @return [Array<NetworkAclEntry>]
     # @!attribute is_default
@@ -59377,13 +59377,13 @@ module AWS::SDK::EC2
     #          </note>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Float] :member_min
-    #   @option params [Float] :member_max
-    # @!attribute member_min
+    #   @option params [Float] :min
+    #   @option params [Float] :max
+    # @!attribute min
     #   <p>The minimum amount of network bandwidth, in Gbps. If this parameter is not specified, there is no minimum
     #            limit.</p>
     #   @return [Float]
-    # @!attribute member_max
+    # @!attribute max
     #   <p>The maximum amount of network bandwidth, in Gbps. If this parameter is not specified, there is no
     #            maximum limit.</p>
     #   @return [Float]
@@ -59408,13 +59408,13 @@ module AWS::SDK::EC2
     #          </note>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Float] :member_min
-    #   @option params [Float] :member_max
-    # @!attribute member_min
+    #   @option params [Float] :min
+    #   @option params [Float] :max
+    # @!attribute min
     #   <p>The minimum amount of network bandwidth, in Gbps. To specify no minimum limit, omit this
     #            parameter.</p>
     #   @return [Float]
-    # @!attribute member_max
+    # @!attribute max
     #   <p>The maximum amount of network bandwidth, in Gbps. To specify no maximum limit, omit this
     #            parameter.</p>
     #   @return [Float]
@@ -60153,13 +60153,13 @@ module AWS::SDK::EC2
     # <p>The minimum and maximum number of network interfaces.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Integer] :member_min
-    #   @option params [Integer] :member_max
-    # @!attribute member_min
+    #   @option params [Integer] :min
+    #   @option params [Integer] :max
+    # @!attribute min
     #   <p>The minimum number of network interfaces. If this parameter is not specified, there is no
     #            minimum limit.</p>
     #   @return [Integer]
-    # @!attribute member_max
+    # @!attribute max
     #   <p>The maximum number of network interfaces. If this parameter is not specified, there is no
     #            maximum limit.</p>
     #   @return [Integer]
@@ -60177,13 +60177,13 @@ module AWS::SDK::EC2
     # <p>The minimum and maximum number of network interfaces.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Integer] :member_min
-    #   @option params [Integer] :member_max
-    # @!attribute member_min
+    #   @option params [Integer] :min
+    #   @option params [Integer] :max
+    # @!attribute min
     #   <p>The minimum number of network interfaces. To specify no minimum limit, omit this
     #            parameter.</p>
     #   @return [Integer]
-    # @!attribute member_max
+    # @!attribute max
     #   <p>The maximum number of network interfaces. To specify no maximum limit, omit this
     #            parameter.</p>
     #   @return [Integer]
@@ -60392,11 +60392,11 @@ module AWS::SDK::EC2
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [String] :key
-    #   @option params [Array<String>] :member_values
+    #   @option params [Array<String>] :values
     # @!attribute key
     #   <p>The name of a DHCP option.</p>
     #   @return [String]
-    # @!attribute member_values
+    # @!attribute values
     #   <p>The values for the DHCP option.</p>
     #   @return [Array<String>]
     class NewDhcpConfiguration
@@ -60511,13 +60511,13 @@ module AWS::SDK::EC2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::EC2::Types::OidcOptions "\
-          "issuer=#{issuer || 'nil'}, "\
-          "authorization_endpoint=#{authorization_endpoint || 'nil'}, "\
-          "token_endpoint=#{token_endpoint || 'nil'}, "\
-          "user_info_endpoint=#{user_info_endpoint || 'nil'}, "\
-          "client_id=#{client_id || 'nil'}, "\
-          "client_secret=\"[SENSITIVE]\", "\
+        '#<AWS::SDK::EC2::Types::OidcOptions ' \
+          "issuer=#{issuer || 'nil'}, " \
+          "authorization_endpoint=#{authorization_endpoint || 'nil'}, " \
+          "token_endpoint=#{token_endpoint || 'nil'}, " \
+          "user_info_endpoint=#{user_info_endpoint || 'nil'}, " \
+          "client_id=#{client_id || 'nil'}, " \
+          'client_secret=[SENSITIVE], ' \
           "scope=#{scope || 'nil'}>"
       end
     end
@@ -61816,9 +61816,9 @@ module AWS::SDK::EC2
     # <p>Describes a Reserved Instance offering.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Integer] :member_count
+    #   @option params [Integer] :count
     #   @option params [Float] :price
-    # @!attribute member_count
+    # @!attribute count
     #   <p>The number of reservations available for the price.</p>
     #   @return [Integer]
     # @!attribute price
@@ -64711,37 +64711,37 @@ module AWS::SDK::EC2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::EC2::Types::RequestLaunchTemplateData "\
-          "kernel_id=#{kernel_id || 'nil'}, "\
-          "ebs_optimized=#{ebs_optimized || 'nil'}, "\
-          "iam_instance_profile=#{iam_instance_profile || 'nil'}, "\
-          "block_device_mappings=#{block_device_mappings || 'nil'}, "\
-          "network_interfaces=#{network_interfaces || 'nil'}, "\
-          "image_id=#{image_id || 'nil'}, "\
-          "instance_type=#{instance_type || 'nil'}, "\
-          "key_name=#{key_name || 'nil'}, "\
-          "monitoring=#{monitoring || 'nil'}, "\
-          "placement=#{placement || 'nil'}, "\
-          "ram_disk_id=#{ram_disk_id || 'nil'}, "\
-          "disable_api_termination=#{disable_api_termination || 'nil'}, "\
-          "instance_initiated_shutdown_behavior=#{instance_initiated_shutdown_behavior || 'nil'}, "\
-          "user_data=\"[SENSITIVE]\", "\
-          "tag_specifications=#{tag_specifications || 'nil'}, "\
-          "elastic_gpu_specifications=#{elastic_gpu_specifications || 'nil'}, "\
-          "elastic_inference_accelerators=#{elastic_inference_accelerators || 'nil'}, "\
-          "security_group_ids=#{security_group_ids || 'nil'}, "\
-          "security_groups=#{security_groups || 'nil'}, "\
-          "instance_market_options=#{instance_market_options || 'nil'}, "\
-          "credit_specification=#{credit_specification || 'nil'}, "\
-          "cpu_options=#{cpu_options || 'nil'}, "\
-          "capacity_reservation_specification=#{capacity_reservation_specification || 'nil'}, "\
-          "license_specifications=#{license_specifications || 'nil'}, "\
-          "hibernation_options=#{hibernation_options || 'nil'}, "\
-          "metadata_options=#{metadata_options || 'nil'}, "\
-          "enclave_options=#{enclave_options || 'nil'}, "\
-          "instance_requirements=#{instance_requirements || 'nil'}, "\
-          "private_dns_name_options=#{private_dns_name_options || 'nil'}, "\
-          "maintenance_options=#{maintenance_options || 'nil'}, "\
+        '#<AWS::SDK::EC2::Types::RequestLaunchTemplateData ' \
+          "kernel_id=#{kernel_id || 'nil'}, " \
+          "ebs_optimized=#{ebs_optimized || 'nil'}, " \
+          "iam_instance_profile=#{iam_instance_profile || 'nil'}, " \
+          "block_device_mappings=#{block_device_mappings || 'nil'}, " \
+          "network_interfaces=#{network_interfaces || 'nil'}, " \
+          "image_id=#{image_id || 'nil'}, " \
+          "instance_type=#{instance_type || 'nil'}, " \
+          "key_name=#{key_name || 'nil'}, " \
+          "monitoring=#{monitoring || 'nil'}, " \
+          "placement=#{placement || 'nil'}, " \
+          "ram_disk_id=#{ram_disk_id || 'nil'}, " \
+          "disable_api_termination=#{disable_api_termination || 'nil'}, " \
+          "instance_initiated_shutdown_behavior=#{instance_initiated_shutdown_behavior || 'nil'}, " \
+          'user_data=[SENSITIVE], ' \
+          "tag_specifications=#{tag_specifications || 'nil'}, " \
+          "elastic_gpu_specifications=#{elastic_gpu_specifications || 'nil'}, " \
+          "elastic_inference_accelerators=#{elastic_inference_accelerators || 'nil'}, " \
+          "security_group_ids=#{security_group_ids || 'nil'}, " \
+          "security_groups=#{security_groups || 'nil'}, " \
+          "instance_market_options=#{instance_market_options || 'nil'}, " \
+          "credit_specification=#{credit_specification || 'nil'}, " \
+          "cpu_options=#{cpu_options || 'nil'}, " \
+          "capacity_reservation_specification=#{capacity_reservation_specification || 'nil'}, " \
+          "license_specifications=#{license_specifications || 'nil'}, " \
+          "hibernation_options=#{hibernation_options || 'nil'}, " \
+          "metadata_options=#{metadata_options || 'nil'}, " \
+          "enclave_options=#{enclave_options || 'nil'}, " \
+          "instance_requirements=#{instance_requirements || 'nil'}, " \
+          "private_dns_name_options=#{private_dns_name_options || 'nil'}, " \
+          "maintenance_options=#{maintenance_options || 'nil'}, " \
           "disable_api_stop=#{disable_api_stop || 'nil'}>"
       end
     end
@@ -65033,23 +65033,23 @@ module AWS::SDK::EC2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::EC2::Types::RequestSpotLaunchSpecification "\
-          "security_group_ids=#{security_group_ids || 'nil'}, "\
-          "security_groups=#{security_groups || 'nil'}, "\
-          "addressing_type=#{addressing_type || 'nil'}, "\
-          "block_device_mappings=#{block_device_mappings || 'nil'}, "\
-          "ebs_optimized=#{ebs_optimized || 'nil'}, "\
-          "iam_instance_profile=#{iam_instance_profile || 'nil'}, "\
-          "image_id=#{image_id || 'nil'}, "\
-          "instance_type=#{instance_type || 'nil'}, "\
-          "kernel_id=#{kernel_id || 'nil'}, "\
-          "key_name=#{key_name || 'nil'}, "\
-          "monitoring=#{monitoring || 'nil'}, "\
-          "network_interfaces=#{network_interfaces || 'nil'}, "\
-          "placement=#{placement || 'nil'}, "\
-          "ramdisk_id=#{ramdisk_id || 'nil'}, "\
-          "subnet_id=#{subnet_id || 'nil'}, "\
-          "user_data=\"[SENSITIVE]\">"
+        '#<AWS::SDK::EC2::Types::RequestSpotLaunchSpecification ' \
+          "security_group_ids=#{security_group_ids || 'nil'}, " \
+          "security_groups=#{security_groups || 'nil'}, " \
+          "addressing_type=#{addressing_type || 'nil'}, " \
+          "block_device_mappings=#{block_device_mappings || 'nil'}, " \
+          "ebs_optimized=#{ebs_optimized || 'nil'}, " \
+          "iam_instance_profile=#{iam_instance_profile || 'nil'}, " \
+          "image_id=#{image_id || 'nil'}, " \
+          "instance_type=#{instance_type || 'nil'}, " \
+          "kernel_id=#{kernel_id || 'nil'}, " \
+          "key_name=#{key_name || 'nil'}, " \
+          "monitoring=#{monitoring || 'nil'}, " \
+          "network_interfaces=#{network_interfaces || 'nil'}, " \
+          "placement=#{placement || 'nil'}, " \
+          "ramdisk_id=#{ramdisk_id || 'nil'}, " \
+          "subnet_id=#{subnet_id || 'nil'}, " \
+          'user_data=[SENSITIVE]>'
       end
     end
 
@@ -66425,37 +66425,37 @@ module AWS::SDK::EC2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::EC2::Types::ResponseLaunchTemplateData "\
-          "kernel_id=#{kernel_id || 'nil'}, "\
-          "ebs_optimized=#{ebs_optimized || 'nil'}, "\
-          "iam_instance_profile=#{iam_instance_profile || 'nil'}, "\
-          "block_device_mappings=#{block_device_mappings || 'nil'}, "\
-          "network_interfaces=#{network_interfaces || 'nil'}, "\
-          "image_id=#{image_id || 'nil'}, "\
-          "instance_type=#{instance_type || 'nil'}, "\
-          "key_name=#{key_name || 'nil'}, "\
-          "monitoring=#{monitoring || 'nil'}, "\
-          "placement=#{placement || 'nil'}, "\
-          "ram_disk_id=#{ram_disk_id || 'nil'}, "\
-          "disable_api_termination=#{disable_api_termination || 'nil'}, "\
-          "instance_initiated_shutdown_behavior=#{instance_initiated_shutdown_behavior || 'nil'}, "\
-          "user_data=\"[SENSITIVE]\", "\
-          "tag_specifications=#{tag_specifications || 'nil'}, "\
-          "elastic_gpu_specifications=#{elastic_gpu_specifications || 'nil'}, "\
-          "elastic_inference_accelerators=#{elastic_inference_accelerators || 'nil'}, "\
-          "security_group_ids=#{security_group_ids || 'nil'}, "\
-          "security_groups=#{security_groups || 'nil'}, "\
-          "instance_market_options=#{instance_market_options || 'nil'}, "\
-          "credit_specification=#{credit_specification || 'nil'}, "\
-          "cpu_options=#{cpu_options || 'nil'}, "\
-          "capacity_reservation_specification=#{capacity_reservation_specification || 'nil'}, "\
-          "license_specifications=#{license_specifications || 'nil'}, "\
-          "hibernation_options=#{hibernation_options || 'nil'}, "\
-          "metadata_options=#{metadata_options || 'nil'}, "\
-          "enclave_options=#{enclave_options || 'nil'}, "\
-          "instance_requirements=#{instance_requirements || 'nil'}, "\
-          "private_dns_name_options=#{private_dns_name_options || 'nil'}, "\
-          "maintenance_options=#{maintenance_options || 'nil'}, "\
+        '#<AWS::SDK::EC2::Types::ResponseLaunchTemplateData ' \
+          "kernel_id=#{kernel_id || 'nil'}, " \
+          "ebs_optimized=#{ebs_optimized || 'nil'}, " \
+          "iam_instance_profile=#{iam_instance_profile || 'nil'}, " \
+          "block_device_mappings=#{block_device_mappings || 'nil'}, " \
+          "network_interfaces=#{network_interfaces || 'nil'}, " \
+          "image_id=#{image_id || 'nil'}, " \
+          "instance_type=#{instance_type || 'nil'}, " \
+          "key_name=#{key_name || 'nil'}, " \
+          "monitoring=#{monitoring || 'nil'}, " \
+          "placement=#{placement || 'nil'}, " \
+          "ram_disk_id=#{ram_disk_id || 'nil'}, " \
+          "disable_api_termination=#{disable_api_termination || 'nil'}, " \
+          "instance_initiated_shutdown_behavior=#{instance_initiated_shutdown_behavior || 'nil'}, " \
+          'user_data=[SENSITIVE], ' \
+          "tag_specifications=#{tag_specifications || 'nil'}, " \
+          "elastic_gpu_specifications=#{elastic_gpu_specifications || 'nil'}, " \
+          "elastic_inference_accelerators=#{elastic_inference_accelerators || 'nil'}, " \
+          "security_group_ids=#{security_group_ids || 'nil'}, " \
+          "security_groups=#{security_groups || 'nil'}, " \
+          "instance_market_options=#{instance_market_options || 'nil'}, " \
+          "credit_specification=#{credit_specification || 'nil'}, " \
+          "cpu_options=#{cpu_options || 'nil'}, " \
+          "capacity_reservation_specification=#{capacity_reservation_specification || 'nil'}, " \
+          "license_specifications=#{license_specifications || 'nil'}, " \
+          "hibernation_options=#{hibernation_options || 'nil'}, " \
+          "metadata_options=#{metadata_options || 'nil'}, " \
+          "enclave_options=#{enclave_options || 'nil'}, " \
+          "instance_requirements=#{instance_requirements || 'nil'}, " \
+          "private_dns_name_options=#{private_dns_name_options || 'nil'}, " \
+          "maintenance_options=#{maintenance_options || 'nil'}, " \
           "disable_api_stop=#{disable_api_stop || 'nil'}>"
       end
     end
@@ -67711,47 +67711,47 @@ module AWS::SDK::EC2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::EC2::Types::RunInstancesInput "\
-          "block_device_mappings=#{block_device_mappings || 'nil'}, "\
-          "image_id=#{image_id || 'nil'}, "\
-          "instance_type=#{instance_type || 'nil'}, "\
-          "ipv6_address_count=#{ipv6_address_count || 'nil'}, "\
-          "ipv6_addresses=#{ipv6_addresses || 'nil'}, "\
-          "kernel_id=#{kernel_id || 'nil'}, "\
-          "key_name=#{key_name || 'nil'}, "\
-          "max_count=#{max_count || 'nil'}, "\
-          "min_count=#{min_count || 'nil'}, "\
-          "monitoring=#{monitoring || 'nil'}, "\
-          "placement=#{placement || 'nil'}, "\
-          "ramdisk_id=#{ramdisk_id || 'nil'}, "\
-          "security_group_ids=#{security_group_ids || 'nil'}, "\
-          "security_groups=#{security_groups || 'nil'}, "\
-          "subnet_id=#{subnet_id || 'nil'}, "\
-          "user_data=\"[SENSITIVE]\", "\
-          "additional_info=#{additional_info || 'nil'}, "\
-          "client_token=#{client_token || 'nil'}, "\
-          "disable_api_termination=#{disable_api_termination || 'nil'}, "\
-          "dry_run=#{dry_run || 'nil'}, "\
-          "ebs_optimized=#{ebs_optimized || 'nil'}, "\
-          "iam_instance_profile=#{iam_instance_profile || 'nil'}, "\
-          "instance_initiated_shutdown_behavior=#{instance_initiated_shutdown_behavior || 'nil'}, "\
-          "network_interfaces=#{network_interfaces || 'nil'}, "\
-          "private_ip_address=#{private_ip_address || 'nil'}, "\
-          "elastic_gpu_specification=#{elastic_gpu_specification || 'nil'}, "\
-          "elastic_inference_accelerators=#{elastic_inference_accelerators || 'nil'}, "\
-          "tag_specifications=#{tag_specifications || 'nil'}, "\
-          "launch_template=#{launch_template || 'nil'}, "\
-          "instance_market_options=#{instance_market_options || 'nil'}, "\
-          "credit_specification=#{credit_specification || 'nil'}, "\
-          "cpu_options=#{cpu_options || 'nil'}, "\
-          "capacity_reservation_specification=#{capacity_reservation_specification || 'nil'}, "\
-          "hibernation_options=#{hibernation_options || 'nil'}, "\
-          "license_specifications=#{license_specifications || 'nil'}, "\
-          "metadata_options=#{metadata_options || 'nil'}, "\
-          "enclave_options=#{enclave_options || 'nil'}, "\
-          "private_dns_name_options=#{private_dns_name_options || 'nil'}, "\
-          "maintenance_options=#{maintenance_options || 'nil'}, "\
-          "disable_api_stop=#{disable_api_stop || 'nil'}, "\
+        '#<AWS::SDK::EC2::Types::RunInstancesInput ' \
+          "block_device_mappings=#{block_device_mappings || 'nil'}, " \
+          "image_id=#{image_id || 'nil'}, " \
+          "instance_type=#{instance_type || 'nil'}, " \
+          "ipv6_address_count=#{ipv6_address_count || 'nil'}, " \
+          "ipv6_addresses=#{ipv6_addresses || 'nil'}, " \
+          "kernel_id=#{kernel_id || 'nil'}, " \
+          "key_name=#{key_name || 'nil'}, " \
+          "max_count=#{max_count || 'nil'}, " \
+          "min_count=#{min_count || 'nil'}, " \
+          "monitoring=#{monitoring || 'nil'}, " \
+          "placement=#{placement || 'nil'}, " \
+          "ramdisk_id=#{ramdisk_id || 'nil'}, " \
+          "security_group_ids=#{security_group_ids || 'nil'}, " \
+          "security_groups=#{security_groups || 'nil'}, " \
+          "subnet_id=#{subnet_id || 'nil'}, " \
+          'user_data=[SENSITIVE], ' \
+          "additional_info=#{additional_info || 'nil'}, " \
+          "client_token=#{client_token || 'nil'}, " \
+          "disable_api_termination=#{disable_api_termination || 'nil'}, " \
+          "dry_run=#{dry_run || 'nil'}, " \
+          "ebs_optimized=#{ebs_optimized || 'nil'}, " \
+          "iam_instance_profile=#{iam_instance_profile || 'nil'}, " \
+          "instance_initiated_shutdown_behavior=#{instance_initiated_shutdown_behavior || 'nil'}, " \
+          "network_interfaces=#{network_interfaces || 'nil'}, " \
+          "private_ip_address=#{private_ip_address || 'nil'}, " \
+          "elastic_gpu_specification=#{elastic_gpu_specification || 'nil'}, " \
+          "elastic_inference_accelerators=#{elastic_inference_accelerators || 'nil'}, " \
+          "tag_specifications=#{tag_specifications || 'nil'}, " \
+          "launch_template=#{launch_template || 'nil'}, " \
+          "instance_market_options=#{instance_market_options || 'nil'}, " \
+          "credit_specification=#{credit_specification || 'nil'}, " \
+          "cpu_options=#{cpu_options || 'nil'}, " \
+          "capacity_reservation_specification=#{capacity_reservation_specification || 'nil'}, " \
+          "hibernation_options=#{hibernation_options || 'nil'}, " \
+          "license_specifications=#{license_specifications || 'nil'}, " \
+          "metadata_options=#{metadata_options || 'nil'}, " \
+          "enclave_options=#{enclave_options || 'nil'}, " \
+          "private_dns_name_options=#{private_dns_name_options || 'nil'}, " \
+          "maintenance_options=#{maintenance_options || 'nil'}, " \
+          "disable_api_stop=#{disable_api_stop || 'nil'}, " \
           "enable_primary_ipv6=#{enable_primary_ipv6 || 'nil'}>"
       end
     end
@@ -67856,11 +67856,11 @@ module AWS::SDK::EC2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::EC2::Types::RunScheduledInstancesInput "\
-          "client_token=#{client_token || 'nil'}, "\
-          "dry_run=#{dry_run || 'nil'}, "\
-          "instance_count=#{instance_count || 'nil'}, "\
-          "launch_specification=\"[SENSITIVE]\", "\
+        '#<AWS::SDK::EC2::Types::RunScheduledInstancesInput ' \
+          "client_token=#{client_token || 'nil'}, " \
+          "dry_run=#{dry_run || 'nil'}, " \
+          "instance_count=#{instance_count || 'nil'}, " \
+          'launch_specification=[SENSITIVE], ' \
           "scheduled_instance_id=#{scheduled_instance_id || 'nil'}>"
       end
     end
@@ -67950,12 +67950,12 @@ module AWS::SDK::EC2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::EC2::Types::S3Storage "\
-          "aws_access_key_id=#{aws_access_key_id || 'nil'}, "\
-          "bucket=#{bucket || 'nil'}, "\
-          "prefix=#{prefix || 'nil'}, "\
-          "upload_policy=#{upload_policy || 'nil'}, "\
-          "upload_policy_signature=\"[SENSITIVE]\">"
+        '#<AWS::SDK::EC2::Types::S3Storage ' \
+          "aws_access_key_id=#{aws_access_key_id || 'nil'}, " \
+          "bucket=#{bucket || 'nil'}, " \
+          "prefix=#{prefix || 'nil'}, " \
+          "upload_policy=#{upload_policy || 'nil'}, " \
+          'upload_policy_signature=[SENSITIVE]>'
       end
     end
 
@@ -69734,16 +69734,16 @@ module AWS::SDK::EC2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::EC2::Types::SnapshotDetail "\
-          "description=#{description || 'nil'}, "\
-          "device_name=#{device_name || 'nil'}, "\
-          "disk_image_size=#{disk_image_size || 'nil'}, "\
-          "format=#{format || 'nil'}, "\
-          "progress=#{progress || 'nil'}, "\
-          "snapshot_id=#{snapshot_id || 'nil'}, "\
-          "status=#{status || 'nil'}, "\
-          "status_message=#{status_message || 'nil'}, "\
-          "url=\"[SENSITIVE]\", "\
+        '#<AWS::SDK::EC2::Types::SnapshotDetail ' \
+          "description=#{description || 'nil'}, " \
+          "device_name=#{device_name || 'nil'}, " \
+          "disk_image_size=#{disk_image_size || 'nil'}, " \
+          "format=#{format || 'nil'}, " \
+          "progress=#{progress || 'nil'}, " \
+          "snapshot_id=#{snapshot_id || 'nil'}, " \
+          "status=#{status || 'nil'}, " \
+          "status_message=#{status_message || 'nil'}, " \
+          'url=[SENSITIVE], ' \
           "user_bucket=#{user_bucket || 'nil'}>"
       end
     end
@@ -69783,10 +69783,10 @@ module AWS::SDK::EC2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::EC2::Types::SnapshotDiskContainer "\
-          "description=#{description || 'nil'}, "\
-          "format=#{format || 'nil'}, "\
-          "url=\"[SENSITIVE]\", "\
+        '#<AWS::SDK::EC2::Types::SnapshotDiskContainer ' \
+          "description=#{description || 'nil'}, " \
+          "format=#{format || 'nil'}, " \
+          'url=[SENSITIVE], ' \
           "user_bucket=#{user_bucket || 'nil'}>"
       end
     end
@@ -69985,17 +69985,17 @@ module AWS::SDK::EC2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::EC2::Types::SnapshotTaskDetail "\
-          "description=#{description || 'nil'}, "\
-          "disk_image_size=#{disk_image_size || 'nil'}, "\
-          "encrypted=#{encrypted || 'nil'}, "\
-          "format=#{format || 'nil'}, "\
-          "kms_key_id=#{kms_key_id || 'nil'}, "\
-          "progress=#{progress || 'nil'}, "\
-          "snapshot_id=#{snapshot_id || 'nil'}, "\
-          "status=#{status || 'nil'}, "\
-          "status_message=#{status_message || 'nil'}, "\
-          "url=\"[SENSITIVE]\", "\
+        '#<AWS::SDK::EC2::Types::SnapshotTaskDetail ' \
+          "description=#{description || 'nil'}, " \
+          "disk_image_size=#{disk_image_size || 'nil'}, " \
+          "encrypted=#{encrypted || 'nil'}, " \
+          "format=#{format || 'nil'}, " \
+          "kms_key_id=#{kms_key_id || 'nil'}, " \
+          "progress=#{progress || 'nil'}, " \
+          "snapshot_id=#{snapshot_id || 'nil'}, " \
+          "status=#{status || 'nil'}, " \
+          "status_message=#{status_message || 'nil'}, " \
+          'url=[SENSITIVE], ' \
           "user_bucket=#{user_bucket || 'nil'}>"
       end
     end
@@ -70304,25 +70304,25 @@ module AWS::SDK::EC2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::EC2::Types::SpotFleetLaunchSpecification "\
-          "security_groups=#{security_groups || 'nil'}, "\
-          "addressing_type=#{addressing_type || 'nil'}, "\
-          "block_device_mappings=#{block_device_mappings || 'nil'}, "\
-          "ebs_optimized=#{ebs_optimized || 'nil'}, "\
-          "iam_instance_profile=#{iam_instance_profile || 'nil'}, "\
-          "image_id=#{image_id || 'nil'}, "\
-          "instance_type=#{instance_type || 'nil'}, "\
-          "kernel_id=#{kernel_id || 'nil'}, "\
-          "key_name=#{key_name || 'nil'}, "\
-          "monitoring=#{monitoring || 'nil'}, "\
-          "network_interfaces=#{network_interfaces || 'nil'}, "\
-          "placement=#{placement || 'nil'}, "\
-          "ramdisk_id=#{ramdisk_id || 'nil'}, "\
-          "spot_price=#{spot_price || 'nil'}, "\
-          "subnet_id=#{subnet_id || 'nil'}, "\
-          "user_data=\"[SENSITIVE]\", "\
-          "weighted_capacity=#{weighted_capacity || 'nil'}, "\
-          "tag_specifications=#{tag_specifications || 'nil'}, "\
+        '#<AWS::SDK::EC2::Types::SpotFleetLaunchSpecification ' \
+          "security_groups=#{security_groups || 'nil'}, " \
+          "addressing_type=#{addressing_type || 'nil'}, " \
+          "block_device_mappings=#{block_device_mappings || 'nil'}, " \
+          "ebs_optimized=#{ebs_optimized || 'nil'}, " \
+          "iam_instance_profile=#{iam_instance_profile || 'nil'}, " \
+          "image_id=#{image_id || 'nil'}, " \
+          "instance_type=#{instance_type || 'nil'}, " \
+          "kernel_id=#{kernel_id || 'nil'}, " \
+          "key_name=#{key_name || 'nil'}, " \
+          "monitoring=#{monitoring || 'nil'}, " \
+          "network_interfaces=#{network_interfaces || 'nil'}, " \
+          "placement=#{placement || 'nil'}, " \
+          "ramdisk_id=#{ramdisk_id || 'nil'}, " \
+          "spot_price=#{spot_price || 'nil'}, " \
+          "subnet_id=#{subnet_id || 'nil'}, " \
+          'user_data=[SENSITIVE], ' \
+          "weighted_capacity=#{weighted_capacity || 'nil'}, " \
+          "tag_specifications=#{tag_specifications || 'nil'}, " \
           "instance_requirements=#{instance_requirements || 'nil'}>"
       end
     end
@@ -72944,13 +72944,13 @@ module AWS::SDK::EC2
     # <p>The minimum and maximum amount of total local storage, in GB.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Float] :member_min
-    #   @option params [Float] :member_max
-    # @!attribute member_min
+    #   @option params [Float] :min
+    #   @option params [Float] :max
+    # @!attribute min
     #   <p>The minimum amount of total local storage, in GB. If this parameter is not specified, there is
     #            no minimum limit.</p>
     #   @return [Float]
-    # @!attribute member_max
+    # @!attribute max
     #   <p>The maximum amount of total local storage, in GB. If this parameter is not specified, there is
     #            no maximum limit.</p>
     #   @return [Float]
@@ -72968,13 +72968,13 @@ module AWS::SDK::EC2
     # <p>The minimum and maximum amount of total local storage, in GB.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Float] :member_min
-    #   @option params [Float] :member_max
-    # @!attribute member_min
+    #   @option params [Float] :min
+    #   @option params [Float] :max
+    # @!attribute min
     #   <p>The minimum amount of total local storage, in GB. To specify no minimum limit, omit this
     #            parameter.</p>
     #   @return [Float]
-    # @!attribute member_max
+    # @!attribute max
     #   <p>The maximum amount of total local storage, in GB. To specify no maximum limit, omit this
     #            parameter.</p>
     #   @return [Float]
@@ -75368,27 +75368,27 @@ module AWS::SDK::EC2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::EC2::Types::TunnelOption "\
-          "outside_ip_address=#{outside_ip_address || 'nil'}, "\
-          "tunnel_inside_cidr=#{tunnel_inside_cidr || 'nil'}, "\
-          "tunnel_inside_ipv6_cidr=#{tunnel_inside_ipv6_cidr || 'nil'}, "\
-          "pre_shared_key=\"[SENSITIVE]\", "\
-          "phase1_lifetime_seconds=#{phase1_lifetime_seconds || 'nil'}, "\
-          "phase2_lifetime_seconds=#{phase2_lifetime_seconds || 'nil'}, "\
-          "rekey_margin_time_seconds=#{rekey_margin_time_seconds || 'nil'}, "\
-          "rekey_fuzz_percentage=#{rekey_fuzz_percentage || 'nil'}, "\
-          "replay_window_size=#{replay_window_size || 'nil'}, "\
-          "dpd_timeout_seconds=#{dpd_timeout_seconds || 'nil'}, "\
-          "dpd_timeout_action=#{dpd_timeout_action || 'nil'}, "\
-          "phase1_encryption_algorithms=#{phase1_encryption_algorithms || 'nil'}, "\
-          "phase2_encryption_algorithms=#{phase2_encryption_algorithms || 'nil'}, "\
-          "phase1_integrity_algorithms=#{phase1_integrity_algorithms || 'nil'}, "\
-          "phase2_integrity_algorithms=#{phase2_integrity_algorithms || 'nil'}, "\
-          "phase1_dh_group_numbers=#{phase1_dh_group_numbers || 'nil'}, "\
-          "phase2_dh_group_numbers=#{phase2_dh_group_numbers || 'nil'}, "\
-          "ike_versions=#{ike_versions || 'nil'}, "\
-          "startup_action=#{startup_action || 'nil'}, "\
-          "log_options=#{log_options || 'nil'}, "\
+        '#<AWS::SDK::EC2::Types::TunnelOption ' \
+          "outside_ip_address=#{outside_ip_address || 'nil'}, " \
+          "tunnel_inside_cidr=#{tunnel_inside_cidr || 'nil'}, " \
+          "tunnel_inside_ipv6_cidr=#{tunnel_inside_ipv6_cidr || 'nil'}, " \
+          'pre_shared_key=[SENSITIVE], ' \
+          "phase1_lifetime_seconds=#{phase1_lifetime_seconds || 'nil'}, " \
+          "phase2_lifetime_seconds=#{phase2_lifetime_seconds || 'nil'}, " \
+          "rekey_margin_time_seconds=#{rekey_margin_time_seconds || 'nil'}, " \
+          "rekey_fuzz_percentage=#{rekey_fuzz_percentage || 'nil'}, " \
+          "replay_window_size=#{replay_window_size || 'nil'}, " \
+          "dpd_timeout_seconds=#{dpd_timeout_seconds || 'nil'}, " \
+          "dpd_timeout_action=#{dpd_timeout_action || 'nil'}, " \
+          "phase1_encryption_algorithms=#{phase1_encryption_algorithms || 'nil'}, " \
+          "phase2_encryption_algorithms=#{phase2_encryption_algorithms || 'nil'}, " \
+          "phase1_integrity_algorithms=#{phase1_integrity_algorithms || 'nil'}, " \
+          "phase2_integrity_algorithms=#{phase2_integrity_algorithms || 'nil'}, " \
+          "phase1_dh_group_numbers=#{phase1_dh_group_numbers || 'nil'}, " \
+          "phase2_dh_group_numbers=#{phase2_dh_group_numbers || 'nil'}, " \
+          "ike_versions=#{ike_versions || 'nil'}, " \
+          "startup_action=#{startup_action || 'nil'}, " \
+          "log_options=#{log_options || 'nil'}, " \
           "enable_tunnel_lifecycle_control=#{enable_tunnel_lifecycle_control || 'nil'}>"
       end
     end
@@ -75991,13 +75991,13 @@ module AWS::SDK::EC2
     # <p>The minimum and maximum number of vCPUs.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Integer] :member_min
-    #   @option params [Integer] :member_max
-    # @!attribute member_min
+    #   @option params [Integer] :min
+    #   @option params [Integer] :max
+    # @!attribute min
     #   <p>The minimum number of vCPUs. If the value is <code>0</code>, there is no minimum
     #            limit.</p>
     #   @return [Integer]
-    # @!attribute member_max
+    # @!attribute max
     #   <p>The maximum number of vCPUs. If this parameter is not specified, there is no maximum
     #            limit.</p>
     #   @return [Integer]
@@ -76015,12 +76015,12 @@ module AWS::SDK::EC2
     # <p>The minimum and maximum number of vCPUs.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Integer] :member_min
-    #   @option params [Integer] :member_max
-    # @!attribute member_min
+    #   @option params [Integer] :min
+    #   @option params [Integer] :max
+    # @!attribute min
     #   <p>The minimum number of vCPUs. To specify no minimum limit, specify <code>0</code>.</p>
     #   @return [Integer]
-    # @!attribute member_max
+    # @!attribute max
     #   <p>The maximum number of vCPUs. To specify no maximum limit, omit this parameter.</p>
     #   @return [Integer]
     class VCpuCountRangeRequest
@@ -76981,7 +76981,7 @@ module AWS::SDK::EC2
     #   @option params [Boolean] :encrypted
     #   @option params [String] :kms_key_id
     #   @option params [String] :outpost_arn
-    #   @option params [Integer] :member_size
+    #   @option params [Integer] :size
     #   @option params [String] :snapshot_id
     #   @option params [String] :state
     #   @option params [String] :volume_id
@@ -77011,7 +77011,7 @@ module AWS::SDK::EC2
     # @!attribute outpost_arn
     #   <p>The Amazon Resource Name (ARN) of the Outpost.</p>
     #   @return [String]
-    # @!attribute member_size
+    # @!attribute size
     #   <p>The size of the volume, in GiBs.</p>
     #   @return [Integer]
     # @!attribute snapshot_id
@@ -77159,8 +77159,8 @@ module AWS::SDK::EC2
     # <p>Describes an EBS volume.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Integer] :member_size
-    # @!attribute member_size
+    #   @option params [Integer] :size
+    # @!attribute size
     #   <p>The size of the volume, in GiB.</p>
     #   @return [Integer]
     class VolumeDetail
@@ -78204,21 +78204,21 @@ module AWS::SDK::EC2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::EC2::Types::VpnConnection "\
-          "customer_gateway_configuration=\"[SENSITIVE]\", "\
-          "customer_gateway_id=#{customer_gateway_id || 'nil'}, "\
-          "category=#{category || 'nil'}, "\
-          "state=#{state || 'nil'}, "\
-          "type=#{type || 'nil'}, "\
-          "vpn_connection_id=#{vpn_connection_id || 'nil'}, "\
-          "vpn_gateway_id=#{vpn_gateway_id || 'nil'}, "\
-          "transit_gateway_id=#{transit_gateway_id || 'nil'}, "\
-          "core_network_arn=#{core_network_arn || 'nil'}, "\
-          "core_network_attachment_arn=#{core_network_attachment_arn || 'nil'}, "\
-          "gateway_association_state=#{gateway_association_state || 'nil'}, "\
-          "options=#{options || 'nil'}, "\
-          "routes=#{routes || 'nil'}, "\
-          "tags=#{tags || 'nil'}, "\
+        '#<AWS::SDK::EC2::Types::VpnConnection ' \
+          'customer_gateway_configuration=[SENSITIVE], ' \
+          "customer_gateway_id=#{customer_gateway_id || 'nil'}, " \
+          "category=#{category || 'nil'}, " \
+          "state=#{state || 'nil'}, " \
+          "type=#{type || 'nil'}, " \
+          "vpn_connection_id=#{vpn_connection_id || 'nil'}, " \
+          "vpn_gateway_id=#{vpn_gateway_id || 'nil'}, " \
+          "transit_gateway_id=#{transit_gateway_id || 'nil'}, " \
+          "core_network_arn=#{core_network_arn || 'nil'}, " \
+          "core_network_attachment_arn=#{core_network_attachment_arn || 'nil'}, " \
+          "gateway_association_state=#{gateway_association_state || 'nil'}, " \
+          "options=#{options || 'nil'}, " \
+          "routes=#{routes || 'nil'}, " \
+          "tags=#{tags || 'nil'}, " \
           "vgw_telemetry=#{vgw_telemetry || 'nil'}>"
       end
     end
@@ -78774,26 +78774,26 @@ module AWS::SDK::EC2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::EC2::Types::VpnTunnelOptionsSpecification "\
-          "tunnel_inside_cidr=#{tunnel_inside_cidr || 'nil'}, "\
-          "tunnel_inside_ipv6_cidr=#{tunnel_inside_ipv6_cidr || 'nil'}, "\
-          "pre_shared_key=\"[SENSITIVE]\", "\
-          "phase1_lifetime_seconds=#{phase1_lifetime_seconds || 'nil'}, "\
-          "phase2_lifetime_seconds=#{phase2_lifetime_seconds || 'nil'}, "\
-          "rekey_margin_time_seconds=#{rekey_margin_time_seconds || 'nil'}, "\
-          "rekey_fuzz_percentage=#{rekey_fuzz_percentage || 'nil'}, "\
-          "replay_window_size=#{replay_window_size || 'nil'}, "\
-          "dpd_timeout_seconds=#{dpd_timeout_seconds || 'nil'}, "\
-          "dpd_timeout_action=#{dpd_timeout_action || 'nil'}, "\
-          "phase1_encryption_algorithms=#{phase1_encryption_algorithms || 'nil'}, "\
-          "phase2_encryption_algorithms=#{phase2_encryption_algorithms || 'nil'}, "\
-          "phase1_integrity_algorithms=#{phase1_integrity_algorithms || 'nil'}, "\
-          "phase2_integrity_algorithms=#{phase2_integrity_algorithms || 'nil'}, "\
-          "phase1_dh_group_numbers=#{phase1_dh_group_numbers || 'nil'}, "\
-          "phase2_dh_group_numbers=#{phase2_dh_group_numbers || 'nil'}, "\
-          "ike_versions=#{ike_versions || 'nil'}, "\
-          "startup_action=#{startup_action || 'nil'}, "\
-          "log_options=#{log_options || 'nil'}, "\
+        '#<AWS::SDK::EC2::Types::VpnTunnelOptionsSpecification ' \
+          "tunnel_inside_cidr=#{tunnel_inside_cidr || 'nil'}, " \
+          "tunnel_inside_ipv6_cidr=#{tunnel_inside_ipv6_cidr || 'nil'}, " \
+          'pre_shared_key=[SENSITIVE], ' \
+          "phase1_lifetime_seconds=#{phase1_lifetime_seconds || 'nil'}, " \
+          "phase2_lifetime_seconds=#{phase2_lifetime_seconds || 'nil'}, " \
+          "rekey_margin_time_seconds=#{rekey_margin_time_seconds || 'nil'}, " \
+          "rekey_fuzz_percentage=#{rekey_fuzz_percentage || 'nil'}, " \
+          "replay_window_size=#{replay_window_size || 'nil'}, " \
+          "dpd_timeout_seconds=#{dpd_timeout_seconds || 'nil'}, " \
+          "dpd_timeout_action=#{dpd_timeout_action || 'nil'}, " \
+          "phase1_encryption_algorithms=#{phase1_encryption_algorithms || 'nil'}, " \
+          "phase2_encryption_algorithms=#{phase2_encryption_algorithms || 'nil'}, " \
+          "phase1_integrity_algorithms=#{phase1_integrity_algorithms || 'nil'}, " \
+          "phase2_integrity_algorithms=#{phase2_integrity_algorithms || 'nil'}, " \
+          "phase1_dh_group_numbers=#{phase1_dh_group_numbers || 'nil'}, " \
+          "phase2_dh_group_numbers=#{phase2_dh_group_numbers || 'nil'}, " \
+          "ike_versions=#{ike_versions || 'nil'}, " \
+          "startup_action=#{startup_action || 'nil'}, " \
+          "log_options=#{log_options || 'nil'}, " \
           "enable_tunnel_lifecycle_control=#{enable_tunnel_lifecycle_control || 'nil'}>"
       end
     end

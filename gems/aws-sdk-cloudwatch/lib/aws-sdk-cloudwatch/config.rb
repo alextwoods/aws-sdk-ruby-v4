@@ -106,11 +106,11 @@ module AWS::SDK::CloudWatch
   #   @option args [Hearth::Stubs] :stubs (Hearth::Stubs.new)
   #     Enable response stubbing for testing. See {Hearth::ClientStubs#stub_responses}.
   #   @option args [Hearth::Telemetry::TelemetryProvider] :telemetry_provider (Hearth::Telemetry::NoOpTelemetryProvider.new)
-  #     A telemetry provider is used to emit telemetry data. By default, this
-  #     functionality is disabled. The SDK currently supports OpenTelemetry (OTel)
-  #     as a provider. To use the OTel provider, load the `opentelemetry-sdk` gem
-  #     and then, pass in an instance of a `Hearth::Telemetry::OTelProvider`
-  #     for telemetry provider.
+  #     A telemetry provider is used to emit telemetry data. By default, the
+  #     `NoOpTelemetryProvider` will not record or emit any telemetry data.
+  #     The SDK currently supports OpenTelemetry (OTel) as a provider. To use
+  #     the OTel provider, require the `opentelemetry-sdk` gem and then, pass
+  #     in an instance of a `Hearth::Telemetry::OTelProvider` for telemetry provider.
   #   @option args [Boolean] :use_dualstack_endpoint
   #     When set to `true`, DualStack enabled endpoints (with `.aws` TLD)
   #     will be used if available.
@@ -160,31 +160,34 @@ module AWS::SDK::CloudWatch
   #   @return [Boolean]
   # @!attribute validate_input
   #   @return [Boolean]
-  Config = ::Struct.new(
-    :auth_resolver,
-    :auth_schemes,
-    :credentials_provider,
-    :disable_host_prefix,
-    :disable_request_compression,
-    :endpoint,
-    :endpoint_resolver,
-    :http_client,
-    :interceptors,
-    :logger,
-    :plugins,
-    :profile,
-    :region,
-    :request_min_compression_size_bytes,
-    :retry_strategy,
-    :stub_responses,
-    :stubs,
-    :telemetry_provider,
-    :use_dualstack_endpoint,
-    :use_fips_endpoint,
-    :validate_input,
-    keyword_init: true
-  ) do
+  class Config
     include Hearth::Configuration
+
+    MEMBERS = %i[
+      auth_resolver
+      auth_schemes
+      credentials_provider
+      disable_host_prefix
+      disable_request_compression
+      endpoint
+      endpoint_resolver
+      http_client
+      interceptors
+      logger
+      plugins
+      profile
+      region
+      request_min_compression_size_bytes
+      retry_strategy
+      stub_responses
+      stubs
+      telemetry_provider
+      use_dualstack_endpoint
+      use_fips_endpoint
+      validate_input
+    ].freeze
+
+    attr_accessor(*MEMBERS)
 
     # Validates the configuration.
     def validate!

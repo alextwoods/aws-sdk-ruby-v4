@@ -19,8 +19,8 @@ module AWS::SDK::EC2
         return nil if visited.include?('AcceleratorCount')
         visited = visited + ['AcceleratorCount']
         {
-          member_min: 1,
-          member_max: 1,
+          min: 1,
+          max: 1,
         }
       end
 
@@ -73,8 +73,8 @@ module AWS::SDK::EC2
         return nil if visited.include?('AcceleratorTotalMemoryMiB')
         visited = visited + ['AcceleratorTotalMemoryMiB']
         {
-          member_min: 1,
-          member_max: 1,
+          min: 1,
+          max: 1,
         }
       end
 
@@ -2319,8 +2319,8 @@ module AWS::SDK::EC2
         return nil if visited.include?('BaselineEbsBandwidthMbps')
         visited = visited + ['BaselineEbsBandwidthMbps']
         {
-          member_min: 1,
-          member_max: 1,
+          min: 1,
+          max: 1,
         }
       end
 
@@ -2971,7 +2971,7 @@ module AWS::SDK::EC2
         visited = visited + ['CapacityAllocation']
         {
           allocation_type: 'allocation_type',
-          member_count: 1,
+          count: 1,
         }
       end
 
@@ -6383,7 +6383,7 @@ module AWS::SDK::EC2
           encrypted: false,
           kms_key_id: 'kms_key_id',
           outpost_arn: 'outpost_arn',
-          member_size: 1,
+          size: 1,
           snapshot_id: 'snapshot_id',
           state: 'state',
           volume_id: 'volume_id',
@@ -13492,7 +13492,7 @@ module AWS::SDK::EC2
         visited = visited + ['DhcpConfiguration']
         {
           key: 'key',
-          member_values: DhcpConfigurationValueList.default(visited),
+          values: DhcpConfigurationValueList.default(visited),
         }
       end
 
@@ -14522,7 +14522,7 @@ module AWS::SDK::EC2
           checksum: 'checksum',
           format: 'format',
           import_manifest_url: 'import_manifest_url',
-          member_size: 1,
+          size: 1,
         }
       end
 
@@ -14542,7 +14542,7 @@ module AWS::SDK::EC2
         visited = visited + ['DiskImageVolumeDescription']
         {
           id: 'id',
-          member_size: 1,
+          size: 1,
         }
       end
 
@@ -14560,7 +14560,7 @@ module AWS::SDK::EC2
         visited = visited + ['DiskInfo']
         {
           size_in_gb: 1,
-          member_count: 1,
+          count: 1,
           type: 'type',
         }
       end
@@ -16668,7 +16668,7 @@ module AWS::SDK::EC2
         {
           name: 'name',
           manufacturer: 'manufacturer',
-          member_count: 1,
+          count: 1,
           memory_info: FpgaDeviceMemoryInfo.default(visited),
         }
       end
@@ -17537,7 +17537,7 @@ module AWS::SDK::EC2
 
       def self.default(visited = [])
         {
-          member_entries: PrefixListEntrySet.default(visited),
+          entries: PrefixListEntrySet.default(visited),
           next_token: 'next_token',
         }
       end
@@ -18147,7 +18147,7 @@ module AWS::SDK::EC2
         {
           name: 'name',
           manufacturer: 'manufacturer',
-          member_count: 1,
+          count: 1,
           memory_info: GpuDeviceMemoryInfo.default(visited),
         }
       end
@@ -18563,7 +18563,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('HostReservation')
         visited = visited + ['HostReservation']
         {
-          member_count: 1,
+          count: 1,
           currency_code: 'currency_code',
           duration: 1,
           end: Time.now,
@@ -19369,7 +19369,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('InferenceDeviceInfo')
         visited = visited + ['InferenceDeviceInfo']
         {
-          member_count: 1,
+          count: 1,
           name: 'name',
           manufacturer: 'manufacturer',
           memory_info: InferenceDeviceMemoryInfo.default(visited),
@@ -22822,7 +22822,7 @@ module AWS::SDK::EC2
         visited = visited + ['LaunchTemplateElasticInferenceAcceleratorResponse']
         {
           type: 'type',
-          member_count: 1,
+          count: 1,
         }
       end
 
@@ -24024,8 +24024,8 @@ module AWS::SDK::EC2
         return nil if visited.include?('MemoryGiBPerVCpu')
         visited = visited + ['MemoryGiBPerVCpu']
         {
-          member_min: 1.0,
-          member_max: 1.0,
+          min: 1.0,
+          max: 1.0,
         }
       end
 
@@ -24058,8 +24058,8 @@ module AWS::SDK::EC2
         return nil if visited.include?('MemoryMiB')
         visited = visited + ['MemoryMiB']
         {
-          member_min: 1,
-          member_max: 1,
+          min: 1,
+          max: 1,
         }
       end
 
@@ -25954,7 +25954,7 @@ module AWS::SDK::EC2
         visited = visited + ['NetworkAcl']
         {
           associations: NetworkAclAssociationList.default(visited),
-          member_entries: NetworkAclEntryList.default(visited),
+          entries: NetworkAclEntryList.default(visited),
           is_default: false,
           network_acl_id: 'network_acl_id',
           tags: TagList.default(visited),
@@ -26085,8 +26085,8 @@ module AWS::SDK::EC2
         return nil if visited.include?('NetworkBandwidthGbps')
         visited = visited + ['NetworkBandwidthGbps']
         {
-          member_min: 1.0,
-          member_max: 1.0,
+          min: 1.0,
+          max: 1.0,
         }
       end
 
@@ -26553,8 +26553,8 @@ module AWS::SDK::EC2
         return nil if visited.include?('NetworkInterfaceCount')
         visited = visited + ['NetworkInterfaceCount']
         {
-          member_min: 1,
-          member_max: 1,
+          min: 1,
+          max: 1,
         }
       end
 
@@ -27699,7 +27699,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('PricingDetail')
         visited = visited + ['PricingDetail']
         {
-          member_count: 1,
+          count: 1,
           price: 1.0,
         }
       end
@@ -33088,8 +33088,8 @@ module AWS::SDK::EC2
         return nil if visited.include?('TotalLocalStorageGB')
         visited = visited + ['TotalLocalStorageGB']
         {
-          member_min: 1.0,
-          member_max: 1.0,
+          min: 1.0,
+          max: 1.0,
         }
       end
 
@@ -35207,8 +35207,8 @@ module AWS::SDK::EC2
         return nil if visited.include?('VCpuCountRange')
         visited = visited + ['VCpuCountRange']
         {
-          member_min: 1,
-          member_max: 1,
+          min: 1,
+          max: 1,
         }
       end
 
@@ -35873,7 +35873,7 @@ module AWS::SDK::EC2
           encrypted: false,
           kms_key_id: 'kms_key_id',
           outpost_arn: 'outpost_arn',
-          member_size: 1,
+          size: 1,
           snapshot_id: 'snapshot_id',
           state: 'state',
           volume_id: 'volume_id',

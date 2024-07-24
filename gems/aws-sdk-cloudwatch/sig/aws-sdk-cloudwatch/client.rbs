@@ -408,7 +408,7 @@ module AWS::SDK::CloudWatch
           timestamp: ::Time,
           value: ::Float,
           statistic_values: Types::StatisticSet,
-          member_values: ::Array[::Float],
+          values: ::Array[::Float],
           counts: ::Array[::Float],
           unit: ::String,
           storage_resolution: ::Integer

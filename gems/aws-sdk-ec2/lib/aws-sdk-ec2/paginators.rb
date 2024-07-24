@@ -5127,7 +5127,7 @@ module AWS::SDK::EC2
       def items
         Enumerator.new do |e|
           pages.each do |page|
-            page.data.member_entries.each do |item|
+            page.data.entries.each do |item|
               e.yield(item)
             end
           end

@@ -116,10 +116,6 @@ module AWS::SDK::DynamoDB
         def to_h
           { s: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::DynamoDB::Types::S #{__getobj__ || 'nil'}>"
-        end
       end
 
       # <p>An attribute of type Number. For example:</p>
@@ -133,10 +129,6 @@ module AWS::SDK::DynamoDB
         def to_h
           { n: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::DynamoDB::Types::N #{__getobj__ || 'nil'}>"
-        end
       end
 
       # <p>An attribute of type Binary. For example:</p>
@@ -147,10 +139,6 @@ module AWS::SDK::DynamoDB
         def to_h
           { b: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::DynamoDB::Types::B #{__getobj__ || 'nil'}>"
-        end
       end
 
       # <p>An attribute of type String Set. For example:</p>
@@ -160,10 +148,6 @@ module AWS::SDK::DynamoDB
       class Ss < AttributeValue
         def to_h
           { ss: super(__getobj__) }
-        end
-
-        def to_s
-          "#<AWS::SDK::DynamoDB::Types::Ss #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -178,10 +162,6 @@ module AWS::SDK::DynamoDB
         def to_h
           { ns: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::DynamoDB::Types::Ns #{__getobj__ || 'nil'}>"
-        end
       end
 
       # <p>An attribute of type Binary Set. For example:</p>
@@ -191,10 +171,6 @@ module AWS::SDK::DynamoDB
       class Bs < AttributeValue
         def to_h
           { bs: super(__getobj__) }
-        end
-
-        def to_s
-          "#<AWS::SDK::DynamoDB::Types::Bs #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -206,10 +182,6 @@ module AWS::SDK::DynamoDB
         def to_h
           { m: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::DynamoDB::Types::M #{__getobj__ || 'nil'}>"
-        end
       end
 
       # <p>An attribute of type List. For example:</p>
@@ -219,10 +191,6 @@ module AWS::SDK::DynamoDB
       class L < AttributeValue
         def to_h
           { l: super(__getobj__) }
-        end
-
-        def to_s
-          "#<AWS::SDK::DynamoDB::Types::L #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -234,10 +202,6 @@ module AWS::SDK::DynamoDB
         def to_h
           { null: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::DynamoDB::Types::Null #{__getobj__ || 'nil'}>"
-        end
       end
 
       # <p>An attribute of type Boolean. For example:</p>
@@ -247,10 +211,6 @@ module AWS::SDK::DynamoDB
       class Bool < AttributeValue
         def to_h
           { bool: super(__getobj__) }
-        end
-
-        def to_s
-          "#<AWS::SDK::DynamoDB::Types::Bool #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -7261,7 +7221,7 @@ module AWS::SDK::DynamoDB
     #   @param [Hash] params
     #   @option params [String] :table_name
     #   @option params [String] :index_name
-    #   @option params [String] :member_select
+    #   @option params [String] :select
     #   @option params [Array<String>] :attributes_to_get
     #   @option params [Integer] :limit
     #   @option params [Boolean] :consistent_read
@@ -7285,7 +7245,7 @@ module AWS::SDK::DynamoDB
     #               you must also provide <code>TableName.</code>
     #            </p>
     #   @return [String]
-    # @!attribute member_select
+    # @!attribute select
     #   <p>The attributes to be returned in the result. You can retrieve all item attributes,
     #               specific item attributes, the count of matching items, or in the case of an index, some
     #               or all of the attributes projected into the index.</p>
@@ -7670,7 +7630,7 @@ module AWS::SDK::DynamoDB
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [Array<Hash<String, AttributeValue>>] :items
-    #   @option params [Integer] :member_count (0)
+    #   @option params [Integer] :count (0)
     #   @option params [Integer] :scanned_count (0)
     #   @option params [Hash<String, AttributeValue>] :last_evaluated_key
     #   @option params [ConsumedCapacity] :consumed_capacity
@@ -7678,7 +7638,7 @@ module AWS::SDK::DynamoDB
     #   <p>An array of item attributes that match the query criteria. Each element in this array
     #               consists of an attribute name and the value for that attribute.</p>
     #   @return [Array<Hash<String, AttributeValue>>]
-    # @!attribute member_count
+    # @!attribute count
     #   <p>The number of items in the response.</p>
     #            <p>If you used a <code>QueryFilter</code> in the request, then <code>Count</code> is the
     #               number of items returned after the filter was applied, and <code>ScannedCount</code> is
@@ -7730,7 +7690,7 @@ module AWS::SDK::DynamoDB
 
       def _defaults
         {
-          member_count: 0,
+          count: 0,
           scanned_count: 0
         }
       end
@@ -8882,7 +8842,7 @@ module AWS::SDK::DynamoDB
     #   @option params [String] :index_name
     #   @option params [Array<String>] :attributes_to_get
     #   @option params [Integer] :limit
-    #   @option params [String] :member_select
+    #   @option params [String] :select
     #   @option params [Hash<String, Condition>] :scan_filter
     #   @option params [String] :conditional_operator
     #   @option params [Hash<String, AttributeValue>] :exclusive_start_key
@@ -8919,7 +8879,7 @@ module AWS::SDK::DynamoDB
     #               operation to continue the operation. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html">Working with Queries</a> in the <i>Amazon DynamoDB Developer
     #                   Guide</i>.</p>
     #   @return [Integer]
-    # @!attribute member_select
+    # @!attribute select
     #   <p>The attributes to be returned in the result. You can retrieve all item attributes,
     #               specific item attributes, the count of matching items, or in the case of an index, some
     #               or all of the attributes projected into the index.</p>
@@ -9196,7 +9156,7 @@ module AWS::SDK::DynamoDB
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [Array<Hash<String, AttributeValue>>] :items
-    #   @option params [Integer] :member_count (0)
+    #   @option params [Integer] :count (0)
     #   @option params [Integer] :scanned_count (0)
     #   @option params [Hash<String, AttributeValue>] :last_evaluated_key
     #   @option params [ConsumedCapacity] :consumed_capacity
@@ -9204,7 +9164,7 @@ module AWS::SDK::DynamoDB
     #   <p>An array of item attributes that match the scan criteria. Each element in this array
     #               consists of an attribute name and the value for that attribute.</p>
     #   @return [Array<Hash<String, AttributeValue>>]
-    # @!attribute member_count
+    # @!attribute count
     #   <p>The number of items in the response.</p>
     #            <p>If you set <code>ScanFilter</code> in the request, then <code>Count</code> is the
     #               number of items returned after the filter was applied, and <code>ScannedCount</code> is
@@ -9257,7 +9217,7 @@ module AWS::SDK::DynamoDB
 
       def _defaults
         {
-          member_count: 0,
+          count: 0,
           scanned_count: 0
         }
       end

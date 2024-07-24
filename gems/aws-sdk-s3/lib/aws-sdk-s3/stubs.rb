@@ -152,7 +152,7 @@ module AWS::SDK::S3
         visited = visited + ['AnalyticsConfiguration']
         {
           id: 'id',
-          member_filter: AnalyticsFilter.default(visited),
+          filter: AnalyticsFilter.default(visited),
           storage_class_analysis: StorageClassAnalysis.default(visited),
         }
       end
@@ -2579,7 +2579,7 @@ module AWS::SDK::S3
         visited = visited + ['IntelligentTieringConfiguration']
         {
           id: 'id',
-          member_filter: IntelligentTieringFilter.default(visited),
+          filter: IntelligentTieringFilter.default(visited),
           status: 'status',
           tierings: TieringList.default(visited),
         }
@@ -2671,7 +2671,7 @@ module AWS::SDK::S3
         {
           destination: InventoryDestination.default(visited),
           is_enabled: false,
-          member_filter: InventoryFilter.default(visited),
+          filter: InventoryFilter.default(visited),
           id: 'id',
           included_object_versions: 'included_object_versions',
           optional_fields: InventoryOptionalFields.default(visited),
@@ -2834,7 +2834,7 @@ module AWS::SDK::S3
           id: 'id',
           lambda_function_arn: 'lambda_function_arn',
           events: EventList.default(visited),
-          member_filter: NotificationConfigurationFilter.default(visited),
+          filter: NotificationConfigurationFilter.default(visited),
         }
       end
 
@@ -2897,7 +2897,7 @@ module AWS::SDK::S3
           expiration: LifecycleExpiration.default(visited),
           id: 'id',
           prefix: 'prefix',
-          member_filter: LifecycleRuleFilter.default(visited),
+          filter: LifecycleRuleFilter.default(visited),
           status: 'status',
           transitions: TransitionList.default(visited),
           noncurrent_version_transitions: NoncurrentVersionTransitionList.default(visited),
@@ -3533,7 +3533,7 @@ module AWS::SDK::S3
         visited = visited + ['MetricsConfiguration']
         {
           id: 'id',
-          member_filter: MetricsFilter.default(visited),
+          filter: MetricsFilter.default(visited),
         }
       end
 
@@ -3823,7 +3823,7 @@ module AWS::SDK::S3
           last_modified: Time.now,
           e_tag: 'e_tag',
           checksum_algorithm: ChecksumAlgorithmList.default(visited),
-          member_size: 1,
+          size: 1,
           storage_class: 'storage_class',
           owner: Owner.default(visited),
           restore_status: RestoreStatus.default(visited),
@@ -3990,7 +3990,7 @@ module AWS::SDK::S3
         visited = visited + ['ObjectPart']
         {
           part_number: 1,
-          member_size: 1,
+          size: 1,
           checksum_crc32: 'checksum_crc32',
           checksum_crc32_c: 'checksum_crc32_c',
           checksum_sha1: 'checksum_sha1',
@@ -4018,7 +4018,7 @@ module AWS::SDK::S3
         {
           e_tag: 'e_tag',
           checksum_algorithm: ChecksumAlgorithmList.default(visited),
-          member_size: 1,
+          size: 1,
           storage_class: 'storage_class',
           key: 'key',
           version_id: 'version_id',
@@ -4145,7 +4145,7 @@ module AWS::SDK::S3
           part_number: 1,
           last_modified: Time.now,
           e_tag: 'e_tag',
-          member_size: 1,
+          size: 1,
           checksum_crc32: 'checksum_crc32',
           checksum_crc32_c: 'checksum_crc32_c',
           checksum_sha1: 'checksum_sha1',
@@ -4847,7 +4847,7 @@ module AWS::SDK::S3
           id: 'id',
           queue_arn: 'queue_arn',
           events: EventList.default(visited),
-          member_filter: NotificationConfigurationFilter.default(visited),
+          filter: NotificationConfigurationFilter.default(visited),
         }
       end
 
@@ -4986,7 +4986,7 @@ module AWS::SDK::S3
           id: 'id',
           priority: 1,
           prefix: 'prefix',
-          member_filter: ReplicationRuleFilter.default(visited),
+          filter: ReplicationRuleFilter.default(visited),
           status: 'status',
           source_selection_criteria: SourceSelectionCriteria.default(visited),
           existing_object_replication: ExistingObjectReplication.default(visited),
@@ -5662,7 +5662,7 @@ module AWS::SDK::S3
           id: 'id',
           topic_arn: 'topic_arn',
           events: EventList.default(visited),
-          member_filter: NotificationConfigurationFilter.default(visited),
+          filter: NotificationConfigurationFilter.default(visited),
         }
       end
 
