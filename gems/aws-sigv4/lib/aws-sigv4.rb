@@ -6,6 +6,7 @@ module AWS
   end
 end
 
+require_relative 'aws-sigv4/asymmetric_credentials'
 require_relative 'aws-sigv4/credentials'
 require_relative 'aws-sigv4/header_value'
 require_relative 'aws-sigv4/presigned_url'

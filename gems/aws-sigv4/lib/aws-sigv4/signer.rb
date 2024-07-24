@@ -71,8 +71,7 @@ module AWS
       #   service as of late 2016.
       #
       # @option options [Symbol] :signing_algorithm (:sigv4) The
-      #   algorithm to use for signing. :sigv4a is only supported when
-      #   `aws-crt` is available.
+      #   algorithm to use for signing.
       #
       # @option options [Boolean] :omit_session_token (false)
       #   If `true`, the security token is added to the final signing result,
@@ -232,6 +231,12 @@ module AWS
           sigv4_headers['x-amz-content-sha256'] ||= content_sha256
         end
 
+        if options[:signing_algorithm] == :sigv4a &&
+           options[:region] &&
+           !options[:region].empty?
+          sigv4_headers['x-amz-region-set'] = options[:region]
+        end
+
         # merge so we do not modify given headers hash
         headers = headers.merge(sigv4_headers)
 
@@ -242,20 +247,29 @@ module AWS
         )
 
         sts = string_to_sign(
-          datetime, options[:region], options[:service], creq
+          datetime, options[:region], options[:service], creq,
+          options[:signing_algorithm]
         )
-        sig = signature(
-          credentials.secret_access_key, date,
-          options[:region], options[:service], sts
-        )
+
+        sig =
+          if options[:signing_algorithm] == :sigv4a
+            asymmetric_signature(credentials, sts)
+          else
+            signature(
+              credentials.secret_access_key, date,
+              options[:region], options[:service], sts
+            )
+          end
         credential = credential(
-          credentials, date, options[:region], options[:service]
+          credentials, date, options[:region], options[:service],
+          options[:signing_algorithm]
         )
         signed_headers = signed_headers(headers, options[:unsigned_headers])
 
         # apply signature
+        algorithm = sts_algorithm(options[:signing_algorithm])
         sigv4_headers['authorization'] = [
-          "AWS4-HMAC-SHA256 Credential=#{credential}",
+          "#{algorithm} Credential=#{credential}",
           "SignedHeaders=#{signed_headers}",
           "Signature=#{sig}"
         ].join(', ')
@@ -430,9 +444,12 @@ module AWS
         content_sha256 ||= sha256_hexdigest(request[:body] || '')
 
         params = {}
-        params['X-Amz-Algorithm'] = 'AWS4-HMAC-SHA256'
+        algorithm = sts_algorithm(options[:signing_algorithm])
+
+        params['X-Amz-Algorithm'] = algorithm
         params['X-Amz-Credential'] = credential(
-          credentials, date, options[:region], options[:service]
+          credentials, date, options[:region], options[:service],
+          options[:signing_algorithm]
         )
         params['X-Amz-Date'] = datetime
         params['X-Amz-Expires'] = presigned_url_expiration(
@@ -449,6 +466,11 @@ module AWS
         params['X-Amz-SignedHeaders'] = signed_headers(
           headers, options[:unsigned_headers]
         )
+
+        if options[:signing_algorithm] == :sigv4a &&
+           options[:region] && !options[:region].empty?
+          params['X-Amz-Region-Set'] = options[:region]
+        end
 
         # Headers that should be used with the URL
         sigv4_headers = (headers.to_a - params.to_a).to_h
@@ -468,12 +490,18 @@ module AWS
           options[:unsigned_headers], content_sha256
         )
         sts = string_to_sign(
-          datetime, options[:region], options[:service], creq
+          datetime, options[:region], options[:service], creq,
+          options[:signing_algorithm]
         )
-        sig = signature(
-          credentials.secret_access_key, date, options[:region],
-          options[:service], sts
-        )
+        sig =
+          if options[:signing_algorithm] == :sigv4a
+            asymmetric_signature(credentials, sts)
+          else
+            signature(
+              credentials.secret_access_key, date,
+              options[:region], options[:service], sts
+            )
+          end
         url.query += "&X-Amz-Signature=#{sig}"
         if credentials.session_token && options[:omit_session_token]
           escaped_token = CGI.escape(credentials.session_token)
@@ -494,6 +522,14 @@ module AWS
 
       private
 
+      def sts_algorithm(signing_algorithm)
+        if signing_algorithm == :sigv4a
+          'AWS4-ECDSA-P256-SHA256'
+        else
+          'AWS4-HMAC-SHA256'
+        end
+      end
+
       def canonical_request(http_method, url, use_double_uri_encode, headers,
                             unsigned_headers, content_sha256)
         [
@@ -506,11 +542,12 @@ module AWS
         ].join("\n")
       end
 
-      def string_to_sign(datetime, region, service, canonical_request)
+      def string_to_sign(datetime, region, service,
+                         canonical_request, signing_algorithm)
         [
-          'AWS4-HMAC-SHA256',
+          sts_algorithm(signing_algorithm),
           datetime,
-          credential_scope(datetime[0, 8], region, service),
+          credential_scope(datetime[0, 8], region, service, signing_algorithm),
           sha256_hexdigest(canonical_request)
         ].join("\n")
       end
@@ -537,17 +574,18 @@ module AWS
         ].join("\n")
       end
 
-      def credential_scope(date, region, service)
+      def credential_scope(date, region, service, signing_algorithm)
         [
           date,
-          region,
+          (region if signing_algorithm != :sigv4a),
           service,
           'aws4_request'
-        ].join('/')
+        ].compact.join('/')
       end
 
-      def credential(creds, date, region, service)
-        "#{creds.access_key_id}/#{credential_scope(date, region, service)}"
+      def credential(creds, date, region, service, signing_algorithm)
+        cred_scope = credential_scope(date, region, service, signing_algorithm)
+        "#{creds.access_key_id}/#{cred_scope}"
       end
 
       def signature(secret_access_key, date, region, service, string_to_sign)
@@ -556,6 +594,16 @@ module AWS
         k_service = hmac(k_region, service)
         k_credentials = hmac(k_service, 'aws4_request')
         hexhmac(k_credentials, string_to_sign)
+      end
+
+      def asymmetric_signature(creds, string_to_sign)
+        ec, = AWS::Sigv4::AsymmetricCredentials.derive_asymmetric_key(
+          creds.access_key_id, creds.secret_access_key
+        )
+        sts_digest = OpenSSL::Digest::SHA256.digest(string_to_sign)
+        s = ec.dsa_sign_asn1(sts_digest)
+
+        Digest.hexencode(s)
       end
 
       # Comparing to original signature v4 algorithm,
@@ -767,13 +815,6 @@ module AWS
           raise ArgumentError,
                 'Signing algorithm must be `:sigv4`, `:sigv4a`, ' \
                 "or `:'sigv4-s3express'`."
-        end
-
-        if signing_algorithm == :sigv4a && !Signer.use_crt?
-          raise ArgumentError,
-                'You are attempting to use a Signer for sigv4a which ' \
-                'requires the `aws-crt` gem. Please install the gem or ' \
-                'add it to your gemfile.'
         end
 
         if signing_algorithm == :'sigv4-s3express' &&

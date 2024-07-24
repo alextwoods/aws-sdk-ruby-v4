@@ -11,36 +11,27 @@ require_relative 'endpoint/endpoint_rules'
 
 module AWS::SDK::S3
   module Endpoint
-    Params = ::Struct.new(
-      :bucket,
-      :region,
-      :use_fips,
-      :use_dual_stack,
-      :endpoint,
-      :force_path_style,
-      :accelerate,
-      :use_global_endpoint,
-      :use_object_lambda_endpoint,
-      :key,
-      :prefix,
-      :disable_access_points,
-      :disable_multi_region_access_points,
-      :use_arn_region,
-      :use_s3_express_control_endpoint,
-      :disable_s3_express_session_auth,
-      keyword_init: true
-    ) do
-      include Hearth::Structure
-
-      def initialize(*)
-        super
-        self.use_fips = false if self.use_fips.nil?
-        self.use_dual_stack = false if self.use_dual_stack.nil?
-        self.force_path_style = false if self.force_path_style.nil?
-        self.accelerate = false if self.accelerate.nil?
-        self.use_global_endpoint = false if self.use_global_endpoint.nil?
-        self.disable_multi_region_access_points = false if self.disable_multi_region_access_points.nil?
+    class Params
+      def initialize(bucket: nil, region: nil, use_fips: nil, use_dual_stack: nil, endpoint: nil, force_path_style: nil, accelerate: nil, use_global_endpoint: nil, use_object_lambda_endpoint: nil, key: nil, prefix: nil, disable_access_points: nil, disable_multi_region_access_points: nil, use_arn_region: nil, use_s3_express_control_endpoint: nil, disable_s3_express_session_auth: nil)
+        @bucket = bucket
+        @region = region
+        @use_fips = use_fips.nil? ? false : use_fips
+        @use_dual_stack = use_dual_stack.nil? ? false : use_dual_stack
+        @endpoint = endpoint
+        @force_path_style = force_path_style.nil? ? false : force_path_style
+        @accelerate = accelerate.nil? ? false : accelerate
+        @use_global_endpoint = use_global_endpoint.nil? ? false : use_global_endpoint
+        @use_object_lambda_endpoint = use_object_lambda_endpoint
+        @key = key
+        @prefix = prefix
+        @disable_access_points = disable_access_points
+        @disable_multi_region_access_points = disable_multi_region_access_points.nil? ? false : disable_multi_region_access_points
+        @use_arn_region = use_arn_region
+        @use_s3_express_control_endpoint = use_s3_express_control_endpoint
+        @disable_s3_express_session_auth = disable_s3_express_session_auth
       end
+
+      attr_accessor :bucket, :region, :use_fips, :use_dual_stack, :endpoint, :force_path_style, :accelerate, :use_global_endpoint, :use_object_lambda_endpoint, :key, :prefix, :disable_access_points, :disable_multi_region_access_points, :use_arn_region, :use_s3_express_control_endpoint, :disable_s3_express_session_auth
     end
 
     class Resolver

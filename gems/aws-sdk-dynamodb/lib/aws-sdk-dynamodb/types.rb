@@ -116,10 +116,6 @@ module AWS::SDK::DynamoDB
         def to_h
           { s: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::DynamoDB::Types::S #{__getobj__ || 'nil'}>"
-        end
       end
 
       # <p>An attribute of type Number. For example:</p>
@@ -133,10 +129,6 @@ module AWS::SDK::DynamoDB
         def to_h
           { n: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::DynamoDB::Types::N #{__getobj__ || 'nil'}>"
-        end
       end
 
       # <p>An attribute of type Binary. For example:</p>
@@ -147,10 +139,6 @@ module AWS::SDK::DynamoDB
         def to_h
           { b: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::DynamoDB::Types::B #{__getobj__ || 'nil'}>"
-        end
       end
 
       # <p>An attribute of type String Set. For example:</p>
@@ -160,10 +148,6 @@ module AWS::SDK::DynamoDB
       class Ss < AttributeValue
         def to_h
           { ss: super(__getobj__) }
-        end
-
-        def to_s
-          "#<AWS::SDK::DynamoDB::Types::Ss #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -178,10 +162,6 @@ module AWS::SDK::DynamoDB
         def to_h
           { ns: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::DynamoDB::Types::Ns #{__getobj__ || 'nil'}>"
-        end
       end
 
       # <p>An attribute of type Binary Set. For example:</p>
@@ -191,10 +171,6 @@ module AWS::SDK::DynamoDB
       class Bs < AttributeValue
         def to_h
           { bs: super(__getobj__) }
-        end
-
-        def to_s
-          "#<AWS::SDK::DynamoDB::Types::Bs #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -206,10 +182,6 @@ module AWS::SDK::DynamoDB
         def to_h
           { m: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::DynamoDB::Types::M #{__getobj__ || 'nil'}>"
-        end
       end
 
       # <p>An attribute of type List. For example:</p>
@@ -219,10 +191,6 @@ module AWS::SDK::DynamoDB
       class L < AttributeValue
         def to_h
           { l: super(__getobj__) }
-        end
-
-        def to_s
-          "#<AWS::SDK::DynamoDB::Types::L #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -234,10 +202,6 @@ module AWS::SDK::DynamoDB
         def to_h
           { null: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::DynamoDB::Types::Null #{__getobj__ || 'nil'}>"
-        end
       end
 
       # <p>An attribute of type Boolean. For example:</p>
@@ -247,10 +211,6 @@ module AWS::SDK::DynamoDB
       class Bool < AttributeValue
         def to_h
           { bool: super(__getobj__) }
-        end
-
-        def to_s
-          "#<AWS::SDK::DynamoDB::Types::Bool #{__getobj__ || 'nil'}>"
         end
       end
 

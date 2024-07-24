@@ -9,11 +9,12 @@
 
 module AWS::SDK::SSO
   module Endpoint
-    class Params < ::Struct[untyped]
-      attr_accessor endpoint: ::String
-      attr_accessor use_dual_stack: bool
-      attr_accessor use_fips: bool
-      attr_accessor region: ::String
+    class Params
+      def initialize: (?endpoint: ::String?, ?use_dual_stack: bool?, ?use_fips: bool?, ?region: ::String?) -> void
+      attr_accessor endpoint (): ::String?
+      attr_accessor use_dual_stack (): bool?
+      attr_accessor use_fips (): bool?
+      attr_accessor region (): ::String?
     end
 
     class Resolver

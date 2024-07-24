@@ -19,9 +19,9 @@ module AWS::SDK::SSO
 
     class GetRoleCredentialsInput
       include Hearth::Structure
-      attr_accessor role_name (): ::String
-      attr_accessor account_id (): ::String
-      attr_accessor access_token (): ::String
+      attr_accessor role_name (): ::String?
+      attr_accessor account_id (): ::String?
+      attr_accessor access_token (): ::String?
     end
 
     class GetRoleCredentialsOutput
@@ -38,8 +38,8 @@ module AWS::SDK::SSO
       include Hearth::Structure
       attr_accessor next_token (): ::String?
       attr_accessor max_results (): ::Integer?
-      attr_accessor access_token (): ::String
-      attr_accessor account_id (): ::String
+      attr_accessor access_token (): ::String?
+      attr_accessor account_id (): ::String?
     end
 
     class ListAccountRolesOutput
@@ -52,7 +52,7 @@ module AWS::SDK::SSO
       include Hearth::Structure
       attr_accessor next_token (): ::String?
       attr_accessor max_results (): ::Integer?
-      attr_accessor access_token (): ::String
+      attr_accessor access_token (): ::String?
     end
 
     class ListAccountsOutput
@@ -63,7 +63,7 @@ module AWS::SDK::SSO
 
     class LogoutInput
       include Hearth::Structure
-      attr_accessor access_token (): ::String
+      attr_accessor access_token (): ::String?
     end
 
     class LogoutOutput

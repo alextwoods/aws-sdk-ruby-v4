@@ -137,10 +137,10 @@ module AWS::SDK::CodeCatalyst
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::CodeCatalyst::Types::CreateAccessTokenOutput "\
-          "secret=\"[SENSITIVE]\", "\
-          "name=#{name || 'nil'}, "\
-          "expires_time=#{expires_time || 'nil'}, "\
+        '#<AWS::SDK::CodeCatalyst::Types::CreateAccessTokenOutput ' \
+          'secret=[SENSITIVE], ' \
+          "name=#{name || 'nil'}, " \
+          "expires_time=#{expires_time || 'nil'}, " \
           "access_token_id=#{access_token_id || 'nil'}>"
       end
     end
@@ -2698,11 +2698,11 @@ module AWS::SDK::CodeCatalyst
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::CodeCatalyst::Types::StartDevEnvironmentSessionOutput "\
-          "access_details=\"[SENSITIVE]\", "\
-          "session_id=#{session_id || 'nil'}, "\
-          "space_name=#{space_name || 'nil'}, "\
-          "project_name=#{project_name || 'nil'}, "\
+        '#<AWS::SDK::CodeCatalyst::Types::StartDevEnvironmentSessionOutput ' \
+          'access_details=[SENSITIVE], ' \
+          "session_id=#{session_id || 'nil'}, " \
+          "space_name=#{space_name || 'nil'}, " \
+          "project_name=#{project_name || 'nil'}, " \
           "id=#{id || 'nil'}>"
       end
     end

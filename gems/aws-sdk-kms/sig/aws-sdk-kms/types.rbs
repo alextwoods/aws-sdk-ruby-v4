@@ -38,7 +38,7 @@ module AWS::SDK::KMS
 
     class CancelKeyDeletionInput
       include Hearth::Structure
-      attr_accessor key_id (): ::String
+      attr_accessor key_id (): ::String?
     end
 
     class CancelKeyDeletionOutput
@@ -73,7 +73,7 @@ module AWS::SDK::KMS
 
     class ConnectCustomKeyStoreInput
       include Hearth::Structure
-      attr_accessor custom_key_store_id (): ::String
+      attr_accessor custom_key_store_id (): ::String?
     end
 
     class ConnectCustomKeyStoreOutput
@@ -132,8 +132,8 @@ module AWS::SDK::KMS
 
     class CreateAliasInput
       include Hearth::Structure
-      attr_accessor alias_name (): ::String
-      attr_accessor target_key_id (): ::String
+      attr_accessor alias_name (): ::String?
+      attr_accessor target_key_id (): ::String?
     end
 
     class CreateAliasOutput
@@ -142,7 +142,7 @@ module AWS::SDK::KMS
 
     class CreateCustomKeyStoreInput
       include Hearth::Structure
-      attr_accessor custom_key_store_name (): ::String
+      attr_accessor custom_key_store_name (): ::String?
       attr_accessor cloud_hsm_cluster_id (): ::String?
       attr_accessor trust_anchor_certificate (): ::String?
       attr_accessor key_store_password (): ::String?
@@ -161,10 +161,10 @@ module AWS::SDK::KMS
 
     class CreateGrantInput
       include Hearth::Structure
-      attr_accessor key_id (): ::String
-      attr_accessor grantee_principal (): ::String
+      attr_accessor key_id (): ::String?
+      attr_accessor grantee_principal (): ::String?
       attr_accessor retiring_principal (): ::String?
-      attr_accessor operations (): ::Array[::String]
+      attr_accessor operations (): ::Array[::String]?
       attr_accessor constraints (): Types::GrantConstraints?
       attr_accessor grant_tokens (): ::Array[::String]?
       attr_accessor name (): ::String?
@@ -290,7 +290,7 @@ module AWS::SDK::KMS
 
     class DecryptInput
       include Hearth::Structure
-      attr_accessor ciphertext_blob (): ::String
+      attr_accessor ciphertext_blob (): ::String?
       attr_accessor encryption_context (): ::Hash[::String, ::String]?
       attr_accessor grant_tokens (): ::Array[::String]?
       attr_accessor key_id (): ::String?
@@ -309,7 +309,7 @@ module AWS::SDK::KMS
 
     class DeleteAliasInput
       include Hearth::Structure
-      attr_accessor alias_name (): ::String
+      attr_accessor alias_name (): ::String?
     end
 
     class DeleteAliasOutput
@@ -318,7 +318,7 @@ module AWS::SDK::KMS
 
     class DeleteCustomKeyStoreInput
       include Hearth::Structure
-      attr_accessor custom_key_store_id (): ::String
+      attr_accessor custom_key_store_id (): ::String?
     end
 
     class DeleteCustomKeyStoreOutput
@@ -327,7 +327,7 @@ module AWS::SDK::KMS
 
     class DeleteImportedKeyMaterialInput
       include Hearth::Structure
-      attr_accessor key_id (): ::String
+      attr_accessor key_id (): ::String?
     end
 
     class DeleteImportedKeyMaterialOutput
@@ -356,7 +356,7 @@ module AWS::SDK::KMS
 
     class DescribeKeyInput
       include Hearth::Structure
-      attr_accessor key_id (): ::String
+      attr_accessor key_id (): ::String?
       attr_accessor grant_tokens (): ::Array[::String]?
     end
 
@@ -367,7 +367,7 @@ module AWS::SDK::KMS
 
     class DisableKeyInput
       include Hearth::Structure
-      attr_accessor key_id (): ::String
+      attr_accessor key_id (): ::String?
     end
 
     class DisableKeyOutput
@@ -376,7 +376,7 @@ module AWS::SDK::KMS
 
     class DisableKeyRotationInput
       include Hearth::Structure
-      attr_accessor key_id (): ::String
+      attr_accessor key_id (): ::String?
     end
 
     class DisableKeyRotationOutput
@@ -390,7 +390,7 @@ module AWS::SDK::KMS
 
     class DisconnectCustomKeyStoreInput
       include Hearth::Structure
-      attr_accessor custom_key_store_id (): ::String
+      attr_accessor custom_key_store_id (): ::String?
     end
 
     class DisconnectCustomKeyStoreOutput
@@ -404,7 +404,7 @@ module AWS::SDK::KMS
 
     class EnableKeyInput
       include Hearth::Structure
-      attr_accessor key_id (): ::String
+      attr_accessor key_id (): ::String?
     end
 
     class EnableKeyOutput
@@ -413,7 +413,7 @@ module AWS::SDK::KMS
 
     class EnableKeyRotationInput
       include Hearth::Structure
-      attr_accessor key_id (): ::String
+      attr_accessor key_id (): ::String?
     end
 
     class EnableKeyRotationOutput
@@ -422,8 +422,8 @@ module AWS::SDK::KMS
 
     class EncryptInput
       include Hearth::Structure
-      attr_accessor key_id (): ::String
-      attr_accessor plaintext (): ::String
+      attr_accessor key_id (): ::String?
+      attr_accessor plaintext (): ::String?
       attr_accessor encryption_context (): ::Hash[::String, ::String]?
       attr_accessor grant_tokens (): ::Array[::String]?
       attr_accessor encryption_algorithm (): ::String?
@@ -460,7 +460,7 @@ module AWS::SDK::KMS
 
     class GenerateDataKeyInput
       include Hearth::Structure
-      attr_accessor key_id (): ::String
+      attr_accessor key_id (): ::String?
       attr_accessor encryption_context (): ::Hash[::String, ::String]?
       attr_accessor number_of_bytes (): ::Integer?
       attr_accessor key_spec (): ::String?
@@ -480,8 +480,8 @@ module AWS::SDK::KMS
     class GenerateDataKeyPairInput
       include Hearth::Structure
       attr_accessor encryption_context (): ::Hash[::String, ::String]?
-      attr_accessor key_id (): ::String
-      attr_accessor key_pair_spec (): ::String
+      attr_accessor key_id (): ::String?
+      attr_accessor key_pair_spec (): ::String?
       attr_accessor grant_tokens (): ::Array[::String]?
       attr_accessor recipient (): Types::RecipientInfo?
       attr_accessor dry_run (): bool?
@@ -500,8 +500,8 @@ module AWS::SDK::KMS
     class GenerateDataKeyPairWithoutPlaintextInput
       include Hearth::Structure
       attr_accessor encryption_context (): ::Hash[::String, ::String]?
-      attr_accessor key_id (): ::String
-      attr_accessor key_pair_spec (): ::String
+      attr_accessor key_id (): ::String?
+      attr_accessor key_pair_spec (): ::String?
       attr_accessor grant_tokens (): ::Array[::String]?
       attr_accessor dry_run (): bool?
     end
@@ -516,7 +516,7 @@ module AWS::SDK::KMS
 
     class GenerateDataKeyWithoutPlaintextInput
       include Hearth::Structure
-      attr_accessor key_id (): ::String
+      attr_accessor key_id (): ::String?
       attr_accessor encryption_context (): ::Hash[::String, ::String]?
       attr_accessor key_spec (): ::String?
       attr_accessor number_of_bytes (): ::Integer?
@@ -532,9 +532,9 @@ module AWS::SDK::KMS
 
     class GenerateMacInput
       include Hearth::Structure
-      attr_accessor message (): ::String
-      attr_accessor key_id (): ::String
-      attr_accessor mac_algorithm (): ::String
+      attr_accessor message (): ::String?
+      attr_accessor key_id (): ::String?
+      attr_accessor mac_algorithm (): ::String?
       attr_accessor grant_tokens (): ::Array[::String]?
       attr_accessor dry_run (): bool?
     end
@@ -561,8 +561,8 @@ module AWS::SDK::KMS
 
     class GetKeyPolicyInput
       include Hearth::Structure
-      attr_accessor key_id (): ::String
-      attr_accessor policy_name (): ::String
+      attr_accessor key_id (): ::String?
+      attr_accessor policy_name (): ::String?
     end
 
     class GetKeyPolicyOutput
@@ -572,7 +572,7 @@ module AWS::SDK::KMS
 
     class GetKeyRotationStatusInput
       include Hearth::Structure
-      attr_accessor key_id (): ::String
+      attr_accessor key_id (): ::String?
     end
 
     class GetKeyRotationStatusOutput
@@ -582,9 +582,9 @@ module AWS::SDK::KMS
 
     class GetParametersForImportInput
       include Hearth::Structure
-      attr_accessor key_id (): ::String
-      attr_accessor wrapping_algorithm (): ::String
-      attr_accessor wrapping_key_spec (): ::String
+      attr_accessor key_id (): ::String?
+      attr_accessor wrapping_algorithm (): ::String?
+      attr_accessor wrapping_key_spec (): ::String?
     end
 
     class GetParametersForImportOutput
@@ -597,7 +597,7 @@ module AWS::SDK::KMS
 
     class GetPublicKeyInput
       include Hearth::Structure
-      attr_accessor key_id (): ::String
+      attr_accessor key_id (): ::String?
       attr_accessor grant_tokens (): ::Array[::String]?
     end
 
@@ -667,9 +667,9 @@ module AWS::SDK::KMS
 
     class ImportKeyMaterialInput
       include Hearth::Structure
-      attr_accessor key_id (): ::String
-      attr_accessor import_token (): ::String
-      attr_accessor encrypted_key_material (): ::String
+      attr_accessor key_id (): ::String?
+      attr_accessor import_token (): ::String?
+      attr_accessor encrypted_key_material (): ::String?
       attr_accessor valid_to (): ::Time?
       attr_accessor expiration_model (): ::String?
     end
@@ -772,7 +772,7 @@ module AWS::SDK::KMS
     class KeyMetadata
       include Hearth::Structure
       attr_accessor aws_account_id (): ::String?
-      attr_accessor key_id (): ::String
+      attr_accessor key_id (): ::String?
       attr_accessor arn (): ::String?
       attr_accessor creation_date (): ::Time?
       attr_accessor enabled (): bool?
@@ -879,7 +879,7 @@ module AWS::SDK::KMS
       include Hearth::Structure
       attr_accessor limit (): ::Integer?
       attr_accessor marker (): ::String?
-      attr_accessor key_id (): ::String
+      attr_accessor key_id (): ::String?
       attr_accessor grant_id (): ::String?
       attr_accessor grantee_principal (): ::String?
     end
@@ -893,7 +893,7 @@ module AWS::SDK::KMS
 
     class ListKeyPoliciesInput
       include Hearth::Structure
-      attr_accessor key_id (): ::String
+      attr_accessor key_id (): ::String?
       attr_accessor limit (): ::Integer?
       attr_accessor marker (): ::String?
     end
@@ -920,7 +920,7 @@ module AWS::SDK::KMS
 
     class ListResourceTagsInput
       include Hearth::Structure
-      attr_accessor key_id (): ::String
+      attr_accessor key_id (): ::String?
       attr_accessor limit (): ::Integer?
       attr_accessor marker (): ::String?
     end
@@ -936,7 +936,7 @@ module AWS::SDK::KMS
       include Hearth::Structure
       attr_accessor limit (): ::Integer?
       attr_accessor marker (): ::String?
-      attr_accessor retiring_principal (): ::String
+      attr_accessor retiring_principal (): ::String?
     end
 
     class ListRetirableGrantsOutput
@@ -1003,9 +1003,9 @@ module AWS::SDK::KMS
 
     class PutKeyPolicyInput
       include Hearth::Structure
-      attr_accessor key_id (): ::String
-      attr_accessor policy_name (): ::String
-      attr_accessor policy (): ::String
+      attr_accessor key_id (): ::String?
+      attr_accessor policy_name (): ::String?
+      attr_accessor policy (): ::String?
       attr_accessor bypass_policy_lockout_safety_check (): bool?
     end
 
@@ -1015,10 +1015,10 @@ module AWS::SDK::KMS
 
     class ReEncryptInput
       include Hearth::Structure
-      attr_accessor ciphertext_blob (): ::String
+      attr_accessor ciphertext_blob (): ::String?
       attr_accessor source_encryption_context (): ::Hash[::String, ::String]?
       attr_accessor source_key_id (): ::String?
-      attr_accessor destination_key_id (): ::String
+      attr_accessor destination_key_id (): ::String?
       attr_accessor destination_encryption_context (): ::Hash[::String, ::String]?
       attr_accessor source_encryption_algorithm (): ::String?
       attr_accessor destination_encryption_algorithm (): ::String?
@@ -1043,8 +1043,8 @@ module AWS::SDK::KMS
 
     class ReplicateKeyInput
       include Hearth::Structure
-      attr_accessor key_id (): ::String
-      attr_accessor replica_region (): ::String
+      attr_accessor key_id (): ::String?
+      attr_accessor replica_region (): ::String?
       attr_accessor policy (): ::String?
       attr_accessor bypass_policy_lockout_safety_check (): bool?
       attr_accessor description (): ::String?
@@ -1072,8 +1072,8 @@ module AWS::SDK::KMS
 
     class RevokeGrantInput
       include Hearth::Structure
-      attr_accessor key_id (): ::String
-      attr_accessor grant_id (): ::String
+      attr_accessor key_id (): ::String?
+      attr_accessor grant_id (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -1083,7 +1083,7 @@ module AWS::SDK::KMS
 
     class ScheduleKeyDeletionInput
       include Hearth::Structure
-      attr_accessor key_id (): ::String
+      attr_accessor key_id (): ::String?
       attr_accessor pending_window_in_days (): ::Integer?
     end
 
@@ -1097,11 +1097,11 @@ module AWS::SDK::KMS
 
     class SignInput
       include Hearth::Structure
-      attr_accessor key_id (): ::String
-      attr_accessor message (): ::String
+      attr_accessor key_id (): ::String?
+      attr_accessor message (): ::String?
       attr_accessor message_type (): ::String?
       attr_accessor grant_tokens (): ::Array[::String]?
-      attr_accessor signing_algorithm (): ::String
+      attr_accessor signing_algorithm (): ::String?
       attr_accessor dry_run (): bool?
     end
 
@@ -1136,8 +1136,8 @@ module AWS::SDK::KMS
 
     class Tag
       include Hearth::Structure
-      attr_accessor tag_key (): ::String
-      attr_accessor tag_value (): ::String
+      attr_accessor tag_key (): ::String?
+      attr_accessor tag_value (): ::String?
     end
 
     class TagException
@@ -1147,8 +1147,8 @@ module AWS::SDK::KMS
 
     class TagResourceInput
       include Hearth::Structure
-      attr_accessor key_id (): ::String
-      attr_accessor tags (): ::Array[Types::Tag]
+      attr_accessor key_id (): ::String?
+      attr_accessor tags (): ::Array[Types::Tag]?
     end
 
     class TagResourceOutput
@@ -1162,8 +1162,8 @@ module AWS::SDK::KMS
 
     class UntagResourceInput
       include Hearth::Structure
-      attr_accessor key_id (): ::String
-      attr_accessor tag_keys (): ::Array[::String]
+      attr_accessor key_id (): ::String?
+      attr_accessor tag_keys (): ::Array[::String]?
     end
 
     class UntagResourceOutput
@@ -1172,8 +1172,8 @@ module AWS::SDK::KMS
 
     class UpdateAliasInput
       include Hearth::Structure
-      attr_accessor alias_name (): ::String
-      attr_accessor target_key_id (): ::String
+      attr_accessor alias_name (): ::String?
+      attr_accessor target_key_id (): ::String?
     end
 
     class UpdateAliasOutput
@@ -1182,7 +1182,7 @@ module AWS::SDK::KMS
 
     class UpdateCustomKeyStoreInput
       include Hearth::Structure
-      attr_accessor custom_key_store_id (): ::String
+      attr_accessor custom_key_store_id (): ::String?
       attr_accessor new_custom_key_store_name (): ::String?
       attr_accessor key_store_password (): ::String?
       attr_accessor cloud_hsm_cluster_id (): ::String?
@@ -1199,8 +1199,8 @@ module AWS::SDK::KMS
 
     class UpdateKeyDescriptionInput
       include Hearth::Structure
-      attr_accessor key_id (): ::String
-      attr_accessor description (): ::String
+      attr_accessor key_id (): ::String?
+      attr_accessor description (): ::String?
     end
 
     class UpdateKeyDescriptionOutput
@@ -1209,8 +1209,8 @@ module AWS::SDK::KMS
 
     class UpdatePrimaryRegionInput
       include Hearth::Structure
-      attr_accessor key_id (): ::String
-      attr_accessor primary_region (): ::String
+      attr_accessor key_id (): ::String?
+      attr_accessor primary_region (): ::String?
     end
 
     class UpdatePrimaryRegionOutput
@@ -1219,21 +1219,21 @@ module AWS::SDK::KMS
 
     class VerifyInput
       include Hearth::Structure
-      attr_accessor key_id (): ::String
-      attr_accessor message (): ::String
+      attr_accessor key_id (): ::String?
+      attr_accessor message (): ::String?
       attr_accessor message_type (): ::String?
-      attr_accessor signature (): ::String
-      attr_accessor signing_algorithm (): ::String
+      attr_accessor signature (): ::String?
+      attr_accessor signing_algorithm (): ::String?
       attr_accessor grant_tokens (): ::Array[::String]?
       attr_accessor dry_run (): bool?
     end
 
     class VerifyMacInput
       include Hearth::Structure
-      attr_accessor message (): ::String
-      attr_accessor key_id (): ::String
-      attr_accessor mac_algorithm (): ::String
-      attr_accessor mac (): ::String
+      attr_accessor message (): ::String?
+      attr_accessor key_id (): ::String?
+      attr_accessor mac_algorithm (): ::String?
+      attr_accessor mac (): ::String?
       attr_accessor grant_tokens (): ::Array[::String]?
       attr_accessor dry_run (): bool?
     end
@@ -1282,8 +1282,8 @@ module AWS::SDK::KMS
 
     class XksProxyAuthenticationCredentialType
       include Hearth::Structure
-      attr_accessor access_key_id (): ::String
-      attr_accessor raw_secret_access_key (): ::String
+      attr_accessor access_key_id (): ::String?
+      attr_accessor raw_secret_access_key (): ::String?
     end
 
     class XksProxyConfigurationType

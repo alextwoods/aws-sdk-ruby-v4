@@ -9,6 +9,12 @@ gem 'hearth',
     git: 'https://github.com/smithy-lang/smithy-ruby',
     glob: 'hearth/hearth.gemspec'
 
+if defined?(JRUBY_VERSION)
+  # get the latest jruby-openssl to support sigv4a
+  # see: https://github.com/jruby/jruby-openssl/issues/30
+  gem 'jruby-openssl'
+end
+
 group :benchmark do
   gem 'memory_profiler'
 end

@@ -24,9 +24,9 @@ module AWS::SDK::SSOOIDC
 
     class CreateTokenInput
       include Hearth::Structure
-      attr_accessor client_id (): ::String
-      attr_accessor client_secret (): ::String
-      attr_accessor grant_type (): ::String
+      attr_accessor client_id (): ::String?
+      attr_accessor client_secret (): ::String?
+      attr_accessor grant_type (): ::String?
       attr_accessor device_code (): ::String?
       attr_accessor code (): ::String?
       attr_accessor refresh_token (): ::String?
@@ -46,8 +46,8 @@ module AWS::SDK::SSOOIDC
 
     class CreateTokenWithIAMInput
       include Hearth::Structure
-      attr_accessor client_id (): ::String
-      attr_accessor grant_type (): ::String
+      attr_accessor client_id (): ::String?
+      attr_accessor grant_type (): ::String?
       attr_accessor code (): ::String?
       attr_accessor refresh_token (): ::String?
       attr_accessor assertion (): ::String?
@@ -128,8 +128,8 @@ module AWS::SDK::SSOOIDC
 
     class RegisterClientInput
       include Hearth::Structure
-      attr_accessor client_name (): ::String
-      attr_accessor client_type (): ::String
+      attr_accessor client_name (): ::String?
+      attr_accessor client_type (): ::String?
       attr_accessor scopes (): ::Array[::String]?
       attr_accessor redirect_uris (): ::Array[::String]?
       attr_accessor grant_types (): ::Array[::String]?
@@ -155,9 +155,9 @@ module AWS::SDK::SSOOIDC
 
     class StartDeviceAuthorizationInput
       include Hearth::Structure
-      attr_accessor client_id (): ::String
-      attr_accessor client_secret (): ::String
-      attr_accessor start_url (): ::String
+      attr_accessor client_id (): ::String?
+      attr_accessor client_secret (): ::String?
+      attr_accessor start_url (): ::String?
     end
 
     class StartDeviceAuthorizationOutput

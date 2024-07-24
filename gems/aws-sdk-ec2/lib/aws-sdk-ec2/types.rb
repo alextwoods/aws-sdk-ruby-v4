@@ -7599,16 +7599,16 @@ module AWS::SDK::EC2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::EC2::Types::CopySnapshotInput "\
-          "description=#{description || 'nil'}, "\
-          "destination_outpost_arn=#{destination_outpost_arn || 'nil'}, "\
-          "destination_region=#{destination_region || 'nil'}, "\
-          "encrypted=#{encrypted || 'nil'}, "\
-          "kms_key_id=#{kms_key_id || 'nil'}, "\
-          "presigned_url=\"[SENSITIVE]\", "\
-          "source_region=#{source_region || 'nil'}, "\
-          "source_snapshot_id=#{source_snapshot_id || 'nil'}, "\
-          "tag_specifications=#{tag_specifications || 'nil'}, "\
+        '#<AWS::SDK::EC2::Types::CopySnapshotInput ' \
+          "description=#{description || 'nil'}, " \
+          "destination_outpost_arn=#{destination_outpost_arn || 'nil'}, " \
+          "destination_region=#{destination_region || 'nil'}, " \
+          "encrypted=#{encrypted || 'nil'}, " \
+          "kms_key_id=#{kms_key_id || 'nil'}, " \
+          'presigned_url=[SENSITIVE], ' \
+          "source_region=#{source_region || 'nil'}, " \
+          "source_snapshot_id=#{source_snapshot_id || 'nil'}, " \
+          "tag_specifications=#{tag_specifications || 'nil'}, " \
           "dry_run=#{dry_run || 'nil'}>"
       end
     end
@@ -9902,11 +9902,11 @@ module AWS::SDK::EC2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::EC2::Types::CreateKeyPairOutput "\
-          "key_fingerprint=#{key_fingerprint || 'nil'}, "\
-          "key_material=\"[SENSITIVE]\", "\
-          "key_name=#{key_name || 'nil'}, "\
-          "key_pair_id=#{key_pair_id || 'nil'}, "\
+        '#<AWS::SDK::EC2::Types::CreateKeyPairOutput ' \
+          "key_fingerprint=#{key_fingerprint || 'nil'}, " \
+          'key_material=[SENSITIVE], ' \
+          "key_name=#{key_name || 'nil'}, " \
+          "key_pair_id=#{key_pair_id || 'nil'}, " \
           "tags=#{tags || 'nil'}>"
       end
     end
@@ -13539,13 +13539,13 @@ module AWS::SDK::EC2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::EC2::Types::CreateVerifiedAccessTrustProviderOidcOptions "\
-          "issuer=#{issuer || 'nil'}, "\
-          "authorization_endpoint=#{authorization_endpoint || 'nil'}, "\
-          "token_endpoint=#{token_endpoint || 'nil'}, "\
-          "user_info_endpoint=#{user_info_endpoint || 'nil'}, "\
-          "client_id=#{client_id || 'nil'}, "\
-          "client_secret=\"[SENSITIVE]\", "\
+        '#<AWS::SDK::EC2::Types::CreateVerifiedAccessTrustProviderOidcOptions ' \
+          "issuer=#{issuer || 'nil'}, " \
+          "authorization_endpoint=#{authorization_endpoint || 'nil'}, " \
+          "token_endpoint=#{token_endpoint || 'nil'}, " \
+          "user_info_endpoint=#{user_info_endpoint || 'nil'}, " \
+          "client_id=#{client_id || 'nil'}, " \
+          'client_secret=[SENSITIVE], ' \
           "scope=#{scope || 'nil'}>"
       end
     end
@@ -34414,10 +34414,10 @@ module AWS::SDK::EC2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::EC2::Types::DiskImageDescription "\
-          "checksum=#{checksum || 'nil'}, "\
-          "format=#{format || 'nil'}, "\
-          "import_manifest_url=\"[SENSITIVE]\", "\
+        '#<AWS::SDK::EC2::Types::DiskImageDescription ' \
+          "checksum=#{checksum || 'nil'}, " \
+          "format=#{format || 'nil'}, " \
+          'import_manifest_url=[SENSITIVE], ' \
           "size=#{size || 'nil'}>"
       end
     end
@@ -34454,10 +34454,10 @@ module AWS::SDK::EC2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::EC2::Types::DiskImageDetail "\
-          "bytes=#{bytes || 'nil'}, "\
-          "format=#{format || 'nil'}, "\
-          "import_manifest_url=\"[SENSITIVE]\">"
+        '#<AWS::SDK::EC2::Types::DiskImageDetail ' \
+          "bytes=#{bytes || 'nil'}, " \
+          "format=#{format || 'nil'}, " \
+          'import_manifest_url=[SENSITIVE]>'
       end
     end
 
@@ -40675,9 +40675,9 @@ module AWS::SDK::EC2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::EC2::Types::GetPasswordDataOutput "\
-          "instance_id=#{instance_id || 'nil'}, "\
-          "password_data=\"[SENSITIVE]\", "\
+        '#<AWS::SDK::EC2::Types::GetPasswordDataOutput ' \
+          "instance_id=#{instance_id || 'nil'}, " \
+          'password_data=[SENSITIVE], ' \
           "timestamp=#{timestamp || 'nil'}>"
       end
     end
@@ -41785,8 +41785,8 @@ module AWS::SDK::EC2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::EC2::Types::GetVpnConnectionDeviceSampleConfigurationOutput "\
-          "vpn_connection_device_sample_configuration=\"[SENSITIVE]\">"
+        '#<AWS::SDK::EC2::Types::GetVpnConnectionDeviceSampleConfigurationOutput ' \
+          'vpn_connection_device_sample_configuration=[SENSITIVE]>'
       end
     end
 
@@ -42989,12 +42989,12 @@ module AWS::SDK::EC2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::EC2::Types::ImageDiskContainer "\
-          "description=#{description || 'nil'}, "\
-          "device_name=#{device_name || 'nil'}, "\
-          "format=#{format || 'nil'}, "\
-          "snapshot_id=#{snapshot_id || 'nil'}, "\
-          "url=\"[SENSITIVE]\", "\
+        '#<AWS::SDK::EC2::Types::ImageDiskContainer ' \
+          "description=#{description || 'nil'}, " \
+          "device_name=#{device_name || 'nil'}, " \
+          "format=#{format || 'nil'}, " \
+          "snapshot_id=#{snapshot_id || 'nil'}, " \
+          'url=[SENSITIVE], ' \
           "user_bucket=#{user_bucket || 'nil'}>"
       end
     end
@@ -43589,18 +43589,18 @@ module AWS::SDK::EC2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::EC2::Types::ImportInstanceLaunchSpecification "\
-          "additional_info=#{additional_info || 'nil'}, "\
-          "architecture=#{architecture || 'nil'}, "\
-          "group_ids=#{group_ids || 'nil'}, "\
-          "group_names=#{group_names || 'nil'}, "\
-          "instance_initiated_shutdown_behavior=#{instance_initiated_shutdown_behavior || 'nil'}, "\
-          "instance_type=#{instance_type || 'nil'}, "\
-          "monitoring=#{monitoring || 'nil'}, "\
-          "placement=#{placement || 'nil'}, "\
-          "private_ip_address=#{private_ip_address || 'nil'}, "\
-          "subnet_id=#{subnet_id || 'nil'}, "\
-          "user_data=\"[SENSITIVE]\">"
+        '#<AWS::SDK::EC2::Types::ImportInstanceLaunchSpecification ' \
+          "additional_info=#{additional_info || 'nil'}, " \
+          "architecture=#{architecture || 'nil'}, " \
+          "group_ids=#{group_ids || 'nil'}, " \
+          "group_names=#{group_names || 'nil'}, " \
+          "instance_initiated_shutdown_behavior=#{instance_initiated_shutdown_behavior || 'nil'}, " \
+          "instance_type=#{instance_type || 'nil'}, " \
+          "monitoring=#{monitoring || 'nil'}, " \
+          "placement=#{placement || 'nil'}, " \
+          "private_ip_address=#{private_ip_address || 'nil'}, " \
+          "subnet_id=#{subnet_id || 'nil'}, " \
+          'user_data=[SENSITIVE]>'
       end
     end
 
@@ -51038,21 +51038,21 @@ module AWS::SDK::EC2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::EC2::Types::LaunchSpecification "\
-          "user_data=\"[SENSITIVE]\", "\
-          "security_groups=#{security_groups || 'nil'}, "\
-          "addressing_type=#{addressing_type || 'nil'}, "\
-          "block_device_mappings=#{block_device_mappings || 'nil'}, "\
-          "ebs_optimized=#{ebs_optimized || 'nil'}, "\
-          "iam_instance_profile=#{iam_instance_profile || 'nil'}, "\
-          "image_id=#{image_id || 'nil'}, "\
-          "instance_type=#{instance_type || 'nil'}, "\
-          "kernel_id=#{kernel_id || 'nil'}, "\
-          "key_name=#{key_name || 'nil'}, "\
-          "network_interfaces=#{network_interfaces || 'nil'}, "\
-          "placement=#{placement || 'nil'}, "\
-          "ramdisk_id=#{ramdisk_id || 'nil'}, "\
-          "subnet_id=#{subnet_id || 'nil'}, "\
+        '#<AWS::SDK::EC2::Types::LaunchSpecification ' \
+          'user_data=[SENSITIVE], ' \
+          "security_groups=#{security_groups || 'nil'}, " \
+          "addressing_type=#{addressing_type || 'nil'}, " \
+          "block_device_mappings=#{block_device_mappings || 'nil'}, " \
+          "ebs_optimized=#{ebs_optimized || 'nil'}, " \
+          "iam_instance_profile=#{iam_instance_profile || 'nil'}, " \
+          "image_id=#{image_id || 'nil'}, " \
+          "instance_type=#{instance_type || 'nil'}, " \
+          "kernel_id=#{kernel_id || 'nil'}, " \
+          "key_name=#{key_name || 'nil'}, " \
+          "network_interfaces=#{network_interfaces || 'nil'}, " \
+          "placement=#{placement || 'nil'}, " \
+          "ramdisk_id=#{ramdisk_id || 'nil'}, " \
+          "subnet_id=#{subnet_id || 'nil'}, " \
           "monitoring=#{monitoring || 'nil'}>"
       end
     end
@@ -57694,13 +57694,13 @@ module AWS::SDK::EC2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::EC2::Types::ModifyVerifiedAccessTrustProviderOidcOptions "\
-          "issuer=#{issuer || 'nil'}, "\
-          "authorization_endpoint=#{authorization_endpoint || 'nil'}, "\
-          "token_endpoint=#{token_endpoint || 'nil'}, "\
-          "user_info_endpoint=#{user_info_endpoint || 'nil'}, "\
-          "client_id=#{client_id || 'nil'}, "\
-          "client_secret=\"[SENSITIVE]\", "\
+        '#<AWS::SDK::EC2::Types::ModifyVerifiedAccessTrustProviderOidcOptions ' \
+          "issuer=#{issuer || 'nil'}, " \
+          "authorization_endpoint=#{authorization_endpoint || 'nil'}, " \
+          "token_endpoint=#{token_endpoint || 'nil'}, " \
+          "user_info_endpoint=#{user_info_endpoint || 'nil'}, " \
+          "client_id=#{client_id || 'nil'}, " \
+          'client_secret=[SENSITIVE], ' \
           "scope=#{scope || 'nil'}>"
       end
     end
@@ -58578,11 +58578,11 @@ module AWS::SDK::EC2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::EC2::Types::ModifyVpnTunnelOptionsInput "\
-          "vpn_connection_id=#{vpn_connection_id || 'nil'}, "\
-          "vpn_tunnel_outside_ip_address=#{vpn_tunnel_outside_ip_address || 'nil'}, "\
-          "tunnel_options=\"[SENSITIVE]\", "\
-          "dry_run=#{dry_run || 'nil'}, "\
+        '#<AWS::SDK::EC2::Types::ModifyVpnTunnelOptionsInput ' \
+          "vpn_connection_id=#{vpn_connection_id || 'nil'}, " \
+          "vpn_tunnel_outside_ip_address=#{vpn_tunnel_outside_ip_address || 'nil'}, " \
+          'tunnel_options=[SENSITIVE], ' \
+          "dry_run=#{dry_run || 'nil'}, " \
           "skip_tunnel_replacement=#{skip_tunnel_replacement || 'nil'}>"
       end
     end
@@ -60511,13 +60511,13 @@ module AWS::SDK::EC2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::EC2::Types::OidcOptions "\
-          "issuer=#{issuer || 'nil'}, "\
-          "authorization_endpoint=#{authorization_endpoint || 'nil'}, "\
-          "token_endpoint=#{token_endpoint || 'nil'}, "\
-          "user_info_endpoint=#{user_info_endpoint || 'nil'}, "\
-          "client_id=#{client_id || 'nil'}, "\
-          "client_secret=\"[SENSITIVE]\", "\
+        '#<AWS::SDK::EC2::Types::OidcOptions ' \
+          "issuer=#{issuer || 'nil'}, " \
+          "authorization_endpoint=#{authorization_endpoint || 'nil'}, " \
+          "token_endpoint=#{token_endpoint || 'nil'}, " \
+          "user_info_endpoint=#{user_info_endpoint || 'nil'}, " \
+          "client_id=#{client_id || 'nil'}, " \
+          'client_secret=[SENSITIVE], ' \
           "scope=#{scope || 'nil'}>"
       end
     end
@@ -64711,37 +64711,37 @@ module AWS::SDK::EC2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::EC2::Types::RequestLaunchTemplateData "\
-          "kernel_id=#{kernel_id || 'nil'}, "\
-          "ebs_optimized=#{ebs_optimized || 'nil'}, "\
-          "iam_instance_profile=#{iam_instance_profile || 'nil'}, "\
-          "block_device_mappings=#{block_device_mappings || 'nil'}, "\
-          "network_interfaces=#{network_interfaces || 'nil'}, "\
-          "image_id=#{image_id || 'nil'}, "\
-          "instance_type=#{instance_type || 'nil'}, "\
-          "key_name=#{key_name || 'nil'}, "\
-          "monitoring=#{monitoring || 'nil'}, "\
-          "placement=#{placement || 'nil'}, "\
-          "ram_disk_id=#{ram_disk_id || 'nil'}, "\
-          "disable_api_termination=#{disable_api_termination || 'nil'}, "\
-          "instance_initiated_shutdown_behavior=#{instance_initiated_shutdown_behavior || 'nil'}, "\
-          "user_data=\"[SENSITIVE]\", "\
-          "tag_specifications=#{tag_specifications || 'nil'}, "\
-          "elastic_gpu_specifications=#{elastic_gpu_specifications || 'nil'}, "\
-          "elastic_inference_accelerators=#{elastic_inference_accelerators || 'nil'}, "\
-          "security_group_ids=#{security_group_ids || 'nil'}, "\
-          "security_groups=#{security_groups || 'nil'}, "\
-          "instance_market_options=#{instance_market_options || 'nil'}, "\
-          "credit_specification=#{credit_specification || 'nil'}, "\
-          "cpu_options=#{cpu_options || 'nil'}, "\
-          "capacity_reservation_specification=#{capacity_reservation_specification || 'nil'}, "\
-          "license_specifications=#{license_specifications || 'nil'}, "\
-          "hibernation_options=#{hibernation_options || 'nil'}, "\
-          "metadata_options=#{metadata_options || 'nil'}, "\
-          "enclave_options=#{enclave_options || 'nil'}, "\
-          "instance_requirements=#{instance_requirements || 'nil'}, "\
-          "private_dns_name_options=#{private_dns_name_options || 'nil'}, "\
-          "maintenance_options=#{maintenance_options || 'nil'}, "\
+        '#<AWS::SDK::EC2::Types::RequestLaunchTemplateData ' \
+          "kernel_id=#{kernel_id || 'nil'}, " \
+          "ebs_optimized=#{ebs_optimized || 'nil'}, " \
+          "iam_instance_profile=#{iam_instance_profile || 'nil'}, " \
+          "block_device_mappings=#{block_device_mappings || 'nil'}, " \
+          "network_interfaces=#{network_interfaces || 'nil'}, " \
+          "image_id=#{image_id || 'nil'}, " \
+          "instance_type=#{instance_type || 'nil'}, " \
+          "key_name=#{key_name || 'nil'}, " \
+          "monitoring=#{monitoring || 'nil'}, " \
+          "placement=#{placement || 'nil'}, " \
+          "ram_disk_id=#{ram_disk_id || 'nil'}, " \
+          "disable_api_termination=#{disable_api_termination || 'nil'}, " \
+          "instance_initiated_shutdown_behavior=#{instance_initiated_shutdown_behavior || 'nil'}, " \
+          'user_data=[SENSITIVE], ' \
+          "tag_specifications=#{tag_specifications || 'nil'}, " \
+          "elastic_gpu_specifications=#{elastic_gpu_specifications || 'nil'}, " \
+          "elastic_inference_accelerators=#{elastic_inference_accelerators || 'nil'}, " \
+          "security_group_ids=#{security_group_ids || 'nil'}, " \
+          "security_groups=#{security_groups || 'nil'}, " \
+          "instance_market_options=#{instance_market_options || 'nil'}, " \
+          "credit_specification=#{credit_specification || 'nil'}, " \
+          "cpu_options=#{cpu_options || 'nil'}, " \
+          "capacity_reservation_specification=#{capacity_reservation_specification || 'nil'}, " \
+          "license_specifications=#{license_specifications || 'nil'}, " \
+          "hibernation_options=#{hibernation_options || 'nil'}, " \
+          "metadata_options=#{metadata_options || 'nil'}, " \
+          "enclave_options=#{enclave_options || 'nil'}, " \
+          "instance_requirements=#{instance_requirements || 'nil'}, " \
+          "private_dns_name_options=#{private_dns_name_options || 'nil'}, " \
+          "maintenance_options=#{maintenance_options || 'nil'}, " \
           "disable_api_stop=#{disable_api_stop || 'nil'}>"
       end
     end
@@ -65033,23 +65033,23 @@ module AWS::SDK::EC2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::EC2::Types::RequestSpotLaunchSpecification "\
-          "security_group_ids=#{security_group_ids || 'nil'}, "\
-          "security_groups=#{security_groups || 'nil'}, "\
-          "addressing_type=#{addressing_type || 'nil'}, "\
-          "block_device_mappings=#{block_device_mappings || 'nil'}, "\
-          "ebs_optimized=#{ebs_optimized || 'nil'}, "\
-          "iam_instance_profile=#{iam_instance_profile || 'nil'}, "\
-          "image_id=#{image_id || 'nil'}, "\
-          "instance_type=#{instance_type || 'nil'}, "\
-          "kernel_id=#{kernel_id || 'nil'}, "\
-          "key_name=#{key_name || 'nil'}, "\
-          "monitoring=#{monitoring || 'nil'}, "\
-          "network_interfaces=#{network_interfaces || 'nil'}, "\
-          "placement=#{placement || 'nil'}, "\
-          "ramdisk_id=#{ramdisk_id || 'nil'}, "\
-          "subnet_id=#{subnet_id || 'nil'}, "\
-          "user_data=\"[SENSITIVE]\">"
+        '#<AWS::SDK::EC2::Types::RequestSpotLaunchSpecification ' \
+          "security_group_ids=#{security_group_ids || 'nil'}, " \
+          "security_groups=#{security_groups || 'nil'}, " \
+          "addressing_type=#{addressing_type || 'nil'}, " \
+          "block_device_mappings=#{block_device_mappings || 'nil'}, " \
+          "ebs_optimized=#{ebs_optimized || 'nil'}, " \
+          "iam_instance_profile=#{iam_instance_profile || 'nil'}, " \
+          "image_id=#{image_id || 'nil'}, " \
+          "instance_type=#{instance_type || 'nil'}, " \
+          "kernel_id=#{kernel_id || 'nil'}, " \
+          "key_name=#{key_name || 'nil'}, " \
+          "monitoring=#{monitoring || 'nil'}, " \
+          "network_interfaces=#{network_interfaces || 'nil'}, " \
+          "placement=#{placement || 'nil'}, " \
+          "ramdisk_id=#{ramdisk_id || 'nil'}, " \
+          "subnet_id=#{subnet_id || 'nil'}, " \
+          'user_data=[SENSITIVE]>'
       end
     end
 
@@ -66425,37 +66425,37 @@ module AWS::SDK::EC2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::EC2::Types::ResponseLaunchTemplateData "\
-          "kernel_id=#{kernel_id || 'nil'}, "\
-          "ebs_optimized=#{ebs_optimized || 'nil'}, "\
-          "iam_instance_profile=#{iam_instance_profile || 'nil'}, "\
-          "block_device_mappings=#{block_device_mappings || 'nil'}, "\
-          "network_interfaces=#{network_interfaces || 'nil'}, "\
-          "image_id=#{image_id || 'nil'}, "\
-          "instance_type=#{instance_type || 'nil'}, "\
-          "key_name=#{key_name || 'nil'}, "\
-          "monitoring=#{monitoring || 'nil'}, "\
-          "placement=#{placement || 'nil'}, "\
-          "ram_disk_id=#{ram_disk_id || 'nil'}, "\
-          "disable_api_termination=#{disable_api_termination || 'nil'}, "\
-          "instance_initiated_shutdown_behavior=#{instance_initiated_shutdown_behavior || 'nil'}, "\
-          "user_data=\"[SENSITIVE]\", "\
-          "tag_specifications=#{tag_specifications || 'nil'}, "\
-          "elastic_gpu_specifications=#{elastic_gpu_specifications || 'nil'}, "\
-          "elastic_inference_accelerators=#{elastic_inference_accelerators || 'nil'}, "\
-          "security_group_ids=#{security_group_ids || 'nil'}, "\
-          "security_groups=#{security_groups || 'nil'}, "\
-          "instance_market_options=#{instance_market_options || 'nil'}, "\
-          "credit_specification=#{credit_specification || 'nil'}, "\
-          "cpu_options=#{cpu_options || 'nil'}, "\
-          "capacity_reservation_specification=#{capacity_reservation_specification || 'nil'}, "\
-          "license_specifications=#{license_specifications || 'nil'}, "\
-          "hibernation_options=#{hibernation_options || 'nil'}, "\
-          "metadata_options=#{metadata_options || 'nil'}, "\
-          "enclave_options=#{enclave_options || 'nil'}, "\
-          "instance_requirements=#{instance_requirements || 'nil'}, "\
-          "private_dns_name_options=#{private_dns_name_options || 'nil'}, "\
-          "maintenance_options=#{maintenance_options || 'nil'}, "\
+        '#<AWS::SDK::EC2::Types::ResponseLaunchTemplateData ' \
+          "kernel_id=#{kernel_id || 'nil'}, " \
+          "ebs_optimized=#{ebs_optimized || 'nil'}, " \
+          "iam_instance_profile=#{iam_instance_profile || 'nil'}, " \
+          "block_device_mappings=#{block_device_mappings || 'nil'}, " \
+          "network_interfaces=#{network_interfaces || 'nil'}, " \
+          "image_id=#{image_id || 'nil'}, " \
+          "instance_type=#{instance_type || 'nil'}, " \
+          "key_name=#{key_name || 'nil'}, " \
+          "monitoring=#{monitoring || 'nil'}, " \
+          "placement=#{placement || 'nil'}, " \
+          "ram_disk_id=#{ram_disk_id || 'nil'}, " \
+          "disable_api_termination=#{disable_api_termination || 'nil'}, " \
+          "instance_initiated_shutdown_behavior=#{instance_initiated_shutdown_behavior || 'nil'}, " \
+          'user_data=[SENSITIVE], ' \
+          "tag_specifications=#{tag_specifications || 'nil'}, " \
+          "elastic_gpu_specifications=#{elastic_gpu_specifications || 'nil'}, " \
+          "elastic_inference_accelerators=#{elastic_inference_accelerators || 'nil'}, " \
+          "security_group_ids=#{security_group_ids || 'nil'}, " \
+          "security_groups=#{security_groups || 'nil'}, " \
+          "instance_market_options=#{instance_market_options || 'nil'}, " \
+          "credit_specification=#{credit_specification || 'nil'}, " \
+          "cpu_options=#{cpu_options || 'nil'}, " \
+          "capacity_reservation_specification=#{capacity_reservation_specification || 'nil'}, " \
+          "license_specifications=#{license_specifications || 'nil'}, " \
+          "hibernation_options=#{hibernation_options || 'nil'}, " \
+          "metadata_options=#{metadata_options || 'nil'}, " \
+          "enclave_options=#{enclave_options || 'nil'}, " \
+          "instance_requirements=#{instance_requirements || 'nil'}, " \
+          "private_dns_name_options=#{private_dns_name_options || 'nil'}, " \
+          "maintenance_options=#{maintenance_options || 'nil'}, " \
           "disable_api_stop=#{disable_api_stop || 'nil'}>"
       end
     end
@@ -67711,47 +67711,47 @@ module AWS::SDK::EC2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::EC2::Types::RunInstancesInput "\
-          "block_device_mappings=#{block_device_mappings || 'nil'}, "\
-          "image_id=#{image_id || 'nil'}, "\
-          "instance_type=#{instance_type || 'nil'}, "\
-          "ipv6_address_count=#{ipv6_address_count || 'nil'}, "\
-          "ipv6_addresses=#{ipv6_addresses || 'nil'}, "\
-          "kernel_id=#{kernel_id || 'nil'}, "\
-          "key_name=#{key_name || 'nil'}, "\
-          "max_count=#{max_count || 'nil'}, "\
-          "min_count=#{min_count || 'nil'}, "\
-          "monitoring=#{monitoring || 'nil'}, "\
-          "placement=#{placement || 'nil'}, "\
-          "ramdisk_id=#{ramdisk_id || 'nil'}, "\
-          "security_group_ids=#{security_group_ids || 'nil'}, "\
-          "security_groups=#{security_groups || 'nil'}, "\
-          "subnet_id=#{subnet_id || 'nil'}, "\
-          "user_data=\"[SENSITIVE]\", "\
-          "additional_info=#{additional_info || 'nil'}, "\
-          "client_token=#{client_token || 'nil'}, "\
-          "disable_api_termination=#{disable_api_termination || 'nil'}, "\
-          "dry_run=#{dry_run || 'nil'}, "\
-          "ebs_optimized=#{ebs_optimized || 'nil'}, "\
-          "iam_instance_profile=#{iam_instance_profile || 'nil'}, "\
-          "instance_initiated_shutdown_behavior=#{instance_initiated_shutdown_behavior || 'nil'}, "\
-          "network_interfaces=#{network_interfaces || 'nil'}, "\
-          "private_ip_address=#{private_ip_address || 'nil'}, "\
-          "elastic_gpu_specification=#{elastic_gpu_specification || 'nil'}, "\
-          "elastic_inference_accelerators=#{elastic_inference_accelerators || 'nil'}, "\
-          "tag_specifications=#{tag_specifications || 'nil'}, "\
-          "launch_template=#{launch_template || 'nil'}, "\
-          "instance_market_options=#{instance_market_options || 'nil'}, "\
-          "credit_specification=#{credit_specification || 'nil'}, "\
-          "cpu_options=#{cpu_options || 'nil'}, "\
-          "capacity_reservation_specification=#{capacity_reservation_specification || 'nil'}, "\
-          "hibernation_options=#{hibernation_options || 'nil'}, "\
-          "license_specifications=#{license_specifications || 'nil'}, "\
-          "metadata_options=#{metadata_options || 'nil'}, "\
-          "enclave_options=#{enclave_options || 'nil'}, "\
-          "private_dns_name_options=#{private_dns_name_options || 'nil'}, "\
-          "maintenance_options=#{maintenance_options || 'nil'}, "\
-          "disable_api_stop=#{disable_api_stop || 'nil'}, "\
+        '#<AWS::SDK::EC2::Types::RunInstancesInput ' \
+          "block_device_mappings=#{block_device_mappings || 'nil'}, " \
+          "image_id=#{image_id || 'nil'}, " \
+          "instance_type=#{instance_type || 'nil'}, " \
+          "ipv6_address_count=#{ipv6_address_count || 'nil'}, " \
+          "ipv6_addresses=#{ipv6_addresses || 'nil'}, " \
+          "kernel_id=#{kernel_id || 'nil'}, " \
+          "key_name=#{key_name || 'nil'}, " \
+          "max_count=#{max_count || 'nil'}, " \
+          "min_count=#{min_count || 'nil'}, " \
+          "monitoring=#{monitoring || 'nil'}, " \
+          "placement=#{placement || 'nil'}, " \
+          "ramdisk_id=#{ramdisk_id || 'nil'}, " \
+          "security_group_ids=#{security_group_ids || 'nil'}, " \
+          "security_groups=#{security_groups || 'nil'}, " \
+          "subnet_id=#{subnet_id || 'nil'}, " \
+          'user_data=[SENSITIVE], ' \
+          "additional_info=#{additional_info || 'nil'}, " \
+          "client_token=#{client_token || 'nil'}, " \
+          "disable_api_termination=#{disable_api_termination || 'nil'}, " \
+          "dry_run=#{dry_run || 'nil'}, " \
+          "ebs_optimized=#{ebs_optimized || 'nil'}, " \
+          "iam_instance_profile=#{iam_instance_profile || 'nil'}, " \
+          "instance_initiated_shutdown_behavior=#{instance_initiated_shutdown_behavior || 'nil'}, " \
+          "network_interfaces=#{network_interfaces || 'nil'}, " \
+          "private_ip_address=#{private_ip_address || 'nil'}, " \
+          "elastic_gpu_specification=#{elastic_gpu_specification || 'nil'}, " \
+          "elastic_inference_accelerators=#{elastic_inference_accelerators || 'nil'}, " \
+          "tag_specifications=#{tag_specifications || 'nil'}, " \
+          "launch_template=#{launch_template || 'nil'}, " \
+          "instance_market_options=#{instance_market_options || 'nil'}, " \
+          "credit_specification=#{credit_specification || 'nil'}, " \
+          "cpu_options=#{cpu_options || 'nil'}, " \
+          "capacity_reservation_specification=#{capacity_reservation_specification || 'nil'}, " \
+          "hibernation_options=#{hibernation_options || 'nil'}, " \
+          "license_specifications=#{license_specifications || 'nil'}, " \
+          "metadata_options=#{metadata_options || 'nil'}, " \
+          "enclave_options=#{enclave_options || 'nil'}, " \
+          "private_dns_name_options=#{private_dns_name_options || 'nil'}, " \
+          "maintenance_options=#{maintenance_options || 'nil'}, " \
+          "disable_api_stop=#{disable_api_stop || 'nil'}, " \
           "enable_primary_ipv6=#{enable_primary_ipv6 || 'nil'}>"
       end
     end
@@ -67856,11 +67856,11 @@ module AWS::SDK::EC2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::EC2::Types::RunScheduledInstancesInput "\
-          "client_token=#{client_token || 'nil'}, "\
-          "dry_run=#{dry_run || 'nil'}, "\
-          "instance_count=#{instance_count || 'nil'}, "\
-          "launch_specification=\"[SENSITIVE]\", "\
+        '#<AWS::SDK::EC2::Types::RunScheduledInstancesInput ' \
+          "client_token=#{client_token || 'nil'}, " \
+          "dry_run=#{dry_run || 'nil'}, " \
+          "instance_count=#{instance_count || 'nil'}, " \
+          'launch_specification=[SENSITIVE], ' \
           "scheduled_instance_id=#{scheduled_instance_id || 'nil'}>"
       end
     end
@@ -67950,12 +67950,12 @@ module AWS::SDK::EC2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::EC2::Types::S3Storage "\
-          "aws_access_key_id=#{aws_access_key_id || 'nil'}, "\
-          "bucket=#{bucket || 'nil'}, "\
-          "prefix=#{prefix || 'nil'}, "\
-          "upload_policy=#{upload_policy || 'nil'}, "\
-          "upload_policy_signature=\"[SENSITIVE]\">"
+        '#<AWS::SDK::EC2::Types::S3Storage ' \
+          "aws_access_key_id=#{aws_access_key_id || 'nil'}, " \
+          "bucket=#{bucket || 'nil'}, " \
+          "prefix=#{prefix || 'nil'}, " \
+          "upload_policy=#{upload_policy || 'nil'}, " \
+          'upload_policy_signature=[SENSITIVE]>'
       end
     end
 
@@ -69734,16 +69734,16 @@ module AWS::SDK::EC2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::EC2::Types::SnapshotDetail "\
-          "description=#{description || 'nil'}, "\
-          "device_name=#{device_name || 'nil'}, "\
-          "disk_image_size=#{disk_image_size || 'nil'}, "\
-          "format=#{format || 'nil'}, "\
-          "progress=#{progress || 'nil'}, "\
-          "snapshot_id=#{snapshot_id || 'nil'}, "\
-          "status=#{status || 'nil'}, "\
-          "status_message=#{status_message || 'nil'}, "\
-          "url=\"[SENSITIVE]\", "\
+        '#<AWS::SDK::EC2::Types::SnapshotDetail ' \
+          "description=#{description || 'nil'}, " \
+          "device_name=#{device_name || 'nil'}, " \
+          "disk_image_size=#{disk_image_size || 'nil'}, " \
+          "format=#{format || 'nil'}, " \
+          "progress=#{progress || 'nil'}, " \
+          "snapshot_id=#{snapshot_id || 'nil'}, " \
+          "status=#{status || 'nil'}, " \
+          "status_message=#{status_message || 'nil'}, " \
+          'url=[SENSITIVE], ' \
           "user_bucket=#{user_bucket || 'nil'}>"
       end
     end
@@ -69783,10 +69783,10 @@ module AWS::SDK::EC2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::EC2::Types::SnapshotDiskContainer "\
-          "description=#{description || 'nil'}, "\
-          "format=#{format || 'nil'}, "\
-          "url=\"[SENSITIVE]\", "\
+        '#<AWS::SDK::EC2::Types::SnapshotDiskContainer ' \
+          "description=#{description || 'nil'}, " \
+          "format=#{format || 'nil'}, " \
+          'url=[SENSITIVE], ' \
           "user_bucket=#{user_bucket || 'nil'}>"
       end
     end
@@ -69985,17 +69985,17 @@ module AWS::SDK::EC2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::EC2::Types::SnapshotTaskDetail "\
-          "description=#{description || 'nil'}, "\
-          "disk_image_size=#{disk_image_size || 'nil'}, "\
-          "encrypted=#{encrypted || 'nil'}, "\
-          "format=#{format || 'nil'}, "\
-          "kms_key_id=#{kms_key_id || 'nil'}, "\
-          "progress=#{progress || 'nil'}, "\
-          "snapshot_id=#{snapshot_id || 'nil'}, "\
-          "status=#{status || 'nil'}, "\
-          "status_message=#{status_message || 'nil'}, "\
-          "url=\"[SENSITIVE]\", "\
+        '#<AWS::SDK::EC2::Types::SnapshotTaskDetail ' \
+          "description=#{description || 'nil'}, " \
+          "disk_image_size=#{disk_image_size || 'nil'}, " \
+          "encrypted=#{encrypted || 'nil'}, " \
+          "format=#{format || 'nil'}, " \
+          "kms_key_id=#{kms_key_id || 'nil'}, " \
+          "progress=#{progress || 'nil'}, " \
+          "snapshot_id=#{snapshot_id || 'nil'}, " \
+          "status=#{status || 'nil'}, " \
+          "status_message=#{status_message || 'nil'}, " \
+          'url=[SENSITIVE], ' \
           "user_bucket=#{user_bucket || 'nil'}>"
       end
     end
@@ -70304,25 +70304,25 @@ module AWS::SDK::EC2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::EC2::Types::SpotFleetLaunchSpecification "\
-          "security_groups=#{security_groups || 'nil'}, "\
-          "addressing_type=#{addressing_type || 'nil'}, "\
-          "block_device_mappings=#{block_device_mappings || 'nil'}, "\
-          "ebs_optimized=#{ebs_optimized || 'nil'}, "\
-          "iam_instance_profile=#{iam_instance_profile || 'nil'}, "\
-          "image_id=#{image_id || 'nil'}, "\
-          "instance_type=#{instance_type || 'nil'}, "\
-          "kernel_id=#{kernel_id || 'nil'}, "\
-          "key_name=#{key_name || 'nil'}, "\
-          "monitoring=#{monitoring || 'nil'}, "\
-          "network_interfaces=#{network_interfaces || 'nil'}, "\
-          "placement=#{placement || 'nil'}, "\
-          "ramdisk_id=#{ramdisk_id || 'nil'}, "\
-          "spot_price=#{spot_price || 'nil'}, "\
-          "subnet_id=#{subnet_id || 'nil'}, "\
-          "user_data=\"[SENSITIVE]\", "\
-          "weighted_capacity=#{weighted_capacity || 'nil'}, "\
-          "tag_specifications=#{tag_specifications || 'nil'}, "\
+        '#<AWS::SDK::EC2::Types::SpotFleetLaunchSpecification ' \
+          "security_groups=#{security_groups || 'nil'}, " \
+          "addressing_type=#{addressing_type || 'nil'}, " \
+          "block_device_mappings=#{block_device_mappings || 'nil'}, " \
+          "ebs_optimized=#{ebs_optimized || 'nil'}, " \
+          "iam_instance_profile=#{iam_instance_profile || 'nil'}, " \
+          "image_id=#{image_id || 'nil'}, " \
+          "instance_type=#{instance_type || 'nil'}, " \
+          "kernel_id=#{kernel_id || 'nil'}, " \
+          "key_name=#{key_name || 'nil'}, " \
+          "monitoring=#{monitoring || 'nil'}, " \
+          "network_interfaces=#{network_interfaces || 'nil'}, " \
+          "placement=#{placement || 'nil'}, " \
+          "ramdisk_id=#{ramdisk_id || 'nil'}, " \
+          "spot_price=#{spot_price || 'nil'}, " \
+          "subnet_id=#{subnet_id || 'nil'}, " \
+          'user_data=[SENSITIVE], ' \
+          "weighted_capacity=#{weighted_capacity || 'nil'}, " \
+          "tag_specifications=#{tag_specifications || 'nil'}, " \
           "instance_requirements=#{instance_requirements || 'nil'}>"
       end
     end
@@ -75368,27 +75368,27 @@ module AWS::SDK::EC2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::EC2::Types::TunnelOption "\
-          "outside_ip_address=#{outside_ip_address || 'nil'}, "\
-          "tunnel_inside_cidr=#{tunnel_inside_cidr || 'nil'}, "\
-          "tunnel_inside_ipv6_cidr=#{tunnel_inside_ipv6_cidr || 'nil'}, "\
-          "pre_shared_key=\"[SENSITIVE]\", "\
-          "phase1_lifetime_seconds=#{phase1_lifetime_seconds || 'nil'}, "\
-          "phase2_lifetime_seconds=#{phase2_lifetime_seconds || 'nil'}, "\
-          "rekey_margin_time_seconds=#{rekey_margin_time_seconds || 'nil'}, "\
-          "rekey_fuzz_percentage=#{rekey_fuzz_percentage || 'nil'}, "\
-          "replay_window_size=#{replay_window_size || 'nil'}, "\
-          "dpd_timeout_seconds=#{dpd_timeout_seconds || 'nil'}, "\
-          "dpd_timeout_action=#{dpd_timeout_action || 'nil'}, "\
-          "phase1_encryption_algorithms=#{phase1_encryption_algorithms || 'nil'}, "\
-          "phase2_encryption_algorithms=#{phase2_encryption_algorithms || 'nil'}, "\
-          "phase1_integrity_algorithms=#{phase1_integrity_algorithms || 'nil'}, "\
-          "phase2_integrity_algorithms=#{phase2_integrity_algorithms || 'nil'}, "\
-          "phase1_dh_group_numbers=#{phase1_dh_group_numbers || 'nil'}, "\
-          "phase2_dh_group_numbers=#{phase2_dh_group_numbers || 'nil'}, "\
-          "ike_versions=#{ike_versions || 'nil'}, "\
-          "startup_action=#{startup_action || 'nil'}, "\
-          "log_options=#{log_options || 'nil'}, "\
+        '#<AWS::SDK::EC2::Types::TunnelOption ' \
+          "outside_ip_address=#{outside_ip_address || 'nil'}, " \
+          "tunnel_inside_cidr=#{tunnel_inside_cidr || 'nil'}, " \
+          "tunnel_inside_ipv6_cidr=#{tunnel_inside_ipv6_cidr || 'nil'}, " \
+          'pre_shared_key=[SENSITIVE], ' \
+          "phase1_lifetime_seconds=#{phase1_lifetime_seconds || 'nil'}, " \
+          "phase2_lifetime_seconds=#{phase2_lifetime_seconds || 'nil'}, " \
+          "rekey_margin_time_seconds=#{rekey_margin_time_seconds || 'nil'}, " \
+          "rekey_fuzz_percentage=#{rekey_fuzz_percentage || 'nil'}, " \
+          "replay_window_size=#{replay_window_size || 'nil'}, " \
+          "dpd_timeout_seconds=#{dpd_timeout_seconds || 'nil'}, " \
+          "dpd_timeout_action=#{dpd_timeout_action || 'nil'}, " \
+          "phase1_encryption_algorithms=#{phase1_encryption_algorithms || 'nil'}, " \
+          "phase2_encryption_algorithms=#{phase2_encryption_algorithms || 'nil'}, " \
+          "phase1_integrity_algorithms=#{phase1_integrity_algorithms || 'nil'}, " \
+          "phase2_integrity_algorithms=#{phase2_integrity_algorithms || 'nil'}, " \
+          "phase1_dh_group_numbers=#{phase1_dh_group_numbers || 'nil'}, " \
+          "phase2_dh_group_numbers=#{phase2_dh_group_numbers || 'nil'}, " \
+          "ike_versions=#{ike_versions || 'nil'}, " \
+          "startup_action=#{startup_action || 'nil'}, " \
+          "log_options=#{log_options || 'nil'}, " \
           "enable_tunnel_lifecycle_control=#{enable_tunnel_lifecycle_control || 'nil'}>"
       end
     end
@@ -78204,21 +78204,21 @@ module AWS::SDK::EC2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::EC2::Types::VpnConnection "\
-          "customer_gateway_configuration=\"[SENSITIVE]\", "\
-          "customer_gateway_id=#{customer_gateway_id || 'nil'}, "\
-          "category=#{category || 'nil'}, "\
-          "state=#{state || 'nil'}, "\
-          "type=#{type || 'nil'}, "\
-          "vpn_connection_id=#{vpn_connection_id || 'nil'}, "\
-          "vpn_gateway_id=#{vpn_gateway_id || 'nil'}, "\
-          "transit_gateway_id=#{transit_gateway_id || 'nil'}, "\
-          "core_network_arn=#{core_network_arn || 'nil'}, "\
-          "core_network_attachment_arn=#{core_network_attachment_arn || 'nil'}, "\
-          "gateway_association_state=#{gateway_association_state || 'nil'}, "\
-          "options=#{options || 'nil'}, "\
-          "routes=#{routes || 'nil'}, "\
-          "tags=#{tags || 'nil'}, "\
+        '#<AWS::SDK::EC2::Types::VpnConnection ' \
+          'customer_gateway_configuration=[SENSITIVE], ' \
+          "customer_gateway_id=#{customer_gateway_id || 'nil'}, " \
+          "category=#{category || 'nil'}, " \
+          "state=#{state || 'nil'}, " \
+          "type=#{type || 'nil'}, " \
+          "vpn_connection_id=#{vpn_connection_id || 'nil'}, " \
+          "vpn_gateway_id=#{vpn_gateway_id || 'nil'}, " \
+          "transit_gateway_id=#{transit_gateway_id || 'nil'}, " \
+          "core_network_arn=#{core_network_arn || 'nil'}, " \
+          "core_network_attachment_arn=#{core_network_attachment_arn || 'nil'}, " \
+          "gateway_association_state=#{gateway_association_state || 'nil'}, " \
+          "options=#{options || 'nil'}, " \
+          "routes=#{routes || 'nil'}, " \
+          "tags=#{tags || 'nil'}, " \
           "vgw_telemetry=#{vgw_telemetry || 'nil'}>"
       end
     end
@@ -78774,26 +78774,26 @@ module AWS::SDK::EC2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::EC2::Types::VpnTunnelOptionsSpecification "\
-          "tunnel_inside_cidr=#{tunnel_inside_cidr || 'nil'}, "\
-          "tunnel_inside_ipv6_cidr=#{tunnel_inside_ipv6_cidr || 'nil'}, "\
-          "pre_shared_key=\"[SENSITIVE]\", "\
-          "phase1_lifetime_seconds=#{phase1_lifetime_seconds || 'nil'}, "\
-          "phase2_lifetime_seconds=#{phase2_lifetime_seconds || 'nil'}, "\
-          "rekey_margin_time_seconds=#{rekey_margin_time_seconds || 'nil'}, "\
-          "rekey_fuzz_percentage=#{rekey_fuzz_percentage || 'nil'}, "\
-          "replay_window_size=#{replay_window_size || 'nil'}, "\
-          "dpd_timeout_seconds=#{dpd_timeout_seconds || 'nil'}, "\
-          "dpd_timeout_action=#{dpd_timeout_action || 'nil'}, "\
-          "phase1_encryption_algorithms=#{phase1_encryption_algorithms || 'nil'}, "\
-          "phase2_encryption_algorithms=#{phase2_encryption_algorithms || 'nil'}, "\
-          "phase1_integrity_algorithms=#{phase1_integrity_algorithms || 'nil'}, "\
-          "phase2_integrity_algorithms=#{phase2_integrity_algorithms || 'nil'}, "\
-          "phase1_dh_group_numbers=#{phase1_dh_group_numbers || 'nil'}, "\
-          "phase2_dh_group_numbers=#{phase2_dh_group_numbers || 'nil'}, "\
-          "ike_versions=#{ike_versions || 'nil'}, "\
-          "startup_action=#{startup_action || 'nil'}, "\
-          "log_options=#{log_options || 'nil'}, "\
+        '#<AWS::SDK::EC2::Types::VpnTunnelOptionsSpecification ' \
+          "tunnel_inside_cidr=#{tunnel_inside_cidr || 'nil'}, " \
+          "tunnel_inside_ipv6_cidr=#{tunnel_inside_ipv6_cidr || 'nil'}, " \
+          'pre_shared_key=[SENSITIVE], ' \
+          "phase1_lifetime_seconds=#{phase1_lifetime_seconds || 'nil'}, " \
+          "phase2_lifetime_seconds=#{phase2_lifetime_seconds || 'nil'}, " \
+          "rekey_margin_time_seconds=#{rekey_margin_time_seconds || 'nil'}, " \
+          "rekey_fuzz_percentage=#{rekey_fuzz_percentage || 'nil'}, " \
+          "replay_window_size=#{replay_window_size || 'nil'}, " \
+          "dpd_timeout_seconds=#{dpd_timeout_seconds || 'nil'}, " \
+          "dpd_timeout_action=#{dpd_timeout_action || 'nil'}, " \
+          "phase1_encryption_algorithms=#{phase1_encryption_algorithms || 'nil'}, " \
+          "phase2_encryption_algorithms=#{phase2_encryption_algorithms || 'nil'}, " \
+          "phase1_integrity_algorithms=#{phase1_integrity_algorithms || 'nil'}, " \
+          "phase2_integrity_algorithms=#{phase2_integrity_algorithms || 'nil'}, " \
+          "phase1_dh_group_numbers=#{phase1_dh_group_numbers || 'nil'}, " \
+          "phase2_dh_group_numbers=#{phase2_dh_group_numbers || 'nil'}, " \
+          "ike_versions=#{ike_versions || 'nil'}, " \
+          "startup_action=#{startup_action || 'nil'}, " \
+          "log_options=#{log_options || 'nil'}, " \
           "enable_tunnel_lifecycle_control=#{enable_tunnel_lifecycle_control || 'nil'}>"
       end
     end
