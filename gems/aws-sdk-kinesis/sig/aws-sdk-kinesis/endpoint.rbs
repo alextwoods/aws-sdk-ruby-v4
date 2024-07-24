@@ -9,15 +9,16 @@
 
 module AWS::SDK::Kinesis
   module Endpoint
-    class Params < ::Struct[untyped]
-      attr_accessor stream_arn: ::String
-      attr_accessor endpoint: ::String
-      attr_accessor consumer_arn: ::String
-      attr_accessor use_dual_stack: bool
-      attr_accessor use_fips: bool
-      attr_accessor operation_type: ::String
-      attr_accessor resource_arn: ::String
-      attr_accessor region: ::String
+    class Params
+      def initialize: (?stream_arn: ::String?, ?endpoint: ::String?, ?consumer_arn: ::String?, ?use_dual_stack: bool?, ?use_fips: bool?, ?operation_type: ::String?, ?resource_arn: ::String?, ?region: ::String?) -> void
+      attr_accessor stream_arn (): ::String?
+      attr_accessor endpoint (): ::String?
+      attr_accessor consumer_arn (): ::String?
+      attr_accessor use_dual_stack (): bool?
+      attr_accessor use_fips (): bool?
+      attr_accessor operation_type (): ::String?
+      attr_accessor resource_arn (): ::String?
+      attr_accessor region (): ::String?
     end
 
     class Resolver

@@ -2999,10 +2999,6 @@ module AWS::SDK::Kinesis
         def to_h
           { subscribe_to_shard_event: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::Kinesis::Types::SubscribeToShardEvent #{__getobj__ || 'nil'}>"
-        end
       end
 
       # <p>The requested resource could not be found. The stream might not be specified
@@ -3010,10 +3006,6 @@ module AWS::SDK::Kinesis
       class ResourceNotFoundException < SubscribeToShardEventStream
         def to_h
           { resource_not_found_exception: super(__getobj__) }
-        end
-
-        def to_s
-          "#<AWS::SDK::Kinesis::Types::ResourceNotFoundException #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -3023,10 +3015,6 @@ module AWS::SDK::Kinesis
         def to_h
           { resource_in_use_exception: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::Kinesis::Types::ResourceInUseException #{__getobj__ || 'nil'}>"
-        end
       end
 
       # <p>The request was rejected because the specified customer master key (CMK) isn't
@@ -3034,10 +3022,6 @@ module AWS::SDK::Kinesis
       class KmsDisabledException < SubscribeToShardEventStream
         def to_h
           { kms_disabled_exception: super(__getobj__) }
-        end
-
-        def to_s
-          "#<AWS::SDK::Kinesis::Types::KmsDisabledException #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -3049,10 +3033,6 @@ module AWS::SDK::Kinesis
         def to_h
           { kms_invalid_state_exception: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::Kinesis::Types::KmsInvalidStateException #{__getobj__ || 'nil'}>"
-        end
       end
 
       # <p>The ciphertext references a key that doesn't exist or that you don't have access
@@ -3060,10 +3040,6 @@ module AWS::SDK::Kinesis
       class KmsAccessDeniedException < SubscribeToShardEventStream
         def to_h
           { kms_access_denied_exception: super(__getobj__) }
-        end
-
-        def to_s
-          "#<AWS::SDK::Kinesis::Types::KmsAccessDeniedException #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -3073,20 +3049,12 @@ module AWS::SDK::Kinesis
         def to_h
           { kms_not_found_exception: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::Kinesis::Types::KmsNotFoundException #{__getobj__ || 'nil'}>"
-        end
       end
 
       # <p>The Amazon Web Services access key ID needs a subscription for the service.</p>
       class KmsOptInRequired < SubscribeToShardEventStream
         def to_h
           { kms_opt_in_required: super(__getobj__) }
-        end
-
-        def to_s
-          "#<AWS::SDK::Kinesis::Types::KmsOptInRequired #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -3098,10 +3066,6 @@ module AWS::SDK::Kinesis
         def to_h
           { kms_throttling_exception: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::Kinesis::Types::KmsThrottlingException #{__getobj__ || 'nil'}>"
-        end
       end
 
       # <p>The processing of the request failed because of an unknown error, exception, or
@@ -3109,10 +3073,6 @@ module AWS::SDK::Kinesis
       class InternalFailureException < SubscribeToShardEventStream
         def to_h
           { internal_failure_exception: super(__getobj__) }
-        end
-
-        def to_s
-          "#<AWS::SDK::Kinesis::Types::InternalFailureException #{__getobj__ || 'nil'}>"
         end
       end
 

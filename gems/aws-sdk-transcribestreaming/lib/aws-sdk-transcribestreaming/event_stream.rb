@@ -10,35 +10,123 @@
 module AWS::SDK::TranscribeStreaming
   module EventStream
 
+    # EventStreamHandler for the the {Client#start_call_analytics_stream_transcription} operation.
+    # Register event handlers using the +#on_<event_name>+ methods
+    # and set the handler using the +event_stream_handler+ option
+    # on the {Client#start_call_analytics_stream_transcription} method.
+    # @example Basic Usage
+    #   handler = StartCallAnalyticsStreamTranscription.new
+    #   # register handlers for the events you are interested in
+    #   handler.on_initial_response { |initial_response| process(initial_response) }
+    #   client.start_call_analytics_stream_transcription(params, event_stream_handler: handler)
     class StartCallAnalyticsStreamTranscriptionHandler < Hearth::EventStream::HandlerBase
 
+      # Register an event handler for utterance_event events
+      # @yield [event] Called when utterance_event events are received.
+      # @yieldparam event [Types::UtteranceEvent] the event.
+      # @example Event structure
+      #   event #=> Types::UtteranceEvent
+      #   event.utterance_id #=> String
+      #   event.is_partial #=> Boolean
+      #   event.participant_role #=> String, one of ["AGENT", "CUSTOMER"]
+      #   event.begin_offset_millis #=> Integer
+      #   event.end_offset_millis #=> Integer
+      #   event.transcript #=> String
+      #   event.items #=> Array<CallAnalyticsItem>
+      #   event.items[0] #=> Types::CallAnalyticsItem
+      #   event.items[0].begin_offset_millis #=> Integer
+      #   event.items[0].end_offset_millis #=> Integer
+      #   event.items[0].type #=> String, one of ["pronunciation", "punctuation"]
+      #   event.items[0].content #=> String
+      #   event.items[0].confidence #=> Float
+      #   event.items[0].vocabulary_filter_match #=> Boolean
+      #   event.items[0].stable #=> Boolean
+      #   event.entities #=> Array<CallAnalyticsEntity>
+      #   event.entities[0] #=> Types::CallAnalyticsEntity
+      #   event.entities[0].begin_offset_millis #=> Integer
+      #   event.entities[0].end_offset_millis #=> Integer
+      #   event.entities[0].category #=> String
+      #   event.entities[0].type #=> String
+      #   event.entities[0].content #=> String
+      #   event.entities[0].confidence #=> Float
+      #   event.sentiment #=> String, one of ["POSITIVE", "NEGATIVE", "MIXED", "NEUTRAL"]
+      #   event.issues_detected #=> Array<IssueDetected>
+      #   event.issues_detected[0] #=> Types::IssueDetected
+      #   event.issues_detected[0].character_offsets #=> Types::CharacterOffsets
+      #   event.issues_detected[0].character_offsets.begin #=> Integer
+      #   event.issues_detected[0].character_offsets.end #=> Integer
       def on_utterance_event(&block)
         on('UtteranceEvent', block)
       end
 
+      # Register an event handler for category_event events
+      # @yield [event] Called when category_event events are received.
+      # @yieldparam event [Types::CategoryEvent] the event.
+      # @example Event structure
+      #   event #=> Types::CategoryEvent
+      #   event.matched_categories #=> Array<String>
+      #   event.matched_categories[0] #=> String
+      #   event.matched_details #=> Hash<String, PointsOfInterest>
+      #   event.matched_details['key'] #=> Types::PointsOfInterest
+      #   event.matched_details['key'].timestamp_ranges #=> Array<TimestampRange>
+      #   event.matched_details['key'].timestamp_ranges[0] #=> Types::TimestampRange
+      #   event.matched_details['key'].timestamp_ranges[0].begin_offset_millis #=> Integer
+      #   event.matched_details['key'].timestamp_ranges[0].end_offset_millis #=> Integer
       def on_category_event(&block)
         on('CategoryEvent', block)
       end
 
+      # Register an event handler for bad_request_exception events
+      # @yield [event] Called when bad_request_exception events are received.
+      # @yieldparam event [Types::BadRequestException] the event.
+      # @example Event structure
+      #   event #=> Types::BadRequestException
+      #   event.message #=> String
       def on_bad_request_exception(&block)
         on('BadRequestException', block)
       end
 
+      # Register an event handler for limit_exceeded_exception events
+      # @yield [event] Called when limit_exceeded_exception events are received.
+      # @yieldparam event [Types::LimitExceededException] the event.
+      # @example Event structure
+      #   event #=> Types::LimitExceededException
+      #   event.message #=> String
       def on_limit_exceeded_exception(&block)
         on('LimitExceededException', block)
       end
 
+      # Register an event handler for internal_failure_exception events
+      # @yield [event] Called when internal_failure_exception events are received.
+      # @yieldparam event [Types::InternalFailureException] the event.
+      # @example Event structure
+      #   event #=> Types::InternalFailureException
+      #   event.message #=> String
       def on_internal_failure_exception(&block)
         on('InternalFailureException', block)
       end
 
+      # Register an event handler for conflict_exception events
+      # @yield [event] Called when conflict_exception events are received.
+      # @yieldparam event [Types::ConflictException] the event.
+      # @example Event structure
+      #   event #=> Types::ConflictException
+      #   event.message #=> String
       def on_conflict_exception(&block)
         on('ConflictException', block)
       end
 
+      # Register an event handler for service_unavailable_exception events
+      # @yield [event] Called when service_unavailable_exception events are received.
+      # @yieldparam event [Types::ServiceUnavailableException] the event.
+      # @example Event structure
+      #   event #=> Types::ServiceUnavailableException
+      #   event.message #=> String
       def on_service_unavailable_exception(&block)
         on('ServiceUnavailableException', block)
       end
+
+      private
 
       def parse_event(type, message)
         case type
@@ -54,31 +142,103 @@ module AWS::SDK::TranscribeStreaming
       end
     end
 
+    # EventStreamHandler for the the {Client#start_medical_stream_transcription} operation.
+    # Register event handlers using the +#on_<event_name>+ methods
+    # and set the handler using the +event_stream_handler+ option
+    # on the {Client#start_medical_stream_transcription} method.
+    # @example Basic Usage
+    #   handler = StartMedicalStreamTranscription.new
+    #   # register handlers for the events you are interested in
+    #   handler.on_initial_response { |initial_response| process(initial_response) }
+    #   client.start_medical_stream_transcription(params, event_stream_handler: handler)
     class StartMedicalStreamTranscriptionHandler < Hearth::EventStream::HandlerBase
 
+      # Register an event handler for transcript_event events
+      # @yield [event] Called when transcript_event events are received.
+      # @yieldparam event [Types::MedicalTranscriptEvent] the event.
+      # @example Event structure
+      #   event #=> Types::MedicalTranscriptEvent
+      #   event.transcript #=> Types::MedicalTranscript
+      #   event.transcript.results #=> Array<MedicalResult>
+      #   event.transcript.results[0] #=> Types::MedicalResult
+      #   event.transcript.results[0].result_id #=> String
+      #   event.transcript.results[0].start_time #=> Float
+      #   event.transcript.results[0].end_time #=> Float
+      #   event.transcript.results[0].is_partial #=> Boolean
+      #   event.transcript.results[0].alternatives #=> Array<MedicalAlternative>
+      #   event.transcript.results[0].alternatives[0] #=> Types::MedicalAlternative
+      #   event.transcript.results[0].alternatives[0].transcript #=> String
+      #   event.transcript.results[0].alternatives[0].items #=> Array<MedicalItem>
+      #   event.transcript.results[0].alternatives[0].items[0] #=> Types::MedicalItem
+      #   event.transcript.results[0].alternatives[0].items[0].start_time #=> Float
+      #   event.transcript.results[0].alternatives[0].items[0].end_time #=> Float
+      #   event.transcript.results[0].alternatives[0].items[0].type #=> String, one of ["pronunciation", "punctuation"]
+      #   event.transcript.results[0].alternatives[0].items[0].content #=> String
+      #   event.transcript.results[0].alternatives[0].items[0].confidence #=> Float
+      #   event.transcript.results[0].alternatives[0].items[0].speaker #=> String
+      #   event.transcript.results[0].alternatives[0].entities #=> Array<MedicalEntity>
+      #   event.transcript.results[0].alternatives[0].entities[0] #=> Types::MedicalEntity
+      #   event.transcript.results[0].alternatives[0].entities[0].start_time #=> Float
+      #   event.transcript.results[0].alternatives[0].entities[0].end_time #=> Float
+      #   event.transcript.results[0].alternatives[0].entities[0].category #=> String
+      #   event.transcript.results[0].alternatives[0].entities[0].content #=> String
+      #   event.transcript.results[0].alternatives[0].entities[0].confidence #=> Float
+      #   event.transcript.results[0].channel_id #=> String
       def on_transcript_event(&block)
         on('TranscriptEvent', block)
       end
 
+      # Register an event handler for bad_request_exception events
+      # @yield [event] Called when bad_request_exception events are received.
+      # @yieldparam event [Types::BadRequestException] the event.
+      # @example Event structure
+      #   event #=> Types::BadRequestException
+      #   event.message #=> String
       def on_bad_request_exception(&block)
         on('BadRequestException', block)
       end
 
+      # Register an event handler for limit_exceeded_exception events
+      # @yield [event] Called when limit_exceeded_exception events are received.
+      # @yieldparam event [Types::LimitExceededException] the event.
+      # @example Event structure
+      #   event #=> Types::LimitExceededException
+      #   event.message #=> String
       def on_limit_exceeded_exception(&block)
         on('LimitExceededException', block)
       end
 
+      # Register an event handler for internal_failure_exception events
+      # @yield [event] Called when internal_failure_exception events are received.
+      # @yieldparam event [Types::InternalFailureException] the event.
+      # @example Event structure
+      #   event #=> Types::InternalFailureException
+      #   event.message #=> String
       def on_internal_failure_exception(&block)
         on('InternalFailureException', block)
       end
 
+      # Register an event handler for conflict_exception events
+      # @yield [event] Called when conflict_exception events are received.
+      # @yieldparam event [Types::ConflictException] the event.
+      # @example Event structure
+      #   event #=> Types::ConflictException
+      #   event.message #=> String
       def on_conflict_exception(&block)
         on('ConflictException', block)
       end
 
+      # Register an event handler for service_unavailable_exception events
+      # @yield [event] Called when service_unavailable_exception events are received.
+      # @yieldparam event [Types::ServiceUnavailableException] the event.
+      # @example Event structure
+      #   event #=> Types::ServiceUnavailableException
+      #   event.message #=> String
       def on_service_unavailable_exception(&block)
         on('ServiceUnavailableException', block)
       end
+
+      private
 
       def parse_event(type, message)
         case type
@@ -93,31 +253,111 @@ module AWS::SDK::TranscribeStreaming
       end
     end
 
+    # EventStreamHandler for the the {Client#start_stream_transcription} operation.
+    # Register event handlers using the +#on_<event_name>+ methods
+    # and set the handler using the +event_stream_handler+ option
+    # on the {Client#start_stream_transcription} method.
+    # @example Basic Usage
+    #   handler = StartStreamTranscription.new
+    #   # register handlers for the events you are interested in
+    #   handler.on_initial_response { |initial_response| process(initial_response) }
+    #   client.start_stream_transcription(params, event_stream_handler: handler)
     class StartStreamTranscriptionHandler < Hearth::EventStream::HandlerBase
 
+      # Register an event handler for transcript_event events
+      # @yield [event] Called when transcript_event events are received.
+      # @yieldparam event [Types::TranscriptEvent] the event.
+      # @example Event structure
+      #   event #=> Types::TranscriptEvent
+      #   event.transcript #=> Types::Transcript
+      #   event.transcript.results #=> Array<Result>
+      #   event.transcript.results[0] #=> Types::Result
+      #   event.transcript.results[0].result_id #=> String
+      #   event.transcript.results[0].start_time #=> Float
+      #   event.transcript.results[0].end_time #=> Float
+      #   event.transcript.results[0].is_partial #=> Boolean
+      #   event.transcript.results[0].alternatives #=> Array<Alternative>
+      #   event.transcript.results[0].alternatives[0] #=> Types::Alternative
+      #   event.transcript.results[0].alternatives[0].transcript #=> String
+      #   event.transcript.results[0].alternatives[0].items #=> Array<Item>
+      #   event.transcript.results[0].alternatives[0].items[0] #=> Types::Item
+      #   event.transcript.results[0].alternatives[0].items[0].start_time #=> Float
+      #   event.transcript.results[0].alternatives[0].items[0].end_time #=> Float
+      #   event.transcript.results[0].alternatives[0].items[0].type #=> String, one of ["pronunciation", "punctuation"]
+      #   event.transcript.results[0].alternatives[0].items[0].content #=> String
+      #   event.transcript.results[0].alternatives[0].items[0].vocabulary_filter_match #=> Boolean
+      #   event.transcript.results[0].alternatives[0].items[0].speaker #=> String
+      #   event.transcript.results[0].alternatives[0].items[0].confidence #=> Float
+      #   event.transcript.results[0].alternatives[0].items[0].stable #=> Boolean
+      #   event.transcript.results[0].alternatives[0].entities #=> Array<Entity>
+      #   event.transcript.results[0].alternatives[0].entities[0] #=> Types::Entity
+      #   event.transcript.results[0].alternatives[0].entities[0].start_time #=> Float
+      #   event.transcript.results[0].alternatives[0].entities[0].end_time #=> Float
+      #   event.transcript.results[0].alternatives[0].entities[0].category #=> String
+      #   event.transcript.results[0].alternatives[0].entities[0].type #=> String
+      #   event.transcript.results[0].alternatives[0].entities[0].content #=> String
+      #   event.transcript.results[0].alternatives[0].entities[0].confidence #=> Float
+      #   event.transcript.results[0].channel_id #=> String
+      #   event.transcript.results[0].language_code #=> String, one of ["en-US", "en-GB", "es-US", "fr-CA", "fr-FR", "en-AU", "it-IT", "de-DE", "pt-BR", "ja-JP", "ko-KR", "zh-CN", "hi-IN", "th-TH"]
+      #   event.transcript.results[0].language_identification #=> Array<LanguageWithScore>
+      #   event.transcript.results[0].language_identification[0] #=> Types::LanguageWithScore
+      #   event.transcript.results[0].language_identification[0].language_code #=> String, one of ["en-US", "en-GB", "es-US", "fr-CA", "fr-FR", "en-AU", "it-IT", "de-DE", "pt-BR", "ja-JP", "ko-KR", "zh-CN", "hi-IN", "th-TH"]
+      #   event.transcript.results[0].language_identification[0].score #=> Float
       def on_transcript_event(&block)
         on('TranscriptEvent', block)
       end
 
+      # Register an event handler for bad_request_exception events
+      # @yield [event] Called when bad_request_exception events are received.
+      # @yieldparam event [Types::BadRequestException] the event.
+      # @example Event structure
+      #   event #=> Types::BadRequestException
+      #   event.message #=> String
       def on_bad_request_exception(&block)
         on('BadRequestException', block)
       end
 
+      # Register an event handler for limit_exceeded_exception events
+      # @yield [event] Called when limit_exceeded_exception events are received.
+      # @yieldparam event [Types::LimitExceededException] the event.
+      # @example Event structure
+      #   event #=> Types::LimitExceededException
+      #   event.message #=> String
       def on_limit_exceeded_exception(&block)
         on('LimitExceededException', block)
       end
 
+      # Register an event handler for internal_failure_exception events
+      # @yield [event] Called when internal_failure_exception events are received.
+      # @yieldparam event [Types::InternalFailureException] the event.
+      # @example Event structure
+      #   event #=> Types::InternalFailureException
+      #   event.message #=> String
       def on_internal_failure_exception(&block)
         on('InternalFailureException', block)
       end
 
+      # Register an event handler for conflict_exception events
+      # @yield [event] Called when conflict_exception events are received.
+      # @yieldparam event [Types::ConflictException] the event.
+      # @example Event structure
+      #   event #=> Types::ConflictException
+      #   event.message #=> String
       def on_conflict_exception(&block)
         on('ConflictException', block)
       end
 
+      # Register an event handler for service_unavailable_exception events
+      # @yield [event] Called when service_unavailable_exception events are received.
+      # @yieldparam event [Types::ServiceUnavailableException] the event.
+      # @example Event structure
+      #   event #=> Types::ServiceUnavailableException
+      #   event.message #=> String
       def on_service_unavailable_exception(&block)
         on('ServiceUnavailableException', block)
       end
+
+      private
 
       def parse_event(type, message)
         case type
@@ -132,14 +372,47 @@ module AWS::SDK::TranscribeStreaming
       end
     end
 
+    # Output class returned from {Client#start_call_analytics_stream_transcription}
+    # and allowing async sending (signaling) of input events.
+    # @example Basic Usage
+    #   stream = client.utterance_event(initial_request)
+    #   stream.signal_start_call_analytics_stream_transcription(event_params) # send an event
+    #   stream.join # close the input stream and wait for the server
     class StartCallAnalyticsStreamTranscriptionOutput < Hearth::EventStream::AsyncOutput
 
+      # Signal (send) an AudioStream::AudioEvent input event
+      # @param [Hash | Types::AudioEvent] params
+      #   Request parameters for this operation.
+      #   See {Types::AudioEvent#initialize} for available parameters.
+      # @example Request syntax with placeholder values
+      #   stream.signal_audio_event(
+      #     audio_chunk: 'AudioChunk'
+      #   )
       def signal_audio_event(params = {})
         input = Params::AudioEvent.build(params, context: 'params')
         message = Builders::EventStream::AudioEvent.build(input: input)
         send_event(message)
       end
 
+      # Signal (send) an AudioStream::ConfigurationEvent input event
+      # @param [Hash | Types::ConfigurationEvent] params
+      #   Request parameters for this operation.
+      #   See {Types::ConfigurationEvent#initialize} for available parameters.
+      # @example Request syntax with placeholder values
+      #   stream.signal_configuration_event(
+      #     channel_definitions: [
+      #       {
+      #         channel_id: 1, # required
+      #         participant_role: 'AGENT' # required - accepts ["AGENT", "CUSTOMER"]
+      #       }
+      #     ],
+      #     post_call_analytics_settings: {
+      #       output_location: 'OutputLocation', # required
+      #       data_access_role_arn: 'DataAccessRoleArn', # required
+      #       content_redaction_output: 'redacted', # accepts ["redacted", "redacted_and_unredacted"]
+      #       output_encryption_kms_key_id: 'OutputEncryptionKMSKeyId'
+      #     }
+      #   )
       def signal_configuration_event(params = {})
         input = Params::ConfigurationEvent.build(params, context: 'params')
         message = Builders::EventStream::ConfigurationEvent.build(input: input)
@@ -147,14 +420,47 @@ module AWS::SDK::TranscribeStreaming
       end
     end
 
+    # Output class returned from {Client#start_medical_stream_transcription}
+    # and allowing async sending (signaling) of input events.
+    # @example Basic Usage
+    #   stream = client.transcript_event(initial_request)
+    #   stream.signal_start_medical_stream_transcription(event_params) # send an event
+    #   stream.join # close the input stream and wait for the server
     class StartMedicalStreamTranscriptionOutput < Hearth::EventStream::AsyncOutput
 
+      # Signal (send) an AudioStream::AudioEvent input event
+      # @param [Hash | Types::AudioEvent] params
+      #   Request parameters for this operation.
+      #   See {Types::AudioEvent#initialize} for available parameters.
+      # @example Request syntax with placeholder values
+      #   stream.signal_audio_event(
+      #     audio_chunk: 'AudioChunk'
+      #   )
       def signal_audio_event(params = {})
         input = Params::AudioEvent.build(params, context: 'params')
         message = Builders::EventStream::AudioEvent.build(input: input)
         send_event(message)
       end
 
+      # Signal (send) an AudioStream::ConfigurationEvent input event
+      # @param [Hash | Types::ConfigurationEvent] params
+      #   Request parameters for this operation.
+      #   See {Types::ConfigurationEvent#initialize} for available parameters.
+      # @example Request syntax with placeholder values
+      #   stream.signal_configuration_event(
+      #     channel_definitions: [
+      #       {
+      #         channel_id: 1, # required
+      #         participant_role: 'AGENT' # required - accepts ["AGENT", "CUSTOMER"]
+      #       }
+      #     ],
+      #     post_call_analytics_settings: {
+      #       output_location: 'OutputLocation', # required
+      #       data_access_role_arn: 'DataAccessRoleArn', # required
+      #       content_redaction_output: 'redacted', # accepts ["redacted", "redacted_and_unredacted"]
+      #       output_encryption_kms_key_id: 'OutputEncryptionKMSKeyId'
+      #     }
+      #   )
       def signal_configuration_event(params = {})
         input = Params::ConfigurationEvent.build(params, context: 'params')
         message = Builders::EventStream::ConfigurationEvent.build(input: input)
@@ -162,14 +468,47 @@ module AWS::SDK::TranscribeStreaming
       end
     end
 
+    # Output class returned from {Client#start_stream_transcription}
+    # and allowing async sending (signaling) of input events.
+    # @example Basic Usage
+    #   stream = client.transcript_event(initial_request)
+    #   stream.signal_start_stream_transcription(event_params) # send an event
+    #   stream.join # close the input stream and wait for the server
     class StartStreamTranscriptionOutput < Hearth::EventStream::AsyncOutput
 
+      # Signal (send) an AudioStream::AudioEvent input event
+      # @param [Hash | Types::AudioEvent] params
+      #   Request parameters for this operation.
+      #   See {Types::AudioEvent#initialize} for available parameters.
+      # @example Request syntax with placeholder values
+      #   stream.signal_audio_event(
+      #     audio_chunk: 'AudioChunk'
+      #   )
       def signal_audio_event(params = {})
         input = Params::AudioEvent.build(params, context: 'params')
         message = Builders::EventStream::AudioEvent.build(input: input)
         send_event(message)
       end
 
+      # Signal (send) an AudioStream::ConfigurationEvent input event
+      # @param [Hash | Types::ConfigurationEvent] params
+      #   Request parameters for this operation.
+      #   See {Types::ConfigurationEvent#initialize} for available parameters.
+      # @example Request syntax with placeholder values
+      #   stream.signal_configuration_event(
+      #     channel_definitions: [
+      #       {
+      #         channel_id: 1, # required
+      #         participant_role: 'AGENT' # required - accepts ["AGENT", "CUSTOMER"]
+      #       }
+      #     ],
+      #     post_call_analytics_settings: {
+      #       output_location: 'OutputLocation', # required
+      #       data_access_role_arn: 'DataAccessRoleArn', # required
+      #       content_redaction_output: 'redacted', # accepts ["redacted", "redacted_and_unredacted"]
+      #       output_encryption_kms_key_id: 'OutputEncryptionKMSKeyId'
+      #     }
+      #   )
       def signal_configuration_event(params = {})
         input = Params::ConfigurationEvent.build(params, context: 'params')
         message = Builders::EventStream::ConfigurationEvent.build(input: input)

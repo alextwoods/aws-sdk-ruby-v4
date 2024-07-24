@@ -423,9 +423,9 @@ module AWS::SDK::LexRuntimeV2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::LexRuntimeV2::Types::DTMFInputEvent "\
-          "input_character=\"[SENSITIVE]\", "\
-          "event_id=#{event_id || 'nil'}, "\
+        '#<AWS::SDK::LexRuntimeV2::Types::DTMFInputEvent ' \
+          'input_character=[SENSITIVE], ' \
+          "event_id=#{event_id || 'nil'}, " \
           "client_timestamp_millis=#{client_timestamp_millis || 'nil'}>"
       end
 
@@ -1044,9 +1044,9 @@ module AWS::SDK::LexRuntimeV2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::LexRuntimeV2::Types::Message "\
-          "content=\"[SENSITIVE]\", "\
-          "content_type=#{content_type || 'nil'}, "\
+        '#<AWS::SDK::LexRuntimeV2::Types::Message ' \
+          'content=[SENSITIVE], ' \
+          "content_type=#{content_type || 'nil'}, " \
           "image_response_card=#{image_response_card || 'nil'}>"
       end
     end
@@ -1319,13 +1319,13 @@ module AWS::SDK::LexRuntimeV2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::LexRuntimeV2::Types::RecognizeTextInput "\
-          "bot_id=#{bot_id || 'nil'}, "\
-          "bot_alias_id=#{bot_alias_id || 'nil'}, "\
-          "locale_id=#{locale_id || 'nil'}, "\
-          "session_id=#{session_id || 'nil'}, "\
-          "text=\"[SENSITIVE]\", "\
-          "session_state=#{session_state || 'nil'}, "\
+        '#<AWS::SDK::LexRuntimeV2::Types::RecognizeTextInput ' \
+          "bot_id=#{bot_id || 'nil'}, " \
+          "bot_alias_id=#{bot_alias_id || 'nil'}, " \
+          "locale_id=#{locale_id || 'nil'}, " \
+          "session_id=#{session_id || 'nil'}, " \
+          'text=[SENSITIVE], ' \
+          "session_state=#{session_state || 'nil'}, " \
           "request_attributes=#{request_attributes || 'nil'}>"
       end
     end
@@ -1525,15 +1525,15 @@ module AWS::SDK::LexRuntimeV2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::LexRuntimeV2::Types::RecognizeUtteranceInput "\
-          "bot_id=#{bot_id || 'nil'}, "\
-          "bot_alias_id=#{bot_alias_id || 'nil'}, "\
-          "locale_id=#{locale_id || 'nil'}, "\
-          "session_id=#{session_id || 'nil'}, "\
-          "session_state=\"[SENSITIVE]\", "\
-          "request_attributes=\"[SENSITIVE]\", "\
-          "request_content_type=#{request_content_type || 'nil'}, "\
-          "response_content_type=#{response_content_type || 'nil'}, "\
+        '#<AWS::SDK::LexRuntimeV2::Types::RecognizeUtteranceInput ' \
+          "bot_id=#{bot_id || 'nil'}, " \
+          "bot_alias_id=#{bot_alias_id || 'nil'}, " \
+          "locale_id=#{locale_id || 'nil'}, " \
+          "session_id=#{session_id || 'nil'}, " \
+          'session_state=[SENSITIVE], ' \
+          'request_attributes=[SENSITIVE], ' \
+          "request_content_type=#{request_content_type || 'nil'}, " \
+          "response_content_type=#{response_content_type || 'nil'}, " \
           "input_stream=#{input_stream || 'nil'}>"
       end
     end
@@ -2026,10 +2026,6 @@ module AWS::SDK::LexRuntimeV2
         def to_h
           { configuration_event: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::LexRuntimeV2::Types::ConfigurationEvent #{__getobj__ || 'nil'}>"
-        end
       end
 
       # <p>Speech audio sent from your client application to Amazon Lex V2. Audio
@@ -2038,10 +2034,6 @@ module AWS::SDK::LexRuntimeV2
       class AudioInputEvent < StartConversationRequestEventStream
         def to_h
           { audio_input_event: super(__getobj__) }
-        end
-
-        def to_s
-          "#<AWS::SDK::LexRuntimeV2::Types::AudioInputEvent #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -2066,10 +2058,6 @@ module AWS::SDK::LexRuntimeV2
         def to_h
           { dtmf_input_event: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::LexRuntimeV2::Types::DtmfInputEvent #{__getobj__ || 'nil'}>"
-        end
       end
 
       # <p>Text sent from your client application to Amazon Lex V2. Each
@@ -2077,10 +2065,6 @@ module AWS::SDK::LexRuntimeV2
       class TextInputEvent < StartConversationRequestEventStream
         def to_h
           { text_input_event: super(__getobj__) }
-        end
-
-        def to_s
-          "#<AWS::SDK::LexRuntimeV2::Types::TextInputEvent #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -2091,10 +2075,6 @@ module AWS::SDK::LexRuntimeV2
         def to_h
           { playback_completion_event: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::LexRuntimeV2::Types::PlaybackCompletionEvent #{__getobj__ || 'nil'}>"
-        end
       end
 
       # <p>Event sent from the client application to indicate to Amazon Lex V2 that the
@@ -2102,10 +2082,6 @@ module AWS::SDK::LexRuntimeV2
       class DisconnectionEvent < StartConversationRequestEventStream
         def to_h
           { disconnection_event: super(__getobj__) }
-        end
-
-        def to_s
-          "#<AWS::SDK::LexRuntimeV2::Types::DisconnectionEvent #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -2137,10 +2113,6 @@ module AWS::SDK::LexRuntimeV2
         def to_h
           { playback_interruption_event: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::LexRuntimeV2::Types::PlaybackInterruptionEvent #{__getobj__ || 'nil'}>"
-        end
       end
 
       # <p>Event sent from Amazon Lex V2 to your client application that contains a
@@ -2148,10 +2120,6 @@ module AWS::SDK::LexRuntimeV2
       class TranscriptEvent < StartConversationResponseEventStream
         def to_h
           { transcript_event: super(__getobj__) }
-        end
-
-        def to_s
-          "#<AWS::SDK::LexRuntimeV2::Types::TranscriptEvent #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -2161,10 +2129,6 @@ module AWS::SDK::LexRuntimeV2
         def to_h
           { intent_result_event: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::LexRuntimeV2::Types::IntentResultEvent #{__getobj__ || 'nil'}>"
-        end
       end
 
       # <p>The event sent from Amazon Lex V2 to your application with text to present
@@ -2172,10 +2136,6 @@ module AWS::SDK::LexRuntimeV2
       class TextResponseEvent < StartConversationResponseEventStream
         def to_h
           { text_response_event: super(__getobj__) }
-        end
-
-        def to_s
-          "#<AWS::SDK::LexRuntimeV2::Types::TextResponseEvent #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -2185,10 +2145,6 @@ module AWS::SDK::LexRuntimeV2
         def to_h
           { audio_response_event: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::LexRuntimeV2::Types::AudioResponseEvent #{__getobj__ || 'nil'}>"
-        end
       end
 
       # <p>Event that Amazon Lex V2 sends to indicate that the stream is still open
@@ -2196,10 +2152,6 @@ module AWS::SDK::LexRuntimeV2
       class HeartbeatEvent < StartConversationResponseEventStream
         def to_h
           { heartbeat_event: super(__getobj__) }
-        end
-
-        def to_s
-          "#<AWS::SDK::LexRuntimeV2::Types::HeartbeatEvent #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -2211,10 +2163,6 @@ module AWS::SDK::LexRuntimeV2
         def to_h
           { access_denied_exception: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::LexRuntimeV2::Types::AccessDeniedException #{__getobj__ || 'nil'}>"
-        end
       end
 
       # <p>Exception thrown if one of the input parameters points to a resource
@@ -2223,10 +2171,6 @@ module AWS::SDK::LexRuntimeV2
       class ResourceNotFoundException < StartConversationResponseEventStream
         def to_h
           { resource_not_found_exception: super(__getobj__) }
-        end
-
-        def to_s
-          "#<AWS::SDK::LexRuntimeV2::Types::ResourceNotFoundException #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -2237,10 +2181,6 @@ module AWS::SDK::LexRuntimeV2
         def to_h
           { validation_exception: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::LexRuntimeV2::Types::ValidationException #{__getobj__ || 'nil'}>"
-        end
       end
 
       # <p>Exception thrown when your application exceeds the maximum number of
@@ -2249,20 +2189,12 @@ module AWS::SDK::LexRuntimeV2
         def to_h
           { throttling_exception: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::LexRuntimeV2::Types::ThrottlingException #{__getobj__ || 'nil'}>"
-        end
       end
 
       # <p>An error occurred with Amazon Lex V2.</p>
       class InternalServerException < StartConversationResponseEventStream
         def to_h
           { internal_server_exception: super(__getobj__) }
-        end
-
-        def to_s
-          "#<AWS::SDK::LexRuntimeV2::Types::InternalServerException #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -2272,10 +2204,6 @@ module AWS::SDK::LexRuntimeV2
         def to_h
           { conflict_exception: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::LexRuntimeV2::Types::ConflictException #{__getobj__ || 'nil'}>"
-        end
       end
 
       # <p></p>
@@ -2283,20 +2211,12 @@ module AWS::SDK::LexRuntimeV2
         def to_h
           { dependency_failed_exception: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::LexRuntimeV2::Types::DependencyFailedException #{__getobj__ || 'nil'}>"
-        end
       end
 
       # <p></p>
       class BadGatewayException < StartConversationResponseEventStream
         def to_h
           { bad_gateway_exception: super(__getobj__) }
-        end
-
-        def to_s
-          "#<AWS::SDK::LexRuntimeV2::Types::BadGatewayException #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -2355,9 +2275,9 @@ module AWS::SDK::LexRuntimeV2
       attr_accessor(*MEMBERS)
 
       def to_s
-        "#<AWS::SDK::LexRuntimeV2::Types::TextInputEvent "\
-          "text=\"[SENSITIVE]\", "\
-          "event_id=#{event_id || 'nil'}, "\
+        '#<AWS::SDK::LexRuntimeV2::Types::TextInputEvent ' \
+          'text=[SENSITIVE], ' \
+          "event_id=#{event_id || 'nil'}, " \
           "client_timestamp_millis=#{client_timestamp_millis || 'nil'}>"
       end
 

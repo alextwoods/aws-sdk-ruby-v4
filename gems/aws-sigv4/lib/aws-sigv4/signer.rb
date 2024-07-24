@@ -567,7 +567,7 @@ module AWS
         [
           "AWS4-HMAC-SHA256-PAYLOAD",
           datetime,
-          credential_scope(datetime[0,8], region, service),
+          credential_scope(datetime[0,8], region, service, :sigv4),
           prior_signature,
           sha256_hexdigest(encoded_headers),
           sha256_hexdigest(payload)

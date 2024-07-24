@@ -18,7 +18,7 @@ module AWS::SDK::Kinesis
     class AddTagsToStreamInput
       include Hearth::Structure
       attr_accessor stream_name (): ::String?
-      attr_accessor tags (): ::Hash[::String, ::String]
+      attr_accessor tags (): ::Hash[::String, ::String]?
       attr_accessor stream_arn (): ::String?
     end
 
@@ -28,26 +28,26 @@ module AWS::SDK::Kinesis
 
     class ChildShard
       include Hearth::Structure
-      attr_accessor shard_id (): ::String
-      attr_accessor parent_shards (): ::Array[::String]
-      attr_accessor hash_key_range (): Types::HashKeyRange
+      attr_accessor shard_id (): ::String?
+      attr_accessor parent_shards (): ::Array[::String]?
+      attr_accessor hash_key_range (): Types::HashKeyRange?
     end
 
     class Consumer
       include Hearth::Structure
-      attr_accessor consumer_name (): ::String
-      attr_accessor consumer_arn (): ::String
-      attr_accessor consumer_status (): ::String
-      attr_accessor consumer_creation_timestamp (): ::Time
+      attr_accessor consumer_name (): ::String?
+      attr_accessor consumer_arn (): ::String?
+      attr_accessor consumer_status (): ::String?
+      attr_accessor consumer_creation_timestamp (): ::Time?
     end
 
     class ConsumerDescription
       include Hearth::Structure
-      attr_accessor consumer_name (): ::String
-      attr_accessor consumer_arn (): ::String
-      attr_accessor consumer_status (): ::String
-      attr_accessor consumer_creation_timestamp (): ::Time
-      attr_accessor stream_arn (): ::String
+      attr_accessor consumer_name (): ::String?
+      attr_accessor consumer_arn (): ::String?
+      attr_accessor consumer_status (): ::String?
+      attr_accessor consumer_creation_timestamp (): ::Time?
+      attr_accessor stream_arn (): ::String?
     end
 
     module ConsumerStatus
@@ -60,7 +60,7 @@ module AWS::SDK::Kinesis
 
     class CreateStreamInput
       include Hearth::Structure
-      attr_accessor stream_name (): ::String
+      attr_accessor stream_name (): ::String?
       attr_accessor shard_count (): ::Integer?
       attr_accessor stream_mode_details (): Types::StreamModeDetails?
     end
@@ -72,7 +72,7 @@ module AWS::SDK::Kinesis
     class DecreaseStreamRetentionPeriodInput
       include Hearth::Structure
       attr_accessor stream_name (): ::String?
-      attr_accessor retention_period_hours (): ::Integer
+      attr_accessor retention_period_hours (): ::Integer?
       attr_accessor stream_arn (): ::String?
     end
 
@@ -82,7 +82,7 @@ module AWS::SDK::Kinesis
 
     class DeleteResourcePolicyInput
       include Hearth::Structure
-      attr_accessor resource_arn (): ::String
+      attr_accessor resource_arn (): ::String?
     end
 
     class DeleteResourcePolicyOutput
@@ -117,10 +117,10 @@ module AWS::SDK::Kinesis
 
     class DescribeLimitsOutput
       include Hearth::Structure
-      attr_accessor shard_limit (): ::Integer
-      attr_accessor open_shard_count (): ::Integer
-      attr_accessor on_demand_stream_count (): ::Integer
-      attr_accessor on_demand_stream_count_limit (): ::Integer
+      attr_accessor shard_limit (): ::Integer?
+      attr_accessor open_shard_count (): ::Integer?
+      attr_accessor on_demand_stream_count (): ::Integer?
+      attr_accessor on_demand_stream_count_limit (): ::Integer?
     end
 
     class DescribeStreamConsumerInput
@@ -132,7 +132,7 @@ module AWS::SDK::Kinesis
 
     class DescribeStreamConsumerOutput
       include Hearth::Structure
-      attr_accessor consumer_description (): Types::ConsumerDescription
+      attr_accessor consumer_description (): Types::ConsumerDescription?
     end
 
     class DescribeStreamInput
@@ -145,7 +145,7 @@ module AWS::SDK::Kinesis
 
     class DescribeStreamOutput
       include Hearth::Structure
-      attr_accessor stream_description (): Types::StreamDescription
+      attr_accessor stream_description (): Types::StreamDescription?
     end
 
     class DescribeStreamSummaryInput
@@ -156,13 +156,13 @@ module AWS::SDK::Kinesis
 
     class DescribeStreamSummaryOutput
       include Hearth::Structure
-      attr_accessor stream_description_summary (): Types::StreamDescriptionSummary
+      attr_accessor stream_description_summary (): Types::StreamDescriptionSummary?
     end
 
     class DisableEnhancedMonitoringInput
       include Hearth::Structure
       attr_accessor stream_name (): ::String?
-      attr_accessor shard_level_metrics (): ::Array[::String]
+      attr_accessor shard_level_metrics (): ::Array[::String]?
       attr_accessor stream_arn (): ::String?
     end
 
@@ -177,7 +177,7 @@ module AWS::SDK::Kinesis
     class EnableEnhancedMonitoringInput
       include Hearth::Structure
       attr_accessor stream_name (): ::String?
-      attr_accessor shard_level_metrics (): ::Array[::String]
+      attr_accessor shard_level_metrics (): ::Array[::String]?
       attr_accessor stream_arn (): ::String?
     end
 
@@ -212,14 +212,14 @@ module AWS::SDK::Kinesis
 
     class GetRecordsInput
       include Hearth::Structure
-      attr_accessor shard_iterator (): ::String
+      attr_accessor shard_iterator (): ::String?
       attr_accessor limit (): ::Integer?
       attr_accessor stream_arn (): ::String?
     end
 
     class GetRecordsOutput
       include Hearth::Structure
-      attr_accessor records (): ::Array[Types::Record]
+      attr_accessor records (): ::Array[Types::Record]?
       attr_accessor next_shard_iterator (): ::String?
       attr_accessor millis_behind_latest (): ::Integer?
       attr_accessor child_shards (): ::Array[Types::ChildShard]?
@@ -227,19 +227,19 @@ module AWS::SDK::Kinesis
 
     class GetResourcePolicyInput
       include Hearth::Structure
-      attr_accessor resource_arn (): ::String
+      attr_accessor resource_arn (): ::String?
     end
 
     class GetResourcePolicyOutput
       include Hearth::Structure
-      attr_accessor policy (): ::String
+      attr_accessor policy (): ::String?
     end
 
     class GetShardIteratorInput
       include Hearth::Structure
       attr_accessor stream_name (): ::String?
-      attr_accessor shard_id (): ::String
-      attr_accessor shard_iterator_type (): ::String
+      attr_accessor shard_id (): ::String?
+      attr_accessor shard_iterator_type (): ::String?
       attr_accessor starting_sequence_number (): ::String?
       attr_accessor timestamp (): ::Time?
       attr_accessor stream_arn (): ::String?
@@ -252,14 +252,14 @@ module AWS::SDK::Kinesis
 
     class HashKeyRange
       include Hearth::Structure
-      attr_accessor starting_hash_key (): ::String
-      attr_accessor ending_hash_key (): ::String
+      attr_accessor starting_hash_key (): ::String?
+      attr_accessor ending_hash_key (): ::String?
     end
 
     class IncreaseStreamRetentionPeriodInput
       include Hearth::Structure
       attr_accessor stream_name (): ::String?
-      attr_accessor retention_period_hours (): ::Integer
+      attr_accessor retention_period_hours (): ::Integer?
       attr_accessor stream_arn (): ::String?
     end
 
@@ -331,7 +331,7 @@ module AWS::SDK::Kinesis
 
     class ListStreamConsumersInput
       include Hearth::Structure
-      attr_accessor stream_arn (): ::String
+      attr_accessor stream_arn (): ::String?
       attr_accessor next_token (): ::String?
       attr_accessor max_results (): ::Integer?
       attr_accessor stream_creation_timestamp (): ::Time?
@@ -352,8 +352,8 @@ module AWS::SDK::Kinesis
 
     class ListStreamsOutput
       include Hearth::Structure
-      attr_accessor stream_names (): ::Array[::String]
-      attr_accessor has_more_streams (): bool
+      attr_accessor stream_names (): ::Array[::String]?
+      attr_accessor has_more_streams (): bool?
       attr_accessor next_token (): ::String?
       attr_accessor stream_summaries (): ::Array[Types::StreamSummary]?
     end
@@ -368,15 +368,15 @@ module AWS::SDK::Kinesis
 
     class ListTagsForStreamOutput
       include Hearth::Structure
-      attr_accessor tags (): ::Array[Types::Tag]
-      attr_accessor has_more_tags (): bool
+      attr_accessor tags (): ::Array[Types::Tag]?
+      attr_accessor has_more_tags (): bool?
     end
 
     class MergeShardsInput
       include Hearth::Structure
       attr_accessor stream_name (): ::String?
-      attr_accessor shard_to_merge (): ::String
-      attr_accessor adjacent_shard_to_merge (): ::String
+      attr_accessor shard_to_merge (): ::String?
+      attr_accessor adjacent_shard_to_merge (): ::String?
       attr_accessor stream_arn (): ::String?
     end
 
@@ -410,8 +410,8 @@ module AWS::SDK::Kinesis
     class PutRecordInput
       include Hearth::Structure
       attr_accessor stream_name (): ::String?
-      attr_accessor data (): ::String
-      attr_accessor partition_key (): ::String
+      attr_accessor data (): ::String?
+      attr_accessor partition_key (): ::String?
       attr_accessor explicit_hash_key (): ::String?
       attr_accessor sequence_number_for_ordering (): ::String?
       attr_accessor stream_arn (): ::String?
@@ -419,14 +419,14 @@ module AWS::SDK::Kinesis
 
     class PutRecordOutput
       include Hearth::Structure
-      attr_accessor shard_id (): ::String
-      attr_accessor sequence_number (): ::String
+      attr_accessor shard_id (): ::String?
+      attr_accessor sequence_number (): ::String?
       attr_accessor encryption_type (): ::String?
     end
 
     class PutRecordsInput
       include Hearth::Structure
-      attr_accessor records (): ::Array[Types::PutRecordsRequestEntry]
+      attr_accessor records (): ::Array[Types::PutRecordsRequestEntry]?
       attr_accessor stream_name (): ::String?
       attr_accessor stream_arn (): ::String?
     end
@@ -434,15 +434,15 @@ module AWS::SDK::Kinesis
     class PutRecordsOutput
       include Hearth::Structure
       attr_accessor failed_record_count (): ::Integer?
-      attr_accessor records (): ::Array[Types::PutRecordsResultEntry]
+      attr_accessor records (): ::Array[Types::PutRecordsResultEntry]?
       attr_accessor encryption_type (): ::String?
     end
 
     class PutRecordsRequestEntry
       include Hearth::Structure
-      attr_accessor data (): ::String
+      attr_accessor data (): ::String?
       attr_accessor explicit_hash_key (): ::String?
-      attr_accessor partition_key (): ::String
+      attr_accessor partition_key (): ::String?
     end
 
     class PutRecordsResultEntry
@@ -455,8 +455,8 @@ module AWS::SDK::Kinesis
 
     class PutResourcePolicyInput
       include Hearth::Structure
-      attr_accessor resource_arn (): ::String
-      attr_accessor policy (): ::String
+      attr_accessor resource_arn (): ::String?
+      attr_accessor policy (): ::String?
     end
 
     class PutResourcePolicyOutput
@@ -465,28 +465,28 @@ module AWS::SDK::Kinesis
 
     class Record
       include Hearth::Structure
-      attr_accessor sequence_number (): ::String
+      attr_accessor sequence_number (): ::String?
       attr_accessor approximate_arrival_timestamp (): ::Time?
-      attr_accessor data (): ::String
-      attr_accessor partition_key (): ::String
+      attr_accessor data (): ::String?
+      attr_accessor partition_key (): ::String?
       attr_accessor encryption_type (): ::String?
     end
 
     class RegisterStreamConsumerInput
       include Hearth::Structure
-      attr_accessor stream_arn (): ::String
-      attr_accessor consumer_name (): ::String
+      attr_accessor stream_arn (): ::String?
+      attr_accessor consumer_name (): ::String?
     end
 
     class RegisterStreamConsumerOutput
       include Hearth::Structure
-      attr_accessor consumer (): Types::Consumer
+      attr_accessor consumer (): Types::Consumer?
     end
 
     class RemoveTagsFromStreamInput
       include Hearth::Structure
       attr_accessor stream_name (): ::String?
-      attr_accessor tag_keys (): ::Array[::String]
+      attr_accessor tag_keys (): ::Array[::String]?
       attr_accessor stream_arn (): ::String?
     end
 
@@ -510,22 +510,22 @@ module AWS::SDK::Kinesis
 
     class SequenceNumberRange
       include Hearth::Structure
-      attr_accessor starting_sequence_number (): ::String
+      attr_accessor starting_sequence_number (): ::String?
       attr_accessor ending_sequence_number (): ::String?
     end
 
     class Shard
       include Hearth::Structure
-      attr_accessor shard_id (): ::String
+      attr_accessor shard_id (): ::String?
       attr_accessor parent_shard_id (): ::String?
       attr_accessor adjacent_parent_shard_id (): ::String?
-      attr_accessor hash_key_range (): Types::HashKeyRange
-      attr_accessor sequence_number_range (): Types::SequenceNumberRange
+      attr_accessor hash_key_range (): Types::HashKeyRange?
+      attr_accessor sequence_number_range (): Types::SequenceNumberRange?
     end
 
     class ShardFilter
       include Hearth::Structure
-      attr_accessor type (): ::String
+      attr_accessor type (): ::String?
       attr_accessor shard_id (): ::String?
       attr_accessor timestamp (): ::Time?
     end
@@ -559,8 +559,8 @@ module AWS::SDK::Kinesis
     class SplitShardInput
       include Hearth::Structure
       attr_accessor stream_name (): ::String?
-      attr_accessor shard_to_split (): ::String
-      attr_accessor new_starting_hash_key (): ::String
+      attr_accessor shard_to_split (): ::String?
+      attr_accessor new_starting_hash_key (): ::String?
       attr_accessor stream_arn (): ::String?
     end
 
@@ -571,8 +571,8 @@ module AWS::SDK::Kinesis
     class StartStreamEncryptionInput
       include Hearth::Structure
       attr_accessor stream_name (): ::String?
-      attr_accessor encryption_type (): ::String
-      attr_accessor key_id (): ::String
+      attr_accessor encryption_type (): ::String?
+      attr_accessor key_id (): ::String?
       attr_accessor stream_arn (): ::String?
     end
 
@@ -582,7 +582,7 @@ module AWS::SDK::Kinesis
 
     class StartingPosition
       include Hearth::Structure
-      attr_accessor type (): ::String
+      attr_accessor type (): ::String?
       attr_accessor sequence_number (): ::String?
       attr_accessor timestamp (): ::Time?
     end
@@ -590,8 +590,8 @@ module AWS::SDK::Kinesis
     class StopStreamEncryptionInput
       include Hearth::Structure
       attr_accessor stream_name (): ::String?
-      attr_accessor encryption_type (): ::String
-      attr_accessor key_id (): ::String
+      attr_accessor encryption_type (): ::String?
+      attr_accessor key_id (): ::String?
       attr_accessor stream_arn (): ::String?
     end
 
@@ -601,31 +601,31 @@ module AWS::SDK::Kinesis
 
     class StreamDescription
       include Hearth::Structure
-      attr_accessor stream_name (): ::String
-      attr_accessor stream_arn (): ::String
-      attr_accessor stream_status (): ::String
+      attr_accessor stream_name (): ::String?
+      attr_accessor stream_arn (): ::String?
+      attr_accessor stream_status (): ::String?
       attr_accessor stream_mode_details (): Types::StreamModeDetails?
-      attr_accessor shards (): ::Array[Types::Shard]
-      attr_accessor has_more_shards (): bool
-      attr_accessor retention_period_hours (): ::Integer
-      attr_accessor stream_creation_timestamp (): ::Time
-      attr_accessor enhanced_monitoring (): ::Array[Types::EnhancedMetrics]
+      attr_accessor shards (): ::Array[Types::Shard]?
+      attr_accessor has_more_shards (): bool?
+      attr_accessor retention_period_hours (): ::Integer?
+      attr_accessor stream_creation_timestamp (): ::Time?
+      attr_accessor enhanced_monitoring (): ::Array[Types::EnhancedMetrics]?
       attr_accessor encryption_type (): ::String?
       attr_accessor key_id (): ::String?
     end
 
     class StreamDescriptionSummary
       include Hearth::Structure
-      attr_accessor stream_name (): ::String
-      attr_accessor stream_arn (): ::String
-      attr_accessor stream_status (): ::String
+      attr_accessor stream_name (): ::String?
+      attr_accessor stream_arn (): ::String?
+      attr_accessor stream_status (): ::String?
       attr_accessor stream_mode_details (): Types::StreamModeDetails?
-      attr_accessor retention_period_hours (): ::Integer
-      attr_accessor stream_creation_timestamp (): ::Time
-      attr_accessor enhanced_monitoring (): ::Array[Types::EnhancedMetrics]
+      attr_accessor retention_period_hours (): ::Integer?
+      attr_accessor stream_creation_timestamp (): ::Time?
+      attr_accessor enhanced_monitoring (): ::Array[Types::EnhancedMetrics]?
       attr_accessor encryption_type (): ::String?
       attr_accessor key_id (): ::String?
-      attr_accessor open_shard_count (): ::Integer
+      attr_accessor open_shard_count (): ::Integer?
       attr_accessor consumer_count (): ::Integer?
     end
 
@@ -637,7 +637,7 @@ module AWS::SDK::Kinesis
 
     class StreamModeDetails
       include Hearth::Structure
-      attr_accessor stream_mode (): ::String
+      attr_accessor stream_mode (): ::String?
     end
 
     module StreamStatus
@@ -652,18 +652,18 @@ module AWS::SDK::Kinesis
 
     class StreamSummary
       include Hearth::Structure
-      attr_accessor stream_name (): ::String
-      attr_accessor stream_arn (): ::String
-      attr_accessor stream_status (): ::String
+      attr_accessor stream_name (): ::String?
+      attr_accessor stream_arn (): ::String?
+      attr_accessor stream_status (): ::String?
       attr_accessor stream_mode_details (): Types::StreamModeDetails?
       attr_accessor stream_creation_timestamp (): ::Time?
     end
 
     class SubscribeToShardEvent
       include Hearth::Structure
-      attr_accessor records (): ::Array[Types::Record]
-      attr_accessor continuation_sequence_number (): ::String
-      attr_accessor millis_behind_latest (): ::Integer
+      attr_accessor records (): ::Array[Types::Record]?
+      attr_accessor continuation_sequence_number (): ::String?
+      attr_accessor millis_behind_latest (): ::Integer?
       attr_accessor child_shards (): ::Array[Types::ChildShard]?
     end
 
@@ -726,27 +726,27 @@ module AWS::SDK::Kinesis
 
     class SubscribeToShardInput
       include Hearth::Structure
-      attr_accessor consumer_arn (): ::String
-      attr_accessor shard_id (): ::String
-      attr_accessor starting_position (): Types::StartingPosition
+      attr_accessor consumer_arn (): ::String?
+      attr_accessor shard_id (): ::String?
+      attr_accessor starting_position (): Types::StartingPosition?
     end
 
     class SubscribeToShardOutput
       include Hearth::Structure
-      attr_accessor event_stream (): Types::SubscribeToShardEventStream
+      attr_accessor event_stream (): Types::SubscribeToShardEventStream?
     end
 
     class Tag
       include Hearth::Structure
-      attr_accessor key (): ::String
+      attr_accessor key (): ::String?
       attr_accessor value (): ::String?
     end
 
     class UpdateShardCountInput
       include Hearth::Structure
       attr_accessor stream_name (): ::String?
-      attr_accessor target_shard_count (): ::Integer
-      attr_accessor scaling_type (): ::String
+      attr_accessor target_shard_count (): ::Integer?
+      attr_accessor scaling_type (): ::String?
       attr_accessor stream_arn (): ::String?
     end
 
@@ -760,8 +760,8 @@ module AWS::SDK::Kinesis
 
     class UpdateStreamModeInput
       include Hearth::Structure
-      attr_accessor stream_arn (): ::String
-      attr_accessor stream_mode_details (): Types::StreamModeDetails
+      attr_accessor stream_arn (): ::String?
+      attr_accessor stream_mode_details (): Types::StreamModeDetails?
     end
 
     class UpdateStreamModeOutput

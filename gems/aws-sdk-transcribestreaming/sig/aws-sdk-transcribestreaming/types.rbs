@@ -135,8 +135,8 @@ module AWS::SDK::TranscribeStreaming
 
     class ChannelDefinition
       include Hearth::Structure
-      attr_accessor channel_id (): ::Integer
-      attr_accessor participant_role (): ::String
+      attr_accessor channel_id (): ::Integer?
+      attr_accessor participant_role (): ::String?
     end
 
     class CharacterOffsets
@@ -365,8 +365,8 @@ module AWS::SDK::TranscribeStreaming
 
     class PostCallAnalyticsSettings
       include Hearth::Structure
-      attr_accessor output_location (): ::String
-      attr_accessor data_access_role_arn (): ::String
+      attr_accessor output_location (): ::String?
+      attr_accessor data_access_role_arn (): ::String?
       attr_accessor content_redaction_output (): ::String?
       attr_accessor output_encryption_kms_key_id (): ::String?
     end
@@ -414,12 +414,12 @@ module AWS::SDK::TranscribeStreaming
 
     class StartCallAnalyticsStreamTranscriptionInput
       include Hearth::Structure
-      attr_accessor language_code (): ::String
-      attr_accessor media_sample_rate_hertz (): ::Integer
-      attr_accessor media_encoding (): ::String
+      attr_accessor language_code (): ::String?
+      attr_accessor media_sample_rate_hertz (): ::Integer?
+      attr_accessor media_encoding (): ::String?
       attr_accessor vocabulary_name (): ::String?
       attr_accessor session_id (): ::String?
-      attr_accessor audio_stream (): Types::AudioStream
+      attr_accessor audio_stream (): Types::AudioStream?
       attr_accessor vocabulary_filter_name (): ::String?
       attr_accessor vocabulary_filter_method (): ::String?
       attr_accessor language_model_name (): ::String?
@@ -451,15 +451,15 @@ module AWS::SDK::TranscribeStreaming
 
     class StartMedicalStreamTranscriptionInput
       include Hearth::Structure
-      attr_accessor language_code (): ::String
-      attr_accessor media_sample_rate_hertz (): ::Integer
-      attr_accessor media_encoding (): ::String
+      attr_accessor language_code (): ::String?
+      attr_accessor media_sample_rate_hertz (): ::Integer?
+      attr_accessor media_encoding (): ::String?
       attr_accessor vocabulary_name (): ::String?
-      attr_accessor specialty (): ::String
-      attr_accessor type (): ::String
+      attr_accessor specialty (): ::String?
+      attr_accessor type (): ::String?
       attr_accessor show_speaker_label (): bool?
       attr_accessor session_id (): ::String?
-      attr_accessor audio_stream (): Types::AudioStream
+      attr_accessor audio_stream (): Types::AudioStream?
       attr_accessor enable_channel_identification (): bool?
       attr_accessor number_of_channels (): ::Integer?
       attr_accessor content_identification_type (): ::String?
@@ -485,11 +485,11 @@ module AWS::SDK::TranscribeStreaming
     class StartStreamTranscriptionInput
       include Hearth::Structure
       attr_accessor language_code (): ::String?
-      attr_accessor media_sample_rate_hertz (): ::Integer
-      attr_accessor media_encoding (): ::String
+      attr_accessor media_sample_rate_hertz (): ::Integer?
+      attr_accessor media_encoding (): ::String?
       attr_accessor vocabulary_name (): ::String?
       attr_accessor session_id (): ::String?
-      attr_accessor audio_stream (): Types::AudioStream
+      attr_accessor audio_stream (): Types::AudioStream?
       attr_accessor vocabulary_filter_name (): ::String?
       attr_accessor vocabulary_filter_method (): ::String?
       attr_accessor show_speaker_label (): bool?

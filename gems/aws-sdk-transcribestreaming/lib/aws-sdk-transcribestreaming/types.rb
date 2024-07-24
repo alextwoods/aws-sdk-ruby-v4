@@ -70,20 +70,12 @@ module AWS::SDK::TranscribeStreaming
         def to_h
           { audio_event: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::TranscribeStreaming::Types::AudioEvent #{__getobj__ || 'nil'}>"
-        end
       end
 
       # <p>Contains audio channel definitions and post-call analytics settings.</p>
       class ConfigurationEvent < AudioStream
         def to_h
           { configuration_event: super(__getobj__) }
-        end
-
-        def to_s
-          "#<AWS::SDK::TranscribeStreaming::Types::ConfigurationEvent #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -263,10 +255,6 @@ module AWS::SDK::TranscribeStreaming
         def to_h
           { utterance_event: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::TranscribeStreaming::Types::UtteranceEvent #{__getobj__ || 'nil'}>"
-        end
       end
 
       # <p>Provides information on matched categories that were used to generate real-time supervisor
@@ -274,10 +262,6 @@ module AWS::SDK::TranscribeStreaming
       class CategoryEvent < CallAnalyticsTranscriptResultStream
         def to_h
           { category_event: super(__getobj__) }
-        end
-
-        def to_s
-          "#<AWS::SDK::TranscribeStreaming::Types::CategoryEvent #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -289,10 +273,6 @@ module AWS::SDK::TranscribeStreaming
         def to_h
           { bad_request_exception: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::TranscribeStreaming::Types::BadRequestException #{__getobj__ || 'nil'}>"
-        end
       end
 
       # <p>Your client has exceeded one of the Amazon Transcribe limits. This is typically the audio length
@@ -300,10 +280,6 @@ module AWS::SDK::TranscribeStreaming
       class LimitExceededException < CallAnalyticsTranscriptResultStream
         def to_h
           { limit_exceeded_exception: super(__getobj__) }
-        end
-
-        def to_s
-          "#<AWS::SDK::TranscribeStreaming::Types::LimitExceededException #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -313,10 +289,6 @@ module AWS::SDK::TranscribeStreaming
         def to_h
           { internal_failure_exception: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::TranscribeStreaming::Types::InternalFailureException #{__getobj__ || 'nil'}>"
-        end
       end
 
       # <p>A new stream started with the same session ID. The current stream has been terminated.</p>
@@ -324,20 +296,12 @@ module AWS::SDK::TranscribeStreaming
         def to_h
           { conflict_exception: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::TranscribeStreaming::Types::ConflictException #{__getobj__ || 'nil'}>"
-        end
       end
 
       # <p>The service is currently unavailable. Try your request later.</p>
       class ServiceUnavailableException < CallAnalyticsTranscriptResultStream
         def to_h
           { service_unavailable_exception: super(__getobj__) }
-        end
-
-        def to_s
-          "#<AWS::SDK::TranscribeStreaming::Types::ServiceUnavailableException #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -1020,10 +984,6 @@ module AWS::SDK::TranscribeStreaming
         def to_h
           { transcript_event: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::TranscribeStreaming::Types::TranscriptEvent #{__getobj__ || 'nil'}>"
-        end
       end
 
       # <p>One or more arguments to the <code>StartStreamTranscription</code>,
@@ -1034,10 +994,6 @@ module AWS::SDK::TranscribeStreaming
         def to_h
           { bad_request_exception: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::TranscribeStreaming::Types::BadRequestException #{__getobj__ || 'nil'}>"
-        end
       end
 
       # <p>Your client has exceeded one of the Amazon Transcribe limits. This is typically the audio length
@@ -1045,10 +1001,6 @@ module AWS::SDK::TranscribeStreaming
       class LimitExceededException < MedicalTranscriptResultStream
         def to_h
           { limit_exceeded_exception: super(__getobj__) }
-        end
-
-        def to_s
-          "#<AWS::SDK::TranscribeStreaming::Types::LimitExceededException #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -1058,10 +1010,6 @@ module AWS::SDK::TranscribeStreaming
         def to_h
           { internal_failure_exception: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::TranscribeStreaming::Types::InternalFailureException #{__getobj__ || 'nil'}>"
-        end
       end
 
       # <p>A new stream started with the same session ID. The current stream has been terminated.</p>
@@ -1069,20 +1017,12 @@ module AWS::SDK::TranscribeStreaming
         def to_h
           { conflict_exception: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::TranscribeStreaming::Types::ConflictException #{__getobj__ || 'nil'}>"
-        end
       end
 
       # <p>The service is currently unavailable. Try your request later.</p>
       class ServiceUnavailableException < MedicalTranscriptResultStream
         def to_h
           { service_unavailable_exception: super(__getobj__) }
-        end
-
-        def to_s
-          "#<AWS::SDK::TranscribeStreaming::Types::ServiceUnavailableException #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -2329,10 +2269,6 @@ module AWS::SDK::TranscribeStreaming
         def to_h
           { transcript_event: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::TranscribeStreaming::Types::TranscriptEvent #{__getobj__ || 'nil'}>"
-        end
       end
 
       # <p>A client error occurred when the stream was created. Check the parameters of the request
@@ -2340,10 +2276,6 @@ module AWS::SDK::TranscribeStreaming
       class BadRequestException < TranscriptResultStream
         def to_h
           { bad_request_exception: super(__getobj__) }
-        end
-
-        def to_s
-          "#<AWS::SDK::TranscribeStreaming::Types::BadRequestException #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -2353,10 +2285,6 @@ module AWS::SDK::TranscribeStreaming
         def to_h
           { limit_exceeded_exception: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::TranscribeStreaming::Types::LimitExceededException #{__getobj__ || 'nil'}>"
-        end
       end
 
       # <p>A problem occurred while processing the audio. Amazon Transcribe terminated
@@ -2364,10 +2292,6 @@ module AWS::SDK::TranscribeStreaming
       class InternalFailureException < TranscriptResultStream
         def to_h
           { internal_failure_exception: super(__getobj__) }
-        end
-
-        def to_s
-          "#<AWS::SDK::TranscribeStreaming::Types::InternalFailureException #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -2377,20 +2301,12 @@ module AWS::SDK::TranscribeStreaming
         def to_h
           { conflict_exception: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::TranscribeStreaming::Types::ConflictException #{__getobj__ || 'nil'}>"
-        end
       end
 
       # <p>The service is currently unavailable. Try your request later.</p>
       class ServiceUnavailableException < TranscriptResultStream
         def to_h
           { service_unavailable_exception: super(__getobj__) }
-        end
-
-        def to_s
-          "#<AWS::SDK::TranscribeStreaming::Types::ServiceUnavailableException #{__getobj__ || 'nil'}>"
         end
       end
 

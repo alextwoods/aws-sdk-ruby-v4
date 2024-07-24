@@ -9,7 +9,8 @@
 
 module AWS::SDK::TranscribeStreaming
   module Auth
-    class Params < ::Struct[untyped]
+    class Params
+      def initialize: (?operation_name: ::Symbol?, ?region: ::String?) -> void
       attr_accessor operation_name (): ::Symbol
       attr_accessor region (): ::String
     end
