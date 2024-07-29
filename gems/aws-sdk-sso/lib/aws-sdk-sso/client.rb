@@ -79,13 +79,7 @@ module AWS::SDK::SSO
         operation_name: :get_role_credentials,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'SSO',
-        'rpc.method' => 'GetRoleCredentials',
-        'code.function' => 'get_role_credentials',
-        'code.namespace' => 'AWS::SDK::SSO::Client'
-      }
-      tracer.in_span('SSO.GetRoleCredentials', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetRoleCredentials.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_role_credentials] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -132,13 +126,7 @@ module AWS::SDK::SSO
         operation_name: :list_account_roles,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'SSO',
-        'rpc.method' => 'ListAccountRoles',
-        'code.function' => 'list_account_roles',
-        'code.namespace' => 'AWS::SDK::SSO::Client'
-      }
-      tracer.in_span('SSO.ListAccountRoles', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ListAccountRoles.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_account_roles] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -187,13 +175,7 @@ module AWS::SDK::SSO
         operation_name: :list_accounts,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'SSO',
-        'rpc.method' => 'ListAccounts',
-        'code.function' => 'list_accounts',
-        'code.namespace' => 'AWS::SDK::SSO::Client'
-      }
-      tracer.in_span('SSO.ListAccounts', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ListAccounts.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_accounts] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -245,13 +227,7 @@ module AWS::SDK::SSO
         operation_name: :logout,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'SSO',
-        'rpc.method' => 'Logout',
-        'code.function' => 'logout',
-        'code.namespace' => 'AWS::SDK::SSO::Client'
-      }
-      tracer.in_span('SSO.Logout', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::Logout.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#logout] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error

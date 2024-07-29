@@ -29,7 +29,7 @@ module AWS::SDK::CodeCatalyst
         ?retry_strategy: Hearth::_RetryStrategy,
         ?stub_responses: bool,
         ?stubs: Hearth::Stubs,
-        ?telemetry_provider: Hearth::Telemetry::TelemetryProvider,
+        ?telemetry_provider: Hearth::Telemetry::TelemetryProviderBase,
         ?use_fips_endpoint: bool,
         ?validate_input: bool
       ) -> void

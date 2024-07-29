@@ -145,13 +145,7 @@ module AWS::SDK::SSOOIDC
         operation_name: :create_token,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'SSO OIDC',
-        'rpc.method' => 'CreateToken',
-        'code.function' => 'create_token',
-        'code.namespace' => 'AWS::SDK::SSOOIDC::Client'
-      }
-      tracer.in_span('SSO OIDC.CreateToken', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateToken.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_token] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -307,13 +301,7 @@ module AWS::SDK::SSOOIDC
         operation_name: :create_token_with_iam,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'SSO OIDC',
-        'rpc.method' => 'CreateTokenWithIAM',
-        'code.function' => 'create_token_with_iam',
-        'code.namespace' => 'AWS::SDK::SSOOIDC::Client'
-      }
-      tracer.in_span('SSO OIDC.CreateTokenWithIAM', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateTokenWithIAM.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_token_with_iam] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -398,13 +386,7 @@ module AWS::SDK::SSOOIDC
         operation_name: :register_client,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'SSO OIDC',
-        'rpc.method' => 'RegisterClient',
-        'code.function' => 'register_client',
-        'code.namespace' => 'AWS::SDK::SSOOIDC::Client'
-      }
-      tracer.in_span('SSO OIDC.RegisterClient', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::RegisterClient.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#register_client] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -469,13 +451,7 @@ module AWS::SDK::SSOOIDC
         operation_name: :start_device_authorization,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'SSO OIDC',
-        'rpc.method' => 'StartDeviceAuthorization',
-        'code.function' => 'start_device_authorization',
-        'code.namespace' => 'AWS::SDK::SSOOIDC::Client'
-      }
-      tracer.in_span('SSO OIDC.StartDeviceAuthorization', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::StartDeviceAuthorization.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_device_authorization] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error

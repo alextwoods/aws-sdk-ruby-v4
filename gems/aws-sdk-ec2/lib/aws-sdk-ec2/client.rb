@@ -100,13 +100,7 @@ module AWS::SDK::EC2
         operation_name: :accept_address_transfer,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'AcceptAddressTransfer',
-        'code.function' => 'accept_address_transfer',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.AcceptAddressTransfer', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::AcceptAddressTransfer.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#accept_address_transfer] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -155,13 +149,7 @@ module AWS::SDK::EC2
         operation_name: :accept_reserved_instances_exchange_quote,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'AcceptReservedInstancesExchangeQuote',
-        'code.function' => 'accept_reserved_instances_exchange_quote',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.AcceptReservedInstancesExchangeQuote', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::AcceptReservedInstancesExchangeQuote.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#accept_reserved_instances_exchange_quote] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -215,13 +203,7 @@ module AWS::SDK::EC2
         operation_name: :accept_transit_gateway_multicast_domain_associations,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'AcceptTransitGatewayMulticastDomainAssociations',
-        'code.function' => 'accept_transit_gateway_multicast_domain_associations',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.AcceptTransitGatewayMulticastDomainAssociations', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::AcceptTransitGatewayMulticastDomainAssociations.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#accept_transit_gateway_multicast_domain_associations] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -282,13 +264,7 @@ module AWS::SDK::EC2
         operation_name: :accept_transit_gateway_peering_attachment,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'AcceptTransitGatewayPeeringAttachment',
-        'code.function' => 'accept_transit_gateway_peering_attachment',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.AcceptTransitGatewayPeeringAttachment', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::AcceptTransitGatewayPeeringAttachment.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#accept_transit_gateway_peering_attachment] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -349,13 +325,7 @@ module AWS::SDK::EC2
         operation_name: :accept_transit_gateway_vpc_attachment,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'AcceptTransitGatewayVpcAttachment',
-        'code.function' => 'accept_transit_gateway_vpc_attachment',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.AcceptTransitGatewayVpcAttachment', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::AcceptTransitGatewayVpcAttachment.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#accept_transit_gateway_vpc_attachment] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -404,13 +374,7 @@ module AWS::SDK::EC2
         operation_name: :accept_vpc_endpoint_connections,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'AcceptVpcEndpointConnections',
-        'code.function' => 'accept_vpc_endpoint_connections',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.AcceptVpcEndpointConnections', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::AcceptVpcEndpointConnections.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#accept_vpc_endpoint_connections] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -481,13 +445,7 @@ module AWS::SDK::EC2
         operation_name: :accept_vpc_peering_connection,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'AcceptVpcPeeringConnection',
-        'code.function' => 'accept_vpc_peering_connection',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.AcceptVpcPeeringConnection', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::AcceptVpcPeeringConnection.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#accept_vpc_peering_connection] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -551,13 +509,7 @@ module AWS::SDK::EC2
         operation_name: :advertise_byoip_cidr,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'AdvertiseByoipCidr',
-        'code.function' => 'advertise_byoip_cidr',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.AdvertiseByoipCidr', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::AdvertiseByoipCidr.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#advertise_byoip_cidr] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -642,13 +594,7 @@ module AWS::SDK::EC2
         operation_name: :allocate_address,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'AllocateAddress',
-        'code.function' => 'allocate_address',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.AllocateAddress', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::AllocateAddress.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#allocate_address] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -713,13 +659,7 @@ module AWS::SDK::EC2
         operation_name: :allocate_hosts,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'AllocateHosts',
-        'code.function' => 'allocate_hosts',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.AllocateHosts', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::AllocateHosts.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#allocate_hosts] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -782,13 +722,7 @@ module AWS::SDK::EC2
         operation_name: :allocate_ipam_pool_cidr,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'AllocateIpamPoolCidr',
-        'code.function' => 'allocate_ipam_pool_cidr',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.AllocateIpamPoolCidr', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::AllocateIpamPoolCidr.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#allocate_ipam_pool_cidr] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -835,13 +769,7 @@ module AWS::SDK::EC2
         operation_name: :apply_security_groups_to_client_vpn_target_network,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ApplySecurityGroupsToClientVpnTargetNetwork',
-        'code.function' => 'apply_security_groups_to_client_vpn_target_network',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ApplySecurityGroupsToClientVpnTargetNetwork', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ApplySecurityGroupsToClientVpnTargetNetwork.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#apply_security_groups_to_client_vpn_target_network] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -903,13 +831,7 @@ module AWS::SDK::EC2
         operation_name: :assign_ipv6_addresses,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'AssignIpv6Addresses',
-        'code.function' => 'assign_ipv6_addresses',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.AssignIpv6Addresses', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::AssignIpv6Addresses.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#assign_ipv6_addresses] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -999,13 +921,7 @@ module AWS::SDK::EC2
         operation_name: :assign_private_ip_addresses,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'AssignPrivateIpAddresses',
-        'code.function' => 'assign_private_ip_addresses',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.AssignPrivateIpAddresses', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::AssignPrivateIpAddresses.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#assign_private_ip_addresses] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1061,13 +977,7 @@ module AWS::SDK::EC2
         operation_name: :assign_private_nat_gateway_address,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'AssignPrivateNatGatewayAddress',
-        'code.function' => 'assign_private_nat_gateway_address',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.AssignPrivateNatGatewayAddress', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::AssignPrivateNatGatewayAddress.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#assign_private_nat_gateway_address] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1152,13 +1062,7 @@ module AWS::SDK::EC2
         operation_name: :associate_address,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'AssociateAddress',
-        'code.function' => 'associate_address',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.AssociateAddress', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::AssociateAddress.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#associate_address] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1205,13 +1109,7 @@ module AWS::SDK::EC2
         operation_name: :associate_client_vpn_target_network,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'AssociateClientVpnTargetNetwork',
-        'code.function' => 'associate_client_vpn_target_network',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.AssociateClientVpnTargetNetwork', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::AssociateClientVpnTargetNetwork.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#associate_client_vpn_target_network] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1273,13 +1171,7 @@ module AWS::SDK::EC2
         operation_name: :associate_dhcp_options,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'AssociateDhcpOptions',
-        'code.function' => 'associate_dhcp_options',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.AssociateDhcpOptions', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::AssociateDhcpOptions.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#associate_dhcp_options] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1335,13 +1227,7 @@ module AWS::SDK::EC2
         operation_name: :associate_enclave_certificate_iam_role,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'AssociateEnclaveCertificateIamRole',
-        'code.function' => 'associate_enclave_certificate_iam_role',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.AssociateEnclaveCertificateIamRole', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::AssociateEnclaveCertificateIamRole.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#associate_enclave_certificate_iam_role] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1414,13 +1300,7 @@ module AWS::SDK::EC2
         operation_name: :associate_iam_instance_profile,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'AssociateIamInstanceProfile',
-        'code.function' => 'associate_iam_instance_profile',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.AssociateIamInstanceProfile', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::AssociateIamInstanceProfile.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#associate_iam_instance_profile] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1498,13 +1378,7 @@ module AWS::SDK::EC2
         operation_name: :associate_instance_event_window,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'AssociateInstanceEventWindow',
-        'code.function' => 'associate_instance_event_window',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.AssociateInstanceEventWindow', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::AssociateInstanceEventWindow.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#associate_instance_event_window] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1553,13 +1427,7 @@ module AWS::SDK::EC2
         operation_name: :associate_ipam_byoasn,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'AssociateIpamByoasn',
-        'code.function' => 'associate_ipam_byoasn',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.AssociateIpamByoasn', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::AssociateIpamByoasn.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#associate_ipam_byoasn] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1627,13 +1495,7 @@ module AWS::SDK::EC2
         operation_name: :associate_ipam_resource_discovery,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'AssociateIpamResourceDiscovery',
-        'code.function' => 'associate_ipam_resource_discovery',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.AssociateIpamResourceDiscovery', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::AssociateIpamResourceDiscovery.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#associate_ipam_resource_discovery] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1696,13 +1558,7 @@ module AWS::SDK::EC2
         operation_name: :associate_nat_gateway_address,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'AssociateNatGatewayAddress',
-        'code.function' => 'associate_nat_gateway_address',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.AssociateNatGatewayAddress', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::AssociateNatGatewayAddress.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#associate_nat_gateway_address] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1765,13 +1621,7 @@ module AWS::SDK::EC2
         operation_name: :associate_route_table,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'AssociateRouteTable',
-        'code.function' => 'associate_route_table',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.AssociateRouteTable', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::AssociateRouteTable.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#associate_route_table] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1821,13 +1671,7 @@ module AWS::SDK::EC2
         operation_name: :associate_subnet_cidr_block,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'AssociateSubnetCidrBlock',
-        'code.function' => 'associate_subnet_cidr_block',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.AssociateSubnetCidrBlock', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::AssociateSubnetCidrBlock.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#associate_subnet_cidr_block] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1883,13 +1727,7 @@ module AWS::SDK::EC2
         operation_name: :associate_transit_gateway_multicast_domain,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'AssociateTransitGatewayMulticastDomain',
-        'code.function' => 'associate_transit_gateway_multicast_domain',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.AssociateTransitGatewayMulticastDomain', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::AssociateTransitGatewayMulticastDomain.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#associate_transit_gateway_multicast_domain] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1936,13 +1774,7 @@ module AWS::SDK::EC2
         operation_name: :associate_transit_gateway_policy_table,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'AssociateTransitGatewayPolicyTable',
-        'code.function' => 'associate_transit_gateway_policy_table',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.AssociateTransitGatewayPolicyTable', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::AssociateTransitGatewayPolicyTable.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#associate_transit_gateway_policy_table] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1990,13 +1822,7 @@ module AWS::SDK::EC2
         operation_name: :associate_transit_gateway_route_table,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'AssociateTransitGatewayRouteTable',
-        'code.function' => 'associate_transit_gateway_route_table',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.AssociateTransitGatewayRouteTable', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::AssociateTransitGatewayRouteTable.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#associate_transit_gateway_route_table] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2054,13 +1880,7 @@ module AWS::SDK::EC2
         operation_name: :associate_trunk_interface,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'AssociateTrunkInterface',
-        'code.function' => 'associate_trunk_interface',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.AssociateTrunkInterface', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::AssociateTrunkInterface.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#associate_trunk_interface] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2128,13 +1948,7 @@ module AWS::SDK::EC2
         operation_name: :associate_vpc_cidr_block,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'AssociateVpcCidrBlock',
-        'code.function' => 'associate_vpc_cidr_block',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.AssociateVpcCidrBlock', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::AssociateVpcCidrBlock.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#associate_vpc_cidr_block] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2188,13 +2002,7 @@ module AWS::SDK::EC2
         operation_name: :attach_classic_link_vpc,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'AttachClassicLinkVpc',
-        'code.function' => 'attach_classic_link_vpc',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.AttachClassicLinkVpc', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::AttachClassicLinkVpc.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#attach_classic_link_vpc] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2246,13 +2054,7 @@ module AWS::SDK::EC2
         operation_name: :attach_internet_gateway,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'AttachInternetGateway',
-        'code.function' => 'attach_internet_gateway',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.AttachInternetGateway', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::AttachInternetGateway.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#attach_internet_gateway] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2315,13 +2117,7 @@ module AWS::SDK::EC2
         operation_name: :attach_network_interface,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'AttachNetworkInterface',
-        'code.function' => 'attach_network_interface',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.AttachNetworkInterface', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::AttachNetworkInterface.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#attach_network_interface] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2404,13 +2200,7 @@ module AWS::SDK::EC2
         operation_name: :attach_verified_access_trust_provider,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'AttachVerifiedAccessTrustProvider',
-        'code.function' => 'attach_verified_access_trust_provider',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.AttachVerifiedAccessTrustProvider', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::AttachVerifiedAccessTrustProvider.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#attach_verified_access_trust_provider] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2500,13 +2290,7 @@ module AWS::SDK::EC2
         operation_name: :attach_volume,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'AttachVolume',
-        'code.function' => 'attach_volume',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.AttachVolume', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::AttachVolume.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#attach_volume] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2553,13 +2337,7 @@ module AWS::SDK::EC2
         operation_name: :attach_vpn_gateway,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'AttachVpnGateway',
-        'code.function' => 'attach_vpn_gateway',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.AttachVpnGateway', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::AttachVpnGateway.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#attach_vpn_gateway] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2609,13 +2387,7 @@ module AWS::SDK::EC2
         operation_name: :authorize_client_vpn_ingress,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'AuthorizeClientVpnIngress',
-        'code.function' => 'authorize_client_vpn_ingress',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.AuthorizeClientVpnIngress', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::AuthorizeClientVpnIngress.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#authorize_client_vpn_ingress] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2788,13 +2560,7 @@ module AWS::SDK::EC2
         operation_name: :authorize_security_group_egress,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'AuthorizeSecurityGroupEgress',
-        'code.function' => 'authorize_security_group_egress',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.AuthorizeSecurityGroupEgress', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::AuthorizeSecurityGroupEgress.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#authorize_security_group_egress] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2986,13 +2752,7 @@ module AWS::SDK::EC2
         operation_name: :authorize_security_group_ingress,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'AuthorizeSecurityGroupIngress',
-        'code.function' => 'authorize_security_group_ingress',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.AuthorizeSecurityGroupIngress', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::AuthorizeSecurityGroupIngress.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#authorize_security_group_ingress] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3062,13 +2822,7 @@ module AWS::SDK::EC2
         operation_name: :bundle_instance,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'BundleInstance',
-        'code.function' => 'bundle_instance',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.BundleInstance', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::BundleInstance.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#bundle_instance] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3125,13 +2879,7 @@ module AWS::SDK::EC2
         operation_name: :cancel_bundle_task,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CancelBundleTask',
-        'code.function' => 'cancel_bundle_task',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CancelBundleTask', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CancelBundleTask.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#cancel_bundle_task] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3177,13 +2925,7 @@ module AWS::SDK::EC2
         operation_name: :cancel_capacity_reservation,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CancelCapacityReservation',
-        'code.function' => 'cancel_capacity_reservation',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CancelCapacityReservation', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CancelCapacityReservation.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#cancel_capacity_reservation] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3250,13 +2992,7 @@ module AWS::SDK::EC2
         operation_name: :cancel_capacity_reservation_fleets,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CancelCapacityReservationFleets',
-        'code.function' => 'cancel_capacity_reservation_fleets',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CancelCapacityReservationFleets', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CancelCapacityReservationFleets.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#cancel_capacity_reservation_fleets] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3301,13 +3037,7 @@ module AWS::SDK::EC2
         operation_name: :cancel_conversion_task,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CancelConversionTask',
-        'code.function' => 'cancel_conversion_task',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CancelConversionTask', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CancelConversionTask.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#cancel_conversion_task] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3348,13 +3078,7 @@ module AWS::SDK::EC2
         operation_name: :cancel_export_task,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CancelExportTask',
-        'code.function' => 'cancel_export_task',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CancelExportTask', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CancelExportTask.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#cancel_export_task] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3398,13 +3122,7 @@ module AWS::SDK::EC2
         operation_name: :cancel_image_launch_permission,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CancelImageLaunchPermission',
-        'code.function' => 'cancel_image_launch_permission',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CancelImageLaunchPermission', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CancelImageLaunchPermission.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#cancel_image_launch_permission] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3448,13 +3166,7 @@ module AWS::SDK::EC2
         operation_name: :cancel_import_task,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CancelImportTask',
-        'code.function' => 'cancel_import_task',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CancelImportTask', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CancelImportTask.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#cancel_import_task] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3519,13 +3231,7 @@ module AWS::SDK::EC2
         operation_name: :cancel_reserved_instances_listing,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CancelReservedInstancesListing',
-        'code.function' => 'cancel_reserved_instances_listing',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CancelReservedInstancesListing', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CancelReservedInstancesListing.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#cancel_reserved_instances_listing] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3623,13 +3329,7 @@ module AWS::SDK::EC2
         operation_name: :cancel_spot_fleet_requests,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CancelSpotFleetRequests',
-        'code.function' => 'cancel_spot_fleet_requests',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CancelSpotFleetRequests', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CancelSpotFleetRequests.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#cancel_spot_fleet_requests] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3696,13 +3396,7 @@ module AWS::SDK::EC2
         operation_name: :cancel_spot_instance_requests,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CancelSpotInstanceRequests',
-        'code.function' => 'cancel_spot_instance_requests',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CancelSpotInstanceRequests', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CancelSpotInstanceRequests.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#cancel_spot_instance_requests] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3758,13 +3452,7 @@ module AWS::SDK::EC2
         operation_name: :confirm_product_instance,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ConfirmProductInstance',
-        'code.function' => 'confirm_product_instance',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ConfirmProductInstance', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ConfirmProductInstance.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#confirm_product_instance] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3809,13 +3497,7 @@ module AWS::SDK::EC2
         operation_name: :copy_fpga_image,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CopyFpgaImage',
-        'code.function' => 'copy_fpga_image',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CopyFpgaImage', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CopyFpgaImage.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#copy_fpga_image] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3895,13 +3577,7 @@ module AWS::SDK::EC2
         operation_name: :copy_image,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CopyImage',
-        'code.function' => 'copy_image',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CopyImage', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CopyImage.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#copy_image] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3996,13 +3672,7 @@ module AWS::SDK::EC2
         operation_name: :copy_snapshot,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CopySnapshot',
-        'code.function' => 'copy_snapshot',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CopySnapshot', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CopySnapshot.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#copy_snapshot] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4111,13 +3781,7 @@ module AWS::SDK::EC2
         operation_name: :create_capacity_reservation,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateCapacityReservation',
-        'code.function' => 'create_capacity_reservation',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateCapacityReservation', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateCapacityReservation.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_capacity_reservation] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4211,13 +3875,7 @@ module AWS::SDK::EC2
         operation_name: :create_capacity_reservation_fleet,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateCapacityReservationFleet',
-        'code.function' => 'create_capacity_reservation_fleet',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateCapacityReservationFleet', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateCapacityReservationFleet.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_capacity_reservation_fleet] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4278,13 +3936,7 @@ module AWS::SDK::EC2
         operation_name: :create_carrier_gateway,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateCarrierGateway',
-        'code.function' => 'create_carrier_gateway',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateCarrierGateway', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateCarrierGateway.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_carrier_gateway] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4385,13 +4037,7 @@ module AWS::SDK::EC2
         operation_name: :create_client_vpn_endpoint,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateClientVpnEndpoint',
-        'code.function' => 'create_client_vpn_endpoint',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateClientVpnEndpoint', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateClientVpnEndpoint.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_client_vpn_endpoint] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4439,13 +4085,7 @@ module AWS::SDK::EC2
         operation_name: :create_client_vpn_route,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateClientVpnRoute',
-        'code.function' => 'create_client_vpn_route',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateClientVpnRoute', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateClientVpnRoute.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_client_vpn_route] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4492,13 +4132,7 @@ module AWS::SDK::EC2
         operation_name: :create_coip_cidr,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateCoipCidr',
-        'code.function' => 'create_coip_cidr',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateCoipCidr', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateCoipCidr.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_coip_cidr] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4559,13 +4193,7 @@ module AWS::SDK::EC2
         operation_name: :create_coip_pool,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateCoipPool',
-        'code.function' => 'create_coip_pool',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateCoipPool', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateCoipPool.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_coip_pool] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4664,13 +4292,7 @@ module AWS::SDK::EC2
         operation_name: :create_customer_gateway,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateCustomerGateway',
-        'code.function' => 'create_customer_gateway',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateCustomerGateway', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateCustomerGateway.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_customer_gateway] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4748,13 +4370,7 @@ module AWS::SDK::EC2
         operation_name: :create_default_subnet,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateDefaultSubnet',
-        'code.function' => 'create_default_subnet',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateDefaultSubnet', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateDefaultSubnet.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_default_subnet] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4825,13 +4441,7 @@ module AWS::SDK::EC2
         operation_name: :create_default_vpc,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateDefaultVpc',
-        'code.function' => 'create_default_vpc',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateDefaultVpc', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateDefaultVpc.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_default_vpc] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4986,13 +4596,7 @@ module AWS::SDK::EC2
         operation_name: :create_dhcp_options,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateDhcpOptions',
-        'code.function' => 'create_dhcp_options',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateDhcpOptions', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateDhcpOptions.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_dhcp_options] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5058,13 +4662,7 @@ module AWS::SDK::EC2
         operation_name: :create_egress_only_internet_gateway,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateEgressOnlyInternetGateway',
-        'code.function' => 'create_egress_only_internet_gateway',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateEgressOnlyInternetGateway', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateEgressOnlyInternetGateway.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_egress_only_internet_gateway] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5338,13 +4936,7 @@ module AWS::SDK::EC2
         operation_name: :create_fleet,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateFleet',
-        'code.function' => 'create_fleet',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateFleet', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateFleet.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_fleet] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5431,13 +5023,7 @@ module AWS::SDK::EC2
         operation_name: :create_flow_logs,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateFlowLogs',
-        'code.function' => 'create_flow_logs',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateFlowLogs', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateFlowLogs.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_flow_logs] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5501,13 +5087,7 @@ module AWS::SDK::EC2
         operation_name: :create_fpga_image,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateFpgaImage',
-        'code.function' => 'create_fpga_image',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateFpgaImage', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateFpgaImage.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_fpga_image] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5586,13 +5166,7 @@ module AWS::SDK::EC2
         operation_name: :create_image,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateImage',
-        'code.function' => 'create_image',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateImage', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateImage.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_image] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5674,13 +5248,7 @@ module AWS::SDK::EC2
         operation_name: :create_instance_connect_endpoint,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateInstanceConnectEndpoint',
-        'code.function' => 'create_instance_connect_endpoint',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateInstanceConnectEndpoint', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateInstanceConnectEndpoint.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_instance_connect_endpoint] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5783,13 +5351,7 @@ module AWS::SDK::EC2
         operation_name: :create_instance_event_window,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateInstanceEventWindow',
-        'code.function' => 'create_instance_event_window',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateInstanceEventWindow', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateInstanceEventWindow.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_instance_event_window] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5867,13 +5429,7 @@ module AWS::SDK::EC2
         operation_name: :create_instance_export_task,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateInstanceExportTask',
-        'code.function' => 'create_instance_export_task',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateInstanceExportTask', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateInstanceExportTask.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_instance_export_task] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5952,13 +5508,7 @@ module AWS::SDK::EC2
         operation_name: :create_internet_gateway,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateInternetGateway',
-        'code.function' => 'create_internet_gateway',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateInternetGateway', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateInternetGateway.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_internet_gateway] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -6043,13 +5593,7 @@ module AWS::SDK::EC2
         operation_name: :create_ipam,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateIpam',
-        'code.function' => 'create_ipam',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateIpam', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateIpam.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_ipam] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -6161,13 +5705,7 @@ module AWS::SDK::EC2
         operation_name: :create_ipam_pool,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateIpamPool',
-        'code.function' => 'create_ipam_pool',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateIpamPool', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateIpamPool.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_ipam_pool] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -6239,13 +5777,7 @@ module AWS::SDK::EC2
         operation_name: :create_ipam_resource_discovery,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateIpamResourceDiscovery',
-        'code.function' => 'create_ipam_resource_discovery',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateIpamResourceDiscovery', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateIpamResourceDiscovery.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_ipam_resource_discovery] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -6314,13 +5846,7 @@ module AWS::SDK::EC2
         operation_name: :create_ipam_scope,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateIpamScope',
-        'code.function' => 'create_ipam_scope',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateIpamScope', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateIpamScope.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_ipam_scope] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -6399,13 +5925,7 @@ module AWS::SDK::EC2
         operation_name: :create_key_pair,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateKeyPair',
-        'code.function' => 'create_key_pair',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateKeyPair', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateKeyPair.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_key_pair] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -6764,13 +6284,7 @@ module AWS::SDK::EC2
         operation_name: :create_launch_template,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateLaunchTemplate',
-        'code.function' => 'create_launch_template',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateLaunchTemplate', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateLaunchTemplate.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_launch_template] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -7309,13 +6823,7 @@ module AWS::SDK::EC2
         operation_name: :create_launch_template_version,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateLaunchTemplateVersion',
-        'code.function' => 'create_launch_template_version',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateLaunchTemplateVersion', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateLaunchTemplateVersion.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_launch_template_version] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -7384,13 +6892,7 @@ module AWS::SDK::EC2
         operation_name: :create_local_gateway_route,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateLocalGatewayRoute',
-        'code.function' => 'create_local_gateway_route',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateLocalGatewayRoute', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateLocalGatewayRoute.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_local_gateway_route] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -7459,13 +6961,7 @@ module AWS::SDK::EC2
         operation_name: :create_local_gateway_route_table,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateLocalGatewayRouteTable',
-        'code.function' => 'create_local_gateway_route_table',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateLocalGatewayRouteTable', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateLocalGatewayRouteTable.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_local_gateway_route_table] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -7531,13 +7027,7 @@ module AWS::SDK::EC2
         operation_name: :create_local_gateway_route_table_virtual_interface_group_association,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation',
-        'code.function' => 'create_local_gateway_route_table_virtual_interface_group_association',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_local_gateway_route_table_virtual_interface_group_association] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -7601,13 +7091,7 @@ module AWS::SDK::EC2
         operation_name: :create_local_gateway_route_table_vpc_association,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateLocalGatewayRouteTableVpcAssociation',
-        'code.function' => 'create_local_gateway_route_table_vpc_association',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateLocalGatewayRouteTableVpcAssociation', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateLocalGatewayRouteTableVpcAssociation.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_local_gateway_route_table_vpc_association] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -7682,13 +7166,7 @@ module AWS::SDK::EC2
         operation_name: :create_managed_prefix_list,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateManagedPrefixList',
-        'code.function' => 'create_managed_prefix_list',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateManagedPrefixList', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateManagedPrefixList.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_managed_prefix_list] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -7816,13 +7294,7 @@ module AWS::SDK::EC2
         operation_name: :create_nat_gateway,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateNatGateway',
-        'code.function' => 'create_nat_gateway',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateNatGateway', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateNatGateway.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_nat_gateway] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -7941,13 +7413,7 @@ module AWS::SDK::EC2
         operation_name: :create_network_acl,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateNetworkAcl',
-        'code.function' => 'create_network_acl',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateNetworkAcl', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateNetworkAcl.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_network_acl] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -8026,13 +7492,7 @@ module AWS::SDK::EC2
         operation_name: :create_network_acl_entry,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateNetworkAclEntry',
-        'code.function' => 'create_network_acl_entry',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateNetworkAclEntry', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateNetworkAclEntry.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_network_acl_entry] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -8138,13 +7598,7 @@ module AWS::SDK::EC2
         operation_name: :create_network_insights_access_scope,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateNetworkInsightsAccessScope',
-        'code.function' => 'create_network_insights_access_scope',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateNetworkInsightsAccessScope', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateNetworkInsightsAccessScope.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_network_insights_access_scope] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -8236,13 +7690,7 @@ module AWS::SDK::EC2
         operation_name: :create_network_insights_path,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateNetworkInsightsPath',
-        'code.function' => 'create_network_insights_path',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateNetworkInsightsPath', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateNetworkInsightsPath.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_network_insights_path] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -8406,13 +7854,7 @@ module AWS::SDK::EC2
         operation_name: :create_network_interface,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateNetworkInterface',
-        'code.function' => 'create_network_interface',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateNetworkInterface', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateNetworkInterface.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_network_interface] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -8466,13 +7908,7 @@ module AWS::SDK::EC2
         operation_name: :create_network_interface_permission,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateNetworkInterfacePermission',
-        'code.function' => 'create_network_interface_permission',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateNetworkInterfacePermission', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateNetworkInterfacePermission.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_network_interface_permission] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -8556,13 +7992,7 @@ module AWS::SDK::EC2
         operation_name: :create_placement_group,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreatePlacementGroup',
-        'code.function' => 'create_placement_group',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreatePlacementGroup', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreatePlacementGroup.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_placement_group] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -8613,13 +8043,7 @@ module AWS::SDK::EC2
         operation_name: :create_public_ipv4_pool,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreatePublicIpv4Pool',
-        'code.function' => 'create_public_ipv4_pool',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreatePublicIpv4Pool', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreatePublicIpv4Pool.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_public_ipv4_pool] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -8691,13 +8115,7 @@ module AWS::SDK::EC2
         operation_name: :create_replace_root_volume_task,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateReplaceRootVolumeTask',
-        'code.function' => 'create_replace_root_volume_task',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateReplaceRootVolumeTask', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateReplaceRootVolumeTask.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_replace_root_volume_task] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -8783,13 +8201,7 @@ module AWS::SDK::EC2
         operation_name: :create_reserved_instances_listing,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateReservedInstancesListing',
-        'code.function' => 'create_reserved_instances_listing',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateReservedInstancesListing', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateReservedInstancesListing.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_reserved_instances_listing] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -8848,13 +8260,7 @@ module AWS::SDK::EC2
         operation_name: :create_restore_image_task,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateRestoreImageTask',
-        'code.function' => 'create_restore_image_task',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateRestoreImageTask', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateRestoreImageTask.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_restore_image_task] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -8939,13 +8345,7 @@ module AWS::SDK::EC2
         operation_name: :create_route,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateRoute',
-        'code.function' => 'create_route',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateRoute', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateRoute.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_route] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -9068,13 +8468,7 @@ module AWS::SDK::EC2
         operation_name: :create_route_table,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateRouteTable',
-        'code.function' => 'create_route_table',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateRouteTable', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateRouteTable.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_route_table] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -9162,13 +8556,7 @@ module AWS::SDK::EC2
         operation_name: :create_security_group,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateSecurityGroup',
-        'code.function' => 'create_security_group',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateSecurityGroup', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateSecurityGroup.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_security_group] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -9286,13 +8674,7 @@ module AWS::SDK::EC2
         operation_name: :create_snapshot,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateSnapshot',
-        'code.function' => 'create_snapshot',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateSnapshot', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateSnapshot.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_snapshot] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -9378,13 +8760,7 @@ module AWS::SDK::EC2
         operation_name: :create_snapshots,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateSnapshots',
-        'code.function' => 'create_snapshots',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateSnapshots', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateSnapshots.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_snapshots] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -9452,13 +8828,7 @@ module AWS::SDK::EC2
         operation_name: :create_spot_datafeed_subscription,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateSpotDatafeedSubscription',
-        'code.function' => 'create_spot_datafeed_subscription',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateSpotDatafeedSubscription', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateSpotDatafeedSubscription.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_spot_datafeed_subscription] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -9510,13 +8880,7 @@ module AWS::SDK::EC2
         operation_name: :create_store_image_task,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateStoreImageTask',
-        'code.function' => 'create_store_image_task',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateStoreImageTask', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateStoreImageTask.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_store_image_task] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -9645,13 +9009,7 @@ module AWS::SDK::EC2
         operation_name: :create_subnet,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateSubnet',
-        'code.function' => 'create_subnet',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateSubnet', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateSubnet.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_subnet] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -9718,13 +9076,7 @@ module AWS::SDK::EC2
         operation_name: :create_subnet_cidr_reservation,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateSubnetCidrReservation',
-        'code.function' => 'create_subnet_cidr_reservation',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateSubnetCidrReservation', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateSubnetCidrReservation.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_subnet_cidr_reservation] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -9796,13 +9148,7 @@ module AWS::SDK::EC2
         operation_name: :create_tags,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateTags',
-        'code.function' => 'create_tags',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateTags', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateTags.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_tags] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -9883,13 +9229,7 @@ module AWS::SDK::EC2
         operation_name: :create_traffic_mirror_filter,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateTrafficMirrorFilter',
-        'code.function' => 'create_traffic_mirror_filter',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateTrafficMirrorFilter', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateTrafficMirrorFilter.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_traffic_mirror_filter] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -9958,13 +9298,7 @@ module AWS::SDK::EC2
         operation_name: :create_traffic_mirror_filter_rule,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateTrafficMirrorFilterRule',
-        'code.function' => 'create_traffic_mirror_filter_rule',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateTrafficMirrorFilterRule', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateTrafficMirrorFilterRule.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_traffic_mirror_filter_rule] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -10043,13 +9377,7 @@ module AWS::SDK::EC2
         operation_name: :create_traffic_mirror_session,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateTrafficMirrorSession',
-        'code.function' => 'create_traffic_mirror_session',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateTrafficMirrorSession', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateTrafficMirrorSession.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_traffic_mirror_session] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -10122,13 +9450,7 @@ module AWS::SDK::EC2
         operation_name: :create_traffic_mirror_target,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateTrafficMirrorTarget',
-        'code.function' => 'create_traffic_mirror_target',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateTrafficMirrorTarget', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateTrafficMirrorTarget.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_traffic_mirror_target] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -10228,13 +9550,7 @@ module AWS::SDK::EC2
         operation_name: :create_transit_gateway,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateTransitGateway',
-        'code.function' => 'create_transit_gateway',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateTransitGateway', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateTransitGateway.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_transit_gateway] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -10301,13 +9617,7 @@ module AWS::SDK::EC2
         operation_name: :create_transit_gateway_connect,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateTransitGatewayConnect',
-        'code.function' => 'create_transit_gateway_connect',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateTransitGatewayConnect', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateTransitGatewayConnect.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_transit_gateway_connect] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -10391,13 +9701,7 @@ module AWS::SDK::EC2
         operation_name: :create_transit_gateway_connect_peer,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateTransitGatewayConnectPeer',
-        'code.function' => 'create_transit_gateway_connect_peer',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateTransitGatewayConnectPeer', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateTransitGatewayConnectPeer.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_transit_gateway_connect_peer] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -10469,13 +9773,7 @@ module AWS::SDK::EC2
         operation_name: :create_transit_gateway_multicast_domain,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateTransitGatewayMulticastDomain',
-        'code.function' => 'create_transit_gateway_multicast_domain',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateTransitGatewayMulticastDomain', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateTransitGatewayMulticastDomain.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_transit_gateway_multicast_domain] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -10556,13 +9854,7 @@ module AWS::SDK::EC2
         operation_name: :create_transit_gateway_peering_attachment,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateTransitGatewayPeeringAttachment',
-        'code.function' => 'create_transit_gateway_peering_attachment',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateTransitGatewayPeeringAttachment', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateTransitGatewayPeeringAttachment.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_transit_gateway_peering_attachment] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -10622,13 +9914,7 @@ module AWS::SDK::EC2
         operation_name: :create_transit_gateway_policy_table,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateTransitGatewayPolicyTable',
-        'code.function' => 'create_transit_gateway_policy_table',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateTransitGatewayPolicyTable', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateTransitGatewayPolicyTable.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_transit_gateway_policy_table] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -10681,13 +9967,7 @@ module AWS::SDK::EC2
         operation_name: :create_transit_gateway_prefix_list_reference,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateTransitGatewayPrefixListReference',
-        'code.function' => 'create_transit_gateway_prefix_list_reference',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateTransitGatewayPrefixListReference', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateTransitGatewayPrefixListReference.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_transit_gateway_prefix_list_reference] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -10741,13 +10021,7 @@ module AWS::SDK::EC2
         operation_name: :create_transit_gateway_route,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateTransitGatewayRoute',
-        'code.function' => 'create_transit_gateway_route',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateTransitGatewayRoute', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateTransitGatewayRoute.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_transit_gateway_route] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -10809,13 +10083,7 @@ module AWS::SDK::EC2
         operation_name: :create_transit_gateway_route_table,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateTransitGatewayRouteTable',
-        'code.function' => 'create_transit_gateway_route_table',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateTransitGatewayRouteTable', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateTransitGatewayRouteTable.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_transit_gateway_route_table] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -10882,13 +10150,7 @@ module AWS::SDK::EC2
         operation_name: :create_transit_gateway_route_table_announcement,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateTransitGatewayRouteTableAnnouncement',
-        'code.function' => 'create_transit_gateway_route_table_announcement',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateTransitGatewayRouteTableAnnouncement', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateTransitGatewayRouteTableAnnouncement.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_transit_gateway_route_table_announcement] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -10970,13 +10232,7 @@ module AWS::SDK::EC2
         operation_name: :create_transit_gateway_vpc_attachment,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateTransitGatewayVpcAttachment',
-        'code.function' => 'create_transit_gateway_vpc_attachment',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateTransitGatewayVpcAttachment', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateTransitGatewayVpcAttachment.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_transit_gateway_vpc_attachment] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -11091,13 +10347,7 @@ module AWS::SDK::EC2
         operation_name: :create_verified_access_endpoint,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateVerifiedAccessEndpoint',
-        'code.function' => 'create_verified_access_endpoint',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateVerifiedAccessEndpoint', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateVerifiedAccessEndpoint.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_verified_access_endpoint] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -11174,13 +10424,7 @@ module AWS::SDK::EC2
         operation_name: :create_verified_access_group,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateVerifiedAccessGroup',
-        'code.function' => 'create_verified_access_group',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateVerifiedAccessGroup', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateVerifiedAccessGroup.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_verified_access_group] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -11251,13 +10495,7 @@ module AWS::SDK::EC2
         operation_name: :create_verified_access_instance,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateVerifiedAccessInstance',
-        'code.function' => 'create_verified_access_instance',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateVerifiedAccessInstance', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateVerifiedAccessInstance.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_verified_access_instance] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -11360,13 +10598,7 @@ module AWS::SDK::EC2
         operation_name: :create_verified_access_trust_provider,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateVerifiedAccessTrustProvider',
-        'code.function' => 'create_verified_access_trust_provider',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateVerifiedAccessTrustProvider', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateVerifiedAccessTrustProvider.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_verified_access_trust_provider] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -11512,13 +10744,7 @@ module AWS::SDK::EC2
         operation_name: :create_volume,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateVolume',
-        'code.function' => 'create_volume',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateVolume', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateVolume.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_volume] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -11631,13 +10857,7 @@ module AWS::SDK::EC2
         operation_name: :create_vpc,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateVpc',
-        'code.function' => 'create_vpc',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateVpc', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateVpc.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_vpc] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -11752,13 +10972,7 @@ module AWS::SDK::EC2
         operation_name: :create_vpc_endpoint,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateVpcEndpoint',
-        'code.function' => 'create_vpc_endpoint',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateVpcEndpoint', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateVpcEndpoint.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_vpc_endpoint] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -11818,13 +11032,7 @@ module AWS::SDK::EC2
         operation_name: :create_vpc_endpoint_connection_notification,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateVpcEndpointConnectionNotification',
-        'code.function' => 'create_vpc_endpoint_connection_notification',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateVpcEndpointConnectionNotification', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateVpcEndpointConnectionNotification.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_vpc_endpoint_connection_notification] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -11924,13 +11132,7 @@ module AWS::SDK::EC2
         operation_name: :create_vpc_endpoint_service_configuration,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateVpcEndpointServiceConfiguration',
-        'code.function' => 'create_vpc_endpoint_service_configuration',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateVpcEndpointServiceConfiguration', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateVpcEndpointServiceConfiguration.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_vpc_endpoint_service_configuration] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -12022,13 +11224,7 @@ module AWS::SDK::EC2
         operation_name: :create_vpc_peering_connection,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateVpcPeeringConnection',
-        'code.function' => 'create_vpc_peering_connection',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateVpcPeeringConnection', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateVpcPeeringConnection.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_vpc_peering_connection] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -12247,13 +11443,7 @@ module AWS::SDK::EC2
         operation_name: :create_vpn_connection,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateVpnConnection',
-        'code.function' => 'create_vpn_connection',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateVpnConnection', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateVpnConnection.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_vpn_connection] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -12297,13 +11487,7 @@ module AWS::SDK::EC2
         operation_name: :create_vpn_connection_route,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateVpnConnectionRoute',
-        'code.function' => 'create_vpn_connection_route',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateVpnConnectionRoute', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateVpnConnectionRoute.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_vpn_connection_route] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -12374,13 +11558,7 @@ module AWS::SDK::EC2
         operation_name: :create_vpn_gateway,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'CreateVpnGateway',
-        'code.function' => 'create_vpn_gateway',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.CreateVpnGateway', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateVpnGateway.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_vpn_gateway] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -12434,13 +11612,7 @@ module AWS::SDK::EC2
         operation_name: :delete_carrier_gateway,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteCarrierGateway',
-        'code.function' => 'delete_carrier_gateway',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteCarrierGateway', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteCarrierGateway.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_carrier_gateway] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -12484,13 +11656,7 @@ module AWS::SDK::EC2
         operation_name: :delete_client_vpn_endpoint,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteClientVpnEndpoint',
-        'code.function' => 'delete_client_vpn_endpoint',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteClientVpnEndpoint', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteClientVpnEndpoint.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_client_vpn_endpoint] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -12538,13 +11704,7 @@ module AWS::SDK::EC2
         operation_name: :delete_client_vpn_route,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteClientVpnRoute',
-        'code.function' => 'delete_client_vpn_route',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteClientVpnRoute', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteClientVpnRoute.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_client_vpn_route] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -12591,13 +11751,7 @@ module AWS::SDK::EC2
         operation_name: :delete_coip_cidr,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteCoipCidr',
-        'code.function' => 'delete_coip_cidr',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteCoipCidr', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteCoipCidr.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_coip_cidr] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -12647,13 +11801,7 @@ module AWS::SDK::EC2
         operation_name: :delete_coip_pool,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteCoipPool',
-        'code.function' => 'delete_coip_pool',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteCoipPool', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteCoipPool.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_coip_pool] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -12702,13 +11850,7 @@ module AWS::SDK::EC2
         operation_name: :delete_customer_gateway,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteCustomerGateway',
-        'code.function' => 'delete_customer_gateway',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteCustomerGateway', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteCustomerGateway.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_customer_gateway] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -12756,13 +11898,7 @@ module AWS::SDK::EC2
         operation_name: :delete_dhcp_options,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteDhcpOptions',
-        'code.function' => 'delete_dhcp_options',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteDhcpOptions', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteDhcpOptions.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_dhcp_options] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -12803,13 +11939,7 @@ module AWS::SDK::EC2
         operation_name: :delete_egress_only_internet_gateway,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteEgressOnlyInternetGateway',
-        'code.function' => 'delete_egress_only_internet_gateway',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteEgressOnlyInternetGateway', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteEgressOnlyInternetGateway.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_egress_only_internet_gateway] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -12888,13 +12018,7 @@ module AWS::SDK::EC2
         operation_name: :delete_fleets,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteFleets',
-        'code.function' => 'delete_fleets',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteFleets', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteFleets.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_fleets] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -12942,13 +12066,7 @@ module AWS::SDK::EC2
         operation_name: :delete_flow_logs,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteFlowLogs',
-        'code.function' => 'delete_flow_logs',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteFlowLogs', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteFlowLogs.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_flow_logs] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -12989,13 +12107,7 @@ module AWS::SDK::EC2
         operation_name: :delete_fpga_image,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteFpgaImage',
-        'code.function' => 'delete_fpga_image',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteFpgaImage', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteFpgaImage.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_fpga_image] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -13056,13 +12168,7 @@ module AWS::SDK::EC2
         operation_name: :delete_instance_connect_endpoint,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteInstanceConnectEndpoint',
-        'code.function' => 'delete_instance_connect_endpoint',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteInstanceConnectEndpoint', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteInstanceConnectEndpoint.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_instance_connect_endpoint] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -13108,13 +12214,7 @@ module AWS::SDK::EC2
         operation_name: :delete_instance_event_window,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteInstanceEventWindow',
-        'code.function' => 'delete_instance_event_window',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteInstanceEventWindow', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteInstanceEventWindow.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_instance_event_window] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -13163,13 +12263,7 @@ module AWS::SDK::EC2
         operation_name: :delete_internet_gateway,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteInternetGateway',
-        'code.function' => 'delete_internet_gateway',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteInternetGateway', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteInternetGateway.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_internet_gateway] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -13234,13 +12328,7 @@ module AWS::SDK::EC2
         operation_name: :delete_ipam,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteIpam',
-        'code.function' => 'delete_ipam',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteIpam', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteIpam.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_ipam] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -13323,13 +12411,7 @@ module AWS::SDK::EC2
         operation_name: :delete_ipam_pool,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteIpamPool',
-        'code.function' => 'delete_ipam_pool',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteIpamPool', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteIpamPool.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_ipam_pool] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -13384,13 +12466,7 @@ module AWS::SDK::EC2
         operation_name: :delete_ipam_resource_discovery,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteIpamResourceDiscovery',
-        'code.function' => 'delete_ipam_resource_discovery',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteIpamResourceDiscovery', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteIpamResourceDiscovery.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_ipam_resource_discovery] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -13447,13 +12523,7 @@ module AWS::SDK::EC2
         operation_name: :delete_ipam_scope,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteIpamScope',
-        'code.function' => 'delete_ipam_scope',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteIpamScope', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteIpamScope.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_ipam_scope] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -13504,13 +12574,7 @@ module AWS::SDK::EC2
         operation_name: :delete_key_pair,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteKeyPair',
-        'code.function' => 'delete_key_pair',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteKeyPair', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteKeyPair.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_key_pair] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -13580,13 +12644,7 @@ module AWS::SDK::EC2
         operation_name: :delete_launch_template,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteLaunchTemplate',
-        'code.function' => 'delete_launch_template',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteLaunchTemplate', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteLaunchTemplate.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_launch_template] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -13673,13 +12731,7 @@ module AWS::SDK::EC2
         operation_name: :delete_launch_template_versions,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteLaunchTemplateVersions',
-        'code.function' => 'delete_launch_template_versions',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteLaunchTemplateVersions', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteLaunchTemplateVersions.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_launch_template_versions] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -13733,13 +12785,7 @@ module AWS::SDK::EC2
         operation_name: :delete_local_gateway_route,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteLocalGatewayRoute',
-        'code.function' => 'delete_local_gateway_route',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteLocalGatewayRoute', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteLocalGatewayRoute.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_local_gateway_route] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -13796,13 +12842,7 @@ module AWS::SDK::EC2
         operation_name: :delete_local_gateway_route_table,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteLocalGatewayRouteTable',
-        'code.function' => 'delete_local_gateway_route_table',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteLocalGatewayRouteTable', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteLocalGatewayRouteTable.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_local_gateway_route_table] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -13856,13 +12896,7 @@ module AWS::SDK::EC2
         operation_name: :delete_local_gateway_route_table_virtual_interface_group_association,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation',
-        'code.function' => 'delete_local_gateway_route_table_virtual_interface_group_association',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_local_gateway_route_table_virtual_interface_group_association] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -13914,13 +12948,7 @@ module AWS::SDK::EC2
         operation_name: :delete_local_gateway_route_table_vpc_association,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteLocalGatewayRouteTableVpcAssociation',
-        'code.function' => 'delete_local_gateway_route_table_vpc_association',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteLocalGatewayRouteTableVpcAssociation', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteLocalGatewayRouteTableVpcAssociation.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_local_gateway_route_table_vpc_association] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -13974,13 +13002,7 @@ module AWS::SDK::EC2
         operation_name: :delete_managed_prefix_list,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteManagedPrefixList',
-        'code.function' => 'delete_managed_prefix_list',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteManagedPrefixList', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteManagedPrefixList.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_managed_prefix_list] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -14033,13 +13055,7 @@ module AWS::SDK::EC2
         operation_name: :delete_nat_gateway,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteNatGateway',
-        'code.function' => 'delete_nat_gateway',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteNatGateway', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteNatGateway.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_nat_gateway] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -14087,13 +13103,7 @@ module AWS::SDK::EC2
         operation_name: :delete_network_acl,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteNetworkAcl',
-        'code.function' => 'delete_network_acl',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteNetworkAcl', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteNetworkAcl.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_network_acl] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -14145,13 +13155,7 @@ module AWS::SDK::EC2
         operation_name: :delete_network_acl_entry,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteNetworkAclEntry',
-        'code.function' => 'delete_network_acl_entry',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteNetworkAclEntry', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteNetworkAclEntry.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_network_acl_entry] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -14192,13 +13196,7 @@ module AWS::SDK::EC2
         operation_name: :delete_network_insights_access_scope,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteNetworkInsightsAccessScope',
-        'code.function' => 'delete_network_insights_access_scope',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteNetworkInsightsAccessScope', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteNetworkInsightsAccessScope.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_network_insights_access_scope] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -14239,13 +13237,7 @@ module AWS::SDK::EC2
         operation_name: :delete_network_insights_access_scope_analysis,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteNetworkInsightsAccessScopeAnalysis',
-        'code.function' => 'delete_network_insights_access_scope_analysis',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteNetworkInsightsAccessScopeAnalysis', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteNetworkInsightsAccessScopeAnalysis.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_network_insights_access_scope_analysis] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -14286,13 +13278,7 @@ module AWS::SDK::EC2
         operation_name: :delete_network_insights_analysis,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteNetworkInsightsAnalysis',
-        'code.function' => 'delete_network_insights_analysis',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteNetworkInsightsAnalysis', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteNetworkInsightsAnalysis.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_network_insights_analysis] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -14333,13 +13319,7 @@ module AWS::SDK::EC2
         operation_name: :delete_network_insights_path,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteNetworkInsightsPath',
-        'code.function' => 'delete_network_insights_path',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteNetworkInsightsPath', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteNetworkInsightsPath.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_network_insights_path] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -14387,13 +13367,7 @@ module AWS::SDK::EC2
         operation_name: :delete_network_interface,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteNetworkInterface',
-        'code.function' => 'delete_network_interface',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteNetworkInterface', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteNetworkInterface.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_network_interface] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -14438,13 +13412,7 @@ module AWS::SDK::EC2
         operation_name: :delete_network_interface_permission,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteNetworkInterfacePermission',
-        'code.function' => 'delete_network_interface_permission',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteNetworkInterfacePermission', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteNetworkInterfacePermission.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_network_interface_permission] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -14495,13 +13463,7 @@ module AWS::SDK::EC2
         operation_name: :delete_placement_group,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeletePlacementGroup',
-        'code.function' => 'delete_placement_group',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeletePlacementGroup', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeletePlacementGroup.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_placement_group] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -14542,13 +13504,7 @@ module AWS::SDK::EC2
         operation_name: :delete_public_ipv4_pool,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeletePublicIpv4Pool',
-        'code.function' => 'delete_public_ipv4_pool',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeletePublicIpv4Pool', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeletePublicIpv4Pool.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_public_ipv4_pool] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -14599,13 +13555,7 @@ module AWS::SDK::EC2
         operation_name: :delete_queued_reserved_instances,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteQueuedReservedInstances',
-        'code.function' => 'delete_queued_reserved_instances',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteQueuedReservedInstances', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteQueuedReservedInstances.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_queued_reserved_instances] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -14657,13 +13607,7 @@ module AWS::SDK::EC2
         operation_name: :delete_route,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteRoute',
-        'code.function' => 'delete_route',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteRoute', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteRoute.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_route] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -14711,13 +13655,7 @@ module AWS::SDK::EC2
         operation_name: :delete_route_table,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteRouteTable',
-        'code.function' => 'delete_route_table',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteRouteTable', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteRouteTable.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_route_table] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -14769,13 +13707,7 @@ module AWS::SDK::EC2
         operation_name: :delete_security_group,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteSecurityGroup',
-        'code.function' => 'delete_security_group',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteSecurityGroup', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteSecurityGroup.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_security_group] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -14832,13 +13764,7 @@ module AWS::SDK::EC2
         operation_name: :delete_snapshot,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteSnapshot',
-        'code.function' => 'delete_snapshot',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteSnapshot', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteSnapshot.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_snapshot] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -14882,13 +13808,7 @@ module AWS::SDK::EC2
         operation_name: :delete_spot_datafeed_subscription,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteSpotDatafeedSubscription',
-        'code.function' => 'delete_spot_datafeed_subscription',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteSpotDatafeedSubscription', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteSpotDatafeedSubscription.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_spot_datafeed_subscription] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -14936,13 +13856,7 @@ module AWS::SDK::EC2
         operation_name: :delete_subnet,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteSubnet',
-        'code.function' => 'delete_subnet',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteSubnet', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteSubnet.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_subnet] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -14993,13 +13907,7 @@ module AWS::SDK::EC2
         operation_name: :delete_subnet_cidr_reservation,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteSubnetCidrReservation',
-        'code.function' => 'delete_subnet_cidr_reservation',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteSubnetCidrReservation', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteSubnetCidrReservation.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_subnet_cidr_reservation] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -15067,13 +13975,7 @@ module AWS::SDK::EC2
         operation_name: :delete_tags,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteTags',
-        'code.function' => 'delete_tags',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteTags', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteTags.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_tags] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -15115,13 +14017,7 @@ module AWS::SDK::EC2
         operation_name: :delete_traffic_mirror_filter,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteTrafficMirrorFilter',
-        'code.function' => 'delete_traffic_mirror_filter',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteTrafficMirrorFilter', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteTrafficMirrorFilter.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_traffic_mirror_filter] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -15162,13 +14058,7 @@ module AWS::SDK::EC2
         operation_name: :delete_traffic_mirror_filter_rule,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteTrafficMirrorFilterRule',
-        'code.function' => 'delete_traffic_mirror_filter_rule',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteTrafficMirrorFilterRule', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteTrafficMirrorFilterRule.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_traffic_mirror_filter_rule] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -15209,13 +14099,7 @@ module AWS::SDK::EC2
         operation_name: :delete_traffic_mirror_session,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteTrafficMirrorSession',
-        'code.function' => 'delete_traffic_mirror_session',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteTrafficMirrorSession', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteTrafficMirrorSession.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_traffic_mirror_session] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -15257,13 +14141,7 @@ module AWS::SDK::EC2
         operation_name: :delete_traffic_mirror_target,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteTrafficMirrorTarget',
-        'code.function' => 'delete_traffic_mirror_target',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteTrafficMirrorTarget', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteTrafficMirrorTarget.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_traffic_mirror_target] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -15327,13 +14205,7 @@ module AWS::SDK::EC2
         operation_name: :delete_transit_gateway,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteTransitGateway',
-        'code.function' => 'delete_transit_gateway',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteTransitGateway', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteTransitGateway.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_transit_gateway] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -15386,13 +14258,7 @@ module AWS::SDK::EC2
         operation_name: :delete_transit_gateway_connect,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteTransitGatewayConnect',
-        'code.function' => 'delete_transit_gateway_connect',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteTransitGatewayConnect', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteTransitGatewayConnect.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_transit_gateway_connect] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -15454,13 +14320,7 @@ module AWS::SDK::EC2
         operation_name: :delete_transit_gateway_connect_peer,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteTransitGatewayConnectPeer',
-        'code.function' => 'delete_transit_gateway_connect_peer',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteTransitGatewayConnectPeer', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteTransitGatewayConnectPeer.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_transit_gateway_connect_peer] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -15515,13 +14375,7 @@ module AWS::SDK::EC2
         operation_name: :delete_transit_gateway_multicast_domain,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteTransitGatewayMulticastDomain',
-        'code.function' => 'delete_transit_gateway_multicast_domain',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteTransitGatewayMulticastDomain', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteTransitGatewayMulticastDomain.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_transit_gateway_multicast_domain] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -15581,13 +14435,7 @@ module AWS::SDK::EC2
         operation_name: :delete_transit_gateway_peering_attachment,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteTransitGatewayPeeringAttachment',
-        'code.function' => 'delete_transit_gateway_peering_attachment',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteTransitGatewayPeeringAttachment', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteTransitGatewayPeeringAttachment.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_transit_gateway_peering_attachment] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -15636,13 +14484,7 @@ module AWS::SDK::EC2
         operation_name: :delete_transit_gateway_policy_table,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteTransitGatewayPolicyTable',
-        'code.function' => 'delete_transit_gateway_policy_table',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteTransitGatewayPolicyTable', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteTransitGatewayPolicyTable.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_transit_gateway_policy_table] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -15693,13 +14535,7 @@ module AWS::SDK::EC2
         operation_name: :delete_transit_gateway_prefix_list_reference,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteTransitGatewayPrefixListReference',
-        'code.function' => 'delete_transit_gateway_prefix_list_reference',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteTransitGatewayPrefixListReference', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteTransitGatewayPrefixListReference.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_transit_gateway_prefix_list_reference] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -15751,13 +14587,7 @@ module AWS::SDK::EC2
         operation_name: :delete_transit_gateway_route,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteTransitGatewayRoute',
-        'code.function' => 'delete_transit_gateway_route',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteTransitGatewayRoute', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteTransitGatewayRoute.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_transit_gateway_route] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -15809,13 +14639,7 @@ module AWS::SDK::EC2
         operation_name: :delete_transit_gateway_route_table,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteTransitGatewayRouteTable',
-        'code.function' => 'delete_transit_gateway_route_table',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteTransitGatewayRouteTable', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteTransitGatewayRouteTable.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_transit_gateway_route_table] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -15870,13 +14694,7 @@ module AWS::SDK::EC2
         operation_name: :delete_transit_gateway_route_table_announcement,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteTransitGatewayRouteTableAnnouncement',
-        'code.function' => 'delete_transit_gateway_route_table_announcement',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteTransitGatewayRouteTableAnnouncement', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteTransitGatewayRouteTableAnnouncement.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_transit_gateway_route_table_announcement] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -15934,13 +14752,7 @@ module AWS::SDK::EC2
         operation_name: :delete_transit_gateway_vpc_attachment,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteTransitGatewayVpcAttachment',
-        'code.function' => 'delete_transit_gateway_vpc_attachment',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteTransitGatewayVpcAttachment', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteTransitGatewayVpcAttachment.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_transit_gateway_vpc_attachment] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -16017,13 +14829,7 @@ module AWS::SDK::EC2
         operation_name: :delete_verified_access_endpoint,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteVerifiedAccessEndpoint',
-        'code.function' => 'delete_verified_access_endpoint',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteVerifiedAccessEndpoint', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteVerifiedAccessEndpoint.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_verified_access_endpoint] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -16080,13 +14886,7 @@ module AWS::SDK::EC2
         operation_name: :delete_verified_access_group,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteVerifiedAccessGroup',
-        'code.function' => 'delete_verified_access_group',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteVerifiedAccessGroup', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteVerifiedAccessGroup.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_verified_access_group] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -16144,13 +14944,7 @@ module AWS::SDK::EC2
         operation_name: :delete_verified_access_instance,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteVerifiedAccessInstance',
-        'code.function' => 'delete_verified_access_instance',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteVerifiedAccessInstance', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteVerifiedAccessInstance.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_verified_access_instance] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -16218,13 +15012,7 @@ module AWS::SDK::EC2
         operation_name: :delete_verified_access_trust_provider,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteVerifiedAccessTrustProvider',
-        'code.function' => 'delete_verified_access_trust_provider',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteVerifiedAccessTrustProvider', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteVerifiedAccessTrustProvider.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_verified_access_trust_provider] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -16276,13 +15064,7 @@ module AWS::SDK::EC2
         operation_name: :delete_volume,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteVolume',
-        'code.function' => 'delete_volume',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteVolume', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteVolume.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_volume] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -16330,13 +15112,7 @@ module AWS::SDK::EC2
         operation_name: :delete_vpc,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteVpc',
-        'code.function' => 'delete_vpc',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteVpc', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteVpc.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_vpc] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -16384,13 +15160,7 @@ module AWS::SDK::EC2
         operation_name: :delete_vpc_endpoint_connection_notifications,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteVpcEndpointConnectionNotifications',
-        'code.function' => 'delete_vpc_endpoint_connection_notifications',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteVpcEndpointConnectionNotifications', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteVpcEndpointConnectionNotifications.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_vpc_endpoint_connection_notifications] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -16441,13 +15211,7 @@ module AWS::SDK::EC2
         operation_name: :delete_vpc_endpoint_service_configurations,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteVpcEndpointServiceConfigurations',
-        'code.function' => 'delete_vpc_endpoint_service_configurations',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteVpcEndpointServiceConfigurations', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteVpcEndpointServiceConfigurations.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_vpc_endpoint_service_configurations] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -16499,13 +15263,7 @@ module AWS::SDK::EC2
         operation_name: :delete_vpc_endpoints,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteVpcEndpoints',
-        'code.function' => 'delete_vpc_endpoints',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteVpcEndpoints', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteVpcEndpoints.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_vpc_endpoints] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -16550,13 +15308,7 @@ module AWS::SDK::EC2
         operation_name: :delete_vpc_peering_connection,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteVpcPeeringConnection',
-        'code.function' => 'delete_vpc_peering_connection',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteVpcPeeringConnection', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteVpcPeeringConnection.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_vpc_peering_connection] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -16606,13 +15358,7 @@ module AWS::SDK::EC2
         operation_name: :delete_vpn_connection,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteVpnConnection',
-        'code.function' => 'delete_vpn_connection',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteVpnConnection', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteVpnConnection.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_vpn_connection] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -16655,13 +15401,7 @@ module AWS::SDK::EC2
         operation_name: :delete_vpn_connection_route,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteVpnConnectionRoute',
-        'code.function' => 'delete_vpn_connection_route',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteVpnConnectionRoute', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteVpnConnectionRoute.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_vpn_connection_route] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -16704,13 +15444,7 @@ module AWS::SDK::EC2
         operation_name: :delete_vpn_gateway,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeleteVpnGateway',
-        'code.function' => 'delete_vpn_gateway',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeleteVpnGateway', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteVpnGateway.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_vpn_gateway] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -16765,13 +15499,7 @@ module AWS::SDK::EC2
         operation_name: :deprovision_byoip_cidr,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeprovisionByoipCidr',
-        'code.function' => 'deprovision_byoip_cidr',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeprovisionByoipCidr', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeprovisionByoipCidr.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#deprovision_byoip_cidr] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -16818,13 +15546,7 @@ module AWS::SDK::EC2
         operation_name: :deprovision_ipam_byoasn,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeprovisionIpamByoasn',
-        'code.function' => 'deprovision_ipam_byoasn',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeprovisionIpamByoasn', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeprovisionIpamByoasn.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#deprovision_ipam_byoasn] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -16873,13 +15595,7 @@ module AWS::SDK::EC2
         operation_name: :deprovision_ipam_pool_cidr,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeprovisionIpamPoolCidr',
-        'code.function' => 'deprovision_ipam_pool_cidr',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeprovisionIpamPoolCidr', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeprovisionIpamPoolCidr.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#deprovision_ipam_pool_cidr] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -16923,13 +15639,7 @@ module AWS::SDK::EC2
         operation_name: :deprovision_public_ipv4_pool_cidr,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeprovisionPublicIpv4PoolCidr',
-        'code.function' => 'deprovision_public_ipv4_pool_cidr',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeprovisionPublicIpv4PoolCidr', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeprovisionPublicIpv4PoolCidr.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#deprovision_public_ipv4_pool_cidr] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -16980,13 +15690,7 @@ module AWS::SDK::EC2
         operation_name: :deregister_image,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeregisterImage',
-        'code.function' => 'deregister_image',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeregisterImage', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeregisterImage.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#deregister_image] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -17036,13 +15740,7 @@ module AWS::SDK::EC2
         operation_name: :deregister_instance_event_notification_attributes,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeregisterInstanceEventNotificationAttributes',
-        'code.function' => 'deregister_instance_event_notification_attributes',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeregisterInstanceEventNotificationAttributes', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeregisterInstanceEventNotificationAttributes.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#deregister_instance_event_notification_attributes] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -17091,13 +15789,7 @@ module AWS::SDK::EC2
         operation_name: :deregister_transit_gateway_multicast_group_members,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeregisterTransitGatewayMulticastGroupMembers',
-        'code.function' => 'deregister_transit_gateway_multicast_group_members',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeregisterTransitGatewayMulticastGroupMembers', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeregisterTransitGatewayMulticastGroupMembers.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#deregister_transit_gateway_multicast_group_members] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -17146,13 +15838,7 @@ module AWS::SDK::EC2
         operation_name: :deregister_transit_gateway_multicast_group_sources,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DeregisterTransitGatewayMulticastGroupSources',
-        'code.function' => 'deregister_transit_gateway_multicast_group_sources',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DeregisterTransitGatewayMulticastGroupSources', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeregisterTransitGatewayMulticastGroupSources.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#deregister_transit_gateway_multicast_group_sources] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -17313,13 +15999,7 @@ module AWS::SDK::EC2
         operation_name: :describe_account_attributes,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeAccountAttributes',
-        'code.function' => 'describe_account_attributes',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeAccountAttributes', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeAccountAttributes.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_account_attributes] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -17381,13 +16061,7 @@ module AWS::SDK::EC2
         operation_name: :describe_address_transfers,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeAddressTransfers',
-        'code.function' => 'describe_address_transfers',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeAddressTransfers', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeAddressTransfers.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_address_transfers] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -17482,13 +16156,7 @@ module AWS::SDK::EC2
         operation_name: :describe_addresses,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeAddresses',
-        'code.function' => 'describe_addresses',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeAddresses', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeAddresses.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_addresses] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -17543,13 +16211,7 @@ module AWS::SDK::EC2
         operation_name: :describe_addresses_attribute,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeAddressesAttribute',
-        'code.function' => 'describe_addresses_attribute',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeAddressesAttribute', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeAddressesAttribute.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_addresses_attribute] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -17610,13 +16272,7 @@ module AWS::SDK::EC2
         operation_name: :describe_aggregate_id_format,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeAggregateIdFormat',
-        'code.function' => 'describe_aggregate_id_format',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeAggregateIdFormat', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeAggregateIdFormat.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_aggregate_id_format] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -17730,13 +16386,7 @@ module AWS::SDK::EC2
         operation_name: :describe_availability_zones,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeAvailabilityZones',
-        'code.function' => 'describe_availability_zones',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeAvailabilityZones', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeAvailabilityZones.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_availability_zones] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -17793,13 +16443,7 @@ module AWS::SDK::EC2
         operation_name: :describe_aws_network_performance_metric_subscriptions,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeAwsNetworkPerformanceMetricSubscriptions',
-        'code.function' => 'describe_aws_network_performance_metric_subscriptions',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeAwsNetworkPerformanceMetricSubscriptions', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeAwsNetworkPerformanceMetricSubscriptions.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_aws_network_performance_metric_subscriptions] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -17870,13 +16514,7 @@ module AWS::SDK::EC2
         operation_name: :describe_bundle_tasks,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeBundleTasks',
-        'code.function' => 'describe_bundle_tasks',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeBundleTasks', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeBundleTasks.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_bundle_tasks] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -17933,13 +16571,7 @@ module AWS::SDK::EC2
         operation_name: :describe_byoip_cidrs,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeByoipCidrs',
-        'code.function' => 'describe_byoip_cidrs',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeByoipCidrs', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeByoipCidrs.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_byoip_cidrs] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -17998,13 +16630,7 @@ module AWS::SDK::EC2
         operation_name: :describe_capacity_block_offerings,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeCapacityBlockOfferings',
-        'code.function' => 'describe_capacity_block_offerings',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeCapacityBlockOfferings', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeCapacityBlockOfferings.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_capacity_block_offerings] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -18086,13 +16712,7 @@ module AWS::SDK::EC2
         operation_name: :describe_capacity_reservation_fleets,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeCapacityReservationFleets',
-        'code.function' => 'describe_capacity_reservation_fleets',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeCapacityReservationFleets', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeCapacityReservationFleets.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_capacity_reservation_fleets] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -18178,13 +16798,7 @@ module AWS::SDK::EC2
         operation_name: :describe_capacity_reservations,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeCapacityReservations',
-        'code.function' => 'describe_capacity_reservations',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeCapacityReservations', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeCapacityReservations.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_capacity_reservations] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -18247,13 +16861,7 @@ module AWS::SDK::EC2
         operation_name: :describe_carrier_gateways,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeCarrierGateways',
-        'code.function' => 'describe_carrier_gateways',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeCarrierGateways', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeCarrierGateways.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_carrier_gateways] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -18323,13 +16931,7 @@ module AWS::SDK::EC2
         operation_name: :describe_classic_link_instances,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeClassicLinkInstances',
-        'code.function' => 'describe_classic_link_instances',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeClassicLinkInstances', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeClassicLinkInstances.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_classic_link_instances] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -18390,13 +16992,7 @@ module AWS::SDK::EC2
         operation_name: :describe_client_vpn_authorization_rules,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeClientVpnAuthorizationRules',
-        'code.function' => 'describe_client_vpn_authorization_rules',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeClientVpnAuthorizationRules', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeClientVpnAuthorizationRules.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_client_vpn_authorization_rules] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -18467,13 +17063,7 @@ module AWS::SDK::EC2
         operation_name: :describe_client_vpn_connections,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeClientVpnConnections',
-        'code.function' => 'describe_client_vpn_connections',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeClientVpnConnections', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeClientVpnConnections.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_client_vpn_connections] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -18580,13 +17170,7 @@ module AWS::SDK::EC2
         operation_name: :describe_client_vpn_endpoints,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeClientVpnEndpoints',
-        'code.function' => 'describe_client_vpn_endpoints',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeClientVpnEndpoints', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeClientVpnEndpoints.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_client_vpn_endpoints] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -18648,13 +17232,7 @@ module AWS::SDK::EC2
         operation_name: :describe_client_vpn_routes,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeClientVpnRoutes',
-        'code.function' => 'describe_client_vpn_routes',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeClientVpnRoutes', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeClientVpnRoutes.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_client_vpn_routes] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -18716,13 +17294,7 @@ module AWS::SDK::EC2
         operation_name: :describe_client_vpn_target_networks,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeClientVpnTargetNetworks',
-        'code.function' => 'describe_client_vpn_target_networks',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeClientVpnTargetNetworks', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeClientVpnTargetNetworks.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_client_vpn_target_networks] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -18786,13 +17358,7 @@ module AWS::SDK::EC2
         operation_name: :describe_coip_pools,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeCoipPools',
-        'code.function' => 'describe_coip_pools',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeCoipPools', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeCoipPools.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_coip_pools] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -18871,13 +17437,7 @@ module AWS::SDK::EC2
         operation_name: :describe_conversion_tasks,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeConversionTasks',
-        'code.function' => 'describe_conversion_tasks',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeConversionTasks', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeConversionTasks.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_conversion_tasks] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -18962,13 +17522,7 @@ module AWS::SDK::EC2
         operation_name: :describe_customer_gateways,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeCustomerGateways',
-        'code.function' => 'describe_customer_gateways',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeCustomerGateways', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeCustomerGateways.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_customer_gateways] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -19066,13 +17620,7 @@ module AWS::SDK::EC2
         operation_name: :describe_dhcp_options,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeDhcpOptions',
-        'code.function' => 'describe_dhcp_options',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeDhcpOptions', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeDhcpOptions.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_dhcp_options] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -19136,13 +17684,7 @@ module AWS::SDK::EC2
         operation_name: :describe_egress_only_internet_gateways,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeEgressOnlyInternetGateways',
-        'code.function' => 'describe_egress_only_internet_gateways',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeEgressOnlyInternetGateways', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeEgressOnlyInternetGateways.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_egress_only_internet_gateways] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -19215,13 +17757,7 @@ module AWS::SDK::EC2
         operation_name: :describe_elastic_gpus,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeElasticGpus',
-        'code.function' => 'describe_elastic_gpus',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeElasticGpus', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeElasticGpus.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_elastic_gpus] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -19289,13 +17825,7 @@ module AWS::SDK::EC2
         operation_name: :describe_export_image_tasks,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeExportImageTasks',
-        'code.function' => 'describe_export_image_tasks',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeExportImageTasks', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeExportImageTasks.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_export_image_tasks] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -19362,13 +17892,7 @@ module AWS::SDK::EC2
         operation_name: :describe_export_tasks,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeExportTasks',
-        'code.function' => 'describe_export_tasks',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeExportTasks', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeExportTasks.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_export_tasks] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -19436,13 +17960,7 @@ module AWS::SDK::EC2
         operation_name: :describe_fast_launch_images,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeFastLaunchImages',
-        'code.function' => 'describe_fast_launch_images',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeFastLaunchImages', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeFastLaunchImages.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_fast_launch_images] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -19505,13 +18023,7 @@ module AWS::SDK::EC2
         operation_name: :describe_fast_snapshot_restores,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeFastSnapshotRestores',
-        'code.function' => 'describe_fast_snapshot_restores',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeFastSnapshotRestores', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeFastSnapshotRestores.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_fast_snapshot_restores] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -19572,13 +18084,7 @@ module AWS::SDK::EC2
         operation_name: :describe_fleet_history,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeFleetHistory',
-        'code.function' => 'describe_fleet_history',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeFleetHistory', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeFleetHistory.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_fleet_history] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -19637,13 +18143,7 @@ module AWS::SDK::EC2
         operation_name: :describe_fleet_instances,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeFleetInstances',
-        'code.function' => 'describe_fleet_instances',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeFleetInstances', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeFleetInstances.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_fleet_instances] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -19827,13 +18327,7 @@ module AWS::SDK::EC2
         operation_name: :describe_fleets,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeFleets',
-        'code.function' => 'describe_fleets',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeFleets', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeFleets.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_fleets] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -19912,13 +18406,7 @@ module AWS::SDK::EC2
         operation_name: :describe_flow_logs,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeFlowLogs',
-        'code.function' => 'describe_flow_logs',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeFlowLogs', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeFlowLogs.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_flow_logs] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -19971,13 +18459,7 @@ module AWS::SDK::EC2
         operation_name: :describe_fpga_image_attribute,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeFpgaImageAttribute',
-        'code.function' => 'describe_fpga_image_attribute',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeFpgaImageAttribute', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeFpgaImageAttribute.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_fpga_image_attribute] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -20066,13 +18548,7 @@ module AWS::SDK::EC2
         operation_name: :describe_fpga_images,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeFpgaImages',
-        'code.function' => 'describe_fpga_images',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeFpgaImages', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeFpgaImages.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_fpga_images] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -20139,13 +18615,7 @@ module AWS::SDK::EC2
         operation_name: :describe_host_reservation_offerings,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeHostReservationOfferings',
-        'code.function' => 'describe_host_reservation_offerings',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeHostReservationOfferings', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeHostReservationOfferings.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_host_reservation_offerings] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -20218,13 +18688,7 @@ module AWS::SDK::EC2
         operation_name: :describe_host_reservations,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeHostReservations',
-        'code.function' => 'describe_host_reservations',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeHostReservations', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeHostReservations.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_host_reservations] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -20319,13 +18783,7 @@ module AWS::SDK::EC2
         operation_name: :describe_hosts,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeHosts',
-        'code.function' => 'describe_hosts',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeHosts', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeHosts.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_hosts] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -20408,13 +18866,7 @@ module AWS::SDK::EC2
         operation_name: :describe_iam_instance_profile_associations,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeIamInstanceProfileAssociations',
-        'code.function' => 'describe_iam_instance_profile_associations',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeIamInstanceProfileAssociations', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeIamInstanceProfileAssociations.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_iam_instance_profile_associations] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -20477,13 +18929,7 @@ module AWS::SDK::EC2
         operation_name: :describe_id_format,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeIdFormat',
-        'code.function' => 'describe_id_format',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeIdFormat', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeIdFormat.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_id_format] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -20546,13 +18992,7 @@ module AWS::SDK::EC2
         operation_name: :describe_identity_id_format,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeIdentityIdFormat',
-        'code.function' => 'describe_identity_id_format',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeIdentityIdFormat', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeIdentityIdFormat.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_identity_id_format] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -20645,13 +19085,7 @@ module AWS::SDK::EC2
         operation_name: :describe_image_attribute,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeImageAttribute',
-        'code.function' => 'describe_image_attribute',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeImageAttribute', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeImageAttribute.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_image_attribute] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -20813,13 +19247,7 @@ module AWS::SDK::EC2
         operation_name: :describe_images,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeImages',
-        'code.function' => 'describe_images',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeImages', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeImages.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_images] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -20909,13 +19337,7 @@ module AWS::SDK::EC2
         operation_name: :describe_import_image_tasks,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeImportImageTasks',
-        'code.function' => 'describe_import_image_tasks',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeImportImageTasks', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeImportImageTasks.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_import_image_tasks] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -20990,13 +19412,7 @@ module AWS::SDK::EC2
         operation_name: :describe_import_snapshot_tasks,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeImportSnapshotTasks',
-        'code.function' => 'describe_import_snapshot_tasks',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeImportSnapshotTasks', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeImportSnapshotTasks.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_import_snapshot_tasks] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -21126,13 +19542,7 @@ module AWS::SDK::EC2
         operation_name: :describe_instance_attribute,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeInstanceAttribute',
-        'code.function' => 'describe_instance_attribute',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeInstanceAttribute', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeInstanceAttribute.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_instance_attribute] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -21204,13 +19614,7 @@ module AWS::SDK::EC2
         operation_name: :describe_instance_connect_endpoints,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeInstanceConnectEndpoints',
-        'code.function' => 'describe_instance_connect_endpoints',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeInstanceConnectEndpoints', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeInstanceConnectEndpoints.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_instance_connect_endpoints] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -21286,13 +19690,7 @@ module AWS::SDK::EC2
         operation_name: :describe_instance_credit_specifications,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeInstanceCreditSpecifications',
-        'code.function' => 'describe_instance_credit_specifications',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeInstanceCreditSpecifications', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeInstanceCreditSpecifications.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_instance_credit_specifications] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -21336,13 +19734,7 @@ module AWS::SDK::EC2
         operation_name: :describe_instance_event_notification_attributes,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeInstanceEventNotificationAttributes',
-        'code.function' => 'describe_instance_event_notification_attributes',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeInstanceEventNotificationAttributes', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeInstanceEventNotificationAttributes.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_instance_event_notification_attributes] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -21425,13 +19817,7 @@ module AWS::SDK::EC2
         operation_name: :describe_instance_event_windows,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeInstanceEventWindows',
-        'code.function' => 'describe_instance_event_windows',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeInstanceEventWindows', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeInstanceEventWindows.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_instance_event_windows] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -21576,13 +19962,7 @@ module AWS::SDK::EC2
         operation_name: :describe_instance_status,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeInstanceStatus',
-        'code.function' => 'describe_instance_status',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeInstanceStatus', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeInstanceStatus.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_instance_status] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -21694,13 +20074,7 @@ module AWS::SDK::EC2
         operation_name: :describe_instance_topology,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeInstanceTopology',
-        'code.function' => 'describe_instance_topology',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeInstanceTopology', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeInstanceTopology.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_instance_topology] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -21757,13 +20131,7 @@ module AWS::SDK::EC2
         operation_name: :describe_instance_type_offerings,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeInstanceTypeOfferings',
-        'code.function' => 'describe_instance_type_offerings',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeInstanceTypeOfferings', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeInstanceTypeOfferings.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_instance_type_offerings] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -21930,13 +20298,7 @@ module AWS::SDK::EC2
         operation_name: :describe_instance_types,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeInstanceTypes',
-        'code.function' => 'describe_instance_types',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeInstanceTypes', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeInstanceTypes.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_instance_types] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -22224,13 +20586,7 @@ module AWS::SDK::EC2
         operation_name: :describe_instances,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeInstances',
-        'code.function' => 'describe_instances',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeInstances', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeInstances.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_instances] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -22325,13 +20681,7 @@ module AWS::SDK::EC2
         operation_name: :describe_internet_gateways,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeInternetGateways',
-        'code.function' => 'describe_internet_gateways',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeInternetGateways', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeInternetGateways.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_internet_gateways] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -22379,13 +20729,7 @@ module AWS::SDK::EC2
         operation_name: :describe_ipam_byoasn,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeIpamByoasn',
-        'code.function' => 'describe_ipam_byoasn',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeIpamByoasn', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeIpamByoasn.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_ipam_byoasn] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -22471,13 +20815,7 @@ module AWS::SDK::EC2
         operation_name: :describe_ipam_pools,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeIpamPools',
-        'code.function' => 'describe_ipam_pools',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeIpamPools', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeIpamPools.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_ipam_pools] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -22543,13 +20881,7 @@ module AWS::SDK::EC2
         operation_name: :describe_ipam_resource_discoveries,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeIpamResourceDiscoveries',
-        'code.function' => 'describe_ipam_resource_discoveries',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeIpamResourceDiscoveries', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeIpamResourceDiscoveries.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_ipam_resource_discoveries] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -22615,13 +20947,7 @@ module AWS::SDK::EC2
         operation_name: :describe_ipam_resource_discovery_associations,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeIpamResourceDiscoveryAssociations',
-        'code.function' => 'describe_ipam_resource_discovery_associations',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeIpamResourceDiscoveryAssociations', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeIpamResourceDiscoveryAssociations.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_ipam_resource_discovery_associations] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -22687,13 +21013,7 @@ module AWS::SDK::EC2
         operation_name: :describe_ipam_scopes,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeIpamScopes',
-        'code.function' => 'describe_ipam_scopes',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeIpamScopes', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeIpamScopes.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_ipam_scopes] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -22768,13 +21088,7 @@ module AWS::SDK::EC2
         operation_name: :describe_ipams,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeIpams',
-        'code.function' => 'describe_ipams',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeIpams', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeIpams.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_ipams] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -22838,13 +21152,7 @@ module AWS::SDK::EC2
         operation_name: :describe_ipv6_pools,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeIpv6Pools',
-        'code.function' => 'describe_ipv6_pools',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeIpv6Pools', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeIpv6Pools.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_ipv6_pools] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -22929,13 +21237,7 @@ module AWS::SDK::EC2
         operation_name: :describe_key_pairs,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeKeyPairs',
-        'code.function' => 'describe_key_pairs',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeKeyPairs', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeKeyPairs.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_key_pairs] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -23251,13 +21553,7 @@ module AWS::SDK::EC2
         operation_name: :describe_launch_template_versions,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeLaunchTemplateVersions',
-        'code.function' => 'describe_launch_template_versions',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeLaunchTemplateVersions', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeLaunchTemplateVersions.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_launch_template_versions] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -23346,13 +21642,7 @@ module AWS::SDK::EC2
         operation_name: :describe_launch_templates,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeLaunchTemplates',
-        'code.function' => 'describe_launch_templates',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeLaunchTemplates', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeLaunchTemplates.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_launch_templates] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -23418,13 +21708,7 @@ module AWS::SDK::EC2
         operation_name: :describe_local_gateway_route_table_virtual_interface_group_associations,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations',
-        'code.function' => 'describe_local_gateway_route_table_virtual_interface_group_associations',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_local_gateway_route_table_virtual_interface_group_associations] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -23490,13 +21774,7 @@ module AWS::SDK::EC2
         operation_name: :describe_local_gateway_route_table_vpc_associations,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeLocalGatewayRouteTableVpcAssociations',
-        'code.function' => 'describe_local_gateway_route_table_vpc_associations',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeLocalGatewayRouteTableVpcAssociations', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeLocalGatewayRouteTableVpcAssociations.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_local_gateway_route_table_vpc_associations] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -23566,13 +21844,7 @@ module AWS::SDK::EC2
         operation_name: :describe_local_gateway_route_tables,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeLocalGatewayRouteTables',
-        'code.function' => 'describe_local_gateway_route_tables',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeLocalGatewayRouteTables', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeLocalGatewayRouteTables.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_local_gateway_route_tables] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -23636,13 +21908,7 @@ module AWS::SDK::EC2
         operation_name: :describe_local_gateway_virtual_interface_groups,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeLocalGatewayVirtualInterfaceGroups',
-        'code.function' => 'describe_local_gateway_virtual_interface_groups',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeLocalGatewayVirtualInterfaceGroups', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeLocalGatewayVirtualInterfaceGroups.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_local_gateway_virtual_interface_groups] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -23709,13 +21975,7 @@ module AWS::SDK::EC2
         operation_name: :describe_local_gateway_virtual_interfaces,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeLocalGatewayVirtualInterfaces',
-        'code.function' => 'describe_local_gateway_virtual_interfaces',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeLocalGatewayVirtualInterfaces', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeLocalGatewayVirtualInterfaces.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_local_gateway_virtual_interfaces] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -23779,13 +22039,7 @@ module AWS::SDK::EC2
         operation_name: :describe_local_gateways,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeLocalGateways',
-        'code.function' => 'describe_local_gateways',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeLocalGateways', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeLocalGateways.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_local_gateways] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -23849,13 +22103,7 @@ module AWS::SDK::EC2
         operation_name: :describe_locked_snapshots,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeLockedSnapshots',
-        'code.function' => 'describe_locked_snapshots',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeLockedSnapshots', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeLockedSnapshots.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_locked_snapshots] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -23921,13 +22169,7 @@ module AWS::SDK::EC2
         operation_name: :describe_managed_prefix_lists,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeManagedPrefixLists',
-        'code.function' => 'describe_managed_prefix_lists',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeManagedPrefixLists', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeManagedPrefixLists.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_managed_prefix_lists] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -23997,13 +22239,7 @@ module AWS::SDK::EC2
         operation_name: :describe_moving_addresses,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeMovingAddresses',
-        'code.function' => 'describe_moving_addresses',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeMovingAddresses', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeMovingAddresses.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_moving_addresses] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -24120,13 +22356,7 @@ module AWS::SDK::EC2
         operation_name: :describe_nat_gateways,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeNatGateways',
-        'code.function' => 'describe_nat_gateways',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeNatGateways', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeNatGateways.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_nat_gateways] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -24254,13 +22484,7 @@ module AWS::SDK::EC2
         operation_name: :describe_network_acls,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeNetworkAcls',
-        'code.function' => 'describe_network_acls',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeNetworkAcls', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeNetworkAcls.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_network_acls] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -24332,13 +22556,7 @@ module AWS::SDK::EC2
         operation_name: :describe_network_insights_access_scope_analyses,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeNetworkInsightsAccessScopeAnalyses',
-        'code.function' => 'describe_network_insights_access_scope_analyses',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeNetworkInsightsAccessScopeAnalyses', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeNetworkInsightsAccessScopeAnalyses.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_network_insights_access_scope_analyses] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -24401,13 +22619,7 @@ module AWS::SDK::EC2
         operation_name: :describe_network_insights_access_scopes,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeNetworkInsightsAccessScopes',
-        'code.function' => 'describe_network_insights_access_scopes',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeNetworkInsightsAccessScopes', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeNetworkInsightsAccessScopes.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_network_insights_access_scopes] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -24650,13 +22862,7 @@ module AWS::SDK::EC2
         operation_name: :describe_network_insights_analyses,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeNetworkInsightsAnalyses',
-        'code.function' => 'describe_network_insights_analyses',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeNetworkInsightsAnalyses', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeNetworkInsightsAnalyses.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_network_insights_analyses] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -24734,13 +22940,7 @@ module AWS::SDK::EC2
         operation_name: :describe_network_insights_paths,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeNetworkInsightsPaths',
-        'code.function' => 'describe_network_insights_paths',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeNetworkInsightsPaths', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeNetworkInsightsPaths.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_network_insights_paths] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -24868,13 +23068,7 @@ module AWS::SDK::EC2
         operation_name: :describe_network_interface_attribute,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeNetworkInterfaceAttribute',
-        'code.function' => 'describe_network_interface_attribute',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeNetworkInterfaceAttribute', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeNetworkInterfaceAttribute.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_network_interface_attribute] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -24936,13 +23130,7 @@ module AWS::SDK::EC2
         operation_name: :describe_network_interface_permissions,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeNetworkInterfacePermissions',
-        'code.function' => 'describe_network_interface_permissions',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeNetworkInterfacePermissions', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeNetworkInterfacePermissions.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_network_interface_permissions] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -25132,13 +23320,7 @@ module AWS::SDK::EC2
         operation_name: :describe_network_interfaces,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeNetworkInterfaces',
-        'code.function' => 'describe_network_interfaces',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeNetworkInterfaces', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeNetworkInterfaces.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_network_interfaces] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -25206,13 +23388,7 @@ module AWS::SDK::EC2
         operation_name: :describe_placement_groups,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribePlacementGroups',
-        'code.function' => 'describe_placement_groups',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribePlacementGroups', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribePlacementGroups.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_placement_groups] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -25273,13 +23449,7 @@ module AWS::SDK::EC2
         operation_name: :describe_prefix_lists,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribePrefixLists',
-        'code.function' => 'describe_prefix_lists',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribePrefixLists', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribePrefixLists.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_prefix_lists] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -25349,13 +23519,7 @@ module AWS::SDK::EC2
         operation_name: :describe_principal_id_format,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribePrincipalIdFormat',
-        'code.function' => 'describe_principal_id_format',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribePrincipalIdFormat', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribePrincipalIdFormat.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_principal_id_format] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -25424,13 +23588,7 @@ module AWS::SDK::EC2
         operation_name: :describe_public_ipv4_pools,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribePublicIpv4Pools',
-        'code.function' => 'describe_public_ipv4_pools',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribePublicIpv4Pools', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribePublicIpv4Pools.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_public_ipv4_pools] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -25541,13 +23699,7 @@ module AWS::SDK::EC2
         operation_name: :describe_regions,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeRegions',
-        'code.function' => 'describe_regions',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeRegions', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeRegions.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_regions] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -25615,13 +23767,7 @@ module AWS::SDK::EC2
         operation_name: :describe_replace_root_volume_tasks,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeReplaceRootVolumeTasks',
-        'code.function' => 'describe_replace_root_volume_tasks',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeReplaceRootVolumeTasks', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeReplaceRootVolumeTasks.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_replace_root_volume_tasks] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -25701,13 +23847,7 @@ module AWS::SDK::EC2
         operation_name: :describe_reserved_instances,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeReservedInstances',
-        'code.function' => 'describe_reserved_instances',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeReservedInstances', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeReservedInstances.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_reserved_instances] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -25783,13 +23923,7 @@ module AWS::SDK::EC2
         operation_name: :describe_reserved_instances_listings,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeReservedInstancesListings',
-        'code.function' => 'describe_reserved_instances_listings',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeReservedInstancesListings', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeReservedInstancesListings.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_reserved_instances_listings] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -25862,13 +23996,7 @@ module AWS::SDK::EC2
         operation_name: :describe_reserved_instances_modifications,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeReservedInstancesModifications',
-        'code.function' => 'describe_reserved_instances_modifications',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeReservedInstancesModifications', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeReservedInstancesModifications.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_reserved_instances_modifications] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -25957,13 +24085,7 @@ module AWS::SDK::EC2
         operation_name: :describe_reserved_instances_offerings,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeReservedInstancesOfferings',
-        'code.function' => 'describe_reserved_instances_offerings',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeReservedInstancesOfferings', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeReservedInstancesOfferings.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_reserved_instances_offerings] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -26096,13 +24218,7 @@ module AWS::SDK::EC2
         operation_name: :describe_route_tables,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeRouteTables',
-        'code.function' => 'describe_route_tables',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeRouteTables', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeRouteTables.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_route_tables] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -26191,13 +24307,7 @@ module AWS::SDK::EC2
         operation_name: :describe_scheduled_instance_availability,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeScheduledInstanceAvailability',
-        'code.function' => 'describe_scheduled_instance_availability',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeScheduledInstanceAvailability', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeScheduledInstanceAvailability.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_scheduled_instance_availability] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -26277,13 +24387,7 @@ module AWS::SDK::EC2
         operation_name: :describe_scheduled_instances,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeScheduledInstances',
-        'code.function' => 'describe_scheduled_instances',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeScheduledInstances', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeScheduledInstances.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_scheduled_instances] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -26349,13 +24453,7 @@ module AWS::SDK::EC2
         operation_name: :describe_security_group_references,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeSecurityGroupReferences',
-        'code.function' => 'describe_security_group_references',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeSecurityGroupReferences', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeSecurityGroupReferences.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_security_group_references] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -26431,13 +24529,7 @@ module AWS::SDK::EC2
         operation_name: :describe_security_group_rules,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeSecurityGroupRules',
-        'code.function' => 'describe_security_group_rules',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeSecurityGroupRules', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeSecurityGroupRules.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_security_group_rules] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -26556,13 +24648,7 @@ module AWS::SDK::EC2
         operation_name: :describe_security_groups,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeSecurityGroups',
-        'code.function' => 'describe_security_groups',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeSecurityGroups', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeSecurityGroups.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_security_groups] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -26628,13 +24714,7 @@ module AWS::SDK::EC2
         operation_name: :describe_snapshot_attribute,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeSnapshotAttribute',
-        'code.function' => 'describe_snapshot_attribute',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeSnapshotAttribute', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeSnapshotAttribute.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_snapshot_attribute] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -26701,13 +24781,7 @@ module AWS::SDK::EC2
         operation_name: :describe_snapshot_tier_status,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeSnapshotTierStatus',
-        'code.function' => 'describe_snapshot_tier_status',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeSnapshotTierStatus', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeSnapshotTierStatus.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_snapshot_tier_status] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -26887,13 +24961,7 @@ module AWS::SDK::EC2
         operation_name: :describe_snapshots,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeSnapshots',
-        'code.function' => 'describe_snapshots',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeSnapshots', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeSnapshots.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_snapshots] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -26953,13 +25021,7 @@ module AWS::SDK::EC2
         operation_name: :describe_spot_datafeed_subscription,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeSpotDatafeedSubscription',
-        'code.function' => 'describe_spot_datafeed_subscription',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeSpotDatafeedSubscription', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeSpotDatafeedSubscription.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_spot_datafeed_subscription] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -27026,13 +25088,7 @@ module AWS::SDK::EC2
         operation_name: :describe_spot_fleet_instances,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeSpotFleetInstances',
-        'code.function' => 'describe_spot_fleet_instances',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeSpotFleetInstances', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeSpotFleetInstances.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_spot_fleet_instances] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -27139,13 +25195,7 @@ module AWS::SDK::EC2
         operation_name: :describe_spot_fleet_request_history,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeSpotFleetRequestHistory',
-        'code.function' => 'describe_spot_fleet_request_history',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeSpotFleetRequestHistory', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeSpotFleetRequestHistory.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_spot_fleet_request_history] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -27445,13 +25495,7 @@ module AWS::SDK::EC2
         operation_name: :describe_spot_fleet_requests,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeSpotFleetRequests',
-        'code.function' => 'describe_spot_fleet_requests',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeSpotFleetRequests', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeSpotFleetRequests.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_spot_fleet_requests] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -27676,13 +25720,7 @@ module AWS::SDK::EC2
         operation_name: :describe_spot_instance_requests,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeSpotInstanceRequests',
-        'code.function' => 'describe_spot_instance_requests',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeSpotInstanceRequests', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeSpotInstanceRequests.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_spot_instance_requests] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -27784,13 +25822,7 @@ module AWS::SDK::EC2
         operation_name: :describe_spot_price_history,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeSpotPriceHistory',
-        'code.function' => 'describe_spot_price_history',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeSpotPriceHistory', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeSpotPriceHistory.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_spot_price_history] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -27860,13 +25892,7 @@ module AWS::SDK::EC2
         operation_name: :describe_stale_security_groups,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeStaleSecurityGroups',
-        'code.function' => 'describe_stale_security_groups',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeStaleSecurityGroups', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeStaleSecurityGroups.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_stale_security_groups] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -27939,13 +25965,7 @@ module AWS::SDK::EC2
         operation_name: :describe_store_image_tasks,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeStoreImageTasks',
-        'code.function' => 'describe_store_image_tasks',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeStoreImageTasks', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeStoreImageTasks.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_store_image_tasks] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -28063,13 +26083,7 @@ module AWS::SDK::EC2
         operation_name: :describe_subnets,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeSubnets',
-        'code.function' => 'describe_subnets',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeSubnets', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeSubnets.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_subnets] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -28157,13 +26171,7 @@ module AWS::SDK::EC2
         operation_name: :describe_tags,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeTags',
-        'code.function' => 'describe_tags',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeTags', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeTags.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_tags] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -28242,13 +26250,7 @@ module AWS::SDK::EC2
         operation_name: :describe_traffic_mirror_filters,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeTrafficMirrorFilters',
-        'code.function' => 'describe_traffic_mirror_filters',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeTrafficMirrorFilters', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeTrafficMirrorFilters.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_traffic_mirror_filters] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -28316,13 +26318,7 @@ module AWS::SDK::EC2
         operation_name: :describe_traffic_mirror_sessions,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeTrafficMirrorSessions',
-        'code.function' => 'describe_traffic_mirror_sessions',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeTrafficMirrorSessions', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeTrafficMirrorSessions.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_traffic_mirror_sessions] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -28388,13 +26384,7 @@ module AWS::SDK::EC2
         operation_name: :describe_traffic_mirror_targets,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeTrafficMirrorTargets',
-        'code.function' => 'describe_traffic_mirror_targets',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeTrafficMirrorTargets', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeTrafficMirrorTargets.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_traffic_mirror_targets] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -28465,13 +26455,7 @@ module AWS::SDK::EC2
         operation_name: :describe_transit_gateway_attachments,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeTransitGatewayAttachments',
-        'code.function' => 'describe_transit_gateway_attachments',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeTransitGatewayAttachments', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeTransitGatewayAttachments.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_transit_gateway_attachments] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -28547,13 +26531,7 @@ module AWS::SDK::EC2
         operation_name: :describe_transit_gateway_connect_peers,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeTransitGatewayConnectPeers',
-        'code.function' => 'describe_transit_gateway_connect_peers',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeTransitGatewayConnectPeers', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeTransitGatewayConnectPeers.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_transit_gateway_connect_peers] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -28619,13 +26597,7 @@ module AWS::SDK::EC2
         operation_name: :describe_transit_gateway_connects,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeTransitGatewayConnects',
-        'code.function' => 'describe_transit_gateway_connects',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeTransitGatewayConnects', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeTransitGatewayConnects.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_transit_gateway_connects] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -28694,13 +26666,7 @@ module AWS::SDK::EC2
         operation_name: :describe_transit_gateway_multicast_domains,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeTransitGatewayMulticastDomains',
-        'code.function' => 'describe_transit_gateway_multicast_domains',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeTransitGatewayMulticastDomains', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeTransitGatewayMulticastDomains.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_transit_gateway_multicast_domains] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -28774,13 +26740,7 @@ module AWS::SDK::EC2
         operation_name: :describe_transit_gateway_peering_attachments,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeTransitGatewayPeeringAttachments',
-        'code.function' => 'describe_transit_gateway_peering_attachments',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeTransitGatewayPeeringAttachments', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeTransitGatewayPeeringAttachments.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_transit_gateway_peering_attachments] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -28843,13 +26803,7 @@ module AWS::SDK::EC2
         operation_name: :describe_transit_gateway_policy_tables,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeTransitGatewayPolicyTables',
-        'code.function' => 'describe_transit_gateway_policy_tables',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeTransitGatewayPolicyTables', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeTransitGatewayPolicyTables.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_transit_gateway_policy_tables] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -28918,13 +26872,7 @@ module AWS::SDK::EC2
         operation_name: :describe_transit_gateway_route_table_announcements,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeTransitGatewayRouteTableAnnouncements',
-        'code.function' => 'describe_transit_gateway_route_table_announcements',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeTransitGatewayRouteTableAnnouncements', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeTransitGatewayRouteTableAnnouncements.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_transit_gateway_route_table_announcements] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -28990,13 +26938,7 @@ module AWS::SDK::EC2
         operation_name: :describe_transit_gateway_route_tables,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeTransitGatewayRouteTables',
-        'code.function' => 'describe_transit_gateway_route_tables',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeTransitGatewayRouteTables', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeTransitGatewayRouteTables.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_transit_gateway_route_tables] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -29069,13 +27011,7 @@ module AWS::SDK::EC2
         operation_name: :describe_transit_gateway_vpc_attachments,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeTransitGatewayVpcAttachments',
-        'code.function' => 'describe_transit_gateway_vpc_attachments',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeTransitGatewayVpcAttachments', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeTransitGatewayVpcAttachments.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_transit_gateway_vpc_attachments] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -29154,13 +27090,7 @@ module AWS::SDK::EC2
         operation_name: :describe_transit_gateways,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeTransitGateways',
-        'code.function' => 'describe_transit_gateways',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeTransitGateways', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeTransitGateways.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_transit_gateways] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -29225,13 +27155,7 @@ module AWS::SDK::EC2
         operation_name: :describe_trunk_interface_associations,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeTrunkInterfaceAssociations',
-        'code.function' => 'describe_trunk_interface_associations',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeTrunkInterfaceAssociations', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeTrunkInterfaceAssociations.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_trunk_interface_associations] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -29323,13 +27247,7 @@ module AWS::SDK::EC2
         operation_name: :describe_verified_access_endpoints,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeVerifiedAccessEndpoints',
-        'code.function' => 'describe_verified_access_endpoints',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeVerifiedAccessEndpoints', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeVerifiedAccessEndpoints.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_verified_access_endpoints] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -29400,13 +27318,7 @@ module AWS::SDK::EC2
         operation_name: :describe_verified_access_groups,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeVerifiedAccessGroups',
-        'code.function' => 'describe_verified_access_groups',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeVerifiedAccessGroups', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeVerifiedAccessGroups.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_verified_access_groups] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -29481,13 +27393,7 @@ module AWS::SDK::EC2
         operation_name: :describe_verified_access_instance_logging_configurations,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeVerifiedAccessInstanceLoggingConfigurations',
-        'code.function' => 'describe_verified_access_instance_logging_configurations',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeVerifiedAccessInstanceLoggingConfigurations', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeVerifiedAccessInstanceLoggingConfigurations.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_verified_access_instance_logging_configurations] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -29558,13 +27464,7 @@ module AWS::SDK::EC2
         operation_name: :describe_verified_access_instances,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeVerifiedAccessInstances',
-        'code.function' => 'describe_verified_access_instances',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeVerifiedAccessInstances', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeVerifiedAccessInstances.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_verified_access_instances] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -29645,13 +27545,7 @@ module AWS::SDK::EC2
         operation_name: :describe_verified_access_trust_providers,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeVerifiedAccessTrustProviders',
-        'code.function' => 'describe_verified_access_trust_providers',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeVerifiedAccessTrustProviders', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeVerifiedAccessTrustProviders.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_verified_access_trust_providers] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -29715,13 +27609,7 @@ module AWS::SDK::EC2
         operation_name: :describe_volume_attribute,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeVolumeAttribute',
-        'code.function' => 'describe_volume_attribute',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeVolumeAttribute', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeVolumeAttribute.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_volume_attribute] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -29891,13 +27779,7 @@ module AWS::SDK::EC2
         operation_name: :describe_volume_status,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeVolumeStatus',
-        'code.function' => 'describe_volume_status',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeVolumeStatus', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeVolumeStatus.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_volume_status] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -30055,13 +27937,7 @@ module AWS::SDK::EC2
         operation_name: :describe_volumes,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeVolumes',
-        'code.function' => 'describe_volumes',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeVolumes', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeVolumes.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_volumes] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -30138,13 +28014,7 @@ module AWS::SDK::EC2
         operation_name: :describe_volumes_modifications,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeVolumesModifications',
-        'code.function' => 'describe_volumes_modifications',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeVolumesModifications', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeVolumesModifications.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_volumes_modifications] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -30218,13 +28088,7 @@ module AWS::SDK::EC2
         operation_name: :describe_vpc_attribute,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeVpcAttribute',
-        'code.function' => 'describe_vpc_attribute',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeVpcAttribute', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeVpcAttribute.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_vpc_attribute] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -30285,13 +28149,7 @@ module AWS::SDK::EC2
         operation_name: :describe_vpc_classic_link,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeVpcClassicLink',
-        'code.function' => 'describe_vpc_classic_link',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeVpcClassicLink', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeVpcClassicLink.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_vpc_classic_link] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -30346,13 +28204,7 @@ module AWS::SDK::EC2
         operation_name: :describe_vpc_classic_link_dns_support,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeVpcClassicLinkDnsSupport',
-        'code.function' => 'describe_vpc_classic_link_dns_support',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeVpcClassicLinkDnsSupport', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeVpcClassicLinkDnsSupport.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_vpc_classic_link_dns_support] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -30414,13 +28266,7 @@ module AWS::SDK::EC2
         operation_name: :describe_vpc_endpoint_connection_notifications,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeVpcEndpointConnectionNotifications',
-        'code.function' => 'describe_vpc_endpoint_connection_notifications',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeVpcEndpointConnectionNotifications', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeVpcEndpointConnectionNotifications.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_vpc_endpoint_connection_notifications] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -30491,13 +28337,7 @@ module AWS::SDK::EC2
         operation_name: :describe_vpc_endpoint_connections,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeVpcEndpointConnections',
-        'code.function' => 'describe_vpc_endpoint_connections',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeVpcEndpointConnections', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeVpcEndpointConnections.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_vpc_endpoint_connections] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -30578,13 +28418,7 @@ module AWS::SDK::EC2
         operation_name: :describe_vpc_endpoint_service_configurations,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeVpcEndpointServiceConfigurations',
-        'code.function' => 'describe_vpc_endpoint_service_configurations',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeVpcEndpointServiceConfigurations', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeVpcEndpointServiceConfigurations.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_vpc_endpoint_service_configurations] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -30646,13 +28480,7 @@ module AWS::SDK::EC2
         operation_name: :describe_vpc_endpoint_service_permissions,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeVpcEndpointServicePermissions',
-        'code.function' => 'describe_vpc_endpoint_service_permissions',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeVpcEndpointServicePermissions', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeVpcEndpointServicePermissions.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_vpc_endpoint_service_permissions] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -30736,13 +28564,7 @@ module AWS::SDK::EC2
         operation_name: :describe_vpc_endpoint_services,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeVpcEndpointServices',
-        'code.function' => 'describe_vpc_endpoint_services',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeVpcEndpointServices', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeVpcEndpointServices.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_vpc_endpoint_services] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -30830,13 +28652,7 @@ module AWS::SDK::EC2
         operation_name: :describe_vpc_endpoints,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeVpcEndpoints',
-        'code.function' => 'describe_vpc_endpoints',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeVpcEndpoints', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeVpcEndpoints.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_vpc_endpoints] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -30916,13 +28732,7 @@ module AWS::SDK::EC2
         operation_name: :describe_vpc_peering_connections,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeVpcPeeringConnections',
-        'code.function' => 'describe_vpc_peering_connections',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeVpcPeeringConnections', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeVpcPeeringConnections.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_vpc_peering_connections] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -31029,13 +28839,7 @@ module AWS::SDK::EC2
         operation_name: :describe_vpcs,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeVpcs',
-        'code.function' => 'describe_vpcs',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeVpcs', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeVpcs.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_vpcs] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -31168,13 +28972,7 @@ module AWS::SDK::EC2
         operation_name: :describe_vpn_connections,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeVpnConnections',
-        'code.function' => 'describe_vpn_connections',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeVpnConnections', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeVpnConnections.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_vpn_connections] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -31241,13 +29039,7 @@ module AWS::SDK::EC2
         operation_name: :describe_vpn_gateways,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DescribeVpnGateways',
-        'code.function' => 'describe_vpn_gateways',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DescribeVpnGateways', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeVpnGateways.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_vpn_gateways] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -31294,13 +29086,7 @@ module AWS::SDK::EC2
         operation_name: :detach_classic_link_vpc,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DetachClassicLinkVpc',
-        'code.function' => 'detach_classic_link_vpc',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DetachClassicLinkVpc', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DetachClassicLinkVpc.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#detach_classic_link_vpc] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -31352,13 +29138,7 @@ module AWS::SDK::EC2
         operation_name: :detach_internet_gateway,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DetachInternetGateway',
-        'code.function' => 'detach_internet_gateway',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DetachInternetGateway', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DetachInternetGateway.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#detach_internet_gateway] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -31407,13 +29187,7 @@ module AWS::SDK::EC2
         operation_name: :detach_network_interface,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DetachNetworkInterface',
-        'code.function' => 'detach_network_interface',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DetachNetworkInterface', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DetachNetworkInterface.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#detach_network_interface] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -31496,13 +29270,7 @@ module AWS::SDK::EC2
         operation_name: :detach_verified_access_trust_provider,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DetachVerifiedAccessTrustProvider',
-        'code.function' => 'detach_verified_access_trust_provider',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DetachVerifiedAccessTrustProvider', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DetachVerifiedAccessTrustProvider.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#detach_verified_access_trust_provider] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -31580,13 +29348,7 @@ module AWS::SDK::EC2
         operation_name: :detach_volume,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DetachVolume',
-        'code.function' => 'detach_volume',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DetachVolume', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DetachVolume.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#detach_volume] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -31632,13 +29394,7 @@ module AWS::SDK::EC2
         operation_name: :detach_vpn_gateway,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DetachVpnGateway',
-        'code.function' => 'detach_vpn_gateway',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DetachVpnGateway', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DetachVpnGateway.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#detach_vpn_gateway] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -31685,13 +29441,7 @@ module AWS::SDK::EC2
         operation_name: :disable_address_transfer,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DisableAddressTransfer',
-        'code.function' => 'disable_address_transfer',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DisableAddressTransfer', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DisableAddressTransfer.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_address_transfer] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -31735,13 +29485,7 @@ module AWS::SDK::EC2
         operation_name: :disable_aws_network_performance_metric_subscription,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DisableAwsNetworkPerformanceMetricSubscription',
-        'code.function' => 'disable_aws_network_performance_metric_subscription',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DisableAwsNetworkPerformanceMetricSubscription', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DisableAwsNetworkPerformanceMetricSubscription.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_aws_network_performance_metric_subscription] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -31787,13 +29531,7 @@ module AWS::SDK::EC2
         operation_name: :disable_ebs_encryption_by_default,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DisableEbsEncryptionByDefault',
-        'code.function' => 'disable_ebs_encryption_by_default',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DisableEbsEncryptionByDefault', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DisableEbsEncryptionByDefault.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_ebs_encryption_by_default] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -31852,13 +29590,7 @@ module AWS::SDK::EC2
         operation_name: :disable_fast_launch,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DisableFastLaunch',
-        'code.function' => 'disable_fast_launch',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DisableFastLaunch', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DisableFastLaunch.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_fast_launch] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -31925,13 +29657,7 @@ module AWS::SDK::EC2
         operation_name: :disable_fast_snapshot_restores,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DisableFastSnapshotRestores',
-        'code.function' => 'disable_fast_snapshot_restores',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DisableFastSnapshotRestores', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DisableFastSnapshotRestores.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_fast_snapshot_restores] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -31982,13 +29708,7 @@ module AWS::SDK::EC2
         operation_name: :disable_image,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DisableImage',
-        'code.function' => 'disable_image',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DisableImage', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DisableImage.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_image] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -32037,13 +29757,7 @@ module AWS::SDK::EC2
         operation_name: :disable_image_block_public_access,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DisableImageBlockPublicAccess',
-        'code.function' => 'disable_image_block_public_access',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DisableImageBlockPublicAccess', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DisableImageBlockPublicAccess.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_image_block_public_access] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -32086,13 +29800,7 @@ module AWS::SDK::EC2
         operation_name: :disable_image_deprecation,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DisableImageDeprecation',
-        'code.function' => 'disable_image_deprecation',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DisableImageDeprecation', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DisableImageDeprecation.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_image_deprecation] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -32134,13 +29842,7 @@ module AWS::SDK::EC2
         operation_name: :disable_ipam_organization_admin_account,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DisableIpamOrganizationAdminAccount',
-        'code.function' => 'disable_ipam_organization_admin_account',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DisableIpamOrganizationAdminAccount', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DisableIpamOrganizationAdminAccount.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_ipam_organization_admin_account] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -32183,13 +29885,7 @@ module AWS::SDK::EC2
         operation_name: :disable_serial_console_access,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DisableSerialConsoleAccess',
-        'code.function' => 'disable_serial_console_access',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DisableSerialConsoleAccess', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DisableSerialConsoleAccess.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_serial_console_access] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -32237,13 +29933,7 @@ module AWS::SDK::EC2
         operation_name: :disable_snapshot_block_public_access,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DisableSnapshotBlockPublicAccess',
-        'code.function' => 'disable_snapshot_block_public_access',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DisableSnapshotBlockPublicAccess', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DisableSnapshotBlockPublicAccess.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_snapshot_block_public_access] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -32293,13 +29983,7 @@ module AWS::SDK::EC2
         operation_name: :disable_transit_gateway_route_table_propagation,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DisableTransitGatewayRouteTablePropagation',
-        'code.function' => 'disable_transit_gateway_route_table_propagation',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DisableTransitGatewayRouteTablePropagation', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DisableTransitGatewayRouteTablePropagation.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_transit_gateway_route_table_propagation] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -32350,13 +30034,7 @@ module AWS::SDK::EC2
         operation_name: :disable_vgw_route_propagation,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DisableVgwRoutePropagation',
-        'code.function' => 'disable_vgw_route_propagation',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DisableVgwRoutePropagation', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DisableVgwRoutePropagation.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_vgw_route_propagation] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -32401,13 +30079,7 @@ module AWS::SDK::EC2
         operation_name: :disable_vpc_classic_link,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DisableVpcClassicLink',
-        'code.function' => 'disable_vpc_classic_link',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DisableVpcClassicLink', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DisableVpcClassicLink.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_vpc_classic_link] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -32453,13 +30125,7 @@ module AWS::SDK::EC2
         operation_name: :disable_vpc_classic_link_dns_support,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DisableVpcClassicLinkDnsSupport',
-        'code.function' => 'disable_vpc_classic_link_dns_support',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DisableVpcClassicLinkDnsSupport', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DisableVpcClassicLinkDnsSupport.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_vpc_classic_link_dns_support] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -32509,13 +30175,7 @@ module AWS::SDK::EC2
         operation_name: :disassociate_address,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DisassociateAddress',
-        'code.function' => 'disassociate_address',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DisassociateAddress', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DisassociateAddress.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disassociate_address] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -32576,13 +30236,7 @@ module AWS::SDK::EC2
         operation_name: :disassociate_client_vpn_target_network,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DisassociateClientVpnTargetNetwork',
-        'code.function' => 'disassociate_client_vpn_target_network',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DisassociateClientVpnTargetNetwork', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DisassociateClientVpnTargetNetwork.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disassociate_client_vpn_target_network] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -32628,13 +30282,7 @@ module AWS::SDK::EC2
         operation_name: :disassociate_enclave_certificate_iam_role,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DisassociateEnclaveCertificateIamRole',
-        'code.function' => 'disassociate_enclave_certificate_iam_role',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DisassociateEnclaveCertificateIamRole', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DisassociateEnclaveCertificateIamRole.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disassociate_enclave_certificate_iam_role] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -32701,13 +30349,7 @@ module AWS::SDK::EC2
         operation_name: :disassociate_iam_instance_profile,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DisassociateIamInstanceProfile',
-        'code.function' => 'disassociate_iam_instance_profile',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DisassociateIamInstanceProfile', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DisassociateIamInstanceProfile.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disassociate_iam_instance_profile] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -32784,13 +30426,7 @@ module AWS::SDK::EC2
         operation_name: :disassociate_instance_event_window,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DisassociateInstanceEventWindow',
-        'code.function' => 'disassociate_instance_event_window',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DisassociateInstanceEventWindow', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DisassociateInstanceEventWindow.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disassociate_instance_event_window] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -32837,13 +30473,7 @@ module AWS::SDK::EC2
         operation_name: :disassociate_ipam_byoasn,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DisassociateIpamByoasn',
-        'code.function' => 'disassociate_ipam_byoasn',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DisassociateIpamByoasn', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DisassociateIpamByoasn.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disassociate_ipam_byoasn] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -32898,13 +30528,7 @@ module AWS::SDK::EC2
         operation_name: :disassociate_ipam_resource_discovery,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DisassociateIpamResourceDiscovery',
-        'code.function' => 'disassociate_ipam_resource_discovery',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DisassociateIpamResourceDiscovery', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DisassociateIpamResourceDiscovery.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disassociate_ipam_resource_discovery] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -32966,13 +30590,7 @@ module AWS::SDK::EC2
         operation_name: :disassociate_nat_gateway_address,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DisassociateNatGatewayAddress',
-        'code.function' => 'disassociate_nat_gateway_address',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DisassociateNatGatewayAddress', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DisassociateNatGatewayAddress.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disassociate_nat_gateway_address] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -33024,13 +30642,7 @@ module AWS::SDK::EC2
         operation_name: :disassociate_route_table,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DisassociateRouteTable',
-        'code.function' => 'disassociate_route_table',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DisassociateRouteTable', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DisassociateRouteTable.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disassociate_route_table] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -33076,13 +30688,7 @@ module AWS::SDK::EC2
         operation_name: :disassociate_subnet_cidr_block,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DisassociateSubnetCidrBlock',
-        'code.function' => 'disassociate_subnet_cidr_block',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DisassociateSubnetCidrBlock', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DisassociateSubnetCidrBlock.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disassociate_subnet_cidr_block] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -33136,13 +30742,7 @@ module AWS::SDK::EC2
         operation_name: :disassociate_transit_gateway_multicast_domain,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DisassociateTransitGatewayMulticastDomain',
-        'code.function' => 'disassociate_transit_gateway_multicast_domain',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DisassociateTransitGatewayMulticastDomain', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DisassociateTransitGatewayMulticastDomain.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disassociate_transit_gateway_multicast_domain] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -33189,13 +30789,7 @@ module AWS::SDK::EC2
         operation_name: :disassociate_transit_gateway_policy_table,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DisassociateTransitGatewayPolicyTable',
-        'code.function' => 'disassociate_transit_gateway_policy_table',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DisassociateTransitGatewayPolicyTable', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DisassociateTransitGatewayPolicyTable.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disassociate_transit_gateway_policy_table] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -33242,13 +30836,7 @@ module AWS::SDK::EC2
         operation_name: :disassociate_transit_gateway_route_table,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DisassociateTransitGatewayRouteTable',
-        'code.function' => 'disassociate_transit_gateway_route_table',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DisassociateTransitGatewayRouteTable', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DisassociateTransitGatewayRouteTable.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disassociate_transit_gateway_route_table] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -33291,13 +30879,7 @@ module AWS::SDK::EC2
         operation_name: :disassociate_trunk_interface,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DisassociateTrunkInterface',
-        'code.function' => 'disassociate_trunk_interface',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DisassociateTrunkInterface', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DisassociateTrunkInterface.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disassociate_trunk_interface] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -33354,13 +30936,7 @@ module AWS::SDK::EC2
         operation_name: :disassociate_vpc_cidr_block,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'DisassociateVpcCidrBlock',
-        'code.function' => 'disassociate_vpc_cidr_block',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.DisassociateVpcCidrBlock', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DisassociateVpcCidrBlock.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disassociate_vpc_cidr_block] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -33408,13 +30984,7 @@ module AWS::SDK::EC2
         operation_name: :enable_address_transfer,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'EnableAddressTransfer',
-        'code.function' => 'enable_address_transfer',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.EnableAddressTransfer', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::EnableAddressTransfer.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_address_transfer] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -33458,13 +31028,7 @@ module AWS::SDK::EC2
         operation_name: :enable_aws_network_performance_metric_subscription,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'EnableAwsNetworkPerformanceMetricSubscription',
-        'code.function' => 'enable_aws_network_performance_metric_subscription',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.EnableAwsNetworkPerformanceMetricSubscription', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::EnableAwsNetworkPerformanceMetricSubscription.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_aws_network_performance_metric_subscription] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -33515,13 +31079,7 @@ module AWS::SDK::EC2
         operation_name: :enable_ebs_encryption_by_default,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'EnableEbsEncryptionByDefault',
-        'code.function' => 'enable_ebs_encryption_by_default',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.EnableEbsEncryptionByDefault', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::EnableEbsEncryptionByDefault.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_ebs_encryption_by_default] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -33592,13 +31150,7 @@ module AWS::SDK::EC2
         operation_name: :enable_fast_launch,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'EnableFastLaunch',
-        'code.function' => 'enable_fast_launch',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.EnableFastLaunch', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::EnableFastLaunch.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_fast_launch] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -33670,13 +31222,7 @@ module AWS::SDK::EC2
         operation_name: :enable_fast_snapshot_restores,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'EnableFastSnapshotRestores',
-        'code.function' => 'enable_fast_snapshot_restores',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.EnableFastSnapshotRestores', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::EnableFastSnapshotRestores.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_fast_snapshot_restores] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -33724,13 +31270,7 @@ module AWS::SDK::EC2
         operation_name: :enable_image,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'EnableImage',
-        'code.function' => 'enable_image',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.EnableImage', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::EnableImage.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_image] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -33779,13 +31319,7 @@ module AWS::SDK::EC2
         operation_name: :enable_image_block_public_access,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'EnableImageBlockPublicAccess',
-        'code.function' => 'enable_image_block_public_access',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.EnableImageBlockPublicAccess', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::EnableImageBlockPublicAccess.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_image_block_public_access] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -33828,13 +31362,7 @@ module AWS::SDK::EC2
         operation_name: :enable_image_deprecation,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'EnableImageDeprecation',
-        'code.function' => 'enable_image_deprecation',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.EnableImageDeprecation', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::EnableImageDeprecation.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_image_deprecation] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -33876,13 +31404,7 @@ module AWS::SDK::EC2
         operation_name: :enable_ipam_organization_admin_account,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'EnableIpamOrganizationAdminAccount',
-        'code.function' => 'enable_ipam_organization_admin_account',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.EnableIpamOrganizationAdminAccount', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::EnableIpamOrganizationAdminAccount.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_ipam_organization_admin_account] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -33926,13 +31448,7 @@ module AWS::SDK::EC2
         operation_name: :enable_reachability_analyzer_organization_sharing,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'EnableReachabilityAnalyzerOrganizationSharing',
-        'code.function' => 'enable_reachability_analyzer_organization_sharing',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.EnableReachabilityAnalyzerOrganizationSharing', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::EnableReachabilityAnalyzerOrganizationSharing.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_reachability_analyzer_organization_sharing] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -33974,13 +31490,7 @@ module AWS::SDK::EC2
         operation_name: :enable_serial_console_access,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'EnableSerialConsoleAccess',
-        'code.function' => 'enable_serial_console_access',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.EnableSerialConsoleAccess', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::EnableSerialConsoleAccess.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_serial_console_access] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -34032,13 +31542,7 @@ module AWS::SDK::EC2
         operation_name: :enable_snapshot_block_public_access,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'EnableSnapshotBlockPublicAccess',
-        'code.function' => 'enable_snapshot_block_public_access',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.EnableSnapshotBlockPublicAccess', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::EnableSnapshotBlockPublicAccess.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_snapshot_block_public_access] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -34088,13 +31592,7 @@ module AWS::SDK::EC2
         operation_name: :enable_transit_gateway_route_table_propagation,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'EnableTransitGatewayRouteTablePropagation',
-        'code.function' => 'enable_transit_gateway_route_table_propagation',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.EnableTransitGatewayRouteTablePropagation', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::EnableTransitGatewayRouteTablePropagation.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_transit_gateway_route_table_propagation] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -34145,13 +31643,7 @@ module AWS::SDK::EC2
         operation_name: :enable_vgw_route_propagation,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'EnableVgwRoutePropagation',
-        'code.function' => 'enable_vgw_route_propagation',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.EnableVgwRoutePropagation', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::EnableVgwRoutePropagation.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_vgw_route_propagation] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -34200,13 +31692,7 @@ module AWS::SDK::EC2
         operation_name: :enable_volume_io,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'EnableVolumeIO',
-        'code.function' => 'enable_volume_io',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.EnableVolumeIO', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::EnableVolumeIO.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_volume_io] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -34255,13 +31741,7 @@ module AWS::SDK::EC2
         operation_name: :enable_vpc_classic_link,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'EnableVpcClassicLink',
-        'code.function' => 'enable_vpc_classic_link',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.EnableVpcClassicLink', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::EnableVpcClassicLink.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_vpc_classic_link] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -34309,13 +31789,7 @@ module AWS::SDK::EC2
         operation_name: :enable_vpc_classic_link_dns_support,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'EnableVpcClassicLinkDnsSupport',
-        'code.function' => 'enable_vpc_classic_link_dns_support',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.EnableVpcClassicLinkDnsSupport', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::EnableVpcClassicLinkDnsSupport.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_vpc_classic_link_dns_support] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -34359,13 +31833,7 @@ module AWS::SDK::EC2
         operation_name: :export_client_vpn_client_certificate_revocation_list,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ExportClientVpnClientCertificateRevocationList',
-        'code.function' => 'export_client_vpn_client_certificate_revocation_list',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ExportClientVpnClientCertificateRevocationList', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ExportClientVpnClientCertificateRevocationList.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#export_client_vpn_client_certificate_revocation_list] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -34408,13 +31876,7 @@ module AWS::SDK::EC2
         operation_name: :export_client_vpn_client_configuration,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ExportClientVpnClientConfiguration',
-        'code.function' => 'export_client_vpn_client_configuration',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ExportClientVpnClientConfiguration', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ExportClientVpnClientConfiguration.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#export_client_vpn_client_configuration] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -34490,13 +31952,7 @@ module AWS::SDK::EC2
         operation_name: :export_image,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ExportImage',
-        'code.function' => 'export_image',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ExportImage', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ExportImage.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#export_image] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -34550,13 +32006,7 @@ module AWS::SDK::EC2
         operation_name: :export_transit_gateway_routes,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ExportTransitGatewayRoutes',
-        'code.function' => 'export_transit_gateway_routes',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ExportTransitGatewayRoutes', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ExportTransitGatewayRoutes.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#export_transit_gateway_routes] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -34605,13 +32055,7 @@ module AWS::SDK::EC2
         operation_name: :get_associated_enclave_certificate_iam_roles,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'GetAssociatedEnclaveCertificateIamRoles',
-        'code.function' => 'get_associated_enclave_certificate_iam_roles',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.GetAssociatedEnclaveCertificateIamRoles', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetAssociatedEnclaveCertificateIamRoles.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_associated_enclave_certificate_iam_roles] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -34658,13 +32102,7 @@ module AWS::SDK::EC2
         operation_name: :get_associated_ipv6_pool_cidrs,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'GetAssociatedIpv6PoolCidrs',
-        'code.function' => 'get_associated_ipv6_pool_cidrs',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.GetAssociatedIpv6PoolCidrs', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetAssociatedIpv6PoolCidrs.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_associated_ipv6_pool_cidrs] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -34732,13 +32170,7 @@ module AWS::SDK::EC2
         operation_name: :get_aws_network_performance_data,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'GetAwsNetworkPerformanceData',
-        'code.function' => 'get_aws_network_performance_data',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.GetAwsNetworkPerformanceData', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetAwsNetworkPerformanceData.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_aws_network_performance_data] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -34792,13 +32224,7 @@ module AWS::SDK::EC2
         operation_name: :get_capacity_reservation_usage,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'GetCapacityReservationUsage',
-        'code.function' => 'get_capacity_reservation_usage',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.GetCapacityReservationUsage', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetCapacityReservationUsage.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_capacity_reservation_usage] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -34857,13 +32283,7 @@ module AWS::SDK::EC2
         operation_name: :get_coip_pool_usage,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'GetCoipPoolUsage',
-        'code.function' => 'get_coip_pool_usage',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.GetCoipPoolUsage', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetCoipPoolUsage.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_coip_pool_usage] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -34931,13 +32351,7 @@ module AWS::SDK::EC2
         operation_name: :get_console_output,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'GetConsoleOutput',
-        'code.function' => 'get_console_output',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.GetConsoleOutput', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetConsoleOutput.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_console_output] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -34982,13 +32396,7 @@ module AWS::SDK::EC2
         operation_name: :get_console_screenshot,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'GetConsoleScreenshot',
-        'code.function' => 'get_console_screenshot',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.GetConsoleScreenshot', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetConsoleScreenshot.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_console_screenshot] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -35034,13 +32442,7 @@ module AWS::SDK::EC2
         operation_name: :get_default_credit_specification,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'GetDefaultCreditSpecification',
-        'code.function' => 'get_default_credit_specification',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.GetDefaultCreditSpecification', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetDefaultCreditSpecification.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_default_credit_specification] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -35084,13 +32486,7 @@ module AWS::SDK::EC2
         operation_name: :get_ebs_default_kms_key_id,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'GetEbsDefaultKmsKeyId',
-        'code.function' => 'get_ebs_default_kms_key_id',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.GetEbsDefaultKmsKeyId', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetEbsDefaultKmsKeyId.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_ebs_default_kms_key_id] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -35134,13 +32530,7 @@ module AWS::SDK::EC2
         operation_name: :get_ebs_encryption_by_default,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'GetEbsEncryptionByDefault',
-        'code.function' => 'get_ebs_encryption_by_default',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.GetEbsEncryptionByDefault', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetEbsEncryptionByDefault.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_ebs_encryption_by_default] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -35214,13 +32604,7 @@ module AWS::SDK::EC2
         operation_name: :get_flow_logs_integration_template,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'GetFlowLogsIntegrationTemplate',
-        'code.function' => 'get_flow_logs_integration_template',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.GetFlowLogsIntegrationTemplate', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetFlowLogsIntegrationTemplate.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_flow_logs_integration_template] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -35267,13 +32651,7 @@ module AWS::SDK::EC2
         operation_name: :get_groups_for_capacity_reservation,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'GetGroupsForCapacityReservation',
-        'code.function' => 'get_groups_for_capacity_reservation',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.GetGroupsForCapacityReservation', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetGroupsForCapacityReservation.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_groups_for_capacity_reservation] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -35333,13 +32711,7 @@ module AWS::SDK::EC2
         operation_name: :get_host_reservation_purchase_preview,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'GetHostReservationPurchasePreview',
-        'code.function' => 'get_host_reservation_purchase_preview',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.GetHostReservationPurchasePreview', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetHostReservationPurchasePreview.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_host_reservation_purchase_preview] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -35382,13 +32754,7 @@ module AWS::SDK::EC2
         operation_name: :get_image_block_public_access_state,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'GetImageBlockPublicAccessState',
-        'code.function' => 'get_image_block_public_access_state',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.GetImageBlockPublicAccessState', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetImageBlockPublicAccessState.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_image_block_public_access_state] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -35517,13 +32883,7 @@ module AWS::SDK::EC2
         operation_name: :get_instance_types_from_instance_requirements,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'GetInstanceTypesFromInstanceRequirements',
-        'code.function' => 'get_instance_types_from_instance_requirements',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.GetInstanceTypesFromInstanceRequirements', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetInstanceTypesFromInstanceRequirements.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_instance_types_from_instance_requirements] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -35575,13 +32935,7 @@ module AWS::SDK::EC2
         operation_name: :get_instance_uefi_data,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'GetInstanceUefiData',
-        'code.function' => 'get_instance_uefi_data',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.GetInstanceUefiData', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetInstanceUefiData.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_instance_uefi_data] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -35641,13 +32995,7 @@ module AWS::SDK::EC2
         operation_name: :get_ipam_address_history,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'GetIpamAddressHistory',
-        'code.function' => 'get_ipam_address_history',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.GetIpamAddressHistory', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetIpamAddressHistory.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_ipam_address_history] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -35708,13 +33056,7 @@ module AWS::SDK::EC2
         operation_name: :get_ipam_discovered_accounts,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'GetIpamDiscoveredAccounts',
-        'code.function' => 'get_ipam_discovered_accounts',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.GetIpamDiscoveredAccounts', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetIpamDiscoveredAccounts.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_ipam_discovered_accounts] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -35795,13 +33137,7 @@ module AWS::SDK::EC2
         operation_name: :get_ipam_discovered_public_addresses,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'GetIpamDiscoveredPublicAddresses',
-        'code.function' => 'get_ipam_discovered_public_addresses',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.GetIpamDiscoveredPublicAddresses', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetIpamDiscoveredPublicAddresses.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_ipam_discovered_public_addresses] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -35868,13 +33204,7 @@ module AWS::SDK::EC2
         operation_name: :get_ipam_discovered_resource_cidrs,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'GetIpamDiscoveredResourceCidrs',
-        'code.function' => 'get_ipam_discovered_resource_cidrs',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.GetIpamDiscoveredResourceCidrs', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetIpamDiscoveredResourceCidrs.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_ipam_discovered_resource_cidrs] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -35938,13 +33268,7 @@ module AWS::SDK::EC2
         operation_name: :get_ipam_pool_allocations,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'GetIpamPoolAllocations',
-        'code.function' => 'get_ipam_pool_allocations',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.GetIpamPoolAllocations', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetIpamPoolAllocations.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_ipam_pool_allocations] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -36004,13 +33328,7 @@ module AWS::SDK::EC2
         operation_name: :get_ipam_pool_cidrs,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'GetIpamPoolCidrs',
-        'code.function' => 'get_ipam_pool_cidrs',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.GetIpamPoolCidrs', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetIpamPoolCidrs.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_ipam_pool_cidrs] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -36089,13 +33407,7 @@ module AWS::SDK::EC2
         operation_name: :get_ipam_resource_cidrs,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'GetIpamResourceCidrs',
-        'code.function' => 'get_ipam_resource_cidrs',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.GetIpamResourceCidrs', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetIpamResourceCidrs.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_ipam_resource_cidrs] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -36388,13 +33700,7 @@ module AWS::SDK::EC2
         operation_name: :get_launch_template_data,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'GetLaunchTemplateData',
-        'code.function' => 'get_launch_template_data',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.GetLaunchTemplateData', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetLaunchTemplateData.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_launch_template_data] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -36441,13 +33747,7 @@ module AWS::SDK::EC2
         operation_name: :get_managed_prefix_list_associations,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'GetManagedPrefixListAssociations',
-        'code.function' => 'get_managed_prefix_list_associations',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.GetManagedPrefixListAssociations', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetManagedPrefixListAssociations.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_managed_prefix_list_associations] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -36495,13 +33795,7 @@ module AWS::SDK::EC2
         operation_name: :get_managed_prefix_list_entries,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'GetManagedPrefixListEntries',
-        'code.function' => 'get_managed_prefix_list_entries',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.GetManagedPrefixListEntries', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetManagedPrefixListEntries.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_managed_prefix_list_entries] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -36714,13 +34008,7 @@ module AWS::SDK::EC2
         operation_name: :get_network_insights_access_scope_analysis_findings,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'GetNetworkInsightsAccessScopeAnalysisFindings',
-        'code.function' => 'get_network_insights_access_scope_analysis_findings',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.GetNetworkInsightsAccessScopeAnalysisFindings', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetNetworkInsightsAccessScopeAnalysisFindings.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_network_insights_access_scope_analysis_findings] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -36783,13 +34071,7 @@ module AWS::SDK::EC2
         operation_name: :get_network_insights_access_scope_content,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'GetNetworkInsightsAccessScopeContent',
-        'code.function' => 'get_network_insights_access_scope_content',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.GetNetworkInsightsAccessScopeContent', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetNetworkInsightsAccessScopeContent.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_network_insights_access_scope_content] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -36844,13 +34126,7 @@ module AWS::SDK::EC2
         operation_name: :get_password_data,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'GetPasswordData',
-        'code.function' => 'get_password_data',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.GetPasswordData', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetPasswordData.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_password_data] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -36920,13 +34196,7 @@ module AWS::SDK::EC2
         operation_name: :get_reserved_instances_exchange_quote,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'GetReservedInstancesExchangeQuote',
-        'code.function' => 'get_reserved_instances_exchange_quote',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.GetReservedInstancesExchangeQuote', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetReservedInstancesExchangeQuote.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_reserved_instances_exchange_quote] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -36988,13 +34258,7 @@ module AWS::SDK::EC2
         operation_name: :get_security_groups_for_vpc,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'GetSecurityGroupsForVpc',
-        'code.function' => 'get_security_groups_for_vpc',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.GetSecurityGroupsForVpc', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetSecurityGroupsForVpc.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_security_groups_for_vpc] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -37037,13 +34301,7 @@ module AWS::SDK::EC2
         operation_name: :get_serial_console_access_status,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'GetSerialConsoleAccessStatus',
-        'code.function' => 'get_serial_console_access_status',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.GetSerialConsoleAccessStatus', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetSerialConsoleAccessStatus.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_serial_console_access_status] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -37086,13 +34344,7 @@ module AWS::SDK::EC2
         operation_name: :get_snapshot_block_public_access_state,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'GetSnapshotBlockPublicAccessState',
-        'code.function' => 'get_snapshot_block_public_access_state',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.GetSnapshotBlockPublicAccessState', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetSnapshotBlockPublicAccessState.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_snapshot_block_public_access_state] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -37232,13 +34484,7 @@ module AWS::SDK::EC2
         operation_name: :get_spot_placement_scores,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'GetSpotPlacementScores',
-        'code.function' => 'get_spot_placement_scores',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.GetSpotPlacementScores', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetSpotPlacementScores.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_spot_placement_scores] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -37302,13 +34548,7 @@ module AWS::SDK::EC2
         operation_name: :get_subnet_cidr_reservations,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'GetSubnetCidrReservations',
-        'code.function' => 'get_subnet_cidr_reservations',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.GetSubnetCidrReservations', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetSubnetCidrReservations.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_subnet_cidr_reservations] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -37363,13 +34603,7 @@ module AWS::SDK::EC2
         operation_name: :get_transit_gateway_attachment_propagations,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'GetTransitGatewayAttachmentPropagations',
-        'code.function' => 'get_transit_gateway_attachment_propagations',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.GetTransitGatewayAttachmentPropagations', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetTransitGatewayAttachmentPropagations.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_transit_gateway_attachment_propagations] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -37429,13 +34663,7 @@ module AWS::SDK::EC2
         operation_name: :get_transit_gateway_multicast_domain_associations,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'GetTransitGatewayMulticastDomainAssociations',
-        'code.function' => 'get_transit_gateway_multicast_domain_associations',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.GetTransitGatewayMulticastDomainAssociations', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetTransitGatewayMulticastDomainAssociations.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_transit_gateway_multicast_domain_associations] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -37493,13 +34721,7 @@ module AWS::SDK::EC2
         operation_name: :get_transit_gateway_policy_table_associations,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'GetTransitGatewayPolicyTableAssociations',
-        'code.function' => 'get_transit_gateway_policy_table_associations',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.GetTransitGatewayPolicyTableAssociations', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetTransitGatewayPolicyTableAssociations.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_transit_gateway_policy_table_associations] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -37562,13 +34784,7 @@ module AWS::SDK::EC2
         operation_name: :get_transit_gateway_policy_table_entries,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'GetTransitGatewayPolicyTableEntries',
-        'code.function' => 'get_transit_gateway_policy_table_entries',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.GetTransitGatewayPolicyTableEntries', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetTransitGatewayPolicyTableEntries.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_transit_gateway_policy_table_entries] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -37630,13 +34846,7 @@ module AWS::SDK::EC2
         operation_name: :get_transit_gateway_prefix_list_references,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'GetTransitGatewayPrefixListReferences',
-        'code.function' => 'get_transit_gateway_prefix_list_references',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.GetTransitGatewayPrefixListReferences', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetTransitGatewayPrefixListReferences.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_transit_gateway_prefix_list_references] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -37693,13 +34903,7 @@ module AWS::SDK::EC2
         operation_name: :get_transit_gateway_route_table_associations,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'GetTransitGatewayRouteTableAssociations',
-        'code.function' => 'get_transit_gateway_route_table_associations',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.GetTransitGatewayRouteTableAssociations', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetTransitGatewayRouteTableAssociations.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_transit_gateway_route_table_associations] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -37757,13 +34961,7 @@ module AWS::SDK::EC2
         operation_name: :get_transit_gateway_route_table_propagations,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'GetTransitGatewayRouteTablePropagations',
-        'code.function' => 'get_transit_gateway_route_table_propagations',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.GetTransitGatewayRouteTablePropagations', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetTransitGatewayRouteTablePropagations.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_transit_gateway_route_table_propagations] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -37805,13 +35003,7 @@ module AWS::SDK::EC2
         operation_name: :get_verified_access_endpoint_policy,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'GetVerifiedAccessEndpointPolicy',
-        'code.function' => 'get_verified_access_endpoint_policy',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.GetVerifiedAccessEndpointPolicy', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetVerifiedAccessEndpointPolicy.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_verified_access_endpoint_policy] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -37853,13 +35045,7 @@ module AWS::SDK::EC2
         operation_name: :get_verified_access_group_policy,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'GetVerifiedAccessGroupPolicy',
-        'code.function' => 'get_verified_access_group_policy',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.GetVerifiedAccessGroupPolicy', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetVerifiedAccessGroupPolicy.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_verified_access_group_policy] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -37903,13 +35089,7 @@ module AWS::SDK::EC2
         operation_name: :get_vpn_connection_device_sample_configuration,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'GetVpnConnectionDeviceSampleConfiguration',
-        'code.function' => 'get_vpn_connection_device_sample_configuration',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.GetVpnConnectionDeviceSampleConfiguration', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetVpnConnectionDeviceSampleConfiguration.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_vpn_connection_device_sample_configuration] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -37960,13 +35140,7 @@ module AWS::SDK::EC2
         operation_name: :get_vpn_connection_device_types,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'GetVpnConnectionDeviceTypes',
-        'code.function' => 'get_vpn_connection_device_types',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.GetVpnConnectionDeviceTypes', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetVpnConnectionDeviceTypes.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_vpn_connection_device_types] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -38016,13 +35190,7 @@ module AWS::SDK::EC2
         operation_name: :get_vpn_tunnel_replacement_status,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'GetVpnTunnelReplacementStatus',
-        'code.function' => 'get_vpn_tunnel_replacement_status',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.GetVpnTunnelReplacementStatus', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetVpnTunnelReplacementStatus.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_vpn_tunnel_replacement_status] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -38065,13 +35233,7 @@ module AWS::SDK::EC2
         operation_name: :import_client_vpn_client_certificate_revocation_list,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ImportClientVpnClientCertificateRevocationList',
-        'code.function' => 'import_client_vpn_client_certificate_revocation_list',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ImportClientVpnClientCertificateRevocationList', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ImportClientVpnClientCertificateRevocationList.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#import_client_vpn_client_certificate_revocation_list] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -38205,13 +35367,7 @@ module AWS::SDK::EC2
         operation_name: :import_image,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ImportImage',
-        'code.function' => 'import_image',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ImportImage', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ImportImage.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#import_image] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -38341,13 +35497,7 @@ module AWS::SDK::EC2
         operation_name: :import_instance,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ImportInstance',
-        'code.function' => 'import_instance',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ImportInstance', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ImportInstance.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#import_instance] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -38411,13 +35561,7 @@ module AWS::SDK::EC2
         operation_name: :import_key_pair,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ImportKeyPair',
-        'code.function' => 'import_key_pair',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ImportKeyPair', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ImportKeyPair.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#import_key_pair] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -38509,13 +35653,7 @@ module AWS::SDK::EC2
         operation_name: :import_snapshot,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ImportSnapshot',
-        'code.function' => 'import_snapshot',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ImportSnapshot', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ImportSnapshot.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#import_snapshot] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -38604,13 +35742,7 @@ module AWS::SDK::EC2
         operation_name: :import_volume,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ImportVolume',
-        'code.function' => 'import_volume',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ImportVolume', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ImportVolume.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#import_volume] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -38664,13 +35796,7 @@ module AWS::SDK::EC2
         operation_name: :list_images_in_recycle_bin,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ListImagesInRecycleBin',
-        'code.function' => 'list_images_in_recycle_bin',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ListImagesInRecycleBin', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ListImagesInRecycleBin.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_images_in_recycle_bin] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -38722,13 +35848,7 @@ module AWS::SDK::EC2
         operation_name: :list_snapshots_in_recycle_bin,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ListSnapshotsInRecycleBin',
-        'code.function' => 'list_snapshots_in_recycle_bin',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ListSnapshotsInRecycleBin', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ListSnapshotsInRecycleBin.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_snapshots_in_recycle_bin] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -38798,13 +35918,7 @@ module AWS::SDK::EC2
         operation_name: :lock_snapshot,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'LockSnapshot',
-        'code.function' => 'lock_snapshot',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.LockSnapshot', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::LockSnapshot.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#lock_snapshot] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -38853,13 +35967,7 @@ module AWS::SDK::EC2
         operation_name: :modify_address_attribute,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyAddressAttribute',
-        'code.function' => 'modify_address_attribute',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyAddressAttribute', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyAddressAttribute.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_address_attribute] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -38904,13 +36012,7 @@ module AWS::SDK::EC2
         operation_name: :modify_availability_zone_group,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyAvailabilityZoneGroup',
-        'code.function' => 'modify_availability_zone_group',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyAvailabilityZoneGroup', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyAvailabilityZoneGroup.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_availability_zone_group] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -38960,13 +36062,7 @@ module AWS::SDK::EC2
         operation_name: :modify_capacity_reservation,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyCapacityReservation',
-        'code.function' => 'modify_capacity_reservation',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyCapacityReservation', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyCapacityReservation.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_capacity_reservation] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -39014,13 +36110,7 @@ module AWS::SDK::EC2
         operation_name: :modify_capacity_reservation_fleet,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyCapacityReservationFleet',
-        'code.function' => 'modify_capacity_reservation_fleet',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyCapacityReservationFleet', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyCapacityReservationFleet.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_capacity_reservation_fleet] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -39090,13 +36180,7 @@ module AWS::SDK::EC2
         operation_name: :modify_client_vpn_endpoint,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyClientVpnEndpoint',
-        'code.function' => 'modify_client_vpn_endpoint',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyClientVpnEndpoint', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyClientVpnEndpoint.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_client_vpn_endpoint] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -39153,13 +36237,7 @@ module AWS::SDK::EC2
         operation_name: :modify_default_credit_specification,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyDefaultCreditSpecification',
-        'code.function' => 'modify_default_credit_specification',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyDefaultCreditSpecification', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyDefaultCreditSpecification.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_default_credit_specification] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -39207,13 +36285,7 @@ module AWS::SDK::EC2
         operation_name: :modify_ebs_default_kms_key_id,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyEbsDefaultKmsKeyId',
-        'code.function' => 'modify_ebs_default_kms_key_id',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyEbsDefaultKmsKeyId', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyEbsDefaultKmsKeyId.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_ebs_default_kms_key_id] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -39384,13 +36456,7 @@ module AWS::SDK::EC2
         operation_name: :modify_fleet,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyFleet',
-        'code.function' => 'modify_fleet',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyFleet', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyFleet.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_fleet] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -39463,13 +36529,7 @@ module AWS::SDK::EC2
         operation_name: :modify_fpga_image_attribute,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyFpgaImageAttribute',
-        'code.function' => 'modify_fpga_image_attribute',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyFpgaImageAttribute', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyFpgaImageAttribute.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_fpga_image_attribute] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -39531,13 +36591,7 @@ module AWS::SDK::EC2
         operation_name: :modify_hosts,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyHosts',
-        'code.function' => 'modify_hosts',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyHosts', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyHosts.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_hosts] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -39600,13 +36654,7 @@ module AWS::SDK::EC2
         operation_name: :modify_id_format,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyIdFormat',
-        'code.function' => 'modify_id_format',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyIdFormat', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyIdFormat.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_id_format] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -39668,13 +36716,7 @@ module AWS::SDK::EC2
         operation_name: :modify_identity_id_format,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyIdentityIdFormat',
-        'code.function' => 'modify_identity_id_format',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyIdentityIdFormat', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyIdentityIdFormat.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_identity_id_format] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -39780,13 +36822,7 @@ module AWS::SDK::EC2
         operation_name: :modify_image_attribute,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyImageAttribute',
-        'code.function' => 'modify_image_attribute',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyImageAttribute', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyImageAttribute.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_image_attribute] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -39883,13 +36919,7 @@ module AWS::SDK::EC2
         operation_name: :modify_instance_attribute,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyInstanceAttribute',
-        'code.function' => 'modify_instance_attribute',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyInstanceAttribute', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyInstanceAttribute.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_instance_attribute] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -39939,13 +36969,7 @@ module AWS::SDK::EC2
         operation_name: :modify_instance_capacity_reservation_attributes,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyInstanceCapacityReservationAttributes',
-        'code.function' => 'modify_instance_capacity_reservation_attributes',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyInstanceCapacityReservationAttributes', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyInstanceCapacityReservationAttributes.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_instance_capacity_reservation_attributes] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -40004,13 +37028,7 @@ module AWS::SDK::EC2
         operation_name: :modify_instance_credit_specification,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyInstanceCreditSpecification',
-        'code.function' => 'modify_instance_credit_specification',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyInstanceCreditSpecification', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyInstanceCreditSpecification.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_instance_credit_specification] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -40059,13 +37077,7 @@ module AWS::SDK::EC2
         operation_name: :modify_instance_event_start_time,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyInstanceEventStartTime',
-        'code.function' => 'modify_instance_event_start_time',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyInstanceEventStartTime', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyInstanceEventStartTime.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_instance_event_start_time] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -40143,13 +37155,7 @@ module AWS::SDK::EC2
         operation_name: :modify_instance_event_window,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyInstanceEventWindow',
-        'code.function' => 'modify_instance_event_window',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyInstanceEventWindow', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyInstanceEventWindow.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_instance_event_window] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -40195,13 +37201,7 @@ module AWS::SDK::EC2
         operation_name: :modify_instance_maintenance_options,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyInstanceMaintenanceOptions',
-        'code.function' => 'modify_instance_maintenance_options',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyInstanceMaintenanceOptions', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyInstanceMaintenanceOptions.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_instance_maintenance_options] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -40260,13 +37260,7 @@ module AWS::SDK::EC2
         operation_name: :modify_instance_metadata_options,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyInstanceMetadataOptions',
-        'code.function' => 'modify_instance_metadata_options',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyInstanceMetadataOptions', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyInstanceMetadataOptions.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_instance_metadata_options] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -40338,13 +37332,7 @@ module AWS::SDK::EC2
         operation_name: :modify_instance_placement,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyInstancePlacement',
-        'code.function' => 'modify_instance_placement',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyInstancePlacement', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyInstancePlacement.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_instance_placement] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -40419,13 +37407,7 @@ module AWS::SDK::EC2
         operation_name: :modify_ipam,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyIpam',
-        'code.function' => 'modify_ipam',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyIpam', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyIpam.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_ipam] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -40514,13 +37496,7 @@ module AWS::SDK::EC2
         operation_name: :modify_ipam_pool,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyIpamPool',
-        'code.function' => 'modify_ipam_pool',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyIpamPool', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyIpamPool.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_ipam_pool] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -40585,13 +37561,7 @@ module AWS::SDK::EC2
         operation_name: :modify_ipam_resource_cidr,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyIpamResourceCidr',
-        'code.function' => 'modify_ipam_resource_cidr',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyIpamResourceCidr', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyIpamResourceCidr.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_ipam_resource_cidr] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -40657,13 +37627,7 @@ module AWS::SDK::EC2
         operation_name: :modify_ipam_resource_discovery,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyIpamResourceDiscovery',
-        'code.function' => 'modify_ipam_resource_discovery',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyIpamResourceDiscovery', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyIpamResourceDiscovery.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_ipam_resource_discovery] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -40719,13 +37683,7 @@ module AWS::SDK::EC2
         operation_name: :modify_ipam_scope,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyIpamScope',
-        'code.function' => 'modify_ipam_scope',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyIpamScope', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyIpamScope.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_ipam_scope] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -40799,13 +37757,7 @@ module AWS::SDK::EC2
         operation_name: :modify_launch_template,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyLaunchTemplate',
-        'code.function' => 'modify_launch_template',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyLaunchTemplate', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyLaunchTemplate.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_launch_template] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -40861,13 +37813,7 @@ module AWS::SDK::EC2
         operation_name: :modify_local_gateway_route,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyLocalGatewayRoute',
-        'code.function' => 'modify_local_gateway_route',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyLocalGatewayRoute', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyLocalGatewayRoute.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_local_gateway_route] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -40939,13 +37885,7 @@ module AWS::SDK::EC2
         operation_name: :modify_managed_prefix_list,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyManagedPrefixList',
-        'code.function' => 'modify_managed_prefix_list',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyManagedPrefixList', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyManagedPrefixList.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_managed_prefix_list] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -41058,13 +37998,7 @@ module AWS::SDK::EC2
         operation_name: :modify_network_interface_attribute,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyNetworkInterfaceAttribute',
-        'code.function' => 'modify_network_interface_attribute',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyNetworkInterfaceAttribute', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyNetworkInterfaceAttribute.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_network_interface_attribute] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -41108,13 +38042,7 @@ module AWS::SDK::EC2
         operation_name: :modify_private_dns_name_options,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyPrivateDnsNameOptions',
-        'code.function' => 'modify_private_dns_name_options',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyPrivateDnsNameOptions', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyPrivateDnsNameOptions.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_private_dns_name_options] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -41170,13 +38098,7 @@ module AWS::SDK::EC2
         operation_name: :modify_reserved_instances,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyReservedInstances',
-        'code.function' => 'modify_reserved_instances',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyReservedInstances', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyReservedInstances.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_reserved_instances] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -41232,13 +38154,7 @@ module AWS::SDK::EC2
         operation_name: :modify_security_group_rules,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifySecurityGroupRules',
-        'code.function' => 'modify_security_group_rules',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifySecurityGroupRules', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifySecurityGroupRules.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_security_group_rules] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -41327,13 +38243,7 @@ module AWS::SDK::EC2
         operation_name: :modify_snapshot_attribute,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifySnapshotAttribute',
-        'code.function' => 'modify_snapshot_attribute',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifySnapshotAttribute', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifySnapshotAttribute.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_snapshot_attribute] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -41380,13 +38290,7 @@ module AWS::SDK::EC2
         operation_name: :modify_snapshot_tier,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifySnapshotTier',
-        'code.function' => 'modify_snapshot_tier',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifySnapshotTier', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifySnapshotTier.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_snapshot_tier] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -41553,13 +38457,7 @@ module AWS::SDK::EC2
         operation_name: :modify_spot_fleet_request,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifySpotFleetRequest',
-        'code.function' => 'modify_spot_fleet_request',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifySpotFleetRequest', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifySpotFleetRequest.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_spot_fleet_request] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -41642,13 +38540,7 @@ module AWS::SDK::EC2
         operation_name: :modify_subnet_attribute,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifySubnetAttribute',
-        'code.function' => 'modify_subnet_attribute',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifySubnetAttribute', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifySubnetAttribute.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_subnet_attribute] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -41719,13 +38611,7 @@ module AWS::SDK::EC2
         operation_name: :modify_traffic_mirror_filter_network_services,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyTrafficMirrorFilterNetworkServices',
-        'code.function' => 'modify_traffic_mirror_filter_network_services',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyTrafficMirrorFilterNetworkServices', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyTrafficMirrorFilterNetworkServices.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_traffic_mirror_filter_network_services] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -41796,13 +38682,7 @@ module AWS::SDK::EC2
         operation_name: :modify_traffic_mirror_filter_rule,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyTrafficMirrorFilterRule',
-        'code.function' => 'modify_traffic_mirror_filter_rule',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyTrafficMirrorFilterRule', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyTrafficMirrorFilterRule.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_traffic_mirror_filter_rule] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -41865,13 +38745,7 @@ module AWS::SDK::EC2
         operation_name: :modify_traffic_mirror_session,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyTrafficMirrorSession',
-        'code.function' => 'modify_traffic_mirror_session',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyTrafficMirrorSession', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyTrafficMirrorSession.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_traffic_mirror_session] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -41950,13 +38824,7 @@ module AWS::SDK::EC2
         operation_name: :modify_transit_gateway,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyTransitGateway',
-        'code.function' => 'modify_transit_gateway',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyTransitGateway', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyTransitGateway.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_transit_gateway] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -42009,13 +38877,7 @@ module AWS::SDK::EC2
         operation_name: :modify_transit_gateway_prefix_list_reference,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyTransitGatewayPrefixListReference',
-        'code.function' => 'modify_transit_gateway_prefix_list_reference',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyTransitGatewayPrefixListReference', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyTransitGatewayPrefixListReference.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_transit_gateway_prefix_list_reference] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -42082,13 +38944,7 @@ module AWS::SDK::EC2
         operation_name: :modify_transit_gateway_vpc_attachment,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyTransitGatewayVpcAttachment',
-        'code.function' => 'modify_transit_gateway_vpc_attachment',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyTransitGatewayVpcAttachment', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyTransitGatewayVpcAttachment.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_transit_gateway_vpc_attachment] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -42178,13 +39034,7 @@ module AWS::SDK::EC2
         operation_name: :modify_verified_access_endpoint,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyVerifiedAccessEndpoint',
-        'code.function' => 'modify_verified_access_endpoint',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyVerifiedAccessEndpoint', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyVerifiedAccessEndpoint.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_verified_access_endpoint] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -42236,13 +39086,7 @@ module AWS::SDK::EC2
         operation_name: :modify_verified_access_endpoint_policy,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyVerifiedAccessEndpointPolicy',
-        'code.function' => 'modify_verified_access_endpoint_policy',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyVerifiedAccessEndpointPolicy', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyVerifiedAccessEndpointPolicy.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_verified_access_endpoint_policy] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -42301,13 +39145,7 @@ module AWS::SDK::EC2
         operation_name: :modify_verified_access_group,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyVerifiedAccessGroup',
-        'code.function' => 'modify_verified_access_group',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyVerifiedAccessGroup', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyVerifiedAccessGroup.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_verified_access_group] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -42359,13 +39197,7 @@ module AWS::SDK::EC2
         operation_name: :modify_verified_access_group_policy,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyVerifiedAccessGroupPolicy',
-        'code.function' => 'modify_verified_access_group_policy',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyVerifiedAccessGroupPolicy', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyVerifiedAccessGroupPolicy.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_verified_access_group_policy] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -42424,13 +39256,7 @@ module AWS::SDK::EC2
         operation_name: :modify_verified_access_instance,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyVerifiedAccessInstance',
-        'code.function' => 'modify_verified_access_instance',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyVerifiedAccessInstance', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyVerifiedAccessInstance.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_verified_access_instance] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -42510,13 +39336,7 @@ module AWS::SDK::EC2
         operation_name: :modify_verified_access_instance_logging_configuration,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyVerifiedAccessInstanceLoggingConfiguration',
-        'code.function' => 'modify_verified_access_instance_logging_configuration',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyVerifiedAccessInstanceLoggingConfiguration', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyVerifiedAccessInstanceLoggingConfiguration.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_verified_access_instance_logging_configuration] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -42601,13 +39421,7 @@ module AWS::SDK::EC2
         operation_name: :modify_verified_access_trust_provider,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyVerifiedAccessTrustProvider',
-        'code.function' => 'modify_verified_access_trust_provider',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyVerifiedAccessTrustProvider', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyVerifiedAccessTrustProvider.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_verified_access_trust_provider] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -42685,13 +39499,7 @@ module AWS::SDK::EC2
         operation_name: :modify_volume,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyVolume',
-        'code.function' => 'modify_volume',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyVolume', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyVolume.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_volume] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -42752,13 +39560,7 @@ module AWS::SDK::EC2
         operation_name: :modify_volume_attribute,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyVolumeAttribute',
-        'code.function' => 'modify_volume_attribute',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyVolumeAttribute', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyVolumeAttribute.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_volume_attribute] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -42822,13 +39624,7 @@ module AWS::SDK::EC2
         operation_name: :modify_vpc_attribute,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyVpcAttribute',
-        'code.function' => 'modify_vpc_attribute',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyVpcAttribute', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyVpcAttribute.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_vpc_attribute] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -42896,13 +39692,7 @@ module AWS::SDK::EC2
         operation_name: :modify_vpc_endpoint,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyVpcEndpoint',
-        'code.function' => 'modify_vpc_endpoint',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyVpcEndpoint', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyVpcEndpoint.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_vpc_endpoint] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -42948,13 +39738,7 @@ module AWS::SDK::EC2
         operation_name: :modify_vpc_endpoint_connection_notification,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyVpcEndpointConnectionNotification',
-        'code.function' => 'modify_vpc_endpoint_connection_notification',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyVpcEndpointConnectionNotification', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyVpcEndpointConnectionNotification.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_vpc_endpoint_connection_notification] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -43006,13 +39790,7 @@ module AWS::SDK::EC2
         operation_name: :modify_vpc_endpoint_service_configuration,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyVpcEndpointServiceConfiguration',
-        'code.function' => 'modify_vpc_endpoint_service_configuration',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyVpcEndpointServiceConfiguration', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyVpcEndpointServiceConfiguration.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_vpc_endpoint_service_configuration] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -43054,13 +39832,7 @@ module AWS::SDK::EC2
         operation_name: :modify_vpc_endpoint_service_payer_responsibility,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyVpcEndpointServicePayerResponsibility',
-        'code.function' => 'modify_vpc_endpoint_service_payer_responsibility',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyVpcEndpointServicePayerResponsibility', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyVpcEndpointServicePayerResponsibility.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_vpc_endpoint_service_payer_responsibility] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -43115,13 +39887,7 @@ module AWS::SDK::EC2
         operation_name: :modify_vpc_endpoint_service_permissions,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyVpcEndpointServicePermissions',
-        'code.function' => 'modify_vpc_endpoint_service_permissions',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyVpcEndpointServicePermissions', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyVpcEndpointServicePermissions.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_vpc_endpoint_service_permissions] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -43181,13 +39947,7 @@ module AWS::SDK::EC2
         operation_name: :modify_vpc_peering_connection_options,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyVpcPeeringConnectionOptions',
-        'code.function' => 'modify_vpc_peering_connection_options',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyVpcPeeringConnectionOptions', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyVpcPeeringConnectionOptions.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_vpc_peering_connection_options] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -43236,13 +39996,7 @@ module AWS::SDK::EC2
         operation_name: :modify_vpc_tenancy,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyVpcTenancy',
-        'code.function' => 'modify_vpc_tenancy',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyVpcTenancy', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyVpcTenancy.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_vpc_tenancy] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -43400,13 +40154,7 @@ module AWS::SDK::EC2
         operation_name: :modify_vpn_connection,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyVpnConnection',
-        'code.function' => 'modify_vpn_connection',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyVpnConnection', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyVpnConnection.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_vpn_connection] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -43534,13 +40282,7 @@ module AWS::SDK::EC2
         operation_name: :modify_vpn_connection_options,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyVpnConnectionOptions',
-        'code.function' => 'modify_vpn_connection_options',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyVpnConnectionOptions', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyVpnConnectionOptions.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_vpn_connection_options] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -43661,13 +40403,7 @@ module AWS::SDK::EC2
         operation_name: :modify_vpn_tunnel_certificate,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyVpnTunnelCertificate',
-        'code.function' => 'modify_vpn_tunnel_certificate',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyVpnTunnelCertificate', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyVpnTunnelCertificate.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_vpn_tunnel_certificate] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -43848,13 +40584,7 @@ module AWS::SDK::EC2
         operation_name: :modify_vpn_tunnel_options,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ModifyVpnTunnelOptions',
-        'code.function' => 'modify_vpn_tunnel_options',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ModifyVpnTunnelOptions', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ModifyVpnTunnelOptions.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_vpn_tunnel_options] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -43904,13 +40634,7 @@ module AWS::SDK::EC2
         operation_name: :monitor_instances,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'MonitorInstances',
-        'code.function' => 'monitor_instances',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.MonitorInstances', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::MonitorInstances.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#monitor_instances] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -43970,13 +40694,7 @@ module AWS::SDK::EC2
         operation_name: :move_address_to_vpc,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'MoveAddressToVpc',
-        'code.function' => 'move_address_to_vpc',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.MoveAddressToVpc', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::MoveAddressToVpc.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#move_address_to_vpc] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -44031,13 +40749,7 @@ module AWS::SDK::EC2
         operation_name: :move_byoip_cidr_to_ipam,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'MoveByoipCidrToIpam',
-        'code.function' => 'move_byoip_cidr_to_ipam',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.MoveByoipCidrToIpam', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::MoveByoipCidrToIpam.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#move_byoip_cidr_to_ipam] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -44119,13 +40831,7 @@ module AWS::SDK::EC2
         operation_name: :provision_byoip_cidr,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ProvisionByoipCidr',
-        'code.function' => 'provision_byoip_cidr',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ProvisionByoipCidr', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ProvisionByoipCidr.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#provision_byoip_cidr] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -44175,13 +40881,7 @@ module AWS::SDK::EC2
         operation_name: :provision_ipam_byoasn,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ProvisionIpamByoasn',
-        'code.function' => 'provision_ipam_byoasn',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ProvisionIpamByoasn', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ProvisionIpamByoasn.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#provision_ipam_byoasn] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -44238,13 +40938,7 @@ module AWS::SDK::EC2
         operation_name: :provision_ipam_pool_cidr,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ProvisionIpamPoolCidr',
-        'code.function' => 'provision_ipam_pool_cidr',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ProvisionIpamPoolCidr', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ProvisionIpamPoolCidr.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#provision_ipam_pool_cidr] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -44293,13 +40987,7 @@ module AWS::SDK::EC2
         operation_name: :provision_public_ipv4_pool_cidr,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ProvisionPublicIpv4PoolCidr',
-        'code.function' => 'provision_public_ipv4_pool_cidr',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ProvisionPublicIpv4PoolCidr', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ProvisionPublicIpv4PoolCidr.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#provision_public_ipv4_pool_cidr] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -44383,13 +41071,7 @@ module AWS::SDK::EC2
         operation_name: :purchase_capacity_block,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'PurchaseCapacityBlock',
-        'code.function' => 'purchase_capacity_block',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.PurchaseCapacityBlock', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::PurchaseCapacityBlock.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#purchase_capacity_block] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -44463,13 +41145,7 @@ module AWS::SDK::EC2
         operation_name: :purchase_host_reservation,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'PurchaseHostReservation',
-        'code.function' => 'purchase_host_reservation',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.PurchaseHostReservation', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::PurchaseHostReservation.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#purchase_host_reservation] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -44525,13 +41201,7 @@ module AWS::SDK::EC2
         operation_name: :purchase_reserved_instances_offering,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'PurchaseReservedInstancesOffering',
-        'code.function' => 'purchase_reserved_instances_offering',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.PurchaseReservedInstancesOffering', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::PurchaseReservedInstancesOffering.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#purchase_reserved_instances_offering] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -44608,13 +41278,7 @@ module AWS::SDK::EC2
         operation_name: :purchase_scheduled_instances,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'PurchaseScheduledInstances',
-        'code.function' => 'purchase_scheduled_instances',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.PurchaseScheduledInstances', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::PurchaseScheduledInstances.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#purchase_scheduled_instances] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -44673,13 +41337,7 @@ module AWS::SDK::EC2
         operation_name: :reboot_instances,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'RebootInstances',
-        'code.function' => 'reboot_instances',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.RebootInstances', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::RebootInstances.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#reboot_instances] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -44802,13 +41460,7 @@ module AWS::SDK::EC2
         operation_name: :register_image,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'RegisterImage',
-        'code.function' => 'register_image',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.RegisterImage', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::RegisterImage.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#register_image] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -44859,13 +41511,7 @@ module AWS::SDK::EC2
         operation_name: :register_instance_event_notification_attributes,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'RegisterInstanceEventNotificationAttributes',
-        'code.function' => 'register_instance_event_notification_attributes',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.RegisterInstanceEventNotificationAttributes', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::RegisterInstanceEventNotificationAttributes.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#register_instance_event_notification_attributes] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -44919,13 +41565,7 @@ module AWS::SDK::EC2
         operation_name: :register_transit_gateway_multicast_group_members,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'RegisterTransitGatewayMulticastGroupMembers',
-        'code.function' => 'register_transit_gateway_multicast_group_members',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.RegisterTransitGatewayMulticastGroupMembers', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::RegisterTransitGatewayMulticastGroupMembers.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#register_transit_gateway_multicast_group_members] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -44979,13 +41619,7 @@ module AWS::SDK::EC2
         operation_name: :register_transit_gateway_multicast_group_sources,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'RegisterTransitGatewayMulticastGroupSources',
-        'code.function' => 'register_transit_gateway_multicast_group_sources',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.RegisterTransitGatewayMulticastGroupSources', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::RegisterTransitGatewayMulticastGroupSources.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#register_transit_gateway_multicast_group_sources] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -45039,13 +41673,7 @@ module AWS::SDK::EC2
         operation_name: :reject_transit_gateway_multicast_domain_associations,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'RejectTransitGatewayMulticastDomainAssociations',
-        'code.function' => 'reject_transit_gateway_multicast_domain_associations',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.RejectTransitGatewayMulticastDomainAssociations', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::RejectTransitGatewayMulticastDomainAssociations.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#reject_transit_gateway_multicast_domain_associations] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -45105,13 +41733,7 @@ module AWS::SDK::EC2
         operation_name: :reject_transit_gateway_peering_attachment,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'RejectTransitGatewayPeeringAttachment',
-        'code.function' => 'reject_transit_gateway_peering_attachment',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.RejectTransitGatewayPeeringAttachment', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::RejectTransitGatewayPeeringAttachment.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#reject_transit_gateway_peering_attachment] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -45172,13 +41794,7 @@ module AWS::SDK::EC2
         operation_name: :reject_transit_gateway_vpc_attachment,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'RejectTransitGatewayVpcAttachment',
-        'code.function' => 'reject_transit_gateway_vpc_attachment',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.RejectTransitGatewayVpcAttachment', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::RejectTransitGatewayVpcAttachment.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#reject_transit_gateway_vpc_attachment] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -45227,13 +41843,7 @@ module AWS::SDK::EC2
         operation_name: :reject_vpc_endpoint_connections,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'RejectVpcEndpointConnections',
-        'code.function' => 'reject_vpc_endpoint_connections',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.RejectVpcEndpointConnections', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::RejectVpcEndpointConnections.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#reject_vpc_endpoint_connections] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -45277,13 +41887,7 @@ module AWS::SDK::EC2
         operation_name: :reject_vpc_peering_connection,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'RejectVpcPeeringConnection',
-        'code.function' => 'reject_vpc_peering_connection',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.RejectVpcPeeringConnection', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::RejectVpcPeeringConnection.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#reject_vpc_peering_connection] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -45344,13 +41948,7 @@ module AWS::SDK::EC2
         operation_name: :release_address,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ReleaseAddress',
-        'code.function' => 'release_address',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ReleaseAddress', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ReleaseAddress.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#release_address] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -45407,13 +42005,7 @@ module AWS::SDK::EC2
         operation_name: :release_hosts,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ReleaseHosts',
-        'code.function' => 'release_hosts',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ReleaseHosts', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ReleaseHosts.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#release_hosts] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -45460,13 +42052,7 @@ module AWS::SDK::EC2
         operation_name: :release_ipam_pool_allocation,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ReleaseIpamPoolAllocation',
-        'code.function' => 'release_ipam_pool_allocation',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ReleaseIpamPoolAllocation', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ReleaseIpamPoolAllocation.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#release_ipam_pool_allocation] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -45521,13 +42107,7 @@ module AWS::SDK::EC2
         operation_name: :replace_iam_instance_profile_association,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ReplaceIamInstanceProfileAssociation',
-        'code.function' => 'replace_iam_instance_profile_association',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ReplaceIamInstanceProfileAssociation', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ReplaceIamInstanceProfileAssociation.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#replace_iam_instance_profile_association] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -45583,13 +42163,7 @@ module AWS::SDK::EC2
         operation_name: :replace_network_acl_association,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ReplaceNetworkAclAssociation',
-        'code.function' => 'replace_network_acl_association',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ReplaceNetworkAclAssociation', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ReplaceNetworkAclAssociation.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#replace_network_acl_association] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -45661,13 +42235,7 @@ module AWS::SDK::EC2
         operation_name: :replace_network_acl_entry,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ReplaceNetworkAclEntry',
-        'code.function' => 'replace_network_acl_entry',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ReplaceNetworkAclEntry', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ReplaceNetworkAclEntry.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#replace_network_acl_entry] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -45737,13 +42305,7 @@ module AWS::SDK::EC2
         operation_name: :replace_route,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ReplaceRoute',
-        'code.function' => 'replace_route',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ReplaceRoute', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ReplaceRoute.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#replace_route] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -45803,13 +42365,7 @@ module AWS::SDK::EC2
         operation_name: :replace_route_table_association,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ReplaceRouteTableAssociation',
-        'code.function' => 'replace_route_table_association',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ReplaceRouteTableAssociation', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ReplaceRouteTableAssociation.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#replace_route_table_association] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -45863,13 +42419,7 @@ module AWS::SDK::EC2
         operation_name: :replace_transit_gateway_route,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ReplaceTransitGatewayRoute',
-        'code.function' => 'replace_transit_gateway_route',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ReplaceTransitGatewayRoute', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ReplaceTransitGatewayRoute.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#replace_transit_gateway_route] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -45912,13 +42462,7 @@ module AWS::SDK::EC2
         operation_name: :replace_vpn_tunnel,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ReplaceVpnTunnel',
-        'code.function' => 'replace_vpn_tunnel',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ReplaceVpnTunnel', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ReplaceVpnTunnel.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#replace_vpn_tunnel] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -45971,13 +42515,7 @@ module AWS::SDK::EC2
         operation_name: :report_instance_status,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ReportInstanceStatus',
-        'code.function' => 'report_instance_status',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ReportInstanceStatus', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ReportInstanceStatus.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#report_instance_status] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -46426,13 +42964,7 @@ module AWS::SDK::EC2
         operation_name: :request_spot_fleet,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'RequestSpotFleet',
-        'code.function' => 'request_spot_fleet',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.RequestSpotFleet', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::RequestSpotFleet.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#request_spot_fleet] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -46755,13 +43287,7 @@ module AWS::SDK::EC2
         operation_name: :request_spot_instances,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'RequestSpotInstances',
-        'code.function' => 'request_spot_instances',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.RequestSpotInstances', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::RequestSpotInstances.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#request_spot_instances] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -46810,13 +43336,7 @@ module AWS::SDK::EC2
         operation_name: :reset_address_attribute,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ResetAddressAttribute',
-        'code.function' => 'reset_address_attribute',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ResetAddressAttribute', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ResetAddressAttribute.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#reset_address_attribute] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -46861,13 +43381,7 @@ module AWS::SDK::EC2
         operation_name: :reset_ebs_default_kms_key_id,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ResetEbsDefaultKmsKeyId',
-        'code.function' => 'reset_ebs_default_kms_key_id',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ResetEbsDefaultKmsKeyId', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ResetEbsDefaultKmsKeyId.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#reset_ebs_default_kms_key_id] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -46910,13 +43424,7 @@ module AWS::SDK::EC2
         operation_name: :reset_fpga_image_attribute,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ResetFpgaImageAttribute',
-        'code.function' => 'reset_fpga_image_attribute',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ResetFpgaImageAttribute', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ResetFpgaImageAttribute.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#reset_fpga_image_attribute] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -46966,13 +43474,7 @@ module AWS::SDK::EC2
         operation_name: :reset_image_attribute,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ResetImageAttribute',
-        'code.function' => 'reset_image_attribute',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ResetImageAttribute', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ResetImageAttribute.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#reset_image_attribute] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -47030,13 +43532,7 @@ module AWS::SDK::EC2
         operation_name: :reset_instance_attribute,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ResetInstanceAttribute',
-        'code.function' => 'reset_instance_attribute',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ResetInstanceAttribute', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ResetInstanceAttribute.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#reset_instance_attribute] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -47077,13 +43573,7 @@ module AWS::SDK::EC2
         operation_name: :reset_network_interface_attribute,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ResetNetworkInterfaceAttribute',
-        'code.function' => 'reset_network_interface_attribute',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ResetNetworkInterfaceAttribute', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ResetNetworkInterfaceAttribute.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#reset_network_interface_attribute] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -47135,13 +43625,7 @@ module AWS::SDK::EC2
         operation_name: :reset_snapshot_attribute,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'ResetSnapshotAttribute',
-        'code.function' => 'reset_snapshot_attribute',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.ResetSnapshotAttribute', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ResetSnapshotAttribute.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#reset_snapshot_attribute] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -47186,13 +43670,7 @@ module AWS::SDK::EC2
         operation_name: :restore_address_to_classic,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'RestoreAddressToClassic',
-        'code.function' => 'restore_address_to_classic',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.RestoreAddressToClassic', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::RestoreAddressToClassic.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#restore_address_to_classic] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -47233,13 +43711,7 @@ module AWS::SDK::EC2
         operation_name: :restore_image_from_recycle_bin,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'RestoreImageFromRecycleBin',
-        'code.function' => 'restore_image_from_recycle_bin',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.RestoreImageFromRecycleBin', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::RestoreImageFromRecycleBin.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#restore_image_from_recycle_bin] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -47295,13 +43767,7 @@ module AWS::SDK::EC2
         operation_name: :restore_managed_prefix_list_version,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'RestoreManagedPrefixListVersion',
-        'code.function' => 'restore_managed_prefix_list_version',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.RestoreManagedPrefixListVersion', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::RestoreManagedPrefixListVersion.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#restore_managed_prefix_list_version] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -47353,13 +43819,7 @@ module AWS::SDK::EC2
         operation_name: :restore_snapshot_from_recycle_bin,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'RestoreSnapshotFromRecycleBin',
-        'code.function' => 'restore_snapshot_from_recycle_bin',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.RestoreSnapshotFromRecycleBin', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::RestoreSnapshotFromRecycleBin.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#restore_snapshot_from_recycle_bin] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -47409,13 +43869,7 @@ module AWS::SDK::EC2
         operation_name: :restore_snapshot_tier,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'RestoreSnapshotTier',
-        'code.function' => 'restore_snapshot_tier',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.RestoreSnapshotTier', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::RestoreSnapshotTier.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#restore_snapshot_tier] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -47461,13 +43915,7 @@ module AWS::SDK::EC2
         operation_name: :revoke_client_vpn_ingress,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'RevokeClientVpnIngress',
-        'code.function' => 'revoke_client_vpn_ingress',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.RevokeClientVpnIngress', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::RevokeClientVpnIngress.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#revoke_client_vpn_ingress] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -47591,13 +44039,7 @@ module AWS::SDK::EC2
         operation_name: :revoke_security_group_egress,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'RevokeSecurityGroupEgress',
-        'code.function' => 'revoke_security_group_egress',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.RevokeSecurityGroupEgress', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::RevokeSecurityGroupEgress.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#revoke_security_group_egress] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -47726,13 +44168,7 @@ module AWS::SDK::EC2
         operation_name: :revoke_security_group_ingress,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'RevokeSecurityGroupIngress',
-        'code.function' => 'revoke_security_group_ingress',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.RevokeSecurityGroupIngress', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::RevokeSecurityGroupIngress.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#revoke_security_group_ingress] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -48221,13 +44657,7 @@ module AWS::SDK::EC2
         operation_name: :run_instances,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'RunInstances',
-        'code.function' => 'run_instances',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.RunInstances', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::RunInstances.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#run_instances] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -48339,13 +44769,7 @@ module AWS::SDK::EC2
         operation_name: :run_scheduled_instances,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'RunScheduledInstances',
-        'code.function' => 'run_scheduled_instances',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.RunScheduledInstances', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::RunScheduledInstances.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#run_scheduled_instances] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -48409,13 +44833,7 @@ module AWS::SDK::EC2
         operation_name: :search_local_gateway_routes,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'SearchLocalGatewayRoutes',
-        'code.function' => 'search_local_gateway_routes',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.SearchLocalGatewayRoutes', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::SearchLocalGatewayRoutes.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#search_local_gateway_routes] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -48479,13 +44897,7 @@ module AWS::SDK::EC2
         operation_name: :search_transit_gateway_multicast_groups,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'SearchTransitGatewayMulticastGroups',
-        'code.function' => 'search_transit_gateway_multicast_groups',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.SearchTransitGatewayMulticastGroups', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::SearchTransitGatewayMulticastGroups.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#search_transit_gateway_multicast_groups] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -48547,13 +44959,7 @@ module AWS::SDK::EC2
         operation_name: :search_transit_gateway_routes,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'SearchTransitGatewayRoutes',
-        'code.function' => 'search_transit_gateway_routes',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.SearchTransitGatewayRoutes', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::SearchTransitGatewayRoutes.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#search_transit_gateway_routes] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -48607,13 +45013,7 @@ module AWS::SDK::EC2
         operation_name: :send_diagnostic_interrupt,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'SendDiagnosticInterrupt',
-        'code.function' => 'send_diagnostic_interrupt',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.SendDiagnosticInterrupt', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::SendDiagnosticInterrupt.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#send_diagnostic_interrupt] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -48705,13 +45105,7 @@ module AWS::SDK::EC2
         operation_name: :start_instances,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'StartInstances',
-        'code.function' => 'start_instances',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.StartInstances', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::StartInstances.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_instances] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -48778,13 +45172,7 @@ module AWS::SDK::EC2
         operation_name: :start_network_insights_access_scope_analysis,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'StartNetworkInsightsAccessScopeAnalysis',
-        'code.function' => 'start_network_insights_access_scope_analysis',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.StartNetworkInsightsAccessScopeAnalysis', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::StartNetworkInsightsAccessScopeAnalysis.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_network_insights_access_scope_analysis] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -49029,13 +45417,7 @@ module AWS::SDK::EC2
         operation_name: :start_network_insights_analysis,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'StartNetworkInsightsAnalysis',
-        'code.function' => 'start_network_insights_analysis',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.StartNetworkInsightsAnalysis', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::StartNetworkInsightsAnalysis.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_network_insights_analysis] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -49079,13 +45461,7 @@ module AWS::SDK::EC2
         operation_name: :start_vpc_endpoint_service_private_dns_verification,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'StartVpcEndpointServicePrivateDnsVerification',
-        'code.function' => 'start_vpc_endpoint_service_private_dns_verification',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.StartVpcEndpointServicePrivateDnsVerification', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::StartVpcEndpointServicePrivateDnsVerification.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_vpc_endpoint_service_private_dns_verification] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -49190,13 +45566,7 @@ module AWS::SDK::EC2
         operation_name: :stop_instances,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'StopInstances',
-        'code.function' => 'stop_instances',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.StopInstances', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::StopInstances.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#stop_instances] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -49247,13 +45617,7 @@ module AWS::SDK::EC2
         operation_name: :terminate_client_vpn_connections,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'TerminateClientVpnConnections',
-        'code.function' => 'terminate_client_vpn_connections',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.TerminateClientVpnConnections', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::TerminateClientVpnConnections.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#terminate_client_vpn_connections] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -49385,13 +45749,7 @@ module AWS::SDK::EC2
         operation_name: :terminate_instances,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'TerminateInstances',
-        'code.function' => 'terminate_instances',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.TerminateInstances', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::TerminateInstances.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#terminate_instances] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -49441,13 +45799,7 @@ module AWS::SDK::EC2
         operation_name: :unassign_ipv6_addresses,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'UnassignIpv6Addresses',
-        'code.function' => 'unassign_ipv6_addresses',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.UnassignIpv6Addresses', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::UnassignIpv6Addresses.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#unassign_ipv6_addresses] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -49504,13 +45856,7 @@ module AWS::SDK::EC2
         operation_name: :unassign_private_ip_addresses,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'UnassignPrivateIpAddresses',
-        'code.function' => 'unassign_private_ip_addresses',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.UnassignPrivateIpAddresses', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::UnassignPrivateIpAddresses.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#unassign_private_ip_addresses] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -49573,13 +45919,7 @@ module AWS::SDK::EC2
         operation_name: :unassign_private_nat_gateway_address,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'UnassignPrivateNatGatewayAddress',
-        'code.function' => 'unassign_private_nat_gateway_address',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.UnassignPrivateNatGatewayAddress', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::UnassignPrivateNatGatewayAddress.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#unassign_private_nat_gateway_address] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -49622,13 +45962,7 @@ module AWS::SDK::EC2
         operation_name: :unlock_snapshot,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'UnlockSnapshot',
-        'code.function' => 'unlock_snapshot',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.UnlockSnapshot', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::UnlockSnapshot.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#unlock_snapshot] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -49677,13 +46011,7 @@ module AWS::SDK::EC2
         operation_name: :unmonitor_instances,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'UnmonitorInstances',
-        'code.function' => 'unmonitor_instances',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.UnmonitorInstances', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::UnmonitorInstances.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#unmonitor_instances] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -49791,13 +46119,7 @@ module AWS::SDK::EC2
         operation_name: :update_security_group_rule_descriptions_egress,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'UpdateSecurityGroupRuleDescriptionsEgress',
-        'code.function' => 'update_security_group_rule_descriptions_egress',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.UpdateSecurityGroupRuleDescriptionsEgress', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::UpdateSecurityGroupRuleDescriptionsEgress.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_security_group_rule_descriptions_egress] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -49905,13 +46227,7 @@ module AWS::SDK::EC2
         operation_name: :update_security_group_rule_descriptions_ingress,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'UpdateSecurityGroupRuleDescriptionsIngress',
-        'code.function' => 'update_security_group_rule_descriptions_ingress',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.UpdateSecurityGroupRuleDescriptionsIngress', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::UpdateSecurityGroupRuleDescriptionsIngress.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_security_group_rule_descriptions_ingress] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -49967,13 +46283,7 @@ module AWS::SDK::EC2
         operation_name: :withdraw_byoip_cidr,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'EC2',
-        'rpc.method' => 'WithdrawByoipCidr',
-        'code.function' => 'withdraw_byoip_cidr',
-        'code.namespace' => 'AWS::SDK::EC2::Client'
-      }
-      tracer.in_span('EC2.WithdrawByoipCidr', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::WithdrawByoipCidr.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#withdraw_byoip_cidr] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error

@@ -176,13 +176,7 @@ module AWS::SDK::KMS
         operation_name: :cancel_key_deletion,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'KMS',
-        'rpc.method' => 'CancelKeyDeletion',
-        'code.function' => 'cancel_key_deletion',
-        'code.namespace' => 'AWS::SDK::KMS::Client'
-      }
-      tracer.in_span('KMS.CancelKeyDeletion', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CancelKeyDeletion.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#cancel_key_deletion] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -318,13 +312,7 @@ module AWS::SDK::KMS
         operation_name: :connect_custom_key_store,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'KMS',
-        'rpc.method' => 'ConnectCustomKeyStore',
-        'code.function' => 'connect_custom_key_store',
-        'code.namespace' => 'AWS::SDK::KMS::Client'
-      }
-      tracer.in_span('KMS.ConnectCustomKeyStore', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ConnectCustomKeyStore.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#connect_custom_key_store] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -432,13 +420,7 @@ module AWS::SDK::KMS
         operation_name: :create_alias,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'KMS',
-        'rpc.method' => 'CreateAlias',
-        'code.function' => 'create_alias',
-        'code.namespace' => 'AWS::SDK::KMS::Client'
-      }
-      tracer.in_span('KMS.CreateAlias', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateAlias.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_alias] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -594,13 +576,7 @@ module AWS::SDK::KMS
         operation_name: :create_custom_key_store,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'KMS',
-        'rpc.method' => 'CreateCustomKeyStore',
-        'code.function' => 'create_custom_key_store',
-        'code.namespace' => 'AWS::SDK::KMS::Client'
-      }
-      tracer.in_span('KMS.CreateCustomKeyStore', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateCustomKeyStore.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_custom_key_store] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -736,13 +712,7 @@ module AWS::SDK::KMS
         operation_name: :create_grant,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'KMS',
-        'rpc.method' => 'CreateGrant',
-        'code.function' => 'create_grant',
-        'code.namespace' => 'AWS::SDK::KMS::Client'
-      }
-      tracer.in_span('KMS.CreateGrant', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateGrant.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_grant] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -996,13 +966,7 @@ module AWS::SDK::KMS
         operation_name: :create_key,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'KMS',
-        'rpc.method' => 'CreateKey',
-        'code.function' => 'create_key',
-        'code.namespace' => 'AWS::SDK::KMS::Client'
-      }
-      tracer.in_span('KMS.CreateKey', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::CreateKey.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_key] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1181,13 +1145,7 @@ module AWS::SDK::KMS
         operation_name: :decrypt,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'KMS',
-        'rpc.method' => 'Decrypt',
-        'code.function' => 'decrypt',
-        'code.namespace' => 'AWS::SDK::KMS::Client'
-      }
-      tracer.in_span('KMS.Decrypt', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::Decrypt.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#decrypt] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1284,13 +1242,7 @@ module AWS::SDK::KMS
         operation_name: :delete_alias,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'KMS',
-        'rpc.method' => 'DeleteAlias',
-        'code.function' => 'delete_alias',
-        'code.namespace' => 'AWS::SDK::KMS::Client'
-      }
-      tracer.in_span('KMS.DeleteAlias', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteAlias.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_alias] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1398,13 +1350,7 @@ module AWS::SDK::KMS
         operation_name: :delete_custom_key_store,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'KMS',
-        'rpc.method' => 'DeleteCustomKeyStore',
-        'code.function' => 'delete_custom_key_store',
-        'code.namespace' => 'AWS::SDK::KMS::Client'
-      }
-      tracer.in_span('KMS.DeleteCustomKeyStore', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteCustomKeyStore.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_custom_key_store] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1481,13 +1427,7 @@ module AWS::SDK::KMS
         operation_name: :delete_imported_key_material,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'KMS',
-        'rpc.method' => 'DeleteImportedKeyMaterial',
-        'code.function' => 'delete_imported_key_material',
-        'code.namespace' => 'AWS::SDK::KMS::Client'
-      }
-      tracer.in_span('KMS.DeleteImportedKeyMaterial', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteImportedKeyMaterial.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_imported_key_material] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1617,13 +1557,7 @@ module AWS::SDK::KMS
         operation_name: :describe_custom_key_stores,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'KMS',
-        'rpc.method' => 'DescribeCustomKeyStores',
-        'code.function' => 'describe_custom_key_stores',
-        'code.namespace' => 'AWS::SDK::KMS::Client'
-      }
-      tracer.in_span('KMS.DescribeCustomKeyStores', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeCustomKeyStores.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_custom_key_stores] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1947,13 +1881,7 @@ module AWS::SDK::KMS
         operation_name: :describe_key,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'KMS',
-        'rpc.method' => 'DescribeKey',
-        'code.function' => 'describe_key',
-        'code.namespace' => 'AWS::SDK::KMS::Client'
-      }
-      tracer.in_span('KMS.DescribeKey', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeKey.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_key] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2017,13 +1945,7 @@ module AWS::SDK::KMS
         operation_name: :disable_key,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'KMS',
-        'rpc.method' => 'DisableKey',
-        'code.function' => 'disable_key',
-        'code.namespace' => 'AWS::SDK::KMS::Client'
-      }
-      tracer.in_span('KMS.DisableKey', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DisableKey.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_key] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2105,13 +2027,7 @@ module AWS::SDK::KMS
         operation_name: :disable_key_rotation,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'KMS',
-        'rpc.method' => 'DisableKeyRotation',
-        'code.function' => 'disable_key_rotation',
-        'code.namespace' => 'AWS::SDK::KMS::Client'
-      }
-      tracer.in_span('KMS.DisableKeyRotation', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DisableKeyRotation.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_key_rotation] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2212,13 +2128,7 @@ module AWS::SDK::KMS
         operation_name: :disconnect_custom_key_store,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'KMS',
-        'rpc.method' => 'DisconnectCustomKeyStore',
-        'code.function' => 'disconnect_custom_key_store',
-        'code.namespace' => 'AWS::SDK::KMS::Client'
-      }
-      tracer.in_span('KMS.DisconnectCustomKeyStore', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DisconnectCustomKeyStore.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disconnect_custom_key_store] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2278,13 +2188,7 @@ module AWS::SDK::KMS
         operation_name: :enable_key,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'KMS',
-        'rpc.method' => 'EnableKey',
-        'code.function' => 'enable_key',
-        'code.namespace' => 'AWS::SDK::KMS::Client'
-      }
-      tracer.in_span('KMS.EnableKey', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::EnableKey.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_key] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2374,13 +2278,7 @@ module AWS::SDK::KMS
         operation_name: :enable_key_rotation,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'KMS',
-        'rpc.method' => 'EnableKeyRotation',
-        'code.function' => 'enable_key_rotation',
-        'code.namespace' => 'AWS::SDK::KMS::Client'
-      }
-      tracer.in_span('KMS.EnableKeyRotation', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::EnableKeyRotation.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_key_rotation] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2569,13 +2467,7 @@ module AWS::SDK::KMS
         operation_name: :encrypt,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'KMS',
-        'rpc.method' => 'Encrypt',
-        'code.function' => 'encrypt',
-        'code.namespace' => 'AWS::SDK::KMS::Client'
-      }
-      tracer.in_span('KMS.Encrypt', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::Encrypt.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#encrypt] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2749,13 +2641,7 @@ module AWS::SDK::KMS
         operation_name: :generate_data_key,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'KMS',
-        'rpc.method' => 'GenerateDataKey',
-        'code.function' => 'generate_data_key',
-        'code.namespace' => 'AWS::SDK::KMS::Client'
-      }
-      tracer.in_span('KMS.GenerateDataKey', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GenerateDataKey.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#generate_data_key] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2911,13 +2797,7 @@ module AWS::SDK::KMS
         operation_name: :generate_data_key_pair,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'KMS',
-        'rpc.method' => 'GenerateDataKeyPair',
-        'code.function' => 'generate_data_key_pair',
-        'code.namespace' => 'AWS::SDK::KMS::Client'
-      }
-      tracer.in_span('KMS.GenerateDataKeyPair', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GenerateDataKeyPair.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#generate_data_key_pair] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3048,13 +2928,7 @@ module AWS::SDK::KMS
         operation_name: :generate_data_key_pair_without_plaintext,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'KMS',
-        'rpc.method' => 'GenerateDataKeyPairWithoutPlaintext',
-        'code.function' => 'generate_data_key_pair_without_plaintext',
-        'code.namespace' => 'AWS::SDK::KMS::Client'
-      }
-      tracer.in_span('KMS.GenerateDataKeyPairWithoutPlaintext', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GenerateDataKeyPairWithoutPlaintext.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#generate_data_key_pair_without_plaintext] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3191,13 +3065,7 @@ module AWS::SDK::KMS
         operation_name: :generate_data_key_without_plaintext,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'KMS',
-        'rpc.method' => 'GenerateDataKeyWithoutPlaintext',
-        'code.function' => 'generate_data_key_without_plaintext',
-        'code.namespace' => 'AWS::SDK::KMS::Client'
-      }
-      tracer.in_span('KMS.GenerateDataKeyWithoutPlaintext', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GenerateDataKeyWithoutPlaintext.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#generate_data_key_without_plaintext] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3290,13 +3158,7 @@ module AWS::SDK::KMS
         operation_name: :generate_mac,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'KMS',
-        'rpc.method' => 'GenerateMac',
-        'code.function' => 'generate_mac',
-        'code.namespace' => 'AWS::SDK::KMS::Client'
-      }
-      tracer.in_span('KMS.GenerateMac', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GenerateMac.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#generate_mac] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3375,13 +3237,7 @@ module AWS::SDK::KMS
         operation_name: :generate_random,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'KMS',
-        'rpc.method' => 'GenerateRandom',
-        'code.function' => 'generate_random',
-        'code.namespace' => 'AWS::SDK::KMS::Client'
-      }
-      tracer.in_span('KMS.GenerateRandom', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GenerateRandom.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#generate_random] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3443,13 +3299,7 @@ module AWS::SDK::KMS
         operation_name: :get_key_policy,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'KMS',
-        'rpc.method' => 'GetKeyPolicy',
-        'code.function' => 'get_key_policy',
-        'code.namespace' => 'AWS::SDK::KMS::Client'
-      }
-      tracer.in_span('KMS.GetKeyPolicy', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetKeyPolicy.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_key_policy] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3554,13 +3404,7 @@ module AWS::SDK::KMS
         operation_name: :get_key_rotation_status,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'KMS',
-        'rpc.method' => 'GetKeyRotationStatus',
-        'code.function' => 'get_key_rotation_status',
-        'code.namespace' => 'AWS::SDK::KMS::Client'
-      }
-      tracer.in_span('KMS.GetKeyRotationStatus', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetKeyRotationStatus.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_key_rotation_status] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3681,13 +3525,7 @@ module AWS::SDK::KMS
         operation_name: :get_parameters_for_import,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'KMS',
-        'rpc.method' => 'GetParametersForImport',
-        'code.function' => 'get_parameters_for_import',
-        'code.namespace' => 'AWS::SDK::KMS::Client'
-      }
-      tracer.in_span('KMS.GetParametersForImport', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetParametersForImport.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_parameters_for_import] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3805,13 +3643,7 @@ module AWS::SDK::KMS
         operation_name: :get_public_key,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'KMS',
-        'rpc.method' => 'GetPublicKey',
-        'code.function' => 'get_public_key',
-        'code.namespace' => 'AWS::SDK::KMS::Client'
-      }
-      tracer.in_span('KMS.GetPublicKey', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetPublicKey.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_public_key] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3969,13 +3801,7 @@ module AWS::SDK::KMS
         operation_name: :import_key_material,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'KMS',
-        'rpc.method' => 'ImportKeyMaterial',
-        'code.function' => 'import_key_material',
-        'code.namespace' => 'AWS::SDK::KMS::Client'
-      }
-      tracer.in_span('KMS.ImportKeyMaterial', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ImportKeyMaterial.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#import_key_material] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4117,13 +3943,7 @@ module AWS::SDK::KMS
         operation_name: :list_aliases,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'KMS',
-        'rpc.method' => 'ListAliases',
-        'code.function' => 'list_aliases',
-        'code.namespace' => 'AWS::SDK::KMS::Client'
-      }
-      tracer.in_span('KMS.ListAliases', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ListAliases.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_aliases] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4230,13 +4050,7 @@ module AWS::SDK::KMS
         operation_name: :list_grants,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'KMS',
-        'rpc.method' => 'ListGrants',
-        'code.function' => 'list_grants',
-        'code.namespace' => 'AWS::SDK::KMS::Client'
-      }
-      tracer.in_span('KMS.ListGrants', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ListGrants.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_grants] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4318,13 +4132,7 @@ module AWS::SDK::KMS
         operation_name: :list_key_policies,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'KMS',
-        'rpc.method' => 'ListKeyPolicies',
-        'code.function' => 'list_key_policies',
-        'code.namespace' => 'AWS::SDK::KMS::Client'
-      }
-      tracer.in_span('KMS.ListKeyPolicies', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ListKeyPolicies.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_key_policies] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4439,13 +4247,7 @@ module AWS::SDK::KMS
         operation_name: :list_keys,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'KMS',
-        'rpc.method' => 'ListKeys',
-        'code.function' => 'list_keys',
-        'code.namespace' => 'AWS::SDK::KMS::Client'
-      }
-      tracer.in_span('KMS.ListKeys', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ListKeys.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_keys] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4552,13 +4354,7 @@ module AWS::SDK::KMS
         operation_name: :list_resource_tags,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'KMS',
-        'rpc.method' => 'ListResourceTags',
-        'code.function' => 'list_resource_tags',
-        'code.namespace' => 'AWS::SDK::KMS::Client'
-      }
-      tracer.in_span('KMS.ListResourceTags', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ListResourceTags.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_resource_tags] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4670,13 +4466,7 @@ module AWS::SDK::KMS
         operation_name: :list_retirable_grants,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'KMS',
-        'rpc.method' => 'ListRetirableGrants',
-        'code.function' => 'list_retirable_grants',
-        'code.namespace' => 'AWS::SDK::KMS::Client'
-      }
-      tracer.in_span('KMS.ListRetirableGrants', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ListRetirableGrants.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_retirable_grants] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4743,13 +4533,7 @@ module AWS::SDK::KMS
         operation_name: :put_key_policy,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'KMS',
-        'rpc.method' => 'PutKeyPolicy',
-        'code.function' => 'put_key_policy',
-        'code.namespace' => 'AWS::SDK::KMS::Client'
-      }
-      tracer.in_span('KMS.PutKeyPolicy', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::PutKeyPolicy.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_key_policy] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4914,13 +4698,7 @@ module AWS::SDK::KMS
         operation_name: :re_encrypt,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'KMS',
-        'rpc.method' => 'ReEncrypt',
-        'code.function' => 're_encrypt',
-        'code.namespace' => 'AWS::SDK::KMS::Client'
-      }
-      tracer.in_span('KMS.ReEncrypt', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ReEncrypt.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#re_encrypt] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5138,13 +4916,7 @@ module AWS::SDK::KMS
         operation_name: :replicate_key,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'KMS',
-        'rpc.method' => 'ReplicateKey',
-        'code.function' => 'replicate_key',
-        'code.namespace' => 'AWS::SDK::KMS::Client'
-      }
-      tracer.in_span('KMS.ReplicateKey', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ReplicateKey.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#replicate_key] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5243,13 +5015,7 @@ module AWS::SDK::KMS
         operation_name: :retire_grant,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'KMS',
-        'rpc.method' => 'RetireGrant',
-        'code.function' => 'retire_grant',
-        'code.namespace' => 'AWS::SDK::KMS::Client'
-      }
-      tracer.in_span('KMS.RetireGrant', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::RetireGrant.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#retire_grant] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5345,13 +5111,7 @@ module AWS::SDK::KMS
         operation_name: :revoke_grant,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'KMS',
-        'rpc.method' => 'RevokeGrant',
-        'code.function' => 'revoke_grant',
-        'code.namespace' => 'AWS::SDK::KMS::Client'
-      }
-      tracer.in_span('KMS.RevokeGrant', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::RevokeGrant.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#revoke_grant] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5454,13 +5214,7 @@ module AWS::SDK::KMS
         operation_name: :schedule_key_deletion,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'KMS',
-        'rpc.method' => 'ScheduleKeyDeletion',
-        'code.function' => 'schedule_key_deletion',
-        'code.namespace' => 'AWS::SDK::KMS::Client'
-      }
-      tracer.in_span('KMS.ScheduleKeyDeletion', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ScheduleKeyDeletion.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#schedule_key_deletion] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5593,13 +5347,7 @@ module AWS::SDK::KMS
         operation_name: :sign,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'KMS',
-        'rpc.method' => 'Sign',
-        'code.function' => 'sign',
-        'code.namespace' => 'AWS::SDK::KMS::Client'
-      }
-      tracer.in_span('KMS.Sign', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::Sign.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#sign] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5707,13 +5455,7 @@ module AWS::SDK::KMS
         operation_name: :tag_resource,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'KMS',
-        'rpc.method' => 'TagResource',
-        'code.function' => 'tag_resource',
-        'code.namespace' => 'AWS::SDK::KMS::Client'
-      }
-      tracer.in_span('KMS.TagResource', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::TagResource.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#tag_resource] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5811,13 +5553,7 @@ module AWS::SDK::KMS
         operation_name: :untag_resource,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'KMS',
-        'rpc.method' => 'UntagResource',
-        'code.function' => 'untag_resource',
-        'code.namespace' => 'AWS::SDK::KMS::Client'
-      }
-      tracer.in_span('KMS.UntagResource', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::UntagResource.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#untag_resource] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5931,13 +5667,7 @@ module AWS::SDK::KMS
         operation_name: :update_alias,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'KMS',
-        'rpc.method' => 'UpdateAlias',
-        'code.function' => 'update_alias',
-        'code.namespace' => 'AWS::SDK::KMS::Client'
-      }
-      tracer.in_span('KMS.UpdateAlias', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::UpdateAlias.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_alias] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -6129,13 +5859,7 @@ module AWS::SDK::KMS
         operation_name: :update_custom_key_store,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'KMS',
-        'rpc.method' => 'UpdateCustomKeyStore',
-        'code.function' => 'update_custom_key_store',
-        'code.namespace' => 'AWS::SDK::KMS::Client'
-      }
-      tracer.in_span('KMS.UpdateCustomKeyStore', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::UpdateCustomKeyStore.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_custom_key_store] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -6208,13 +5932,7 @@ module AWS::SDK::KMS
         operation_name: :update_key_description,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'KMS',
-        'rpc.method' => 'UpdateKeyDescription',
-        'code.function' => 'update_key_description',
-        'code.namespace' => 'AWS::SDK::KMS::Client'
-      }
-      tracer.in_span('KMS.UpdateKeyDescription', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::UpdateKeyDescription.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_key_description] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -6334,13 +6052,7 @@ module AWS::SDK::KMS
         operation_name: :update_primary_region,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'KMS',
-        'rpc.method' => 'UpdatePrimaryRegion',
-        'code.function' => 'update_primary_region',
-        'code.namespace' => 'AWS::SDK::KMS::Client'
-      }
-      tracer.in_span('KMS.UpdatePrimaryRegion', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::UpdatePrimaryRegion.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_primary_region] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -6459,13 +6171,7 @@ module AWS::SDK::KMS
         operation_name: :verify,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'KMS',
-        'rpc.method' => 'Verify',
-        'code.function' => 'verify',
-        'code.namespace' => 'AWS::SDK::KMS::Client'
-      }
-      tracer.in_span('KMS.Verify', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::Verify.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#verify] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -6552,13 +6258,7 @@ module AWS::SDK::KMS
         operation_name: :verify_mac,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'KMS',
-        'rpc.method' => 'VerifyMac',
-        'code.function' => 'verify_mac',
-        'code.namespace' => 'AWS::SDK::KMS::Client'
-      }
-      tracer.in_span('KMS.VerifyMac', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::VerifyMac.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#verify_mac] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error

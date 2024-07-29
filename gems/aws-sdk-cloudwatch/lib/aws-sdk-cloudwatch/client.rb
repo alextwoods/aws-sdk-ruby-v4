@@ -87,13 +87,7 @@ module AWS::SDK::CloudWatch
         operation_name: :delete_alarms,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'CloudWatch',
-        'rpc.method' => 'DeleteAlarms',
-        'code.function' => 'delete_alarms',
-        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
-      }
-      tracer.in_span('CloudWatch.DeleteAlarms', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteAlarms.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_alarms] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -174,13 +168,7 @@ module AWS::SDK::CloudWatch
         operation_name: :delete_anomaly_detector,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'CloudWatch',
-        'rpc.method' => 'DeleteAnomalyDetector',
-        'code.function' => 'delete_anomaly_detector',
-        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
-      }
-      tracer.in_span('CloudWatch.DeleteAnomalyDetector', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteAnomalyDetector.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_anomaly_detector] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -223,13 +211,7 @@ module AWS::SDK::CloudWatch
         operation_name: :delete_dashboards,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'CloudWatch',
-        'rpc.method' => 'DeleteDashboards',
-        'code.function' => 'delete_dashboards',
-        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
-      }
-      tracer.in_span('CloudWatch.DeleteDashboards', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteDashboards.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_dashboards] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -279,13 +261,7 @@ module AWS::SDK::CloudWatch
         operation_name: :delete_insight_rules,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'CloudWatch',
-        'rpc.method' => 'DeleteInsightRules',
-        'code.function' => 'delete_insight_rules',
-        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
-      }
-      tracer.in_span('CloudWatch.DeleteInsightRules', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteInsightRules.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_insight_rules] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -324,13 +300,7 @@ module AWS::SDK::CloudWatch
         operation_name: :delete_metric_stream,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'CloudWatch',
-        'rpc.method' => 'DeleteMetricStream',
-        'code.function' => 'delete_metric_stream',
-        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
-      }
-      tracer.in_span('CloudWatch.DeleteMetricStream', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DeleteMetricStream.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_metric_stream] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -392,13 +362,7 @@ module AWS::SDK::CloudWatch
         operation_name: :describe_alarm_history,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'CloudWatch',
-        'rpc.method' => 'DescribeAlarmHistory',
-        'code.function' => 'describe_alarm_history',
-        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
-      }
-      tracer.in_span('CloudWatch.DescribeAlarmHistory', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeAlarmHistory.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_alarm_history] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -525,13 +489,7 @@ module AWS::SDK::CloudWatch
         operation_name: :describe_alarms,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'CloudWatch',
-        'rpc.method' => 'DescribeAlarms',
-        'code.function' => 'describe_alarms',
-        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
-      }
-      tracer.in_span('CloudWatch.DescribeAlarms', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeAlarms.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_alarms] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -635,13 +593,7 @@ module AWS::SDK::CloudWatch
         operation_name: :describe_alarms_for_metric,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'CloudWatch',
-        'rpc.method' => 'DescribeAlarmsForMetric',
-        'code.function' => 'describe_alarms_for_metric',
-        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
-      }
-      tracer.in_span('CloudWatch.DescribeAlarmsForMetric', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeAlarmsForMetric.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_alarms_for_metric] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -737,13 +689,7 @@ module AWS::SDK::CloudWatch
         operation_name: :describe_anomaly_detectors,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'CloudWatch',
-        'rpc.method' => 'DescribeAnomalyDetectors',
-        'code.function' => 'describe_anomaly_detectors',
-        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
-      }
-      tracer.in_span('CloudWatch.DescribeAnomalyDetectors', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeAnomalyDetectors.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_anomaly_detectors] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -793,13 +739,7 @@ module AWS::SDK::CloudWatch
         operation_name: :describe_insight_rules,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'CloudWatch',
-        'rpc.method' => 'DescribeInsightRules',
-        'code.function' => 'describe_insight_rules',
-        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
-      }
-      tracer.in_span('CloudWatch.DescribeInsightRules', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DescribeInsightRules.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_insight_rules] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -841,13 +781,7 @@ module AWS::SDK::CloudWatch
         operation_name: :disable_alarm_actions,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'CloudWatch',
-        'rpc.method' => 'DisableAlarmActions',
-        'code.function' => 'disable_alarm_actions',
-        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
-      }
-      tracer.in_span('CloudWatch.DisableAlarmActions', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DisableAlarmActions.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_alarm_actions] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -895,13 +829,7 @@ module AWS::SDK::CloudWatch
         operation_name: :disable_insight_rules,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'CloudWatch',
-        'rpc.method' => 'DisableInsightRules',
-        'code.function' => 'disable_insight_rules',
-        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
-      }
-      tracer.in_span('CloudWatch.DisableInsightRules', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DisableInsightRules.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_insight_rules] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -942,13 +870,7 @@ module AWS::SDK::CloudWatch
         operation_name: :enable_alarm_actions,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'CloudWatch',
-        'rpc.method' => 'EnableAlarmActions',
-        'code.function' => 'enable_alarm_actions',
-        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
-      }
-      tracer.in_span('CloudWatch.EnableAlarmActions', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::EnableAlarmActions.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_alarm_actions] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -995,13 +917,7 @@ module AWS::SDK::CloudWatch
         operation_name: :enable_insight_rules,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'CloudWatch',
-        'rpc.method' => 'EnableInsightRules',
-        'code.function' => 'enable_insight_rules',
-        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
-      }
-      tracer.in_span('CloudWatch.EnableInsightRules', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::EnableInsightRules.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_insight_rules] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1046,13 +962,7 @@ module AWS::SDK::CloudWatch
         operation_name: :get_dashboard,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'CloudWatch',
-        'rpc.method' => 'GetDashboard',
-        'code.function' => 'get_dashboard',
-        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
-      }
-      tracer.in_span('CloudWatch.GetDashboard', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetDashboard.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_dashboard] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1159,13 +1069,7 @@ module AWS::SDK::CloudWatch
         operation_name: :get_insight_rule_report,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'CloudWatch',
-        'rpc.method' => 'GetInsightRuleReport',
-        'code.function' => 'get_insight_rule_report',
-        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
-      }
-      tracer.in_span('CloudWatch.GetInsightRuleReport', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetInsightRuleReport.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_insight_rule_report] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1298,13 +1202,7 @@ module AWS::SDK::CloudWatch
         operation_name: :get_metric_data,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'CloudWatch',
-        'rpc.method' => 'GetMetricData',
-        'code.function' => 'get_metric_data',
-        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
-      }
-      tracer.in_span('CloudWatch.GetMetricData', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetMetricData.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_data] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1418,13 +1316,7 @@ module AWS::SDK::CloudWatch
         operation_name: :get_metric_statistics,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'CloudWatch',
-        'rpc.method' => 'GetMetricStatistics',
-        'code.function' => 'get_metric_statistics',
-        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
-      }
-      tracer.in_span('CloudWatch.GetMetricStatistics', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetMetricStatistics.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_statistics] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1486,13 +1378,7 @@ module AWS::SDK::CloudWatch
         operation_name: :get_metric_stream,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'CloudWatch',
-        'rpc.method' => 'GetMetricStream',
-        'code.function' => 'get_metric_stream',
-        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
-      }
-      tracer.in_span('CloudWatch.GetMetricStream', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetMetricStream.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_stream] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1548,13 +1434,7 @@ module AWS::SDK::CloudWatch
         operation_name: :get_metric_widget_image,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'CloudWatch',
-        'rpc.method' => 'GetMetricWidgetImage',
-        'code.function' => 'get_metric_widget_image',
-        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
-      }
-      tracer.in_span('CloudWatch.GetMetricWidgetImage', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetMetricWidgetImage.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_widget_image] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1609,13 +1489,7 @@ module AWS::SDK::CloudWatch
         operation_name: :list_dashboards,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'CloudWatch',
-        'rpc.method' => 'ListDashboards',
-        'code.function' => 'list_dashboards',
-        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
-      }
-      tracer.in_span('CloudWatch.ListDashboards', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ListDashboards.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_dashboards] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1670,13 +1544,7 @@ module AWS::SDK::CloudWatch
         operation_name: :list_managed_insight_rules,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'CloudWatch',
-        'rpc.method' => 'ListManagedInsightRules',
-        'code.function' => 'list_managed_insight_rules',
-        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
-      }
-      tracer.in_span('CloudWatch.ListManagedInsightRules', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ListManagedInsightRules.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_managed_insight_rules] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1726,13 +1594,7 @@ module AWS::SDK::CloudWatch
         operation_name: :list_metric_streams,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'CloudWatch',
-        'rpc.method' => 'ListMetricStreams',
-        'code.function' => 'list_metric_streams',
-        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
-      }
-      tracer.in_span('CloudWatch.ListMetricStreams', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ListMetricStreams.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_metric_streams] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1805,13 +1667,7 @@ module AWS::SDK::CloudWatch
         operation_name: :list_metrics,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'CloudWatch',
-        'rpc.method' => 'ListMetrics',
-        'code.function' => 'list_metrics',
-        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
-      }
-      tracer.in_span('CloudWatch.ListMetrics', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ListMetrics.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_metrics] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1855,13 +1711,7 @@ module AWS::SDK::CloudWatch
         operation_name: :list_tags_for_resource,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'CloudWatch',
-        'rpc.method' => 'ListTagsForResource',
-        'code.function' => 'list_tags_for_resource',
-        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
-      }
-      tracer.in_span('CloudWatch.ListTagsForResource', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::ListTagsForResource.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_tags_for_resource] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1945,13 +1795,7 @@ module AWS::SDK::CloudWatch
         operation_name: :put_anomaly_detector,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'CloudWatch',
-        'rpc.method' => 'PutAnomalyDetector',
-        'code.function' => 'put_anomaly_detector',
-        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
-      }
-      tracer.in_span('CloudWatch.PutAnomalyDetector', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::PutAnomalyDetector.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_anomaly_detector] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2043,13 +1887,7 @@ module AWS::SDK::CloudWatch
         operation_name: :put_composite_alarm,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'CloudWatch',
-        'rpc.method' => 'PutCompositeAlarm',
-        'code.function' => 'put_composite_alarm',
-        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
-      }
-      tracer.in_span('CloudWatch.PutCompositeAlarm', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::PutCompositeAlarm.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_composite_alarm] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2106,13 +1944,7 @@ module AWS::SDK::CloudWatch
         operation_name: :put_dashboard,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'CloudWatch',
-        'rpc.method' => 'PutDashboard',
-        'code.function' => 'put_dashboard',
-        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
-      }
-      tracer.in_span('CloudWatch.PutDashboard', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::PutDashboard.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_dashboard] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2163,13 +1995,7 @@ module AWS::SDK::CloudWatch
         operation_name: :put_insight_rule,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'CloudWatch',
-        'rpc.method' => 'PutInsightRule',
-        'code.function' => 'put_insight_rule',
-        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
-      }
-      tracer.in_span('CloudWatch.PutInsightRule', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::PutInsightRule.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_insight_rule] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2241,13 +2067,7 @@ module AWS::SDK::CloudWatch
         operation_name: :put_managed_insight_rules,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'CloudWatch',
-        'rpc.method' => 'PutManagedInsightRules',
-        'code.function' => 'put_managed_insight_rules',
-        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
-      }
-      tracer.in_span('CloudWatch.PutManagedInsightRules', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::PutManagedInsightRules.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_managed_insight_rules] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2387,13 +2207,7 @@ module AWS::SDK::CloudWatch
         operation_name: :put_metric_alarm,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'CloudWatch',
-        'rpc.method' => 'PutMetricAlarm',
-        'code.function' => 'put_metric_alarm',
-        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
-      }
-      tracer.in_span('CloudWatch.PutMetricAlarm', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::PutMetricAlarm.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_metric_alarm] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2501,13 +2315,7 @@ module AWS::SDK::CloudWatch
         operation_name: :put_metric_data,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'CloudWatch',
-        'rpc.method' => 'PutMetricData',
-        'code.function' => 'put_metric_data',
-        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
-      }
-      tracer.in_span('CloudWatch.PutMetricData', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::PutMetricData.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_metric_data] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2611,13 +2419,7 @@ module AWS::SDK::CloudWatch
         operation_name: :put_metric_stream,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'CloudWatch',
-        'rpc.method' => 'PutMetricStream',
-        'code.function' => 'put_metric_stream',
-        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
-      }
-      tracer.in_span('CloudWatch.PutMetricStream', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::PutMetricStream.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_metric_stream] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2674,13 +2476,7 @@ module AWS::SDK::CloudWatch
         operation_name: :set_alarm_state,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'CloudWatch',
-        'rpc.method' => 'SetAlarmState',
-        'code.function' => 'set_alarm_state',
-        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
-      }
-      tracer.in_span('CloudWatch.SetAlarmState', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::SetAlarmState.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#set_alarm_state] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2721,13 +2517,7 @@ module AWS::SDK::CloudWatch
         operation_name: :start_metric_streams,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'CloudWatch',
-        'rpc.method' => 'StartMetricStreams',
-        'code.function' => 'start_metric_streams',
-        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
-      }
-      tracer.in_span('CloudWatch.StartMetricStreams', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::StartMetricStreams.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_metric_streams] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2768,13 +2558,7 @@ module AWS::SDK::CloudWatch
         operation_name: :stop_metric_streams,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'CloudWatch',
-        'rpc.method' => 'StopMetricStreams',
-        'code.function' => 'stop_metric_streams',
-        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
-      }
-      tracer.in_span('CloudWatch.StopMetricStreams', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::StopMetricStreams.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#stop_metric_streams] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2829,13 +2613,7 @@ module AWS::SDK::CloudWatch
         operation_name: :tag_resource,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'CloudWatch',
-        'rpc.method' => 'TagResource',
-        'code.function' => 'tag_resource',
-        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
-      }
-      tracer.in_span('CloudWatch.TagResource', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::TagResource.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#tag_resource] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2877,13 +2655,7 @@ module AWS::SDK::CloudWatch
         operation_name: :untag_resource,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'CloudWatch',
-        'rpc.method' => 'UntagResource',
-        'code.function' => 'untag_resource',
-        'code.namespace' => 'AWS::SDK::CloudWatch::Client'
-      }
-      tracer.in_span('CloudWatch.UntagResource', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::UntagResource.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#untag_resource] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error

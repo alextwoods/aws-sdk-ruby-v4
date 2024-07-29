@@ -224,13 +224,7 @@ module AWS::SDK::STS
         operation_name: :assume_role,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'STS',
-        'rpc.method' => 'AssumeRole',
-        'code.function' => 'assume_role',
-        'code.namespace' => 'AWS::SDK::STS::Client'
-      }
-      tracer.in_span('STS.AssumeRole', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::AssumeRole.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#assume_role] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -449,13 +443,7 @@ module AWS::SDK::STS
         operation_name: :assume_role_with_saml,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'STS',
-        'rpc.method' => 'AssumeRoleWithSAML',
-        'code.function' => 'assume_role_with_saml',
-        'code.namespace' => 'AWS::SDK::STS::Client'
-      }
-      tracer.in_span('STS.AssumeRoleWithSAML', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::AssumeRoleWithSAML.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#assume_role_with_saml] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -676,13 +664,7 @@ module AWS::SDK::STS
         operation_name: :assume_role_with_web_identity,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'STS',
-        'rpc.method' => 'AssumeRoleWithWebIdentity',
-        'code.function' => 'assume_role_with_web_identity',
-        'code.namespace' => 'AWS::SDK::STS::Client'
-      }
-      tracer.in_span('STS.AssumeRoleWithWebIdentity', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::AssumeRoleWithWebIdentity.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#assume_role_with_web_identity] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -767,13 +749,7 @@ module AWS::SDK::STS
         operation_name: :decode_authorization_message,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'STS',
-        'rpc.method' => 'DecodeAuthorizationMessage',
-        'code.function' => 'decode_authorization_message',
-        'code.namespace' => 'AWS::SDK::STS::Client'
-      }
-      tracer.in_span('STS.DecodeAuthorizationMessage', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::DecodeAuthorizationMessage.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#decode_authorization_message] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -829,13 +805,7 @@ module AWS::SDK::STS
         operation_name: :get_access_key_info,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'STS',
-        'rpc.method' => 'GetAccessKeyInfo',
-        'code.function' => 'get_access_key_info',
-        'code.namespace' => 'AWS::SDK::STS::Client'
-      }
-      tracer.in_span('STS.GetAccessKeyInfo', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetAccessKeyInfo.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_access_key_info] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -911,13 +881,7 @@ module AWS::SDK::STS
         operation_name: :get_caller_identity,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'STS',
-        'rpc.method' => 'GetCallerIdentity',
-        'code.function' => 'get_caller_identity',
-        'code.namespace' => 'AWS::SDK::STS::Client'
-      }
-      tracer.in_span('STS.GetCallerIdentity', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetCallerIdentity.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_caller_identity] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1098,13 +1062,7 @@ module AWS::SDK::STS
         operation_name: :get_federation_token,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'STS',
-        'rpc.method' => 'GetFederationToken',
-        'code.function' => 'get_federation_token',
-        'code.namespace' => 'AWS::SDK::STS::Client'
-      }
-      tracer.in_span('STS.GetFederationToken', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetFederationToken.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_federation_token] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1225,13 +1183,7 @@ module AWS::SDK::STS
         operation_name: :get_session_token,
         tracer: tracer
       )
-      attributes = {
-        'rpc.service' => 'STS',
-        'rpc.method' => 'GetSessionToken',
-        'code.function' => 'get_session_token',
-        'code.namespace' => 'AWS::SDK::STS::Client'
-      }
-      tracer.in_span('STS.GetSessionToken', attributes: attributes, kind: Hearth::Telemetry::SpanKind::CLIENT) do
+      Telemetry::GetSessionToken.span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_session_token] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
