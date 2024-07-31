@@ -14,7 +14,7 @@ module AWS::SDK::TranscribeStreaming
   module Middleware
 
     class StartCallAnalyticsStreamTranscription
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -64,7 +64,7 @@ module AWS::SDK::TranscribeStreaming
     end
 
     class StartMedicalStreamTranscription
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -114,7 +114,7 @@ module AWS::SDK::TranscribeStreaming
     end
 
     class StartStreamTranscription
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,

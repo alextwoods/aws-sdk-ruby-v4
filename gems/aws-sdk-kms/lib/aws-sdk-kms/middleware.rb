@@ -14,7 +14,7 @@ module AWS::SDK::KMS
   module Middleware
 
     class CancelKeyDeletion
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -65,7 +65,7 @@ module AWS::SDK::KMS
     end
 
     class ConnectCustomKeyStore
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -116,7 +116,7 @@ module AWS::SDK::KMS
     end
 
     class CreateAlias
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -167,7 +167,7 @@ module AWS::SDK::KMS
     end
 
     class CreateCustomKeyStore
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -218,7 +218,7 @@ module AWS::SDK::KMS
     end
 
     class CreateGrant
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -269,7 +269,7 @@ module AWS::SDK::KMS
     end
 
     class CreateKey
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -320,7 +320,7 @@ module AWS::SDK::KMS
     end
 
     class Decrypt
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -371,7 +371,7 @@ module AWS::SDK::KMS
     end
 
     class DeleteAlias
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -422,7 +422,7 @@ module AWS::SDK::KMS
     end
 
     class DeleteCustomKeyStore
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -473,7 +473,7 @@ module AWS::SDK::KMS
     end
 
     class DeleteImportedKeyMaterial
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -524,7 +524,7 @@ module AWS::SDK::KMS
     end
 
     class DescribeCustomKeyStores
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -575,7 +575,7 @@ module AWS::SDK::KMS
     end
 
     class DescribeKey
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -626,7 +626,7 @@ module AWS::SDK::KMS
     end
 
     class DisableKey
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -677,7 +677,7 @@ module AWS::SDK::KMS
     end
 
     class DisableKeyRotation
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -728,7 +728,7 @@ module AWS::SDK::KMS
     end
 
     class DisconnectCustomKeyStore
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -779,7 +779,7 @@ module AWS::SDK::KMS
     end
 
     class EnableKey
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -830,7 +830,7 @@ module AWS::SDK::KMS
     end
 
     class EnableKeyRotation
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -881,7 +881,7 @@ module AWS::SDK::KMS
     end
 
     class Encrypt
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -932,7 +932,7 @@ module AWS::SDK::KMS
     end
 
     class GenerateDataKey
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -983,7 +983,7 @@ module AWS::SDK::KMS
     end
 
     class GenerateDataKeyPair
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1034,7 +1034,7 @@ module AWS::SDK::KMS
     end
 
     class GenerateDataKeyPairWithoutPlaintext
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1085,7 +1085,7 @@ module AWS::SDK::KMS
     end
 
     class GenerateDataKeyWithoutPlaintext
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1136,7 +1136,7 @@ module AWS::SDK::KMS
     end
 
     class GenerateMac
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1187,7 +1187,7 @@ module AWS::SDK::KMS
     end
 
     class GenerateRandom
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1238,7 +1238,7 @@ module AWS::SDK::KMS
     end
 
     class GetKeyPolicy
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1289,7 +1289,7 @@ module AWS::SDK::KMS
     end
 
     class GetKeyRotationStatus
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1340,7 +1340,7 @@ module AWS::SDK::KMS
     end
 
     class GetParametersForImport
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1391,7 +1391,7 @@ module AWS::SDK::KMS
     end
 
     class GetPublicKey
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1442,7 +1442,7 @@ module AWS::SDK::KMS
     end
 
     class ImportKeyMaterial
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1493,7 +1493,7 @@ module AWS::SDK::KMS
     end
 
     class ListAliases
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1544,7 +1544,7 @@ module AWS::SDK::KMS
     end
 
     class ListGrants
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1595,7 +1595,7 @@ module AWS::SDK::KMS
     end
 
     class ListKeyPolicies
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1646,7 +1646,7 @@ module AWS::SDK::KMS
     end
 
     class ListKeys
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1697,7 +1697,7 @@ module AWS::SDK::KMS
     end
 
     class ListResourceTags
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1748,7 +1748,7 @@ module AWS::SDK::KMS
     end
 
     class ListRetirableGrants
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1799,7 +1799,7 @@ module AWS::SDK::KMS
     end
 
     class PutKeyPolicy
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1850,7 +1850,7 @@ module AWS::SDK::KMS
     end
 
     class ReEncrypt
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1901,7 +1901,7 @@ module AWS::SDK::KMS
     end
 
     class ReplicateKey
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1952,7 +1952,7 @@ module AWS::SDK::KMS
     end
 
     class RetireGrant
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2003,7 +2003,7 @@ module AWS::SDK::KMS
     end
 
     class RevokeGrant
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2054,7 +2054,7 @@ module AWS::SDK::KMS
     end
 
     class ScheduleKeyDeletion
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2105,7 +2105,7 @@ module AWS::SDK::KMS
     end
 
     class Sign
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2156,7 +2156,7 @@ module AWS::SDK::KMS
     end
 
     class TagResource
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2207,7 +2207,7 @@ module AWS::SDK::KMS
     end
 
     class UntagResource
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2258,7 +2258,7 @@ module AWS::SDK::KMS
     end
 
     class UpdateAlias
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2309,7 +2309,7 @@ module AWS::SDK::KMS
     end
 
     class UpdateCustomKeyStore
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2360,7 +2360,7 @@ module AWS::SDK::KMS
     end
 
     class UpdateKeyDescription
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2411,7 +2411,7 @@ module AWS::SDK::KMS
     end
 
     class UpdatePrimaryRegion
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2462,7 +2462,7 @@ module AWS::SDK::KMS
     end
 
     class Verify
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2513,7 +2513,7 @@ module AWS::SDK::KMS
     end
 
     class VerifyMac
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,

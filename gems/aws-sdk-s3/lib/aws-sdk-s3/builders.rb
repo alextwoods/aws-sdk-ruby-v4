@@ -3730,8 +3730,5 @@ module AWS::SDK::S3
         end unless input.metadata.nil?
       end
     end
-
-    module EventStream
-    end
   end
 end

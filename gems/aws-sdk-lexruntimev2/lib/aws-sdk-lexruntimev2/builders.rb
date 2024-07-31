@@ -506,8 +506,8 @@ module AWS::SDK::LexRuntimeV2
         data
       end
     end
-
     module EventStream
+
       class AudioInputEvent
         def self.build(input:)
           message = Hearth::EventStream::Message.new
@@ -525,6 +525,7 @@ module AWS::SDK::LexRuntimeV2
           message
         end
       end
+
       class ConfigurationEvent
         def self.build(input:)
           message = Hearth::EventStream::Message.new
@@ -545,6 +546,7 @@ module AWS::SDK::LexRuntimeV2
           message
         end
       end
+
       class DTMFInputEvent
         def self.build(input:)
           message = Hearth::EventStream::Message.new
@@ -561,6 +563,7 @@ module AWS::SDK::LexRuntimeV2
           message
         end
       end
+
       class DisconnectionEvent
         def self.build(input:)
           message = Hearth::EventStream::Message.new
@@ -576,6 +579,7 @@ module AWS::SDK::LexRuntimeV2
           message
         end
       end
+
       class PlaybackCompletionEvent
         def self.build(input:)
           message = Hearth::EventStream::Message.new
@@ -591,6 +595,7 @@ module AWS::SDK::LexRuntimeV2
           message
         end
       end
+
       class TextInputEvent
         def self.build(input:)
           message = Hearth::EventStream::Message.new

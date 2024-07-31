@@ -14,7 +14,7 @@ module AWS::SDK::LexRuntimeV2
   module Middleware
 
     class DeleteSession
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -65,7 +65,7 @@ module AWS::SDK::LexRuntimeV2
     end
 
     class GetSession
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -116,7 +116,7 @@ module AWS::SDK::LexRuntimeV2
     end
 
     class PutSession
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -168,7 +168,7 @@ module AWS::SDK::LexRuntimeV2
     end
 
     class RecognizeText
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -220,7 +220,7 @@ module AWS::SDK::LexRuntimeV2
     end
 
     class RecognizeUtterance
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -271,7 +271,7 @@ module AWS::SDK::LexRuntimeV2
     end
 
     class StartConversation
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,

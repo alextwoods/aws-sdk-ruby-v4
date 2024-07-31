@@ -76,37 +76,24 @@ module AWS::SDK::TranscribeStreaming
     # @param [Hash | Types::StartCallAnalyticsStreamTranscriptionInput] params
     #   Request parameters for this operation.
     #   See {Types::StartCallAnalyticsStreamTranscriptionInput#initialize} for available parameters.
+    #   Do not set values for the event stream member(`call_analytics_transcript_result_stream`).
+    #   Instead use the returned output to signal input events.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Hearth::Output]
-    # @example Request syntax with placeholder values
-    #   resp = client.start_call_analytics_stream_transcription(
+    # @option options [EventStream::StartCallAnalyticsStreamTranscriptionHandler] :event_stream_handler
+    #   Event Stream Handler used to register handlers that will be called when events are received.
+    # @return [EventStream::StartCallAnalyticsStreamTranscriptionOutput]
+    #   An open stream that supports sending (signaling) input events to the service.
+    # @example Request syntax with placeholder values and registering an event handler
+    #   handler = StartCallAnalyticsStreamTranscriptionHandler.new
+    #   handler.on_initial_response { |event| process_initial_response(event) }
+    #   stream = client.start_call_analytics_stream_transcription({
     #     language_code: 'en-US', # required - accepts ["en-US", "en-GB", "es-US", "fr-CA", "fr-FR", "en-AU", "it-IT", "de-DE", "pt-BR"]
     #     media_sample_rate_hertz: 1, # required
     #     media_encoding: 'pcm', # required - accepts ["pcm", "ogg-opus", "flac"]
     #     vocabulary_name: 'VocabularyName',
     #     session_id: 'SessionId',
-    #     audio_stream: {
-    #       # One of:
-    #       audio_event: {
-    #         audio_chunk: 'AudioChunk'
-    #       },
-    #       configuration_event: {
-    #         channel_definitions: [
-    #           {
-    #             channel_id: 1, # required
-    #             participant_role: 'AGENT' # required - accepts ["AGENT", "CUSTOMER"]
-    #           }
-    #         ],
-    #         post_call_analytics_settings: {
-    #           output_location: 'OutputLocation', # required
-    #           data_access_role_arn: 'DataAccessRoleArn', # required
-    #           content_redaction_output: 'redacted', # accepts ["redacted", "redacted_and_unredacted"]
-    #           output_encryption_kms_key_id: 'OutputEncryptionKMSKeyId'
-    #         }
-    #       }
-    #     }, # required
     #     vocabulary_filter_name: 'VocabularyFilterName',
     #     vocabulary_filter_method: 'remove', # accepts ["remove", "mask", "tag"]
     #     language_model_name: 'LanguageModelName',
@@ -115,78 +102,33 @@ module AWS::SDK::TranscribeStreaming
     #     content_identification_type: 'PII', # accepts ["PII"]
     #     content_redaction_type: 'PII', # accepts ["PII"]
     #     pii_entity_types: 'PiiEntityTypes'
+    #   }, event_stream_handler: handler)
+    # @example Sending input events with placeholder values
+    #   stream = client.start_call_analytics_stream_transcription(params)
+    #   # send (signal) input events
+    #   stream.signal_audio_event(
+    #     audio_chunk: 'AudioChunk'
     #   )
-    # @example Response structure
-    #   resp.data #=> Types::StartCallAnalyticsStreamTranscriptionOutput
-    #   resp.data.request_id #=> String
-    #   resp.data.language_code #=> String, one of ["en-US", "en-GB", "es-US", "fr-CA", "fr-FR", "en-AU", "it-IT", "de-DE", "pt-BR"]
-    #   resp.data.media_sample_rate_hertz #=> Integer
-    #   resp.data.media_encoding #=> String, one of ["pcm", "ogg-opus", "flac"]
-    #   resp.data.vocabulary_name #=> String
-    #   resp.data.session_id #=> String
-    #   resp.data.call_analytics_transcript_result_stream #=> Types::CallAnalyticsTranscriptResultStream, one of [UtteranceEvent, CategoryEvent, BadRequestException, LimitExceededException, InternalFailureException, ConflictException, ServiceUnavailableException]
-    #   resp.data.call_analytics_transcript_result_stream.utterance_event #=> Types::UtteranceEvent
-    #   resp.data.call_analytics_transcript_result_stream.utterance_event.utterance_id #=> String
-    #   resp.data.call_analytics_transcript_result_stream.utterance_event.is_partial #=> Boolean
-    #   resp.data.call_analytics_transcript_result_stream.utterance_event.participant_role #=> String, one of ["AGENT", "CUSTOMER"]
-    #   resp.data.call_analytics_transcript_result_stream.utterance_event.begin_offset_millis #=> Integer
-    #   resp.data.call_analytics_transcript_result_stream.utterance_event.end_offset_millis #=> Integer
-    #   resp.data.call_analytics_transcript_result_stream.utterance_event.transcript #=> String
-    #   resp.data.call_analytics_transcript_result_stream.utterance_event.items #=> Array<CallAnalyticsItem>
-    #   resp.data.call_analytics_transcript_result_stream.utterance_event.items[0] #=> Types::CallAnalyticsItem
-    #   resp.data.call_analytics_transcript_result_stream.utterance_event.items[0].begin_offset_millis #=> Integer
-    #   resp.data.call_analytics_transcript_result_stream.utterance_event.items[0].end_offset_millis #=> Integer
-    #   resp.data.call_analytics_transcript_result_stream.utterance_event.items[0].type #=> String, one of ["pronunciation", "punctuation"]
-    #   resp.data.call_analytics_transcript_result_stream.utterance_event.items[0].content #=> String
-    #   resp.data.call_analytics_transcript_result_stream.utterance_event.items[0].confidence #=> Float
-    #   resp.data.call_analytics_transcript_result_stream.utterance_event.items[0].vocabulary_filter_match #=> Boolean
-    #   resp.data.call_analytics_transcript_result_stream.utterance_event.items[0].stable #=> Boolean
-    #   resp.data.call_analytics_transcript_result_stream.utterance_event.entities #=> Array<CallAnalyticsEntity>
-    #   resp.data.call_analytics_transcript_result_stream.utterance_event.entities[0] #=> Types::CallAnalyticsEntity
-    #   resp.data.call_analytics_transcript_result_stream.utterance_event.entities[0].begin_offset_millis #=> Integer
-    #   resp.data.call_analytics_transcript_result_stream.utterance_event.entities[0].end_offset_millis #=> Integer
-    #   resp.data.call_analytics_transcript_result_stream.utterance_event.entities[0].category #=> String
-    #   resp.data.call_analytics_transcript_result_stream.utterance_event.entities[0].type #=> String
-    #   resp.data.call_analytics_transcript_result_stream.utterance_event.entities[0].content #=> String
-    #   resp.data.call_analytics_transcript_result_stream.utterance_event.entities[0].confidence #=> Float
-    #   resp.data.call_analytics_transcript_result_stream.utterance_event.sentiment #=> String, one of ["POSITIVE", "NEGATIVE", "MIXED", "NEUTRAL"]
-    #   resp.data.call_analytics_transcript_result_stream.utterance_event.issues_detected #=> Array<IssueDetected>
-    #   resp.data.call_analytics_transcript_result_stream.utterance_event.issues_detected[0] #=> Types::IssueDetected
-    #   resp.data.call_analytics_transcript_result_stream.utterance_event.issues_detected[0].character_offsets #=> Types::CharacterOffsets
-    #   resp.data.call_analytics_transcript_result_stream.utterance_event.issues_detected[0].character_offsets.begin #=> Integer
-    #   resp.data.call_analytics_transcript_result_stream.utterance_event.issues_detected[0].character_offsets.end #=> Integer
-    #   resp.data.call_analytics_transcript_result_stream.category_event #=> Types::CategoryEvent
-    #   resp.data.call_analytics_transcript_result_stream.category_event.matched_categories #=> Array<String>
-    #   resp.data.call_analytics_transcript_result_stream.category_event.matched_categories[0] #=> String
-    #   resp.data.call_analytics_transcript_result_stream.category_event.matched_details #=> Hash<String, PointsOfInterest>
-    #   resp.data.call_analytics_transcript_result_stream.category_event.matched_details['key'] #=> Types::PointsOfInterest
-    #   resp.data.call_analytics_transcript_result_stream.category_event.matched_details['key'].timestamp_ranges #=> Array<TimestampRange>
-    #   resp.data.call_analytics_transcript_result_stream.category_event.matched_details['key'].timestamp_ranges[0] #=> Types::TimestampRange
-    #   resp.data.call_analytics_transcript_result_stream.category_event.matched_details['key'].timestamp_ranges[0].begin_offset_millis #=> Integer
-    #   resp.data.call_analytics_transcript_result_stream.category_event.matched_details['key'].timestamp_ranges[0].end_offset_millis #=> Integer
-    #   resp.data.call_analytics_transcript_result_stream.bad_request_exception #=> Types::BadRequestException
-    #   resp.data.call_analytics_transcript_result_stream.bad_request_exception.message #=> String
-    #   resp.data.call_analytics_transcript_result_stream.limit_exceeded_exception #=> Types::LimitExceededException
-    #   resp.data.call_analytics_transcript_result_stream.limit_exceeded_exception.message #=> String
-    #   resp.data.call_analytics_transcript_result_stream.internal_failure_exception #=> Types::InternalFailureException
-    #   resp.data.call_analytics_transcript_result_stream.internal_failure_exception.message #=> String
-    #   resp.data.call_analytics_transcript_result_stream.conflict_exception #=> Types::ConflictException
-    #   resp.data.call_analytics_transcript_result_stream.conflict_exception.message #=> String
-    #   resp.data.call_analytics_transcript_result_stream.service_unavailable_exception #=> Types::ServiceUnavailableException
-    #   resp.data.call_analytics_transcript_result_stream.service_unavailable_exception.message #=> String
-    #   resp.data.vocabulary_filter_name #=> String
-    #   resp.data.vocabulary_filter_method #=> String, one of ["remove", "mask", "tag"]
-    #   resp.data.language_model_name #=> String
-    #   resp.data.enable_partial_results_stabilization #=> Boolean
-    #   resp.data.partial_results_stability #=> String, one of ["high", "medium", "low"]
-    #   resp.data.content_identification_type #=> String, one of ["PII"]
-    #   resp.data.content_redaction_type #=> String, one of ["PII"]
-    #   resp.data.pii_entity_types #=> String
+    #
+    #   stream.signal_configuration_event(
+    #     channel_definitions: [
+    #       {
+    #         channel_id: 1, # required
+    #         participant_role: 'AGENT' # required - accepts ["AGENT", "CUSTOMER"]
+    #       }
+    #     ],
+    #     post_call_analytics_settings: {
+    #       output_location: 'OutputLocation', # required
+    #       data_access_role_arn: 'DataAccessRoleArn', # required
+    #       content_redaction_output: 'redacted', # accepts ["redacted", "redacted_and_unredacted"]
+    #       output_encryption_kms_key_id: 'OutputEncryptionKMSKeyId'
+    #     }
+    #   )
     def start_call_analytics_stream_transcription(params = {}, options = {})
+      response_body = ::StringIO.new
       middleware_opts = {}
       middleware_opts[:event_stream_handler] = options.delete(:event_stream_handler)
       raise ArgumentError, 'Missing `event_stream_handler`' unless middleware_opts[:event_stream_handler]
-      response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::StartCallAnalyticsStreamTranscriptionInput.build(params, context: 'params')
       stack = AWS::SDK::TranscribeStreaming::Middleware::StartCallAnalyticsStreamTranscription.build(config, middleware_opts)
@@ -233,12 +175,19 @@ module AWS::SDK::TranscribeStreaming
     # @param [Hash | Types::StartMedicalStreamTranscriptionInput] params
     #   Request parameters for this operation.
     #   See {Types::StartMedicalStreamTranscriptionInput#initialize} for available parameters.
+    #   Do not set values for the event stream member(`transcript_result_stream`).
+    #   Instead use the returned output to signal input events.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Hearth::Output]
-    # @example Request syntax with placeholder values
-    #   resp = client.start_medical_stream_transcription(
+    # @option options [EventStream::StartMedicalStreamTranscriptionHandler] :event_stream_handler
+    #   Event Stream Handler used to register handlers that will be called when events are received.
+    # @return [EventStream::StartMedicalStreamTranscriptionOutput]
+    #   An open stream that supports sending (signaling) input events to the service.
+    # @example Request syntax with placeholder values and registering an event handler
+    #   handler = StartMedicalStreamTranscriptionHandler.new
+    #   handler.on_initial_response { |event| process_initial_response(event) }
+    #   stream = client.start_medical_stream_transcription({
     #     language_code: 'en-US', # required - accepts ["en-US", "en-GB", "es-US", "fr-CA", "fr-FR", "en-AU", "it-IT", "de-DE", "pt-BR", "ja-JP", "ko-KR", "zh-CN", "hi-IN", "th-TH"]
     #     media_sample_rate_hertz: 1, # required
     #     media_encoding: 'pcm', # required - accepts ["pcm", "ogg-opus", "flac"]
@@ -247,87 +196,36 @@ module AWS::SDK::TranscribeStreaming
     #     type: 'CONVERSATION', # required - accepts ["CONVERSATION", "DICTATION"]
     #     show_speaker_label: false,
     #     session_id: 'SessionId',
-    #     audio_stream: {
-    #       # One of:
-    #       audio_event: {
-    #         audio_chunk: 'AudioChunk'
-    #       },
-    #       configuration_event: {
-    #         channel_definitions: [
-    #           {
-    #             channel_id: 1, # required
-    #             participant_role: 'AGENT' # required - accepts ["AGENT", "CUSTOMER"]
-    #           }
-    #         ],
-    #         post_call_analytics_settings: {
-    #           output_location: 'OutputLocation', # required
-    #           data_access_role_arn: 'DataAccessRoleArn', # required
-    #           content_redaction_output: 'redacted', # accepts ["redacted", "redacted_and_unredacted"]
-    #           output_encryption_kms_key_id: 'OutputEncryptionKMSKeyId'
-    #         }
-    #       }
-    #     }, # required
     #     enable_channel_identification: false,
     #     number_of_channels: 1,
     #     content_identification_type: 'PHI' # accepts ["PHI"]
+    #   }, event_stream_handler: handler)
+    # @example Sending input events with placeholder values
+    #   stream = client.start_medical_stream_transcription(params)
+    #   # send (signal) input events
+    #   stream.signal_audio_event(
+    #     audio_chunk: 'AudioChunk'
     #   )
-    # @example Response structure
-    #   resp.data #=> Types::StartMedicalStreamTranscriptionOutput
-    #   resp.data.request_id #=> String
-    #   resp.data.language_code #=> String, one of ["en-US", "en-GB", "es-US", "fr-CA", "fr-FR", "en-AU", "it-IT", "de-DE", "pt-BR", "ja-JP", "ko-KR", "zh-CN", "hi-IN", "th-TH"]
-    #   resp.data.media_sample_rate_hertz #=> Integer
-    #   resp.data.media_encoding #=> String, one of ["pcm", "ogg-opus", "flac"]
-    #   resp.data.vocabulary_name #=> String
-    #   resp.data.specialty #=> String, one of ["PRIMARYCARE", "CARDIOLOGY", "NEUROLOGY", "ONCOLOGY", "RADIOLOGY", "UROLOGY"]
-    #   resp.data.type #=> String, one of ["CONVERSATION", "DICTATION"]
-    #   resp.data.show_speaker_label #=> Boolean
-    #   resp.data.session_id #=> String
-    #   resp.data.transcript_result_stream #=> Types::MedicalTranscriptResultStream, one of [TranscriptEvent, BadRequestException, LimitExceededException, InternalFailureException, ConflictException, ServiceUnavailableException]
-    #   resp.data.transcript_result_stream.transcript_event #=> Types::MedicalTranscriptEvent
-    #   resp.data.transcript_result_stream.transcript_event.transcript #=> Types::MedicalTranscript
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results #=> Array<MedicalResult>
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0] #=> Types::MedicalResult
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].result_id #=> String
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].start_time #=> Float
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].end_time #=> Float
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].is_partial #=> Boolean
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].alternatives #=> Array<MedicalAlternative>
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].alternatives[0] #=> Types::MedicalAlternative
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].alternatives[0].transcript #=> String
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].alternatives[0].items #=> Array<MedicalItem>
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].alternatives[0].items[0] #=> Types::MedicalItem
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].alternatives[0].items[0].start_time #=> Float
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].alternatives[0].items[0].end_time #=> Float
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].alternatives[0].items[0].type #=> String, one of ["pronunciation", "punctuation"]
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].alternatives[0].items[0].content #=> String
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].alternatives[0].items[0].confidence #=> Float
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].alternatives[0].items[0].speaker #=> String
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].alternatives[0].entities #=> Array<MedicalEntity>
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].alternatives[0].entities[0] #=> Types::MedicalEntity
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].alternatives[0].entities[0].start_time #=> Float
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].alternatives[0].entities[0].end_time #=> Float
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].alternatives[0].entities[0].category #=> String
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].alternatives[0].entities[0].content #=> String
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].alternatives[0].entities[0].confidence #=> Float
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].channel_id #=> String
-    #   resp.data.transcript_result_stream.bad_request_exception #=> Types::BadRequestException
-    #   resp.data.transcript_result_stream.bad_request_exception.message #=> String
-    #   resp.data.transcript_result_stream.limit_exceeded_exception #=> Types::LimitExceededException
-    #   resp.data.transcript_result_stream.limit_exceeded_exception.message #=> String
-    #   resp.data.transcript_result_stream.internal_failure_exception #=> Types::InternalFailureException
-    #   resp.data.transcript_result_stream.internal_failure_exception.message #=> String
-    #   resp.data.transcript_result_stream.conflict_exception #=> Types::ConflictException
-    #   resp.data.transcript_result_stream.conflict_exception.message #=> String
-    #   resp.data.transcript_result_stream.service_unavailable_exception #=> Types::ServiceUnavailableException
-    #   resp.data.transcript_result_stream.service_unavailable_exception.message #=> String
-    #   resp.data.enable_channel_identification #=> Boolean
-    #   resp.data.number_of_channels #=> Integer
-    #   resp.data.content_identification_type #=> String, one of ["PHI"]
+    #
+    #   stream.signal_configuration_event(
+    #     channel_definitions: [
+    #       {
+    #         channel_id: 1, # required
+    #         participant_role: 'AGENT' # required - accepts ["AGENT", "CUSTOMER"]
+    #       }
+    #     ],
+    #     post_call_analytics_settings: {
+    #       output_location: 'OutputLocation', # required
+    #       data_access_role_arn: 'DataAccessRoleArn', # required
+    #       content_redaction_output: 'redacted', # accepts ["redacted", "redacted_and_unredacted"]
+    #       output_encryption_kms_key_id: 'OutputEncryptionKMSKeyId'
+    #     }
+    #   )
     def start_medical_stream_transcription(params = {}, options = {})
+      response_body = ::StringIO.new
       middleware_opts = {}
       middleware_opts[:event_stream_handler] = options.delete(:event_stream_handler)
       raise ArgumentError, 'Missing `event_stream_handler`' unless middleware_opts[:event_stream_handler]
-      response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::StartMedicalStreamTranscriptionInput.build(params, context: 'params')
       stack = AWS::SDK::TranscribeStreaming::Middleware::StartMedicalStreamTranscription.build(config, middleware_opts)
@@ -371,37 +269,24 @@ module AWS::SDK::TranscribeStreaming
     # @param [Hash | Types::StartStreamTranscriptionInput] params
     #   Request parameters for this operation.
     #   See {Types::StartStreamTranscriptionInput#initialize} for available parameters.
+    #   Do not set values for the event stream member(`transcript_result_stream`).
+    #   Instead use the returned output to signal input events.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Hearth::Output]
-    # @example Request syntax with placeholder values
-    #   resp = client.start_stream_transcription(
+    # @option options [EventStream::StartStreamTranscriptionHandler] :event_stream_handler
+    #   Event Stream Handler used to register handlers that will be called when events are received.
+    # @return [EventStream::StartStreamTranscriptionOutput]
+    #   An open stream that supports sending (signaling) input events to the service.
+    # @example Request syntax with placeholder values and registering an event handler
+    #   handler = StartStreamTranscriptionHandler.new
+    #   handler.on_initial_response { |event| process_initial_response(event) }
+    #   stream = client.start_stream_transcription({
     #     language_code: 'en-US', # accepts ["en-US", "en-GB", "es-US", "fr-CA", "fr-FR", "en-AU", "it-IT", "de-DE", "pt-BR", "ja-JP", "ko-KR", "zh-CN", "hi-IN", "th-TH"]
     #     media_sample_rate_hertz: 1, # required
     #     media_encoding: 'pcm', # required - accepts ["pcm", "ogg-opus", "flac"]
     #     vocabulary_name: 'VocabularyName',
     #     session_id: 'SessionId',
-    #     audio_stream: {
-    #       # One of:
-    #       audio_event: {
-    #         audio_chunk: 'AudioChunk'
-    #       },
-    #       configuration_event: {
-    #         channel_definitions: [
-    #           {
-    #             channel_id: 1, # required
-    #             participant_role: 'AGENT' # required - accepts ["AGENT", "CUSTOMER"]
-    #           }
-    #         ],
-    #         post_call_analytics_settings: {
-    #           output_location: 'OutputLocation', # required
-    #           data_access_role_arn: 'DataAccessRoleArn', # required
-    #           content_redaction_output: 'redacted', # accepts ["redacted", "redacted_and_unredacted"]
-    #           output_encryption_kms_key_id: 'OutputEncryptionKMSKeyId'
-    #         }
-    #       }
-    #     }, # required
     #     vocabulary_filter_name: 'VocabularyFilterName',
     #     vocabulary_filter_method: 'remove', # accepts ["remove", "mask", "tag"]
     #     show_speaker_label: false,
@@ -419,83 +304,33 @@ module AWS::SDK::TranscribeStreaming
     #     identify_multiple_languages: false,
     #     vocabulary_names: 'VocabularyNames',
     #     vocabulary_filter_names: 'VocabularyFilterNames'
+    #   }, event_stream_handler: handler)
+    # @example Sending input events with placeholder values
+    #   stream = client.start_stream_transcription(params)
+    #   # send (signal) input events
+    #   stream.signal_audio_event(
+    #     audio_chunk: 'AudioChunk'
     #   )
-    # @example Response structure
-    #   resp.data #=> Types::StartStreamTranscriptionOutput
-    #   resp.data.request_id #=> String
-    #   resp.data.language_code #=> String, one of ["en-US", "en-GB", "es-US", "fr-CA", "fr-FR", "en-AU", "it-IT", "de-DE", "pt-BR", "ja-JP", "ko-KR", "zh-CN", "hi-IN", "th-TH"]
-    #   resp.data.media_sample_rate_hertz #=> Integer
-    #   resp.data.media_encoding #=> String, one of ["pcm", "ogg-opus", "flac"]
-    #   resp.data.vocabulary_name #=> String
-    #   resp.data.session_id #=> String
-    #   resp.data.transcript_result_stream #=> Types::TranscriptResultStream, one of [TranscriptEvent, BadRequestException, LimitExceededException, InternalFailureException, ConflictException, ServiceUnavailableException]
-    #   resp.data.transcript_result_stream.transcript_event #=> Types::TranscriptEvent
-    #   resp.data.transcript_result_stream.transcript_event.transcript #=> Types::Transcript
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results #=> Array<Result>
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0] #=> Types::Result
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].result_id #=> String
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].start_time #=> Float
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].end_time #=> Float
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].is_partial #=> Boolean
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].alternatives #=> Array<Alternative>
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].alternatives[0] #=> Types::Alternative
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].alternatives[0].transcript #=> String
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].alternatives[0].items #=> Array<Item>
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].alternatives[0].items[0] #=> Types::Item
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].alternatives[0].items[0].start_time #=> Float
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].alternatives[0].items[0].end_time #=> Float
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].alternatives[0].items[0].type #=> String, one of ["pronunciation", "punctuation"]
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].alternatives[0].items[0].content #=> String
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].alternatives[0].items[0].vocabulary_filter_match #=> Boolean
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].alternatives[0].items[0].speaker #=> String
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].alternatives[0].items[0].confidence #=> Float
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].alternatives[0].items[0].stable #=> Boolean
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].alternatives[0].entities #=> Array<Entity>
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].alternatives[0].entities[0] #=> Types::Entity
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].alternatives[0].entities[0].start_time #=> Float
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].alternatives[0].entities[0].end_time #=> Float
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].alternatives[0].entities[0].category #=> String
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].alternatives[0].entities[0].type #=> String
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].alternatives[0].entities[0].content #=> String
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].alternatives[0].entities[0].confidence #=> Float
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].channel_id #=> String
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].language_code #=> String, one of ["en-US", "en-GB", "es-US", "fr-CA", "fr-FR", "en-AU", "it-IT", "de-DE", "pt-BR", "ja-JP", "ko-KR", "zh-CN", "hi-IN", "th-TH"]
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].language_identification #=> Array<LanguageWithScore>
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].language_identification[0] #=> Types::LanguageWithScore
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].language_identification[0].language_code #=> String, one of ["en-US", "en-GB", "es-US", "fr-CA", "fr-FR", "en-AU", "it-IT", "de-DE", "pt-BR", "ja-JP", "ko-KR", "zh-CN", "hi-IN", "th-TH"]
-    #   resp.data.transcript_result_stream.transcript_event.transcript.results[0].language_identification[0].score #=> Float
-    #   resp.data.transcript_result_stream.bad_request_exception #=> Types::BadRequestException
-    #   resp.data.transcript_result_stream.bad_request_exception.message #=> String
-    #   resp.data.transcript_result_stream.limit_exceeded_exception #=> Types::LimitExceededException
-    #   resp.data.transcript_result_stream.limit_exceeded_exception.message #=> String
-    #   resp.data.transcript_result_stream.internal_failure_exception #=> Types::InternalFailureException
-    #   resp.data.transcript_result_stream.internal_failure_exception.message #=> String
-    #   resp.data.transcript_result_stream.conflict_exception #=> Types::ConflictException
-    #   resp.data.transcript_result_stream.conflict_exception.message #=> String
-    #   resp.data.transcript_result_stream.service_unavailable_exception #=> Types::ServiceUnavailableException
-    #   resp.data.transcript_result_stream.service_unavailable_exception.message #=> String
-    #   resp.data.vocabulary_filter_name #=> String
-    #   resp.data.vocabulary_filter_method #=> String, one of ["remove", "mask", "tag"]
-    #   resp.data.show_speaker_label #=> Boolean
-    #   resp.data.enable_channel_identification #=> Boolean
-    #   resp.data.number_of_channels #=> Integer
-    #   resp.data.enable_partial_results_stabilization #=> Boolean
-    #   resp.data.partial_results_stability #=> String, one of ["high", "medium", "low"]
-    #   resp.data.content_identification_type #=> String, one of ["PII"]
-    #   resp.data.content_redaction_type #=> String, one of ["PII"]
-    #   resp.data.pii_entity_types #=> String
-    #   resp.data.language_model_name #=> String
-    #   resp.data.identify_language #=> Boolean
-    #   resp.data.language_options #=> String
-    #   resp.data.preferred_language #=> String, one of ["en-US", "en-GB", "es-US", "fr-CA", "fr-FR", "en-AU", "it-IT", "de-DE", "pt-BR", "ja-JP", "ko-KR", "zh-CN", "hi-IN", "th-TH"]
-    #   resp.data.identify_multiple_languages #=> Boolean
-    #   resp.data.vocabulary_names #=> String
-    #   resp.data.vocabulary_filter_names #=> String
+    #
+    #   stream.signal_configuration_event(
+    #     channel_definitions: [
+    #       {
+    #         channel_id: 1, # required
+    #         participant_role: 'AGENT' # required - accepts ["AGENT", "CUSTOMER"]
+    #       }
+    #     ],
+    #     post_call_analytics_settings: {
+    #       output_location: 'OutputLocation', # required
+    #       data_access_role_arn: 'DataAccessRoleArn', # required
+    #       content_redaction_output: 'redacted', # accepts ["redacted", "redacted_and_unredacted"]
+    #       output_encryption_kms_key_id: 'OutputEncryptionKMSKeyId'
+    #     }
+    #   )
     def start_stream_transcription(params = {}, options = {})
+      response_body = ::StringIO.new
       middleware_opts = {}
       middleware_opts[:event_stream_handler] = options.delete(:event_stream_handler)
       raise ArgumentError, 'Missing `event_stream_handler`' unless middleware_opts[:event_stream_handler]
-      response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::StartStreamTranscriptionInput.build(params, context: 'params')
       stack = AWS::SDK::TranscribeStreaming::Middleware::StartStreamTranscription.build(config, middleware_opts)

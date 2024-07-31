@@ -14,7 +14,7 @@ module AWS::SDK::CloudWatch
   module Middleware
 
     class DeleteAlarms
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -65,7 +65,7 @@ module AWS::SDK::CloudWatch
     end
 
     class DeleteAnomalyDetector
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -116,7 +116,7 @@ module AWS::SDK::CloudWatch
     end
 
     class DeleteDashboards
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -167,7 +167,7 @@ module AWS::SDK::CloudWatch
     end
 
     class DeleteInsightRules
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -218,7 +218,7 @@ module AWS::SDK::CloudWatch
     end
 
     class DeleteMetricStream
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -269,7 +269,7 @@ module AWS::SDK::CloudWatch
     end
 
     class DescribeAlarmHistory
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -320,7 +320,7 @@ module AWS::SDK::CloudWatch
     end
 
     class DescribeAlarms
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -371,7 +371,7 @@ module AWS::SDK::CloudWatch
     end
 
     class DescribeAlarmsForMetric
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -422,7 +422,7 @@ module AWS::SDK::CloudWatch
     end
 
     class DescribeAnomalyDetectors
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -473,7 +473,7 @@ module AWS::SDK::CloudWatch
     end
 
     class DescribeInsightRules
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -524,7 +524,7 @@ module AWS::SDK::CloudWatch
     end
 
     class DisableAlarmActions
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -575,7 +575,7 @@ module AWS::SDK::CloudWatch
     end
 
     class DisableInsightRules
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -626,7 +626,7 @@ module AWS::SDK::CloudWatch
     end
 
     class EnableAlarmActions
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -677,7 +677,7 @@ module AWS::SDK::CloudWatch
     end
 
     class EnableInsightRules
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -728,7 +728,7 @@ module AWS::SDK::CloudWatch
     end
 
     class GetDashboard
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -779,7 +779,7 @@ module AWS::SDK::CloudWatch
     end
 
     class GetInsightRuleReport
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -830,7 +830,7 @@ module AWS::SDK::CloudWatch
     end
 
     class GetMetricData
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -881,7 +881,7 @@ module AWS::SDK::CloudWatch
     end
 
     class GetMetricStatistics
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -932,7 +932,7 @@ module AWS::SDK::CloudWatch
     end
 
     class GetMetricStream
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -983,7 +983,7 @@ module AWS::SDK::CloudWatch
     end
 
     class GetMetricWidgetImage
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1034,7 +1034,7 @@ module AWS::SDK::CloudWatch
     end
 
     class ListDashboards
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1085,7 +1085,7 @@ module AWS::SDK::CloudWatch
     end
 
     class ListManagedInsightRules
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1136,7 +1136,7 @@ module AWS::SDK::CloudWatch
     end
 
     class ListMetricStreams
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1187,7 +1187,7 @@ module AWS::SDK::CloudWatch
     end
 
     class ListMetrics
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1238,7 +1238,7 @@ module AWS::SDK::CloudWatch
     end
 
     class ListTagsForResource
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1289,7 +1289,7 @@ module AWS::SDK::CloudWatch
     end
 
     class PutAnomalyDetector
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1340,7 +1340,7 @@ module AWS::SDK::CloudWatch
     end
 
     class PutCompositeAlarm
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1391,7 +1391,7 @@ module AWS::SDK::CloudWatch
     end
 
     class PutDashboard
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1442,7 +1442,7 @@ module AWS::SDK::CloudWatch
     end
 
     class PutInsightRule
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1493,7 +1493,7 @@ module AWS::SDK::CloudWatch
     end
 
     class PutManagedInsightRules
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1544,7 +1544,7 @@ module AWS::SDK::CloudWatch
     end
 
     class PutMetricAlarm
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1595,7 +1595,7 @@ module AWS::SDK::CloudWatch
     end
 
     class PutMetricData
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1652,7 +1652,7 @@ module AWS::SDK::CloudWatch
     end
 
     class PutMetricStream
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1703,7 +1703,7 @@ module AWS::SDK::CloudWatch
     end
 
     class SetAlarmState
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1754,7 +1754,7 @@ module AWS::SDK::CloudWatch
     end
 
     class StartMetricStreams
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1805,7 +1805,7 @@ module AWS::SDK::CloudWatch
     end
 
     class StopMetricStreams
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1856,7 +1856,7 @@ module AWS::SDK::CloudWatch
     end
 
     class TagResource
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1907,7 +1907,7 @@ module AWS::SDK::CloudWatch
     end
 
     class UntagResource
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,

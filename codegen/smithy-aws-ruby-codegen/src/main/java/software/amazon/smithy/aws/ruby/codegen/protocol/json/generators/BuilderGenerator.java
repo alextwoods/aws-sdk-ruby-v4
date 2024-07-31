@@ -67,61 +67,64 @@ public class BuilderGenerator extends BuilderGeneratorBase {
     }
 
     @Override
-    protected void renderOperationBuildMethod(OperationShape operation, Shape inputShape) {
+    protected void renderOperationBuildMethod(OperationShape operation, Shape inputShape, boolean isEventStream) {
         String target = context.service().getId().getName() + "." + operation.getId().getName();
         writer
                 .openBlock("def self.build(http_req, input:)")
                 .write("http_req.http_method = 'POST'")
                 .write("http_req.append_path('/')")
-                .write("http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'")
+                .call(() -> {
+                    renderContentTypeHeader(operation, isEventStream);
+                })
+
                 .write("http_req.headers['X-Amz-Target'] = '$L'", target)
-                .write("data = {}")
-                .call(() -> renderMemberBuilders(inputShape))
-                .write("http_req.body = $T.new($T.dump(data))",
-                        RubyImportContainer.STRING_IO, Hearth.JSON)
+                .call(() -> {
+                    if (isEventStream) {
+                        renderEventStreamInitialRequestMessage(inputShape);
+                    } else {
+                        writer
+                                .write("data = {}")
+                                .call(() -> renderMemberBuilders(inputShape))
+                                .write("http_req.body = $T.new($T.dump(data))",
+                                        RubyImportContainer.STRING_IO, Hearth.JSON);
+                    }
+                })
                 .closeBlock("end");
     }
 
-    @Override
-    protected void renderEventStreamOperationBuildMethod(OperationShape operation, Shape inputShape) {
+    private void renderEventStreamInitialRequestMessage(Shape inputShape) {
         boolean serializeBody = inputShape.members().stream()
                 .filter(NoSerializeTrait.excludeNoSerializeMembers())
                 .filter((m) -> !StreamingTrait.isEventStream(model, m))
                 .findAny().isPresent();
+        if (serializeBody) {
+            writer
+                    .write("data = {}")
+                    .call(() -> renderMemberBuilders(inputShape))
+                    .write("message = Hearth::EventStream::Message.new")
+                    .write("message.headers[':message-type'] = "
+                            + "Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')")
+                    .write("message.headers[':event-type'] = "
+                            + "Hearth::EventStream::HeaderValue.new(value: 'initial-request', "
+                            + "type: 'string')")
+                    .write("message.headers[':content-type'] = "
+                            + "Hearth::EventStream::HeaderValue.new(value: 'application/x-amz-json-1.1', "
+                            + "type: 'string')")
+                    .write("message.payload = $T.new($T.dump(data))",
+                            RubyImportContainer.STRING_IO, Hearth.JSON)
+                    .write("http_req.body = message");
+        }
+    }
 
-        String target = context.service().getId().getName() + "." + operation.getId().getName();
-
-        writer
-                .openBlock("def self.build(http_req, input:)")
-                .write("http_req.http_method = 'POST'")
-                .write("http_req.append_path('/')")
-                .write("http_req.headers['X-Amz-Target'] = '$L'", target)
-                .write("http_req.headers['Content-Type'] = 'application/vnd.amazon.eventstream'")
-                .call(() -> {
-                    if (Streaming.isEventStreaming(model, model.expectShape(operation.getOutputShape()))) {
-                        writer.write("http_req.headers['Accept'] = 'application/vnd.amazon.eventstream'");
-                    }
-                })
-                .call(() -> {
-                    if (serializeBody) {
-                        writer
-                                .write("data = {}")
-                                .call(() -> renderMemberBuilders(inputShape))
-                                .write("message = Hearth::EventStream::Message.new")
-                                .write("message.headers[':message-type'] = "
-                                        + "Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')")
-                                .write("message.headers[':event-type'] = "
-                                        + "Hearth::EventStream::HeaderValue.new(value: 'initial-request', "
-                                        + "type: 'string')")
-                                .write("message.headers[':content-type'] = "
-                                        + "Hearth::EventStream::HeaderValue.new(value: 'application/x-amz-json-1.1', "
-                                        + "type: 'string')")
-                                .write("message.payload = $T.new($T.dump(data))",
-                        RubyImportContainer.STRING_IO, Hearth.JSON)
-                                .write("http_req.body = message");
-                    }
-                })
-                .closeBlock("end");
+    private void renderContentTypeHeader(OperationShape operation, boolean isEventStream) {
+        if (isEventStream) {
+            writer.write("http_req.headers['Content-Type'] = 'application/vnd.amazon.eventstream'");
+            if (Streaming.isEventStreaming(model, model.expectShape(operation.getOutputShape()))) {
+                writer.write("http_req.headers['Accept'] = 'application/vnd.amazon.eventstream'");
+            }
+        } else {
+            writer.write("http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'");
+        }
     }
 
     @Override

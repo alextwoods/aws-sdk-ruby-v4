@@ -14,7 +14,7 @@ module AWS::SDK::EC2
   module Middleware
 
     class AcceptAddressTransfer
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -65,7 +65,7 @@ module AWS::SDK::EC2
     end
 
     class AcceptReservedInstancesExchangeQuote
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -116,7 +116,7 @@ module AWS::SDK::EC2
     end
 
     class AcceptTransitGatewayMulticastDomainAssociations
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -167,7 +167,7 @@ module AWS::SDK::EC2
     end
 
     class AcceptTransitGatewayPeeringAttachment
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -218,7 +218,7 @@ module AWS::SDK::EC2
     end
 
     class AcceptTransitGatewayVpcAttachment
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -269,7 +269,7 @@ module AWS::SDK::EC2
     end
 
     class AcceptVpcEndpointConnections
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -320,7 +320,7 @@ module AWS::SDK::EC2
     end
 
     class AcceptVpcPeeringConnection
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -371,7 +371,7 @@ module AWS::SDK::EC2
     end
 
     class AdvertiseByoipCidr
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -422,7 +422,7 @@ module AWS::SDK::EC2
     end
 
     class AllocateAddress
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -473,7 +473,7 @@ module AWS::SDK::EC2
     end
 
     class AllocateHosts
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -524,7 +524,7 @@ module AWS::SDK::EC2
     end
 
     class AllocateIpamPoolCidr
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -575,7 +575,7 @@ module AWS::SDK::EC2
     end
 
     class ApplySecurityGroupsToClientVpnTargetNetwork
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -626,7 +626,7 @@ module AWS::SDK::EC2
     end
 
     class AssignIpv6Addresses
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -677,7 +677,7 @@ module AWS::SDK::EC2
     end
 
     class AssignPrivateIpAddresses
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -728,7 +728,7 @@ module AWS::SDK::EC2
     end
 
     class AssignPrivateNatGatewayAddress
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -779,7 +779,7 @@ module AWS::SDK::EC2
     end
 
     class AssociateAddress
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -830,7 +830,7 @@ module AWS::SDK::EC2
     end
 
     class AssociateClientVpnTargetNetwork
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -881,7 +881,7 @@ module AWS::SDK::EC2
     end
 
     class AssociateDhcpOptions
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -932,7 +932,7 @@ module AWS::SDK::EC2
     end
 
     class AssociateEnclaveCertificateIamRole
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -983,7 +983,7 @@ module AWS::SDK::EC2
     end
 
     class AssociateIamInstanceProfile
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1034,7 +1034,7 @@ module AWS::SDK::EC2
     end
 
     class AssociateInstanceEventWindow
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1085,7 +1085,7 @@ module AWS::SDK::EC2
     end
 
     class AssociateIpamByoasn
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1136,7 +1136,7 @@ module AWS::SDK::EC2
     end
 
     class AssociateIpamResourceDiscovery
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1187,7 +1187,7 @@ module AWS::SDK::EC2
     end
 
     class AssociateNatGatewayAddress
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1238,7 +1238,7 @@ module AWS::SDK::EC2
     end
 
     class AssociateRouteTable
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1289,7 +1289,7 @@ module AWS::SDK::EC2
     end
 
     class AssociateSubnetCidrBlock
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1340,7 +1340,7 @@ module AWS::SDK::EC2
     end
 
     class AssociateTransitGatewayMulticastDomain
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1391,7 +1391,7 @@ module AWS::SDK::EC2
     end
 
     class AssociateTransitGatewayPolicyTable
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1442,7 +1442,7 @@ module AWS::SDK::EC2
     end
 
     class AssociateTransitGatewayRouteTable
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1493,7 +1493,7 @@ module AWS::SDK::EC2
     end
 
     class AssociateTrunkInterface
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1544,7 +1544,7 @@ module AWS::SDK::EC2
     end
 
     class AssociateVpcCidrBlock
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1595,7 +1595,7 @@ module AWS::SDK::EC2
     end
 
     class AttachClassicLinkVpc
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1646,7 +1646,7 @@ module AWS::SDK::EC2
     end
 
     class AttachInternetGateway
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1697,7 +1697,7 @@ module AWS::SDK::EC2
     end
 
     class AttachNetworkInterface
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1748,7 +1748,7 @@ module AWS::SDK::EC2
     end
 
     class AttachVerifiedAccessTrustProvider
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1799,7 +1799,7 @@ module AWS::SDK::EC2
     end
 
     class AttachVolume
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1850,7 +1850,7 @@ module AWS::SDK::EC2
     end
 
     class AttachVpnGateway
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1901,7 +1901,7 @@ module AWS::SDK::EC2
     end
 
     class AuthorizeClientVpnIngress
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1952,7 +1952,7 @@ module AWS::SDK::EC2
     end
 
     class AuthorizeSecurityGroupEgress
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2003,7 +2003,7 @@ module AWS::SDK::EC2
     end
 
     class AuthorizeSecurityGroupIngress
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2054,7 +2054,7 @@ module AWS::SDK::EC2
     end
 
     class BundleInstance
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2105,7 +2105,7 @@ module AWS::SDK::EC2
     end
 
     class CancelBundleTask
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2156,7 +2156,7 @@ module AWS::SDK::EC2
     end
 
     class CancelCapacityReservation
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2207,7 +2207,7 @@ module AWS::SDK::EC2
     end
 
     class CancelCapacityReservationFleets
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2258,7 +2258,7 @@ module AWS::SDK::EC2
     end
 
     class CancelConversionTask
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2309,7 +2309,7 @@ module AWS::SDK::EC2
     end
 
     class CancelExportTask
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2360,7 +2360,7 @@ module AWS::SDK::EC2
     end
 
     class CancelImageLaunchPermission
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2411,7 +2411,7 @@ module AWS::SDK::EC2
     end
 
     class CancelImportTask
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2462,7 +2462,7 @@ module AWS::SDK::EC2
     end
 
     class CancelReservedInstancesListing
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2513,7 +2513,7 @@ module AWS::SDK::EC2
     end
 
     class CancelSpotFleetRequests
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2564,7 +2564,7 @@ module AWS::SDK::EC2
     end
 
     class CancelSpotInstanceRequests
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2615,7 +2615,7 @@ module AWS::SDK::EC2
     end
 
     class ConfirmProductInstance
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2666,7 +2666,7 @@ module AWS::SDK::EC2
     end
 
     class CopyFpgaImage
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2717,7 +2717,7 @@ module AWS::SDK::EC2
     end
 
     class CopyImage
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2768,7 +2768,7 @@ module AWS::SDK::EC2
     end
 
     class CopySnapshot
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2819,7 +2819,7 @@ module AWS::SDK::EC2
     end
 
     class CreateCapacityReservation
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2870,7 +2870,7 @@ module AWS::SDK::EC2
     end
 
     class CreateCapacityReservationFleet
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2921,7 +2921,7 @@ module AWS::SDK::EC2
     end
 
     class CreateCarrierGateway
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2972,7 +2972,7 @@ module AWS::SDK::EC2
     end
 
     class CreateClientVpnEndpoint
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3023,7 +3023,7 @@ module AWS::SDK::EC2
     end
 
     class CreateClientVpnRoute
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3074,7 +3074,7 @@ module AWS::SDK::EC2
     end
 
     class CreateCoipCidr
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3125,7 +3125,7 @@ module AWS::SDK::EC2
     end
 
     class CreateCoipPool
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3176,7 +3176,7 @@ module AWS::SDK::EC2
     end
 
     class CreateCustomerGateway
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3227,7 +3227,7 @@ module AWS::SDK::EC2
     end
 
     class CreateDefaultSubnet
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3278,7 +3278,7 @@ module AWS::SDK::EC2
     end
 
     class CreateDefaultVpc
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3329,7 +3329,7 @@ module AWS::SDK::EC2
     end
 
     class CreateDhcpOptions
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3380,7 +3380,7 @@ module AWS::SDK::EC2
     end
 
     class CreateEgressOnlyInternetGateway
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3431,7 +3431,7 @@ module AWS::SDK::EC2
     end
 
     class CreateFleet
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3482,7 +3482,7 @@ module AWS::SDK::EC2
     end
 
     class CreateFlowLogs
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3533,7 +3533,7 @@ module AWS::SDK::EC2
     end
 
     class CreateFpgaImage
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3584,7 +3584,7 @@ module AWS::SDK::EC2
     end
 
     class CreateImage
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3635,7 +3635,7 @@ module AWS::SDK::EC2
     end
 
     class CreateInstanceConnectEndpoint
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3686,7 +3686,7 @@ module AWS::SDK::EC2
     end
 
     class CreateInstanceEventWindow
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3737,7 +3737,7 @@ module AWS::SDK::EC2
     end
 
     class CreateInstanceExportTask
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3788,7 +3788,7 @@ module AWS::SDK::EC2
     end
 
     class CreateInternetGateway
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3839,7 +3839,7 @@ module AWS::SDK::EC2
     end
 
     class CreateIpam
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3890,7 +3890,7 @@ module AWS::SDK::EC2
     end
 
     class CreateIpamPool
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3941,7 +3941,7 @@ module AWS::SDK::EC2
     end
 
     class CreateIpamResourceDiscovery
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3992,7 +3992,7 @@ module AWS::SDK::EC2
     end
 
     class CreateIpamScope
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4043,7 +4043,7 @@ module AWS::SDK::EC2
     end
 
     class CreateKeyPair
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4094,7 +4094,7 @@ module AWS::SDK::EC2
     end
 
     class CreateLaunchTemplate
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4145,7 +4145,7 @@ module AWS::SDK::EC2
     end
 
     class CreateLaunchTemplateVersion
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4196,7 +4196,7 @@ module AWS::SDK::EC2
     end
 
     class CreateLocalGatewayRoute
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4247,7 +4247,7 @@ module AWS::SDK::EC2
     end
 
     class CreateLocalGatewayRouteTable
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4298,7 +4298,7 @@ module AWS::SDK::EC2
     end
 
     class CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4349,7 +4349,7 @@ module AWS::SDK::EC2
     end
 
     class CreateLocalGatewayRouteTableVpcAssociation
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4400,7 +4400,7 @@ module AWS::SDK::EC2
     end
 
     class CreateManagedPrefixList
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4451,7 +4451,7 @@ module AWS::SDK::EC2
     end
 
     class CreateNatGateway
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4502,7 +4502,7 @@ module AWS::SDK::EC2
     end
 
     class CreateNetworkAcl
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4553,7 +4553,7 @@ module AWS::SDK::EC2
     end
 
     class CreateNetworkAclEntry
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4604,7 +4604,7 @@ module AWS::SDK::EC2
     end
 
     class CreateNetworkInsightsAccessScope
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4655,7 +4655,7 @@ module AWS::SDK::EC2
     end
 
     class CreateNetworkInsightsPath
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4706,7 +4706,7 @@ module AWS::SDK::EC2
     end
 
     class CreateNetworkInterface
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4757,7 +4757,7 @@ module AWS::SDK::EC2
     end
 
     class CreateNetworkInterfacePermission
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4808,7 +4808,7 @@ module AWS::SDK::EC2
     end
 
     class CreatePlacementGroup
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4859,7 +4859,7 @@ module AWS::SDK::EC2
     end
 
     class CreatePublicIpv4Pool
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4910,7 +4910,7 @@ module AWS::SDK::EC2
     end
 
     class CreateReplaceRootVolumeTask
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4961,7 +4961,7 @@ module AWS::SDK::EC2
     end
 
     class CreateReservedInstancesListing
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5012,7 +5012,7 @@ module AWS::SDK::EC2
     end
 
     class CreateRestoreImageTask
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5063,7 +5063,7 @@ module AWS::SDK::EC2
     end
 
     class CreateRoute
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5114,7 +5114,7 @@ module AWS::SDK::EC2
     end
 
     class CreateRouteTable
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5165,7 +5165,7 @@ module AWS::SDK::EC2
     end
 
     class CreateSecurityGroup
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5216,7 +5216,7 @@ module AWS::SDK::EC2
     end
 
     class CreateSnapshot
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5267,7 +5267,7 @@ module AWS::SDK::EC2
     end
 
     class CreateSnapshots
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5318,7 +5318,7 @@ module AWS::SDK::EC2
     end
 
     class CreateSpotDatafeedSubscription
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5369,7 +5369,7 @@ module AWS::SDK::EC2
     end
 
     class CreateStoreImageTask
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5420,7 +5420,7 @@ module AWS::SDK::EC2
     end
 
     class CreateSubnet
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5471,7 +5471,7 @@ module AWS::SDK::EC2
     end
 
     class CreateSubnetCidrReservation
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5522,7 +5522,7 @@ module AWS::SDK::EC2
     end
 
     class CreateTags
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5573,7 +5573,7 @@ module AWS::SDK::EC2
     end
 
     class CreateTrafficMirrorFilter
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5624,7 +5624,7 @@ module AWS::SDK::EC2
     end
 
     class CreateTrafficMirrorFilterRule
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5675,7 +5675,7 @@ module AWS::SDK::EC2
     end
 
     class CreateTrafficMirrorSession
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5726,7 +5726,7 @@ module AWS::SDK::EC2
     end
 
     class CreateTrafficMirrorTarget
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5777,7 +5777,7 @@ module AWS::SDK::EC2
     end
 
     class CreateTransitGateway
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5828,7 +5828,7 @@ module AWS::SDK::EC2
     end
 
     class CreateTransitGatewayConnect
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5879,7 +5879,7 @@ module AWS::SDK::EC2
     end
 
     class CreateTransitGatewayConnectPeer
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5930,7 +5930,7 @@ module AWS::SDK::EC2
     end
 
     class CreateTransitGatewayMulticastDomain
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5981,7 +5981,7 @@ module AWS::SDK::EC2
     end
 
     class CreateTransitGatewayPeeringAttachment
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6032,7 +6032,7 @@ module AWS::SDK::EC2
     end
 
     class CreateTransitGatewayPolicyTable
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6083,7 +6083,7 @@ module AWS::SDK::EC2
     end
 
     class CreateTransitGatewayPrefixListReference
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6134,7 +6134,7 @@ module AWS::SDK::EC2
     end
 
     class CreateTransitGatewayRoute
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6185,7 +6185,7 @@ module AWS::SDK::EC2
     end
 
     class CreateTransitGatewayRouteTable
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6236,7 +6236,7 @@ module AWS::SDK::EC2
     end
 
     class CreateTransitGatewayRouteTableAnnouncement
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6287,7 +6287,7 @@ module AWS::SDK::EC2
     end
 
     class CreateTransitGatewayVpcAttachment
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6338,7 +6338,7 @@ module AWS::SDK::EC2
     end
 
     class CreateVerifiedAccessEndpoint
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6389,7 +6389,7 @@ module AWS::SDK::EC2
     end
 
     class CreateVerifiedAccessGroup
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6440,7 +6440,7 @@ module AWS::SDK::EC2
     end
 
     class CreateVerifiedAccessInstance
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6491,7 +6491,7 @@ module AWS::SDK::EC2
     end
 
     class CreateVerifiedAccessTrustProvider
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6542,7 +6542,7 @@ module AWS::SDK::EC2
     end
 
     class CreateVolume
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6593,7 +6593,7 @@ module AWS::SDK::EC2
     end
 
     class CreateVpc
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6644,7 +6644,7 @@ module AWS::SDK::EC2
     end
 
     class CreateVpcEndpoint
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6695,7 +6695,7 @@ module AWS::SDK::EC2
     end
 
     class CreateVpcEndpointConnectionNotification
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6746,7 +6746,7 @@ module AWS::SDK::EC2
     end
 
     class CreateVpcEndpointServiceConfiguration
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6797,7 +6797,7 @@ module AWS::SDK::EC2
     end
 
     class CreateVpcPeeringConnection
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6848,7 +6848,7 @@ module AWS::SDK::EC2
     end
 
     class CreateVpnConnection
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6899,7 +6899,7 @@ module AWS::SDK::EC2
     end
 
     class CreateVpnConnectionRoute
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6950,7 +6950,7 @@ module AWS::SDK::EC2
     end
 
     class CreateVpnGateway
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7001,7 +7001,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteCarrierGateway
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7052,7 +7052,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteClientVpnEndpoint
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7103,7 +7103,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteClientVpnRoute
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7154,7 +7154,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteCoipCidr
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7205,7 +7205,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteCoipPool
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7256,7 +7256,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteCustomerGateway
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7307,7 +7307,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteDhcpOptions
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7358,7 +7358,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteEgressOnlyInternetGateway
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7409,7 +7409,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteFleets
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7460,7 +7460,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteFlowLogs
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7511,7 +7511,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteFpgaImage
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7562,7 +7562,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteInstanceConnectEndpoint
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7613,7 +7613,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteInstanceEventWindow
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7664,7 +7664,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteInternetGateway
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7715,7 +7715,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteIpam
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7766,7 +7766,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteIpamPool
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7817,7 +7817,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteIpamResourceDiscovery
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7868,7 +7868,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteIpamScope
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7919,7 +7919,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteKeyPair
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7970,7 +7970,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteLaunchTemplate
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8021,7 +8021,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteLaunchTemplateVersions
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8072,7 +8072,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteLocalGatewayRoute
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8123,7 +8123,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteLocalGatewayRouteTable
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8174,7 +8174,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8225,7 +8225,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteLocalGatewayRouteTableVpcAssociation
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8276,7 +8276,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteManagedPrefixList
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8327,7 +8327,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteNatGateway
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8378,7 +8378,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteNetworkAcl
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8429,7 +8429,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteNetworkAclEntry
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8480,7 +8480,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteNetworkInsightsAccessScope
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8531,7 +8531,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteNetworkInsightsAccessScopeAnalysis
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8582,7 +8582,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteNetworkInsightsAnalysis
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8633,7 +8633,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteNetworkInsightsPath
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8684,7 +8684,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteNetworkInterface
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8735,7 +8735,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteNetworkInterfacePermission
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8786,7 +8786,7 @@ module AWS::SDK::EC2
     end
 
     class DeletePlacementGroup
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8837,7 +8837,7 @@ module AWS::SDK::EC2
     end
 
     class DeletePublicIpv4Pool
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8888,7 +8888,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteQueuedReservedInstances
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8939,7 +8939,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteRoute
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8990,7 +8990,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteRouteTable
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9041,7 +9041,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteSecurityGroup
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9092,7 +9092,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteSnapshot
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9143,7 +9143,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteSpotDatafeedSubscription
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9194,7 +9194,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteSubnet
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9245,7 +9245,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteSubnetCidrReservation
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9296,7 +9296,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteTags
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9347,7 +9347,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteTrafficMirrorFilter
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9398,7 +9398,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteTrafficMirrorFilterRule
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9449,7 +9449,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteTrafficMirrorSession
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9500,7 +9500,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteTrafficMirrorTarget
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9551,7 +9551,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteTransitGateway
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9602,7 +9602,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteTransitGatewayConnect
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9653,7 +9653,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteTransitGatewayConnectPeer
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9704,7 +9704,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteTransitGatewayMulticastDomain
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9755,7 +9755,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteTransitGatewayPeeringAttachment
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9806,7 +9806,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteTransitGatewayPolicyTable
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9857,7 +9857,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteTransitGatewayPrefixListReference
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9908,7 +9908,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteTransitGatewayRoute
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9959,7 +9959,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteTransitGatewayRouteTable
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10010,7 +10010,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteTransitGatewayRouteTableAnnouncement
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10061,7 +10061,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteTransitGatewayVpcAttachment
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10112,7 +10112,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteVerifiedAccessEndpoint
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10163,7 +10163,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteVerifiedAccessGroup
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10214,7 +10214,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteVerifiedAccessInstance
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10265,7 +10265,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteVerifiedAccessTrustProvider
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10316,7 +10316,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteVolume
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10367,7 +10367,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteVpc
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10418,7 +10418,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteVpcEndpointConnectionNotifications
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10469,7 +10469,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteVpcEndpointServiceConfigurations
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10520,7 +10520,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteVpcEndpoints
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10571,7 +10571,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteVpcPeeringConnection
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10622,7 +10622,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteVpnConnection
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10673,7 +10673,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteVpnConnectionRoute
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10724,7 +10724,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteVpnGateway
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10775,7 +10775,7 @@ module AWS::SDK::EC2
     end
 
     class DeprovisionByoipCidr
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10826,7 +10826,7 @@ module AWS::SDK::EC2
     end
 
     class DeprovisionIpamByoasn
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10877,7 +10877,7 @@ module AWS::SDK::EC2
     end
 
     class DeprovisionIpamPoolCidr
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10928,7 +10928,7 @@ module AWS::SDK::EC2
     end
 
     class DeprovisionPublicIpv4PoolCidr
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10979,7 +10979,7 @@ module AWS::SDK::EC2
     end
 
     class DeregisterImage
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11030,7 +11030,7 @@ module AWS::SDK::EC2
     end
 
     class DeregisterInstanceEventNotificationAttributes
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11081,7 +11081,7 @@ module AWS::SDK::EC2
     end
 
     class DeregisterTransitGatewayMulticastGroupMembers
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11132,7 +11132,7 @@ module AWS::SDK::EC2
     end
 
     class DeregisterTransitGatewayMulticastGroupSources
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11183,7 +11183,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeAccountAttributes
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11234,7 +11234,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeAddressTransfers
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11285,7 +11285,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeAddresses
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11336,7 +11336,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeAddressesAttribute
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11387,7 +11387,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeAggregateIdFormat
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11438,7 +11438,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeAvailabilityZones
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11489,7 +11489,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeAwsNetworkPerformanceMetricSubscriptions
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11540,7 +11540,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeBundleTasks
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11591,7 +11591,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeByoipCidrs
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11642,7 +11642,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeCapacityBlockOfferings
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11693,7 +11693,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeCapacityReservationFleets
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11744,7 +11744,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeCapacityReservations
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11795,7 +11795,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeCarrierGateways
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11846,7 +11846,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeClassicLinkInstances
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11897,7 +11897,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeClientVpnAuthorizationRules
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11948,7 +11948,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeClientVpnConnections
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11999,7 +11999,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeClientVpnEndpoints
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12050,7 +12050,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeClientVpnRoutes
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12101,7 +12101,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeClientVpnTargetNetworks
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12152,7 +12152,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeCoipPools
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12203,7 +12203,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeConversionTasks
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12254,7 +12254,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeCustomerGateways
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12305,7 +12305,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeDhcpOptions
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12356,7 +12356,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeEgressOnlyInternetGateways
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12407,7 +12407,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeElasticGpus
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12458,7 +12458,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeExportImageTasks
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12509,7 +12509,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeExportTasks
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12560,7 +12560,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeFastLaunchImages
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12611,7 +12611,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeFastSnapshotRestores
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12662,7 +12662,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeFleetHistory
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12713,7 +12713,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeFleetInstances
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12764,7 +12764,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeFleets
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12815,7 +12815,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeFlowLogs
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12866,7 +12866,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeFpgaImageAttribute
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12917,7 +12917,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeFpgaImages
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12968,7 +12968,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeHostReservationOfferings
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13019,7 +13019,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeHostReservations
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13070,7 +13070,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeHosts
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13121,7 +13121,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeIamInstanceProfileAssociations
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13172,7 +13172,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeIdFormat
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13223,7 +13223,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeIdentityIdFormat
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13274,7 +13274,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeImageAttribute
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13325,7 +13325,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeImages
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13376,7 +13376,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeImportImageTasks
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13427,7 +13427,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeImportSnapshotTasks
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13478,7 +13478,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeInstanceAttribute
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13529,7 +13529,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeInstanceConnectEndpoints
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13580,7 +13580,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeInstanceCreditSpecifications
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13631,7 +13631,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeInstanceEventNotificationAttributes
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13682,7 +13682,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeInstanceEventWindows
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13733,7 +13733,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeInstanceStatus
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13784,7 +13784,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeInstanceTopology
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13835,7 +13835,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeInstanceTypeOfferings
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13886,7 +13886,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeInstanceTypes
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13937,7 +13937,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeInstances
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13988,7 +13988,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeInternetGateways
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14039,7 +14039,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeIpamByoasn
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14090,7 +14090,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeIpamPools
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14141,7 +14141,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeIpamResourceDiscoveries
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14192,7 +14192,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeIpamResourceDiscoveryAssociations
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14243,7 +14243,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeIpamScopes
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14294,7 +14294,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeIpams
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14345,7 +14345,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeIpv6Pools
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14396,7 +14396,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeKeyPairs
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14447,7 +14447,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeLaunchTemplateVersions
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14498,7 +14498,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeLaunchTemplates
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14549,7 +14549,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14600,7 +14600,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeLocalGatewayRouteTableVpcAssociations
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14651,7 +14651,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeLocalGatewayRouteTables
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14702,7 +14702,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeLocalGatewayVirtualInterfaceGroups
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14753,7 +14753,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeLocalGatewayVirtualInterfaces
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14804,7 +14804,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeLocalGateways
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14855,7 +14855,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeLockedSnapshots
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14906,7 +14906,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeManagedPrefixLists
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14957,7 +14957,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeMovingAddresses
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15008,7 +15008,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeNatGateways
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15059,7 +15059,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeNetworkAcls
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15110,7 +15110,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeNetworkInsightsAccessScopeAnalyses
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15161,7 +15161,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeNetworkInsightsAccessScopes
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15212,7 +15212,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeNetworkInsightsAnalyses
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15263,7 +15263,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeNetworkInsightsPaths
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15314,7 +15314,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeNetworkInterfaceAttribute
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15365,7 +15365,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeNetworkInterfacePermissions
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15416,7 +15416,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeNetworkInterfaces
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15467,7 +15467,7 @@ module AWS::SDK::EC2
     end
 
     class DescribePlacementGroups
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15518,7 +15518,7 @@ module AWS::SDK::EC2
     end
 
     class DescribePrefixLists
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15569,7 +15569,7 @@ module AWS::SDK::EC2
     end
 
     class DescribePrincipalIdFormat
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15620,7 +15620,7 @@ module AWS::SDK::EC2
     end
 
     class DescribePublicIpv4Pools
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15671,7 +15671,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeRegions
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15722,7 +15722,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeReplaceRootVolumeTasks
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15773,7 +15773,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeReservedInstances
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15824,7 +15824,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeReservedInstancesListings
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15875,7 +15875,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeReservedInstancesModifications
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15926,7 +15926,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeReservedInstancesOfferings
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15977,7 +15977,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeRouteTables
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16028,7 +16028,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeScheduledInstanceAvailability
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16079,7 +16079,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeScheduledInstances
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16130,7 +16130,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeSecurityGroupReferences
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16181,7 +16181,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeSecurityGroupRules
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16232,7 +16232,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeSecurityGroups
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16283,7 +16283,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeSnapshotAttribute
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16334,7 +16334,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeSnapshotTierStatus
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16385,7 +16385,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeSnapshots
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16436,7 +16436,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeSpotDatafeedSubscription
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16487,7 +16487,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeSpotFleetInstances
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16538,7 +16538,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeSpotFleetRequestHistory
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16589,7 +16589,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeSpotFleetRequests
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16640,7 +16640,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeSpotInstanceRequests
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16691,7 +16691,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeSpotPriceHistory
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16742,7 +16742,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeStaleSecurityGroups
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16793,7 +16793,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeStoreImageTasks
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16844,7 +16844,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeSubnets
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16895,7 +16895,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeTags
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16946,7 +16946,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeTrafficMirrorFilters
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16997,7 +16997,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeTrafficMirrorSessions
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17048,7 +17048,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeTrafficMirrorTargets
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17099,7 +17099,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeTransitGatewayAttachments
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17150,7 +17150,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeTransitGatewayConnectPeers
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17201,7 +17201,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeTransitGatewayConnects
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17252,7 +17252,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeTransitGatewayMulticastDomains
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17303,7 +17303,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeTransitGatewayPeeringAttachments
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17354,7 +17354,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeTransitGatewayPolicyTables
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17405,7 +17405,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeTransitGatewayRouteTableAnnouncements
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17456,7 +17456,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeTransitGatewayRouteTables
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17507,7 +17507,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeTransitGatewayVpcAttachments
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17558,7 +17558,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeTransitGateways
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17609,7 +17609,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeTrunkInterfaceAssociations
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17660,7 +17660,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeVerifiedAccessEndpoints
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17711,7 +17711,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeVerifiedAccessGroups
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17762,7 +17762,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeVerifiedAccessInstanceLoggingConfigurations
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17813,7 +17813,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeVerifiedAccessInstances
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17864,7 +17864,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeVerifiedAccessTrustProviders
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17915,7 +17915,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeVolumeAttribute
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17966,7 +17966,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeVolumeStatus
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18017,7 +18017,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeVolumes
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18068,7 +18068,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeVolumesModifications
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18119,7 +18119,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeVpcAttribute
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18170,7 +18170,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeVpcClassicLink
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18221,7 +18221,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeVpcClassicLinkDnsSupport
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18272,7 +18272,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeVpcEndpointConnectionNotifications
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18323,7 +18323,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeVpcEndpointConnections
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18374,7 +18374,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeVpcEndpointServiceConfigurations
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18425,7 +18425,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeVpcEndpointServicePermissions
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18476,7 +18476,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeVpcEndpointServices
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18527,7 +18527,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeVpcEndpoints
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18578,7 +18578,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeVpcPeeringConnections
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18629,7 +18629,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeVpcs
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18680,7 +18680,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeVpnConnections
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18731,7 +18731,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeVpnGateways
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18782,7 +18782,7 @@ module AWS::SDK::EC2
     end
 
     class DetachClassicLinkVpc
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18833,7 +18833,7 @@ module AWS::SDK::EC2
     end
 
     class DetachInternetGateway
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18884,7 +18884,7 @@ module AWS::SDK::EC2
     end
 
     class DetachNetworkInterface
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18935,7 +18935,7 @@ module AWS::SDK::EC2
     end
 
     class DetachVerifiedAccessTrustProvider
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18986,7 +18986,7 @@ module AWS::SDK::EC2
     end
 
     class DetachVolume
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19037,7 +19037,7 @@ module AWS::SDK::EC2
     end
 
     class DetachVpnGateway
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19088,7 +19088,7 @@ module AWS::SDK::EC2
     end
 
     class DisableAddressTransfer
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19139,7 +19139,7 @@ module AWS::SDK::EC2
     end
 
     class DisableAwsNetworkPerformanceMetricSubscription
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19190,7 +19190,7 @@ module AWS::SDK::EC2
     end
 
     class DisableEbsEncryptionByDefault
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19241,7 +19241,7 @@ module AWS::SDK::EC2
     end
 
     class DisableFastLaunch
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19292,7 +19292,7 @@ module AWS::SDK::EC2
     end
 
     class DisableFastSnapshotRestores
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19343,7 +19343,7 @@ module AWS::SDK::EC2
     end
 
     class DisableImage
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19394,7 +19394,7 @@ module AWS::SDK::EC2
     end
 
     class DisableImageBlockPublicAccess
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19445,7 +19445,7 @@ module AWS::SDK::EC2
     end
 
     class DisableImageDeprecation
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19496,7 +19496,7 @@ module AWS::SDK::EC2
     end
 
     class DisableIpamOrganizationAdminAccount
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19547,7 +19547,7 @@ module AWS::SDK::EC2
     end
 
     class DisableSerialConsoleAccess
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19598,7 +19598,7 @@ module AWS::SDK::EC2
     end
 
     class DisableSnapshotBlockPublicAccess
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19649,7 +19649,7 @@ module AWS::SDK::EC2
     end
 
     class DisableTransitGatewayRouteTablePropagation
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19700,7 +19700,7 @@ module AWS::SDK::EC2
     end
 
     class DisableVgwRoutePropagation
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19751,7 +19751,7 @@ module AWS::SDK::EC2
     end
 
     class DisableVpcClassicLink
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19802,7 +19802,7 @@ module AWS::SDK::EC2
     end
 
     class DisableVpcClassicLinkDnsSupport
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19853,7 +19853,7 @@ module AWS::SDK::EC2
     end
 
     class DisassociateAddress
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19904,7 +19904,7 @@ module AWS::SDK::EC2
     end
 
     class DisassociateClientVpnTargetNetwork
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19955,7 +19955,7 @@ module AWS::SDK::EC2
     end
 
     class DisassociateEnclaveCertificateIamRole
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20006,7 +20006,7 @@ module AWS::SDK::EC2
     end
 
     class DisassociateIamInstanceProfile
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20057,7 +20057,7 @@ module AWS::SDK::EC2
     end
 
     class DisassociateInstanceEventWindow
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20108,7 +20108,7 @@ module AWS::SDK::EC2
     end
 
     class DisassociateIpamByoasn
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20159,7 +20159,7 @@ module AWS::SDK::EC2
     end
 
     class DisassociateIpamResourceDiscovery
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20210,7 +20210,7 @@ module AWS::SDK::EC2
     end
 
     class DisassociateNatGatewayAddress
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20261,7 +20261,7 @@ module AWS::SDK::EC2
     end
 
     class DisassociateRouteTable
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20312,7 +20312,7 @@ module AWS::SDK::EC2
     end
 
     class DisassociateSubnetCidrBlock
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20363,7 +20363,7 @@ module AWS::SDK::EC2
     end
 
     class DisassociateTransitGatewayMulticastDomain
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20414,7 +20414,7 @@ module AWS::SDK::EC2
     end
 
     class DisassociateTransitGatewayPolicyTable
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20465,7 +20465,7 @@ module AWS::SDK::EC2
     end
 
     class DisassociateTransitGatewayRouteTable
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20516,7 +20516,7 @@ module AWS::SDK::EC2
     end
 
     class DisassociateTrunkInterface
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20567,7 +20567,7 @@ module AWS::SDK::EC2
     end
 
     class DisassociateVpcCidrBlock
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20618,7 +20618,7 @@ module AWS::SDK::EC2
     end
 
     class EnableAddressTransfer
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20669,7 +20669,7 @@ module AWS::SDK::EC2
     end
 
     class EnableAwsNetworkPerformanceMetricSubscription
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20720,7 +20720,7 @@ module AWS::SDK::EC2
     end
 
     class EnableEbsEncryptionByDefault
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20771,7 +20771,7 @@ module AWS::SDK::EC2
     end
 
     class EnableFastLaunch
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20822,7 +20822,7 @@ module AWS::SDK::EC2
     end
 
     class EnableFastSnapshotRestores
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20873,7 +20873,7 @@ module AWS::SDK::EC2
     end
 
     class EnableImage
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20924,7 +20924,7 @@ module AWS::SDK::EC2
     end
 
     class EnableImageBlockPublicAccess
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20975,7 +20975,7 @@ module AWS::SDK::EC2
     end
 
     class EnableImageDeprecation
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21026,7 +21026,7 @@ module AWS::SDK::EC2
     end
 
     class EnableIpamOrganizationAdminAccount
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21077,7 +21077,7 @@ module AWS::SDK::EC2
     end
 
     class EnableReachabilityAnalyzerOrganizationSharing
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21128,7 +21128,7 @@ module AWS::SDK::EC2
     end
 
     class EnableSerialConsoleAccess
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21179,7 +21179,7 @@ module AWS::SDK::EC2
     end
 
     class EnableSnapshotBlockPublicAccess
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21230,7 +21230,7 @@ module AWS::SDK::EC2
     end
 
     class EnableTransitGatewayRouteTablePropagation
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21281,7 +21281,7 @@ module AWS::SDK::EC2
     end
 
     class EnableVgwRoutePropagation
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21332,7 +21332,7 @@ module AWS::SDK::EC2
     end
 
     class EnableVolumeIO
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21383,7 +21383,7 @@ module AWS::SDK::EC2
     end
 
     class EnableVpcClassicLink
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21434,7 +21434,7 @@ module AWS::SDK::EC2
     end
 
     class EnableVpcClassicLinkDnsSupport
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21485,7 +21485,7 @@ module AWS::SDK::EC2
     end
 
     class ExportClientVpnClientCertificateRevocationList
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21536,7 +21536,7 @@ module AWS::SDK::EC2
     end
 
     class ExportClientVpnClientConfiguration
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21587,7 +21587,7 @@ module AWS::SDK::EC2
     end
 
     class ExportImage
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21638,7 +21638,7 @@ module AWS::SDK::EC2
     end
 
     class ExportTransitGatewayRoutes
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21689,7 +21689,7 @@ module AWS::SDK::EC2
     end
 
     class GetAssociatedEnclaveCertificateIamRoles
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21740,7 +21740,7 @@ module AWS::SDK::EC2
     end
 
     class GetAssociatedIpv6PoolCidrs
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21791,7 +21791,7 @@ module AWS::SDK::EC2
     end
 
     class GetAwsNetworkPerformanceData
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21842,7 +21842,7 @@ module AWS::SDK::EC2
     end
 
     class GetCapacityReservationUsage
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21893,7 +21893,7 @@ module AWS::SDK::EC2
     end
 
     class GetCoipPoolUsage
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21944,7 +21944,7 @@ module AWS::SDK::EC2
     end
 
     class GetConsoleOutput
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21995,7 +21995,7 @@ module AWS::SDK::EC2
     end
 
     class GetConsoleScreenshot
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22046,7 +22046,7 @@ module AWS::SDK::EC2
     end
 
     class GetDefaultCreditSpecification
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22097,7 +22097,7 @@ module AWS::SDK::EC2
     end
 
     class GetEbsDefaultKmsKeyId
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22148,7 +22148,7 @@ module AWS::SDK::EC2
     end
 
     class GetEbsEncryptionByDefault
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22199,7 +22199,7 @@ module AWS::SDK::EC2
     end
 
     class GetFlowLogsIntegrationTemplate
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22250,7 +22250,7 @@ module AWS::SDK::EC2
     end
 
     class GetGroupsForCapacityReservation
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22301,7 +22301,7 @@ module AWS::SDK::EC2
     end
 
     class GetHostReservationPurchasePreview
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22352,7 +22352,7 @@ module AWS::SDK::EC2
     end
 
     class GetImageBlockPublicAccessState
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22403,7 +22403,7 @@ module AWS::SDK::EC2
     end
 
     class GetInstanceTypesFromInstanceRequirements
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22454,7 +22454,7 @@ module AWS::SDK::EC2
     end
 
     class GetInstanceUefiData
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22505,7 +22505,7 @@ module AWS::SDK::EC2
     end
 
     class GetIpamAddressHistory
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22556,7 +22556,7 @@ module AWS::SDK::EC2
     end
 
     class GetIpamDiscoveredAccounts
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22607,7 +22607,7 @@ module AWS::SDK::EC2
     end
 
     class GetIpamDiscoveredPublicAddresses
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22658,7 +22658,7 @@ module AWS::SDK::EC2
     end
 
     class GetIpamDiscoveredResourceCidrs
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22709,7 +22709,7 @@ module AWS::SDK::EC2
     end
 
     class GetIpamPoolAllocations
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22760,7 +22760,7 @@ module AWS::SDK::EC2
     end
 
     class GetIpamPoolCidrs
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22811,7 +22811,7 @@ module AWS::SDK::EC2
     end
 
     class GetIpamResourceCidrs
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22862,7 +22862,7 @@ module AWS::SDK::EC2
     end
 
     class GetLaunchTemplateData
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22913,7 +22913,7 @@ module AWS::SDK::EC2
     end
 
     class GetManagedPrefixListAssociations
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22964,7 +22964,7 @@ module AWS::SDK::EC2
     end
 
     class GetManagedPrefixListEntries
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23015,7 +23015,7 @@ module AWS::SDK::EC2
     end
 
     class GetNetworkInsightsAccessScopeAnalysisFindings
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23066,7 +23066,7 @@ module AWS::SDK::EC2
     end
 
     class GetNetworkInsightsAccessScopeContent
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23117,7 +23117,7 @@ module AWS::SDK::EC2
     end
 
     class GetPasswordData
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23168,7 +23168,7 @@ module AWS::SDK::EC2
     end
 
     class GetReservedInstancesExchangeQuote
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23219,7 +23219,7 @@ module AWS::SDK::EC2
     end
 
     class GetSecurityGroupsForVpc
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23270,7 +23270,7 @@ module AWS::SDK::EC2
     end
 
     class GetSerialConsoleAccessStatus
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23321,7 +23321,7 @@ module AWS::SDK::EC2
     end
 
     class GetSnapshotBlockPublicAccessState
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23372,7 +23372,7 @@ module AWS::SDK::EC2
     end
 
     class GetSpotPlacementScores
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23423,7 +23423,7 @@ module AWS::SDK::EC2
     end
 
     class GetSubnetCidrReservations
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23474,7 +23474,7 @@ module AWS::SDK::EC2
     end
 
     class GetTransitGatewayAttachmentPropagations
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23525,7 +23525,7 @@ module AWS::SDK::EC2
     end
 
     class GetTransitGatewayMulticastDomainAssociations
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23576,7 +23576,7 @@ module AWS::SDK::EC2
     end
 
     class GetTransitGatewayPolicyTableAssociations
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23627,7 +23627,7 @@ module AWS::SDK::EC2
     end
 
     class GetTransitGatewayPolicyTableEntries
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23678,7 +23678,7 @@ module AWS::SDK::EC2
     end
 
     class GetTransitGatewayPrefixListReferences
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23729,7 +23729,7 @@ module AWS::SDK::EC2
     end
 
     class GetTransitGatewayRouteTableAssociations
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23780,7 +23780,7 @@ module AWS::SDK::EC2
     end
 
     class GetTransitGatewayRouteTablePropagations
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23831,7 +23831,7 @@ module AWS::SDK::EC2
     end
 
     class GetVerifiedAccessEndpointPolicy
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23882,7 +23882,7 @@ module AWS::SDK::EC2
     end
 
     class GetVerifiedAccessGroupPolicy
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23933,7 +23933,7 @@ module AWS::SDK::EC2
     end
 
     class GetVpnConnectionDeviceSampleConfiguration
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23984,7 +23984,7 @@ module AWS::SDK::EC2
     end
 
     class GetVpnConnectionDeviceTypes
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24035,7 +24035,7 @@ module AWS::SDK::EC2
     end
 
     class GetVpnTunnelReplacementStatus
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24086,7 +24086,7 @@ module AWS::SDK::EC2
     end
 
     class ImportClientVpnClientCertificateRevocationList
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24137,7 +24137,7 @@ module AWS::SDK::EC2
     end
 
     class ImportImage
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24188,7 +24188,7 @@ module AWS::SDK::EC2
     end
 
     class ImportInstance
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24239,7 +24239,7 @@ module AWS::SDK::EC2
     end
 
     class ImportKeyPair
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24290,7 +24290,7 @@ module AWS::SDK::EC2
     end
 
     class ImportSnapshot
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24341,7 +24341,7 @@ module AWS::SDK::EC2
     end
 
     class ImportVolume
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24392,7 +24392,7 @@ module AWS::SDK::EC2
     end
 
     class ListImagesInRecycleBin
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24443,7 +24443,7 @@ module AWS::SDK::EC2
     end
 
     class ListSnapshotsInRecycleBin
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24494,7 +24494,7 @@ module AWS::SDK::EC2
     end
 
     class LockSnapshot
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24545,7 +24545,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyAddressAttribute
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24596,7 +24596,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyAvailabilityZoneGroup
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24647,7 +24647,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyCapacityReservation
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24698,7 +24698,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyCapacityReservationFleet
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24749,7 +24749,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyClientVpnEndpoint
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24800,7 +24800,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyDefaultCreditSpecification
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24851,7 +24851,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyEbsDefaultKmsKeyId
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24902,7 +24902,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyFleet
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24953,7 +24953,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyFpgaImageAttribute
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25004,7 +25004,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyHosts
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25055,7 +25055,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyIdFormat
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25106,7 +25106,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyIdentityIdFormat
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25157,7 +25157,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyImageAttribute
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25208,7 +25208,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyInstanceAttribute
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25259,7 +25259,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyInstanceCapacityReservationAttributes
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25310,7 +25310,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyInstanceCreditSpecification
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25361,7 +25361,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyInstanceEventStartTime
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25412,7 +25412,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyInstanceEventWindow
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25463,7 +25463,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyInstanceMaintenanceOptions
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25514,7 +25514,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyInstanceMetadataOptions
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25565,7 +25565,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyInstancePlacement
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25616,7 +25616,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyIpam
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25667,7 +25667,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyIpamPool
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25718,7 +25718,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyIpamResourceCidr
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25769,7 +25769,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyIpamResourceDiscovery
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25820,7 +25820,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyIpamScope
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25871,7 +25871,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyLaunchTemplate
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25922,7 +25922,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyLocalGatewayRoute
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25973,7 +25973,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyManagedPrefixList
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26024,7 +26024,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyNetworkInterfaceAttribute
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26075,7 +26075,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyPrivateDnsNameOptions
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26126,7 +26126,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyReservedInstances
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26177,7 +26177,7 @@ module AWS::SDK::EC2
     end
 
     class ModifySecurityGroupRules
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26228,7 +26228,7 @@ module AWS::SDK::EC2
     end
 
     class ModifySnapshotAttribute
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26279,7 +26279,7 @@ module AWS::SDK::EC2
     end
 
     class ModifySnapshotTier
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26330,7 +26330,7 @@ module AWS::SDK::EC2
     end
 
     class ModifySpotFleetRequest
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26381,7 +26381,7 @@ module AWS::SDK::EC2
     end
 
     class ModifySubnetAttribute
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26432,7 +26432,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyTrafficMirrorFilterNetworkServices
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26483,7 +26483,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyTrafficMirrorFilterRule
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26534,7 +26534,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyTrafficMirrorSession
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26585,7 +26585,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyTransitGateway
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26636,7 +26636,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyTransitGatewayPrefixListReference
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26687,7 +26687,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyTransitGatewayVpcAttachment
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26738,7 +26738,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyVerifiedAccessEndpoint
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26789,7 +26789,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyVerifiedAccessEndpointPolicy
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26840,7 +26840,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyVerifiedAccessGroup
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26891,7 +26891,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyVerifiedAccessGroupPolicy
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26942,7 +26942,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyVerifiedAccessInstance
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26993,7 +26993,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyVerifiedAccessInstanceLoggingConfiguration
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27044,7 +27044,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyVerifiedAccessTrustProvider
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27095,7 +27095,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyVolume
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27146,7 +27146,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyVolumeAttribute
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27197,7 +27197,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyVpcAttribute
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27248,7 +27248,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyVpcEndpoint
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27299,7 +27299,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyVpcEndpointConnectionNotification
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27350,7 +27350,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyVpcEndpointServiceConfiguration
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27401,7 +27401,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyVpcEndpointServicePayerResponsibility
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27452,7 +27452,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyVpcEndpointServicePermissions
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27503,7 +27503,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyVpcPeeringConnectionOptions
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27554,7 +27554,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyVpcTenancy
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27605,7 +27605,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyVpnConnection
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27656,7 +27656,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyVpnConnectionOptions
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27707,7 +27707,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyVpnTunnelCertificate
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27758,7 +27758,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyVpnTunnelOptions
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27809,7 +27809,7 @@ module AWS::SDK::EC2
     end
 
     class MonitorInstances
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27860,7 +27860,7 @@ module AWS::SDK::EC2
     end
 
     class MoveAddressToVpc
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27911,7 +27911,7 @@ module AWS::SDK::EC2
     end
 
     class MoveByoipCidrToIpam
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27962,7 +27962,7 @@ module AWS::SDK::EC2
     end
 
     class ProvisionByoipCidr
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28013,7 +28013,7 @@ module AWS::SDK::EC2
     end
 
     class ProvisionIpamByoasn
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28064,7 +28064,7 @@ module AWS::SDK::EC2
     end
 
     class ProvisionIpamPoolCidr
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28115,7 +28115,7 @@ module AWS::SDK::EC2
     end
 
     class ProvisionPublicIpv4PoolCidr
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28166,7 +28166,7 @@ module AWS::SDK::EC2
     end
 
     class PurchaseCapacityBlock
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28217,7 +28217,7 @@ module AWS::SDK::EC2
     end
 
     class PurchaseHostReservation
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28268,7 +28268,7 @@ module AWS::SDK::EC2
     end
 
     class PurchaseReservedInstancesOffering
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28319,7 +28319,7 @@ module AWS::SDK::EC2
     end
 
     class PurchaseScheduledInstances
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28370,7 +28370,7 @@ module AWS::SDK::EC2
     end
 
     class RebootInstances
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28421,7 +28421,7 @@ module AWS::SDK::EC2
     end
 
     class RegisterImage
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28472,7 +28472,7 @@ module AWS::SDK::EC2
     end
 
     class RegisterInstanceEventNotificationAttributes
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28523,7 +28523,7 @@ module AWS::SDK::EC2
     end
 
     class RegisterTransitGatewayMulticastGroupMembers
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28574,7 +28574,7 @@ module AWS::SDK::EC2
     end
 
     class RegisterTransitGatewayMulticastGroupSources
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28625,7 +28625,7 @@ module AWS::SDK::EC2
     end
 
     class RejectTransitGatewayMulticastDomainAssociations
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28676,7 +28676,7 @@ module AWS::SDK::EC2
     end
 
     class RejectTransitGatewayPeeringAttachment
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28727,7 +28727,7 @@ module AWS::SDK::EC2
     end
 
     class RejectTransitGatewayVpcAttachment
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28778,7 +28778,7 @@ module AWS::SDK::EC2
     end
 
     class RejectVpcEndpointConnections
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28829,7 +28829,7 @@ module AWS::SDK::EC2
     end
 
     class RejectVpcPeeringConnection
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28880,7 +28880,7 @@ module AWS::SDK::EC2
     end
 
     class ReleaseAddress
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28931,7 +28931,7 @@ module AWS::SDK::EC2
     end
 
     class ReleaseHosts
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28982,7 +28982,7 @@ module AWS::SDK::EC2
     end
 
     class ReleaseIpamPoolAllocation
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29033,7 +29033,7 @@ module AWS::SDK::EC2
     end
 
     class ReplaceIamInstanceProfileAssociation
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29084,7 +29084,7 @@ module AWS::SDK::EC2
     end
 
     class ReplaceNetworkAclAssociation
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29135,7 +29135,7 @@ module AWS::SDK::EC2
     end
 
     class ReplaceNetworkAclEntry
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29186,7 +29186,7 @@ module AWS::SDK::EC2
     end
 
     class ReplaceRoute
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29237,7 +29237,7 @@ module AWS::SDK::EC2
     end
 
     class ReplaceRouteTableAssociation
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29288,7 +29288,7 @@ module AWS::SDK::EC2
     end
 
     class ReplaceTransitGatewayRoute
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29339,7 +29339,7 @@ module AWS::SDK::EC2
     end
 
     class ReplaceVpnTunnel
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29390,7 +29390,7 @@ module AWS::SDK::EC2
     end
 
     class ReportInstanceStatus
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29441,7 +29441,7 @@ module AWS::SDK::EC2
     end
 
     class RequestSpotFleet
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29492,7 +29492,7 @@ module AWS::SDK::EC2
     end
 
     class RequestSpotInstances
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29543,7 +29543,7 @@ module AWS::SDK::EC2
     end
 
     class ResetAddressAttribute
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29594,7 +29594,7 @@ module AWS::SDK::EC2
     end
 
     class ResetEbsDefaultKmsKeyId
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29645,7 +29645,7 @@ module AWS::SDK::EC2
     end
 
     class ResetFpgaImageAttribute
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29696,7 +29696,7 @@ module AWS::SDK::EC2
     end
 
     class ResetImageAttribute
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29747,7 +29747,7 @@ module AWS::SDK::EC2
     end
 
     class ResetInstanceAttribute
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29798,7 +29798,7 @@ module AWS::SDK::EC2
     end
 
     class ResetNetworkInterfaceAttribute
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29849,7 +29849,7 @@ module AWS::SDK::EC2
     end
 
     class ResetSnapshotAttribute
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29900,7 +29900,7 @@ module AWS::SDK::EC2
     end
 
     class RestoreAddressToClassic
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29951,7 +29951,7 @@ module AWS::SDK::EC2
     end
 
     class RestoreImageFromRecycleBin
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30002,7 +30002,7 @@ module AWS::SDK::EC2
     end
 
     class RestoreManagedPrefixListVersion
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30053,7 +30053,7 @@ module AWS::SDK::EC2
     end
 
     class RestoreSnapshotFromRecycleBin
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30104,7 +30104,7 @@ module AWS::SDK::EC2
     end
 
     class RestoreSnapshotTier
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30155,7 +30155,7 @@ module AWS::SDK::EC2
     end
 
     class RevokeClientVpnIngress
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30206,7 +30206,7 @@ module AWS::SDK::EC2
     end
 
     class RevokeSecurityGroupEgress
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30257,7 +30257,7 @@ module AWS::SDK::EC2
     end
 
     class RevokeSecurityGroupIngress
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30308,7 +30308,7 @@ module AWS::SDK::EC2
     end
 
     class RunInstances
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30359,7 +30359,7 @@ module AWS::SDK::EC2
     end
 
     class RunScheduledInstances
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30410,7 +30410,7 @@ module AWS::SDK::EC2
     end
 
     class SearchLocalGatewayRoutes
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30461,7 +30461,7 @@ module AWS::SDK::EC2
     end
 
     class SearchTransitGatewayMulticastGroups
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30512,7 +30512,7 @@ module AWS::SDK::EC2
     end
 
     class SearchTransitGatewayRoutes
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30563,7 +30563,7 @@ module AWS::SDK::EC2
     end
 
     class SendDiagnosticInterrupt
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30614,7 +30614,7 @@ module AWS::SDK::EC2
     end
 
     class StartInstances
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30665,7 +30665,7 @@ module AWS::SDK::EC2
     end
 
     class StartNetworkInsightsAccessScopeAnalysis
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30716,7 +30716,7 @@ module AWS::SDK::EC2
     end
 
     class StartNetworkInsightsAnalysis
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30767,7 +30767,7 @@ module AWS::SDK::EC2
     end
 
     class StartVpcEndpointServicePrivateDnsVerification
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30818,7 +30818,7 @@ module AWS::SDK::EC2
     end
 
     class StopInstances
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30869,7 +30869,7 @@ module AWS::SDK::EC2
     end
 
     class TerminateClientVpnConnections
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30920,7 +30920,7 @@ module AWS::SDK::EC2
     end
 
     class TerminateInstances
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30971,7 +30971,7 @@ module AWS::SDK::EC2
     end
 
     class UnassignIpv6Addresses
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -31022,7 +31022,7 @@ module AWS::SDK::EC2
     end
 
     class UnassignPrivateIpAddresses
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -31073,7 +31073,7 @@ module AWS::SDK::EC2
     end
 
     class UnassignPrivateNatGatewayAddress
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -31124,7 +31124,7 @@ module AWS::SDK::EC2
     end
 
     class UnlockSnapshot
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -31175,7 +31175,7 @@ module AWS::SDK::EC2
     end
 
     class UnmonitorInstances
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -31226,7 +31226,7 @@ module AWS::SDK::EC2
     end
 
     class UpdateSecurityGroupRuleDescriptionsEgress
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -31277,7 +31277,7 @@ module AWS::SDK::EC2
     end
 
     class UpdateSecurityGroupRuleDescriptionsIngress
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -31328,7 +31328,7 @@ module AWS::SDK::EC2
     end
 
     class WithdrawByoipCidr
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,

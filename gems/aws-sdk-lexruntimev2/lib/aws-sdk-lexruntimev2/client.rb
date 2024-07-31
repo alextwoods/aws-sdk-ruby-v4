@@ -65,9 +65,10 @@ module AWS::SDK::LexRuntimeV2
     #   resp.data.session_id #=> String
     def delete_session(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::DeleteSessionInput.build(params, context: 'params')
-      stack = AWS::SDK::LexRuntimeV2::Middleware::DeleteSession.build(config)
+      stack = AWS::SDK::LexRuntimeV2::Middleware::DeleteSession.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -178,9 +179,10 @@ module AWS::SDK::LexRuntimeV2
     #   resp.data.session_state.runtime_hints.slot_hints['key']['key'].sub_slot_hints #=> Hash<String, RuntimeHintDetails>
     def get_session(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::GetSessionInput.build(params, context: 'params')
-      stack = AWS::SDK::LexRuntimeV2::Middleware::GetSession.build(config)
+      stack = AWS::SDK::LexRuntimeV2::Middleware::GetSession.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -298,9 +300,10 @@ module AWS::SDK::LexRuntimeV2
     #   resp.data.audio_stream #=> IO
     def put_session(params = {}, options = {}, &block)
       response_body = output_stream(options, &block)
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::PutSessionInput.build(params, context: 'params')
-      stack = AWS::SDK::LexRuntimeV2::Middleware::PutSession.build(config)
+      stack = AWS::SDK::LexRuntimeV2::Middleware::PutSession.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -494,9 +497,10 @@ module AWS::SDK::LexRuntimeV2
     #   resp.data.recognized_bot_member.bot_name #=> String
     def recognize_text(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::RecognizeTextInput.build(params, context: 'params')
-      stack = AWS::SDK::LexRuntimeV2::Middleware::RecognizeText.build(config)
+      stack = AWS::SDK::LexRuntimeV2::Middleware::RecognizeText.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -609,9 +613,10 @@ module AWS::SDK::LexRuntimeV2
     #   resp.data.recognized_bot_member #=> String
     def recognize_utterance(params = {}, options = {}, &block)
       response_body = output_stream(options, &block)
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::RecognizeUtteranceInput.build(params, context: 'params')
-      stack = AWS::SDK::LexRuntimeV2::Middleware::RecognizeUtterance.build(config)
+      stack = AWS::SDK::LexRuntimeV2::Middleware::RecognizeUtterance.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -691,237 +696,141 @@ module AWS::SDK::LexRuntimeV2
     # @param [Hash | Types::StartConversationInput] params
     #   Request parameters for this operation.
     #   See {Types::StartConversationInput#initialize} for available parameters.
+    #   Do not set values for the event stream member(`response_event_stream`).
+    #   Instead use the returned output to signal input events.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Hearth::Output]
-    # @example Request syntax with placeholder values
-    #   resp = client.start_conversation(
+    # @option options [EventStream::StartConversationHandler] :event_stream_handler
+    #   Event Stream Handler used to register handlers that will be called when events are received.
+    # @return [EventStream::StartConversationOutput]
+    #   An open stream that supports sending (signaling) input events to the service.
+    # @example Request syntax with placeholder values and registering an event handler
+    #   handler = StartConversationHandler.new
+    #   handler.on_initial_response { |event| process_initial_response(event) }
+    #   stream = client.start_conversation({
     #     bot_id: 'botId', # required
     #     bot_alias_id: 'botAliasId', # required
     #     locale_id: 'localeId', # required
     #     session_id: 'sessionId', # required
     #     conversation_mode: 'AUDIO', # accepts ["AUDIO", "TEXT"]
-    #     request_event_stream: {
-    #       # One of:
-    #       configuration_event: {
-    #         request_attributes: {
-    #           'key' => 'value'
-    #         },
-    #         response_content_type: 'responseContentType', # required
-    #         session_state: {
-    #           dialog_action: {
-    #             type: 'Close', # required - accepts ["Close", "ConfirmIntent", "Delegate", "ElicitIntent", "ElicitSlot", "None"]
-    #             slot_to_elicit: 'slotToElicit',
-    #             slot_elicitation_style: 'Default', # accepts ["Default", "SpellByLetter", "SpellByWord"]
-    #             sub_slot_to_elicit: {
-    #               name: 'name', # required
-    #             }
-    #           },
-    #           intent: {
-    #             name: 'name', # required
-    #             slots: {
-    #               'key' => {
-    #                 value: {
-    #                   original_value: 'originalValue',
-    #                   interpreted_value: 'interpretedValue', # required
-    #                   resolved_values: [
-    #                     'member'
-    #                   ]
-    #                 },
-    #                 shape: 'Scalar', # accepts ["Scalar", "List", "Composite"]
-    #               }
-    #             },
-    #             state: 'Failed', # accepts ["Failed", "Fulfilled", "InProgress", "ReadyForFulfillment", "Waiting", "FulfillmentInProgress"]
-    #             confirmation_state: 'Confirmed' # accepts ["Confirmed", "Denied", "None"]
-    #           },
-    #           active_contexts: [
-    #             {
-    #               name: 'name', # required
-    #               time_to_live: {
-    #                 time_to_live_in_seconds: 1, # required
-    #                 turns_to_live: 1 # required
-    #               }, # required
-    #               context_attributes: {
-    #                 'key' => 'value'
-    #               } # required
-    #             }
-    #           ],
-    #           originating_request_id: 'originatingRequestId',
-    #           runtime_hints: {
-    #             slot_hints: {
-    #               'key' => {
-    #                 'key' => {
-    #                   runtime_hint_values: [
-    #                     {
-    #                       phrase: 'phrase' # required
-    #                     }
-    #                   ],
-    #                 }
-    #               }
-    #             }
-    #           }
-    #         },
-    #         welcome_messages: [
-    #           {
-    #             content: 'content',
-    #             content_type: 'CustomPayload', # required - accepts ["CustomPayload", "ImageResponseCard", "PlainText", "SSML"]
-    #             image_response_card: {
-    #               title: 'title', # required
-    #               subtitle: 'subtitle',
-    #               image_url: 'imageUrl',
-    #               buttons: [
-    #                 {
-    #                   text: 'text', # required
-    #                   value: 'value' # required
-    #                 }
+    #   }, event_stream_handler: handler)
+    # @example Sending input events with placeholder values
+    #   stream = client.start_conversation(params)
+    #   # send (signal) input events
+    #   stream.signal_configuration_event(
+    #     request_attributes: {
+    #       'key' => 'value'
+    #     },
+    #     response_content_type: 'responseContentType', # required
+    #     session_state: {
+    #       dialog_action: {
+    #         type: 'Close', # required - accepts ["Close", "ConfirmIntent", "Delegate", "ElicitIntent", "ElicitSlot", "None"]
+    #         slot_to_elicit: 'slotToElicit',
+    #         slot_elicitation_style: 'Default', # accepts ["Default", "SpellByLetter", "SpellByWord"]
+    #         sub_slot_to_elicit: {
+    #           name: 'name', # required
+    #         }
+    #       },
+    #       intent: {
+    #         name: 'name', # required
+    #         slots: {
+    #           'key' => {
+    #             value: {
+    #               original_value: 'originalValue',
+    #               interpreted_value: 'interpretedValue', # required
+    #               resolved_values: [
+    #                 'member'
     #               ]
+    #             },
+    #             shape: 'Scalar', # accepts ["Scalar", "List", "Composite"]
+    #           }
+    #         },
+    #         state: 'Failed', # accepts ["Failed", "Fulfilled", "InProgress", "ReadyForFulfillment", "Waiting", "FulfillmentInProgress"]
+    #         confirmation_state: 'Confirmed' # accepts ["Confirmed", "Denied", "None"]
+    #       },
+    #       active_contexts: [
+    #         {
+    #           name: 'name', # required
+    #           time_to_live: {
+    #             time_to_live_in_seconds: 1, # required
+    #             turns_to_live: 1 # required
+    #           }, # required
+    #           context_attributes: {
+    #             'key' => 'value'
+    #           } # required
+    #         }
+    #       ],
+    #       originating_request_id: 'originatingRequestId',
+    #       runtime_hints: {
+    #         slot_hints: {
+    #           'key' => {
+    #             'key' => {
+    #               runtime_hint_values: [
+    #                 {
+    #                   phrase: 'phrase' # required
+    #                 }
+    #               ],
     #             }
     #           }
-    #         ],
-    #         disable_playback: false,
-    #         event_id: 'eventId',
-    #         client_timestamp_millis: 1
-    #       },
-    #       audio_input_event: {
-    #         audio_chunk: 'audioChunk',
-    #         content_type: 'contentType', # required
-    #         event_id: 'eventId',
-    #         client_timestamp_millis: 1
-    #       },
-    #       dtmf_input_event: {
-    #         input_character: 'inputCharacter', # required
-    #         event_id: 'eventId',
-    #         client_timestamp_millis: 1
-    #       },
-    #       text_input_event: {
-    #         text: 'text', # required
-    #         event_id: 'eventId',
-    #         client_timestamp_millis: 1
-    #       },
-    #       playback_completion_event: {
-    #         event_id: 'eventId',
-    #         client_timestamp_millis: 1
-    #       },
-    #       disconnection_event: {
-    #         event_id: 'eventId',
-    #         client_timestamp_millis: 1
+    #         }
     #       }
-    #     } # required
+    #     },
+    #     welcome_messages: [
+    #       {
+    #         content: 'content',
+    #         content_type: 'CustomPayload', # required - accepts ["CustomPayload", "ImageResponseCard", "PlainText", "SSML"]
+    #         image_response_card: {
+    #           title: 'title', # required
+    #           subtitle: 'subtitle',
+    #           image_url: 'imageUrl',
+    #           buttons: [
+    #             {
+    #               text: 'text', # required
+    #               value: 'value' # required
+    #             }
+    #           ]
+    #         }
+    #       }
+    #     ],
+    #     disable_playback: false,
+    #     event_id: 'eventId',
+    #     client_timestamp_millis: 1
     #   )
-    # @example Response structure
-    #   resp.data #=> Types::StartConversationOutput
-    #   resp.data.response_event_stream #=> Types::StartConversationResponseEventStream, one of [PlaybackInterruptionEvent, TranscriptEvent, IntentResultEvent, TextResponseEvent, AudioResponseEvent, HeartbeatEvent, AccessDeniedException, ResourceNotFoundException, ValidationException, ThrottlingException, InternalServerException, ConflictException, DependencyFailedException, BadGatewayException]
-    #   resp.data.response_event_stream.playback_interruption_event #=> Types::PlaybackInterruptionEvent
-    #   resp.data.response_event_stream.playback_interruption_event.event_reason #=> String, one of ["DTMF_START_DETECTED", "TEXT_DETECTED", "VOICE_START_DETECTED"]
-    #   resp.data.response_event_stream.playback_interruption_event.caused_by_event_id #=> String
-    #   resp.data.response_event_stream.playback_interruption_event.event_id #=> String
-    #   resp.data.response_event_stream.transcript_event #=> Types::TranscriptEvent
-    #   resp.data.response_event_stream.transcript_event.transcript #=> String
-    #   resp.data.response_event_stream.transcript_event.event_id #=> String
-    #   resp.data.response_event_stream.intent_result_event #=> Types::IntentResultEvent
-    #   resp.data.response_event_stream.intent_result_event.input_mode #=> String, one of ["Text", "Speech", "DTMF"]
-    #   resp.data.response_event_stream.intent_result_event.interpretations #=> Array<Interpretation>
-    #   resp.data.response_event_stream.intent_result_event.interpretations[0] #=> Types::Interpretation
-    #   resp.data.response_event_stream.intent_result_event.interpretations[0].nlu_confidence #=> Types::ConfidenceScore
-    #   resp.data.response_event_stream.intent_result_event.interpretations[0].nlu_confidence.score #=> Float
-    #   resp.data.response_event_stream.intent_result_event.interpretations[0].sentiment_response #=> Types::SentimentResponse
-    #   resp.data.response_event_stream.intent_result_event.interpretations[0].sentiment_response.sentiment #=> String, one of ["MIXED", "NEGATIVE", "NEUTRAL", "POSITIVE"]
-    #   resp.data.response_event_stream.intent_result_event.interpretations[0].sentiment_response.sentiment_score #=> Types::SentimentScore
-    #   resp.data.response_event_stream.intent_result_event.interpretations[0].sentiment_response.sentiment_score.positive #=> Float
-    #   resp.data.response_event_stream.intent_result_event.interpretations[0].sentiment_response.sentiment_score.negative #=> Float
-    #   resp.data.response_event_stream.intent_result_event.interpretations[0].sentiment_response.sentiment_score.neutral #=> Float
-    #   resp.data.response_event_stream.intent_result_event.interpretations[0].sentiment_response.sentiment_score.mixed #=> Float
-    #   resp.data.response_event_stream.intent_result_event.interpretations[0].intent #=> Types::Intent
-    #   resp.data.response_event_stream.intent_result_event.interpretations[0].intent.name #=> String
-    #   resp.data.response_event_stream.intent_result_event.interpretations[0].intent.slots #=> Hash<String, Slot>
-    #   resp.data.response_event_stream.intent_result_event.interpretations[0].intent.slots['key'] #=> Types::Slot
-    #   resp.data.response_event_stream.intent_result_event.interpretations[0].intent.slots['key'].value #=> Types::Value
-    #   resp.data.response_event_stream.intent_result_event.interpretations[0].intent.slots['key'].value.original_value #=> String
-    #   resp.data.response_event_stream.intent_result_event.interpretations[0].intent.slots['key'].value.interpreted_value #=> String
-    #   resp.data.response_event_stream.intent_result_event.interpretations[0].intent.slots['key'].value.resolved_values #=> Array<String>
-    #   resp.data.response_event_stream.intent_result_event.interpretations[0].intent.slots['key'].value.resolved_values[0] #=> String
-    #   resp.data.response_event_stream.intent_result_event.interpretations[0].intent.slots['key'].shape #=> String, one of ["Scalar", "List", "Composite"]
-    #   resp.data.response_event_stream.intent_result_event.interpretations[0].intent.slots['key'].values #=> Array<Slot>
-    #   resp.data.response_event_stream.intent_result_event.interpretations[0].intent.slots['key'].sub_slots #=> Hash<String, Slot>
-    #   resp.data.response_event_stream.intent_result_event.interpretations[0].intent.state #=> String, one of ["Failed", "Fulfilled", "InProgress", "ReadyForFulfillment", "Waiting", "FulfillmentInProgress"]
-    #   resp.data.response_event_stream.intent_result_event.interpretations[0].intent.confirmation_state #=> String, one of ["Confirmed", "Denied", "None"]
-    #   resp.data.response_event_stream.intent_result_event.interpretations[0].interpretation_source #=> String, one of ["Bedrock", "Lex"]
-    #   resp.data.response_event_stream.intent_result_event.session_state #=> Types::SessionState
-    #   resp.data.response_event_stream.intent_result_event.session_state.dialog_action #=> Types::DialogAction
-    #   resp.data.response_event_stream.intent_result_event.session_state.dialog_action.type #=> String, one of ["Close", "ConfirmIntent", "Delegate", "ElicitIntent", "ElicitSlot", "None"]
-    #   resp.data.response_event_stream.intent_result_event.session_state.dialog_action.slot_to_elicit #=> String
-    #   resp.data.response_event_stream.intent_result_event.session_state.dialog_action.slot_elicitation_style #=> String, one of ["Default", "SpellByLetter", "SpellByWord"]
-    #   resp.data.response_event_stream.intent_result_event.session_state.dialog_action.sub_slot_to_elicit #=> Types::ElicitSubSlot
-    #   resp.data.response_event_stream.intent_result_event.session_state.dialog_action.sub_slot_to_elicit.name #=> String
-    #   resp.data.response_event_stream.intent_result_event.session_state.dialog_action.sub_slot_to_elicit.sub_slot_to_elicit #=> Types::ElicitSubSlot
-    #   resp.data.response_event_stream.intent_result_event.session_state.intent #=> Types::Intent
-    #   resp.data.response_event_stream.intent_result_event.session_state.active_contexts #=> Array<ActiveContext>
-    #   resp.data.response_event_stream.intent_result_event.session_state.active_contexts[0] #=> Types::ActiveContext
-    #   resp.data.response_event_stream.intent_result_event.session_state.active_contexts[0].name #=> String
-    #   resp.data.response_event_stream.intent_result_event.session_state.active_contexts[0].time_to_live #=> Types::ActiveContextTimeToLive
-    #   resp.data.response_event_stream.intent_result_event.session_state.active_contexts[0].time_to_live.time_to_live_in_seconds #=> Integer
-    #   resp.data.response_event_stream.intent_result_event.session_state.active_contexts[0].time_to_live.turns_to_live #=> Integer
-    #   resp.data.response_event_stream.intent_result_event.session_state.active_contexts[0].context_attributes #=> Hash<String, String>
-    #   resp.data.response_event_stream.intent_result_event.session_state.active_contexts[0].context_attributes['key'] #=> String
-    #   resp.data.response_event_stream.intent_result_event.session_state.session_attributes #=> Hash<String, String>
-    #   resp.data.response_event_stream.intent_result_event.session_state.session_attributes['key'] #=> String
-    #   resp.data.response_event_stream.intent_result_event.session_state.originating_request_id #=> String
-    #   resp.data.response_event_stream.intent_result_event.session_state.runtime_hints #=> Types::RuntimeHints
-    #   resp.data.response_event_stream.intent_result_event.session_state.runtime_hints.slot_hints #=> Hash<String, Hash<String, RuntimeHintDetails>>
-    #   resp.data.response_event_stream.intent_result_event.session_state.runtime_hints.slot_hints['key'] #=> Hash<String, RuntimeHintDetails>
-    #   resp.data.response_event_stream.intent_result_event.session_state.runtime_hints.slot_hints['key']['key'] #=> Types::RuntimeHintDetails
-    #   resp.data.response_event_stream.intent_result_event.session_state.runtime_hints.slot_hints['key']['key'].runtime_hint_values #=> Array<RuntimeHintValue>
-    #   resp.data.response_event_stream.intent_result_event.session_state.runtime_hints.slot_hints['key']['key'].runtime_hint_values[0] #=> Types::RuntimeHintValue
-    #   resp.data.response_event_stream.intent_result_event.session_state.runtime_hints.slot_hints['key']['key'].runtime_hint_values[0].phrase #=> String
-    #   resp.data.response_event_stream.intent_result_event.session_state.runtime_hints.slot_hints['key']['key'].sub_slot_hints #=> Hash<String, RuntimeHintDetails>
-    #   resp.data.response_event_stream.intent_result_event.request_attributes #=> Hash<String, String>
-    #   resp.data.response_event_stream.intent_result_event.session_id #=> String
-    #   resp.data.response_event_stream.intent_result_event.event_id #=> String
-    #   resp.data.response_event_stream.intent_result_event.recognized_bot_member #=> Types::RecognizedBotMember
-    #   resp.data.response_event_stream.intent_result_event.recognized_bot_member.bot_id #=> String
-    #   resp.data.response_event_stream.intent_result_event.recognized_bot_member.bot_name #=> String
-    #   resp.data.response_event_stream.text_response_event #=> Types::TextResponseEvent
-    #   resp.data.response_event_stream.text_response_event.messages #=> Array<Message>
-    #   resp.data.response_event_stream.text_response_event.messages[0] #=> Types::Message
-    #   resp.data.response_event_stream.text_response_event.messages[0].content #=> String
-    #   resp.data.response_event_stream.text_response_event.messages[0].content_type #=> String, one of ["CustomPayload", "ImageResponseCard", "PlainText", "SSML"]
-    #   resp.data.response_event_stream.text_response_event.messages[0].image_response_card #=> Types::ImageResponseCard
-    #   resp.data.response_event_stream.text_response_event.messages[0].image_response_card.title #=> String
-    #   resp.data.response_event_stream.text_response_event.messages[0].image_response_card.subtitle #=> String
-    #   resp.data.response_event_stream.text_response_event.messages[0].image_response_card.image_url #=> String
-    #   resp.data.response_event_stream.text_response_event.messages[0].image_response_card.buttons #=> Array<Button>
-    #   resp.data.response_event_stream.text_response_event.messages[0].image_response_card.buttons[0] #=> Types::Button
-    #   resp.data.response_event_stream.text_response_event.messages[0].image_response_card.buttons[0].text #=> String
-    #   resp.data.response_event_stream.text_response_event.messages[0].image_response_card.buttons[0].value #=> String
-    #   resp.data.response_event_stream.text_response_event.event_id #=> String
-    #   resp.data.response_event_stream.audio_response_event #=> Types::AudioResponseEvent
-    #   resp.data.response_event_stream.audio_response_event.audio_chunk #=> String
-    #   resp.data.response_event_stream.audio_response_event.content_type #=> String
-    #   resp.data.response_event_stream.audio_response_event.event_id #=> String
-    #   resp.data.response_event_stream.heartbeat_event #=> Types::HeartbeatEvent
-    #   resp.data.response_event_stream.heartbeat_event.event_id #=> String
-    #   resp.data.response_event_stream.access_denied_exception #=> Types::AccessDeniedException
-    #   resp.data.response_event_stream.access_denied_exception.message #=> String
-    #   resp.data.response_event_stream.resource_not_found_exception #=> Types::ResourceNotFoundException
-    #   resp.data.response_event_stream.resource_not_found_exception.message #=> String
-    #   resp.data.response_event_stream.validation_exception #=> Types::ValidationException
-    #   resp.data.response_event_stream.validation_exception.message #=> String
-    #   resp.data.response_event_stream.throttling_exception #=> Types::ThrottlingException
-    #   resp.data.response_event_stream.throttling_exception.message #=> String
-    #   resp.data.response_event_stream.internal_server_exception #=> Types::InternalServerException
-    #   resp.data.response_event_stream.internal_server_exception.message #=> String
-    #   resp.data.response_event_stream.conflict_exception #=> Types::ConflictException
-    #   resp.data.response_event_stream.conflict_exception.message #=> String
-    #   resp.data.response_event_stream.dependency_failed_exception #=> Types::DependencyFailedException
-    #   resp.data.response_event_stream.dependency_failed_exception.message #=> String
-    #   resp.data.response_event_stream.bad_gateway_exception #=> Types::BadGatewayException
-    #   resp.data.response_event_stream.bad_gateway_exception.message #=> String
+    #
+    #   stream.signal_audio_input_event(
+    #     audio_chunk: 'audioChunk',
+    #     content_type: 'contentType', # required
+    #     event_id: 'eventId',
+    #     client_timestamp_millis: 1
+    #   )
+    #
+    #   stream.signal_dtmf_input_event(
+    #     input_character: 'inputCharacter', # required
+    #     event_id: 'eventId',
+    #     client_timestamp_millis: 1
+    #   )
+    #
+    #   stream.signal_text_input_event(
+    #     text: 'text', # required
+    #     event_id: 'eventId',
+    #     client_timestamp_millis: 1
+    #   )
+    #
+    #   stream.signal_playback_completion_event(
+    #     event_id: 'eventId',
+    #     client_timestamp_millis: 1
+    #   )
+    #
+    #   stream.signal_disconnection_event(
+    #     event_id: 'eventId',
+    #     client_timestamp_millis: 1
+    #   )
     def start_conversation(params = {}, options = {})
+      response_body = ::StringIO.new
       middleware_opts = {}
       middleware_opts[:event_stream_handler] = options.delete(:event_stream_handler)
       raise ArgumentError, 'Missing `event_stream_handler`' unless middleware_opts[:event_stream_handler]
-      response_body = ::StringIO.new
       config = operation_config(options)
       input = Params::StartConversationInput.build(params, context: 'params')
       stack = AWS::SDK::LexRuntimeV2::Middleware::StartConversation.build(config, middleware_opts)

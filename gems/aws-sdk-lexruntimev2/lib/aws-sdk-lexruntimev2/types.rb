@@ -2093,10 +2093,6 @@ module AWS::SDK::LexRuntimeV2
         def to_h
           { unknown: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::LexRuntimeV2::Types::Unknown #{__getobj__ || 'nil'}>"
-        end
       end
     end
 
@@ -2227,10 +2223,6 @@ module AWS::SDK::LexRuntimeV2
 
         def to_h
           { unknown: super(__getobj__) }
-        end
-
-        def to_s
-          "#<AWS::SDK::LexRuntimeV2::Types::Unknown #{__getobj__ || 'nil'}>"
         end
       end
     end

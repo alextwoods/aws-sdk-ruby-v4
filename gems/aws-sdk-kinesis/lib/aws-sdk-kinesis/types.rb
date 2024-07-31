@@ -3084,10 +3084,6 @@ module AWS::SDK::Kinesis
         def to_h
           { unknown: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::Kinesis::Types::Unknown #{__getobj__ || 'nil'}>"
-        end
       end
     end
 

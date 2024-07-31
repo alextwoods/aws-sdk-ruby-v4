@@ -14,7 +14,7 @@ module AWS::SDK::STS
   module Middleware
 
     class AssumeRole
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -65,7 +65,7 @@ module AWS::SDK::STS
     end
 
     class AssumeRoleWithSAML
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -116,7 +116,7 @@ module AWS::SDK::STS
     end
 
     class AssumeRoleWithWebIdentity
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -167,7 +167,7 @@ module AWS::SDK::STS
     end
 
     class DecodeAuthorizationMessage
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -218,7 +218,7 @@ module AWS::SDK::STS
     end
 
     class GetAccessKeyInfo
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -269,7 +269,7 @@ module AWS::SDK::STS
     end
 
     class GetCallerIdentity
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -320,7 +320,7 @@ module AWS::SDK::STS
     end
 
     class GetFederationToken
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -371,7 +371,7 @@ module AWS::SDK::STS
     end
 
     class GetSessionToken
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,

@@ -165,9 +165,10 @@ module AWS::SDK::KMS
     #   }
     def cancel_key_deletion(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::CancelKeyDeletionInput.build(params, context: 'params')
-      stack = AWS::SDK::KMS::Middleware::CancelKeyDeletion.build(config)
+      stack = AWS::SDK::KMS::Middleware::CancelKeyDeletion.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -297,9 +298,10 @@ module AWS::SDK::KMS
     #   {}
     def connect_custom_key_store(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::ConnectCustomKeyStoreInput.build(params, context: 'params')
-      stack = AWS::SDK::KMS::Middleware::ConnectCustomKeyStore.build(config)
+      stack = AWS::SDK::KMS::Middleware::ConnectCustomKeyStore.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -401,9 +403,10 @@ module AWS::SDK::KMS
     #   nil
     def create_alias(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::CreateAliasInput.build(params, context: 'params')
-      stack = AWS::SDK::KMS::Middleware::CreateAlias.build(config)
+      stack = AWS::SDK::KMS::Middleware::CreateAlias.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -553,9 +556,10 @@ module AWS::SDK::KMS
     #   }
     def create_custom_key_store(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::CreateCustomKeyStoreInput.build(params, context: 'params')
-      stack = AWS::SDK::KMS::Middleware::CreateCustomKeyStore.build(config)
+      stack = AWS::SDK::KMS::Middleware::CreateCustomKeyStore.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -685,9 +689,10 @@ module AWS::SDK::KMS
     #   }
     def create_grant(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::CreateGrantInput.build(params, context: 'params')
-      stack = AWS::SDK::KMS::Middleware::CreateGrant.build(config)
+      stack = AWS::SDK::KMS::Middleware::CreateGrant.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -935,9 +940,10 @@ module AWS::SDK::KMS
     #   resp.data.key_metadata.xks_key_configuration.id #=> String
     def create_key(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::CreateKeyInput.build(params, context: 'params')
-      stack = AWS::SDK::KMS::Middleware::CreateKey.build(config)
+      stack = AWS::SDK::KMS::Middleware::CreateKey.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1110,9 +1116,10 @@ module AWS::SDK::KMS
     #   }
     def decrypt(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::DecryptInput.build(params, context: 'params')
-      stack = AWS::SDK::KMS::Middleware::Decrypt.build(config)
+      stack = AWS::SDK::KMS::Middleware::Decrypt.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1203,9 +1210,10 @@ module AWS::SDK::KMS
     #   nil
     def delete_alias(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::DeleteAliasInput.build(params, context: 'params')
-      stack = AWS::SDK::KMS::Middleware::DeleteAlias.build(config)
+      stack = AWS::SDK::KMS::Middleware::DeleteAlias.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1307,9 +1315,10 @@ module AWS::SDK::KMS
     #   {}
     def delete_custom_key_store(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::DeleteCustomKeyStoreInput.build(params, context: 'params')
-      stack = AWS::SDK::KMS::Middleware::DeleteCustomKeyStore.build(config)
+      stack = AWS::SDK::KMS::Middleware::DeleteCustomKeyStore.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1380,9 +1389,10 @@ module AWS::SDK::KMS
     #   nil
     def delete_imported_key_material(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::DeleteImportedKeyMaterialInput.build(params, context: 'params')
-      stack = AWS::SDK::KMS::Middleware::DeleteImportedKeyMaterial.build(config)
+      stack = AWS::SDK::KMS::Middleware::DeleteImportedKeyMaterial.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1506,9 +1516,10 @@ module AWS::SDK::KMS
     #   }
     def describe_custom_key_stores(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::DescribeCustomKeyStoresInput.build(params, context: 'params')
-      stack = AWS::SDK::KMS::Middleware::DescribeCustomKeyStores.build(config)
+      stack = AWS::SDK::KMS::Middleware::DescribeCustomKeyStores.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1826,9 +1837,10 @@ module AWS::SDK::KMS
     #   }
     def describe_key(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::DescribeKeyInput.build(params, context: 'params')
-      stack = AWS::SDK::KMS::Middleware::DescribeKey.build(config)
+      stack = AWS::SDK::KMS::Middleware::DescribeKey.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1886,9 +1898,10 @@ module AWS::SDK::KMS
     #   nil
     def disable_key(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::DisableKeyInput.build(params, context: 'params')
-      stack = AWS::SDK::KMS::Middleware::DisableKey.build(config)
+      stack = AWS::SDK::KMS::Middleware::DisableKey.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1964,9 +1977,10 @@ module AWS::SDK::KMS
     #   nil
     def disable_key_rotation(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::DisableKeyRotationInput.build(params, context: 'params')
-      stack = AWS::SDK::KMS::Middleware::DisableKeyRotation.build(config)
+      stack = AWS::SDK::KMS::Middleware::DisableKeyRotation.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2061,9 +2075,10 @@ module AWS::SDK::KMS
     #   {}
     def disconnect_custom_key_store(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::DisconnectCustomKeyStoreInput.build(params, context: 'params')
-      stack = AWS::SDK::KMS::Middleware::DisconnectCustomKeyStore.build(config)
+      stack = AWS::SDK::KMS::Middleware::DisconnectCustomKeyStore.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2117,9 +2132,10 @@ module AWS::SDK::KMS
     #   nil
     def enable_key(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::EnableKeyInput.build(params, context: 'params')
-      stack = AWS::SDK::KMS::Middleware::EnableKey.build(config)
+      stack = AWS::SDK::KMS::Middleware::EnableKey.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2203,9 +2219,10 @@ module AWS::SDK::KMS
     #   nil
     def enable_key_rotation(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::EnableKeyRotationInput.build(params, context: 'params')
-      stack = AWS::SDK::KMS::Middleware::EnableKeyRotation.build(config)
+      stack = AWS::SDK::KMS::Middleware::EnableKeyRotation.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2388,9 +2405,10 @@ module AWS::SDK::KMS
     #   }
     def encrypt(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::EncryptInput.build(params, context: 'params')
-      stack = AWS::SDK::KMS::Middleware::Encrypt.build(config)
+      stack = AWS::SDK::KMS::Middleware::Encrypt.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2558,9 +2576,10 @@ module AWS::SDK::KMS
     #   }
     def generate_data_key(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::GenerateDataKeyInput.build(params, context: 'params')
-      stack = AWS::SDK::KMS::Middleware::GenerateDataKey.build(config)
+      stack = AWS::SDK::KMS::Middleware::GenerateDataKey.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2710,9 +2729,10 @@ module AWS::SDK::KMS
     #   }
     def generate_data_key_pair(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::GenerateDataKeyPairInput.build(params, context: 'params')
-      stack = AWS::SDK::KMS::Middleware::GenerateDataKeyPair.build(config)
+      stack = AWS::SDK::KMS::Middleware::GenerateDataKeyPair.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2837,9 +2857,10 @@ module AWS::SDK::KMS
     #   }
     def generate_data_key_pair_without_plaintext(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::GenerateDataKeyPairWithoutPlaintextInput.build(params, context: 'params')
-      stack = AWS::SDK::KMS::Middleware::GenerateDataKeyPairWithoutPlaintext.build(config)
+      stack = AWS::SDK::KMS::Middleware::GenerateDataKeyPairWithoutPlaintext.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2970,9 +2991,10 @@ module AWS::SDK::KMS
     #   }
     def generate_data_key_without_plaintext(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::GenerateDataKeyWithoutPlaintextInput.build(params, context: 'params')
-      stack = AWS::SDK::KMS::Middleware::GenerateDataKeyWithoutPlaintext.build(config)
+      stack = AWS::SDK::KMS::Middleware::GenerateDataKeyWithoutPlaintext.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3059,9 +3081,10 @@ module AWS::SDK::KMS
     #   }
     def generate_mac(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::GenerateMacInput.build(params, context: 'params')
-      stack = AWS::SDK::KMS::Middleware::GenerateMac.build(config)
+      stack = AWS::SDK::KMS::Middleware::GenerateMac.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3134,9 +3157,10 @@ module AWS::SDK::KMS
     #   }
     def generate_random(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::GenerateRandomInput.build(params, context: 'params')
-      stack = AWS::SDK::KMS::Middleware::GenerateRandom.build(config)
+      stack = AWS::SDK::KMS::Middleware::GenerateRandom.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3192,9 +3216,10 @@ module AWS::SDK::KMS
     #   }
     def get_key_policy(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::GetKeyPolicyInput.build(params, context: 'params')
-      stack = AWS::SDK::KMS::Middleware::GetKeyPolicy.build(config)
+      stack = AWS::SDK::KMS::Middleware::GetKeyPolicy.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3293,9 +3318,10 @@ module AWS::SDK::KMS
     #   }
     def get_key_rotation_status(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::GetKeyRotationStatusInput.build(params, context: 'params')
-      stack = AWS::SDK::KMS::Middleware::GetKeyRotationStatus.build(config)
+      stack = AWS::SDK::KMS::Middleware::GetKeyRotationStatus.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3410,9 +3436,10 @@ module AWS::SDK::KMS
     #   resp.data.parameters_valid_to #=> Time
     def get_parameters_for_import(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::GetParametersForImportInput.build(params, context: 'params')
-      stack = AWS::SDK::KMS::Middleware::GetParametersForImport.build(config)
+      stack = AWS::SDK::KMS::Middleware::GetParametersForImport.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3524,9 +3551,10 @@ module AWS::SDK::KMS
     #   }
     def get_public_key(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::GetPublicKeyInput.build(params, context: 'params')
-      stack = AWS::SDK::KMS::Middleware::GetPublicKey.build(config)
+      stack = AWS::SDK::KMS::Middleware::GetPublicKey.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3678,9 +3706,10 @@ module AWS::SDK::KMS
     #   nil
     def import_key_material(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::ImportKeyMaterialInput.build(params, context: 'params')
-      stack = AWS::SDK::KMS::Middleware::ImportKeyMaterial.build(config)
+      stack = AWS::SDK::KMS::Middleware::ImportKeyMaterial.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3816,9 +3845,10 @@ module AWS::SDK::KMS
     #   }
     def list_aliases(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::ListAliasesInput.build(params, context: 'params')
-      stack = AWS::SDK::KMS::Middleware::ListAliases.build(config)
+      stack = AWS::SDK::KMS::Middleware::ListAliases.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3919,9 +3949,10 @@ module AWS::SDK::KMS
     #   resp.data.truncated #=> Boolean
     def list_grants(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::ListGrantsInput.build(params, context: 'params')
-      stack = AWS::SDK::KMS::Middleware::ListGrants.build(config)
+      stack = AWS::SDK::KMS::Middleware::ListGrants.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3997,9 +4028,10 @@ module AWS::SDK::KMS
     #   }
     def list_key_policies(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::ListKeyPoliciesInput.build(params, context: 'params')
-      stack = AWS::SDK::KMS::Middleware::ListKeyPolicies.build(config)
+      stack = AWS::SDK::KMS::Middleware::ListKeyPolicies.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4108,9 +4140,10 @@ module AWS::SDK::KMS
     #   }
     def list_keys(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::ListKeysInput.build(params, context: 'params')
-      stack = AWS::SDK::KMS::Middleware::ListKeys.build(config)
+      stack = AWS::SDK::KMS::Middleware::ListKeys.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4211,9 +4244,10 @@ module AWS::SDK::KMS
     #   }
     def list_resource_tags(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::ListResourceTagsInput.build(params, context: 'params')
-      stack = AWS::SDK::KMS::Middleware::ListResourceTags.build(config)
+      stack = AWS::SDK::KMS::Middleware::ListResourceTags.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4319,9 +4353,10 @@ module AWS::SDK::KMS
     #   resp.data.truncated #=> Boolean
     def list_retirable_grants(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::ListRetirableGrantsInput.build(params, context: 'params')
-      stack = AWS::SDK::KMS::Middleware::ListRetirableGrants.build(config)
+      stack = AWS::SDK::KMS::Middleware::ListRetirableGrants.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4382,9 +4417,10 @@ module AWS::SDK::KMS
     #   nil
     def put_key_policy(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::PutKeyPolicyInput.build(params, context: 'params')
-      stack = AWS::SDK::KMS::Middleware::PutKeyPolicy.build(config)
+      stack = AWS::SDK::KMS::Middleware::PutKeyPolicy.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4543,9 +4579,10 @@ module AWS::SDK::KMS
     #   }
     def re_encrypt(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::ReEncryptInput.build(params, context: 'params')
-      stack = AWS::SDK::KMS::Middleware::ReEncrypt.build(config)
+      stack = AWS::SDK::KMS::Middleware::ReEncrypt.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4757,9 +4794,10 @@ module AWS::SDK::KMS
     #   }
     def replicate_key(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::ReplicateKeyInput.build(params, context: 'params')
-      stack = AWS::SDK::KMS::Middleware::ReplicateKey.build(config)
+      stack = AWS::SDK::KMS::Middleware::ReplicateKey.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4852,9 +4890,10 @@ module AWS::SDK::KMS
     #   nil
     def retire_grant(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::RetireGrantInput.build(params, context: 'params')
-      stack = AWS::SDK::KMS::Middleware::RetireGrant.build(config)
+      stack = AWS::SDK::KMS::Middleware::RetireGrant.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4944,9 +4983,10 @@ module AWS::SDK::KMS
     #   nil
     def revoke_grant(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::RevokeGrantInput.build(params, context: 'params')
-      stack = AWS::SDK::KMS::Middleware::RevokeGrant.build(config)
+      stack = AWS::SDK::KMS::Middleware::RevokeGrant.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5043,9 +5083,10 @@ module AWS::SDK::KMS
     #   resp.data.pending_window_in_days #=> Integer
     def schedule_key_deletion(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::ScheduleKeyDeletionInput.build(params, context: 'params')
-      stack = AWS::SDK::KMS::Middleware::ScheduleKeyDeletion.build(config)
+      stack = AWS::SDK::KMS::Middleware::ScheduleKeyDeletion.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5172,9 +5213,10 @@ module AWS::SDK::KMS
     #   }
     def sign(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::SignInput.build(params, context: 'params')
-      stack = AWS::SDK::KMS::Middleware::Sign.build(config)
+      stack = AWS::SDK::KMS::Middleware::Sign.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5276,9 +5318,10 @@ module AWS::SDK::KMS
     #   nil
     def tag_resource(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::TagResourceInput.build(params, context: 'params')
-      stack = AWS::SDK::KMS::Middleware::TagResource.build(config)
+      stack = AWS::SDK::KMS::Middleware::TagResource.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5370,9 +5413,10 @@ module AWS::SDK::KMS
     #   nil
     def untag_resource(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::UntagResourceInput.build(params, context: 'params')
-      stack = AWS::SDK::KMS::Middleware::UntagResource.build(config)
+      stack = AWS::SDK::KMS::Middleware::UntagResource.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5480,9 +5524,10 @@ module AWS::SDK::KMS
     #   nil
     def update_alias(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::UpdateAliasInput.build(params, context: 'params')
-      stack = AWS::SDK::KMS::Middleware::UpdateAlias.build(config)
+      stack = AWS::SDK::KMS::Middleware::UpdateAlias.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5668,9 +5713,10 @@ module AWS::SDK::KMS
     #   {}
     def update_custom_key_store(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::UpdateCustomKeyStoreInput.build(params, context: 'params')
-      stack = AWS::SDK::KMS::Middleware::UpdateCustomKeyStore.build(config)
+      stack = AWS::SDK::KMS::Middleware::UpdateCustomKeyStore.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5737,9 +5783,10 @@ module AWS::SDK::KMS
     #   nil
     def update_key_description(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::UpdateKeyDescriptionInput.build(params, context: 'params')
-      stack = AWS::SDK::KMS::Middleware::UpdateKeyDescription.build(config)
+      stack = AWS::SDK::KMS::Middleware::UpdateKeyDescription.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5853,9 +5900,10 @@ module AWS::SDK::KMS
     #   nil
     def update_primary_region(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::UpdatePrimaryRegionInput.build(params, context: 'params')
-      stack = AWS::SDK::KMS::Middleware::UpdatePrimaryRegion.build(config)
+      stack = AWS::SDK::KMS::Middleware::UpdatePrimaryRegion.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5968,9 +6016,10 @@ module AWS::SDK::KMS
     #   }
     def verify(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::VerifyInput.build(params, context: 'params')
-      stack = AWS::SDK::KMS::Middleware::Verify.build(config)
+      stack = AWS::SDK::KMS::Middleware::Verify.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -6051,9 +6100,10 @@ module AWS::SDK::KMS
     #   }
     def verify_mac(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::VerifyMacInput.build(params, context: 'params')
-      stack = AWS::SDK::KMS::Middleware::VerifyMac.build(config)
+      stack = AWS::SDK::KMS::Middleware::VerifyMac.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),

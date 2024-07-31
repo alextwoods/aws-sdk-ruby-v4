@@ -14,7 +14,7 @@ module AWS::SDK::SSOOIDC
   module Middleware
 
     class CreateToken
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -66,7 +66,7 @@ module AWS::SDK::SSOOIDC
     end
 
     class CreateTokenWithIAM
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -118,7 +118,7 @@ module AWS::SDK::SSOOIDC
     end
 
     class RegisterClient
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -170,7 +170,7 @@ module AWS::SDK::SSOOIDC
     end
 
     class StartDeviceAuthorization
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,

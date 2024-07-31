@@ -213,9 +213,10 @@ module AWS::SDK::STS
     #   }
     def assume_role(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::AssumeRoleInput.build(params, context: 'params')
-      stack = AWS::SDK::STS::Middleware::AssumeRole.build(config)
+      stack = AWS::SDK::STS::Middleware::AssumeRole.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -428,9 +429,10 @@ module AWS::SDK::STS
     #   }
     def assume_role_with_saml(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::AssumeRoleWithSAMLInput.build(params, context: 'params')
-      stack = AWS::SDK::STS::Middleware::AssumeRoleWithSAML.build(config)
+      stack = AWS::SDK::STS::Middleware::AssumeRoleWithSAML.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -645,9 +647,10 @@ module AWS::SDK::STS
     #   }
     def assume_role_with_web_identity(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::AssumeRoleWithWebIdentityInput.build(params, context: 'params')
-      stack = AWS::SDK::STS::Middleware::AssumeRoleWithWebIdentity.build(config)
+      stack = AWS::SDK::STS::Middleware::AssumeRoleWithWebIdentity.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -726,9 +729,10 @@ module AWS::SDK::STS
     #   }
     def decode_authorization_message(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::DecodeAuthorizationMessageInput.build(params, context: 'params')
-      stack = AWS::SDK::STS::Middleware::DecodeAuthorizationMessage.build(config)
+      stack = AWS::SDK::STS::Middleware::DecodeAuthorizationMessage.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -778,9 +782,10 @@ module AWS::SDK::STS
     #   resp.data.account #=> String
     def get_access_key_info(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::GetAccessKeyInfoInput.build(params, context: 'params')
-      stack = AWS::SDK::STS::Middleware::GetAccessKeyInfo.build(config)
+      stack = AWS::SDK::STS::Middleware::GetAccessKeyInfo.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -850,9 +855,10 @@ module AWS::SDK::STS
     #   }
     def get_caller_identity(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::GetCallerIdentityInput.build(params, context: 'params')
-      stack = AWS::SDK::STS::Middleware::GetCallerIdentity.build(config)
+      stack = AWS::SDK::STS::Middleware::GetCallerIdentity.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1027,9 +1033,10 @@ module AWS::SDK::STS
     #   }
     def get_federation_token(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::GetFederationTokenInput.build(params, context: 'params')
-      stack = AWS::SDK::STS::Middleware::GetFederationToken.build(config)
+      stack = AWS::SDK::STS::Middleware::GetFederationToken.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1144,9 +1151,10 @@ module AWS::SDK::STS
     #   }
     def get_session_token(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::GetSessionTokenInput.build(params, context: 'params')
-      stack = AWS::SDK::STS::Middleware::GetSessionToken.build(config)
+      stack = AWS::SDK::STS::Middleware::GetSessionToken.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),

@@ -546,8 +546,5 @@ module AWS::SDK::Kinesis
         http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
-
-    module EventStream
-    end
   end
 end

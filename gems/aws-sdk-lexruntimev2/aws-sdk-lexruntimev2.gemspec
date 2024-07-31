@@ -13,6 +13,8 @@ Gem::Specification.new do |spec|
   spec.author        = 'Amazon Web Services'
   spec.summary       = 'TEST SERVICE'
   spec.files         = Dir['lib/**/*.rb', 'VERSION']
+  spec.license       = 'Apache-2.0'
 
+  spec.required_ruby_version = '>= 3.0'
   spec.add_runtime_dependency 'aws-sdk-core', '~> 4.0.0.pre1'
 end

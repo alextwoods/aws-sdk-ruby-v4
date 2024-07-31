@@ -62,9 +62,10 @@ module AWS::SDK::Kinesis
     #   resp.data #=> Types::AddTagsToStreamOutput
     def add_tags_to_stream(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::AddTagsToStreamInput.build(params, context: 'params')
-      stack = AWS::SDK::Kinesis::Middleware::AddTagsToStream.build(config)
+      stack = AWS::SDK::Kinesis::Middleware::AddTagsToStream.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -144,9 +145,10 @@ module AWS::SDK::Kinesis
     #   resp.data #=> Types::CreateStreamOutput
     def create_stream(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::CreateStreamInput.build(params, context: 'params')
-      stack = AWS::SDK::Kinesis::Middleware::CreateStream.build(config)
+      stack = AWS::SDK::Kinesis::Middleware::CreateStream.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -191,9 +193,10 @@ module AWS::SDK::Kinesis
     #   resp.data #=> Types::DecreaseStreamRetentionPeriodOutput
     def decrease_stream_retention_period(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::DecreaseStreamRetentionPeriodInput.build(params, context: 'params')
-      stack = AWS::SDK::Kinesis::Middleware::DecreaseStreamRetentionPeriod.build(config)
+      stack = AWS::SDK::Kinesis::Middleware::DecreaseStreamRetentionPeriod.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -236,9 +239,10 @@ module AWS::SDK::Kinesis
     #   resp.data #=> Types::DeleteResourcePolicyOutput
     def delete_resource_policy(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::DeleteResourcePolicyInput.build(params, context: 'params')
-      stack = AWS::SDK::Kinesis::Middleware::DeleteResourcePolicy.build(config)
+      stack = AWS::SDK::Kinesis::Middleware::DeleteResourcePolicy.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -296,9 +300,10 @@ module AWS::SDK::Kinesis
     #   resp.data #=> Types::DeleteStreamOutput
     def delete_stream(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::DeleteStreamInput.build(params, context: 'params')
-      stack = AWS::SDK::Kinesis::Middleware::DeleteStream.build(config)
+      stack = AWS::SDK::Kinesis::Middleware::DeleteStream.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -340,9 +345,10 @@ module AWS::SDK::Kinesis
     #   resp.data #=> Types::DeregisterStreamConsumerOutput
     def deregister_stream_consumer(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::DeregisterStreamConsumerInput.build(params, context: 'params')
-      stack = AWS::SDK::Kinesis::Middleware::DeregisterStreamConsumer.build(config)
+      stack = AWS::SDK::Kinesis::Middleware::DeregisterStreamConsumer.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -380,9 +386,10 @@ module AWS::SDK::Kinesis
     #   resp.data.on_demand_stream_count_limit #=> Integer
     def describe_limits(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::DescribeLimitsInput.build(params, context: 'params')
-      stack = AWS::SDK::Kinesis::Middleware::DescribeLimits.build(config)
+      stack = AWS::SDK::Kinesis::Middleware::DescribeLimits.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -468,9 +475,10 @@ module AWS::SDK::Kinesis
     #   resp.data.stream_description.key_id #=> String
     def describe_stream(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::DescribeStreamInput.build(params, context: 'params')
-      stack = AWS::SDK::Kinesis::Middleware::DescribeStream.build(config)
+      stack = AWS::SDK::Kinesis::Middleware::DescribeStream.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -521,9 +529,10 @@ module AWS::SDK::Kinesis
     #   resp.data.consumer_description.stream_arn #=> String
     def describe_stream_consumer(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::DescribeStreamConsumerInput.build(params, context: 'params')
-      stack = AWS::SDK::Kinesis::Middleware::DescribeStreamConsumer.build(config)
+      stack = AWS::SDK::Kinesis::Middleware::DescribeStreamConsumer.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -585,9 +594,10 @@ module AWS::SDK::Kinesis
     #   resp.data.stream_description_summary.consumer_count #=> Integer
     def describe_stream_summary(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::DescribeStreamSummaryInput.build(params, context: 'params')
-      stack = AWS::SDK::Kinesis::Middleware::DescribeStreamSummary.build(config)
+      stack = AWS::SDK::Kinesis::Middleware::DescribeStreamSummary.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -634,9 +644,10 @@ module AWS::SDK::Kinesis
     #   resp.data.stream_arn #=> String
     def disable_enhanced_monitoring(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::DisableEnhancedMonitoringInput.build(params, context: 'params')
-      stack = AWS::SDK::Kinesis::Middleware::DisableEnhancedMonitoring.build(config)
+      stack = AWS::SDK::Kinesis::Middleware::DisableEnhancedMonitoring.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -683,9 +694,10 @@ module AWS::SDK::Kinesis
     #   resp.data.stream_arn #=> String
     def enable_enhanced_monitoring(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::EnableEnhancedMonitoringInput.build(params, context: 'params')
-      stack = AWS::SDK::Kinesis::Middleware::EnableEnhancedMonitoring.build(config)
+      stack = AWS::SDK::Kinesis::Middleware::EnableEnhancedMonitoring.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -789,9 +801,10 @@ module AWS::SDK::Kinesis
     #   resp.data.child_shards[0].hash_key_range.ending_hash_key #=> String
     def get_records(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::GetRecordsInput.build(params, context: 'params')
-      stack = AWS::SDK::Kinesis::Middleware::GetRecords.build(config)
+      stack = AWS::SDK::Kinesis::Middleware::GetRecords.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -835,9 +848,10 @@ module AWS::SDK::Kinesis
     #   resp.data.policy #=> String
     def get_resource_policy(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::GetResourcePolicyInput.build(params, context: 'params')
-      stack = AWS::SDK::Kinesis::Middleware::GetResourcePolicy.build(config)
+      stack = AWS::SDK::Kinesis::Middleware::GetResourcePolicy.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -914,9 +928,10 @@ module AWS::SDK::Kinesis
     #   resp.data.shard_iterator #=> String
     def get_shard_iterator(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::GetShardIteratorInput.build(params, context: 'params')
-      stack = AWS::SDK::Kinesis::Middleware::GetShardIterator.build(config)
+      stack = AWS::SDK::Kinesis::Middleware::GetShardIterator.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -964,9 +979,10 @@ module AWS::SDK::Kinesis
     #   resp.data #=> Types::IncreaseStreamRetentionPeriodOutput
     def increase_stream_retention_period(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::IncreaseStreamRetentionPeriodInput.build(params, context: 'params')
-      stack = AWS::SDK::Kinesis::Middleware::IncreaseStreamRetentionPeriod.build(config)
+      stack = AWS::SDK::Kinesis::Middleware::IncreaseStreamRetentionPeriod.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1036,9 +1052,10 @@ module AWS::SDK::Kinesis
     #   resp.data.next_token #=> String
     def list_shards(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::ListShardsInput.build(params, context: 'params')
-      stack = AWS::SDK::Kinesis::Middleware::ListShards.build(config)
+      stack = AWS::SDK::Kinesis::Middleware::ListShards.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1083,9 +1100,10 @@ module AWS::SDK::Kinesis
     #   resp.data.next_token #=> String
     def list_stream_consumers(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::ListStreamConsumersInput.build(params, context: 'params')
-      stack = AWS::SDK::Kinesis::Middleware::ListStreamConsumers.build(config)
+      stack = AWS::SDK::Kinesis::Middleware::ListStreamConsumers.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1147,9 +1165,10 @@ module AWS::SDK::Kinesis
     #   resp.data.stream_summaries[0].stream_creation_timestamp #=> Time
     def list_streams(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::ListStreamsInput.build(params, context: 'params')
-      stack = AWS::SDK::Kinesis::Middleware::ListStreams.build(config)
+      stack = AWS::SDK::Kinesis::Middleware::ListStreams.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1196,9 +1215,10 @@ module AWS::SDK::Kinesis
     #   resp.data.has_more_tags #=> Boolean
     def list_tags_for_stream(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::ListTagsForStreamInput.build(params, context: 'params')
-      stack = AWS::SDK::Kinesis::Middleware::ListTagsForStream.build(config)
+      stack = AWS::SDK::Kinesis::Middleware::ListTagsForStream.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1275,9 +1295,10 @@ module AWS::SDK::Kinesis
     #   resp.data #=> Types::MergeShardsOutput
     def merge_shards(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::MergeShardsInput.build(params, context: 'params')
-      stack = AWS::SDK::Kinesis::Middleware::MergeShards.build(config)
+      stack = AWS::SDK::Kinesis::Middleware::MergeShards.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1358,9 +1379,10 @@ module AWS::SDK::Kinesis
     #   resp.data.encryption_type #=> String, one of ["NONE", "KMS"]
     def put_record(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::PutRecordInput.build(params, context: 'params')
-      stack = AWS::SDK::Kinesis::Middleware::PutRecord.build(config)
+      stack = AWS::SDK::Kinesis::Middleware::PutRecord.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1469,9 +1491,10 @@ module AWS::SDK::Kinesis
     #   resp.data.encryption_type #=> String, one of ["NONE", "KMS"]
     def put_records(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::PutRecordsInput.build(params, context: 'params')
-      stack = AWS::SDK::Kinesis::Middleware::PutRecords.build(config)
+      stack = AWS::SDK::Kinesis::Middleware::PutRecords.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1522,9 +1545,10 @@ module AWS::SDK::Kinesis
     #   resp.data #=> Types::PutResourcePolicyOutput
     def put_resource_policy(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::PutResourcePolicyInput.build(params, context: 'params')
-      stack = AWS::SDK::Kinesis::Middleware::PutResourcePolicy.build(config)
+      stack = AWS::SDK::Kinesis::Middleware::PutResourcePolicy.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1576,9 +1600,10 @@ module AWS::SDK::Kinesis
     #   resp.data.consumer.consumer_creation_timestamp #=> Time
     def register_stream_consumer(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::RegisterStreamConsumerInput.build(params, context: 'params')
-      stack = AWS::SDK::Kinesis::Middleware::RegisterStreamConsumer.build(config)
+      stack = AWS::SDK::Kinesis::Middleware::RegisterStreamConsumer.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1625,9 +1650,10 @@ module AWS::SDK::Kinesis
     #   resp.data #=> Types::RemoveTagsFromStreamOutput
     def remove_tags_from_stream(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::RemoveTagsFromStreamInput.build(params, context: 'params')
-      stack = AWS::SDK::Kinesis::Middleware::RemoveTagsFromStream.build(config)
+      stack = AWS::SDK::Kinesis::Middleware::RemoveTagsFromStream.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1708,9 +1734,10 @@ module AWS::SDK::Kinesis
     #   resp.data #=> Types::SplitShardOutput
     def split_shard(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::SplitShardInput.build(params, context: 'params')
-      stack = AWS::SDK::Kinesis::Middleware::SplitShard.build(config)
+      stack = AWS::SDK::Kinesis::Middleware::SplitShard.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1766,9 +1793,10 @@ module AWS::SDK::Kinesis
     #   resp.data #=> Types::StartStreamEncryptionOutput
     def start_stream_encryption(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::StartStreamEncryptionInput.build(params, context: 'params')
-      stack = AWS::SDK::Kinesis::Middleware::StartStreamEncryption.build(config)
+      stack = AWS::SDK::Kinesis::Middleware::StartStreamEncryption.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1823,9 +1851,10 @@ module AWS::SDK::Kinesis
     #   resp.data #=> Types::StopStreamEncryptionOutput
     def stop_stream_encryption(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::StopStreamEncryptionInput.build(params, context: 'params')
-      stack = AWS::SDK::Kinesis::Middleware::StopStreamEncryption.build(config)
+      stack = AWS::SDK::Kinesis::Middleware::StopStreamEncryption.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1839,6 +1868,78 @@ module AWS::SDK::Kinesis
         raise output.error
       end
       context.config.logger.info("[#{context.invocation_id}] [#{self.class}#stop_stream_encryption] #{output.data}")
+      output
+    end
+
+    # <p>This operation establishes an HTTP/2 connection between the consumer you specify in
+    #             the <code>ConsumerARN</code> parameter and the shard you specify in the
+    #                 <code>ShardId</code> parameter. After the connection is successfully established,
+    #             Kinesis Data Streams pushes records from the shard to the consumer over this connection.
+    #             Before you call this operation, call <a>RegisterStreamConsumer</a> to
+    #             register the consumer with Kinesis Data Streams.</p>
+    #          <p>When the <code>SubscribeToShard</code> call succeeds, your consumer starts receiving
+    #             events of type <a>SubscribeToShardEvent</a> over the HTTP/2 connection for up
+    #             to 5 minutes, after which time you need to call <code>SubscribeToShard</code> again to
+    #             renew the subscription if you want to continue to receive records.</p>
+    #          <p>You can make one call to <code>SubscribeToShard</code> per second per registered
+    #             consumer per shard. For example, if you have a 4000 shard stream and two registered
+    #             stream consumers, you can make one <code>SubscribeToShard</code> request per second for
+    #             each combination of shard and registered consumer, allowing you to subscribe both
+    #             consumers to all 4000 shards in one second. </p>
+    #          <p>If you call <code>SubscribeToShard</code> again with the same <code>ConsumerARN</code>
+    #             and <code>ShardId</code> within 5 seconds of a successful call, you'll get a
+    #                 <code>ResourceInUseException</code>. If you call <code>SubscribeToShard</code> 5
+    #             seconds or more after a successful call, the second call takes over the subscription and
+    #             the previous connection expires or fails with a
+    #             <code>ResourceInUseException</code>.</p>
+    #          <p>For an example of how to use this operations, see <a href="/streams/latest/dev/building-enhanced-consumers-api.html">Enhanced Fan-Out
+    #                 Using the Kinesis Data Streams API</a>.</p>
+    # @param [Hash | Types::SubscribeToShardInput] params
+    #   Request parameters for this operation.
+    #   See {Types::SubscribeToShardInput#initialize} for available parameters.
+    #   Do not set values for the event stream member(`event_stream`).
+    #   Instead use the returned output to signal input events.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
+    # @option options [EventStream::SubscribeToShardHandler] :event_stream_handler
+    #   Event Stream Handler used to register handlers that will be called when events are received.
+    # @return [Hearth::Output]
+    # @example Request syntax with placeholder values and registering an event handler
+    #   handler = SubscribeToShardHandler.new
+    #   handler.on_initial_response { |event| process_initial_response(event) }
+    #   resp = client.subscribe_to_shard({
+    #     consumer_arn: 'ConsumerARN', # required
+    #     shard_id: 'ShardId', # required
+    #     starting_position: {
+    #       type: 'AT_SEQUENCE_NUMBER', # required - accepts ["AT_SEQUENCE_NUMBER", "AFTER_SEQUENCE_NUMBER", "TRIM_HORIZON", "LATEST", "AT_TIMESTAMP"]
+    #       sequence_number: 'SequenceNumber',
+    #       timestamp: Time.now
+    #     } # required
+    #   }, event_stream_handler: handler)
+    # @example Response structure
+    #   resp.data #=> Types::SubscribeToShardOutput
+    def subscribe_to_shard(params = {}, options = {})
+      response_body = ::StringIO.new
+      middleware_opts = {}
+      middleware_opts[:event_stream_handler] = options.delete(:event_stream_handler)
+      raise ArgumentError, 'Missing `event_stream_handler`' unless middleware_opts[:event_stream_handler]
+      config = operation_config(options)
+      input = Params::SubscribeToShardInput.build(params, context: 'params')
+      stack = AWS::SDK::Kinesis::Middleware::SubscribeToShard.build(config, middleware_opts)
+      context = Hearth::Context.new(
+        request: Hearth::HTTP2::Request.new(uri: URI('')),
+        response: Hearth::HTTP2::Response.new(body: response_body),
+        config: config,
+        operation_name: :subscribe_to_shard,
+      )
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#subscribe_to_shard] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#subscribe_to_shard] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#subscribe_to_shard] #{output.data}")
       output
     end
 
@@ -1916,9 +2017,10 @@ module AWS::SDK::Kinesis
     #   resp.data.stream_arn #=> String
     def update_shard_count(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::UpdateShardCountInput.build(params, context: 'params')
-      stack = AWS::SDK::Kinesis::Middleware::UpdateShardCount.build(config)
+      stack = AWS::SDK::Kinesis::Middleware::UpdateShardCount.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1957,9 +2059,10 @@ module AWS::SDK::Kinesis
     #   resp.data #=> Types::UpdateStreamModeOutput
     def update_stream_mode(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::UpdateStreamModeInput.build(params, context: 'params')
-      stack = AWS::SDK::Kinesis::Middleware::UpdateStreamMode.build(config)
+      stack = AWS::SDK::Kinesis::Middleware::UpdateStreamMode.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1973,109 +2076,6 @@ module AWS::SDK::Kinesis
         raise output.error
       end
       context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_stream_mode] #{output.data}")
-      output
-    end
-
-    # <p>This operation establishes an HTTP/2 connection between the consumer you specify in
-    #             the <code>ConsumerARN</code> parameter and the shard you specify in the
-    #                 <code>ShardId</code> parameter. After the connection is successfully established,
-    #             Kinesis Data Streams pushes records from the shard to the consumer over this connection.
-    #             Before you call this operation, call <a>RegisterStreamConsumer</a> to
-    #             register the consumer with Kinesis Data Streams.</p>
-    #          <p>When the <code>SubscribeToShard</code> call succeeds, your consumer starts receiving
-    #             events of type <a>SubscribeToShardEvent</a> over the HTTP/2 connection for up
-    #             to 5 minutes, after which time you need to call <code>SubscribeToShard</code> again to
-    #             renew the subscription if you want to continue to receive records.</p>
-    #          <p>You can make one call to <code>SubscribeToShard</code> per second per registered
-    #             consumer per shard. For example, if you have a 4000 shard stream and two registered
-    #             stream consumers, you can make one <code>SubscribeToShard</code> request per second for
-    #             each combination of shard and registered consumer, allowing you to subscribe both
-    #             consumers to all 4000 shards in one second. </p>
-    #          <p>If you call <code>SubscribeToShard</code> again with the same <code>ConsumerARN</code>
-    #             and <code>ShardId</code> within 5 seconds of a successful call, you'll get a
-    #                 <code>ResourceInUseException</code>. If you call <code>SubscribeToShard</code> 5
-    #             seconds or more after a successful call, the second call takes over the subscription and
-    #             the previous connection expires or fails with a
-    #             <code>ResourceInUseException</code>.</p>
-    #          <p>For an example of how to use this operations, see <a href="/streams/latest/dev/building-enhanced-consumers-api.html">Enhanced Fan-Out
-    #                 Using the Kinesis Data Streams API</a>.</p>
-    # @param [Hash | Types::SubscribeToShardInput] params
-    #   Request parameters for this operation.
-    #   See {Types::SubscribeToShardInput#initialize} for available parameters.
-    # @param [Hash] options
-    #   Request option override of configuration. See {Config#initialize} for available options.
-    #   Some configurations cannot be overridden.
-    # @return [Hearth::Output]
-    # @example Request syntax with placeholder values
-    #   resp = client.subscribe_to_shard(
-    #     consumer_arn: 'ConsumerARN', # required
-    #     shard_id: 'ShardId', # required
-    #     starting_position: {
-    #       type: 'AT_SEQUENCE_NUMBER', # required - accepts ["AT_SEQUENCE_NUMBER", "AFTER_SEQUENCE_NUMBER", "TRIM_HORIZON", "LATEST", "AT_TIMESTAMP"]
-    #       sequence_number: 'SequenceNumber',
-    #       timestamp: Time.now
-    #     } # required
-    #   )
-    # @example Response structure
-    #   resp.data #=> Types::SubscribeToShardOutput
-    #   resp.data.event_stream #=> Types::SubscribeToShardEventStream, one of [SubscribeToShardEvent, ResourceNotFoundException, ResourceInUseException, KmsDisabledException, KmsInvalidStateException, KmsAccessDeniedException, KmsNotFoundException, KmsOptInRequired, KmsThrottlingException, InternalFailureException]
-    #   resp.data.event_stream.subscribe_to_shard_event #=> Types::SubscribeToShardEvent
-    #   resp.data.event_stream.subscribe_to_shard_event.records #=> Array<Record>
-    #   resp.data.event_stream.subscribe_to_shard_event.records[0] #=> Types::Record
-    #   resp.data.event_stream.subscribe_to_shard_event.records[0].sequence_number #=> String
-    #   resp.data.event_stream.subscribe_to_shard_event.records[0].approximate_arrival_timestamp #=> Time
-    #   resp.data.event_stream.subscribe_to_shard_event.records[0].data #=> String
-    #   resp.data.event_stream.subscribe_to_shard_event.records[0].partition_key #=> String
-    #   resp.data.event_stream.subscribe_to_shard_event.records[0].encryption_type #=> String, one of ["NONE", "KMS"]
-    #   resp.data.event_stream.subscribe_to_shard_event.continuation_sequence_number #=> String
-    #   resp.data.event_stream.subscribe_to_shard_event.millis_behind_latest #=> Integer
-    #   resp.data.event_stream.subscribe_to_shard_event.child_shards #=> Array<ChildShard>
-    #   resp.data.event_stream.subscribe_to_shard_event.child_shards[0] #=> Types::ChildShard
-    #   resp.data.event_stream.subscribe_to_shard_event.child_shards[0].shard_id #=> String
-    #   resp.data.event_stream.subscribe_to_shard_event.child_shards[0].parent_shards #=> Array<String>
-    #   resp.data.event_stream.subscribe_to_shard_event.child_shards[0].parent_shards[0] #=> String
-    #   resp.data.event_stream.subscribe_to_shard_event.child_shards[0].hash_key_range #=> Types::HashKeyRange
-    #   resp.data.event_stream.subscribe_to_shard_event.child_shards[0].hash_key_range.starting_hash_key #=> String
-    #   resp.data.event_stream.subscribe_to_shard_event.child_shards[0].hash_key_range.ending_hash_key #=> String
-    #   resp.data.event_stream.resource_not_found_exception #=> Types::ResourceNotFoundException
-    #   resp.data.event_stream.resource_not_found_exception.message #=> String
-    #   resp.data.event_stream.resource_in_use_exception #=> Types::ResourceInUseException
-    #   resp.data.event_stream.resource_in_use_exception.message #=> String
-    #   resp.data.event_stream.kms_disabled_exception #=> Types::KMSDisabledException
-    #   resp.data.event_stream.kms_disabled_exception.message #=> String
-    #   resp.data.event_stream.kms_invalid_state_exception #=> Types::KMSInvalidStateException
-    #   resp.data.event_stream.kms_invalid_state_exception.message #=> String
-    #   resp.data.event_stream.kms_access_denied_exception #=> Types::KMSAccessDeniedException
-    #   resp.data.event_stream.kms_access_denied_exception.message #=> String
-    #   resp.data.event_stream.kms_not_found_exception #=> Types::KMSNotFoundException
-    #   resp.data.event_stream.kms_not_found_exception.message #=> String
-    #   resp.data.event_stream.kms_opt_in_required #=> Types::KMSOptInRequired
-    #   resp.data.event_stream.kms_opt_in_required.message #=> String
-    #   resp.data.event_stream.kms_throttling_exception #=> Types::KMSThrottlingException
-    #   resp.data.event_stream.kms_throttling_exception.message #=> String
-    #   resp.data.event_stream.internal_failure_exception #=> Types::InternalFailureException
-    #   resp.data.event_stream.internal_failure_exception.message #=> String
-    def subscribe_to_shard(params = {}, options = {})
-      middleware_opts = {}
-      middleware_opts[:event_stream_handler] = options.delete(:event_stream_handler)
-      raise ArgumentError, 'Missing `event_stream_handler`' unless middleware_opts[:event_stream_handler]
-      response_body = ::StringIO.new
-      config = operation_config(options)
-      input = Params::SubscribeToShardInput.build(params, context: 'params')
-      stack = AWS::SDK::Kinesis::Middleware::SubscribeToShard.build(config, middleware_opts)
-      context = Hearth::Context.new(
-        request: Hearth::HTTP2::Request.new(uri: URI('')),
-        response: Hearth::HTTP2::Response.new(body: response_body),
-        config: config,
-        operation_name: :subscribe_to_shard,
-      )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#subscribe_to_shard] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#subscribe_to_shard] #{output.error} (#{output.error.class})")
-        raise output.error
-      end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#subscribe_to_shard] #{output.data}")
       output
     end
   end

@@ -133,8 +133,8 @@ module AWS::SDK::TranscribeStreaming
         http_req.headers['x-amzn-transcribe-vocabulary-filter-names'] = input.vocabulary_filter_names unless input.vocabulary_filter_names.nil? || input.vocabulary_filter_names.empty?
       end
     end
-
     module EventStream
+
       class AudioEvent
         def self.build(input:)
           message = Hearth::EventStream::Message.new
@@ -146,6 +146,7 @@ module AWS::SDK::TranscribeStreaming
           message
         end
       end
+
       class ConfigurationEvent
         def self.build(input:)
           message = Hearth::EventStream::Message.new

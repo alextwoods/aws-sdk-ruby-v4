@@ -11,8 +11,8 @@ module AWS::SDK::LexRuntimeV2
   module EventStream
 
     # EventStreamHandler for the the {Client#start_conversation} operation.
-    # Register event handlers using the +#on_<event_name>+ methods
-    # and set the handler using the +event_stream_handler+ option
+    # Register event handlers using the `#on_<event_name>` methods
+    # and set the handler using the `event_stream_handler` option
     # on the {Client#start_conversation} method.
     # @example Basic Usage
     #   handler = StartConversation.new
@@ -20,33 +20,41 @@ module AWS::SDK::LexRuntimeV2
     #   handler.on_initial_response { |initial_response| process(initial_response) }
     #   client.start_conversation(params, event_stream_handler: handler)
     class StartConversationHandler < Hearth::EventStream::HandlerBase
+      # Register an event handler for the initial response.
+      # @yield [event] Called when the initial response is received.
+      # @yieldparam event [Types::StartConversationOutput] the initial response
+      # @example Event structure
+      #   event #=> Types::StartConversationOutput
+      def on_initial_response(&block)
+        on(Types::StartConversationOutput, block)
+      end
 
       # Register an event handler for playback_interruption_event events
       # @yield [event] Called when playback_interruption_event events are received.
-      # @yieldparam event [Types::PlaybackInterruptionEvent] the event.
+      # @yieldparam event [Types::StartConversationResponseEventStream::PlaybackInterruptionEvent] the event.
       # @example Event structure
       #   event #=> Types::PlaybackInterruptionEvent
       #   event.event_reason #=> String, one of ["DTMF_START_DETECTED", "TEXT_DETECTED", "VOICE_START_DETECTED"]
       #   event.caused_by_event_id #=> String
       #   event.event_id #=> String
       def on_playback_interruption_event(&block)
-        on('PlaybackInterruptionEvent', block)
+        on(Types::StartConversationResponseEventStream::PlaybackInterruptionEvent, block)
       end
 
       # Register an event handler for transcript_event events
       # @yield [event] Called when transcript_event events are received.
-      # @yieldparam event [Types::TranscriptEvent] the event.
+      # @yieldparam event [Types::StartConversationResponseEventStream::TranscriptEvent] the event.
       # @example Event structure
       #   event #=> Types::TranscriptEvent
       #   event.transcript #=> String
       #   event.event_id #=> String
       def on_transcript_event(&block)
-        on('TranscriptEvent', block)
+        on(Types::StartConversationResponseEventStream::TranscriptEvent, block)
       end
 
       # Register an event handler for intent_result_event events
       # @yield [event] Called when intent_result_event events are received.
-      # @yieldparam event [Types::IntentResultEvent] the event.
+      # @yieldparam event [Types::StartConversationResponseEventStream::IntentResultEvent] the event.
       # @example Event structure
       #   event #=> Types::IntentResultEvent
       #   event.input_mode #=> String, one of ["Text", "Speech", "DTMF"]
@@ -111,12 +119,12 @@ module AWS::SDK::LexRuntimeV2
       #   event.recognized_bot_member.bot_id #=> String
       #   event.recognized_bot_member.bot_name #=> String
       def on_intent_result_event(&block)
-        on('IntentResultEvent', block)
+        on(Types::StartConversationResponseEventStream::IntentResultEvent, block)
       end
 
       # Register an event handler for text_response_event events
       # @yield [event] Called when text_response_event events are received.
-      # @yieldparam event [Types::TextResponseEvent] the event.
+      # @yieldparam event [Types::StartConversationResponseEventStream::TextResponseEvent] the event.
       # @example Event structure
       #   event #=> Types::TextResponseEvent
       #   event.messages #=> Array<Message>
@@ -133,109 +141,116 @@ module AWS::SDK::LexRuntimeV2
       #   event.messages[0].image_response_card.buttons[0].value #=> String
       #   event.event_id #=> String
       def on_text_response_event(&block)
-        on('TextResponseEvent', block)
+        on(Types::StartConversationResponseEventStream::TextResponseEvent, block)
       end
 
       # Register an event handler for audio_response_event events
       # @yield [event] Called when audio_response_event events are received.
-      # @yieldparam event [Types::AudioResponseEvent] the event.
+      # @yieldparam event [Types::StartConversationResponseEventStream::AudioResponseEvent] the event.
       # @example Event structure
       #   event #=> Types::AudioResponseEvent
       #   event.audio_chunk #=> String
       #   event.content_type #=> String
       #   event.event_id #=> String
       def on_audio_response_event(&block)
-        on('AudioResponseEvent', block)
+        on(Types::StartConversationResponseEventStream::AudioResponseEvent, block)
       end
 
       # Register an event handler for heartbeat_event events
       # @yield [event] Called when heartbeat_event events are received.
-      # @yieldparam event [Types::HeartbeatEvent] the event.
+      # @yieldparam event [Types::StartConversationResponseEventStream::HeartbeatEvent] the event.
       # @example Event structure
       #   event #=> Types::HeartbeatEvent
       #   event.event_id #=> String
       def on_heartbeat_event(&block)
-        on('HeartbeatEvent', block)
+        on(Types::StartConversationResponseEventStream::HeartbeatEvent, block)
       end
 
       # Register an event handler for access_denied_exception events
       # @yield [event] Called when access_denied_exception events are received.
-      # @yieldparam event [Types::AccessDeniedException] the event.
+      # @yieldparam event [Types::StartConversationResponseEventStream::AccessDeniedException] the event.
       # @example Event structure
       #   event #=> Types::AccessDeniedException
       #   event.message #=> String
       def on_access_denied_exception(&block)
-        on('AccessDeniedException', block)
+        on(Types::StartConversationResponseEventStream::AccessDeniedException, block)
       end
 
       # Register an event handler for resource_not_found_exception events
       # @yield [event] Called when resource_not_found_exception events are received.
-      # @yieldparam event [Types::ResourceNotFoundException] the event.
+      # @yieldparam event [Types::StartConversationResponseEventStream::ResourceNotFoundException] the event.
       # @example Event structure
       #   event #=> Types::ResourceNotFoundException
       #   event.message #=> String
       def on_resource_not_found_exception(&block)
-        on('ResourceNotFoundException', block)
+        on(Types::StartConversationResponseEventStream::ResourceNotFoundException, block)
       end
 
       # Register an event handler for validation_exception events
       # @yield [event] Called when validation_exception events are received.
-      # @yieldparam event [Types::ValidationException] the event.
+      # @yieldparam event [Types::StartConversationResponseEventStream::ValidationException] the event.
       # @example Event structure
       #   event #=> Types::ValidationException
       #   event.message #=> String
       def on_validation_exception(&block)
-        on('ValidationException', block)
+        on(Types::StartConversationResponseEventStream::ValidationException, block)
       end
 
       # Register an event handler for throttling_exception events
       # @yield [event] Called when throttling_exception events are received.
-      # @yieldparam event [Types::ThrottlingException] the event.
+      # @yieldparam event [Types::StartConversationResponseEventStream::ThrottlingException] the event.
       # @example Event structure
       #   event #=> Types::ThrottlingException
       #   event.message #=> String
       def on_throttling_exception(&block)
-        on('ThrottlingException', block)
+        on(Types::StartConversationResponseEventStream::ThrottlingException, block)
       end
 
       # Register an event handler for internal_server_exception events
       # @yield [event] Called when internal_server_exception events are received.
-      # @yieldparam event [Types::InternalServerException] the event.
+      # @yieldparam event [Types::StartConversationResponseEventStream::InternalServerException] the event.
       # @example Event structure
       #   event #=> Types::InternalServerException
       #   event.message #=> String
       def on_internal_server_exception(&block)
-        on('InternalServerException', block)
+        on(Types::StartConversationResponseEventStream::InternalServerException, block)
       end
 
       # Register an event handler for conflict_exception events
       # @yield [event] Called when conflict_exception events are received.
-      # @yieldparam event [Types::ConflictException] the event.
+      # @yieldparam event [Types::StartConversationResponseEventStream::ConflictException] the event.
       # @example Event structure
       #   event #=> Types::ConflictException
       #   event.message #=> String
       def on_conflict_exception(&block)
-        on('ConflictException', block)
+        on(Types::StartConversationResponseEventStream::ConflictException, block)
       end
 
       # Register an event handler for dependency_failed_exception events
       # @yield [event] Called when dependency_failed_exception events are received.
-      # @yieldparam event [Types::DependencyFailedException] the event.
+      # @yieldparam event [Types::StartConversationResponseEventStream::DependencyFailedException] the event.
       # @example Event structure
       #   event #=> Types::DependencyFailedException
       #   event.message #=> String
       def on_dependency_failed_exception(&block)
-        on('DependencyFailedException', block)
+        on(Types::StartConversationResponseEventStream::DependencyFailedException, block)
       end
 
       # Register an event handler for bad_gateway_exception events
       # @yield [event] Called when bad_gateway_exception events are received.
-      # @yieldparam event [Types::BadGatewayException] the event.
+      # @yieldparam event [Types::StartConversationResponseEventStream::BadGatewayException] the event.
       # @example Event structure
       #   event #=> Types::BadGatewayException
       #   event.message #=> String
       def on_bad_gateway_exception(&block)
-        on('BadGatewayException', block)
+        on(Types::StartConversationResponseEventStream::BadGatewayException, block)
+      end
+
+      # Register an event handler for any unknown events.
+      # @yield [event] Called when unknown events are received.
+      # @yieldparam event [Types::StartConversationResponseEventStream::Unknown] the event with value set to the Message
+      def on_unknown_event(&block)
+        on(Types::StartConversationResponseEventStream::Unknown, block)
       end
 
       private
@@ -243,26 +258,28 @@ module AWS::SDK::LexRuntimeV2
       def parse_event(type, message)
         case type
         when 'initial-response' then Parsers::EventStream::StartConversationInitialResponse.parse(message)
-        when 'PlaybackInterruptionEvent' then Parsers::EventStream::PlaybackInterruptionEvent.parse(message)
-        when 'TranscriptEvent' then Parsers::EventStream::TranscriptEvent.parse(message)
-        when 'IntentResultEvent' then Parsers::EventStream::IntentResultEvent.parse(message)
-        when 'TextResponseEvent' then Parsers::EventStream::TextResponseEvent.parse(message)
-        when 'AudioResponseEvent' then Parsers::EventStream::AudioResponseEvent.parse(message)
-        when 'HeartbeatEvent' then Parsers::EventStream::HeartbeatEvent.parse(message)
-        when 'AccessDeniedException' then Parsers::EventStream::AccessDeniedException.parse(message)
-        when 'ResourceNotFoundException' then Parsers::EventStream::ResourceNotFoundException.parse(message)
-        when 'ValidationException' then Parsers::EventStream::ValidationException.parse(message)
-        when 'ThrottlingException' then Parsers::EventStream::ThrottlingException.parse(message)
-        when 'InternalServerException' then Parsers::EventStream::InternalServerException.parse(message)
-        when 'ConflictException' then Parsers::EventStream::ConflictException.parse(message)
-        when 'DependencyFailedException' then Parsers::EventStream::DependencyFailedException.parse(message)
-        when 'BadGatewayException' then Parsers::EventStream::BadGatewayException.parse(message)
+        when 'PlaybackInterruptionEvent' then Types::StartConversationResponseEventStream::PlaybackInterruptionEvent.new(Parsers::EventStream::PlaybackInterruptionEvent.parse(message))
+        when 'TranscriptEvent' then Types::StartConversationResponseEventStream::TranscriptEvent.new(Parsers::EventStream::TranscriptEvent.parse(message))
+        when 'IntentResultEvent' then Types::StartConversationResponseEventStream::IntentResultEvent.new(Parsers::EventStream::IntentResultEvent.parse(message))
+        when 'TextResponseEvent' then Types::StartConversationResponseEventStream::TextResponseEvent.new(Parsers::EventStream::TextResponseEvent.parse(message))
+        when 'AudioResponseEvent' then Types::StartConversationResponseEventStream::AudioResponseEvent.new(Parsers::EventStream::AudioResponseEvent.parse(message))
+        when 'HeartbeatEvent' then Types::StartConversationResponseEventStream::HeartbeatEvent.new(Parsers::EventStream::HeartbeatEvent.parse(message))
+        when 'AccessDeniedException' then Types::StartConversationResponseEventStream::AccessDeniedException.new(Parsers::EventStream::AccessDeniedException.parse(message))
+        when 'ResourceNotFoundException' then Types::StartConversationResponseEventStream::ResourceNotFoundException.new(Parsers::EventStream::ResourceNotFoundException.parse(message))
+        when 'ValidationException' then Types::StartConversationResponseEventStream::ValidationException.new(Parsers::EventStream::ValidationException.parse(message))
+        when 'ThrottlingException' then Types::StartConversationResponseEventStream::ThrottlingException.new(Parsers::EventStream::ThrottlingException.parse(message))
+        when 'InternalServerException' then Types::StartConversationResponseEventStream::InternalServerException.new(Parsers::EventStream::InternalServerException.parse(message))
+        when 'ConflictException' then Types::StartConversationResponseEventStream::ConflictException.new(Parsers::EventStream::ConflictException.parse(message))
+        when 'DependencyFailedException' then Types::StartConversationResponseEventStream::DependencyFailedException.new(Parsers::EventStream::DependencyFailedException.parse(message))
+        when 'BadGatewayException' then Types::StartConversationResponseEventStream::BadGatewayException.new(Parsers::EventStream::BadGatewayException.parse(message))
+        else
+          Types::StartConversationResponseEventStream::Unknown.new(name: type || 'unknown', value: message)
         end
       end
     end
 
-    # Output class returned from {Client#start_conversation}
-    # and allowing async sending (signaling) of input events.
+    # Output returned from {Client#start_conversation}
+    # and used to signal (send) async input events.
     # @example Basic Usage
     #   stream = client.playback_interruption_event(initial_request)
     #   stream.signal_start_conversation(event_params) # send an event
@@ -271,7 +288,7 @@ module AWS::SDK::LexRuntimeV2
 
       # Signal (send) an StartConversationRequestEventStream::ConfigurationEvent input event
       # @param [Hash | Types::ConfigurationEvent] params
-      #   Request parameters for this operation.
+      #   Request parameters for signaling this event.
       #   See {Types::ConfigurationEvent#initialize} for available parameters.
       # @example Request syntax with placeholder values
       #   stream.signal_configuration_event(
@@ -361,7 +378,7 @@ module AWS::SDK::LexRuntimeV2
 
       # Signal (send) an StartConversationRequestEventStream::AudioInputEvent input event
       # @param [Hash | Types::AudioInputEvent] params
-      #   Request parameters for this operation.
+      #   Request parameters for signaling this event.
       #   See {Types::AudioInputEvent#initialize} for available parameters.
       # @example Request syntax with placeholder values
       #   stream.signal_audio_input_event(
@@ -378,7 +395,7 @@ module AWS::SDK::LexRuntimeV2
 
       # Signal (send) an StartConversationRequestEventStream::DtmfInputEvent input event
       # @param [Hash | Types::DTMFInputEvent] params
-      #   Request parameters for this operation.
+      #   Request parameters for signaling this event.
       #   See {Types::DTMFInputEvent#initialize} for available parameters.
       # @example Request syntax with placeholder values
       #   stream.signal_dtmf_input_event(
@@ -394,7 +411,7 @@ module AWS::SDK::LexRuntimeV2
 
       # Signal (send) an StartConversationRequestEventStream::TextInputEvent input event
       # @param [Hash | Types::TextInputEvent] params
-      #   Request parameters for this operation.
+      #   Request parameters for signaling this event.
       #   See {Types::TextInputEvent#initialize} for available parameters.
       # @example Request syntax with placeholder values
       #   stream.signal_text_input_event(
@@ -410,7 +427,7 @@ module AWS::SDK::LexRuntimeV2
 
       # Signal (send) an StartConversationRequestEventStream::PlaybackCompletionEvent input event
       # @param [Hash | Types::PlaybackCompletionEvent] params
-      #   Request parameters for this operation.
+      #   Request parameters for signaling this event.
       #   See {Types::PlaybackCompletionEvent#initialize} for available parameters.
       # @example Request syntax with placeholder values
       #   stream.signal_playback_completion_event(
@@ -425,7 +442,7 @@ module AWS::SDK::LexRuntimeV2
 
       # Signal (send) an StartConversationRequestEventStream::DisconnectionEvent input event
       # @param [Hash | Types::DisconnectionEvent] params
-      #   Request parameters for this operation.
+      #   Request parameters for signaling this event.
       #   See {Types::DisconnectionEvent#initialize} for available parameters.
       # @example Request syntax with placeholder values
       #   stream.signal_disconnection_event(

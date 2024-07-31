@@ -14,7 +14,7 @@ module AWS::SDK::SSO
   module Middleware
 
     class GetRoleCredentials
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -64,7 +64,7 @@ module AWS::SDK::SSO
     end
 
     class ListAccountRoles
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -114,7 +114,7 @@ module AWS::SDK::SSO
     end
 
     class ListAccounts
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -164,7 +164,7 @@ module AWS::SDK::SSO
     end
 
     class Logout
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,

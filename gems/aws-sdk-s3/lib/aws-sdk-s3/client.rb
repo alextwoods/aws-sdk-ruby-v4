@@ -130,9 +130,10 @@ module AWS::SDK::S3
     #   {}
     def abort_multipart_upload(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::AbortMultipartUploadInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::AbortMultipartUpload.build(config)
+      stack = AWS::SDK::S3::Middleware::AbortMultipartUpload.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -356,9 +357,10 @@ module AWS::SDK::S3
     #   resp.data.request_charged #=> String, one of ["requester"]
     def complete_multipart_upload(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::CompleteMultipartUploadInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::CompleteMultipartUpload.build(config)
+      stack = AWS::SDK::S3::Middleware::CompleteMultipartUpload.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -622,9 +624,10 @@ module AWS::SDK::S3
     #   }
     def copy_object(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::CopyObjectInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::CopyObject.build(config)
+      stack = AWS::SDK::S3::Middleware::CopyObject.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -823,9 +826,10 @@ module AWS::SDK::S3
     #   }
     def create_bucket(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::CreateBucketInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::CreateBucket.build(config)
+      stack = AWS::SDK::S3::Middleware::CreateBucket.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1131,9 +1135,10 @@ module AWS::SDK::S3
     #   }
     def create_multipart_upload(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::CreateMultipartUploadInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::CreateMultipartUpload.build(config)
+      stack = AWS::SDK::S3::Middleware::CreateMultipartUpload.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1235,9 +1240,10 @@ module AWS::SDK::S3
     #   resp.data.credentials.expiration #=> Time
     def create_session(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::CreateSessionInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::CreateSession.build(config)
+      stack = AWS::SDK::S3::Middleware::CreateSession.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1328,9 +1334,10 @@ module AWS::SDK::S3
     #   nil
     def delete_bucket(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::DeleteBucketInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::DeleteBucket.build(config)
+      stack = AWS::SDK::S3::Middleware::DeleteBucket.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1395,9 +1402,10 @@ module AWS::SDK::S3
     #   resp.data #=> Types::DeleteBucketAnalyticsConfigurationOutput
     def delete_bucket_analytics_configuration(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::DeleteBucketAnalyticsConfigurationInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::DeleteBucketAnalyticsConfiguration.build(config)
+      stack = AWS::SDK::S3::Middleware::DeleteBucketAnalyticsConfiguration.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1462,9 +1470,10 @@ module AWS::SDK::S3
     #   nil
     def delete_bucket_cors(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::DeleteBucketCorsInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::DeleteBucketCors.build(config)
+      stack = AWS::SDK::S3::Middleware::DeleteBucketCors.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1523,9 +1532,10 @@ module AWS::SDK::S3
     #   resp.data #=> Types::DeleteBucketEncryptionOutput
     def delete_bucket_encryption(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::DeleteBucketEncryptionInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::DeleteBucketEncryption.build(config)
+      stack = AWS::SDK::S3::Middleware::DeleteBucketEncryption.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1583,9 +1593,10 @@ module AWS::SDK::S3
     #   resp.data #=> Types::DeleteBucketIntelligentTieringConfigurationOutput
     def delete_bucket_intelligent_tiering_configuration(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::DeleteBucketIntelligentTieringConfigurationInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::DeleteBucketIntelligentTieringConfiguration.build(config)
+      stack = AWS::SDK::S3::Middleware::DeleteBucketIntelligentTieringConfiguration.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1648,9 +1659,10 @@ module AWS::SDK::S3
     #   resp.data #=> Types::DeleteBucketInventoryConfigurationOutput
     def delete_bucket_inventory_configuration(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::DeleteBucketInventoryConfigurationInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::DeleteBucketInventoryConfiguration.build(config)
+      stack = AWS::SDK::S3::Middleware::DeleteBucketInventoryConfiguration.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1717,9 +1729,10 @@ module AWS::SDK::S3
     #   nil
     def delete_bucket_lifecycle(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::DeleteBucketLifecycleInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::DeleteBucketLifecycle.build(config)
+      stack = AWS::SDK::S3::Middleware::DeleteBucketLifecycle.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1790,9 +1803,10 @@ module AWS::SDK::S3
     #   resp.data #=> Types::DeleteBucketMetricsConfigurationOutput
     def delete_bucket_metrics_configuration(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::DeleteBucketMetricsConfigurationInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::DeleteBucketMetricsConfiguration.build(config)
+      stack = AWS::SDK::S3::Middleware::DeleteBucketMetricsConfiguration.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1847,9 +1861,10 @@ module AWS::SDK::S3
     #   resp.data #=> Types::DeleteBucketOwnershipControlsOutput
     def delete_bucket_ownership_controls(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::DeleteBucketOwnershipControlsInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::DeleteBucketOwnershipControls.build(config)
+      stack = AWS::SDK::S3::Middleware::DeleteBucketOwnershipControls.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1952,9 +1967,10 @@ module AWS::SDK::S3
     #   nil
     def delete_bucket_policy(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::DeleteBucketPolicyInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::DeleteBucketPolicy.build(config)
+      stack = AWS::SDK::S3::Middleware::DeleteBucketPolicy.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2023,9 +2039,10 @@ module AWS::SDK::S3
     #   nil
     def delete_bucket_replication(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::DeleteBucketReplicationInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::DeleteBucketReplication.build(config)
+      stack = AWS::SDK::S3::Middleware::DeleteBucketReplication.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2086,9 +2103,10 @@ module AWS::SDK::S3
     #   nil
     def delete_bucket_tagging(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::DeleteBucketTaggingInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::DeleteBucketTagging.build(config)
+      stack = AWS::SDK::S3::Middleware::DeleteBucketTagging.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2156,9 +2174,10 @@ module AWS::SDK::S3
     #   nil
     def delete_bucket_website(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::DeleteBucketWebsiteInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::DeleteBucketWebsite.build(config)
+      stack = AWS::SDK::S3::Middleware::DeleteBucketWebsite.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2315,9 +2334,10 @@ module AWS::SDK::S3
     #   {}
     def delete_object(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::DeleteObjectInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::DeleteObject.build(config)
+      stack = AWS::SDK::S3::Middleware::DeleteObject.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2399,9 +2419,10 @@ module AWS::SDK::S3
     #   }
     def delete_object_tagging(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::DeleteObjectTaggingInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::DeleteObjectTagging.build(config)
+      stack = AWS::SDK::S3::Middleware::DeleteObjectTagging.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2618,9 +2639,10 @@ module AWS::SDK::S3
     #   }
     def delete_objects(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::DeleteObjectsInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::DeleteObjects.build(config)
+      stack = AWS::SDK::S3::Middleware::DeleteObjects.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2684,9 +2706,10 @@ module AWS::SDK::S3
     #   resp.data #=> Types::DeletePublicAccessBlockOutput
     def delete_public_access_block(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::DeletePublicAccessBlockInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::DeletePublicAccessBlock.build(config)
+      stack = AWS::SDK::S3::Middleware::DeletePublicAccessBlock.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2751,9 +2774,10 @@ module AWS::SDK::S3
     #   resp.data.request_charged #=> String, one of ["requester"]
     def get_bucket_accelerate_configuration(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::GetBucketAccelerateConfigurationInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetBucketAccelerateConfiguration.build(config)
+      stack = AWS::SDK::S3::Middleware::GetBucketAccelerateConfiguration.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2827,9 +2851,10 @@ module AWS::SDK::S3
     #   resp.data.grants[0].permission #=> String, one of ["FULL_CONTROL", "WRITE", "WRITE_ACP", "READ", "READ_ACP"]
     def get_bucket_acl(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::GetBucketAclInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetBucketAcl.build(config)
+      stack = AWS::SDK::S3::Middleware::GetBucketAcl.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2914,9 +2939,10 @@ module AWS::SDK::S3
     #   resp.data.analytics_configuration.storage_class_analysis.data_export.destination.s3_bucket_destination.prefix #=> String
     def get_bucket_analytics_configuration(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::GetBucketAnalyticsConfigurationInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetBucketAnalyticsConfiguration.build(config)
+      stack = AWS::SDK::S3::Middleware::GetBucketAnalyticsConfiguration.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3012,9 +3038,10 @@ module AWS::SDK::S3
     #   }
     def get_bucket_cors(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::GetBucketCorsInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetBucketCors.build(config)
+      stack = AWS::SDK::S3::Middleware::GetBucketCors.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3079,9 +3106,10 @@ module AWS::SDK::S3
     #   resp.data.server_side_encryption_configuration.rules[0].bucket_key_enabled #=> Boolean
     def get_bucket_encryption(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::GetBucketEncryptionInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetBucketEncryption.build(config)
+      stack = AWS::SDK::S3::Middleware::GetBucketEncryption.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3154,9 +3182,10 @@ module AWS::SDK::S3
     #   resp.data.intelligent_tiering_configuration.tierings[0].access_tier #=> String, one of ["ARCHIVE_ACCESS", "DEEP_ARCHIVE_ACCESS"]
     def get_bucket_intelligent_tiering_configuration(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::GetBucketIntelligentTieringConfigurationInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetBucketIntelligentTieringConfiguration.build(config)
+      stack = AWS::SDK::S3::Middleware::GetBucketIntelligentTieringConfiguration.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3240,9 +3269,10 @@ module AWS::SDK::S3
     #   resp.data.inventory_configuration.schedule.frequency #=> String, one of ["Daily", "Weekly"]
     def get_bucket_inventory_configuration(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::GetBucketInventoryConfigurationInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetBucketInventoryConfiguration.build(config)
+      stack = AWS::SDK::S3::Middleware::GetBucketInventoryConfiguration.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3390,9 +3420,10 @@ module AWS::SDK::S3
     #   }
     def get_bucket_lifecycle_configuration(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::GetBucketLifecycleConfigurationInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetBucketLifecycleConfiguration.build(config)
+      stack = AWS::SDK::S3::Middleware::GetBucketLifecycleConfiguration.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3465,9 +3496,10 @@ module AWS::SDK::S3
     #   }
     def get_bucket_location(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::GetBucketLocationInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetBucketLocation.build(config)
+      stack = AWS::SDK::S3::Middleware::GetBucketLocation.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3534,9 +3566,10 @@ module AWS::SDK::S3
     #   resp.data.logging_enabled.target_object_key_format.partitioned_prefix.partition_date_source #=> String, one of ["EventTime", "DeliveryTime"]
     def get_bucket_logging(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::GetBucketLoggingInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetBucketLogging.build(config)
+      stack = AWS::SDK::S3::Middleware::GetBucketLogging.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3618,9 +3651,10 @@ module AWS::SDK::S3
     #   resp.data.metrics_configuration.filter.and.access_point_arn #=> String
     def get_bucket_metrics_configuration(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::GetBucketMetricsConfigurationInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetBucketMetricsConfiguration.build(config)
+      stack = AWS::SDK::S3::Middleware::GetBucketMetricsConfiguration.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3704,9 +3738,10 @@ module AWS::SDK::S3
     #   resp.data.event_bridge_configuration #=> Types::EventBridgeConfiguration
     def get_bucket_notification_configuration(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::GetBucketNotificationConfigurationInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetBucketNotificationConfiguration.build(config)
+      stack = AWS::SDK::S3::Middleware::GetBucketNotificationConfiguration.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3765,9 +3800,10 @@ module AWS::SDK::S3
     #   resp.data.ownership_controls.rules[0].object_ownership #=> String, one of ["BucketOwnerPreferred", "ObjectWriter", "BucketOwnerEnforced"]
     def get_bucket_ownership_controls(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::GetBucketOwnershipControlsInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetBucketOwnershipControls.build(config)
+      stack = AWS::SDK::S3::Middleware::GetBucketOwnershipControls.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3873,9 +3909,10 @@ module AWS::SDK::S3
     #   }
     def get_bucket_policy(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::GetBucketPolicyInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetBucketPolicy.build(config)
+      stack = AWS::SDK::S3::Middleware::GetBucketPolicy.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3942,9 +3979,10 @@ module AWS::SDK::S3
     #   resp.data.policy_status.is_public #=> Boolean
     def get_bucket_policy_status(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::GetBucketPolicyStatusInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetBucketPolicyStatus.build(config)
+      stack = AWS::SDK::S3::Middleware::GetBucketPolicyStatus.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4072,9 +4110,10 @@ module AWS::SDK::S3
     #   }
     def get_bucket_replication(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::GetBucketReplicationInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetBucketReplication.build(config)
+      stack = AWS::SDK::S3::Middleware::GetBucketReplication.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4132,9 +4171,10 @@ module AWS::SDK::S3
     #   }
     def get_bucket_request_payment(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::GetBucketRequestPaymentInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetBucketRequestPayment.build(config)
+      stack = AWS::SDK::S3::Middleware::GetBucketRequestPayment.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4223,9 +4263,10 @@ module AWS::SDK::S3
     #   }
     def get_bucket_tagging(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::GetBucketTaggingInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetBucketTagging.build(config)
+      stack = AWS::SDK::S3::Middleware::GetBucketTagging.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4297,9 +4338,10 @@ module AWS::SDK::S3
     #   }
     def get_bucket_versioning(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::GetBucketVersioningInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetBucketVersioning.build(config)
+      stack = AWS::SDK::S3::Middleware::GetBucketVersioning.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4388,9 +4430,10 @@ module AWS::SDK::S3
     #   }
     def get_bucket_website(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::GetBucketWebsiteInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetBucketWebsite.build(config)
+      stack = AWS::SDK::S3::Middleware::GetBucketWebsite.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4629,9 +4672,10 @@ module AWS::SDK::S3
     #   resp.data.object_lock_legal_hold_status #=> String, one of ["ON", "OFF"]
     def get_object(params = {}, options = {}, &block)
       response_body = output_stream(options, &block)
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::GetObjectInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetObject.build(config)
+      stack = AWS::SDK::S3::Middleware::GetObject.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4770,9 +4814,10 @@ module AWS::SDK::S3
     #   }
     def get_object_acl(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::GetObjectAclInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetObjectAcl.build(config)
+      stack = AWS::SDK::S3::Middleware::GetObjectAcl.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5029,9 +5074,10 @@ module AWS::SDK::S3
     #   resp.data.object_size #=> Integer
     def get_object_attributes(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::GetObjectAttributesInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetObjectAttributes.build(config)
+      stack = AWS::SDK::S3::Middleware::GetObjectAttributes.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5083,9 +5129,10 @@ module AWS::SDK::S3
     #   resp.data.legal_hold.status #=> String, one of ["ON", "OFF"]
     def get_object_legal_hold(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::GetObjectLegalHoldInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetObjectLegalHold.build(config)
+      stack = AWS::SDK::S3::Middleware::GetObjectLegalHold.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5139,9 +5186,10 @@ module AWS::SDK::S3
     #   resp.data.object_lock_configuration.rule.default_retention.years #=> Integer
     def get_object_lock_configuration(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::GetObjectLockConfigurationInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetObjectLockConfiguration.build(config)
+      stack = AWS::SDK::S3::Middleware::GetObjectLockConfiguration.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5194,9 +5242,10 @@ module AWS::SDK::S3
     #   resp.data.retention.retain_until_date #=> Time
     def get_object_retention(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::GetObjectRetentionInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetObjectRetention.build(config)
+      stack = AWS::SDK::S3::Middleware::GetObjectRetention.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5308,9 +5357,10 @@ module AWS::SDK::S3
     #   }
     def get_object_tagging(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::GetObjectTaggingInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetObjectTagging.build(config)
+      stack = AWS::SDK::S3::Middleware::GetObjectTagging.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5376,9 +5426,10 @@ module AWS::SDK::S3
     #   {}
     def get_object_torrent(params = {}, options = {}, &block)
       response_body = output_stream(options, &block)
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::GetObjectTorrentInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetObjectTorrent.build(config)
+      stack = AWS::SDK::S3::Middleware::GetObjectTorrent.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5456,9 +5507,10 @@ module AWS::SDK::S3
     #   resp.data.public_access_block_configuration.restrict_public_buckets #=> Boolean
     def get_public_access_block(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::GetPublicAccessBlockInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::GetPublicAccessBlock.build(config)
+      stack = AWS::SDK::S3::Middleware::GetPublicAccessBlock.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5553,9 +5605,10 @@ module AWS::SDK::S3
     #   nil
     def head_bucket(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::HeadBucketInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::HeadBucket.build(config)
+      stack = AWS::SDK::S3::Middleware::HeadBucket.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5771,9 +5824,10 @@ module AWS::SDK::S3
     #   resp.data.object_lock_legal_hold_status #=> String, one of ["ON", "OFF"]
     def head_object(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::HeadObjectInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::HeadObject.build(config)
+      stack = AWS::SDK::S3::Middleware::HeadObject.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5869,9 +5923,10 @@ module AWS::SDK::S3
     #   resp.data.analytics_configuration_list[0].storage_class_analysis.data_export.destination.s3_bucket_destination.prefix #=> String
     def list_bucket_analytics_configurations(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::ListBucketAnalyticsConfigurationsInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::ListBucketAnalyticsConfigurations.build(config)
+      stack = AWS::SDK::S3::Middleware::ListBucketAnalyticsConfigurations.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5948,9 +6003,10 @@ module AWS::SDK::S3
     #   resp.data.intelligent_tiering_configuration_list[0].tierings[0].access_tier #=> String, one of ["ARCHIVE_ACCESS", "DEEP_ARCHIVE_ACCESS"]
     def list_bucket_intelligent_tiering_configurations(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::ListBucketIntelligentTieringConfigurationsInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::ListBucketIntelligentTieringConfigurations.build(config)
+      stack = AWS::SDK::S3::Middleware::ListBucketIntelligentTieringConfigurations.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -6046,9 +6102,10 @@ module AWS::SDK::S3
     #   resp.data.next_continuation_token #=> String
     def list_bucket_inventory_configurations(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::ListBucketInventoryConfigurationsInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::ListBucketInventoryConfigurations.build(config)
+      stack = AWS::SDK::S3::Middleware::ListBucketInventoryConfigurations.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -6137,9 +6194,10 @@ module AWS::SDK::S3
     #   resp.data.metrics_configuration_list[0].filter.and.access_point_arn #=> String
     def list_bucket_metrics_configurations(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::ListBucketMetricsConfigurationsInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::ListBucketMetricsConfigurations.build(config)
+      stack = AWS::SDK::S3::Middleware::ListBucketMetricsConfigurations.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -6207,9 +6265,10 @@ module AWS::SDK::S3
     #   }
     def list_buckets(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::ListBucketsInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::ListBuckets.build(config)
+      stack = AWS::SDK::S3::Middleware::ListBuckets.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -6266,9 +6325,10 @@ module AWS::SDK::S3
     #   resp.data.continuation_token #=> String
     def list_directory_buckets(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::ListDirectoryBucketsInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::ListDirectoryBuckets.build(config)
+      stack = AWS::SDK::S3::Middleware::ListDirectoryBuckets.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -6488,9 +6548,10 @@ module AWS::SDK::S3
     #   }
     def list_multipart_uploads(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::ListMultipartUploadsInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::ListMultipartUploads.build(config)
+      stack = AWS::SDK::S3::Middleware::ListMultipartUploads.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -6648,9 +6709,10 @@ module AWS::SDK::S3
     #   }
     def list_object_versions(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::ListObjectVersionsInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::ListObjectVersions.build(config)
+      stack = AWS::SDK::S3::Middleware::ListObjectVersions.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -6758,9 +6820,10 @@ module AWS::SDK::S3
     #   resp.data.request_charged #=> String, one of ["requester"]
     def list_objects(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::ListObjectsInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::ListObjects.build(config)
+      stack = AWS::SDK::S3::Middleware::ListObjects.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -6912,9 +6975,10 @@ module AWS::SDK::S3
     #   resp.data.request_charged #=> String, one of ["requester"]
     def list_objects_v2(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::ListObjectsV2Input.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::ListObjectsV2.build(config)
+      stack = AWS::SDK::S3::Middleware::ListObjectsV2.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -7065,9 +7129,10 @@ module AWS::SDK::S3
     #   resp.data.checksum_algorithm #=> String, one of ["CRC32", "CRC32C", "SHA1", "SHA256"]
     def list_parts(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::ListPartsInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::ListParts.build(config)
+      stack = AWS::SDK::S3::Middleware::ListParts.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -7146,9 +7211,10 @@ module AWS::SDK::S3
     #   resp.data #=> Types::PutBucketAccelerateConfigurationOutput
     def put_bucket_accelerate_configuration(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::PutBucketAccelerateConfigurationInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::PutBucketAccelerateConfiguration.build(config)
+      stack = AWS::SDK::S3::Middleware::PutBucketAccelerateConfiguration.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -7418,9 +7484,10 @@ module AWS::SDK::S3
     #   nil
     def put_bucket_acl(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::PutBucketAclInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::PutBucketAcl.build(config)
+      stack = AWS::SDK::S3::Middleware::PutBucketAcl.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -7587,9 +7654,10 @@ module AWS::SDK::S3
     #   resp.data #=> Types::PutBucketAnalyticsConfigurationOutput
     def put_bucket_analytics_configuration(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::PutBucketAnalyticsConfigurationInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::PutBucketAnalyticsConfiguration.build(config)
+      stack = AWS::SDK::S3::Middleware::PutBucketAnalyticsConfiguration.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -7743,9 +7811,10 @@ module AWS::SDK::S3
     #   nil
     def put_bucket_cors(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::PutBucketCorsInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::PutBucketCors.build(config)
+      stack = AWS::SDK::S3::Middleware::PutBucketCors.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -7825,9 +7894,10 @@ module AWS::SDK::S3
     #   resp.data #=> Types::PutBucketEncryptionOutput
     def put_bucket_encryption(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::PutBucketEncryptionInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::PutBucketEncryption.build(config)
+      stack = AWS::SDK::S3::Middleware::PutBucketEncryption.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -7938,9 +8008,10 @@ module AWS::SDK::S3
     #   resp.data #=> Types::PutBucketIntelligentTieringConfigurationOutput
     def put_bucket_intelligent_tiering_configuration(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::PutBucketIntelligentTieringConfigurationInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::PutBucketIntelligentTieringConfiguration.build(config)
+      stack = AWS::SDK::S3::Middleware::PutBucketIntelligentTieringConfiguration.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -8089,9 +8160,10 @@ module AWS::SDK::S3
     #   resp.data #=> Types::PutBucketInventoryConfigurationOutput
     def put_bucket_inventory_configuration(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::PutBucketInventoryConfigurationInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::PutBucketInventoryConfiguration.build(config)
+      stack = AWS::SDK::S3::Middleware::PutBucketInventoryConfiguration.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -8300,9 +8372,10 @@ module AWS::SDK::S3
     #   nil
     def put_bucket_lifecycle_configuration(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::PutBucketLifecycleConfigurationInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::PutBucketLifecycleConfiguration.build(config)
+      stack = AWS::SDK::S3::Middleware::PutBucketLifecycleConfiguration.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -8472,9 +8545,10 @@ module AWS::SDK::S3
     #   nil
     def put_bucket_logging(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::PutBucketLoggingInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::PutBucketLogging.build(config)
+      stack = AWS::SDK::S3::Middleware::PutBucketLogging.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -8574,9 +8648,10 @@ module AWS::SDK::S3
     #   resp.data #=> Types::PutBucketMetricsConfigurationOutput
     def put_bucket_metrics_configuration(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::PutBucketMetricsConfigurationInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::PutBucketMetricsConfiguration.build(config)
+      stack = AWS::SDK::S3::Middleware::PutBucketMetricsConfiguration.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -8717,9 +8792,10 @@ module AWS::SDK::S3
     #   nil
     def put_bucket_notification_configuration(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::PutBucketNotificationConfigurationInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::PutBucketNotificationConfiguration.build(config)
+      stack = AWS::SDK::S3::Middleware::PutBucketNotificationConfiguration.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -8782,9 +8858,10 @@ module AWS::SDK::S3
     #   resp.data #=> Types::PutBucketOwnershipControlsOutput
     def put_bucket_ownership_controls(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::PutBucketOwnershipControlsInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::PutBucketOwnershipControls.build(config)
+      stack = AWS::SDK::S3::Middleware::PutBucketOwnershipControls.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -8897,9 +8974,10 @@ module AWS::SDK::S3
     #   nil
     def put_bucket_policy(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::PutBucketPolicyInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::PutBucketPolicy.build(config)
+      stack = AWS::SDK::S3::Middleware::PutBucketPolicy.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -9086,9 +9164,10 @@ module AWS::SDK::S3
     #   nil
     def put_bucket_replication(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::PutBucketReplicationInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::PutBucketReplication.build(config)
+      stack = AWS::SDK::S3::Middleware::PutBucketReplication.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -9158,9 +9237,10 @@ module AWS::SDK::S3
     #   nil
     def put_bucket_request_payment(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::PutBucketRequestPaymentInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::PutBucketRequestPayment.build(config)
+      stack = AWS::SDK::S3::Middleware::PutBucketRequestPayment.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -9284,9 +9364,10 @@ module AWS::SDK::S3
     #   nil
     def put_bucket_tagging(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::PutBucketTaggingInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::PutBucketTagging.build(config)
+      stack = AWS::SDK::S3::Middleware::PutBucketTagging.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -9382,9 +9463,10 @@ module AWS::SDK::S3
     #   nil
     def put_bucket_versioning(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::PutBucketVersioningInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::PutBucketVersioning.build(config)
+      stack = AWS::SDK::S3::Middleware::PutBucketVersioning.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -9589,9 +9671,10 @@ module AWS::SDK::S3
     #   nil
     def put_bucket_website(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::PutBucketWebsiteInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::PutBucketWebsite.build(config)
+      stack = AWS::SDK::S3::Middleware::PutBucketWebsite.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -9906,9 +9989,10 @@ module AWS::SDK::S3
     #   }
     def put_object(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::PutObjectInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::PutObject.build(config)
+      stack = AWS::SDK::S3::Middleware::PutObject.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -10172,9 +10256,10 @@ module AWS::SDK::S3
     #   {}
     def put_object_acl(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::PutObjectAclInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::PutObjectAcl.build(config)
+      stack = AWS::SDK::S3::Middleware::PutObjectAcl.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -10223,9 +10308,10 @@ module AWS::SDK::S3
     #   resp.data.request_charged #=> String, one of ["requester"]
     def put_object_legal_hold(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::PutObjectLegalHoldInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::PutObjectLegalHold.build(config)
+      stack = AWS::SDK::S3::Middleware::PutObjectLegalHold.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -10297,9 +10383,10 @@ module AWS::SDK::S3
     #   resp.data.request_charged #=> String, one of ["requester"]
     def put_object_lock_configuration(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::PutObjectLockConfigurationInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::PutObjectLockConfiguration.build(config)
+      stack = AWS::SDK::S3::Middleware::PutObjectLockConfiguration.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -10351,9 +10438,10 @@ module AWS::SDK::S3
     #   resp.data.request_charged #=> String, one of ["requester"]
     def put_object_retention(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::PutObjectRetentionInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::PutObjectRetention.build(config)
+      stack = AWS::SDK::S3::Middleware::PutObjectRetention.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -10479,9 +10567,10 @@ module AWS::SDK::S3
     #   }
     def put_object_tagging(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::PutObjectTaggingInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::PutObjectTagging.build(config)
+      stack = AWS::SDK::S3::Middleware::PutObjectTagging.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -10562,9 +10651,10 @@ module AWS::SDK::S3
     #   resp.data #=> Types::PutPublicAccessBlockOutput
     def put_public_access_block(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::PutPublicAccessBlockInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::PutPublicAccessBlock.build(config)
+      stack = AWS::SDK::S3::Middleware::PutPublicAccessBlock.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -10963,9 +11053,10 @@ module AWS::SDK::S3
     #   {}
     def restore_object(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::RestoreObjectInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::RestoreObject.build(config)
+      stack = AWS::SDK::S3::Middleware::RestoreObject.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -10979,6 +11070,213 @@ module AWS::SDK::S3
         raise output.error
       end
       context.config.logger.info("[#{context.invocation_id}] [#{self.class}#restore_object] #{output.data}")
+      output
+    end
+
+    # <note>
+    #             <p>This operation is not supported by directory buckets.</p>
+    #          </note>
+    #          <p>This action filters the contents of an Amazon S3 object based on a simple structured query
+    #          language (SQL) statement. In the request, along with the SQL expression, you must also
+    #          specify a data serialization format (JSON, CSV, or Apache Parquet) of the object. Amazon S3 uses
+    #          this format to parse object data into records, and returns only records that match the
+    #          specified SQL expression. You must also specify the data serialization format for the
+    #          response.</p>
+    #          <p>This functionality is not supported for Amazon S3 on Outposts.</p>
+    #          <p>For more information about Amazon S3 Select, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/selecting-content-from-objects.html">Selecting Content from
+    #             Objects</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-glacier-select-sql-reference-select.html">SELECT
+    #             Command</a> in the <i>Amazon S3 User Guide</i>.</p>
+    #          <p></p>
+    #          <dl>
+    #             <dt>Permissions</dt>
+    #             <dd>
+    #                <p>You must have the <code>s3:GetObject</code> permission for this operation. Amazon S3
+    #                   Select does not support anonymous access. For more information about permissions,
+    #                   see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying Permissions in
+    #                      a Policy</a> in the <i>Amazon S3 User Guide</i>.</p>
+    #             </dd>
+    #             <dt>Object Data Formats</dt>
+    #             <dd>
+    #                <p>You can use Amazon S3 Select to query objects that have the following format
+    #                   properties:</p>
+    #                <ul>
+    #                   <li>
+    #                      <p>
+    #                         <i>CSV, JSON, and Parquet</i> - Objects must be in CSV,
+    #                         JSON, or Parquet format.</p>
+    #                   </li>
+    #                   <li>
+    #                      <p>
+    #                         <i>UTF-8</i> - UTF-8 is the only encoding type Amazon S3 Select
+    #                         supports.</p>
+    #                   </li>
+    #                   <li>
+    #                      <p>
+    #                         <i>GZIP or BZIP2</i> - CSV and JSON files can be compressed
+    #                         using GZIP or BZIP2. GZIP and BZIP2 are the only compression formats that
+    #                         Amazon S3 Select supports for CSV and JSON files. Amazon S3 Select supports columnar
+    #                         compression for Parquet using GZIP or Snappy. Amazon S3 Select does not support
+    #                         whole-object compression for Parquet objects.</p>
+    #                   </li>
+    #                   <li>
+    #                      <p>
+    #                         <i>Server-side encryption</i> - Amazon S3 Select supports
+    #                         querying objects that are protected with server-side encryption.</p>
+    #                      <p>For objects that are encrypted with customer-provided encryption keys
+    #                         (SSE-C), you must use HTTPS, and you must use the headers that are
+    #                         documented in the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a>. For more
+    #                         information about SSE-C, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side Encryption (Using Customer-Provided Encryption Keys)</a>
+    #                         in the <i>Amazon S3 User Guide</i>.</p>
+    #                      <p>For objects that are encrypted with Amazon S3 managed keys (SSE-S3) and
+    #                         Amazon Web Services KMS keys (SSE-KMS), server-side encryption is handled transparently,
+    #                         so you don't need to specify anything. For more information about
+    #                         server-side encryption, including SSE-S3 and SSE-KMS, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html">Protecting Data Using Server-Side Encryption</a> in the
+    #                            <i>Amazon S3 User Guide</i>.</p>
+    #                   </li>
+    #                </ul>
+    #             </dd>
+    #             <dt>Working with the Response Body</dt>
+    #             <dd>
+    #                <p>Given the response size is unknown, Amazon S3 Select streams the response as a
+    #                   series of messages and includes a <code>Transfer-Encoding</code> header with
+    #                      <code>chunked</code> as its value in the response. For more information, see
+    #                      <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTSelectObjectAppendix.html">Appendix:
+    #                      SelectObjectContent
+    #                   Response</a>.</p>
+    #             </dd>
+    #             <dt>GetObject Support</dt>
+    #             <dd>
+    #                <p>The <code>SelectObjectContent</code> action does not support the following
+    #                      <code>GetObject</code> functionality. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a>.</p>
+    #                <ul>
+    #                   <li>
+    #                      <p>
+    #                         <code>Range</code>: Although you can specify a scan range for an Amazon S3 Select
+    #                         request (see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_SelectObjectContent.html#AmazonS3-SelectObjectContent-request-ScanRange">SelectObjectContentRequest - ScanRange</a> in the request
+    #                         parameters), you cannot specify the range of bytes of an object to return.
+    #                      </p>
+    #                   </li>
+    #                   <li>
+    #                      <p>The <code>GLACIER</code>, <code>DEEP_ARCHIVE</code>, and
+    #                            <code>REDUCED_REDUNDANCY</code> storage classes, or the
+    #                            <code>ARCHIVE_ACCESS</code> and <code>DEEP_ARCHIVE_ACCESS</code> access
+    #                         tiers of the <code>INTELLIGENT_TIERING</code> storage class: You cannot
+    #                         query objects in the <code>GLACIER</code>, <code>DEEP_ARCHIVE</code>, or
+    #                            <code>REDUCED_REDUNDANCY</code> storage classes, nor objects in the
+    #                            <code>ARCHIVE_ACCESS</code> or <code>DEEP_ARCHIVE_ACCESS</code> access
+    #                         tiers of the <code>INTELLIGENT_TIERING</code> storage class. For more
+    #                         information about storage classes, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html">Using Amazon S3
+    #                            storage classes</a> in the
+    #                         <i>Amazon S3 User Guide</i>.</p>
+    #                   </li>
+    #                </ul>
+    #             </dd>
+    #             <dt>Special Errors</dt>
+    #             <dd>
+    #                <p>For a list of special errors for this operation, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#SelectObjectContentErrorCodeList">List of SELECT Object Content Error Codes</a>
+    #                </p>
+    #             </dd>
+    #          </dl>
+    #          <p>The following operations are related to <code>SelectObjectContent</code>:</p>
+    #          <ul>
+    #             <li>
+    #                <p>
+    #                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a>
+    #                </p>
+    #             </li>
+    #             <li>
+    #                <p>
+    #                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycleConfiguration.html">GetBucketLifecycleConfiguration</a>
+    #                </p>
+    #             </li>
+    #             <li>
+    #                <p>
+    #                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html">PutBucketLifecycleConfiguration</a>
+    #                </p>
+    #             </li>
+    #          </ul>
+    # @param [Hash | Types::SelectObjectContentInput] params
+    #   Request parameters for this operation.
+    #   See {Types::SelectObjectContentInput#initialize} for available parameters.
+    #   Do not set values for the event stream member(`payload`).
+    #   Instead use the returned output to signal input events.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
+    # @option options [EventStream::SelectObjectContentHandler] :event_stream_handler
+    #   Event Stream Handler used to register handlers that will be called when events are received.
+    # @return [Hearth::Output]
+    # @example Request syntax with placeholder values and registering an event handler
+    #   handler = SelectObjectContentHandler.new
+    #   handler.on_initial_response { |event| process_initial_response(event) }
+    #   resp = client.select_object_content({
+    #     bucket: 'Bucket', # required
+    #     key: 'Key', # required
+    #     sse_customer_algorithm: 'SSECustomerAlgorithm',
+    #     sse_customer_key: 'SSECustomerKey',
+    #     sse_customer_key_md5: 'SSECustomerKeyMD5',
+    #     expression: 'Expression', # required
+    #     expression_type: 'SQL', # required - accepts ["SQL"]
+    #     request_progress: {
+    #       enabled: false
+    #     },
+    #     input_serialization: {
+    #       csv: {
+    #         file_header_info: 'USE', # accepts ["USE", "IGNORE", "NONE"]
+    #         comments: 'Comments',
+    #         quote_escape_character: 'QuoteEscapeCharacter',
+    #         record_delimiter: 'RecordDelimiter',
+    #         field_delimiter: 'FieldDelimiter',
+    #         quote_character: 'QuoteCharacter',
+    #         allow_quoted_record_delimiter: false
+    #       },
+    #       compression_type: 'NONE', # accepts ["NONE", "GZIP", "BZIP2"]
+    #       json: {
+    #         type: 'DOCUMENT' # accepts ["DOCUMENT", "LINES"]
+    #       },
+    #       parquet: { }
+    #     }, # required
+    #     output_serialization: {
+    #       csv: {
+    #         quote_fields: 'ALWAYS', # accepts ["ALWAYS", "ASNEEDED"]
+    #         quote_escape_character: 'QuoteEscapeCharacter',
+    #         record_delimiter: 'RecordDelimiter',
+    #         field_delimiter: 'FieldDelimiter',
+    #         quote_character: 'QuoteCharacter'
+    #       },
+    #       json: {
+    #         record_delimiter: 'RecordDelimiter'
+    #       }
+    #     }, # required
+    #     scan_range: {
+    #       start: 1,
+    #       end: 1
+    #     },
+    #     expected_bucket_owner: 'ExpectedBucketOwner'
+    #   }, event_stream_handler: handler)
+    # @example Response structure
+    #   resp.data #=> Types::SelectObjectContentOutput
+    def select_object_content(params = {}, options = {})
+      response_body = ::StringIO.new
+      middleware_opts = {}
+      middleware_opts[:event_stream_handler] = options.delete(:event_stream_handler)
+      raise ArgumentError, 'Missing `event_stream_handler`' unless middleware_opts[:event_stream_handler]
+      config = operation_config(options)
+      input = Params::SelectObjectContentInput.build(params, context: 'params')
+      stack = AWS::SDK::S3::Middleware::SelectObjectContent.build(config, middleware_opts)
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI('')),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        config: config,
+        operation_name: :select_object_content,
+      )
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#select_object_content] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#select_object_content] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#select_object_content] #{output.data}")
       output
     end
 
@@ -11187,9 +11485,10 @@ module AWS::SDK::S3
     #   resp.data.request_charged #=> String, one of ["requester"]
     def upload_part(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::UploadPartInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::UploadPart.build(config)
+      stack = AWS::SDK::S3::Middleware::UploadPart.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -11431,9 +11730,10 @@ module AWS::SDK::S3
     #   resp.data.request_charged #=> String, one of ["requester"]
     def upload_part_copy(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::UploadPartCopyInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::UploadPartCopy.build(config)
+      stack = AWS::SDK::S3::Middleware::UploadPartCopy.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -11543,9 +11843,10 @@ module AWS::SDK::S3
     #   resp.data #=> Types::WriteGetObjectResponseOutput
     def write_get_object_response(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::WriteGetObjectResponseInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::WriteGetObjectResponse.build(config)
+      stack = AWS::SDK::S3::Middleware::WriteGetObjectResponse.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -11559,222 +11860,6 @@ module AWS::SDK::S3
         raise output.error
       end
       context.config.logger.info("[#{context.invocation_id}] [#{self.class}#write_get_object_response] #{output.data}")
-      output
-    end
-
-    # <note>
-    #             <p>This operation is not supported by directory buckets.</p>
-    #          </note>
-    #          <p>This action filters the contents of an Amazon S3 object based on a simple structured query
-    #          language (SQL) statement. In the request, along with the SQL expression, you must also
-    #          specify a data serialization format (JSON, CSV, or Apache Parquet) of the object. Amazon S3 uses
-    #          this format to parse object data into records, and returns only records that match the
-    #          specified SQL expression. You must also specify the data serialization format for the
-    #          response.</p>
-    #          <p>This functionality is not supported for Amazon S3 on Outposts.</p>
-    #          <p>For more information about Amazon S3 Select, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/selecting-content-from-objects.html">Selecting Content from
-    #             Objects</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-glacier-select-sql-reference-select.html">SELECT
-    #             Command</a> in the <i>Amazon S3 User Guide</i>.</p>
-    #          <p></p>
-    #          <dl>
-    #             <dt>Permissions</dt>
-    #             <dd>
-    #                <p>You must have the <code>s3:GetObject</code> permission for this operation. Amazon S3
-    #                   Select does not support anonymous access. For more information about permissions,
-    #                   see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying Permissions in
-    #                      a Policy</a> in the <i>Amazon S3 User Guide</i>.</p>
-    #             </dd>
-    #             <dt>Object Data Formats</dt>
-    #             <dd>
-    #                <p>You can use Amazon S3 Select to query objects that have the following format
-    #                   properties:</p>
-    #                <ul>
-    #                   <li>
-    #                      <p>
-    #                         <i>CSV, JSON, and Parquet</i> - Objects must be in CSV,
-    #                         JSON, or Parquet format.</p>
-    #                   </li>
-    #                   <li>
-    #                      <p>
-    #                         <i>UTF-8</i> - UTF-8 is the only encoding type Amazon S3 Select
-    #                         supports.</p>
-    #                   </li>
-    #                   <li>
-    #                      <p>
-    #                         <i>GZIP or BZIP2</i> - CSV and JSON files can be compressed
-    #                         using GZIP or BZIP2. GZIP and BZIP2 are the only compression formats that
-    #                         Amazon S3 Select supports for CSV and JSON files. Amazon S3 Select supports columnar
-    #                         compression for Parquet using GZIP or Snappy. Amazon S3 Select does not support
-    #                         whole-object compression for Parquet objects.</p>
-    #                   </li>
-    #                   <li>
-    #                      <p>
-    #                         <i>Server-side encryption</i> - Amazon S3 Select supports
-    #                         querying objects that are protected with server-side encryption.</p>
-    #                      <p>For objects that are encrypted with customer-provided encryption keys
-    #                         (SSE-C), you must use HTTPS, and you must use the headers that are
-    #                         documented in the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a>. For more
-    #                         information about SSE-C, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side Encryption (Using Customer-Provided Encryption Keys)</a>
-    #                         in the <i>Amazon S3 User Guide</i>.</p>
-    #                      <p>For objects that are encrypted with Amazon S3 managed keys (SSE-S3) and
-    #                         Amazon Web Services KMS keys (SSE-KMS), server-side encryption is handled transparently,
-    #                         so you don't need to specify anything. For more information about
-    #                         server-side encryption, including SSE-S3 and SSE-KMS, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html">Protecting Data Using Server-Side Encryption</a> in the
-    #                            <i>Amazon S3 User Guide</i>.</p>
-    #                   </li>
-    #                </ul>
-    #             </dd>
-    #             <dt>Working with the Response Body</dt>
-    #             <dd>
-    #                <p>Given the response size is unknown, Amazon S3 Select streams the response as a
-    #                   series of messages and includes a <code>Transfer-Encoding</code> header with
-    #                      <code>chunked</code> as its value in the response. For more information, see
-    #                      <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTSelectObjectAppendix.html">Appendix:
-    #                      SelectObjectContent
-    #                   Response</a>.</p>
-    #             </dd>
-    #             <dt>GetObject Support</dt>
-    #             <dd>
-    #                <p>The <code>SelectObjectContent</code> action does not support the following
-    #                      <code>GetObject</code> functionality. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a>.</p>
-    #                <ul>
-    #                   <li>
-    #                      <p>
-    #                         <code>Range</code>: Although you can specify a scan range for an Amazon S3 Select
-    #                         request (see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_SelectObjectContent.html#AmazonS3-SelectObjectContent-request-ScanRange">SelectObjectContentRequest - ScanRange</a> in the request
-    #                         parameters), you cannot specify the range of bytes of an object to return.
-    #                      </p>
-    #                   </li>
-    #                   <li>
-    #                      <p>The <code>GLACIER</code>, <code>DEEP_ARCHIVE</code>, and
-    #                            <code>REDUCED_REDUNDANCY</code> storage classes, or the
-    #                            <code>ARCHIVE_ACCESS</code> and <code>DEEP_ARCHIVE_ACCESS</code> access
-    #                         tiers of the <code>INTELLIGENT_TIERING</code> storage class: You cannot
-    #                         query objects in the <code>GLACIER</code>, <code>DEEP_ARCHIVE</code>, or
-    #                            <code>REDUCED_REDUNDANCY</code> storage classes, nor objects in the
-    #                            <code>ARCHIVE_ACCESS</code> or <code>DEEP_ARCHIVE_ACCESS</code> access
-    #                         tiers of the <code>INTELLIGENT_TIERING</code> storage class. For more
-    #                         information about storage classes, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html">Using Amazon S3
-    #                            storage classes</a> in the
-    #                         <i>Amazon S3 User Guide</i>.</p>
-    #                   </li>
-    #                </ul>
-    #             </dd>
-    #             <dt>Special Errors</dt>
-    #             <dd>
-    #                <p>For a list of special errors for this operation, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#SelectObjectContentErrorCodeList">List of SELECT Object Content Error Codes</a>
-    #                </p>
-    #             </dd>
-    #          </dl>
-    #          <p>The following operations are related to <code>SelectObjectContent</code>:</p>
-    #          <ul>
-    #             <li>
-    #                <p>
-    #                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a>
-    #                </p>
-    #             </li>
-    #             <li>
-    #                <p>
-    #                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycleConfiguration.html">GetBucketLifecycleConfiguration</a>
-    #                </p>
-    #             </li>
-    #             <li>
-    #                <p>
-    #                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html">PutBucketLifecycleConfiguration</a>
-    #                </p>
-    #             </li>
-    #          </ul>
-    # @param [Hash | Types::SelectObjectContentInput] params
-    #   Request parameters for this operation.
-    #   See {Types::SelectObjectContentInput#initialize} for available parameters.
-    # @param [Hash] options
-    #   Request option override of configuration. See {Config#initialize} for available options.
-    #   Some configurations cannot be overridden.
-    # @return [Hearth::Output]
-    # @example Request syntax with placeholder values
-    #   resp = client.select_object_content(
-    #     bucket: 'Bucket', # required
-    #     key: 'Key', # required
-    #     sse_customer_algorithm: 'SSECustomerAlgorithm',
-    #     sse_customer_key: 'SSECustomerKey',
-    #     sse_customer_key_md5: 'SSECustomerKeyMD5',
-    #     expression: 'Expression', # required
-    #     expression_type: 'SQL', # required - accepts ["SQL"]
-    #     request_progress: {
-    #       enabled: false
-    #     },
-    #     input_serialization: {
-    #       csv: {
-    #         file_header_info: 'USE', # accepts ["USE", "IGNORE", "NONE"]
-    #         comments: 'Comments',
-    #         quote_escape_character: 'QuoteEscapeCharacter',
-    #         record_delimiter: 'RecordDelimiter',
-    #         field_delimiter: 'FieldDelimiter',
-    #         quote_character: 'QuoteCharacter',
-    #         allow_quoted_record_delimiter: false
-    #       },
-    #       compression_type: 'NONE', # accepts ["NONE", "GZIP", "BZIP2"]
-    #       json: {
-    #         type: 'DOCUMENT' # accepts ["DOCUMENT", "LINES"]
-    #       },
-    #       parquet: { }
-    #     }, # required
-    #     output_serialization: {
-    #       csv: {
-    #         quote_fields: 'ALWAYS', # accepts ["ALWAYS", "ASNEEDED"]
-    #         quote_escape_character: 'QuoteEscapeCharacter',
-    #         record_delimiter: 'RecordDelimiter',
-    #         field_delimiter: 'FieldDelimiter',
-    #         quote_character: 'QuoteCharacter'
-    #       },
-    #       json: {
-    #         record_delimiter: 'RecordDelimiter'
-    #       }
-    #     }, # required
-    #     scan_range: {
-    #       start: 1,
-    #       end: 1
-    #     },
-    #     expected_bucket_owner: 'ExpectedBucketOwner'
-    #   )
-    # @example Response structure
-    #   resp.data #=> Types::SelectObjectContentOutput
-    #   resp.data.payload #=> Types::SelectObjectContentEventStream, one of [Records, Stats, Progress, Cont, End]
-    #   resp.data.payload.records #=> Types::RecordsEvent
-    #   resp.data.payload.records.payload #=> String
-    #   resp.data.payload.stats #=> Types::StatsEvent
-    #   resp.data.payload.stats.details #=> Types::Stats
-    #   resp.data.payload.stats.details.bytes_scanned #=> Integer
-    #   resp.data.payload.stats.details.bytes_processed #=> Integer
-    #   resp.data.payload.stats.details.bytes_returned #=> Integer
-    #   resp.data.payload.progress #=> Types::ProgressEvent
-    #   resp.data.payload.progress.details #=> Types::Progress
-    #   resp.data.payload.progress.details.bytes_scanned #=> Integer
-    #   resp.data.payload.progress.details.bytes_processed #=> Integer
-    #   resp.data.payload.progress.details.bytes_returned #=> Integer
-    #   resp.data.payload.cont #=> Types::ContinuationEvent
-    #   resp.data.payload.end #=> Types::EndEvent
-    def select_object_content(params = {}, options = {})
-      middleware_opts = {}
-      middleware_opts[:event_stream_handler] = options.delete(:event_stream_handler)
-      raise ArgumentError, 'Missing `event_stream_handler`' unless middleware_opts[:event_stream_handler]
-      response_body = ::StringIO.new
-      config = operation_config(options)
-      input = Params::SelectObjectContentInput.build(params, context: 'params')
-      stack = AWS::SDK::S3::Middleware::SelectObjectContent.build(config, middleware_opts)
-      context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI('')),
-        response: Hearth::HTTP::Response.new(body: response_body),
-        config: config,
-        operation_name: :select_object_content,
-      )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#select_object_content] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#select_object_content] #{output.error} (#{output.error.class})")
-        raise output.error
-      end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#select_object_content] #{output.data}")
       output
     end
   end

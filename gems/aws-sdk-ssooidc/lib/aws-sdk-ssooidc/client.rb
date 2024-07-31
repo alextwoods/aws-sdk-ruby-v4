@@ -134,9 +134,10 @@ module AWS::SDK::SSOOIDC
     #   }
     def create_token(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::CreateTokenInput.build(params, context: 'params')
-      stack = AWS::SDK::SSOOIDC::Middleware::CreateToken.build(config)
+      stack = AWS::SDK::SSOOIDC::Middleware::CreateToken.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -286,9 +287,10 @@ module AWS::SDK::SSOOIDC
     #   }
     def create_token_with_iam(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::CreateTokenWithIAMInput.build(params, context: 'params')
-      stack = AWS::SDK::SSOOIDC::Middleware::CreateTokenWithIAM.build(config)
+      stack = AWS::SDK::SSOOIDC::Middleware::CreateTokenWithIAM.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -367,9 +369,10 @@ module AWS::SDK::SSOOIDC
     #   }
     def register_client(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::RegisterClientInput.build(params, context: 'params')
-      stack = AWS::SDK::SSOOIDC::Middleware::RegisterClient.build(config)
+      stack = AWS::SDK::SSOOIDC::Middleware::RegisterClient.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -428,9 +431,10 @@ module AWS::SDK::SSOOIDC
     #   }
     def start_device_authorization(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       input = Params::StartDeviceAuthorizationInput.build(params, context: 'params')
-      stack = AWS::SDK::SSOOIDC::Middleware::StartDeviceAuthorization.build(config)
+      stack = AWS::SDK::SSOOIDC::Middleware::StartDeviceAuthorization.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),

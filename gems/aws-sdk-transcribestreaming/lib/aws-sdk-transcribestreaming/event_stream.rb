@@ -11,8 +11,8 @@ module AWS::SDK::TranscribeStreaming
   module EventStream
 
     # EventStreamHandler for the the {Client#start_call_analytics_stream_transcription} operation.
-    # Register event handlers using the +#on_<event_name>+ methods
-    # and set the handler using the +event_stream_handler+ option
+    # Register event handlers using the `#on_<event_name>` methods
+    # and set the handler using the `event_stream_handler` option
     # on the {Client#start_call_analytics_stream_transcription} method.
     # @example Basic Usage
     #   handler = StartCallAnalyticsStreamTranscription.new
@@ -20,10 +20,32 @@ module AWS::SDK::TranscribeStreaming
     #   handler.on_initial_response { |initial_response| process(initial_response) }
     #   client.start_call_analytics_stream_transcription(params, event_stream_handler: handler)
     class StartCallAnalyticsStreamTranscriptionHandler < Hearth::EventStream::HandlerBase
+      # Register an event handler for the initial response.
+      # @yield [event] Called when the initial response is received.
+      # @yieldparam event [Types::StartCallAnalyticsStreamTranscriptionOutput] the initial response
+      # @example Event structure
+      #   event #=> Types::StartCallAnalyticsStreamTranscriptionOutput
+      #   event.request_id #=> String
+      #   event.language_code #=> String, one of ["en-US", "en-GB", "es-US", "fr-CA", "fr-FR", "en-AU", "it-IT", "de-DE", "pt-BR"]
+      #   event.media_sample_rate_hertz #=> Integer
+      #   event.media_encoding #=> String, one of ["pcm", "ogg-opus", "flac"]
+      #   event.vocabulary_name #=> String
+      #   event.session_id #=> String
+      #   event.vocabulary_filter_name #=> String
+      #   event.vocabulary_filter_method #=> String, one of ["remove", "mask", "tag"]
+      #   event.language_model_name #=> String
+      #   event.enable_partial_results_stabilization #=> Boolean
+      #   event.partial_results_stability #=> String, one of ["high", "medium", "low"]
+      #   event.content_identification_type #=> String, one of ["PII"]
+      #   event.content_redaction_type #=> String, one of ["PII"]
+      #   event.pii_entity_types #=> String
+      def on_initial_response(&block)
+        on(Types::StartCallAnalyticsStreamTranscriptionOutput, block)
+      end
 
       # Register an event handler for utterance_event events
       # @yield [event] Called when utterance_event events are received.
-      # @yieldparam event [Types::UtteranceEvent] the event.
+      # @yieldparam event [Types::CallAnalyticsTranscriptResultStream::UtteranceEvent] the event.
       # @example Event structure
       #   event #=> Types::UtteranceEvent
       #   event.utterance_id #=> String
@@ -56,12 +78,12 @@ module AWS::SDK::TranscribeStreaming
       #   event.issues_detected[0].character_offsets.begin #=> Integer
       #   event.issues_detected[0].character_offsets.end #=> Integer
       def on_utterance_event(&block)
-        on('UtteranceEvent', block)
+        on(Types::CallAnalyticsTranscriptResultStream::UtteranceEvent, block)
       end
 
       # Register an event handler for category_event events
       # @yield [event] Called when category_event events are received.
-      # @yieldparam event [Types::CategoryEvent] the event.
+      # @yieldparam event [Types::CallAnalyticsTranscriptResultStream::CategoryEvent] the event.
       # @example Event structure
       #   event #=> Types::CategoryEvent
       #   event.matched_categories #=> Array<String>
@@ -73,57 +95,64 @@ module AWS::SDK::TranscribeStreaming
       #   event.matched_details['key'].timestamp_ranges[0].begin_offset_millis #=> Integer
       #   event.matched_details['key'].timestamp_ranges[0].end_offset_millis #=> Integer
       def on_category_event(&block)
-        on('CategoryEvent', block)
+        on(Types::CallAnalyticsTranscriptResultStream::CategoryEvent, block)
       end
 
       # Register an event handler for bad_request_exception events
       # @yield [event] Called when bad_request_exception events are received.
-      # @yieldparam event [Types::BadRequestException] the event.
+      # @yieldparam event [Types::CallAnalyticsTranscriptResultStream::BadRequestException] the event.
       # @example Event structure
       #   event #=> Types::BadRequestException
       #   event.message #=> String
       def on_bad_request_exception(&block)
-        on('BadRequestException', block)
+        on(Types::CallAnalyticsTranscriptResultStream::BadRequestException, block)
       end
 
       # Register an event handler for limit_exceeded_exception events
       # @yield [event] Called when limit_exceeded_exception events are received.
-      # @yieldparam event [Types::LimitExceededException] the event.
+      # @yieldparam event [Types::CallAnalyticsTranscriptResultStream::LimitExceededException] the event.
       # @example Event structure
       #   event #=> Types::LimitExceededException
       #   event.message #=> String
       def on_limit_exceeded_exception(&block)
-        on('LimitExceededException', block)
+        on(Types::CallAnalyticsTranscriptResultStream::LimitExceededException, block)
       end
 
       # Register an event handler for internal_failure_exception events
       # @yield [event] Called when internal_failure_exception events are received.
-      # @yieldparam event [Types::InternalFailureException] the event.
+      # @yieldparam event [Types::CallAnalyticsTranscriptResultStream::InternalFailureException] the event.
       # @example Event structure
       #   event #=> Types::InternalFailureException
       #   event.message #=> String
       def on_internal_failure_exception(&block)
-        on('InternalFailureException', block)
+        on(Types::CallAnalyticsTranscriptResultStream::InternalFailureException, block)
       end
 
       # Register an event handler for conflict_exception events
       # @yield [event] Called when conflict_exception events are received.
-      # @yieldparam event [Types::ConflictException] the event.
+      # @yieldparam event [Types::CallAnalyticsTranscriptResultStream::ConflictException] the event.
       # @example Event structure
       #   event #=> Types::ConflictException
       #   event.message #=> String
       def on_conflict_exception(&block)
-        on('ConflictException', block)
+        on(Types::CallAnalyticsTranscriptResultStream::ConflictException, block)
       end
 
       # Register an event handler for service_unavailable_exception events
       # @yield [event] Called when service_unavailable_exception events are received.
-      # @yieldparam event [Types::ServiceUnavailableException] the event.
+      # @yieldparam event [Types::CallAnalyticsTranscriptResultStream::ServiceUnavailableException] the event.
       # @example Event structure
       #   event #=> Types::ServiceUnavailableException
       #   event.message #=> String
       def on_service_unavailable_exception(&block)
-        on('ServiceUnavailableException', block)
+        on(Types::CallAnalyticsTranscriptResultStream::ServiceUnavailableException, block)
+      end
+
+      # Register an event handler for any unknown events.
+      # @yield [event] Called when unknown events are received.
+      # @yieldparam event [Types::CallAnalyticsTranscriptResultStream::Unknown] the event with value set to the Message
+      def on_unknown_event(&block)
+        on(Types::CallAnalyticsTranscriptResultStream::Unknown, block)
       end
 
       private
@@ -131,20 +160,22 @@ module AWS::SDK::TranscribeStreaming
       def parse_event(type, message)
         case type
         when 'initial-response' then Parsers::EventStream::StartCallAnalyticsStreamTranscriptionInitialResponse.parse(message)
-        when 'UtteranceEvent' then Parsers::EventStream::UtteranceEvent.parse(message)
-        when 'CategoryEvent' then Parsers::EventStream::CategoryEvent.parse(message)
-        when 'BadRequestException' then Parsers::EventStream::BadRequestException.parse(message)
-        when 'LimitExceededException' then Parsers::EventStream::LimitExceededException.parse(message)
-        when 'InternalFailureException' then Parsers::EventStream::InternalFailureException.parse(message)
-        when 'ConflictException' then Parsers::EventStream::ConflictException.parse(message)
-        when 'ServiceUnavailableException' then Parsers::EventStream::ServiceUnavailableException.parse(message)
+        when 'UtteranceEvent' then Types::CallAnalyticsTranscriptResultStream::UtteranceEvent.new(Parsers::EventStream::UtteranceEvent.parse(message))
+        when 'CategoryEvent' then Types::CallAnalyticsTranscriptResultStream::CategoryEvent.new(Parsers::EventStream::CategoryEvent.parse(message))
+        when 'BadRequestException' then Types::CallAnalyticsTranscriptResultStream::BadRequestException.new(Parsers::EventStream::BadRequestException.parse(message))
+        when 'LimitExceededException' then Types::CallAnalyticsTranscriptResultStream::LimitExceededException.new(Parsers::EventStream::LimitExceededException.parse(message))
+        when 'InternalFailureException' then Types::CallAnalyticsTranscriptResultStream::InternalFailureException.new(Parsers::EventStream::InternalFailureException.parse(message))
+        when 'ConflictException' then Types::CallAnalyticsTranscriptResultStream::ConflictException.new(Parsers::EventStream::ConflictException.parse(message))
+        when 'ServiceUnavailableException' then Types::CallAnalyticsTranscriptResultStream::ServiceUnavailableException.new(Parsers::EventStream::ServiceUnavailableException.parse(message))
+        else
+          Types::CallAnalyticsTranscriptResultStream::Unknown.new(name: type || 'unknown', value: message)
         end
       end
     end
 
     # EventStreamHandler for the the {Client#start_medical_stream_transcription} operation.
-    # Register event handlers using the +#on_<event_name>+ methods
-    # and set the handler using the +event_stream_handler+ option
+    # Register event handlers using the `#on_<event_name>` methods
+    # and set the handler using the `event_stream_handler` option
     # on the {Client#start_medical_stream_transcription} method.
     # @example Basic Usage
     #   handler = StartMedicalStreamTranscription.new
@@ -152,10 +183,30 @@ module AWS::SDK::TranscribeStreaming
     #   handler.on_initial_response { |initial_response| process(initial_response) }
     #   client.start_medical_stream_transcription(params, event_stream_handler: handler)
     class StartMedicalStreamTranscriptionHandler < Hearth::EventStream::HandlerBase
+      # Register an event handler for the initial response.
+      # @yield [event] Called when the initial response is received.
+      # @yieldparam event [Types::StartMedicalStreamTranscriptionOutput] the initial response
+      # @example Event structure
+      #   event #=> Types::StartMedicalStreamTranscriptionOutput
+      #   event.request_id #=> String
+      #   event.language_code #=> String, one of ["en-US", "en-GB", "es-US", "fr-CA", "fr-FR", "en-AU", "it-IT", "de-DE", "pt-BR", "ja-JP", "ko-KR", "zh-CN", "hi-IN", "th-TH"]
+      #   event.media_sample_rate_hertz #=> Integer
+      #   event.media_encoding #=> String, one of ["pcm", "ogg-opus", "flac"]
+      #   event.vocabulary_name #=> String
+      #   event.specialty #=> String, one of ["PRIMARYCARE", "CARDIOLOGY", "NEUROLOGY", "ONCOLOGY", "RADIOLOGY", "UROLOGY"]
+      #   event.type #=> String, one of ["CONVERSATION", "DICTATION"]
+      #   event.show_speaker_label #=> Boolean
+      #   event.session_id #=> String
+      #   event.enable_channel_identification #=> Boolean
+      #   event.number_of_channels #=> Integer
+      #   event.content_identification_type #=> String, one of ["PHI"]
+      def on_initial_response(&block)
+        on(Types::StartMedicalStreamTranscriptionOutput, block)
+      end
 
       # Register an event handler for transcript_event events
       # @yield [event] Called when transcript_event events are received.
-      # @yieldparam event [Types::MedicalTranscriptEvent] the event.
+      # @yieldparam event [Types::MedicalTranscriptResultStream::TranscriptEvent] the event.
       # @example Event structure
       #   event #=> Types::MedicalTranscriptEvent
       #   event.transcript #=> Types::MedicalTranscript
@@ -185,57 +236,64 @@ module AWS::SDK::TranscribeStreaming
       #   event.transcript.results[0].alternatives[0].entities[0].confidence #=> Float
       #   event.transcript.results[0].channel_id #=> String
       def on_transcript_event(&block)
-        on('TranscriptEvent', block)
+        on(Types::MedicalTranscriptResultStream::TranscriptEvent, block)
       end
 
       # Register an event handler for bad_request_exception events
       # @yield [event] Called when bad_request_exception events are received.
-      # @yieldparam event [Types::BadRequestException] the event.
+      # @yieldparam event [Types::MedicalTranscriptResultStream::BadRequestException] the event.
       # @example Event structure
       #   event #=> Types::BadRequestException
       #   event.message #=> String
       def on_bad_request_exception(&block)
-        on('BadRequestException', block)
+        on(Types::MedicalTranscriptResultStream::BadRequestException, block)
       end
 
       # Register an event handler for limit_exceeded_exception events
       # @yield [event] Called when limit_exceeded_exception events are received.
-      # @yieldparam event [Types::LimitExceededException] the event.
+      # @yieldparam event [Types::MedicalTranscriptResultStream::LimitExceededException] the event.
       # @example Event structure
       #   event #=> Types::LimitExceededException
       #   event.message #=> String
       def on_limit_exceeded_exception(&block)
-        on('LimitExceededException', block)
+        on(Types::MedicalTranscriptResultStream::LimitExceededException, block)
       end
 
       # Register an event handler for internal_failure_exception events
       # @yield [event] Called when internal_failure_exception events are received.
-      # @yieldparam event [Types::InternalFailureException] the event.
+      # @yieldparam event [Types::MedicalTranscriptResultStream::InternalFailureException] the event.
       # @example Event structure
       #   event #=> Types::InternalFailureException
       #   event.message #=> String
       def on_internal_failure_exception(&block)
-        on('InternalFailureException', block)
+        on(Types::MedicalTranscriptResultStream::InternalFailureException, block)
       end
 
       # Register an event handler for conflict_exception events
       # @yield [event] Called when conflict_exception events are received.
-      # @yieldparam event [Types::ConflictException] the event.
+      # @yieldparam event [Types::MedicalTranscriptResultStream::ConflictException] the event.
       # @example Event structure
       #   event #=> Types::ConflictException
       #   event.message #=> String
       def on_conflict_exception(&block)
-        on('ConflictException', block)
+        on(Types::MedicalTranscriptResultStream::ConflictException, block)
       end
 
       # Register an event handler for service_unavailable_exception events
       # @yield [event] Called when service_unavailable_exception events are received.
-      # @yieldparam event [Types::ServiceUnavailableException] the event.
+      # @yieldparam event [Types::MedicalTranscriptResultStream::ServiceUnavailableException] the event.
       # @example Event structure
       #   event #=> Types::ServiceUnavailableException
       #   event.message #=> String
       def on_service_unavailable_exception(&block)
-        on('ServiceUnavailableException', block)
+        on(Types::MedicalTranscriptResultStream::ServiceUnavailableException, block)
+      end
+
+      # Register an event handler for any unknown events.
+      # @yield [event] Called when unknown events are received.
+      # @yieldparam event [Types::MedicalTranscriptResultStream::Unknown] the event with value set to the Message
+      def on_unknown_event(&block)
+        on(Types::MedicalTranscriptResultStream::Unknown, block)
       end
 
       private
@@ -243,19 +301,21 @@ module AWS::SDK::TranscribeStreaming
       def parse_event(type, message)
         case type
         when 'initial-response' then Parsers::EventStream::StartMedicalStreamTranscriptionInitialResponse.parse(message)
-        when 'TranscriptEvent' then Parsers::EventStream::MedicalTranscriptEvent.parse(message)
-        when 'BadRequestException' then Parsers::EventStream::BadRequestException.parse(message)
-        when 'LimitExceededException' then Parsers::EventStream::LimitExceededException.parse(message)
-        when 'InternalFailureException' then Parsers::EventStream::InternalFailureException.parse(message)
-        when 'ConflictException' then Parsers::EventStream::ConflictException.parse(message)
-        when 'ServiceUnavailableException' then Parsers::EventStream::ServiceUnavailableException.parse(message)
+        when 'TranscriptEvent' then Types::MedicalTranscriptResultStream::TranscriptEvent.new(Parsers::EventStream::MedicalTranscriptEvent.parse(message))
+        when 'BadRequestException' then Types::MedicalTranscriptResultStream::BadRequestException.new(Parsers::EventStream::BadRequestException.parse(message))
+        when 'LimitExceededException' then Types::MedicalTranscriptResultStream::LimitExceededException.new(Parsers::EventStream::LimitExceededException.parse(message))
+        when 'InternalFailureException' then Types::MedicalTranscriptResultStream::InternalFailureException.new(Parsers::EventStream::InternalFailureException.parse(message))
+        when 'ConflictException' then Types::MedicalTranscriptResultStream::ConflictException.new(Parsers::EventStream::ConflictException.parse(message))
+        when 'ServiceUnavailableException' then Types::MedicalTranscriptResultStream::ServiceUnavailableException.new(Parsers::EventStream::ServiceUnavailableException.parse(message))
+        else
+          Types::MedicalTranscriptResultStream::Unknown.new(name: type || 'unknown', value: message)
         end
       end
     end
 
     # EventStreamHandler for the the {Client#start_stream_transcription} operation.
-    # Register event handlers using the +#on_<event_name>+ methods
-    # and set the handler using the +event_stream_handler+ option
+    # Register event handlers using the `#on_<event_name>` methods
+    # and set the handler using the `event_stream_handler` option
     # on the {Client#start_stream_transcription} method.
     # @example Basic Usage
     #   handler = StartStreamTranscription.new
@@ -263,10 +323,41 @@ module AWS::SDK::TranscribeStreaming
     #   handler.on_initial_response { |initial_response| process(initial_response) }
     #   client.start_stream_transcription(params, event_stream_handler: handler)
     class StartStreamTranscriptionHandler < Hearth::EventStream::HandlerBase
+      # Register an event handler for the initial response.
+      # @yield [event] Called when the initial response is received.
+      # @yieldparam event [Types::StartStreamTranscriptionOutput] the initial response
+      # @example Event structure
+      #   event #=> Types::StartStreamTranscriptionOutput
+      #   event.request_id #=> String
+      #   event.language_code #=> String, one of ["en-US", "en-GB", "es-US", "fr-CA", "fr-FR", "en-AU", "it-IT", "de-DE", "pt-BR", "ja-JP", "ko-KR", "zh-CN", "hi-IN", "th-TH"]
+      #   event.media_sample_rate_hertz #=> Integer
+      #   event.media_encoding #=> String, one of ["pcm", "ogg-opus", "flac"]
+      #   event.vocabulary_name #=> String
+      #   event.session_id #=> String
+      #   event.vocabulary_filter_name #=> String
+      #   event.vocabulary_filter_method #=> String, one of ["remove", "mask", "tag"]
+      #   event.show_speaker_label #=> Boolean
+      #   event.enable_channel_identification #=> Boolean
+      #   event.number_of_channels #=> Integer
+      #   event.enable_partial_results_stabilization #=> Boolean
+      #   event.partial_results_stability #=> String, one of ["high", "medium", "low"]
+      #   event.content_identification_type #=> String, one of ["PII"]
+      #   event.content_redaction_type #=> String, one of ["PII"]
+      #   event.pii_entity_types #=> String
+      #   event.language_model_name #=> String
+      #   event.identify_language #=> Boolean
+      #   event.language_options #=> String
+      #   event.preferred_language #=> String, one of ["en-US", "en-GB", "es-US", "fr-CA", "fr-FR", "en-AU", "it-IT", "de-DE", "pt-BR", "ja-JP", "ko-KR", "zh-CN", "hi-IN", "th-TH"]
+      #   event.identify_multiple_languages #=> Boolean
+      #   event.vocabulary_names #=> String
+      #   event.vocabulary_filter_names #=> String
+      def on_initial_response(&block)
+        on(Types::StartStreamTranscriptionOutput, block)
+      end
 
       # Register an event handler for transcript_event events
       # @yield [event] Called when transcript_event events are received.
-      # @yieldparam event [Types::TranscriptEvent] the event.
+      # @yieldparam event [Types::TranscriptResultStream::TranscriptEvent] the event.
       # @example Event structure
       #   event #=> Types::TranscriptEvent
       #   event.transcript #=> Types::Transcript
@@ -304,57 +395,64 @@ module AWS::SDK::TranscribeStreaming
       #   event.transcript.results[0].language_identification[0].language_code #=> String, one of ["en-US", "en-GB", "es-US", "fr-CA", "fr-FR", "en-AU", "it-IT", "de-DE", "pt-BR", "ja-JP", "ko-KR", "zh-CN", "hi-IN", "th-TH"]
       #   event.transcript.results[0].language_identification[0].score #=> Float
       def on_transcript_event(&block)
-        on('TranscriptEvent', block)
+        on(Types::TranscriptResultStream::TranscriptEvent, block)
       end
 
       # Register an event handler for bad_request_exception events
       # @yield [event] Called when bad_request_exception events are received.
-      # @yieldparam event [Types::BadRequestException] the event.
+      # @yieldparam event [Types::TranscriptResultStream::BadRequestException] the event.
       # @example Event structure
       #   event #=> Types::BadRequestException
       #   event.message #=> String
       def on_bad_request_exception(&block)
-        on('BadRequestException', block)
+        on(Types::TranscriptResultStream::BadRequestException, block)
       end
 
       # Register an event handler for limit_exceeded_exception events
       # @yield [event] Called when limit_exceeded_exception events are received.
-      # @yieldparam event [Types::LimitExceededException] the event.
+      # @yieldparam event [Types::TranscriptResultStream::LimitExceededException] the event.
       # @example Event structure
       #   event #=> Types::LimitExceededException
       #   event.message #=> String
       def on_limit_exceeded_exception(&block)
-        on('LimitExceededException', block)
+        on(Types::TranscriptResultStream::LimitExceededException, block)
       end
 
       # Register an event handler for internal_failure_exception events
       # @yield [event] Called when internal_failure_exception events are received.
-      # @yieldparam event [Types::InternalFailureException] the event.
+      # @yieldparam event [Types::TranscriptResultStream::InternalFailureException] the event.
       # @example Event structure
       #   event #=> Types::InternalFailureException
       #   event.message #=> String
       def on_internal_failure_exception(&block)
-        on('InternalFailureException', block)
+        on(Types::TranscriptResultStream::InternalFailureException, block)
       end
 
       # Register an event handler for conflict_exception events
       # @yield [event] Called when conflict_exception events are received.
-      # @yieldparam event [Types::ConflictException] the event.
+      # @yieldparam event [Types::TranscriptResultStream::ConflictException] the event.
       # @example Event structure
       #   event #=> Types::ConflictException
       #   event.message #=> String
       def on_conflict_exception(&block)
-        on('ConflictException', block)
+        on(Types::TranscriptResultStream::ConflictException, block)
       end
 
       # Register an event handler for service_unavailable_exception events
       # @yield [event] Called when service_unavailable_exception events are received.
-      # @yieldparam event [Types::ServiceUnavailableException] the event.
+      # @yieldparam event [Types::TranscriptResultStream::ServiceUnavailableException] the event.
       # @example Event structure
       #   event #=> Types::ServiceUnavailableException
       #   event.message #=> String
       def on_service_unavailable_exception(&block)
-        on('ServiceUnavailableException', block)
+        on(Types::TranscriptResultStream::ServiceUnavailableException, block)
+      end
+
+      # Register an event handler for any unknown events.
+      # @yield [event] Called when unknown events are received.
+      # @yieldparam event [Types::TranscriptResultStream::Unknown] the event with value set to the Message
+      def on_unknown_event(&block)
+        on(Types::TranscriptResultStream::Unknown, block)
       end
 
       private
@@ -362,18 +460,20 @@ module AWS::SDK::TranscribeStreaming
       def parse_event(type, message)
         case type
         when 'initial-response' then Parsers::EventStream::StartStreamTranscriptionInitialResponse.parse(message)
-        when 'TranscriptEvent' then Parsers::EventStream::TranscriptEvent.parse(message)
-        when 'BadRequestException' then Parsers::EventStream::BadRequestException.parse(message)
-        when 'LimitExceededException' then Parsers::EventStream::LimitExceededException.parse(message)
-        when 'InternalFailureException' then Parsers::EventStream::InternalFailureException.parse(message)
-        when 'ConflictException' then Parsers::EventStream::ConflictException.parse(message)
-        when 'ServiceUnavailableException' then Parsers::EventStream::ServiceUnavailableException.parse(message)
+        when 'TranscriptEvent' then Types::TranscriptResultStream::TranscriptEvent.new(Parsers::EventStream::TranscriptEvent.parse(message))
+        when 'BadRequestException' then Types::TranscriptResultStream::BadRequestException.new(Parsers::EventStream::BadRequestException.parse(message))
+        when 'LimitExceededException' then Types::TranscriptResultStream::LimitExceededException.new(Parsers::EventStream::LimitExceededException.parse(message))
+        when 'InternalFailureException' then Types::TranscriptResultStream::InternalFailureException.new(Parsers::EventStream::InternalFailureException.parse(message))
+        when 'ConflictException' then Types::TranscriptResultStream::ConflictException.new(Parsers::EventStream::ConflictException.parse(message))
+        when 'ServiceUnavailableException' then Types::TranscriptResultStream::ServiceUnavailableException.new(Parsers::EventStream::ServiceUnavailableException.parse(message))
+        else
+          Types::TranscriptResultStream::Unknown.new(name: type || 'unknown', value: message)
         end
       end
     end
 
-    # Output class returned from {Client#start_call_analytics_stream_transcription}
-    # and allowing async sending (signaling) of input events.
+    # Output returned from {Client#start_call_analytics_stream_transcription}
+    # and used to signal (send) async input events.
     # @example Basic Usage
     #   stream = client.utterance_event(initial_request)
     #   stream.signal_start_call_analytics_stream_transcription(event_params) # send an event
@@ -382,7 +482,7 @@ module AWS::SDK::TranscribeStreaming
 
       # Signal (send) an AudioStream::AudioEvent input event
       # @param [Hash | Types::AudioEvent] params
-      #   Request parameters for this operation.
+      #   Request parameters for signaling this event.
       #   See {Types::AudioEvent#initialize} for available parameters.
       # @example Request syntax with placeholder values
       #   stream.signal_audio_event(
@@ -396,7 +496,7 @@ module AWS::SDK::TranscribeStreaming
 
       # Signal (send) an AudioStream::ConfigurationEvent input event
       # @param [Hash | Types::ConfigurationEvent] params
-      #   Request parameters for this operation.
+      #   Request parameters for signaling this event.
       #   See {Types::ConfigurationEvent#initialize} for available parameters.
       # @example Request syntax with placeholder values
       #   stream.signal_configuration_event(
@@ -420,8 +520,8 @@ module AWS::SDK::TranscribeStreaming
       end
     end
 
-    # Output class returned from {Client#start_medical_stream_transcription}
-    # and allowing async sending (signaling) of input events.
+    # Output returned from {Client#start_medical_stream_transcription}
+    # and used to signal (send) async input events.
     # @example Basic Usage
     #   stream = client.transcript_event(initial_request)
     #   stream.signal_start_medical_stream_transcription(event_params) # send an event
@@ -430,7 +530,7 @@ module AWS::SDK::TranscribeStreaming
 
       # Signal (send) an AudioStream::AudioEvent input event
       # @param [Hash | Types::AudioEvent] params
-      #   Request parameters for this operation.
+      #   Request parameters for signaling this event.
       #   See {Types::AudioEvent#initialize} for available parameters.
       # @example Request syntax with placeholder values
       #   stream.signal_audio_event(
@@ -444,7 +544,7 @@ module AWS::SDK::TranscribeStreaming
 
       # Signal (send) an AudioStream::ConfigurationEvent input event
       # @param [Hash | Types::ConfigurationEvent] params
-      #   Request parameters for this operation.
+      #   Request parameters for signaling this event.
       #   See {Types::ConfigurationEvent#initialize} for available parameters.
       # @example Request syntax with placeholder values
       #   stream.signal_configuration_event(
@@ -468,8 +568,8 @@ module AWS::SDK::TranscribeStreaming
       end
     end
 
-    # Output class returned from {Client#start_stream_transcription}
-    # and allowing async sending (signaling) of input events.
+    # Output returned from {Client#start_stream_transcription}
+    # and used to signal (send) async input events.
     # @example Basic Usage
     #   stream = client.transcript_event(initial_request)
     #   stream.signal_start_stream_transcription(event_params) # send an event
@@ -478,7 +578,7 @@ module AWS::SDK::TranscribeStreaming
 
       # Signal (send) an AudioStream::AudioEvent input event
       # @param [Hash | Types::AudioEvent] params
-      #   Request parameters for this operation.
+      #   Request parameters for signaling this event.
       #   See {Types::AudioEvent#initialize} for available parameters.
       # @example Request syntax with placeholder values
       #   stream.signal_audio_event(
@@ -492,7 +592,7 @@ module AWS::SDK::TranscribeStreaming
 
       # Signal (send) an AudioStream::ConfigurationEvent input event
       # @param [Hash | Types::ConfigurationEvent] params
-      #   Request parameters for this operation.
+      #   Request parameters for signaling this event.
       #   See {Types::ConfigurationEvent#initialize} for available parameters.
       # @example Request syntax with placeholder values
       #   stream.signal_configuration_event(

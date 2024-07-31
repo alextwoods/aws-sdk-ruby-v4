@@ -87,10 +87,6 @@ module AWS::SDK::TranscribeStreaming
         def to_h
           { unknown: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::TranscribeStreaming::Types::Unknown #{__getobj__ || 'nil'}>"
-        end
       end
     end
 
@@ -312,10 +308,6 @@ module AWS::SDK::TranscribeStreaming
 
         def to_h
           { unknown: super(__getobj__) }
-        end
-
-        def to_s
-          "#<AWS::SDK::TranscribeStreaming::Types::Unknown #{__getobj__ || 'nil'}>"
         end
       end
     end
@@ -1033,10 +1025,6 @@ module AWS::SDK::TranscribeStreaming
 
         def to_h
           { unknown: super(__getobj__) }
-        end
-
-        def to_s
-          "#<AWS::SDK::TranscribeStreaming::Types::Unknown #{__getobj__ || 'nil'}>"
         end
       end
     end
@@ -2317,10 +2305,6 @@ module AWS::SDK::TranscribeStreaming
 
         def to_h
           { unknown: super(__getobj__) }
-        end
-
-        def to_s
-          "#<AWS::SDK::TranscribeStreaming::Types::Unknown #{__getobj__ || 'nil'}>"
         end
       end
     end

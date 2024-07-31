@@ -15,7 +15,6 @@
 
 package software.amazon.smithy.aws.ruby.codegen.protocol.ec2.generators;
 
-import java.util.stream.Stream;
 import software.amazon.smithy.aws.traits.protocols.Ec2QueryNameTrait;
 import software.amazon.smithy.model.shapes.BlobShape;
 import software.amazon.smithy.model.shapes.CollectionShape;
@@ -43,6 +42,8 @@ import software.amazon.smithy.ruby.codegen.util.Streaming;
 import software.amazon.smithy.ruby.codegen.util.TimestampFormat;
 import software.amazon.smithy.utils.StringUtils;
 
+import java.util.stream.Stream;
+
 public class BuilderGenerator extends BuilderGeneratorBase {
 
     public BuilderGenerator(GenerationContext context) {
@@ -60,38 +61,32 @@ public class BuilderGenerator extends BuilderGeneratorBase {
     }
 
     @Override
-    protected void renderOperationBuildMethod(OperationShape operation, Shape inputShape) {
+    protected void renderOperationBuildMethod(OperationShape operation, Shape inputShape, boolean isEventStream) {
         writer
                 .openBlock("def self.build(http_req, input:)")
                 .write("http_req.http_method = 'POST'")
                 .write("http_req.append_path('/')")
-                .write("http_req.headers['Content-Type'] = 'application/x-www-form-urlencoded'")
+                .call(() -> {
+                    renderContentTypeHeaders(operation, isEventStream);
+                })
+
                 .write("context = ''")
                 .write("params = $T.new", Hearth.QUERY_PARAM_LIST)
                 .write("params['Action'] = '$L'", symbolProvider.toSymbol(operation).getName())
                 .write("params['Version'] = '$L'", context.service().getVersion())
                 .call(() -> renderMemberBuilders(inputShape))
-                .write("http_req.body = $T.new(params.to_s)", RubyImportContainer.STRING_IO)
+                .call(() -> {
+                    if (isEventStream) {
+                        renderEventStreamInitialRequestMessage();
+                    } else {
+                        writer.write("http_req.body = $T.new(params.to_s)", RubyImportContainer.STRING_IO);
+                    }
+                })
                 .closeBlock("end");
     }
 
-    @Override
-    protected void renderEventStreamOperationBuildMethod(OperationShape operation, Shape inputShape) {
+    private void renderEventStreamInitialRequestMessage() {
         writer
-                .openBlock("def self.build(http_req, input:)")
-                .write("http_req.http_method = 'POST'")
-                .write("http_req.append_path('/')")
-                .write("http_req.headers['Content-Type'] = 'application/vnd.amazon.eventstream'")
-                .call(() -> {
-                    if (Streaming.isEventStreaming(model, model.expectShape(operation.getOutputShape()))) {
-                        writer.write("http_req.headers['Accept'] = 'application/vnd.amazon.eventstream'");
-                    }
-                })
-                .write("context = ''")
-                .write("params = $T.new", Hearth.QUERY_PARAM_LIST)
-                .write("params['Action'] = '$L'", symbolProvider.toSymbol(operation).getName())
-                .write("params['Version'] = '$L'", context.service().getVersion())
-                .call(() -> renderMemberBuilders(inputShape))
                 .write("message = Hearth::EventStream::Message.new")
                 .write("message.headers[':message-type'] = "
                         + "Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')")
@@ -102,8 +97,19 @@ public class BuilderGenerator extends BuilderGeneratorBase {
                         + "Hearth::EventStream::HeaderValue.new(value: 'application/x-www-form-urlencoded', "
                         + "type: 'string')")
                 .write("message.payload = $T.new(params.to_s)", RubyImportContainer.STRING_IO)
-                .write("http_req.body = message")
-                .closeBlock("end");
+                .write("http_req.body = message");
+    }
+
+    private void renderContentTypeHeaders(OperationShape operation, boolean isEventStream) {
+        if (isEventStream) {
+            writer.write("http_req.headers['Content-Type'] = 'application/vnd.amazon.eventstream'");
+            if (Streaming.isEventStreaming(model, model.expectShape(operation.getOutputShape()))) {
+                writer.write("http_req.headers['Accept'] = 'application/vnd.amazon.eventstream'");
+            }
+
+        } else {
+            writer.write("http_req.headers['Content-Type'] = 'application/x-www-form-urlencoded'");
+        }
     }
 
     @Override

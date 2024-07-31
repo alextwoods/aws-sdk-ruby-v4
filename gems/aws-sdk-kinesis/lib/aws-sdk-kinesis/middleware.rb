@@ -14,7 +14,7 @@ module AWS::SDK::Kinesis
   module Middleware
 
     class AddTagsToStream
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -65,7 +65,7 @@ module AWS::SDK::Kinesis
     end
 
     class CreateStream
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -116,7 +116,7 @@ module AWS::SDK::Kinesis
     end
 
     class DecreaseStreamRetentionPeriod
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -167,7 +167,7 @@ module AWS::SDK::Kinesis
     end
 
     class DeleteResourcePolicy
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -218,7 +218,7 @@ module AWS::SDK::Kinesis
     end
 
     class DeleteStream
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -269,7 +269,7 @@ module AWS::SDK::Kinesis
     end
 
     class DeregisterStreamConsumer
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -320,7 +320,7 @@ module AWS::SDK::Kinesis
     end
 
     class DescribeLimits
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -371,7 +371,7 @@ module AWS::SDK::Kinesis
     end
 
     class DescribeStream
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -422,7 +422,7 @@ module AWS::SDK::Kinesis
     end
 
     class DescribeStreamConsumer
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -473,7 +473,7 @@ module AWS::SDK::Kinesis
     end
 
     class DescribeStreamSummary
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -524,7 +524,7 @@ module AWS::SDK::Kinesis
     end
 
     class DisableEnhancedMonitoring
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -575,7 +575,7 @@ module AWS::SDK::Kinesis
     end
 
     class EnableEnhancedMonitoring
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -626,7 +626,7 @@ module AWS::SDK::Kinesis
     end
 
     class GetRecords
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -677,7 +677,7 @@ module AWS::SDK::Kinesis
     end
 
     class GetResourcePolicy
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -728,7 +728,7 @@ module AWS::SDK::Kinesis
     end
 
     class GetShardIterator
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -779,7 +779,7 @@ module AWS::SDK::Kinesis
     end
 
     class IncreaseStreamRetentionPeriod
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -830,7 +830,7 @@ module AWS::SDK::Kinesis
     end
 
     class ListShards
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -881,7 +881,7 @@ module AWS::SDK::Kinesis
     end
 
     class ListStreamConsumers
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -932,7 +932,7 @@ module AWS::SDK::Kinesis
     end
 
     class ListStreams
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -983,7 +983,7 @@ module AWS::SDK::Kinesis
     end
 
     class ListTagsForStream
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1034,7 +1034,7 @@ module AWS::SDK::Kinesis
     end
 
     class MergeShards
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1085,7 +1085,7 @@ module AWS::SDK::Kinesis
     end
 
     class PutRecord
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1136,7 +1136,7 @@ module AWS::SDK::Kinesis
     end
 
     class PutRecords
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1187,7 +1187,7 @@ module AWS::SDK::Kinesis
     end
 
     class PutResourcePolicy
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1238,7 +1238,7 @@ module AWS::SDK::Kinesis
     end
 
     class RegisterStreamConsumer
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1289,7 +1289,7 @@ module AWS::SDK::Kinesis
     end
 
     class RemoveTagsFromStream
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1340,7 +1340,7 @@ module AWS::SDK::Kinesis
     end
 
     class SplitShard
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1391,7 +1391,7 @@ module AWS::SDK::Kinesis
     end
 
     class StartStreamEncryption
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1442,7 +1442,7 @@ module AWS::SDK::Kinesis
     end
 
     class StopStreamEncryption
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1493,7 +1493,7 @@ module AWS::SDK::Kinesis
     end
 
     class SubscribeToShard
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1543,7 +1543,7 @@ module AWS::SDK::Kinesis
     end
 
     class UpdateShardCount
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1594,7 +1594,7 @@ module AWS::SDK::Kinesis
     end
 
     class UpdateStreamMode
-      def self.build(config, options={})
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
