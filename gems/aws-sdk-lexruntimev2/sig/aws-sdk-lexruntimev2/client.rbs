@@ -136,50 +136,16 @@ module AWS::SDK::LexRuntimeV2
         ?input_stream: (Hearth::_ReadableIO | Hearth::_WritableIO)
       ) ?{ (::String) -> Hearth::BlockIO } -> Hearth::Output[Types::RecognizeUtteranceOutput]
 
-    def start_conversation: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  ?{ (::String) -> Hearth::BlockIO } -> Hearth::Output[Types::StartConversationOutput] |
-      (?Types::StartConversationInput params, ?::Hash[::Symbol, untyped] options)  ?{ (::String) -> Hearth::BlockIO } -> Hearth::Output[Types::StartConversationOutput] |
+    def start_conversation: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> EventStream::StartConversationOutput |
+      (?::Hash[::Symbol, untyped] params, event_stream_handler: EventStream::StartConversationHandler) -> EventStream::StartConversationOutput |
+      (?Types::StartConversationInput params, ?::Hash[::Symbol, untyped] options) -> EventStream::StartConversationOutput |
       (
         bot_id: ::String,
         bot_alias_id: ::String,
         locale_id: ::String,
         session_id: ::String,
-        ?conversation_mode: ("AUDIO" | "TEXT"),
-        request_event_stream: {
-          ConfigurationEvent: {
-            request_attributes: ::Hash[::String, ::String],
-            response_content_type: ::String,
-            session_state: Types::SessionState,
-            welcome_messages: ::Array[Types::Message],
-            disable_playback: bool,
-            event_id: ::String,
-            client_timestamp_millis: ::Integer
-          },
-          AudioInputEvent: {
-            audio_chunk: ::String,
-            content_type: ::String,
-            event_id: ::String,
-            client_timestamp_millis: ::Integer
-          },
-          DtmfInputEvent: {
-            input_character: ::String,
-            event_id: ::String,
-            client_timestamp_millis: ::Integer
-          },
-          TextInputEvent: {
-            text: ::String,
-            event_id: ::String,
-            client_timestamp_millis: ::Integer
-          },
-          PlaybackCompletionEvent: {
-            event_id: ::String,
-            client_timestamp_millis: ::Integer
-          },
-          DisconnectionEvent: {
-            event_id: ::String,
-            client_timestamp_millis: ::Integer
-          }
-        }
-      ) ?{ (::String) -> Hearth::BlockIO } -> Hearth::Output[Types::StartConversationOutput]
+        ?conversation_mode: ("AUDIO" | "TEXT")
+      ) -> EventStream::StartConversationOutput
 
   end
 end

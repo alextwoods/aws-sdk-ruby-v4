@@ -140,7 +140,6 @@ module AWS::SDK::TranscribeStreaming
           message = Hearth::EventStream::Message.new
           message.headers[':message-type'] = Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')
           message.headers[':event-type'] = Hearth::EventStream::HeaderValue.new(value: 'AudioEvent', type: 'string')
-          message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/cbor', type: 'string')
           message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/octet-stream', type: 'string')
           message.payload = ::StringIO.new(input.audio_chunk)
           message
@@ -152,7 +151,6 @@ module AWS::SDK::TranscribeStreaming
           message = Hearth::EventStream::Message.new
           message.headers[':message-type'] = Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')
           message.headers[':event-type'] = Hearth::EventStream::HeaderValue.new(value: 'ConfigurationEvent', type: 'string')
-          message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/cbor', type: 'string')
           payload_input = input
           message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/json', type: 'string')
           data = {}

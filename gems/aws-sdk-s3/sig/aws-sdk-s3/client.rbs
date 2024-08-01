@@ -1250,8 +1250,9 @@ module AWS::SDK::S3
         ?bucket_key_enabled: bool
       ) -> Hearth::Output[Types::WriteGetObjectResponseOutput]
 
-    def select_object_content: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  ?{ (::String) -> Hearth::BlockIO } -> Hearth::Output[Types::SelectObjectContentOutput] |
-      (?Types::SelectObjectContentInput params, ?::Hash[::Symbol, untyped] options)  ?{ (::String) -> Hearth::BlockIO } -> Hearth::Output[Types::SelectObjectContentOutput] |
+    def select_object_content: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> Hearth::Output[Types::SelectObjectContentOutput] |
+      (?::Hash[::Symbol, untyped] params, event_stream_handler: EventStream::SelectObjectContentHandler) -> Hearth::Output[Types::SelectObjectContentOutput] |
+      (?Types::SelectObjectContentInput params, ?::Hash[::Symbol, untyped] options) -> Hearth::Output[Types::SelectObjectContentOutput] |
       (
         bucket: ::String,
         key: ::String,
@@ -1298,7 +1299,7 @@ module AWS::SDK::S3
           end: ::Integer
         },
         ?expected_bucket_owner: ::String
-      ) ?{ (::String) -> Hearth::BlockIO } -> Hearth::Output[Types::SelectObjectContentOutput]
+      ) -> Hearth::Output[Types::SelectObjectContentOutput]
 
   end
 end

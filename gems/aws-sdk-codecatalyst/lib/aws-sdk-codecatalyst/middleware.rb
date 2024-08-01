@@ -43,7 +43,9 @@ module AWS::SDK::CodeCatalyst
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateAccessToken,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -94,7 +96,9 @@ module AWS::SDK::CodeCatalyst
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateDevEnvironment,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -145,7 +149,9 @@ module AWS::SDK::CodeCatalyst
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateProject,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -196,7 +202,9 @@ module AWS::SDK::CodeCatalyst
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateSourceRepository,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -247,7 +255,9 @@ module AWS::SDK::CodeCatalyst
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateSourceRepositoryBranch,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -297,7 +307,9 @@ module AWS::SDK::CodeCatalyst
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteAccessToken,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -347,7 +359,9 @@ module AWS::SDK::CodeCatalyst
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteDevEnvironment,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -397,7 +411,9 @@ module AWS::SDK::CodeCatalyst
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteProject,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -447,7 +463,9 @@ module AWS::SDK::CodeCatalyst
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteSourceRepository,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -497,7 +515,9 @@ module AWS::SDK::CodeCatalyst
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteSpace,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -547,7 +567,9 @@ module AWS::SDK::CodeCatalyst
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetDevEnvironment,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -597,7 +619,9 @@ module AWS::SDK::CodeCatalyst
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetProject,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -647,7 +671,9 @@ module AWS::SDK::CodeCatalyst
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetSourceRepository,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -697,7 +723,9 @@ module AWS::SDK::CodeCatalyst
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetSourceRepositoryCloneUrls,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -747,7 +775,9 @@ module AWS::SDK::CodeCatalyst
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetSpace,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -797,7 +827,9 @@ module AWS::SDK::CodeCatalyst
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetSubscription,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -847,7 +879,9 @@ module AWS::SDK::CodeCatalyst
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetUserDetails,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -897,7 +931,9 @@ module AWS::SDK::CodeCatalyst
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetWorkflow,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -947,7 +983,9 @@ module AWS::SDK::CodeCatalyst
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetWorkflowRun,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -998,7 +1036,9 @@ module AWS::SDK::CodeCatalyst
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ListAccessTokens,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1049,7 +1089,9 @@ module AWS::SDK::CodeCatalyst
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ListDevEnvironmentSessions,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1100,7 +1142,9 @@ module AWS::SDK::CodeCatalyst
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ListDevEnvironments,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1151,7 +1195,9 @@ module AWS::SDK::CodeCatalyst
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ListEventLogs,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1202,7 +1248,9 @@ module AWS::SDK::CodeCatalyst
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ListProjects,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1253,7 +1301,9 @@ module AWS::SDK::CodeCatalyst
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ListSourceRepositories,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1304,7 +1354,9 @@ module AWS::SDK::CodeCatalyst
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ListSourceRepositoryBranches,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1355,7 +1407,9 @@ module AWS::SDK::CodeCatalyst
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ListSpaces,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1406,7 +1460,9 @@ module AWS::SDK::CodeCatalyst
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ListWorkflowRuns,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1457,7 +1513,9 @@ module AWS::SDK::CodeCatalyst
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ListWorkflows,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1508,7 +1566,9 @@ module AWS::SDK::CodeCatalyst
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::StartDevEnvironment,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1559,7 +1619,9 @@ module AWS::SDK::CodeCatalyst
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::StartDevEnvironmentSession,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1610,7 +1672,9 @@ module AWS::SDK::CodeCatalyst
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::StartWorkflowRun,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1660,7 +1724,9 @@ module AWS::SDK::CodeCatalyst
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::StopDevEnvironment,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1710,7 +1776,9 @@ module AWS::SDK::CodeCatalyst
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::StopDevEnvironmentSession,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1761,7 +1829,9 @@ module AWS::SDK::CodeCatalyst
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::UpdateDevEnvironment,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1812,7 +1882,9 @@ module AWS::SDK::CodeCatalyst
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::UpdateProject,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1863,7 +1935,9 @@ module AWS::SDK::CodeCatalyst
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::UpdateSpace,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1913,7 +1987,9 @@ module AWS::SDK::CodeCatalyst
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::VerifySession,
           error_parser: Hearth::HTTP::ErrorParser.new(

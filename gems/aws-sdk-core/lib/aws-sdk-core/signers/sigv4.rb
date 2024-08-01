@@ -34,17 +34,10 @@ module AWS::SDK::Core
       def sign(request:, identity:, properties:)
         apply_unsigned_body(request, properties)
 
-        signature = @signer.sign_request(
-          request: request,
-          credentials: identity,
-          **properties
-        )
-        apply_signature(request, signature)
-      end
-
-      def sign_initial_event_stream_request(request:, identity:, properties:)
-        request.headers['X-Amz-Content-Sha256'] =
-          'STREAMING-AWS4-HMAC-SHA256-EVENTS'
+        if properties[:event_stream]
+          request.headers['X-Amz-Content-Sha256'] =
+            'STREAMING-AWS4-HMAC-SHA256-EVENTS'
+        end
 
         signature = @signer.sign_request(
           request: request,

@@ -43,7 +43,9 @@ module AWS::SDK::Kinesis
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::AddTagsToStream,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -94,7 +96,9 @@ module AWS::SDK::Kinesis
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateStream,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -145,7 +149,9 @@ module AWS::SDK::Kinesis
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DecreaseStreamRetentionPeriod,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -196,7 +202,9 @@ module AWS::SDK::Kinesis
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteResourcePolicy,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -247,7 +255,9 @@ module AWS::SDK::Kinesis
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteStream,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -298,7 +308,9 @@ module AWS::SDK::Kinesis
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeregisterStreamConsumer,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -349,7 +361,9 @@ module AWS::SDK::Kinesis
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeLimits,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -400,7 +414,9 @@ module AWS::SDK::Kinesis
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeStream,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -451,7 +467,9 @@ module AWS::SDK::Kinesis
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeStreamConsumer,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -502,7 +520,9 @@ module AWS::SDK::Kinesis
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeStreamSummary,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -553,7 +573,9 @@ module AWS::SDK::Kinesis
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DisableEnhancedMonitoring,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -604,7 +626,9 @@ module AWS::SDK::Kinesis
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::EnableEnhancedMonitoring,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -655,7 +679,9 @@ module AWS::SDK::Kinesis
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetRecords,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -706,7 +732,9 @@ module AWS::SDK::Kinesis
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetResourcePolicy,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -757,7 +785,9 @@ module AWS::SDK::Kinesis
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetShardIterator,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -808,7 +838,9 @@ module AWS::SDK::Kinesis
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::IncreaseStreamRetentionPeriod,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -859,7 +891,9 @@ module AWS::SDK::Kinesis
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ListShards,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -910,7 +944,9 @@ module AWS::SDK::Kinesis
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ListStreamConsumers,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -961,7 +997,9 @@ module AWS::SDK::Kinesis
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ListStreams,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1012,7 +1050,9 @@ module AWS::SDK::Kinesis
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ListTagsForStream,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1063,7 +1103,9 @@ module AWS::SDK::Kinesis
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::MergeShards,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1114,7 +1156,9 @@ module AWS::SDK::Kinesis
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::PutRecord,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1165,7 +1209,9 @@ module AWS::SDK::Kinesis
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::PutRecords,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1216,7 +1262,9 @@ module AWS::SDK::Kinesis
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::PutResourcePolicy,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1267,7 +1315,9 @@ module AWS::SDK::Kinesis
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::RegisterStreamConsumer,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1318,7 +1368,9 @@ module AWS::SDK::Kinesis
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::RemoveTagsFromStream,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1369,7 +1421,9 @@ module AWS::SDK::Kinesis
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::SplitShard,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1420,7 +1474,9 @@ module AWS::SDK::Kinesis
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::StartStreamEncryption,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1471,7 +1527,9 @@ module AWS::SDK::Kinesis
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::StopStreamEncryption,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1510,7 +1568,7 @@ module AWS::SDK::Kinesis
           AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
-        stack.use(Hearth::EventStream::Middleware::Handlers,
+        stack.use(Hearth::Middleware::EventStreamHandlers,
           async_output_class: Hearth::EventStream::AsyncOutput,
           event_handler: options[:event_stream_handler],
           message_encoding_module: Hearth::EventStream::Binary,
@@ -1529,7 +1587,9 @@ module AWS::SDK::Kinesis
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http2_client,
@@ -1572,7 +1632,9 @@ module AWS::SDK::Kinesis
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::UpdateShardCount,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1623,7 +1685,9 @@ module AWS::SDK::Kinesis
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::UpdateStreamMode,
           error_parser: Hearth::HTTP::ErrorParser.new(

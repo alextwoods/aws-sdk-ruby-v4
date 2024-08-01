@@ -37,23 +37,15 @@ module AWS::SDK::TranscribeStreaming
 
     attr_reader config: Config
 
-    def start_call_analytics_stream_transcription: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  ?{ (::String) -> Hearth::BlockIO } -> Hearth::Output[Types::StartCallAnalyticsStreamTranscriptionOutput] |
-      (?Types::StartCallAnalyticsStreamTranscriptionInput params, ?::Hash[::Symbol, untyped] options)  ?{ (::String) -> Hearth::BlockIO } -> Hearth::Output[Types::StartCallAnalyticsStreamTranscriptionOutput] |
+    def start_call_analytics_stream_transcription: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> EventStream::StartCallAnalyticsStreamTranscriptionOutput |
+      (?::Hash[::Symbol, untyped] params, event_stream_handler: EventStream::StartCallAnalyticsStreamTranscriptionHandler) -> EventStream::StartCallAnalyticsStreamTranscriptionOutput |
+      (?Types::StartCallAnalyticsStreamTranscriptionInput params, ?::Hash[::Symbol, untyped] options) -> EventStream::StartCallAnalyticsStreamTranscriptionOutput |
       (
         language_code: ("en-US" | "en-GB" | "es-US" | "fr-CA" | "fr-FR" | "en-AU" | "it-IT" | "de-DE" | "pt-BR"),
         media_sample_rate_hertz: ::Integer,
         media_encoding: ("pcm" | "ogg-opus" | "flac"),
         ?vocabulary_name: ::String,
         ?session_id: ::String,
-        audio_stream: {
-          AudioEvent: {
-            audio_chunk: ::String
-          },
-          ConfigurationEvent: {
-            channel_definitions: ::Array[Types::ChannelDefinition],
-            post_call_analytics_settings: Types::PostCallAnalyticsSettings
-          }
-        },
         ?vocabulary_filter_name: ::String,
         ?vocabulary_filter_method: ("remove" | "mask" | "tag"),
         ?language_model_name: ::String,
@@ -62,10 +54,11 @@ module AWS::SDK::TranscribeStreaming
         ?content_identification_type: ("PII"),
         ?content_redaction_type: ("PII"),
         ?pii_entity_types: ::String
-      ) ?{ (::String) -> Hearth::BlockIO } -> Hearth::Output[Types::StartCallAnalyticsStreamTranscriptionOutput]
+      ) -> EventStream::StartCallAnalyticsStreamTranscriptionOutput
 
-    def start_medical_stream_transcription: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  ?{ (::String) -> Hearth::BlockIO } -> Hearth::Output[Types::StartMedicalStreamTranscriptionOutput] |
-      (?Types::StartMedicalStreamTranscriptionInput params, ?::Hash[::Symbol, untyped] options)  ?{ (::String) -> Hearth::BlockIO } -> Hearth::Output[Types::StartMedicalStreamTranscriptionOutput] |
+    def start_medical_stream_transcription: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> EventStream::StartMedicalStreamTranscriptionOutput |
+      (?::Hash[::Symbol, untyped] params, event_stream_handler: EventStream::StartMedicalStreamTranscriptionHandler) -> EventStream::StartMedicalStreamTranscriptionOutput |
+      (?Types::StartMedicalStreamTranscriptionInput params, ?::Hash[::Symbol, untyped] options) -> EventStream::StartMedicalStreamTranscriptionOutput |
       (
         language_code: ("en-US" | "en-GB" | "es-US" | "fr-CA" | "fr-FR" | "en-AU" | "it-IT" | "de-DE" | "pt-BR" | "ja-JP" | "ko-KR" | "zh-CN" | "hi-IN" | "th-TH"),
         media_sample_rate_hertz: ::Integer,
@@ -75,37 +68,20 @@ module AWS::SDK::TranscribeStreaming
         type: ("CONVERSATION" | "DICTATION"),
         ?show_speaker_label: bool,
         ?session_id: ::String,
-        audio_stream: {
-          AudioEvent: {
-            audio_chunk: ::String
-          },
-          ConfigurationEvent: {
-            channel_definitions: ::Array[Types::ChannelDefinition],
-            post_call_analytics_settings: Types::PostCallAnalyticsSettings
-          }
-        },
         ?enable_channel_identification: bool,
         ?number_of_channels: ::Integer,
         ?content_identification_type: ("PHI")
-      ) ?{ (::String) -> Hearth::BlockIO } -> Hearth::Output[Types::StartMedicalStreamTranscriptionOutput]
+      ) -> EventStream::StartMedicalStreamTranscriptionOutput
 
-    def start_stream_transcription: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  ?{ (::String) -> Hearth::BlockIO } -> Hearth::Output[Types::StartStreamTranscriptionOutput] |
-      (?Types::StartStreamTranscriptionInput params, ?::Hash[::Symbol, untyped] options)  ?{ (::String) -> Hearth::BlockIO } -> Hearth::Output[Types::StartStreamTranscriptionOutput] |
+    def start_stream_transcription: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> EventStream::StartStreamTranscriptionOutput |
+      (?::Hash[::Symbol, untyped] params, event_stream_handler: EventStream::StartStreamTranscriptionHandler) -> EventStream::StartStreamTranscriptionOutput |
+      (?Types::StartStreamTranscriptionInput params, ?::Hash[::Symbol, untyped] options) -> EventStream::StartStreamTranscriptionOutput |
       (
         ?language_code: ("en-US" | "en-GB" | "es-US" | "fr-CA" | "fr-FR" | "en-AU" | "it-IT" | "de-DE" | "pt-BR" | "ja-JP" | "ko-KR" | "zh-CN" | "hi-IN" | "th-TH"),
         media_sample_rate_hertz: ::Integer,
         media_encoding: ("pcm" | "ogg-opus" | "flac"),
         ?vocabulary_name: ::String,
         ?session_id: ::String,
-        audio_stream: {
-          AudioEvent: {
-            audio_chunk: ::String
-          },
-          ConfigurationEvent: {
-            channel_definitions: ::Array[Types::ChannelDefinition],
-            post_call_analytics_settings: Types::PostCallAnalyticsSettings
-          }
-        },
         ?vocabulary_filter_name: ::String,
         ?vocabulary_filter_method: ("remove" | "mask" | "tag"),
         ?show_speaker_label: bool,
@@ -123,7 +99,7 @@ module AWS::SDK::TranscribeStreaming
         ?identify_multiple_languages: bool,
         ?vocabulary_names: ::String,
         ?vocabulary_filter_names: ::String
-      ) ?{ (::String) -> Hearth::BlockIO } -> Hearth::Output[Types::StartStreamTranscriptionOutput]
+      ) -> EventStream::StartStreamTranscriptionOutput
 
   end
 end

@@ -44,7 +44,9 @@ module AWS::SDK::SSOOIDC
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateToken,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -96,7 +98,9 @@ module AWS::SDK::SSOOIDC
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateTokenWithIAM,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -148,7 +152,9 @@ module AWS::SDK::SSOOIDC
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::RegisterClient,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -200,7 +206,9 @@ module AWS::SDK::SSOOIDC
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::StartDeviceAuthorization,
           error_parser: Hearth::HTTP::ErrorParser.new(

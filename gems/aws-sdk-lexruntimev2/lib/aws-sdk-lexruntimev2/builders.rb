@@ -513,7 +513,6 @@ module AWS::SDK::LexRuntimeV2
           message = Hearth::EventStream::Message.new
           message.headers[':message-type'] = Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')
           message.headers[':event-type'] = Hearth::EventStream::HeaderValue.new(value: 'AudioInputEvent', type: 'string')
-          message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/cbor', type: 'string')
           payload_input = input
           message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/json', type: 'string')
           data = {}
@@ -531,7 +530,6 @@ module AWS::SDK::LexRuntimeV2
           message = Hearth::EventStream::Message.new
           message.headers[':message-type'] = Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')
           message.headers[':event-type'] = Hearth::EventStream::HeaderValue.new(value: 'ConfigurationEvent', type: 'string')
-          message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/cbor', type: 'string')
           payload_input = input
           message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/json', type: 'string')
           data = {}
@@ -552,7 +550,6 @@ module AWS::SDK::LexRuntimeV2
           message = Hearth::EventStream::Message.new
           message.headers[':message-type'] = Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')
           message.headers[':event-type'] = Hearth::EventStream::HeaderValue.new(value: 'DTMFInputEvent', type: 'string')
-          message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/cbor', type: 'string')
           payload_input = input
           message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/json', type: 'string')
           data = {}
@@ -569,7 +566,6 @@ module AWS::SDK::LexRuntimeV2
           message = Hearth::EventStream::Message.new
           message.headers[':message-type'] = Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')
           message.headers[':event-type'] = Hearth::EventStream::HeaderValue.new(value: 'DisconnectionEvent', type: 'string')
-          message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/cbor', type: 'string')
           payload_input = input
           message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/json', type: 'string')
           data = {}
@@ -585,7 +581,6 @@ module AWS::SDK::LexRuntimeV2
           message = Hearth::EventStream::Message.new
           message.headers[':message-type'] = Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')
           message.headers[':event-type'] = Hearth::EventStream::HeaderValue.new(value: 'PlaybackCompletionEvent', type: 'string')
-          message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/cbor', type: 'string')
           payload_input = input
           message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/json', type: 'string')
           data = {}
@@ -601,7 +596,6 @@ module AWS::SDK::LexRuntimeV2
           message = Hearth::EventStream::Message.new
           message.headers[':message-type'] = Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')
           message.headers[':event-type'] = Hearth::EventStream::HeaderValue.new(value: 'TextInputEvent', type: 'string')
-          message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/cbor', type: 'string')
           payload_input = input
           message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/json', type: 'string')
           data = {}

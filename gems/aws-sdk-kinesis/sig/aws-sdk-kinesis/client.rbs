@@ -301,8 +301,9 @@ module AWS::SDK::Kinesis
         }
       ) -> Hearth::Output[Types::UpdateStreamModeOutput]
 
-    def subscribe_to_shard: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  ?{ (::String) -> Hearth::BlockIO } -> Hearth::Output[Types::SubscribeToShardOutput] |
-      (?Types::SubscribeToShardInput params, ?::Hash[::Symbol, untyped] options)  ?{ (::String) -> Hearth::BlockIO } -> Hearth::Output[Types::SubscribeToShardOutput] |
+    def subscribe_to_shard: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> Hearth::Output[Types::SubscribeToShardOutput] |
+      (?::Hash[::Symbol, untyped] params, event_stream_handler: EventStream::SubscribeToShardHandler) -> Hearth::Output[Types::SubscribeToShardOutput] |
+      (?Types::SubscribeToShardInput params, ?::Hash[::Symbol, untyped] options) -> Hearth::Output[Types::SubscribeToShardOutput] |
       (
         consumer_arn: ::String,
         shard_id: ::String,
@@ -311,7 +312,7 @@ module AWS::SDK::Kinesis
           sequence_number: ::String,
           timestamp: ::Time
         }
-      ) ?{ (::String) -> Hearth::BlockIO } -> Hearth::Output[Types::SubscribeToShardOutput]
+      ) -> Hearth::Output[Types::SubscribeToShardOutput]
 
   end
 end

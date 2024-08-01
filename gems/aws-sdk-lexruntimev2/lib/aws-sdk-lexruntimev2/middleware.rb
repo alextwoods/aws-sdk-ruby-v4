@@ -43,7 +43,9 @@ module AWS::SDK::LexRuntimeV2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteSession,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -94,7 +96,9 @@ module AWS::SDK::LexRuntimeV2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetSession,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -146,7 +150,9 @@ module AWS::SDK::LexRuntimeV2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::PutSession,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -198,7 +204,9 @@ module AWS::SDK::LexRuntimeV2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::RecognizeText,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -249,7 +257,9 @@ module AWS::SDK::LexRuntimeV2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::RecognizeUtterance,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -287,7 +297,7 @@ module AWS::SDK::LexRuntimeV2
           auth_schemes: config.auth_schemes,
           AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
-        stack.use(Hearth::EventStream::Middleware::Handlers,
+        stack.use(Hearth::Middleware::EventStreamHandlers,
           async_output_class: EventStream::StartConversationOutput,
           event_handler: options[:event_stream_handler],
           message_encoding_module: Hearth::EventStream::Binary,
@@ -307,7 +317,9 @@ module AWS::SDK::LexRuntimeV2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::EventStream::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: true
+        )
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http2_client,

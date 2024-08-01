@@ -42,7 +42,9 @@ module AWS::SDK::SSO
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetRoleCredentials,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -92,7 +94,9 @@ module AWS::SDK::SSO
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ListAccountRoles,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -142,7 +146,9 @@ module AWS::SDK::SSO
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ListAccounts,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -192,7 +198,9 @@ module AWS::SDK::SSO
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::Logout,
           error_parser: Hearth::HTTP::ErrorParser.new(
